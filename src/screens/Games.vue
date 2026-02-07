@@ -1,21 +1,50 @@
 <script setup lang="ts">
 import { Skeleton } from '@/components/ui/skeleton';
 import { getGameListAPI } from '@/services/gameAPI';
+import { useAuthStore } from '@/stores/auth';
+import { gameStore } from '@/stores/game';
 import type{ Game } from '@/utils/types';
 import { ref, watchEffect } from 'vue';
-let games = ref<Game[]>([]);
+import { toast } from 'vue-sonner';
+import {useUIStore} from '@/stores/ui';
+
+const games = ref<Game[] | null>(null);
+const ui = useUIStore();
+const authStore = useAuthStore();
+const useGameStore = gameStore();
+
+
 watchEffect(async () => {
   const response = await getGameListAPI();
   console.log("response", response)
   if (response) games.value = response.seamlessGameProviderGames;
 });
+
+
+const enterGame = (game: Game) => {
+  if (!game) return;  
+  else if (!authStore.isLoggedIn || !authStore.user) {
+    toast("Please login to enter the game");
+    ui.openAuthModal("/"); 
+    return;
+  }
+  console.log("entering game", game);
+  
+  useGameStore.setGames(game)
+} 
 </script>
 <template>
     <main class="bg-gray-900 pt-4">
-      <div class="w-full" v-if="games.values?.length">
-        <div v-for="game in games" :key="game?.gameID">
-          {{ game }}
-        </div>
+      <div v-if="games" class="flex items-center w-full flex-col lg:grid">
+          <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-4">     
+            <a v-for="game in games" :key="game?.gameID" class="w-30 sm:35  cursor-pointer" @click="enterGame(game)" :href="`${authStore.url}&gpid=${game.gameProviderId}&gameid=${game.gameID}&lang=en&device=m&betCode=`" >
+              <div class="h-45 rounded-2xl bg-gray-800 overflow-hidden">
+                <img :src="game?.gameInfos.filter((e)=>e.language === 'en')[0]?.gameIconUrl" alt="game thumbnail" class="w-full h-full object-cover"/>
+              </div>
+              <p class="text-white text-center mt-2 font-bold">{{ game?.gameInfos.filter((e)=>e.language === 'en')[0]?.gameName  }}  </p>
+
+            </a>
+          </div>
       </div>
       <div v-else class="flex items-center flex-col lg:grid">
         <div
