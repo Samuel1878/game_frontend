@@ -1,21 +1,21 @@
 <script lang="ts" setup>
-import type { Game } from "../utils/types";
+import type { Game } from "@/utils/types";
 import { ref, watchEffect } from "vue";
-import type { CarouselApi } from "../components/ui/carousel";
+import type { CarouselApi } from "@/components/ui/carousel";
 import { watchOnce } from "@vueuse/core";
-import { Card, CardContent } from "../components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../components/ui/carousel";
+} from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { getGameListAPI } from "../services/gameAPI";
+import { getGameListAPI } from "@/services/gameAPI";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useAuthStore } from "@/stores/auth";
 const api = ref<CarouselApi>();
 const totalCount = ref(0);
+const authStore = useAuthStore()
 let games = ref<Game[]>([]);
 const current = ref(0);
 function setApi(val: CarouselApi) {
@@ -29,17 +29,17 @@ watchOnce(api, (api) => {
     current.value = api.selectedScrollSnap() + 1;
   });
 });
-
+console.log("user", authStore.user)
 watchEffect(async () => {
   const response = await getGameListAPI();
   if (response) games.value = response.seamlessGameProviderGames;
 });
 </script>
 <template>
-  <main>
+  <main class="bg-gray-900 maxw-6xl flex justify-between flex-col p-4 items-center">
     <div>
       <div>
-        <div class="w-full ">
+        <div class="w-full">
           <Carousel
             class="relative w-full"
             @init-api="setApi"
@@ -51,27 +51,26 @@ watchEffect(async () => {
           >
             <CarouselContent>
               <CarouselItem v-for="(_, index) in 5" :key="index">
-          
                   <Card class=" border-0 rounded-2xl">
                     <CardContent
-                      class="flex aspect-square items-center justify-center p-6 bg-gray-50 rounded-2xl"
+                      class="flex aspect-square items-center justify-center p-6 bg-gray-800 rounded-2xl"
                     >
                       <span class="text-4xl font-semibold">{{
                         index + 1
                       }}</span>
                     </CardContent>
                   </Card>
-          
               </CarouselItem>
             </CarouselContent>
-    
           </Carousel>
           <!-- <div class="py-2 text-center text-sm text-muted-foreground">
             Slide {{ current }} of {{ totalCount }}
           </div> -->
         </div>
       </div>
-      <div class="" id="provider options"></div>
+      <div class="" id="provider options">
+
+      </div>
       <div class="w-full" v-if="games.values.length">
         <div v-for="game in games" :key="game?.gameID">
           {{ game }}

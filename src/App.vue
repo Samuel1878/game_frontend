@@ -1,25 +1,35 @@
-
 <script setup lang="ts">
-import { ref } from 'vue'
-import AuthModal from '@/components/Auth.vue'
-const isLoggedIn = ref(false)
-const mobileOpen = ref(false)
+import { ref } from "vue";
+import AuthModal from "@/components/Auth.vue";
+import { Toaster } from "./components/ui/sonner";
+import { useUIStore } from "./stores/ui";
+import { CircleUser } from "lucide-vue-next";
+import { useAuthStore } from "./stores/auth";
+// const isLoggedIn = ref(false);
+const authStore = useAuthStore()
+const mobileOpen = ref(false);
+const uiStore = useUIStore();
+const goToLoginHandler = () => {
+  uiStore.openAuthModal();
+};
 </script>
 
 <template>
   <!-- APP SHELL -->
-  <main class="min-h-screen w-full bg-gray-950 text-gray-100 overflow-x-hidden">
-    
+  <main class="min-h-screen w-full bg-gray-900 text-gray-100 overflow-x-hidden">
     <!-- NAVBAR (FULL WIDTH) -->
-    <nav class="sticky top-0 z-50 w-full border-b border-gray-800 bg-gray-900/90 backdrop-blur">
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-        
+    <nav
+      class="sticky top-0 right-0 left-0 z-50 w-full border-b border-gray-800 bg-gray-900/90 backdrop-blur"
+    >
+      <div
+        class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4"
+      >
         <!-- LOGO -->
         <RouterLink
           to="/"
-          class="text-sm font-extrabold tracking-wide text-yellow-400 transition hover:text-yellow-300 lg:text-2xl"
+          class="text-lg font-extrabold tracking-wide text-amber-300 transition hover:text-amber-300 lg:text-2xl"
         >
-          🎰 96 Online Casino
+          <p class="text-amber-300 font-extrabold">9.9.9 CASINO</p>
         </RouterLink>
 
         <!-- DESKTOP MENU -->
@@ -28,58 +38,94 @@ const mobileOpen = ref(false)
           <RouterLink class="nav-link" to="/games">Games</RouterLink>
           <RouterLink class="nav-link" to="/deposit">Deposit</RouterLink>
           <RouterLink class="nav-link" to="/withdrawal">Withdraw</RouterLink>
-
-          <RouterLink
-            v-if="isLoggedIn"
-            to="/profile"
-            class="rounded-lg bg-yellow-500 px-4 py-2 font-semibold text-gray-900 transition hover:bg-yellow-400"
-          >
-            Profile
-          </RouterLink>
-
-          <RouterLink
-            v-else
-            to="/auth"
-            class="rounded-lg border border-yellow-500 px-4 py-2 font-semibold text-yellow-400 transition hover:bg-yellow-500 hover:text-gray-900"
-          >
-            Login
-          </RouterLink>
         </div>
 
         <!-- MOBILE BUTTON -->
-        <button
-          @click="mobileOpen = !mobileOpen"
-          class="rounded-lg p-2 hover:bg-gray-800 lg:hidden"
-        >
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        <div class="flex items-center gap-2 justify-end">
+          <div class="py-2 px-4">
+            <p class="font-bold text-2xl text-gray-50" v-show="authStore.isLoggedIn">
+              {{ authStore.user?.balance || "0.00" }}
+            </p>
+          </div>
+          <RouterLink to="/profile" v-if="authStore.isLoggedIn" class="rounded-full">
+            <CircleUser />
+          </RouterLink>
+          <button
+            @click="goToLoginHandler"
+            v-else
+            class="rounded-2xl px-4 py-2 font-semibold bg-amber-300 text-gray-950"
+          >
+            Login
+          </button>
+          <button
+            @click="mobileOpen = !mobileOpen"
+            class="rounded-lg p-2 hover:bg-gray-800 lg:hidden"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <!-- MOBILE MENU -->
-      <div v-show="mobileOpen" class="border-t border-gray-800 bg-gray-900 lg:hidden">
+      <div
+        v-show="mobileOpen"
+        class="border-t border-gray-800 bg-gray-900 lg:hidden"
+      >
         <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4">
-          <RouterLink class="mobile-link" to="/">Home</RouterLink>
-          <RouterLink class="mobile-link" to="/games">Games</RouterLink>
-          <RouterLink class="mobile-link" to="/deposit">Deposit</RouterLink>
-          <RouterLink class="mobile-link" to="/withdrawal">Withdraw</RouterLink>
-          <RouterLink v-if="isLoggedIn" class="mobile-link text-yellow-400" to="/profile">
+          <RouterLink
+            class="mobile-link"
+            to="/"
+            @click="mobileOpen = !mobileOpen"
+            >Home</RouterLink
+          >
+          <RouterLink
+            class="mobile-link"
+            to="/games"
+            @click="mobileOpen = !mobileOpen"
+            >Games</RouterLink
+          >
+          <RouterLink
+            class="mobile-link"
+            to="/deposit"
+            @click="mobileOpen = !mobileOpen"
+            >Deposit</RouterLink
+          >
+          <RouterLink
+            class="mobile-link"
+            to="/withdrawal"
+            @click="mobileOpen = !mobileOpen"
+            >Withdraw</RouterLink
+          >
+          <!-- <RouterLink
+            v-if="authStore.isLoggedIn"
+            class="mobile-link text-yellow-400"
+            to="/profile"
+          >
             Profile
-          </RouterLink>
-          <RouterLink v-else class="mobile-link text-yellow-400" to="/auth">
-            Login
-          </RouterLink>
+          </RouterLink> -->
         </div>
       </div>
     </nav>
-
     <!-- PAGE CONTENT (CENTERED) -->
-    <section class="mx-auto max-w-7xl px-4 py-6">
+    <section class="w-full relative">
+      <Toaster
+        class="w-full bg-green-400 opacity-50 text-gray-900 text-center"
+      />
       <RouterView />
-        <AuthModal />
+      <AuthModal />
     </section>
-
   </main>
 </template>
 

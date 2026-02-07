@@ -234,29 +234,26 @@ import { useRouter } from "vue-router";
 
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ref } from "vue";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+// import { Tabs } from "@/components/ui/tabs";
 import { X } from "lucide-vue-next";
 const auth = useAuthStore();
 const ui = useUIStore();
 const router = useRouter();
 
 const { authModalOpen, redirectAfterAuth } = storeToRefs(ui);
-
 const isLogin = ref(true);
 const form = ref({
   username: "",
-  email: "",
-  phone: "",
+  // email: "",
+  // phone: "",
   password: "",
   conPassword: "",
 });
@@ -264,15 +261,12 @@ const form = ref({
 const submit = async () => {
   if (isLogin.value) {
     await auth.login({
-      email: form.value.email || undefined,
-      phone: form.value.phone || undefined,
+      name:form.value.username,
       password: form.value.password,
     });
   } else {
     await auth.register({
-      username: form.value.username,
-      email: form.value.email || undefined,
-      phone: form.value.phone || undefined,
+      name: form.value.username,
       password: form.value.password,
     });
   }
@@ -297,20 +291,20 @@ const submit = async () => {
           <X/>
         </button>
       </DialogHeader>
-      <Tabs default-value="userName">
-        <TabsList class="bg-gray-900 w-full h-12 rounded-full border-3 overflow-hidden border-gray-800">
+      <!-- <Tabs default-value="userName"> -->
+        <!-- <TabsList class="bg-gray-900 w-full h-12 rounded-full border-3 overflow-hidden border-gray-800">
           <TabsTrigger value="userName"  class="bg-gray-800 h-12 cursor-pointer text-amber-300 rounded-l-full"> User Name </TabsTrigger>
           <TabsTrigger value="phone" class="cursor-pointer w-full h-12 bg-gray-800 text-amber-300"> Phone </TabsTrigger>
           <TabsTrigger value="email" class="cursor-pointer ring-0 h-12 w-full bg-gray-800 text-amber-300 rounded-r-full outline-0">Email</TabsTrigger>
-        </TabsList>
+        </TabsList> -->
 
         <form class="space-y-4" @submit.prevent="submit">
-          <TabsContent value="userName" class="space-y-2">
+          <!-- <TabsContent value="userName" class="space-y-2"> -->
             <Label>Username</Label>
             <Input v-model="form.username" class="ring-0 rounded-3xl h-12  " />
-          </TabsContent>
+          <!-- </TabsContent> -->
 
-          <TabsContent value="email" class="space-y-2 ">
+          <!-- <TabsContent value="email" class="space-y-2 ">
             <Label>Email</Label>
             <Input v-model="form.email" class="rounded-3xl h-12  "/>
           </TabsContent>
@@ -318,7 +312,7 @@ const submit = async () => {
           <TabsContent value="phone" class="space-y-2">
             <Label>Phone</Label>
             <Input v-model="form.phone" class="rounded-3xl h-12  "/>
-          </TabsContent>
+          </TabsContent> -->
 
           <div  class="space-y-2">
             <Label>Password</Label>
@@ -326,7 +320,7 @@ const submit = async () => {
           </div>
           <div v-show="!isLogin"  class="space-y-2">
             <Label>Confirm password</Label>
-            <Input type="conPassword" v-model="form.conPassword" required class="rounded-3xl h-12  "/>
+            <Input type="conPassword" v-model="form.conPassword" class="rounded-3xl h-12  "/>
           </div>
 
           <Button
@@ -342,7 +336,7 @@ const submit = async () => {
             {{ isLogin ? "Register" : "Login" }}
           </button>
         </div>
-      </Tabs>
+      <!-- </Tabs> -->
     </DialogContent>
   </Dialog>
 </template>

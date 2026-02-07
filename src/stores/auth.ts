@@ -1,90 +1,61 @@
-// import { defineStore } from "pinia";
-// import { ref, computed } from "vue";
+import { defineStore } from "pinia";
+import { supabase } from "@/utils/supabase";
+import type { supabaseUserRes } from "@/utils/types";
+type authStoreType = {
+  user:supabaseUserRes | null;
+  token:string | null;
+  isLoggedIn:boolean
+}
+export const useAuthStore = defineStore("auth", {
+  state: ():authStoreType => ({
+    user: null,
+    token: null,
+    isLoggedIn: false,
+  }),
+  actions: {
+    logout() {
+      this.token = null;
+      this.user = null;
+      this.isLoggedIn = false;
+    },
+    async login(payload: {
+      // email?: string | null;
+      // phone?: string | null;
+      name?: string | null;
+      // identidier?:string;
+      password: string;
+    }) {
+      const { data, error } = await supabase
+        .from("user")
+        .select("*")
+        .eq("name", payload.name)
+        .eq("password", payload.password);
+      if (error) {
+        console.log(error);
+        return;
+      }
+      console.log(data);
+      this.user = data[0];
+      this.token = data[0]?.uid;
+      this.isLoggedIn = true;
+      console.log("Auth", this.isLoggedIn)
+    },
 
-// export const useAuthStore = defineStore("auth", () => {
-//   const user = ref(null);
-//   const token = ref(localStorage.getItem("token") || null);
+    async register(payload: { name?: string | null; password: string }) {
+      const { data, error } = await supabase
+        .from("user")
+        .select("*")
+        .eq("name", payload.name)
+        .eq("password", payload.password);
+      if (error) {
+        console.log(error);
+        return;
+      }
+      console.log(data);
+      this.user = data[0];
+      this.token = data[0]?.uid;
+      this.isLoggedIn = true;
+    },
+  },
 
-//   const isAuthenticated = computed(() => !!token.value);
-
-//   const login = (userData:any, accessToken:string) =>{
-//     user.value = userData;
-//     token.value = accessToken;
-//     localStorage.setItem("token", accessToken);
-//     localStorage.setItem("user", JSON.stringify(userData));
-//   }
-
-//   function loadFromStorage() {
-//     const savedUser = localStorage.getItem("user");
-//     const savedToken = localStorage.getItem("token");
-
-//     if (savedUser && savedToken) {
-//       user.value = JSON.parse(savedUser);
-//       token.value = savedToken;
-//     }
-//   }
-
-//   const logout = () => {
-//     user.value = null;
-//     token.value = null;
-    
-//     localStorage.removeItem("token");
-//     localStorage.removeItem("user");
-//   }
-
-//   return {
-//     user,
-//     token,
-//     isAuthenticated,
-//     login,
-//     logout,
-//     loadFromStorage,
-//   };
-// });
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
-import api from '@/services/api'
-
-export const useAuthStore = defineStore('auth', () => {
-  const token = ref<string | null>(localStorage.getItem('token'))
-  const user = ref<any>(null)
-  const isLoggedIn = computed(() => !!token.value)
-
-  const setAuth = (newToken: string, userData: any) => {
-    token.value = newToken
-    user.value = userData
-    localStorage.setItem('token', newToken)
-    api.defaults.headers.common.Authorization = `Bearer ${newToken}`
-  }
-
-  const logout = () => {
-    token.value = null
-    user.value = null
-    localStorage.removeItem('token')
-    delete api.defaults.headers.common.Authorization
-  }
-
-  const login = async (payload: { email?: string; phone?: string; password: string }) => {
-    const { data } = await api.post('/api/v1/login', payload)
-    setAuth(data.token, data.user)
-  }
-
-  const register = async (payload: {
-    username: string
-    email?: string
-    phone?: string
-    password: string
-  }) => {
-    const { data } = await api.post('/api/v1/register', payload)
-    setAuth(data.token, data.user) 
-  }
-
-  return {
-    token,
-    user,
-    isLoggedIn,
-    login,
-    register,
-    logout,
-  }
-})
+});
