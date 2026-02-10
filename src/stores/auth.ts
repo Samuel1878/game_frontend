@@ -62,13 +62,19 @@ export const useAuthStore = defineStore("auth", {
           return
         }
         console.log("registration failed", response?.data)
-        this.logout()
+        // this.logout()
       } catch (error) {
-        this.logout()
+        // this.logout()
         console.log("error", error)
       }
    
     },
   },
+  // persist: {
+  //   key:"auth",
+  //   storage: sessionStorage,
+  // },
 
-});
+},
+ 
+);

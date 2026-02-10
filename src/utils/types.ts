@@ -1,4 +1,4 @@
-import type { st } from "vue-router/dist/router-CWoNjPRp.mjs"
+
 
 export interface GameInfo {
   language: string
@@ -68,4 +68,40 @@ export interface supabaseUserRes {
   created_at:string;
   uid:string
   
+}
+
+
+export interface depositFormData {    
+  id?:number;
+  inv_id:string;
+  user_id:number | null;
+  payment:string | null;
+  request_amount:number | null;
+  actual_amount?:number;
+  uuid:string|null;
+  completed:boolean;
+  status:string;
+  remark?:string;
+  account_no:string | null;
+  account_name:string | null;
+  created_at?:string;
+  updated_at?:string;
+  tid:string;
+  payment_account?:string | null;
+  payment_number?:string | null;
+    ref_no?:string|null;
+}
+export interface withdrawalInfo {    
+  id:number;
+  user_id:number;
+  amount:number;
+  payment_method:string;
+  status:string;
+  created_at:string;
+  updated_at:string;
+}
+export interface wallet {
+  balance:number;
+  updated_at?:string;
+  freezed_amount?:number;
 }

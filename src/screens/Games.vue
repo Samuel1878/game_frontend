@@ -7,12 +7,18 @@ import type{ Game } from '@/utils/types';
 import { ref, watchEffect } from 'vue';
 import { toast } from 'vue-sonner';
 import {useUIStore} from '@/stores/ui';
+import { useWallet } from '@/stores/wallet';
 
 const games = ref<Game[] | null>(null);
 const ui = useUIStore();
 const authStore = useAuthStore();
 const useGameStore = gameStore();
-
+// const wallet = useWallet();
+// wallet.setWallet(authStore.user?.name ?? null)
+const wallet = useWallet();
+watchEffect(()=>{
+wallet.setWallet(authStore.user?.name ?? null)
+})
 
 watchEffect(async () => {
   const response = await getGameListAPI();

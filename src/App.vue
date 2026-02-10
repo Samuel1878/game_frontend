@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch, watchEffect } from "vue";
 import AuthModal from "@/components/Auth.vue";
 import { Toaster } from "./components/ui/sonner";
 import { useUIStore } from "./stores/ui";
 import { CircleUser } from "lucide-vue-next";
 import { useAuthStore } from "./stores/auth";
+import { useWallet } from "./stores/wallet";
 // const isLoggedIn = ref(false);
-const authStore = useAuthStore()
+const authStore = useAuthStore();
+const wallet = useWallet();
+watchEffect(()=>{
+wallet.setWallet(authStore.user?.name ?? null)
+})
+watchEffect(()=>{
+  console.log("APP")
+})
+console.log("OPEN_APP")
 const mobileOpen = ref(false);
 const uiStore = useUIStore();
 const goToLoginHandler = () => {
@@ -44,7 +53,7 @@ const goToLoginHandler = () => {
         <div class="flex items-center gap-2 justify-end">
           <div class="py-2 px-4">
             <p class="font-bold text-2xl text-gray-50" v-show="authStore.isLoggedIn">
-              {{ authStore.user?.balance || "0.00" }}
+              {{ wallet?.balance || "0.00" }}
             </p>
           </div>
           <RouterLink to="/profile" v-if="authStore.isLoggedIn" class="rounded-full">
