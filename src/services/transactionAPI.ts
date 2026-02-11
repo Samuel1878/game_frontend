@@ -1,9 +1,11 @@
-import type { depositFormData } from "@/utils/types";
+import type { depositFormData, paramType, withdrawalInfo, withdrawParamType } from "@/utils/types";
 import api from "./api";
 
-export const depositHandlerAPI = async(data:depositFormData) => {
+export const depositHandlerAPI = async(data:depositFormData, param:paramType) => {
     try {
-         const response = await api.post("/api/v1/user/transaction/deposit", data);
+         const response = await api.post("/api/v1/user/transaction/deposit",data , {
+            params:param
+         });
     console.log("response", response)
     if (response.status === 200 || response.status === 201) return response.data;
     return null;    
@@ -13,6 +15,19 @@ export const depositHandlerAPI = async(data:depositFormData) => {
     }
    
 }    
+
+export const withdrawalHandlerAPI = async (data:withdrawalInfo, param:withdrawParamType) => {
+    try {
+        const response = await api.post("/api/v1/user/transaction/withdraw", data, {
+            params:param
+        });
+        if (response.status===200)return response.data;
+        return null
+    } catch (error) {
+        console.log(error);
+        return null
+    }
+}
 
 export const getUserBalance =async(name:string)=>{
     try {

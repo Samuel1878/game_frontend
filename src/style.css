@@ -17,7 +17,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   :root {
-    :root {
+    /* :root {
         --radius: 0.625rem;
         --background: oklch(1 0 0);
         --foreground: oklch(0.13 0.028 261.692);
@@ -84,7 +84,7 @@
         --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
         --sidebar-border: oklch(1 0 0 / 10%);
         --sidebar-ring: oklch(0.551 0.027 264.364);
-      }
+      } */
   }
   
     .dark {
@@ -124,11 +124,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #ff0c0c;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #ff0606;
 }
 
 body {
@@ -136,8 +136,8 @@ body {
   padding: 0;
   /* display: flex; */
   /* place-items: center; */
-  min-width: 320px;
-  min-height: 100vh;
+  /* min-width: 320px;
+  min-height: 100vh; */
   /* background-color: "red"; */
 }
 
@@ -150,7 +150,7 @@ body {
   /* text-align: center; */
 }
 
-@theme inline {
+/* @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -220,8 +220,8 @@ body {
     --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.551 0.027 264.364);
-}
-
+} */
+/* 
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -229,4 +229,4 @@ body {
   body {
     @apply bg-background text-foreground;
   }
-}
+} */

@@ -3,18 +3,17 @@ import { ref, watch, watchEffect } from "vue";
 import AuthModal from "@/components/Auth.vue";
 import { Toaster } from "./components/ui/sonner";
 import { useUIStore } from "./stores/ui";
-import { CircleUser } from "lucide-vue-next";
+import { CircleUser, CoinsIcon, Gamepad2Icon, HomeIcon, SplineIcon, Wallet, WalletIcon } from "lucide-vue-next";
 import { useAuthStore } from "./stores/auth";
 import { useWallet } from "./stores/wallet";
+
 // const isLoggedIn = ref(false);
 const authStore = useAuthStore();
 const wallet = useWallet();
 watchEffect(()=>{
 wallet.setWallet(authStore.user?.name ?? null)
 })
-watchEffect(()=>{
-  console.log("APP")
-})
+
 console.log("OPEN_APP")
 const mobileOpen = ref(false);
 const uiStore = useUIStore();
@@ -25,10 +24,10 @@ const goToLoginHandler = () => {
 
 <template>
   <!-- APP SHELL -->
-  <main class="min-h-screen w-full bg-gray-900 text-gray-100 overflow-x-hidden">
+  <main class="min-h-screen w-full bg-gray-950 text-gray-100 overflow-x-hidden">
     <!-- NAVBAR (FULL WIDTH) -->
     <nav
-      class="sticky top-0 right-0 left-0 z-50 w-full border-b border-gray-800 bg-gray-900/90 backdrop-blur"
+      class="sticky top-0 right-0 left-0 z-50 w-full border-b border-gray-900 bg-gray-950 backdrop-blur"
     >
       <div
         class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4"
@@ -36,9 +35,14 @@ const goToLoginHandler = () => {
         <!-- LOGO -->
         <RouterLink
           to="/"
-          class="text-lg font-extrabold tracking-wide text-amber-300 transition hover:text-amber-300 lg:text-2xl"
+          class="text-lg flex items-center gap-2 font-extrabold tracking-wide transition hover:text-amber-300 lg:text-2xl"
         >
-          <p class="text-amber-300 font-extrabold">9.9.9 CASINO</p>
+          <p class=" text-red-500 font-extrabold text-4xl">96</p>
+          <di>
+            <p class="text-gray-400 font-mono text-sm">ONLINE</p>
+          <p class="text-gray-100 font-bold text-sm">CASINO</p>
+          </di>
+       
         </RouterLink>
 
         <!-- DESKTOP MENU -->
@@ -51,24 +55,25 @@ const goToLoginHandler = () => {
 
         <!-- MOBILE BUTTON -->
         <div class="flex items-center gap-2 justify-end">
-          <div class="py-2 px-4">
-            <p class="font-bold text-2xl text-gray-50" v-show="authStore.isLoggedIn">
+          <RouterLink to="/profile" class="py-2 px-4 bg-gray-900 rounded-sm flex items-center gap-2"  v-show="authStore.isLoggedIn">
+            <Wallet class="text-sm"/>
+            <p class="font-bold text-lg text-gray-50">
               {{ wallet?.balance || "0.00" }}
             </p>
-          </div>
+          </RouterLink>
           <RouterLink to="/profile" v-if="authStore.isLoggedIn" class="rounded-full">
             <CircleUser />
           </RouterLink>
           <button
             @click="goToLoginHandler"
             v-else
-            class="rounded-2xl px-4 py-2 font-semibold bg-amber-300 text-gray-950"
+            class="rounded-sm px-4 py-2 font-medium bg-red-600 text-gray-50"
           >
             Login
           </button>
           <button
             @click="mobileOpen = !mobileOpen"
-            class="rounded-lg p-2 hover:bg-gray-800 lg:hidden"
+            class="rounded-lg hover:bg-gray-800 lg:hidden"
           >
             <svg
               class="h-6 w-6"
@@ -90,32 +95,41 @@ const goToLoginHandler = () => {
       <!-- MOBILE MENU -->
       <div
         v-show="mobileOpen"
-        class="border-t border-gray-800 bg-gray-900 lg:hidden"
+        class="border-t border-gray-900 bg-gray-950 lg:hidden"
       >
         <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4">
           <RouterLink
-            class="mobile-link"
+            class="mobile-link flex gap-2 items-center hover:bg-gray-900"
             to="/"
             @click="mobileOpen = !mobileOpen"
-            >Home</RouterLink
+            >
+            <HomeIcon/>
+            <p class="text-md font-bold">Home</p>
+            
+            </RouterLink
           >
           <RouterLink
-            class="mobile-link"
+            class="mobile-link flex gap-2 items-center hover:bg-gray-900"
             to="/games"
             @click="mobileOpen = !mobileOpen"
-            >Games</RouterLink
+            >
+               <Gamepad2Icon/>
+            <p class="text-md font-bold">Slot Games</p>
+            </RouterLink
           >
           <RouterLink
-            class="mobile-link"
+           class="mobile-link flex gap-2 items-center hover:bg-gray-900"
             to="/deposit"
             @click="mobileOpen = !mobileOpen"
-            >Deposit</RouterLink
+            >   <CoinsIcon/>
+            <p class="text-md font-bold">Deposit</p></RouterLink
           >
           <RouterLink
-            class="mobile-link"
+            class="mobile-link flex gap-2 items-center hover:bg-gray-900"
             to="/withdrawal"
             @click="mobileOpen = !mobileOpen"
-            >Withdraw</RouterLink
+            >   <WalletIcon/>
+            <p class="text-md font-bold">Withdraw</p></RouterLink
           >
           <!-- <RouterLink
             v-if="authStore.isLoggedIn"
@@ -130,7 +144,7 @@ const goToLoginHandler = () => {
     <!-- PAGE CONTENT (CENTERED) -->
     <section class="w-full relative">
       <Toaster
-        class="w-full bg-green-400 opacity-50 text-gray-900 text-center"
+        class="w-full bg-amber-300 opacity-50 text-gray-900 text-center flex items-center"
       />
       <RouterView />
       <AuthModal />

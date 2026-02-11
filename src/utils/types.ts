@@ -73,14 +73,14 @@ export interface supabaseUserRes {
 
 export interface depositFormData {    
   id?:number;
-  inv_id:string;
+  inv_id?:string;
   user_id:number | null;
   payment:string | null;
   request_amount:number | null;
   actual_amount?:number;
-  uuid:string|null;
-  completed:boolean;
-  status:string;
+  uuid?:string|null;
+  completed?:boolean;
+  status?:string;
   remark?:string;
   account_no:string | null;
   account_name:string | null;
@@ -91,14 +91,27 @@ export interface depositFormData {
   payment_number?:string | null;
     ref_no?:string|null;
 }
+export interface paramType {
+  user_id:number|null;
+  uuid:string | null
+}
 export interface withdrawalInfo {    
-  id:number;
-  user_id:number;
+  id?:number;
+  user_id?:number;
+  uuid?:string;
   amount:number;
-  payment_method:string;
-  status:string;
-  created_at:string;
-  updated_at:string;
+  payment_method?:string;
+  status?:string;
+  created_at?:string;
+  updated_at?:string;
+  withdraw_name?:string;
+  withdraw_no?:string;
+  remark?:string;
+  
+}
+export interface withdrawParamType {
+  user_id:number;
+  uuid:string;
 }
 export interface wallet {
   balance:number;

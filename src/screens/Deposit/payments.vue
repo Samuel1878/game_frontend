@@ -53,14 +53,16 @@ const submitHandler = async () => {
     account_no: form.value.account_no,
     user_id: auth.user?.id || null,
     uuid: auth.user?.uid || null,
-    status: "pending",
-    inv_id: `INV-${Date.now()}`,
-    completed: false,
+
     payment_account: name.value,
     payment_number: source.value,
   };
+  const param = {
+    user_id: auth.user?.id || null,
+    uuid: auth.user?.uid || null
+  }
     console.log("payload",data);
-  const response = await depositHandlerAPI(data);
+  const response = await depositHandlerAPI(data, param);
 
   if (response) {
     toast.success("Deposit request submitted successfully!");
@@ -84,7 +86,7 @@ const copyHandler = () => {
       >
         <div class="flex flex-col gap-4 py-4 my-2">
           <div id="payments" class="flex flex-col">
-            <div class="flex items-center flex-col bg-amber-100">
+            <div class="flex items-center flex-col ">
               <img
                 :src="payment?.icon"
                 alt="logo"

@@ -16,6 +16,7 @@ import { useAuthStore } from "@/stores/auth";
 import { gameStore } from "@/stores/game";
 import { toast } from "vue-sonner";
 import { useWallet } from "@/stores/wallet";
+import { homeOptions } from "@/consts";
 
 const api = ref<CarouselApi>();
 const totalCount = ref(0);
@@ -55,12 +56,12 @@ const enterGame = (game: Game) => {
 } 
 </script>
 <template>
-  <main class="bg-gray-900 maxw-6xl flex justify-between flex-col p-4 items-center">
+  <main class="bg-gray-950 maxw-6xl flex justify-between flex-col p-2 items-center">
     <div>
       <div>
-        <div class="w-full">
+        <div class="w-full h-80">
           <Carousel
-            class="relative w-full "
+            class="relative w-full min-h-70"
             @init-api="setApi"
             :plugins="[
               Autoplay({
@@ -68,44 +69,58 @@ const enterGame = (game: Game) => {
               }),
             ]"
           >
-            <CarouselContent>
-              <CarouselItem v-for="(_, index) in 5" :key="index">
-                  <Card class=" border-0 rounded-2xl">
+            <CarouselContent class="flex h-full">
+              <CarouselItem v-for="(_, index) in 5" :key="index" class=" h-70">
+                  <Card class="border-0 rounded-2xl bg-gray-900 h-full">
                     <CardContent
-                      class="flex aspect-square items-center justify-center p-6 bg-gray-800 rounded-2xl"
+                      class="flex items-center justify-center p-6 bg-gray-900"
                     >
-                      <span class="text-4xl font-semibold">{{
+                      <!-- <span class="text-4xl font-semibold">{{
                         index + 1
-                      }}</span>
+                      }}</span> -->
+                      <div class="absolute bottom-4 left-4 space-y-4">
+                        <p class="text-red-500 font-bold text-4xl">Welcome Bonus</p>
+                        <p class="text-gray-500 font-thin text-2xl">Get welcome bonus for newly registered users</p>
+                        <button class="mt-6 h-10 px-4 bg-red-600 rounded-lg text-gray-50">
+                          Claim
+                        </button>
+                      </div>
                     </CardContent>
                   </Card>
               </CarouselItem>
             </CarouselContent>
           </Carousel>
-          <!-- <div class="py-2 text-center text-sm text-muted-foreground">
+          <div class="py-2 text-center text-sm text-muted-foreground">
             Slide {{ current }} of {{ totalCount }}
-          </div> -->
+            <!-- <div class="w-3"/> -->
+          </div>
         </div>
       </div>
-      <div class="w-full flex justify-between px-4 gap-2 mb-3" id="provider options">
-        <button class="text-gray-100 flex-1 justify-center items-center bg-gray-800 h-12 rounded-2xl">
+      <div class="w-full flex justify-between gap-2 my-2" id="provider options">
+        <button class="text-gray-100 text-sm font-semibold flex-1 justify-center items-center bg-gray-900 h-12 rounded-2xl">
           Deposit
         </button>
-       <button class="text-gray-100 flex-1 justify-center items-center bg-gray-800 h-12 rounded-2xl">
+       <button class="text-gray-100 text-sm font-semibol flex-1 justify-center items-center bg-gray-900 h-12 rounded-2xl">
           Withdraw
         </button>
-       <button class="text-gray-100 flex-1 justify-center items-center bg-gray-800 h-12 rounded-2xl">
+       <button class="text-gray-100 text-sm font-semibol flex-1 justify-center items-center bg-gray-900 h-12 rounded-2xl">
           Download
         </button>
       </div>
-      <h1 class="">Hot Games</h1>
+      <div class="flex gap-2 items-center my-2">
+<div v-for="option in homeOptions" class="flex gap-2 items-center h-10 px-2 text-sm">
+      <component :is="option.icon" />
+      <p class="text-sm">{{ option.label }}</p>
+     </div>
+      </div>
+     
      <div v-if="games" class="flex items-center w-full flex-col lg:grid">
           <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-4">     
             <a :href="`${authStore.url}&gpid=${game.gameProviderId}&gameid=${game.gameID}&lang=en&device=m&betCode=`"  v-for="game in games" :key="game?.gameID" class="w-30 sm:35  cursor-pointer" @click="enterGame(game)">
               <div class="h-45 rounded-2xl bg-gray-800 overflow-hidden">
                 <img :src="game?.gameInfos.filter((e)=>e.language === 'en')[0]?.gameIconUrl" alt="game thumbnail" class="w-full h-full object-cover"/>
               </div>
-              <p class="text-white text-center mt-2 font-bold">{{ game?.gameInfos.filter((e)=>e.language === 'en')[0]?.gameName  }}  </p>
+              <p class="text-white text-sm text-center mt-2 font-bold">{{ game?.gameInfos.filter((e)=>e.language === 'en')[0]?.gameName  }}  </p>
 
             </a>
           </div>

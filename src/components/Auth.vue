@@ -324,7 +324,7 @@ const submit = async () => {
           </div>
 
           <Button
-            class="w-full bg-yellow-500 mt-4 text-gray-900 cursor-pointer rounded-3xl h-12 hover:bg-yellow-400"
+            class="w-full bg-red-600 mt-4 text-gray-100 cursor-pointer rounded-3xl h-12 hover:bg-red-600"
           >
             {{ isLogin ? "Login" : "Register" }}
           </Button>
@@ -332,7 +332,7 @@ const submit = async () => {
 
         <div class="text-center text-sm text-gray-400">
           {{ isLogin ? "Don't have an account?" : "Already have one?" }}
-          <button class="ml-1 text-yellow-400 cursor-pointer" @click="isLogin = !isLogin">
+          <button class="ml-1 text-red-600 cursor-pointer" @click="isLogin = !isLogin">
             {{ isLogin ? "Register" : "Login" }}
           </button>
         </div>
