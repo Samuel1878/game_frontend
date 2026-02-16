@@ -142,9 +142,10 @@ const goToLoginHandler = () => {
       </div>
     </nav>
     <!-- PAGE CONTENT (CENTERED) -->
-    <section class="w-full relative">
+    <section class="w-full relative flex flex-col items-center">
       <Toaster
-        class="w-full bg-amber-300 opacity-50 text-gray-900 text-center flex items-center"
+        
+        class="w-full font-bold text-lg flex items-center justify-center gap-4 text-gray-50 bottom-0 bg-gray-500 text-center z-40 rounded-lg"
       />
       <RouterView />
       <AuthModal />

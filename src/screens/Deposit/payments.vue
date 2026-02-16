@@ -11,13 +11,15 @@ import { useAuthStore } from "@/stores/auth";
 import { depositHandlerAPI } from "@/services/transactionAPI";
 const source = ref("09883370394");
 const name = ref("SARMWELA");
+console.log()
 const { text, copy, isSupported } = useClipboard({ source });
 const route = useRoute();
 const auth = useAuthStore();
+console.log(route.query);
+const {amount} = route.query;
 const form = ref({
   account_name: "",
   last5Digit: "",
-  amount: "",
   account_no: "",
 });
 
@@ -30,16 +32,14 @@ const submitHandler = async () => {
     toast.error("Invalid payment method");
     return;
   } else if (
-    !form.value.account_name ||
-    !form.value.last5Digit ||
-    !form.value.amount ||
-    !form.value.account_no
+    // !form.value.account_name ||
+    !form.value.last5Digit
+    // !form.value.account_no
   ) {
-    toast.error("Please fill in all fields");
+    toast.error("Last 5 digit must not be empty");
     return;
-  } else if (isNaN(parseFloat(form.value.amount))) {
-    toast.error("Amount must be a number");
-    return;
+  } else if (!amount) {
+    toast.error("Invalid amount!")
   } else if (auth.isLoggedIn === false) {
     toast.error("Login to submit deposit request");
 
@@ -48,7 +48,7 @@ const submitHandler = async () => {
   const data: depositFormData = {
     account_name: form.value.account_name,
     tid: form.value.last5Digit,
-    request_amount: parseFloat(form.value.amount),
+    request_amount: parseFloat(amount as string),
     payment: payment.value?.value || null,
     account_no: form.value.account_no,
     user_id: auth.user?.id || null,
@@ -76,56 +76,50 @@ const copyHandler = () => {
 };
 </script>
 <template>
-  <main class="bg-gray-900">
+  <main class="bg-gray-950">
     <breadcrumb :payment="payment?.value" />
     <section class="p-4 h-full">
       <header class="flex gap-2 items-center justify-between"></header>
       <form
-        class="flex flex-col justify-between bg-gray-800 h-full rounded-2xl p-4 gap-4"
+        class="flex flex-col justify-between bg-gray-950 h-full gap-2"
         @submit.prevent="submitHandler"
       >
-        <div class="flex flex-col gap-4 py-4 my-2">
+        <div class="flex flex-col gap-4 relative bg-gray-900 p-4 rounded-t-2xl">
+                    <p class=" text-gray-50 font-bold text-2xl">{{ payment?.label }}</p>
           <div id="payments" class="flex flex-col">
+
             <div class="flex items-center flex-col ">
               <img
                 :src="payment?.icon"
                 alt="logo"
-                class="rounded-4xl w-30 h-15 overflow-hidden"
+                class="rounded-4xl w-30 h-30 overflow-hidden"
               />
-              <p>{{ payment?.label }}</p>
+            
             </div>
 
             <div v-if="isSupported" class="flex justify-between my-2">
-              <p class="text-lg">
+              <p>Phone Number:</p>
+              <button @click="copyHandler" class="cursor-pointer flex gap-2">
+                 <p class="text-lg">
                 <code>{{ text || source }}</code>
-              </p>
-              <button @click="copyHandler" class="cursor-pointer">
-                <Copy />
+              </p><Copy />
               </button>
             </div>
-            <div class="my-2">
-              {{ name }}
+            <div class="my-2 flex justify-between">
+              <p>Name</p>
+              <p>{{ name }}</p>
             </div>
           </div>
+          <p>{{ amount }}</p>
         </div>
-        <div class="flex flex-col flex-1 h-full bg-gray-800 rounded-2xl gap-2">
-          <div class="space-y-1">
-            <label for="amount">Amount</label>
-            <input
-              type="number"
-              v-model="form.amount"
-                name="amount" 
-              class="p-2 border border-gray-300 w-full h-12 rounded-2xl px-4"
-              placeholder=""
-            />
-          </div>
+        <div class="flex flex-col flex-1 p-4 h-full bg-gray-900 rounded-b-2xl gap-3">
           <div class="space-y-1">
             <label for="account_name">Account Name</label>
             <input
               type="text"
               name="account_name"
               v-model="form.account_name"
-              class="p-2 border border-gray-300 w-full h-12 rounded-2xl px-4"
+              class="p-2 border border-gray-300 w-full h-12 rounded-xl px-4"
               placeholder=""
             />
           </div>
@@ -135,18 +129,18 @@ const copyHandler = () => {
               type="text"   
               name="account_no"
               v-model="form.account_no"
-              class="p-2 border border-gray-300 w-full h-12 rounded-2xl px-4"
+              class="p-2 border border-gray-300 w-full h-12 rounded-xl px-4"
               placeholder="09xxxxxxxx"
             />
           </div>
 
           <div class="space-y-1">
-            <label for="last5Digit">Last 5 digit of the transaction</label>
+            <label for="last5Digit">Last 5 digit of the transaction *</label>
             <input
               type="text"   
                name="last5Digit"
               v-model="form.last5Digit"
-              class="p-2 border border-gray-300 w-full h-12 rounded-2xl px-4"
+              class="p-2 border border-gray-300 w-full h-12 rounded-xl px-4"
               placeholder="5 digit"
             />
           </div>
@@ -154,7 +148,7 @@ const copyHandler = () => {
         <div class="flex flex-1 mt-10">
           <button
             type="submit"
-            class="bg-amber-300 h-12 text-gray-950 w-full rounded-2xl flex justify-center items-center"
+            class="bg-red-600 h-12 font-bold text-gray-50 w-full rounded-xl flex justify-center items-center"
           >
             Submit
           </button>

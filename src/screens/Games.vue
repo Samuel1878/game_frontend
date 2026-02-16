@@ -20,11 +20,11 @@ watchEffect(()=>{
 wallet.setWallet(authStore.user?.name ?? null)
 })
 
-watchEffect(async () => {
-  const response = await getGameListAPI();
-  console.log("response", response)
-  if (response) games.value = response.seamlessGameProviderGames;
-});
+// watchEffect(async () => {
+//   const response = await getGameListAPI();
+//   console.log("response", response)
+//   if (response) games.value = response.seamlessGameProviderGames;
+// });
 
 
 const enterGame = (game: Game) => {
