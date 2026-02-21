@@ -14,13 +14,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dumb Hero Fusion Reels",
+                                        "gameName": "Dumb Hero Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/780/1042_780_DumbHeroFusionReels.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "呆呆英雄 巨路发",
+                                        "gameName": "呆呆英雄 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/780/1042_780_DumbHeroFusionReels_CN.png"
                 }
             ],
@@ -86,13 +84,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Thief Dog Buy Feature",
+                                        "gameName": "Thief Dog Buy Feature",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/779/1042_779_ThiefDogBuyFeature.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "神偷狗盜 快闪购",
+                                        "gameName": "神偷狗盜 快闪购",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/779/1042_779_ThiefDogBuyFeature_CN.png"
                 }
             ],
@@ -158,13 +154,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sherlock Holmes",
+                                        "gameName": "Sherlock Holmes",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/778/1042_778_SherlockHolmes.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "福尔摩斯",
+                                        "gameName": "福尔摩斯",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/778/1042_778_SherlockHolmes_CN.png"
                 }
             ],
@@ -230,13 +224,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Streaming Girls",
+                                        "gameName": "Streaming Girls",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/777/1042_777_StreamingGirls.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "我们来接你呦",
+                                        "gameName": "我们来接你呦",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/777/1042_777_StreamingGirls_CN.png"
                 }
             ],
@@ -302,13 +294,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Full Moon Lanterns",
+                                        "gameName": "Full Moon Lanterns",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/776/1042_776_FullMoonLanterns.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "月圆花灯",
+                                        "gameName": "月圆花灯",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/776/1042_776_FullMoonLanterns_CN.png"
                 }
             ],
@@ -374,13 +364,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Victory Horse",
+                                        "gameName": "Victory Horse",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/775/1042_775_VictoryHorse.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "马到成功",
+                                        "gameName": "马到成功",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/775/1042_775_VictoryHorse_CN.png"
                 }
             ],
@@ -446,13 +434,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Animals Lock 2 Spin",
+                                        "gameName": "Lucky Animals Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/774/1042_774_LuckyAnimalsLock2Spin.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "招财动物 锁好运",
+                                        "gameName": "招财动物 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/774/1042_774_LuckyAnimalsLock2Spin_CN.png"
                 }
             ],
@@ -518,13 +504,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chocolate Factory Fusion Reels",
+                                        "gameName": "Chocolate Factory Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/773/1042_173_ChocolateFactoryFusionReels.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "巧克力工厂 巨路发",
+                                        "gameName": "巧克力工厂 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/773/1042_173_ChocolateFactoryFusionReels_CN.png"
                 }
             ],
@@ -590,13 +574,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Festa Brazil",
+                                        "gameName": "Festa Brazil",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/772/1042_172_FestaBrazil.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "巴西狂欢节",
+                                        "gameName": "巴西狂欢节",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/772/1042_172_FestaBrazil_CN.png"
                 }
             ],
@@ -662,13 +644,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Money",
+                                        "gameName": "Lucky Money",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/771/1042_771_LuckyMoney.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "搓红包",
+                                        "gameName": "搓红包",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/771/1042_771_LuckyMoney_CN.png"
                 }
             ],
@@ -734,13 +714,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Energy Awakening",
+                                        "gameName": "Energy Awakening",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/770/1042_770_EnergyAwakening.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "能源觉醒",
+                                        "gameName": "能源觉醒",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/770/1042_770_EnergyAwakening_CN.png"
                 }
             ],
@@ -806,13 +784,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "1960 Elvis Guava",
+                                        "gameName": "1960 Elvis Guava",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/769/1042_769_1960ElvisGuava.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "60年代番石榴王",
+                                        "gameName": "60年代番石榴王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/769/1042_769_1960ElvisGuava_CN.png"
                 }
             ],
@@ -878,13 +854,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fire Phoenix Lock 2 Spin",
+                                        "gameName": "Fire Phoenix Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/768/1042_768_FirePhoenixLock2Spin.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "浴火凤凰 锁好运",
+                                        "gameName": "浴火凤凰 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/768/1042_768_FirePhoenixLock2Spin_CN.png"
                 }
             ],
@@ -950,13 +924,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Pool Master",
+                                        "gameName": "Pool Master",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/767/1042_767_PoolMaster.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "撞球大师",
+                                        "gameName": "撞球大师",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/767/1042_767_PoolMaster_CN.png"
                 }
             ],
@@ -1022,13 +994,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortune Pig VIP",
+                                        "gameName": "Fortune Pig VIP",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/766/1042_766_FortunePigVIP.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "招财猪 VIP",
+                                        "gameName": "招财猪 VIP",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/766/1042_766_FortunePigVIP_CN.png"
                 }
             ],
@@ -1094,13 +1064,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Phantom Thief",
+                                        "gameName": "Phantom Thief",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/765/1042_765_PhantomThief.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "假面怪盗",
+                                        "gameName": "假面怪盗",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/765/1042_765_PhantomThief_CN.png"
                 }
             ],
@@ -1166,13 +1134,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dr. Mad",
+                                        "gameName": "Dr. Mad",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/764/1042_764_DrMad.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "疯狂博士",
+                                        "gameName": "疯狂博士",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/764/1042_764_DrMad_CN.png"
                 }
             ],
@@ -1238,13 +1204,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mysterious Witch",
+                                        "gameName": "Mysterious Witch",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/763/1042_763_MysteriousWitch.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "神秘女巫",
+                                        "gameName": "神秘女巫",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/763/1042_763_MysteriousWitch_CN.png"
                 }
             ],
@@ -1310,13 +1274,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "5 Bloodlusts",
+                                        "gameName": "5 Bloodlusts",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/762/1042_762_5Bloodlusts.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "5 嗜血",
+                                        "gameName": "5 嗜血",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/762/1042_762_5Bloodlusts_CN.png"
                 }
             ],
@@ -1382,13 +1344,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Balloon Joker",
+                                        "gameName": "Balloon Joker",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/761/1042_761_BalloonJoker.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "小丑气球",
+                                        "gameName": "小丑气球",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/761/1042_761_BalloonJoker_CN.png"
                 }
             ],
@@ -1454,13 +1414,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Golden Bull",
+                                        "gameName": "Golden Bull",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/3/1042_3_GoldenBull.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "牛转钱坤",
+                                        "gameName": "牛转钱坤",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/3/1042_3_GoldenBull_CN.png"
                 }
             ],
@@ -1526,13 +1484,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Super Energy",
+                                        "gameName": "Super Energy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/203/1042_203_SuperEnergy.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "超级能源",
+                                        "gameName": "超级能源",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/203/1042_203_SuperEnergy_CN.png"
                 }
             ],
@@ -1598,13 +1554,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Golden Dragon",
+                                        "gameName": "Golden Dragon",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/541/1042_541_GoldenDragon.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "金龙捕鱼",
+                                        "gameName": "金龙捕鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/541/1042_541_GoldenDragon_CN.png"
                 }
             ],
@@ -1670,13 +1624,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cocorico",
+                                        "gameName": "Cocorico",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/7/1042_7_Cocorico.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "公鸡咕咕咕",
+                                        "gameName": "公鸡咕咕咕",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/7/1042_7_Cocorico_CN.png"
                 }
             ],
@@ -1742,13 +1694,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wong TaiSin",
+                                        "gameName": "Wong TaiSin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/22/1042_22_WongTaiSin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "黄大仙",
+                                        "gameName": "黄大仙",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/22/1042_22_WongTaiSin_CN.png"
                 }
             ],
@@ -1814,13 +1764,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Kick Cash Monkey 2 Buy Feature",
+                                        "gameName": "Kick Cash Monkey 2 Buy Feature",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/700/1042_700_KickCashMonkey2BuyFeature.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "蹦钱猴子2 快闪购",
+                                        "gameName": "蹦钱猴子2 快闪购",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/700/1042_700_KickCashMonkey2BuyFeature_CN.jpg"
                 }
             ],
@@ -1886,13 +1834,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sumo",
+                                        "gameName": "Sumo",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/152/1042_152_Sumo.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "相扑力士",
+                                        "gameName": "相扑力士",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/152/1042_152_Sumo_CN.png"
                 }
             ],
@@ -1958,13 +1904,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "KA Fish Hunter",
+                                        "gameName": "KA Fish Hunter",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/543/1042_543_KAFishHunter.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "爽爽捕鱼",
+                                        "gameName": "爽爽捕鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/543/1042_543_KAFishHunter_CN.png"
                 }
             ],
@@ -2030,13 +1974,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bonus Mania",
+                                        "gameName": "Bonus Mania",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/1/1042_1_BonusMania.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "疯狂奖金",
+                                        "gameName": "疯狂奖金",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/1/1042_1_BonusMania_CN.png"
                 }
             ],
@@ -2102,13 +2044,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortune Ganesha",
+                                        "gameName": "Fortune Ganesha",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/4/1042_4_FortuneGanesha.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "幸运象神",
+                                        "gameName": "幸运象神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/4/1042_4_FortuneGanesha_CN.png"
                 }
             ],
@@ -2174,13 +2114,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Red Cliff",
+                                        "gameName": "Red Cliff",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/16/1042_16_RedCliff.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "赤壁",
+                                        "gameName": "赤壁",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/16/1042_16_RedCliff_CN.png"
                 }
             ],
@@ -2246,13 +2184,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bonus Mania Deluxe",
+                                        "gameName": "Bonus Mania Deluxe",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/21/1042_21_BonusManiaDeluxe.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "疯狂奖金豪华版",
+                                        "gameName": "疯狂奖金豪华版",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/21/1042_21_BonusManiaDeluxe_CN.png"
                 }
             ],
@@ -2318,13 +2254,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragons Way",
+                                        "gameName": "Dragons Way",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/327/1042_327_DragonsWay.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猛龙过江",
+                                        "gameName": "猛龙过江",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/327/1042_327_DragonsWay_CN.png"
                 }
             ],
@@ -2390,13 +2324,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "KA Fish Party",
+                                        "gameName": "KA Fish Party",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/585/1042_585_KAFishParty.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "天天捕鱼",
+                                        "gameName": "天天捕鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/585/1042_585_KAFishParty_CN.png"
                 }
             ],
@@ -2462,13 +2394,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Luck88",
+                                        "gameName": "Luck88",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/5/1042_5_Luck88.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "金龙发发",
+                                        "gameName": "金龙发发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/5/1042_5_Luck88_CN.png"
                 }
             ],
@@ -2534,13 +2464,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Little Monk",
+                                        "gameName": "Little Monk",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/55/1042_55_LittleMonk.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "小和尚",
+                                        "gameName": "小和尚",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/55/1042_55_LittleMonk_CN.png"
                 }
             ],
@@ -2606,13 +2534,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cai Shen Dao",
+                                        "gameName": "Cai Shen Dao",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/553/1042_553_CaiShenDao.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "财神到",
+                                        "gameName": "财神到",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/553/1042_553_CaiShenDao_CN.png"
                 }
             ],
@@ -2678,13 +2604,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Treasure Bowl",
+                                        "gameName": "Treasure Bowl",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/2/1042_2_TreasureBowl.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "聚宝盆",
+                                        "gameName": "聚宝盆",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/2/1042_2_TreasureBowl_CN.png"
                 }
             ],
@@ -2750,13 +2674,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fire Hit",
+                                        "gameName": "Fire Hit",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/8/1042_8_FireHit.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "超级火焰",
+                                        "gameName": "超级火焰",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/8/1042_8_FireHit_CN.png"
                 }
             ],
@@ -2822,13 +2744,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lunar Howl",
+                                        "gameName": "Lunar Howl",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/754/1042_754_LunarHowl.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "月光狼嚎",
+                                        "gameName": "月光狼嚎",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/754/1042_754_LunarHowl_CN.jpg"
                 }
             ],
@@ -2894,13 +2814,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "King Octopus",
+                                        "gameName": "King Octopus",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/540/1042_540_KingOctopus.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "章鱼王",
+                                        "gameName": "章鱼王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/540/1042_540_KingOctopus_CN.png"
                 }
             ],
@@ -2966,13 +2884,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ink Painting Master Buy Feature",
+                                        "gameName": "Ink Painting Master Buy Feature",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/706/1042_706_InkPaintingMasterBuyFeature.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "水墨大师 快闪购",
+                                        "gameName": "水墨大师 快闪购",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/706/1042_706_InkPaintingMasterBuyFeature_CN.jpg"
                 }
             ],
@@ -3038,13 +2954,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Golden Fish Hunter",
+                                        "gameName": "Golden Fish Hunter",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/582/1042_582_GoldenFishHunter.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "千金捕鱼",
+                                        "gameName": "千金捕鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/582/1042_582_GoldenFishHunter_CN.png"
                 }
             ],
@@ -3110,13 +3024,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Battle of Luck",
+                                        "gameName": "Battle of Luck",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/695/1042_695_BattleofLuck.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "福运之战",
+                                        "gameName": "福运之战",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/695/1042_695_BattleofLuck_CN.jpg"
                 }
             ],
@@ -3182,13 +3094,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "King Of Dragon",
+                                        "gameName": "King Of Dragon",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/6/1042_6_KingOfDragon.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "四海龙王",
+                                        "gameName": "四海龙王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/6/1042_6_KingOfDragon_CN.png"
                 }
             ],
@@ -3254,13 +3164,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "SuperShot",
+                                        "gameName": "SuperShot",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/15/1042_15_SuperShot.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "超级旋转",
+                                        "gameName": "超级旋转",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/15/1042_15_SuperShot_CN.png"
                 }
             ],
@@ -3326,13 +3234,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Skeleton Party",
+                                        "gameName": "Skeleton Party",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/734/1042_734_SkeletonParty.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "骷髅派对",
+                                        "gameName": "骷髅派对",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/734/1042_734_SkeletonParty_CN.jpg"
                 }
             ],
@@ -3398,13 +3304,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Super Dragon Tiger",
+                                        "gameName": "Super Dragon Tiger",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/207/1042_207_SuperDragonTiger.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "超级龙虎斗",
+                                        "gameName": "超级龙虎斗",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/207/1042_207_SuperDragonTiger_CN.png"
                 }
             ],
@@ -3470,13 +3374,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Giant Fish Hunter",
+                                        "gameName": "Giant Fish Hunter",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/560/1042_560_GiantFishHunter.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "大海怪",
+                                        "gameName": "大海怪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/560/1042_560_GiantFishHunter_CN.png"
                 }
             ],
@@ -3542,13 +3444,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Luck88 VIP",
+                                        "gameName": "Luck88 VIP",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/699/1042_699_Luck88Quick.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "金龙发发 VIP",
+                                        "gameName": "金龙发发 VIP",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/699/1042_699_Luck88Quick_CN.jpg"
                 }
             ],
@@ -3614,13 +3514,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fa Cai Destiny",
+                                        "gameName": "Fa Cai Destiny",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/11/1042_11_FaCaiDestiny.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "呖咕呖咕发大财",
+                                        "gameName": "呖咕呖咕发大财",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/11/1042_11_FaCaiDestiny_CN.png"
                 }
             ],
@@ -3686,13 +3584,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Deep Sea Monster",
+                                        "gameName": "Deep Sea Monster",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/697/1042_697_DeepSeaMonster.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "深海海怪",
+                                        "gameName": "深海海怪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/697/1042_697_DeepSeaMonster_CN.jpg"
                 }
             ],
@@ -3758,13 +3654,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Miss Joker",
+                                        "gameName": "Miss Joker",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/104/1042_104_MissJoker.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "小丑女",
+                                        "gameName": "小丑女",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/104/1042_104_MissJoker_CN.png"
                 }
             ],
@@ -3830,13 +3724,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Shenron Hunter",
+                                        "gameName": "Shenron Hunter",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/593/1042_593_ShenronHunter.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神龙捕鱼",
+                                        "gameName": "神龙捕鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/593/1042_593_ShenronHunter_CN.png"
                 }
             ],
@@ -3902,13 +3794,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Shark Fight",
+                                        "gameName": "Shark Fight",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/592/1042_592_SharkFight.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "金鲨对银鲨",
+                                        "gameName": "金鲨对银鲨",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/592/1042_592_SharkFight_CN.png"
                 }
             ],
@@ -3974,13 +3864,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Flaming 7s",
+                                        "gameName": "Flaming 7s",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/503/1042_503_Flaming7s.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "火焰777",
+                                        "gameName": "火焰777",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/503/1042_503_Flaming7s_CN.png"
                 }
             ],
@@ -4046,13 +3934,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Horoscope",
+                                        "gameName": "Horoscope",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/466/1042_466_Horoscope.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "星座",
+                                        "gameName": "星座",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/466/1042_466_Horoscope_CN.png"
                 }
             ],
@@ -4118,13 +4004,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortune Star Lock 2 Spin",
+                                        "gameName": "Fortune Star Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/107/1042_107_FortuneStarLock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "福星高照 锁好运",
+                                        "gameName": "福星高照 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/107/1042_107_FortuneStarLock2Spin_CN.png"
                 }
             ],
@@ -4190,13 +4074,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Golden Ball",
+                                        "gameName": "Golden Ball",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/9/1042_9_GoldenBall.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "金球奖",
+                                        "gameName": "金球奖",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/9/1042_9_GoldenBall_CN.png"
                 }
             ],
@@ -4262,13 +4144,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Poseidons Secret",
+                                        "gameName": "Poseidons Secret",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/542/1042_542_PoseidonsSecret.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "海王秘宝",
+                                        "gameName": "海王秘宝",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/542/1042_542_PoseidonsSecret_CN.png"
                 }
             ],
@@ -4334,13 +4214,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Attack Huge Mushroom",
+                                        "gameName": "Attack Huge Mushroom",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/752/1042_752_AttackHugeMushroom.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "攻打巨大蘑菇",
+                                        "gameName": "攻打巨大蘑菇",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/752/1042_752_AttackHugeMushroom_CN.jpg"
                 }
             ],
@@ -4406,13 +4284,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Kai Feng Fu",
+                                        "gameName": "Kai Feng Fu",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/127/1042_127_KaiFengFu.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "开封府",
+                                        "gameName": "开封府",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/127/1042_127_KaiFengFu_CN.png"
                 }
             ],
@@ -4478,13 +4354,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "God of Love",
+                                        "gameName": "God of Love",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/401/1042_401_GodofLove.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "月下老人",
+                                        "gameName": "月下老人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/401/1042_401_GodofLove_CN.png"
                 }
             ],
@@ -4550,13 +4424,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sleepwalking Sheep",
+                                        "gameName": "Sleepwalking Sheep",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/200/1042_200_SleepwalkingSheep.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "梦游绵羊",
+                                        "gameName": "梦游绵羊",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/200/1042_200_SleepwalkingSheep_CN.png"
                 }
             ],
@@ -4622,13 +4494,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mythical Beast",
+                                        "gameName": "Mythical Beast",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/569/1042_569_MythicalBeast.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神兽捕鱼",
+                                        "gameName": "神兽捕鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/569/1042_569_MythicalBeast_CN.png"
                 }
             ],
@@ -4694,13 +4564,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "White Nose Cat",
+                                        "gameName": "White Nose Cat",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/113/1042_113_WhiteNoseCat.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "白鼻猫",
+                                        "gameName": "白鼻猫",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/113/1042_113_WhiteNoseCat_CN.png"
                 }
             ],
@@ -4766,13 +4634,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dinosaur Awakening",
+                                        "gameName": "Dinosaur Awakening",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/713/1042_713_DinosaurAwakening.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "恐龙觉醒",
+                                        "gameName": "恐龙觉醒",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/713/1042_713_DinosaurAwakening_CN.jpg"
                 }
             ],
@@ -4838,13 +4704,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sultan's Fortune",
+                                        "gameName": "Sultan's Fortune",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/753/1042_753_SultansFortune.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "苏丹的财富",
+                                        "gameName": "苏丹的财富",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/753/1042_753_SultansFortune_CN.jpg"
                 }
             ],
@@ -4910,13 +4774,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Priceless Museum Fusion Reels",
+                                        "gameName": "Priceless Museum Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/173/1042_173_PricelessMuseumFusionReels.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "惊奇博物馆 巨路发",
+                                        "gameName": "惊奇博物馆 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/173/1042_173_PricelessMuseumFusionReels_CN.png"
                 }
             ],
@@ -4982,13 +4844,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hot Coin",
+                                        "gameName": "Hot Coin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/600/1042_600_HotCoin.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "狂热奖金",
+                                        "gameName": "狂热奖金",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/600/1042_600_HotCoin_CN.png"
                 }
             ],
@@ -5054,13 +4914,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Milk Girl",
+                                        "gameName": "Milk Girl",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/12/1042_12_MilkGirl.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "牛乳美眉",
+                                        "gameName": "牛乳美眉",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/12/1042_12_MilkGirl_CN.png"
                 }
             ],
@@ -5126,13 +4984,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Deep Monster",
+                                        "gameName": "The Deep Monster",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/552/1042_552_TheDeepMonster.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "深海巨鳄",
+                                        "gameName": "深海巨鳄",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/552/1042_552_TheDeepMonster_CN.png"
                 }
             ],
@@ -5198,13 +5054,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Darts Champion",
+                                        "gameName": "Darts Champion",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/37/1042_37_DartsChampion.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "飞镖冠军",
+                                        "gameName": "飞镖冠军",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/37/1042_37_DartsChampion_CN.png"
                 }
             ],
@@ -5270,13 +5124,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Medusa",
+                                        "gameName": "Medusa",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/243/1042_243_Medusa.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "梅杜莎",
+                                        "gameName": "梅杜莎",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/243/1042_243_Medusa_CN.png"
                 }
             ],
@@ -5342,13 +5194,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Stamp World",
+                                        "gameName": "Stamp World",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/728/1042_728_StampWorld.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "环邮世界",
+                                        "gameName": "环邮世界",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/728/1042_728_StampWorld_CN.jpg"
                 }
             ],
@@ -5414,13 +5264,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ghosts Gather",
+                                        "gameName": "Ghosts Gather",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/735/1042_735_GhostsGather.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "鬼怪集结",
+                                        "gameName": "鬼怪集结",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/735/1042_735_GhostsGather_CN.jpg"
                 }
             ],
@@ -5486,13 +5334,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Treasure Carp",
+                                        "gameName": "Treasure Carp",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/198/1042_198_TreasureCarp.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "发财金鲤",
+                                        "gameName": "发财金鲤",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/198/1042_198_TreasureCarp_CN.png"
                 }
             ],
@@ -5558,13 +5404,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Scary Clown",
+                                        "gameName": "Scary Clown",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/117/1042_117_ScaryClown.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "恐怖小丑",
+                                        "gameName": "恐怖小丑",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/117/1042_117_ScaryClown_CN.png"
                 }
             ],
@@ -5630,13 +5474,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wild Wild Bell",
+                                        "gameName": "Wild Wild Bell",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/454/1042_454_WildWildBell.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "摇铃铃",
+                                        "gameName": "摇铃铃",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/454/1042_454_WildWildBell_CN.png"
                 }
             ],
@@ -5702,13 +5544,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fantasy Oktoberfest Buy Feature",
+                                        "gameName": "Fantasy Oktoberfest Buy Feature",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/722/1042_722_FantasyOktoberfestBuyFeature.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "梦幻啤酒节 快闪购",
+                                        "gameName": "梦幻啤酒节 快闪购",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/722/1042_722_FantasyOktoberfestBuyFeature_CN.jpg"
                 }
             ],
@@ -5774,13 +5614,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Three Headed Dragon",
+                                        "gameName": "Three Headed Dragon",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/562/1042_562_ThreeHeadedDragon.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "黄金三头龙",
+                                        "gameName": "黄金三头龙",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/562/1042_562_ThreeHeadedDragon_CN.png"
                 }
             ],
@@ -5846,13 +5684,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Air Combat 1942",
+                                        "gameName": "Air Combat 1942",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/544/1042_544_AirCombat1942.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "空战1942",
+                                        "gameName": "空战1942",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/544/1042_544_AirCombat1942_CN.png"
                 }
             ],
@@ -5918,13 +5754,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "La Tomatina",
+                                        "gameName": "La Tomatina",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/59/1042_59_LaTomatina.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "番茄大战",
+                                        "gameName": "番茄大战",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/59/1042_59_LaTomatina_CN.png"
                 }
             ],
@@ -5990,13 +5824,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Happy Marriage",
+                                        "gameName": "Happy Marriage",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/702/1042_702_HappyMarriage.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "美满良缘",
+                                        "gameName": "美满良缘",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/702/1042_702_HappyMarriage_CN.jpg"
                 }
             ],
@@ -6062,13 +5894,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Yummy Thanksgiving",
+                                        "gameName": "Yummy Thanksgiving",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/745/1042_745_YummyThanksgiving.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "美味感恩节",
+                                        "gameName": "美味感恩节",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/745/1042_745_YummyThanksgiving_CN.jpg"
                 }
             ],
@@ -6134,13 +5964,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Zombie Expert Lock 2 Spin",
+                                        "gameName": "Zombie Expert Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/195/1042_195_ZombieExpertLock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "僵尸道长 锁好运",
+                                        "gameName": "僵尸道长 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/195/1042_195_ZombieExpertLock2Spin_CN.png"
                 }
             ],
@@ -6206,13 +6034,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Happy Animal Farm",
+                                        "gameName": "Happy Animal Farm",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/586/1042_586_HappyAnimalFarm.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "快乐宠物农场",
+                                        "gameName": "快乐宠物农场",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/586/1042_586_HappyAnimalFarm_CN.png"
                 }
             ],
@@ -6278,13 +6104,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mermaid Hunter",
+                                        "gameName": "Mermaid Hunter",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/549/1042_549_MermaidHunter.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "炮打美人鱼",
+                                        "gameName": "炮打美人鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/549/1042_549_MermaidHunter_CN.png"
                 }
             ],
@@ -6350,13 +6174,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Golden 777",
+                                        "gameName": "Golden 777",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/229/1042_229_Golden777.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "金牌777",
+                                        "gameName": "金牌777",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/229/1042_229_Golden777_CN.png"
                 }
             ],
@@ -6422,13 +6244,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Kick Cash Monkey",
+                                        "gameName": "Kick Cash Monkey",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/658/1042_658_KickCashMonkey.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "蹦钱猴子",
+                                        "gameName": "蹦钱猴子",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/658/1042_658_KickCashMonkey_CN.jpg"
                 }
             ],
@@ -6494,13 +6314,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Aladdin",
+                                        "gameName": "Aladdin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/319/1042_319_Aladdin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "阿拉丁",
+                                        "gameName": "阿拉丁",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/319/1042_319_Aladdin_CN.png"
                 }
             ],
@@ -6566,13 +6384,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Evil Wizard Cat",
+                                        "gameName": "Evil Wizard Cat",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/718/1042_718_EvilWizardCat.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "邪恶猫巫师",
+                                        "gameName": "邪恶猫巫师",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/718/1042_718_EvilWizardCat_CN.jpg"
                 }
             ],
@@ -6638,13 +6454,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Whale Wild",
+                                        "gameName": "Whale Wild",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/236/1042_236_WhaleWild.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "鲸银岛",
+                                        "gameName": "鲸银岛",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/236/1042_236_WhaleWild_CN.png"
                 }
             ],
@@ -6710,13 +6524,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortune Ganesha VIP",
+                                        "gameName": "Fortune Ganesha VIP",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/742/1042_742_FortuneGaneshaVIP.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "幸运象神 VIP",
+                                        "gameName": "幸运象神 VIP",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/742/1042_742_FortuneGaneshaVIP_CN.jpg"
                 }
             ],
@@ -6782,13 +6594,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Legend of Erlang",
+                                        "gameName": "Legend of Erlang",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/556/1042_556_LegendofErlang.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "炮打二郎神",
+                                        "gameName": "炮打二郎神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/556/1042_556_LegendofErlang_CN.png"
                 }
             ],
@@ -6854,13 +6664,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bau Cua",
+                                        "gameName": "Bau Cua",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/714/1042_714_BauCua.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "鱼虾蟹",
+                                        "gameName": "鱼虾蟹",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/714/1042_714_BauCua_CN.jpg"
                 }
             ],
@@ -6926,13 +6734,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "SuperShot 2",
+                                        "gameName": "SuperShot 2",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/339/1042_339_SuperShot2.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "超级旋转2",
+                                        "gameName": "超级旋转2",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/339/1042_339_SuperShot2_CN.png"
                 }
             ],
@@ -6998,13 +6804,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Animal Fishing",
+                                        "gameName": "Animal Fishing",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/547/1042_547_AnimalFishing.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "浣熊钓鱼",
+                                        "gameName": "浣熊钓鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/547/1042_547_AnimalFishing_CN.png"
                 }
             ],
@@ -7070,13 +6874,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Force Of Dragon",
+                                        "gameName": "Force Of Dragon",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/550/1042_550_ForceOfDragon.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "降龙传说",
+                                        "gameName": "降龙传说",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/550/1042_550_ForceOfDragon_CN.png"
                 }
             ],
@@ -7142,13 +6944,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Peacock Princess Lock 2 Spin",
+                                        "gameName": "Peacock Princess Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/33/1042_33_PeacockPrincessLock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "孔雀公主 锁好运",
+                                        "gameName": "孔雀公主 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/33/1042_33_PeacockPrincessLock2Spin_CN.png"
                 }
             ],
@@ -7214,13 +7014,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chaos Combat Buy Feature",
+                                        "gameName": "Chaos Combat Buy Feature",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/726/1042_726_ChaosCombatBuyFeature.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "乱街 快闪购",
+                                        "gameName": "乱街 快闪购",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/726/1042_726_ChaosCombatBuyFeature_CN.jpg"
                 }
             ],
@@ -7286,13 +7084,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Great Voyages",
+                                        "gameName": "The Great Voyages",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/348/1042_348_TheGreatVoyages.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "郑和下西洋",
+                                        "gameName": "郑和下西洋",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/348/1042_348_TheGreatVoyages_CN.png"
                 }
             ],
@@ -7358,13 +7154,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Emperor Qin",
+                                        "gameName": "Emperor Qin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/259/1042_259_EmperorQin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "秦始皇",
+                                        "gameName": "秦始皇",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/259/1042_259_EmperorQin_CN.png"
                 }
             ],
@@ -7430,13 +7224,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Muscle Cars",
+                                        "gameName": "Muscle Cars",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/423/1042_423_MuscleCars.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "美式跑车",
+                                        "gameName": "美式跑车",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/423/1042_423_MuscleCars_CN.png"
                 }
             ],
@@ -7502,13 +7294,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sushi",
+                                        "gameName": "Sushi",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/746/1042_746_Sushi.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "寿司之神",
+                                        "gameName": "寿司之神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/746/1042_746_Sushi_CN.jpg"
                 }
             ],
@@ -7574,13 +7364,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Devil Buster",
+                                        "gameName": "Devil Buster",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/572/1042_572_DevilBuster.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔鬼克星",
+                                        "gameName": "魔鬼克星",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/572/1042_572_DevilBuster_CN.png"
                 }
             ],
@@ -7646,13 +7434,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Five Sound Fortune",
+                                        "gameName": "Five Sound Fortune",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/142/1042_142_FiveSoundFortune.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "财气五韵",
+                                        "gameName": "财气五韵",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/142/1042_142_FiveSoundFortune_CN.png"
                 }
             ],
@@ -7718,13 +7504,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Summer Fireworks Festival",
+                                        "gameName": "Summer Fireworks Festival",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/696/1042_696_SummerFireworksFestival.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "夏日烟火祭典",
+                                        "gameName": "夏日烟火祭典",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/696/1042_696_SummerFireworksFestival_CN.jpg"
                 }
             ],
@@ -7790,13 +7574,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Romance of the Three Kingdoms",
+                                        "gameName": "Romance of the Three Kingdoms",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/546/1042_546_RomanceoftheThreeKingdoms.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "天天战三国",
+                                        "gameName": "天天战三国",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/546/1042_546_RomanceoftheThreeKingdoms_CN.png"
                 }
             ],
@@ -7862,13 +7644,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Medieval Riches Fusion Reels",
+                                        "gameName": "Medieval Riches Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/751/1042_751_MedievalRichesFusionReels.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "中世纪发财梦 巨路发",
+                                        "gameName": "中世纪发财梦 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/751/1042_751_MedievalRichesFusionReels_CN.jpg"
                 }
             ],
@@ -7934,13 +7714,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Quadruple Dragons",
+                                        "gameName": "Quadruple Dragons",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/14/1042_14_QuadrupleDragons.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "开龙发发发发",
+                                        "gameName": "开龙发发发发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/14/1042_14_QuadrupleDragons_CN.png"
                 }
             ],
@@ -8006,13 +7784,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Tiny Warriors",
+                                        "gameName": "Tiny Warriors",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/747/1042_747_TinyWarriors.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "小小战士",
+                                        "gameName": "小小战士",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/747/1042_747_TinyWarriors_CN.jpg"
                 }
             ],
@@ -8078,13 +7854,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Muay Thai",
+                                        "gameName": "Muay Thai",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/272/1042_272_MuayThai.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "泰拳",
+                                        "gameName": "泰拳",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/272/1042_272_MuayThai_CN.png"
                 }
             ],
@@ -8150,13 +7924,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Robot Wars",
+                                        "gameName": "Robot Wars",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/568/1042_568_RobotWars.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "机器人大战",
+                                        "gameName": "机器人大战",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/568/1042_568_RobotWars_CN.png"
                 }
             ],
@@ -8222,13 +7994,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fishing Expedition",
+                                        "gameName": "Fishing Expedition",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/548/1042_548_FishingExpedition.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "光头强钓鱼",
+                                        "gameName": "光头强钓鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/548/1042_548_FishingExpedition_CN.png"
                 }
             ],
@@ -8294,13 +8064,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Gangster",
+                                        "gameName": "Gangster",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/81/1042_81_Gangster.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "人在江湖",
+                                        "gameName": "人在江湖",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/81/1042_81_Gangster_CN.png"
                 }
             ],
@@ -8366,13 +8134,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Safari Slots",
+                                        "gameName": "Safari Slots",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/479/1042_479_SafariSlots.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "野外探险",
+                                        "gameName": "野外探险",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/479/1042_479_SafariSlots_CN.png"
                 }
             ],
@@ -8438,13 +8204,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hong Kong 60s",
+                                        "gameName": "Hong Kong 60s",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/239/1042_239_HongKong60s.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "花样年华",
+                                        "gameName": "花样年华",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/239/1042_239_HongKong60s_CN.png"
                 }
             ],
@@ -8510,13 +8274,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Surprise Box",
+                                        "gameName": "Surprise Box",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/49/1042_49_SurpriseBox.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "惊喜箱",
+                                        "gameName": "惊喜箱",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/49/1042_49_SurpriseBox_CN.png"
                 }
             ],
@@ -8582,13 +8344,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon Ball",
+                                        "gameName": "Dragon Ball",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/362/1042_362_DragonBall.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "龙珠",
+                                        "gameName": "龙珠",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/362/1042_362_DragonBall_CN.png"
                 }
             ],
@@ -8654,13 +8414,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hungry Shark",
+                                        "gameName": "Hungry Shark",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/571/1042_571_HungryShark.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "饥饿鲨",
+                                        "gameName": "饥饿鲨",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/571/1042_571_HungryShark_CN.png"
                 }
             ],
@@ -8726,13 +8484,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chinese Valentines Day",
+                                        "gameName": "Chinese Valentines Day",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/364/1042_364_ChineseValentinesDay.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "牛郎与织女",
+                                        "gameName": "牛郎与织女",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/364/1042_364_ChineseValentinesDay_CN.png"
                 }
             ],
@@ -8798,13 +8554,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Jingwei",
+                                        "gameName": "Jingwei",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/324/1042_324_Jingwei.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "精卫填海",
+                                        "gameName": "精卫填海",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/324/1042_324_Jingwei_CN.png"
                 }
             ],
@@ -8870,13 +8624,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fire Corrida",
+                                        "gameName": "Fire Corrida",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/661/1042_661_FireCorrida.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "好运奔放",
+                                        "gameName": "好运奔放",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/661/1042_661_FireCorrida_CN.jpg"
                 }
             ],
@@ -8942,13 +8694,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Football Baby",
+                                        "gameName": "Football Baby",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/640/1042_640_FootballBaby.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "足球宝贝",
+                                        "gameName": "足球宝贝",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/640/1042_640_FootballBaby_CN.png"
                 }
             ],
@@ -9014,13 +8764,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wealth Toad",
+                                        "gameName": "Wealth Toad",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/147/1042_147_WealthToad.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "招财金蟾",
+                                        "gameName": "招财金蟾",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/147/1042_147_WealthToad_CN.png"
                 }
             ],
@@ -9086,13 +8834,11 @@ export const kaGames = [
             "lines": 20,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Island Paradise",
+                                        "gameName": "Island Paradise",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/637/1042_637_IslandParadise.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "海岛乐园",
+                                        "gameName": "海岛乐园",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/637/1042_637_IslandParadise_CN.png"
                 }
             ],
@@ -9158,13 +8904,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Space Cat",
+                                        "gameName": "Space Cat",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/545/1042_545_SpaceCat.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "天天打怪",
+                                        "gameName": "天天打怪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/545/1042_545_SpaceCat_CN.png"
                 }
             ],
@@ -9230,13 +8974,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wild Jungle",
+                                        "gameName": "Wild Jungle",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/196/1042_196_WildJungle.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "丛林之王",
+                                        "gameName": "丛林之王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/196/1042_196_WildJungle_CN.png"
                 }
             ],
@@ -9302,13 +9044,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wen Ding",
+                                        "gameName": "Wen Ding",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/330/1042_330_WenDing.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "问鼎",
+                                        "gameName": "问鼎",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/330/1042_330_WenDing_CN.png"
                 }
             ],
@@ -9374,13 +9114,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wild Vick",
+                                        "gameName": "Wild Vick",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/25/1042_25_WildVick.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "熊孩子",
+                                        "gameName": "熊孩子",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/25/1042_25_WildVick_CN.png"
                 }
             ],
@@ -9446,13 +9184,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Thunder Land",
+                                        "gameName": "Thunder Land",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/90/1042_90_ThunderLand.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "雷霆槌",
+                                        "gameName": "雷霆槌",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/90/1042_90_ThunderLand_CN.png"
                 }
             ],
@@ -9518,13 +9254,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cat and Mouse",
+                                        "gameName": "Cat and Mouse",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/118/1042_118_CatandMouse.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猫和老鼠",
+                                        "gameName": "猫和老鼠",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/118/1042_118_CatandMouse_CN.png"
                 }
             ],
@@ -9590,13 +9324,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Beauty Trap",
+                                        "gameName": "Beauty Trap",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/123/1042_123_BeautyTrap.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "美人计",
+                                        "gameName": "美人计",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/123/1042_123_BeautyTrap_CN.png"
                 }
             ],
@@ -9662,13 +9394,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Book of Mummy",
+                                        "gameName": "Book of Mummy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/275/1042_275_BookofMummy.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神秘木乃伊",
+                                        "gameName": "神秘木乃伊",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/275/1042_275_BookofMummy_CN.png"
                 }
             ],
@@ -9734,13 +9464,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortune Fu",
+                                        "gameName": "Fortune Fu",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/273/1042_273_FortuneFu.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "福满门",
+                                        "gameName": "福满门",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/273/1042_273_FortuneFu_CN.png"
                 }
             ],
@@ -9806,13 +9534,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Alter World",
+                                        "gameName": "Alter World",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/551/1042_551_AlterWorld.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "大战异世界",
+                                        "gameName": "大战异世界",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/551/1042_551_AlterWorld_CN.png"
                 }
             ],
@@ -9878,13 +9604,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Succubus Secret",
+                                        "gameName": "Succubus Secret",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/703/1042_703_SuccubusSecret.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "魅魔的秘密",
+                                        "gameName": "魅魔的秘密",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/703/1042_703_SuccubusSecret_CN.jpg"
                 }
             ],
@@ -9950,13 +9674,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Crazy Circus",
+                                        "gameName": "Crazy Circus",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/476/1042_476_CrazyCircus.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "疯狂马戏团",
+                                        "gameName": "疯狂马戏团",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/476/1042_476_CrazyCircus_CN.png"
                 }
             ],
@@ -10022,13 +9744,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ocean Princess",
+                                        "gameName": "Ocean Princess",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/566/1042_566_OceanPrincess.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "海霸姬",
+                                        "gameName": "海霸姬",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/566/1042_566_OceanPrincess_CN.png"
                 }
             ],
@@ -10094,13 +9814,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Empty City",
+                                        "gameName": "Empty City",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/148/1042_148_EmptyCity.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "空城计",
+                                        "gameName": "空城计",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/148/1042_148_EmptyCity_CN.png"
                 }
             ],
@@ -10166,13 +9884,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Super Box",
+                                        "gameName": "Super Box",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/715/1042_715_SuperBox.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "超级箱",
+                                        "gameName": "超级箱",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/715/1042_715_SuperBox_CN.jpg"
                 }
             ],
@@ -10238,13 +9954,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Stardom Rush",
+                                        "gameName": "Stardom Rush",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/725/1042_725_StardomRush.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "巨星必修指南",
+                                        "gameName": "巨星必修指南",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/725/1042_725_StardomRush_CN.jpg"
                 }
             ],
@@ -10310,13 +10024,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Shaolin Soccer",
+                                        "gameName": "Shaolin Soccer",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/161/1042_161_ShaolinSoccer.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "少林足球",
+                                        "gameName": "少林足球",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/161/1042_161_ShaolinSoccer_CN.png"
                 }
             ],
@@ -10382,13 +10094,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Super Bonus Mania",
+                                        "gameName": "Super Bonus Mania",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/28/1042_28_SuperBonusMania.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "超级疯狂奖金",
+                                        "gameName": "超级疯狂奖金",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/28/1042_28_SuperBonusMania_CN.png"
                 }
             ],
@@ -10454,13 +10164,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Moulin Rouge",
+                                        "gameName": "Moulin Rouge",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/175/1042_175_MoulinRouge.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "红磨坊",
+                                        "gameName": "红磨坊",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/175/1042_175_MoulinRouge_CN.png"
                 }
             ],
@@ -10526,13 +10234,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon Palace Adventure",
+                                        "gameName": "Dragon Palace Adventure",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/641/1042_641_DragonPalaceAdventure.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "龙宫探险",
+                                        "gameName": "龙宫探险",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/641/1042_641_DragonPalaceAdventure_CN.jpg"
                 }
             ],
@@ -10598,13 +10304,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Ailurus",
+                                        "gameName": "Lucky Ailurus",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/54/1042_54_LuckyAilurus.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "福运小熊猫",
+                                        "gameName": "福运小熊猫",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/54/1042_54_LuckyAilurus_CN.png"
                 }
             ],
@@ -10670,13 +10374,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Butterfly Wild Dance",
+                                        "gameName": "Butterfly Wild Dance",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/740/1042_740_ButterflyWildDance.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "蝴蝶漫舞",
+                                        "gameName": "蝴蝶漫舞",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/740/1042_740_ButterflyWildDance_CN.jpg"
                 }
             ],
@@ -10742,13 +10444,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Master of Wulin Lock 2 Spin",
+                                        "gameName": "Master of Wulin Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/65/1042_65_MasterofWulinLock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "天下五绝 锁好运",
+                                        "gameName": "天下五绝 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/65/1042_65_MasterofWulinLock2Spin_CN.png"
                 }
             ],
@@ -10814,13 +10514,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "4 Dragon Kings",
+                                        "gameName": "4 Dragon Kings",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/555/1042_555_4DragonKings.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "四海游龙",
+                                        "gameName": "四海游龙",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/555/1042_555_4DragonKings_CN.png"
                 }
             ],
@@ -10886,13 +10584,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Barbarian Giants Fusion Reels",
+                                        "gameName": "Barbarian Giants Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/727/1042_727_BarbarianGiantsFusionReels.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "野蛮巨人 巨路发",
+                                        "gameName": "野蛮巨人 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/727/1042_727_BarbarianGiantsFusionReels_CN.jpg"
                 }
             ],
@@ -10958,13 +10654,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "No Fly Zone",
+                                        "gameName": "No Fly Zone",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/584/1042_584_NoFlyZone.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "禁飞区",
+                                        "gameName": "禁飞区",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/584/1042_584_NoFlyZone_CN.png"
                 }
             ],
@@ -11030,13 +10724,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mermaid World",
+                                        "gameName": "Mermaid World",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/565/1042_565_MermaidWorld.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "人鱼传说",
+                                        "gameName": "人鱼传说",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/565/1042_565_MermaidWorld_CN.png"
                 }
             ],
@@ -11102,13 +10794,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Steampunk Lock 2 Spin",
+                                        "gameName": "Steampunk Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/56/1042_56_SteampunkLock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "蒸气庞克 锁好运",
+                                        "gameName": "蒸气庞克 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/56/1042_56_SteampunkLock2Spin_CN.png"
                 }
             ],
@@ -11174,13 +10864,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Iron Chicken Hunter",
+                                        "gameName": "Iron Chicken Hunter",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/561/1042_561_IronChickenHunter.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "炮打铁公鸡",
+                                        "gameName": "炮打铁公鸡",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/561/1042_561_IronChickenHunter_CN.png"
                 }
             ],
@@ -11246,13 +10934,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Eight Treasures",
+                                        "gameName": "Eight Treasures",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/262/1042_262_EightTreasures.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "八吉祥",
+                                        "gameName": "八吉祥",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/262/1042_262_EightTreasures_CN.png"
                 }
             ],
@@ -11318,13 +11004,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fantasy 777",
+                                        "gameName": "Fantasy 777",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/375/1042_375_Fantasy777.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "梦幻777",
+                                        "gameName": "梦幻777",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/375/1042_375_Fantasy777_CN.png"
                 }
             ],
@@ -11390,13 +11074,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Space Cowboy",
+                                        "gameName": "Space Cowboy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/554/1042_554_SpaceCowboy.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "星际牛仔",
+                                        "gameName": "星际牛仔",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/554/1042_554_SpaceCowboy_CN.png"
                 }
             ],
@@ -11462,13 +11144,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Golden Magic Beans",
+                                        "gameName": "Golden Magic Beans",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/679/1042_679_GoldenMagicBeans.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "金色魔豆",
+                                        "gameName": "金色魔豆",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/679/1042_679_GoldenMagicBeans_CN.jpg"
                 }
             ],
@@ -11534,13 +11214,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "3x Monkeys",
+                                        "gameName": "3x Monkeys",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/126/1042_126_3xMonkeys.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猴猴猴",
+                                        "gameName": "猴猴猴",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/126/1042_126_3xMonkeys_CN.png"
                 }
             ],
@@ -11606,13 +11284,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Summer Samba",
+                                        "gameName": "Summer Samba",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/134/1042_134_SummerSamba.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "夏日森巴",
+                                        "gameName": "夏日森巴",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/134/1042_134_SummerSamba_CN.png"
                 }
             ],
@@ -11678,13 +11354,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cantonese Fried Noodles",
+                                        "gameName": "Cantonese Fried Noodles",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/82/1042_82_CantoneseFriedNoodles.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "广东炒面",
+                                        "gameName": "广东炒面",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/82/1042_82_CantoneseFriedNoodles_CN.png"
                 }
             ],
@@ -11750,13 +11424,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Undersea Treasure",
+                                        "gameName": "Undersea Treasure",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/575/1042_575_UnderseaTreasure.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "海底宝藏",
+                                        "gameName": "海底宝藏",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/575/1042_575_UnderseaTreasure_CN.png"
                 }
             ],
@@ -11822,13 +11494,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Holy Beast",
+                                        "gameName": "Holy Beast",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/302/1042_302_HolyBeast.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "圣兽天下",
+                                        "gameName": "圣兽天下",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/302/1042_302_HolyBeast_CN.png"
                 }
             ],
@@ -11894,13 +11564,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Year of the Rabbit",
+                                        "gameName": "Year of the Rabbit",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/136/1042_136_YearoftheRabbit.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "银兔满堂",
+                                        "gameName": "银兔满堂",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/136/1042_136_YearoftheRabbit_CN.png"
                 }
             ],
@@ -11966,13 +11634,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Golden Fish",
+                                        "gameName": "Golden Fish",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/284/1042_284_GoldenFish.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "黄金鲤鱼",
+                                        "gameName": "黄金鲤鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/284/1042_284_GoldenFish_CN.png"
                 }
             ],
@@ -12038,13 +11704,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Peony Pavilion",
+                                        "gameName": "The Peony Pavilion",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/64/1042_64_ThePeonyPavilion.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "牡丹亭",
+                                        "gameName": "牡丹亭",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/64/1042_64_ThePeonyPavilion_CN.png"
                 }
             ],
@@ -12110,13 +11774,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Rabbit Party",
+                                        "gameName": "Rabbit Party",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/579/1042_579_RabbitParty.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "金兔满膛",
+                                        "gameName": "金兔满膛",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/579/1042_579_RabbitParty_CN.png"
                 }
             ],
@@ -12182,13 +11844,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Legend of Akihiro",
+                                        "gameName": "Legend of Akihiro",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/197/1042_197_LegendofAkihiro.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "明宏传奇",
+                                        "gameName": "明宏传奇",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/197/1042_197_LegendofAkihiro_CN.png"
                 }
             ],
@@ -12254,13 +11914,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Love Express Lock 2 Spin",
+                                        "gameName": "Love Express Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/704/1042_704_LoveExpressLock2Spin.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "恋爱特快车 锁好运",
+                                        "gameName": "恋爱特快车 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/704/1042_704_LoveExpressLock2Spin_CN.jpg"
                 }
             ],
@@ -12326,13 +11984,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lion vs Shark",
+                                        "gameName": "Lion vs Shark",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/122/1042_122_LionvsShark.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "狮鲨对决",
+                                        "gameName": "狮鲨对决",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/122/1042_122_LionvsShark_CN.png"
                 }
             ],
@@ -12398,13 +12054,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Travel Through Time",
+                                        "gameName": "Travel Through Time",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/716/1042_716_TravelThroughTime.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "穿越时空",
+                                        "gameName": "穿越时空",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/716/1042_716_TravelThroughTime_CN.jpg"
                 }
             ],
@@ -12470,13 +12124,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Land Of Dwarfs",
+                                        "gameName": "Land Of Dwarfs",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/157/1042_157_LandOfDwarfs.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "精灵国",
+                                        "gameName": "精灵国",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/157/1042_157_LandOfDwarfs_CN.png"
                 }
             ],
@@ -12542,13 +12194,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Monster Collector",
+                                        "gameName": "Monster Collector",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/587/1042_587_MonsterCollector.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "怪物收藏家",
+                                        "gameName": "怪物收藏家",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/587/1042_587_MonsterCollector_CN.png"
                 }
             ],
@@ -12614,13 +12264,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chai Gong",
+                                        "gameName": "Chai Gong",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/188/1042_188_ChaiGong.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "济公",
+                                        "gameName": "济公",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/188/1042_188_ChaiGong_CN.png"
                 }
             ],
@@ -12686,13 +12334,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lion Dance",
+                                        "gameName": "Lion Dance",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/402/1042_402_LionDance.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "舞狮",
+                                        "gameName": "舞狮",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/402/1042_402_LionDance_CN.png"
                 }
             ],
@@ -12758,13 +12404,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "777 Vegas",
+                                        "gameName": "777 Vegas",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/371/1042_371_777Vegas.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "777拉斯维加斯",
+                                        "gameName": "777拉斯维加斯",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/371/1042_371_777Vegas_CN.png"
                 }
             ],
@@ -12830,13 +12474,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Detective Dee",
+                                        "gameName": "Detective Dee",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/209/1042_209_DetectiveDee.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "狄仁杰",
+                                        "gameName": "狄仁杰",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/209/1042_209_DetectiveDee_CN.png"
                 }
             ],
@@ -12902,13 +12544,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ice Cream Truck",
+                                        "gameName": "Ice Cream Truck",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/35/1042_35_IceCreamTruck.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "香甜冰淇淋",
+                                        "gameName": "香甜冰淇淋",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/35/1042_35_IceCreamTruck_CN.png"
                 }
             ],
@@ -12974,13 +12614,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Trick or Treat",
+                                        "gameName": "Trick or Treat",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/32/1042_32_TrickorTreat.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "不给糖就捣蛋",
+                                        "gameName": "不给糖就捣蛋",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/32/1042_32_TrickorTreat_CN.png"
                 }
             ],
@@ -13046,13 +12684,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fashion Bones",
+                                        "gameName": "Fashion Bones",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/168/1042_168_FashionBones.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "时尚骷髅",
+                                        "gameName": "时尚骷髅",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/168/1042_168_FashionBones_CN.png"
                 }
             ],
@@ -13118,13 +12754,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Penalty Kick",
+                                        "gameName": "Penalty Kick",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/156/1042_156_PenaltyKick.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "十二码罚球",
+                                        "gameName": "十二码罚球",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/156/1042_156_PenaltyKick_CN.png"
                 }
             ],
@@ -13190,13 +12824,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Polaroid",
+                                        "gameName": "Polaroid",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/311/1042_311_Polaroid.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "拍立得",
+                                        "gameName": "拍立得",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/311/1042_311_Polaroid_CN.png"
                 }
             ],
@@ -13262,13 +12894,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mahjong Master",
+                                        "gameName": "Mahjong Master",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/526/1042_526_MahjongMaster.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "牌神",
+                                        "gameName": "牌神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/526/1042_526_MahjongMaster_CN.png"
                 }
             ],
@@ -13334,13 +12964,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Cat",
+                                        "gameName": "Lucky Cat",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/340/1042_340_LuckyCat.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "招财福猫",
+                                        "gameName": "招财福猫",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/340/1042_340_LuckyCat_CN.png"
                 }
             ],
@@ -13406,13 +13034,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mexicaliente",
+                                        "gameName": "Mexicaliente",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/30/1042_30_Mexicaliente.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "火辣辣墨西哥",
+                                        "gameName": "火辣辣墨西哥",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/30/1042_30_Mexicaliente_CN.png"
                 }
             ],
@@ -13478,13 +13104,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Snow Queen",
+                                        "gameName": "Snow Queen",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/13/1042_13_SnowQueen.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "冰雪女王",
+                                        "gameName": "冰雪女王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/13/1042_13_SnowQueen_CN.png"
                 }
             ],
@@ -13550,13 +13174,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Carnival of Fracture",
+                                        "gameName": "Carnival of Fracture",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/749/1042_749_CarnivalofFracture.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "失控马戏团",
+                                        "gameName": "失控马戏团",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/749/1042_749_CarnivalofFracture_CN.jpg"
                 }
             ],
@@ -13622,13 +13244,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Red Boy",
+                                        "gameName": "Red Boy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/361/1042_361_RedBoy.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "红孩儿",
+                                        "gameName": "红孩儿",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/361/1042_361_RedBoy_CN.png"
                 }
             ],
@@ -13694,13 +13314,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Guan Yun Chang",
+                                        "gameName": "Guan Yun Chang",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/100/1042_100_GuanYunChang.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "关云长",
+                                        "gameName": "关云长",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/100/1042_100_GuanYunChang_CN.png"
                 }
             ],
@@ -13766,13 +13384,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Deepsea Luminous",
+                                        "gameName": "Deepsea Luminous",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/694/1042_694_DeepseaLuminous.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "深海夜光",
+                                        "gameName": "深海夜光",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/694/1042_694_DeepseaLuminous_CN.png"
                 }
             ],
@@ -13838,13 +13454,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Magic Apprentice",
+                                        "gameName": "Magic Apprentice",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/318/1042_318_MagicApprentice.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔法师学徒",
+                                        "gameName": "魔法师学徒",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/318/1042_318_MagicApprentice_CN.png"
                 }
             ],
@@ -13910,13 +13524,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Band Girl",
+                                        "gameName": "Band Girl",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/717/1042_717_BandGirl.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "乐团女孩",
+                                        "gameName": "乐团女孩",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/717/1042_717_BandGirl_CN.jpg"
                 }
             ],
@@ -13982,13 +13594,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Spider Goblin",
+                                        "gameName": "Spider Goblin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/112/1042_112_SpiderGoblin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "蜘蛛精",
+                                        "gameName": "蜘蛛精",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/112/1042_112_SpiderGoblin_CN.png"
                 }
             ],
@@ -14054,13 +13664,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Greatest Show",
+                                        "gameName": "Greatest Show",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/748/1042_748_GreatestShow.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "大表演家",
+                                        "gameName": "大表演家",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/748/1042_748_GreatestShow_CN.jpg"
                 }
             ],
@@ -14126,13 +13734,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dr Geek",
+                                        "gameName": "Dr Geek",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/20/1042_20_DrGeek.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神经博士",
+                                        "gameName": "神经博士",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/20/1042_20_DrGeek_CN.png"
                 }
             ],
@@ -14198,13 +13804,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ice Dragon King",
+                                        "gameName": "Ice Dragon King",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/737/1042_737_IceDragonKing.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "寒冰龙王",
+                                        "gameName": "寒冰龙王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/737/1042_737_IceDragonKing_CN.jpg"
                 }
             ],
@@ -14270,13 +13874,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Yue Fei",
+                                        "gameName": "Yue Fei",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/352/1042_352_YueFei.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "岳飞",
+                                        "gameName": "岳飞",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/352/1042_352_YueFei_CN.png"
                 }
             ],
@@ -14342,13 +13944,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Star",
+                                        "gameName": "Lucky Star",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/101/1042_101_LuckyStar.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "幸运星",
+                                        "gameName": "幸运星",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/101/1042_101_LuckyStar_CN.png"
                 }
             ],
@@ -14414,13 +14014,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lost Kingdom",
+                                        "gameName": "Lost Kingdom",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/730/1042_730_LostKingdom.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "失落的帝国",
+                                        "gameName": "失落的帝国",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/730/1042_730_LostKingdom_CN.jpg"
                 }
             ],
@@ -14486,13 +14084,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wu Song",
+                                        "gameName": "Wu Song",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/347/1042_347_WuSong.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "武松打虎",
+                                        "gameName": "武松打虎",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/347/1042_347_WuSong_CN.png"
                 }
             ],
@@ -14558,13 +14154,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Calabash Boys",
+                                        "gameName": "Calabash Boys",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/245/1042_245_CalabashBoys.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "葫芦娃",
+                                        "gameName": "葫芦娃",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/245/1042_245_CalabashBoys_CN.png"
                 }
             ],
@@ -14630,13 +14224,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Diamond Power",
+                                        "gameName": "Diamond Power",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/305/1042_305_DiamondPower.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "钻石力",
+                                        "gameName": "钻石力",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/305/1042_305_DiamondPower_CN.png"
                 }
             ],
@@ -14702,13 +14294,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Can Can",
+                                        "gameName": "Can Can",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/267/1042_267_CanCan.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "大腿舞",
+                                        "gameName": "大腿舞",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/267/1042_267_CanCan_CN.png"
                 }
             ],
@@ -14774,13 +14364,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Funky Disco",
+                                        "gameName": "Funky Disco",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/711/1042_711_FunkyDisco.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "疯克迪斯科",
+                                        "gameName": "疯克迪斯科",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/711/1042_711_FunkyDisco_CN.jpg"
                 }
             ],
@@ -14846,13 +14434,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Shock Tower",
+                                        "gameName": "Shock Tower",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/26/1042_26_ShockTower.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "激爆电流",
+                                        "gameName": "激爆电流",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/26/1042_26_ShockTower_CN.png"
                 }
             ],
@@ -14918,13 +14504,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "James Bond",
+                                        "gameName": "James Bond",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/110/1042_110_JamesBond.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "特务零零七",
+                                        "gameName": "特务零零七",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/110/1042_110_JamesBond_CN.png"
                 }
             ],
@@ -14990,13 +14574,11 @@ export const kaGames = [
             "lines": 30,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Monkey Heist",
+                                        "gameName": "Monkey Heist",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/643/1042_643_MonkeyHeist.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "大盗猴",
+                                        "gameName": "大盗猴",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/643/1042_643_MonkeyHeist_CN.jpg"
                 }
             ],
@@ -15062,13 +14644,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Special OPS",
+                                        "gameName": "Special OPS",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/570/1042_570_SpecialOPS.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "特战部队",
+                                        "gameName": "特战部队",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/570/1042_570_SpecialOPS_CN.png"
                 }
             ],
@@ -15134,13 +14714,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Party Girl Ways",
+                                        "gameName": "Party Girl Ways",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/451/1042_451_PartyGirlWays.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "夜店美眉2",
+                                        "gameName": "夜店美眉2",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/451/1042_451_PartyGirlWays_CN.png"
                 }
             ],
@@ -15206,13 +14784,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Nie Xiaoqian",
+                                        "gameName": "Nie Xiaoqian",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/60/1042_60_NieXiaoqian.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "聂小倩",
+                                        "gameName": "聂小倩",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/60/1042_60_NieXiaoqian_CN.png"
                 }
             ],
@@ -15278,13 +14854,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Primitive Man",
+                                        "gameName": "Primitive Man",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/719/1042_719_PrimitiveMan.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "原始人",
+                                        "gameName": "原始人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/719/1042_719_PrimitiveMan_CN.jpg"
                 }
             ],
@@ -15350,13 +14924,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Naughty Witches",
+                                        "gameName": "Naughty Witches",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/578/1042_578_NaughtyWitches.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "捣蛋女巫",
+                                        "gameName": "捣蛋女巫",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/578/1042_578_NaughtyWitches_CN.png"
                 }
             ],
@@ -15422,13 +14994,11 @@ export const kaGames = [
             "lines": 40,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lightning Storm",
+                                        "gameName": "Lightning Storm",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/624/1042_624_LightningStorm.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "闪电风暴",
+                                        "gameName": "闪电风暴",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/624/1042_624_LightningStorm_CN.png"
                 }
             ],
@@ -15494,13 +15064,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Iduns Garden Fusion Reels",
+                                        "gameName": "Iduns Garden Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/50/1042_50_IdunsGardenFusionReels.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "伊登的花园 巨路发",
+                                        "gameName": "伊登的花园 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/50/1042_50_IdunsGardenFusionReels_CN.png"
                 }
             ],
@@ -15566,13 +15134,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mythological Creatures",
+                                        "gameName": "Mythological Creatures",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/310/1042_310_MythologicalCreatures.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神兽",
+                                        "gameName": "神兽",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/310/1042_310_MythologicalCreatures_CN.png"
                 }
             ],
@@ -15638,13 +15204,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Luxury Vegas",
+                                        "gameName": "Luxury Vegas",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/620/1042_620_LuxuryVegas.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "奢华不夜城",
+                                        "gameName": "奢华不夜城",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/620/1042_620_LuxuryVegas_CN.png"
                 }
             ],
@@ -15710,13 +15274,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chain of Wild",
+                                        "gameName": "Chain of Wild",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/186/1042_186_ChainofWild.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "连环计",
+                                        "gameName": "连环计",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/186/1042_186_ChainofWild_CN.png"
                 }
             ],
@@ -15782,13 +15344,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Lucky",
+                                        "gameName": "Lucky Lucky",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/314/1042_314_LuckyLucky.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "开运招财",
+                                        "gameName": "开运招财",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/314/1042_314_LuckyLucky_CN.png"
                 }
             ],
@@ -15854,13 +15414,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Treasure Bowl Megaways",
+                                        "gameName": "Treasure Bowl Megaways",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/269/1042_269_TreasureBowlMegaways.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "聚宝盆 巨路发",
+                                        "gameName": "聚宝盆 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/269/1042_269_TreasureBowlMegaways_CN.png"
                 }
             ],
@@ -15926,13 +15484,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hou Yi",
+                                        "gameName": "Hou Yi",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/19/1042_19_HouYi.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "后羿射日",
+                                        "gameName": "后羿射日",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/19/1042_19_HouYi_CN.png"
                 }
             ],
@@ -15998,13 +15554,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Penguin Family Lock 2 Spin",
+                                        "gameName": "Penguin Family Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/105/1042_105_PenguinFamilyLock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "企鹅一族 锁好运",
+                                        "gameName": "企鹅一族 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/105/1042_105_PenguinFamilyLock2Spin_CN.png"
                 }
             ],
@@ -16070,13 +15624,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lantern Festival",
+                                        "gameName": "Lantern Festival",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/316/1042_316_LanternFestival.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "元宵",
+                                        "gameName": "元宵",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/316/1042_316_LanternFestival_CN.png"
                 }
             ],
@@ -16142,13 +15694,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Onmyoji",
+                                        "gameName": "Onmyoji",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/591/1042_591_Onmyoji.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "阴阳师",
+                                        "gameName": "阴阳师",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/591/1042_591_Onmyoji_CN.png"
                 }
             ],
@@ -16214,13 +15764,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cinderella's Glass Slipper",
+                                        "gameName": "Cinderella's Glass Slipper",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/721/1042_721_CinderellasGlassSlipper.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "仙度瑞拉的玻璃鞋",
+                                        "gameName": "仙度瑞拉的玻璃鞋",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/721/1042_721_CinderellasGlassSlipper_CN.jpg"
                 }
             ],
@@ -16286,13 +15834,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "World of Lord Witch King",
+                                        "gameName": "World of Lord Witch King",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/583/1042_583_WorldofLordWitchKing.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔域 巫王",
+                                        "gameName": "魔域 巫王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/583/1042_583_WorldofLordWitchKing_CN.png"
                 }
             ],
@@ -16358,13 +15904,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Tactical Flush",
+                                        "gameName": "Tactical Flush",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/731/1042_731_TacticalFlush.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "青春炸弹班",
+                                        "gameName": "青春炸弹班",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/731/1042_731_TacticalFlush_CN.jpg"
                 }
             ],
@@ -16430,13 +15974,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Monkey Maniac",
+                                        "gameName": "Monkey Maniac",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/235/1042_235_MonkeyManiac.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猴子也疯狂",
+                                        "gameName": "猴子也疯狂",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/235/1042_235_MonkeyManiac_CN.png"
                 }
             ],
@@ -16502,13 +16044,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Plague Doctor",
+                                        "gameName": "Plague Doctor",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/145/1042_145_PlagueDoctor.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "鸟嘴医生",
+                                        "gameName": "鸟嘴医生",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/145/1042_145_PlagueDoctor_CN.png"
                 }
             ],
@@ -16574,13 +16114,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Monkey King",
+                                        "gameName": "Monkey King",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/43/1042_43_MonkeyKing.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "美猴王",
+                                        "gameName": "美猴王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/43/1042_43_MonkeyKing_CN.png"
                 }
             ],
@@ -16646,13 +16184,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Secret of Ocean",
+                                        "gameName": "Secret of Ocean",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/301/1042_301_SecretofOcean.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "海洋传说",
+                                        "gameName": "海洋传说",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/301/1042_301_SecretofOcean_CN.png"
                 }
             ],
@@ -16718,13 +16254,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Happy Food Hunter",
+                                        "gameName": "Happy Food Hunter",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/567/1042_567_HappyFoodHunter.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "海底捞",
+                                        "gameName": "海底捞",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/567/1042_567_HappyFoodHunter_CN.png"
                 }
             ],
@@ -16790,13 +16324,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Up Helly Aa",
+                                        "gameName": "Up Helly Aa",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/139/1042_139_UpHellyAa.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "维京火祭",
+                                        "gameName": "维京火祭",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/139/1042_139_UpHellyAa_CN.png"
                 }
             ],
@@ -16862,13 +16394,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ghostbuster",
+                                        "gameName": "Ghostbuster",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/363/1042_363_Ghostbuster.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "天师钟馗",
+                                        "gameName": "天师钟馗",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/363/1042_363_Ghostbuster_CN.png"
                 }
             ],
@@ -16934,13 +16464,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bonus Poker",
+                                        "gameName": "Bonus Poker",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/165/1042_165_BonusPoker.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "奖励扑克",
+                                        "gameName": "奖励扑克",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/165/1042_165_BonusPoker_CN.png"
                 }
             ],
@@ -17006,13 +16534,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Super Video Poker",
+                                        "gameName": "Super Video Poker",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/507/1042_507_SuperVideoPoker.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "电动扑克",
+                                        "gameName": "电动扑克",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/507/1042_507_SuperVideoPoker_CN.png"
                 }
             ],
@@ -17078,13 +16604,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ares God of War",
+                                        "gameName": "Ares God of War",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/496/1042_496_AresGodofWar.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "战神之战",
+                                        "gameName": "战神之战",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/496/1042_496_AresGodofWar_CN.png"
                 }
             ],
@@ -17150,13 +16674,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mermaid Legend",
+                                        "gameName": "Mermaid Legend",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/581/1042_581_MermaidLegend.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "追渔物语",
+                                        "gameName": "追渔物语",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/581/1042_581_MermaidLegend_CN.png"
                 }
             ],
@@ -17222,13 +16744,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lightning Goddess",
+                                        "gameName": "Lightning Goddess",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/80/1042_80_LightningGoddess.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "火电公主",
+                                        "gameName": "火电公主",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/80/1042_80_LightningGoddess_CN.png"
                 }
             ],
@@ -17294,13 +16814,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Food Coma",
+                                        "gameName": "Food Coma",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/574/1042_574_FoodComa.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "大胃王",
+                                        "gameName": "大胃王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/574/1042_574_FoodComa_CN.png"
                 }
             ],
@@ -17366,13 +16884,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sorcerer and Demon",
+                                        "gameName": "Sorcerer and Demon",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/616/1042_616_SorcererandDemon.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "超级神魔战",
+                                        "gameName": "超级神魔战",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/616/1042_616_SorcererandDemon_CN.png"
                 }
             ],
@@ -17438,13 +16954,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Irish Coins Lock 2 Spin",
+                                        "gameName": "Irish Coins Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/120/1042_120_IrishCoinsLock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "圣帕特里克 锁好运",
+                                        "gameName": "圣帕特里克 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/120/1042_120_IrishCoinsLock2Spin_CN.png"
                 }
             ],
@@ -17510,13 +17024,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Legend of Sword",
+                                        "gameName": "Legend of Sword",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/597/1042_597_LegendofSword.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "干将莫邪",
+                                        "gameName": "干将莫邪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/597/1042_597_LegendofSword_CN.png"
                 }
             ],
@@ -17582,13 +17094,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Monster File",
+                                        "gameName": "Monster File",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/75/1042_75_MonsterFile.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "怪物档案",
+                                        "gameName": "怪物档案",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/75/1042_75_MonsterFile_CN.png"
                 }
             ],
@@ -17654,13 +17164,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Inn",
+                                        "gameName": "Lucky Inn",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/233/1042_233_LuckyInn.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "特级餐馆",
+                                        "gameName": "特级餐馆",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/233/1042_233_LuckyInn_CN.png"
                 }
             ],
@@ -17726,13 +17234,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lost Realm",
+                                        "gameName": "Lost Realm",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/519/1042_519_LostRealm.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "失落的王国",
+                                        "gameName": "失落的王国",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/519/1042_519_LostRealm_CN.png"
                 }
             ],
@@ -17798,13 +17304,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sweetopia",
+                                        "gameName": "Sweetopia",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/287/1042_287_Sweetopia.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "甜蜜王国",
+                                        "gameName": "甜蜜王国",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/287/1042_287_Sweetopia_CN.png"
                 }
             ],
@@ -17870,13 +17374,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Edge of the Stars",
+                                        "gameName": "Edge of the Stars",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/741/1042_741_EdgeOfTheStars.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "星际边缘",
+                                        "gameName": "星际边缘",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/741/1042_741_EdgeOfTheStars_CN.jpg"
                 }
             ],
@@ -17942,13 +17444,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Teen Patti 20-20",
+                                        "gameName": "Teen Patti 20-20",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/707/1042_707_TeenPatti2020.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "印度炸金花",
+                                        "gameName": "印度炸金花",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/707/1042_707_TeenPatti2020_CN.jpg"
                 }
             ],
@@ -18014,13 +17514,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Joker Fruit",
+                                        "gameName": "Joker Fruit",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/10/1042_10_JokerFruit.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "王牌水果",
+                                        "gameName": "王牌水果",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/10/1042_10_JokerFruit_CN.png"
                 }
             ],
@@ -18086,13 +17584,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Grandmaster",
+                                        "gameName": "The Grandmaster",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/405/1042_405_TheGrandmaster.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "一代宗师",
+                                        "gameName": "一代宗师",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/405/1042_405_TheGrandmaster_CN.png"
                 }
             ],
@@ -18158,13 +17654,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "World of Lord Elf King",
+                                        "gameName": "World of Lord Elf King",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/577/1042_577_WorldofLordElfKing.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔域 精灵王",
+                                        "gameName": "魔域 精灵王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/577/1042_577_WorldofLordElfKing_CN.png"
                 }
             ],
@@ -18230,13 +17724,11 @@ export const kaGames = [
             "lines": 30,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fashion Life",
+                                        "gameName": "Fashion Life",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/615/1042_615_FashionLife.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "时尚生活",
+                                        "gameName": "时尚生活",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/615/1042_615_FashionLife_CN.png"
                 }
             ],
@@ -18302,13 +17794,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Won Won Catching",
+                                        "gameName": "Won Won Catching",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/297/1042_297_WonWonCatching.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "旺旺抓虫",
+                                        "gameName": "旺旺抓虫",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/297/1042_297_WonWonCatching_CN.png"
                 }
             ],
@@ -18374,13 +17864,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wizard of Wild",
+                                        "gameName": "Wizard of Wild",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/588/1042_588_WizardofWild.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "荒野仙踪",
+                                        "gameName": "荒野仙踪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/588/1042_588_WizardofWild_CN.png"
                 }
             ],
@@ -18446,13 +17934,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Heroines of the Marsh",
+                                        "gameName": "Heroines of the Marsh",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/178/1042_178_HeroinesoftheMarsh.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "水浒三女将",
+                                        "gameName": "水浒三女将",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/178/1042_178_HeroinesoftheMarsh_CN.png"
                 }
             ],
@@ -18518,13 +18004,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bollywood Romance",
+                                        "gameName": "Bollywood Romance",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/258/1042_258_BollywoodRomance.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "宝莱情缘",
+                                        "gameName": "宝莱情缘",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/258/1042_258_BollywoodRomance_CN.png"
                 }
             ],
@@ -18590,13 +18074,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Greedy Night",
+                                        "gameName": "Greedy Night",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/66/1042_66_GreedyNight.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "贪婪之夜",
+                                        "gameName": "贪婪之夜",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/66/1042_66_GreedyNight_CN.png"
                 }
             ],
@@ -18662,13 +18144,11 @@ export const kaGames = [
             "lines": 25,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Calligraphy Master",
+                                        "gameName": "Calligraphy Master",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/628/1042_628_CalligraphyMaster.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "书圣",
+                                        "gameName": "书圣",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/628/1042_628_CalligraphyMaster_CN.png"
                 }
             ],
@@ -18734,13 +18214,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Blazing Circus",
+                                        "gameName": "Blazing Circus",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/720/1042_720_BlazingCircus.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "灿火马戏团",
+                                        "gameName": "灿火马戏团",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/720/1042_720_BlazingCircus_CN.jpg"
                 }
             ],
@@ -18806,13 +18284,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lilith",
+                                        "gameName": "Lilith",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/61/1042_61_Lilith.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "莉莉丝",
+                                        "gameName": "莉莉丝",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/61/1042_61_Lilith_CN.png"
                 }
             ],
@@ -18878,13 +18354,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Nvwa",
+                                        "gameName": "Nvwa",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/409/1042_409_Nvwa.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "女娲补天",
+                                        "gameName": "女娲补天",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/409/1042_409_Nvwa_CN.png"
                 }
             ],
@@ -18950,13 +18424,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Red Riding Hood",
+                                        "gameName": "Red Riding Hood",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/502/1042_502_RedRidingHood.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "小红帽",
+                                        "gameName": "小红帽",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/502/1042_502_RedRidingHood_CN.png"
                 }
             ],
@@ -19022,13 +18494,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "KungFu Kash",
+                                        "gameName": "KungFu Kash",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/493/1042_493_KungFuKash.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "功夫传说",
+                                        "gameName": "功夫传说",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/493/1042_493_KungFuKash_CN.png"
                 }
             ],
@@ -19094,13 +18564,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chinese Zombie",
+                                        "gameName": "Chinese Zombie",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/708/1042_708_ChineseZombie.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "中国僵尸",
+                                        "gameName": "中国僵尸",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/708/1042_708_ChineseZombie_CN.jpg"
                 }
             ],
@@ -19166,13 +18634,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Quick Play Mahjong",
+                                        "gameName": "Quick Play Mahjong",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/433/1042_433_QuickPlayMahjong.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "雀圣",
+                                        "gameName": "雀圣",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/433/1042_433_QuickPlayMahjong_CN.png"
                 }
             ],
@@ -19238,13 +18704,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Speakeasy",
+                                        "gameName": "Speakeasy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/18/1042_18_Speakeasy.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "灯红酒绿",
+                                        "gameName": "灯红酒绿",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/18/1042_18_Speakeasy_CN.png"
                 }
             ],
@@ -19310,13 +18774,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Christmas Candy",
+                                        "gameName": "Christmas Candy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/332/1042_332_ChristmasCandy.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "圣诞糖果",
+                                        "gameName": "圣诞糖果",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/332/1042_332_ChristmasCandy_CN.png"
                 }
             ],
@@ -19382,13 +18844,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Pumpkin Win",
+                                        "gameName": "Pumpkin Win",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/350/1042_350_PumpkinWin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "万圣夜",
+                                        "gameName": "万圣夜",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/350/1042_350_PumpkinWin_CN.png"
                 }
             ],
@@ -19454,13 +18914,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bombing Kraken",
+                                        "gameName": "Bombing Kraken",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/595/1042_595_BombingKraken.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "轰炸海妖",
+                                        "gameName": "轰炸海妖",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/595/1042_595_BombingKraken_CN.png"
                 }
             ],
@@ -19526,13 +18984,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Poseidon Battle",
+                                        "gameName": "Poseidon Battle",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/590/1042_590_PoseidonBattle.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "海王争霸",
+                                        "gameName": "海王争霸",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/590/1042_590_PoseidonBattle_CN.png"
                 }
             ],
@@ -19598,13 +19054,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon Inn",
+                                        "gameName": "Dragon Inn",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/159/1042_159_DragonInn.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "龙门客栈",
+                                        "gameName": "龙门客栈",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/159/1042_159_DragonInn_CN.png"
                 }
             ],
@@ -19670,13 +19124,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Captain Pirate",
+                                        "gameName": "Captain Pirate",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/536/1042_536_CaptainPirate.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "海盗船长",
+                                        "gameName": "海盗船长",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/536/1042_536_CaptainPirate_CN.png"
                 }
             ],
@@ -19742,13 +19194,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Oktoberfest",
+                                        "gameName": "Oktoberfest",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/179/1042_179_Oktoberfest.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "慕尼黑啤酒节",
+                                        "gameName": "慕尼黑啤酒节",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/179/1042_179_Oktoberfest_CN.png"
                 }
             ],
@@ -19814,13 +19264,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Werewolf Is Coming",
+                                        "gameName": "Werewolf Is Coming",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/289/1042_289_WerewolfIsComing.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "天黑请闭眼",
+                                        "gameName": "天黑请闭眼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/289/1042_289_WerewolfIsComing_CN.png"
                 }
             ],
@@ -19886,13 +19334,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortune Rabbit Lock 2 Spin",
+                                        "gameName": "Fortune Rabbit Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/137/1042_137_FortuneRabbitLock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "玉兔迎春 锁好运",
+                                        "gameName": "玉兔迎春 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/137/1042_137_FortuneRabbitLock2Spin_CN.png"
                 }
             ],
@@ -19958,13 +19404,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Zodiac Hunting",
+                                        "gameName": "Zodiac Hunting",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/594/1042_594_ZodiacHunting.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猎杀十二生肖",
+                                        "gameName": "猎杀十二生肖",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/594/1042_594_ZodiacHunting_CN.png"
                 }
             ],
@@ -20030,13 +19474,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fighting Girls",
+                                        "gameName": "Fighting Girls",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/205/1042_205_FightingGirls.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "格斗女孩",
+                                        "gameName": "格斗女孩",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/205/1042_205_FightingGirls_CN.png"
                 }
             ],
@@ -20102,13 +19544,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wilderness Cowboy",
+                                        "gameName": "Wilderness Cowboy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/685/1042_685_WildernessCowboy.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "荒野牛仔",
+                                        "gameName": "荒野牛仔",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/685/1042_685_WildernessCowboy_CN.jpg"
                 }
             ],
@@ -20174,13 +19614,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Three Heroes",
+                                        "gameName": "Three Heroes",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/455/1042_455_ThreeHeroes.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "蜀汉三英豪",
+                                        "gameName": "蜀汉三英豪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/455/1042_455_ThreeHeroes_CN.png"
                 }
             ],
@@ -20246,13 +19684,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Double Happiness",
+                                        "gameName": "Double Happiness",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/62/1042_62_DoubleHappiness.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "红双喜",
+                                        "gameName": "红双喜",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/62/1042_62_DoubleHappiness_CN.png"
                 }
             ],
@@ -20318,13 +19754,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Tango Twirl",
+                                        "gameName": "Tango Twirl",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/736/1042_736_TangoTwirl.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "轻旋探戈",
+                                        "gameName": "轻旋探戈",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/736/1042_736_TangoTwirl_CN.jpg"
                 }
             ],
@@ -20390,13 +19824,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Night on the Nile",
+                                        "gameName": "Night on the Nile",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/92/1042_92_NightontheNile.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "尼罗河之夜",
+                                        "gameName": "尼罗河之夜",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/92/1042_92_NightontheNile_CN.png"
                 }
             ],
@@ -20462,13 +19894,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ming Imperial Guards",
+                                        "gameName": "Ming Imperial Guards",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/511/1042_511_MingImperialGuards.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "大明锦衣卫",
+                                        "gameName": "大明锦衣卫",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/511/1042_511_MingImperialGuards_CN.png"
                 }
             ],
@@ -20534,13 +19964,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ocean Star Hunting",
+                                        "gameName": "Ocean Star Hunting",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/576/1042_576_OceanStarHunting.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "海洋之星大作战",
+                                        "gameName": "海洋之星大作战",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/576/1042_576_OceanStarHunting_CN.png"
                 }
             ],
@@ -20606,13 +20034,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lady Racer",
+                                        "gameName": "Lady Racer",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/119/1042_119_LadyRacer.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "赛车女孩",
+                                        "gameName": "赛车女孩",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/119/1042_119_LadyRacer_CN.png"
                 }
             ],
@@ -20678,13 +20104,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Guard of Hades",
+                                        "gameName": "The Guard of Hades",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/282/1042_282_TheGuardofHades.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "牛头马面",
+                                        "gameName": "牛头马面",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/282/1042_282_TheGuardofHades_CN.png"
                 }
             ],
@@ -20750,13 +20174,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Rich Squire",
+                                        "gameName": "Rich Squire",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/450/1042_450_RichSquire.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "财多多",
+                                        "gameName": "财多多",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/450/1042_450_RichSquire_CN.png"
                 }
             ],
@@ -20822,13 +20244,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Four Scholars",
+                                        "gameName": "The Four Scholars",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/424/1042_424_TheFourScholars.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "四大才子",
+                                        "gameName": "四大才子",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/424/1042_424_TheFourScholars_CN.png"
                 }
             ],
@@ -20894,13 +20314,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Atlantide",
+                                        "gameName": "Atlantide",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/240/1042_240_Atlantide.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "亚特兰提斯",
+                                        "gameName": "亚特兰提斯",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/240/1042_240_Atlantide_CN.png"
                 }
             ],
@@ -20966,13 +20384,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Enchanted",
+                                        "gameName": "Enchanted",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/532/1042_532_Enchanted.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔幻世界",
+                                        "gameName": "魔幻世界",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/532/1042_532_Enchanted_CN.png"
                 }
             ],
@@ -21038,13 +20454,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Gangster Overlord",
+                                        "gameName": "Gangster Overlord",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/647/1042_647_GangsterOverlord.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "黑帮霸主",
+                                        "gameName": "黑帮霸主",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/647/1042_647_GangsterOverlord_CN.png"
                 }
             ],
@@ -21110,13 +20524,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Zombie Land",
+                                        "gameName": "Zombie Land",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/491/1042_491_ZombieLand.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "僵尸的世界",
+                                        "gameName": "僵尸的世界",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/491/1042_491_ZombieLand_CN.png"
                 }
             ],
@@ -21182,13 +20594,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Lotus Lamp",
+                                        "gameName": "The Lotus Lamp",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/366/1042_366_TheLotusLamp.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "宝莲灯",
+                                        "gameName": "宝莲灯",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/366/1042_366_TheLotusLamp_CN.png"
                 }
             ],
@@ -21254,13 +20664,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Triple Dragons",
+                                        "gameName": "Triple Dragons",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/449/1042_449_TripleDragons.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "开龙发发发",
+                                        "gameName": "开龙发发发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/449/1042_449_TripleDragons_CN.png"
                 }
             ],
@@ -21326,13 +20734,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bounty Hunter",
+                                        "gameName": "Bounty Hunter",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/210/1042_210_BountyHunter.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "赏金猎人",
+                                        "gameName": "赏金猎人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/210/1042_210_BountyHunter_CN.png"
                 }
             ],
@@ -21398,13 +20804,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Love Amongst War",
+                                        "gameName": "Love Amongst War",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/135/1042_135_LoveAmongstWar.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "薛平贵与王宝钏",
+                                        "gameName": "薛平贵与王宝钏",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/135/1042_135_LoveAmongstWar_CN.png"
                 }
             ],
@@ -21470,13 +20874,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Legend of Legends",
+                                        "gameName": "Legend of Legends",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/116/1042_116_LegendofLegends.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "英雄传说",
+                                        "gameName": "英雄传说",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/116/1042_116_LegendofLegends_CN.png"
                 }
             ],
@@ -21542,13 +20944,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fu Shenlong",
+                                        "gameName": "Fu Shenlong",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/232/1042_232_FuShenlong.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "福神龙",
+                                        "gameName": "福神龙",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/232/1042_232_FuShenlong_CN.png"
                 }
             ],
@@ -21614,13 +21014,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Treasure Tiger",
+                                        "gameName": "Treasure Tiger",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/254/1042_254_TreasureTiger.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "金虎招财",
+                                        "gameName": "金虎招财",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/254/1042_254_TreasureTiger_CN.png"
                 }
             ],
@@ -21686,13 +21084,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky God",
+                                        "gameName": "Lucky God",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/141/1042_141_LuckyGod.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "幸运财神",
+                                        "gameName": "幸运财神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/141/1042_141_LuckyGod_CN.png"
                 }
             ],
@@ -21758,13 +21154,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Zombie Siege",
+                                        "gameName": "Zombie Siege",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/733/1042_733_ZombieSiege.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "丧尸围城",
+                                        "gameName": "丧尸围城",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/733/1042_733_ZombieSiege_CN.jpg"
                 }
             ],
@@ -21830,13 +21224,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dice Duels",
+                                        "gameName": "Dice Duels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/750/1042_750_DiceDuels.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "骰子决斗",
+                                        "gameName": "骰子决斗",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/750/1042_750_DiceDuels_CN.jpg"
                 }
             ],
@@ -21902,13 +21294,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "War of Thrones",
+                                        "gameName": "War of Thrones",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/174/1042_174_WarofThrones.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "权力之战",
+                                        "gameName": "权力之战",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/174/1042_174_WarofThrones_CN.png"
                 }
             ],
@@ -21974,13 +21364,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Charming Sorceress",
+                                        "gameName": "Charming Sorceress",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/354/1042_354_CharmingSorceress.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "迷人魔法师",
+                                        "gameName": "迷人魔法师",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/354/1042_354_CharmingSorceress_CN.png"
                 }
             ],
@@ -22046,13 +21434,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Door Gods",
+                                        "gameName": "The Door Gods",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/351/1042_351_TheDoorGods.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "门神",
+                                        "gameName": "门神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/351/1042_351_TheDoorGods_CN.png"
                 }
             ],
@@ -22118,13 +21504,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Slap It",
+                                        "gameName": "Slap It",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/89/1042_89_SlapIt.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "拍打它",
+                                        "gameName": "拍打它",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/89/1042_89_SlapIt_CN.png"
                 }
             ],
@@ -22190,13 +21574,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "20000 Leagues under the Sea",
+                                        "gameName": "20000 Leagues under the Sea",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/619/1042_619_20000LeaguesundertheSea.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "海底两万里",
+                                        "gameName": "海底两万里",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/619/1042_619_20000LeaguesundertheSea_CN.png"
                 }
             ],
@@ -22262,13 +21644,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "God of Gamblers",
+                                        "gameName": "God of Gamblers",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/103/1042_103_GodofGamblers.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "至尊赌神",
+                                        "gameName": "至尊赌神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/103/1042_103_GodofGamblers_CN.png"
                 }
             ],
@@ -22334,13 +21714,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Daji",
+                                        "gameName": "Daji",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/440/1042_440_Daji.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "媚狐妲己",
+                                        "gameName": "媚狐妲己",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/440/1042_440_Daji_CN.png"
                 }
             ],
@@ -22406,13 +21784,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Yakyuken",
+                                        "gameName": "Yakyuken",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/673/1042_673_Yakyuken.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "野球拳",
+                                        "gameName": "野球拳",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/673/1042_673_Yakyuken_CN.jpg"
                 }
             ],
@@ -22478,13 +21854,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "GO GO Magic Dog",
+                                        "gameName": "GO GO Magic Dog",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/557/1042_557_GOGOMagicDog.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔斗汪星人",
+                                        "gameName": "魔斗汪星人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/557/1042_557_GOGOMagicDog_CN.png"
                 }
             ],
@@ -22550,13 +21924,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Origin Of Fire",
+                                        "gameName": "Origin Of Fire",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/443/1042_443_OriginOfFire.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "火之源",
+                                        "gameName": "火之源",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/443/1042_443_OriginOfFire_CN.png"
                 }
             ],
@@ -22622,13 +21994,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Taketori Monogatari",
+                                        "gameName": "Taketori Monogatari",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/108/1042_108_TaketoriMonogatari.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "竹取物语",
+                                        "gameName": "竹取物语",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/108/1042_108_TaketoriMonogatari_CN.png"
                 }
             ],
@@ -22694,13 +22064,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Flower Goddess Festival",
+                                        "gameName": "Flower Goddess Festival",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/296/1042_296_FlowerGoddessFestival.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "花神会",
+                                        "gameName": "花神会",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/296/1042_296_FlowerGoddessFestival_CN.png"
                 }
             ],
@@ -22766,13 +22134,11 @@ export const kaGames = [
             "lines": 50,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Devils Messenger",
+                                        "gameName": "Devils Messenger",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/667/1042_667_DevilsMessenger.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "恶魔使者",
+                                        "gameName": "恶魔使者",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/667/1042_667_DevilsMessenger_CN.jpg"
                 }
             ],
@@ -22838,13 +22204,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortune Piggy Bank",
+                                        "gameName": "Fortune Piggy Bank",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/323/1042_323_FortunePiggyBank.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猪元滚滚",
+                                        "gameName": "猪元滚滚",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/323/1042_323_FortunePiggyBank_CN.png"
                 }
             ],
@@ -22910,13 +22274,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Fish",
+                                        "gameName": "Lucky Fish",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/665/1042_665_LuckyFish.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "幸运鱼",
+                                        "gameName": "幸运鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/665/1042_665_LuckyFish_CN.jpg"
                 }
             ],
@@ -22982,13 +22344,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Who Let the Dogs Out",
+                                        "gameName": "Who Let the Dogs Out",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/183/1042_183_WhoLettheDogsOut.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "看门狗",
+                                        "gameName": "看门狗",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/183/1042_183_WhoLettheDogsOut_CN.png"
                 }
             ],
@@ -23054,13 +22414,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hungry Shark Cthulhu",
+                                        "gameName": "Hungry Shark Cthulhu",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/580/1042_580_HungrySharkCthulhu.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "饥饿鲨 邪神",
+                                        "gameName": "饥饿鲨 邪神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/580/1042_580_HungrySharkCthulhu_CN.png"
                 }
             ],
@@ -23126,13 +22484,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Persia Bonanza Megaways",
+                                        "gameName": "Persia Bonanza Megaways",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/307/1042_307_PersiaBonanzaMegaways.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "波斯宝藏 巨路发",
+                                        "gameName": "波斯宝藏 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/307/1042_307_PersiaBonanzaMegaways_CN.png"
                 }
             ],
@@ -23198,13 +22554,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Video Poker",
+                                        "gameName": "Lucky Video Poker",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/180/1042_180_LuckyVideoPoker.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "幸运电动扑克",
+                                        "gameName": "幸运电动扑克",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/180/1042_180_LuckyVideoPoker_CN.png"
                 }
             ],
@@ -23270,13 +22624,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Tao",
+                                        "gameName": "Tao",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/473/1042_473_Tao.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "炼丹术",
+                                        "gameName": "炼丹术",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/473/1042_473_Tao_CN.png"
                 }
             ],
@@ -23342,13 +22694,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Gokudo Bentou",
+                                        "gameName": "Gokudo Bentou",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/51/1042_51_GokudoBentou.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "极道便当",
+                                        "gameName": "极道便当",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/51/1042_51_GokudoBentou_CN.png"
                 }
             ],
@@ -23414,13 +22764,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ghosts Fortune",
+                                        "gameName": "Ghosts Fortune",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/194/1042_194_GhostsFortune.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "五鬼运财",
+                                        "gameName": "五鬼运财",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/194/1042_194_GhostsFortune_CN.png"
                 }
             ],
@@ -23486,13 +22834,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Red Sorghum",
+                                        "gameName": "Red Sorghum",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/48/1042_48_RedSorghum.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "红高粱",
+                                        "gameName": "红高粱",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/48/1042_48_RedSorghum_CN.png"
                 }
             ],
@@ -23558,13 +22904,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Gold Magic",
+                                        "gameName": "Gold Magic",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/406/1042_406_GoldMagic.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "黄金魔术",
+                                        "gameName": "黄金魔术",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/406/1042_406_GoldMagic_CN.png"
                 }
             ],
@@ -23630,13 +22974,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chinese Feast",
+                                        "gameName": "Chinese Feast",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/208/1042_208_ChineseFeast.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "满汉全席",
+                                        "gameName": "满汉全席",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/208/1042_208_ChineseFeast_CN.png"
                 }
             ],
@@ -23702,13 +23044,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fire Dragons",
+                                        "gameName": "Fire Dragons",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/321/1042_321_FireDragons.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "龙之焰",
+                                        "gameName": "龙之焰",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/321/1042_321_FireDragons_CN.png"
                 }
             ],
@@ -23774,13 +23114,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Earth God",
+                                        "gameName": "Earth God",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/291/1042_291_EarthGod.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "土地公",
+                                        "gameName": "土地公",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/291/1042_291_EarthGod_CN.png"
                 }
             ],
@@ -23846,13 +23184,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Age of Vikings",
+                                        "gameName": "Age of Vikings",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/482/1042_482_AgeofVikings.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "维京时代",
+                                        "gameName": "维京时代",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/482/1042_482_AgeofVikings_CN.png"
                 }
             ],
@@ -23918,13 +23254,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mysterious Pyramid",
+                                        "gameName": "Mysterious Pyramid",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/475/1042_475_MysteriousPyramid.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神秘金字塔",
+                                        "gameName": "神秘金字塔",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/475/1042_475_MysteriousPyramid_CN.png"
                 }
             ],
@@ -23990,13 +23324,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortune Feast Fusion Reels",
+                                        "gameName": "Fortune Feast Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/163/1042_163_FortuneFeastFusionReels.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "大丰收 巨路发",
+                                        "gameName": "大丰收 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/163/1042_163_FortuneFeastFusionReels_CN.png"
                 }
             ],
@@ -24062,13 +23394,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ninja",
+                                        "gameName": "Ninja",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/277/1042_277_Ninja.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "忍者",
+                                        "gameName": "忍者",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/277/1042_277_Ninja_CN.png"
                 }
             ],
@@ -24134,13 +23464,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Crazy Gym",
+                                        "gameName": "Crazy Gym",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/99/1042_99_CrazyGym.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猛男健身房",
+                                        "gameName": "猛男健身房",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/99/1042_99_CrazyGym_CN.png"
                 }
             ],
@@ -24206,13 +23534,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Easter Egg Party",
+                                        "gameName": "Easter Egg Party",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/231/1042_231_EasterEggParty.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "彩蛋派对",
+                                        "gameName": "彩蛋派对",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/231/1042_231_EasterEggParty_CN.png"
                 }
             ],
@@ -24278,13 +23604,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bubble Double",
+                                        "gameName": "Bubble Double",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/446/1042_446_BubbleDouble.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "水果泡泡",
+                                        "gameName": "水果泡泡",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/446/1042_446_BubbleDouble_CN.png"
                 }
             ],
@@ -24350,13 +23674,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lady KAKA",
+                                        "gameName": "Lady KAKA",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/128/1042_128_LadyKAKA.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "瓢虫卡卡",
+                                        "gameName": "瓢虫卡卡",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/128/1042_128_LadyKAKA_CN.png"
                 }
             ],
@@ -24422,13 +23744,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Modernizations",
+                                        "gameName": "Modernizations",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/602/1042_602_Modernizations.jpg?v=1"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "现代化时代",
+                                        "gameName": "现代化时代",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/602/1042_602_Modernizations_CN.jpg?v=1"
                 }
             ],
@@ -24494,13 +23814,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The King Producer",
+                                        "gameName": "The King Producer",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/160/1042_160_TheKingProducer.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "金牌制作人",
+                                        "gameName": "金牌制作人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/160/1042_160_TheKingProducer_CN.png"
                 }
             ],
@@ -24566,13 +23884,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hip Hop",
+                                        "gameName": "Hip Hop",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/177/1042_177_HipHop.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "嘻哈",
+                                        "gameName": "嘻哈",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/177/1042_177_HipHop_CN.png"
                 }
             ],
@@ -24638,13 +23954,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Duel Skateboards",
+                                        "gameName": "Duel Skateboards",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/622/1042_622_DuelSkateboards.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "决斗滑板",
+                                        "gameName": "决斗滑板",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/622/1042_622_DuelSkateboards_CN.png"
                 }
             ],
@@ -24710,13 +24024,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Shadow Play",
+                                        "gameName": "Shadow Play",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/382/1042_382_ShadowPlay.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "皮影戏",
+                                        "gameName": "皮影戏",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/382/1042_382_ShadowPlay_CN.png"
                 }
             ],
@@ -24782,13 +24094,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wild Christmas Fusion Reels",
+                                        "gameName": "Wild Christmas Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/632/1042_632_WildChristmasFusionReels.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "疯狂圣诞节 巨路发",
+                                        "gameName": "疯狂圣诞节 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/632/1042_632_WildChristmasFusionReels_CN.png"
                 }
             ],
@@ -24854,13 +24164,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Thief",
+                                        "gameName": "Thief",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/45/1042_45_Thief.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神偷大盗",
+                                        "gameName": "神偷大盗",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/45/1042_45_Thief_CN.png"
                 }
             ],
@@ -24926,13 +24234,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Jade Power",
+                                        "gameName": "Jade Power",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/244/1042_244_JadePower.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "玉之力",
+                                        "gameName": "玉之力",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/244/1042_244_JadePower_CN.png"
                 }
             ],
@@ -24998,13 +24304,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Road Hunting",
+                                        "gameName": "Road Hunting",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/634/1042_634_RoadHunting.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "公路猎杀",
+                                        "gameName": "公路猎杀",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/634/1042_634_RoadHunting_CN.png"
                 }
             ],
@@ -25070,13 +24374,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Walking Oz",
+                                        "gameName": "Walking Oz",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/86/1042_86_WalkingOz.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "奥兹之旅",
+                                        "gameName": "奥兹之旅",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/86/1042_86_WalkingOz_CN.png"
                 }
             ],
@@ -25142,13 +24444,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hansel and Gretel",
+                                        "gameName": "Hansel and Gretel",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/223/1042_223_HanselandGretel.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "汉赛尔与葛丽特",
+                                        "gameName": "汉赛尔与葛丽特",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/223/1042_223_HanselandGretel_CN.png"
                 }
             ],
@@ -25214,13 +24514,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Shaolin Legend",
+                                        "gameName": "Shaolin Legend",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/221/1042_221_ShaolinLegend.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "少林传奇",
+                                        "gameName": "少林传奇",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/221/1042_221_ShaolinLegend_CN.png"
                 }
             ],
@@ -25286,13 +24584,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Legend of the White Snake",
+                                        "gameName": "Legend of the White Snake",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/457/1042_457_LegendoftheWhiteSnake.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "白蛇传",
+                                        "gameName": "白蛇传",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/457/1042_457_LegendoftheWhiteSnake_CN.png"
                 }
             ],
@@ -25358,13 +24654,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hua Mulan",
+                                        "gameName": "Hua Mulan",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/520/1042_520_HuaMulan.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "花木兰",
+                                        "gameName": "花木兰",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/520/1042_520_HuaMulan_CN.png"
                 }
             ],
@@ -25430,13 +24724,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Welcome Fortune",
+                                        "gameName": "Welcome Fortune",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/315/1042_315_WelcomeFortune.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "迎财神",
+                                        "gameName": "迎财神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/315/1042_315_WelcomeFortune_CN.png"
                 }
             ],
@@ -25502,13 +24794,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Aqua Dominion",
+                                        "gameName": "Aqua Dominion",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/724/1042_724_AquaDominion.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "水域争霸",
+                                        "gameName": "水域争霸",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/724/1042_724_AquaDominion_CN.jpg"
                 }
             ],
@@ -25574,13 +24864,11 @@ export const kaGames = [
             "lines": 15,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Golden Egg",
+                                        "gameName": "Golden Egg",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/621/1042_621_GoldenEgg.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "金鸡蛋",
+                                        "gameName": "金鸡蛋",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/621/1042_621_GoldenEgg_CN.png"
                 }
             ],
@@ -25646,13 +24934,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Seediq",
+                                        "gameName": "Seediq",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/140/1042_140_Seediq.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "赛德克",
+                                        "gameName": "赛德克",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/140/1042_140_Seediq_CN.png"
                 }
             ],
@@ -25718,13 +25004,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon Legend Lock 2 Spin",
+                                        "gameName": "Dragon Legend Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/676/1042_676_DragonLegendLock2Spin.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "龙族传说 锁好运",
+                                        "gameName": "龙族传说 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/676/1042_676_DragonLegendLock2Spin_CN.jpg"
                 }
             ],
@@ -25790,13 +25074,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Pirate's Treasure Quest",
+                                        "gameName": "Pirate's Treasure Quest",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/603/1042_603_PiratesTreasureQuest.jpg?v=1"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "海盗寻宝传奇",
+                                        "gameName": "海盗寻宝传奇",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/603/1042_603_PiratesTreasureQuest_CN.jpg?v=1"
                 }
             ],
@@ -25862,13 +25144,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Pandoras Box",
+                                        "gameName": "Pandoras Box",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/410/1042_410_PandorasBox.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "潘朵拉的盒子",
+                                        "gameName": "潘朵拉的盒子",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/410/1042_410_PandorasBox_CN.png"
                 }
             ],
@@ -25934,13 +25214,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Great Doctor",
+                                        "gameName": "Great Doctor",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/144/1042_144_GreatDoctor.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神医",
+                                        "gameName": "神医",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/144/1042_144_GreatDoctor_CN.png"
                 }
             ],
@@ -26006,13 +25284,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Japanese 7 Heroes",
+                                        "gameName": "Japanese 7 Heroes",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/306/1042_306_Japanese7Heroes.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "战国7大名",
+                                        "gameName": "战国7大名",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/306/1042_306_Japanese7Heroes_CN.png"
                 }
             ],
@@ -26078,13 +25354,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Formosan Birds",
+                                        "gameName": "Formosan Birds",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/529/1042_529_FormosanBirds.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "灵雀",
+                                        "gameName": "灵雀",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/529/1042_529_FormosanBirds_CN.png"
                 }
             ],
@@ -26150,13 +25424,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Big Catch Lock 2 Spin",
+                                        "gameName": "Big Catch Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/680/1042_680_BigCatchLock2Spin.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "钓鱼高手 锁好运",
+                                        "gameName": "钓鱼高手 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/680/1042_680_BigCatchLock2Spin_CN.jpg"
                 }
             ],
@@ -26222,13 +25494,11 @@ export const kaGames = [
             "lines": 25,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Desert Island Adventure Lock 2 Spin",
+                                        "gameName": "Desert Island Adventure Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/652/1042_652_DesertIslandAdventure.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "荒岛漂流记 锁好运",
+                                        "gameName": "荒岛漂流记 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/652/1042_652_DesertIslandAdventure_CN.png"
                 }
             ],
@@ -26294,13 +25564,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Alexander the Great",
+                                        "gameName": "Alexander the Great",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/326/1042_326_AlexandertheGreat.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "亚历山大大帝",
+                                        "gameName": "亚历山大大帝",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/326/1042_326_AlexandertheGreat_CN.png"
                 }
             ],
@@ -26366,13 +25634,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Meowfia",
+                                        "gameName": "Meowfia",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/300/1042_300_Meowfia.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猫黑帮",
+                                        "gameName": "猫黑帮",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/300/1042_300_Meowfia_CN.png"
                 }
             ],
@@ -26438,13 +25704,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fruit Party",
+                                        "gameName": "Fruit Party",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/533/1042_533_FruitParty.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "水果派对",
+                                        "gameName": "水果派对",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/533/1042_533_FruitParty_CN.png"
                 }
             ],
@@ -26510,13 +25774,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Imperial Girls",
+                                        "gameName": "Imperial Girls",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/365/1042_365_ImperialGirls.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "花魁榜",
+                                        "gameName": "花魁榜",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/365/1042_365_ImperialGirls_CN.png"
                 }
             ],
@@ -26582,13 +25844,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Volcano Adventure",
+                                        "gameName": "Volcano Adventure",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/413/1042_413_VolcanoAdventure.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "火山历险",
+                                        "gameName": "火山历险",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/413/1042_413_VolcanoAdventure_CN.png"
                 }
             ],
@@ -26654,13 +25914,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Planet Guardian",
+                                        "gameName": "Planet Guardian",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/705/1042_705_PlanetGuardian.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "星球守护者",
+                                        "gameName": "星球守护者",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/705/1042_705_PlanetGuardian_CN.jpg"
                 }
             ],
@@ -26726,13 +25984,11 @@ export const kaGames = [
             "lines": 15,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Jumping Frog",
+                                        "gameName": "Jumping Frog",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/611/1042_611_JumpingFrog.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "跳跳蛙",
+                                        "gameName": "跳跳蛙",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/611/1042_611_JumpingFrog_CN.png"
                 }
             ],
@@ -26798,13 +26054,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Midas Touch",
+                                        "gameName": "Midas Touch",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/228/1042_228_MidasTouch.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "点石成金",
+                                        "gameName": "点石成金",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/228/1042_228_MidasTouch_CN.png"
                 }
             ],
@@ -26870,13 +26124,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Zombie Chicken",
+                                        "gameName": "Zombie Chicken",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/563/1042_563_ZombieChicken.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "爆打僵尸鸡",
+                                        "gameName": "爆打僵尸鸡",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/563/1042_563_ZombieChicken_CN.png"
                 }
             ],
@@ -26942,13 +26194,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Three Gods",
+                                        "gameName": "Three Gods",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/444/1042_444_ThreeGods.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "福禄寿报喜",
+                                        "gameName": "福禄寿报喜",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/444/1042_444_ThreeGods_CN.png"
                 }
             ],
@@ -27014,13 +26264,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Monster Island",
+                                        "gameName": "Monster Island",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/564/1042_564_MonsterIsland.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔物岛",
+                                        "gameName": "魔物岛",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/564/1042_564_MonsterIsland_CN.png"
                 }
             ],
@@ -27086,13 +26334,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Nine Lucks",
+                                        "gameName": "Nine Lucks",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/431/1042_431_NineLucks.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "九星连珠",
+                                        "gameName": "九星连珠",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/431/1042_431_NineLucks_CN.png"
                 }
             ],
@@ -27158,13 +26404,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "PlinkoS",
+                                        "gameName": "PlinkoS",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/67/1042_67_PlinkoS.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "弹到外太空",
+                                        "gameName": "弹到外太空",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/67/1042_67_PlinkoS_CN.png"
                 }
             ],
@@ -27230,13 +26474,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Great Luck",
+                                        "gameName": "Great Luck",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/130/1042_130_GreatLuck.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "招财福娃",
+                                        "gameName": "招财福娃",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/130/1042_130_GreatLuck_CN.png"
                 }
             ],
@@ -27302,13 +26544,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Snow Goddess",
+                                        "gameName": "Snow Goddess",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/114/1042_114_SnowGoddess.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "青女",
+                                        "gameName": "青女",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/114/1042_114_SnowGoddess_CN.png"
                 }
             ],
@@ -27374,13 +26614,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Xmas Wishes",
+                                        "gameName": "Xmas Wishes",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/334/1042_334_XmasWishes.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "欢乐圣诞节",
+                                        "gameName": "欢乐圣诞节",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/334/1042_334_XmasWishes_CN.png"
                 }
             ],
@@ -27446,13 +26684,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dwarf Miner",
+                                        "gameName": "Dwarf Miner",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/171/1042_171_DwarfMiner.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "矮人矿坑",
+                                        "gameName": "矮人矿坑",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/171/1042_171_DwarfMiner_CN.png"
                 }
             ],
@@ -27518,13 +26754,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "European Roulette",
+                                        "gameName": "European Roulette",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/124/1042_124_EuropeanRoulette.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "欧式轮盘",
+                                        "gameName": "欧式轮盘",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/124/1042_124_EuropeanRoulette_CN.png"
                 }
             ],
@@ -27590,13 +26824,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Boom X",
+                                        "gameName": "Boom X",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/78/1042_78_BoomX.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "炸弹 X",
+                                        "gameName": "炸弹 X",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/78/1042_78_BoomX_CN.png"
                 }
             ],
@@ -27662,13 +26894,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Apollo and Artemis",
+                                        "gameName": "Apollo and Artemis",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/189/1042_189_ApolloandArtemis.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "太阳神和月神",
+                                        "gameName": "太阳神和月神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/189/1042_189_ApolloandArtemis_CN.png"
                 }
             ],
@@ -27734,13 +26964,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon Pearl",
+                                        "gameName": "Dragon Pearl",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/44/1042_44_DragonPearl.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "探龙寻宝",
+                                        "gameName": "探龙寻宝",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/44/1042_44_DragonPearl_CN.png"
                 }
             ],
@@ -27806,13 +27034,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Luxury Garage",
+                                        "gameName": "Luxury Garage",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/539/1042_539_LuxuryGarage.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "豪华车库",
+                                        "gameName": "豪华车库",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/539/1042_539_LuxuryGarage_CN.png"
                 }
             ],
@@ -27878,13 +27104,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cai Yuan Guang Jin",
+                                        "gameName": "Cai Yuan Guang Jin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/467/1042_467_CaiYuanGuangJin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "财源广进",
+                                        "gameName": "财源广进",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/467/1042_467_CaiYuanGuangJin_CN.png"
                 }
             ],
@@ -27950,13 +27174,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Master Cat",
+                                        "gameName": "The Master Cat",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/38/1042_38_TheMasterCat.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "长靴猫",
+                                        "gameName": "长靴猫",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/38/1042_38_TheMasterCat_CN.png"
                 }
             ],
@@ -28022,13 +27244,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Treasure Raider",
+                                        "gameName": "Treasure Raider",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/265/1042_265_TreasureRaider.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "萧十一郎",
+                                        "gameName": "萧十一郎",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/265/1042_265_TreasureRaider_CN.png"
                 }
             ],
@@ -28094,13 +27314,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Magic Witches",
+                                        "gameName": "Magic Witches",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/573/1042_573_MagicWitches.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔法女巫",
+                                        "gameName": "魔法女巫",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/573/1042_573_MagicWitches_CN.png"
                 }
             ],
@@ -28166,13 +27384,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Shen Nong",
+                                        "gameName": "Shen Nong",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/225/1042_225_ShenNong.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神农尝百草",
+                                        "gameName": "神农尝百草",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/225/1042_225_ShenNong_CN.png"
                 }
             ],
@@ -28238,13 +27454,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "7 Heroines",
+                                        "gameName": "7 Heroines",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/331/1042_331_7Heroines.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "巾帼7烈传",
+                                        "gameName": "巾帼7烈传",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/331/1042_331_7Heroines_CN.png"
                 }
             ],
@@ -28310,13 +27524,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mystery Alchemy",
+                                        "gameName": "Mystery Alchemy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/322/1042_322_MysteryAlchemy.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神秘炼金术",
+                                        "gameName": "神秘炼金术",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/322/1042_322_MysteryAlchemy_CN.png"
                 }
             ],
@@ -28382,13 +27594,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortune God",
+                                        "gameName": "Fortune God",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/346/1042_346_FortuneGod.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "财神爷报到",
+                                        "gameName": "财神爷报到",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/346/1042_346_FortuneGod_CN.png"
                 }
             ],
@@ -28454,13 +27664,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Animal Dojo",
+                                        "gameName": "Animal Dojo",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/169/1042_169_AnimalDojo.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "动物道场",
+                                        "gameName": "动物道场",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/169/1042_169_AnimalDojo_CN.png"
                 }
             ],
@@ -28526,13 +27734,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Elf Treasure Lock 2 Spin",
+                                        "gameName": "Elf Treasure Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/656/1042_656_ElfTreasureLock2Spin.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "精灵宝藏 锁好运",
+                                        "gameName": "精灵宝藏 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/656/1042_656_ElfTreasureLock2Spin_CN.jpg"
                 }
             ],
@@ -28598,13 +27804,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Rich Farm",
+                                        "gameName": "Rich Farm",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/164/1042_164_RichFarm.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "农场主",
+                                        "gameName": "农场主",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/164/1042_164_RichFarm_CN.png"
                 }
             ],
@@ -28670,13 +27874,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fairy Dust",
+                                        "gameName": "Fairy Dust",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/489/1042_489_FairyDust.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "妖精的尘埃",
+                                        "gameName": "妖精的尘埃",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/489/1042_489_FairyDust_CN.png"
                 }
             ],
@@ -28742,13 +27944,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Submarine Battle",
+                                        "gameName": "Submarine Battle",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/683/1042_683_SubmarineBattle.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "潜艇海战",
+                                        "gameName": "潜艇海战",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/683/1042_683_SubmarineBattle_CN.jpg"
                 }
             ],
@@ -28814,13 +28014,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Pets",
+                                        "gameName": "Pets",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/385/1042_385_Pets.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "宠物当道",
+                                        "gameName": "宠物当道",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/385/1042_385_Pets_CN.png"
                 }
             ],
@@ -28886,13 +28084,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Go Go Magic Cat",
+                                        "gameName": "Go Go Magic Cat",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/559/1042_559_GoGoMagicCat.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔斗喵星人",
+                                        "gameName": "魔斗喵星人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/559/1042_559_GoGoMagicCat_CN.png"
                 }
             ],
@@ -28958,13 +28154,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Undersea Battle",
+                                        "gameName": "Undersea Battle",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/558/1042_558_UnderseaBattle.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "海底大作战",
+                                        "gameName": "海底大作战",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/558/1042_558_UnderseaBattle_CN.png"
                 }
             ],
@@ -29030,13 +28224,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Rouran Khaganate",
+                                        "gameName": "Rouran Khaganate",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/328/1042_328_RouranKhaganate.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "柔然古国",
+                                        "gameName": "柔然古国",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/328/1042_328_RouranKhaganate_CN.png"
                 }
             ],
@@ -29102,13 +28294,11 @@ export const kaGames = [
             "lines": 50,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Carnival Beauty",
+                                        "gameName": "Carnival Beauty",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/651/1042_651_CarnivalBeauty.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "嘉年华女王",
+                                        "gameName": "嘉年华女王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/651/1042_651_CarnivalBeauty_CN.png"
                 }
             ],
@@ -29174,13 +28364,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sailor Man",
+                                        "gameName": "Sailor Man",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/247/1042_247_SailorMan.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "水手",
+                                        "gameName": "水手",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/247/1042_247_SailorMan_CN.png"
                 }
             ],
@@ -29246,13 +28434,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Glacial Epoch",
+                                        "gameName": "Glacial Epoch",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/368/1042_368_GlacialEpoch.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "冰河时期",
+                                        "gameName": "冰河时期",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/368/1042_368_GlacialEpoch_CN.png"
                 }
             ],
@@ -29318,13 +28504,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Football Mania",
+                                        "gameName": "Football Mania",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/151/1042_151_FootballMania.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "足球热",
+                                        "gameName": "足球热",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/151/1042_151_FootballMania_CN.png"
                 }
             ],
@@ -29390,13 +28574,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Gates of Midsummer Fusion Reels",
+                                        "gameName": "Gates of Midsummer Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/698/1042_698_GatesofMidsummerFusionReels.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "仲夏之门巨路发",
+                                        "gameName": "仲夏之门巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/698/1042_698_GatesofMidsummerFusionReels_CN.jpg"
                 }
             ],
@@ -29462,13 +28644,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wu Zetian",
+                                        "gameName": "Wu Zetian",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/280/1042_280_WuZetian.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "武后传奇",
+                                        "gameName": "武后传奇",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/280/1042_280_WuZetian_CN.png"
                 }
             ],
@@ -29534,13 +28714,11 @@ export const kaGames = [
             "lines": 25,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Magician Merlin",
+                                        "gameName": "Magician Merlin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/669/1042_669_MagicianMerlin.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "魔法师梅林",
+                                        "gameName": "魔法师梅林",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/669/1042_669_MagicianMerlin_CN.jpg"
                 }
             ],
@@ -29606,13 +28784,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Tai Chi",
+                                        "gameName": "Tai Chi",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/407/1042_407_TaiChi.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "太极",
+                                        "gameName": "太极",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/407/1042_407_TaiChi_CN.png"
                 }
             ],
@@ -29678,13 +28854,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Golf Master",
+                                        "gameName": "Golf Master",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/42/1042_42_GolfMaster.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "高尔夫球大师",
+                                        "gameName": "高尔夫球大师",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/42/1042_42_GolfMaster_CN.png"
                 }
             ],
@@ -29750,13 +28924,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Live Streaming Star",
+                                        "gameName": "Live Streaming Star",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/469/1042_469_LiveStreamingStar.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "直播主",
+                                        "gameName": "直播主",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/469/1042_469_LiveStreamingStar_CN.png"
                 }
             ],
@@ -29822,13 +28994,11 @@ export const kaGames = [
             "lines": 20,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Medieval Warfare",
+                                        "gameName": "Medieval Warfare",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/625/1042_625_MedievalWarfare.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "中世纪战争",
+                                        "gameName": "中世纪战争",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/625/1042_625_MedievalWarfare_CN.png"
                 }
             ],
@@ -29894,13 +29064,11 @@ export const kaGames = [
             "lines": 1024,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Aquatic Adventurer",
+                                        "gameName": "Aquatic Adventurer",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/612/1042_612_AquaticAdventure.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "海中探险",
+                                        "gameName": "海中探险",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/612/1042_612_AquaticAdventure_CN.png"
                 }
             ],
@@ -29966,13 +29134,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Foxy Mama",
+                                        "gameName": "Foxy Mama",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/85/1042_85_FoxyMama.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "妖艳宝贝",
+                                        "gameName": "妖艳宝贝",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/85/1042_85_FoxyMama_CN.png"
                 }
             ],
@@ -30038,13 +29204,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Poseidons Treasure",
+                                        "gameName": "Poseidons Treasure",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/498/1042_498_PoseidonsTreasure.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "波塞顿的宝藏",
+                                        "gameName": "波塞顿的宝藏",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/498/1042_498_PoseidonsTreasure_CN.png"
                 }
             ],
@@ -30110,13 +29274,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Love In Memory",
+                                        "gameName": "Love In Memory",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/250/1042_250_LoveInMemory.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "成双成对",
+                                        "gameName": "成双成对",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/250/1042_250_LoveInMemory_CN.png"
                 }
             ],
@@ -30182,13 +29344,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Clean House",
+                                        "gameName": "Clean House",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/47/1042_47_CleanHouse.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "天下无蟑",
+                                        "gameName": "天下无蟑",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/47/1042_47_CleanHouse_CN.png"
                 }
             ],
@@ -30254,13 +29414,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Masquerade",
+                                        "gameName": "Masquerade",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/335/1042_335_Masquerade.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "化装舞会",
+                                        "gameName": "化装舞会",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/335/1042_335_Masquerade_CN.png"
                 }
             ],
@@ -30326,13 +29484,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Yun Cai Tong Zi",
+                                        "gameName": "Yun Cai Tong Zi",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/372/1042_372_YunCaiTongZi.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "运财童子",
+                                        "gameName": "运财童子",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/372/1042_372_YunCaiTongZi_CN.png"
                 }
             ],
@@ -30398,13 +29554,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cat Museum",
+                                        "gameName": "Cat Museum",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/176/1042_176_CatMuseum.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猫咪美术馆",
+                                        "gameName": "猫咪美术馆",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/176/1042_176_CatMuseum_CN.png"
                 }
             ],
@@ -30470,13 +29624,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Egyptian Empress",
+                                        "gameName": "Egyptian Empress",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/445/1042_445_EgyptianEmpress.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "埃及艳后",
+                                        "gameName": "埃及艳后",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/445/1042_445_EgyptianEmpress_CN.png"
                 }
             ],
@@ -30542,13 +29694,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Legend of Dragons",
+                                        "gameName": "Legend of Dragons",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/345/1042_345_LegendofDragons.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "九龙传说",
+                                        "gameName": "九龙传说",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/345/1042_345_LegendofDragons_CN.png"
                 }
             ],
@@ -30614,13 +29764,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Alice In MegaLand",
+                                        "gameName": "Alice In MegaLand",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/115/1042_115_AliceInMegaLand.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "爱丽丝幻境",
+                                        "gameName": "爱丽丝幻境",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/115/1042_115_AliceInMegaLand_CN.png"
                 }
             ],
@@ -30686,13 +29834,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Abyss Dimension",
+                                        "gameName": "Abyss Dimension",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/743/1042_743_AbyssDimensio.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "深海异次元",
+                                        "gameName": "深海异次元",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/743/1042_743_AbyssDimensio_CN.jpg"
                 }
             ],
@@ -30758,13 +29904,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Catch The Thief",
+                                        "gameName": "Catch The Thief",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/414/1042_414_CatchTheThief.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "抓小偷",
+                                        "gameName": "抓小偷",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/414/1042_414_CatchTheThief_CN.png"
                 }
             ],
@@ -30830,13 +29974,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chinese Ancient Tomb",
+                                        "gameName": "Chinese Ancient Tomb",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/268/1042_268_ChineseAncientTomb.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "千年古墓",
+                                        "gameName": "千年古墓",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/268/1042_268_ChineseAncientTomb_CN.png"
                 }
             ],
@@ -30902,13 +30044,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Pinata",
+                                        "gameName": "Pinata",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/325/1042_325_Pinata.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "皮纳塔",
+                                        "gameName": "皮纳塔",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/325/1042_325_Pinata_CN.png"
                 }
             ],
@@ -30974,13 +30114,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bigfoot Yeti",
+                                        "gameName": "Bigfoot Yeti",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/219/1042_219_BigfootYeti.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "大脚雪怪",
+                                        "gameName": "大脚雪怪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/219/1042_219_BigfootYeti_CN.png"
                 }
             ],
@@ -31046,13 +30184,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Piggy Bank Machine",
+                                        "gameName": "Piggy Bank Machine",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/109/1042_109_PiggyBankMachine.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "小猪扑满",
+                                        "gameName": "小猪扑满",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/109/1042_109_PiggyBankMachine_CN.png"
                 }
             ],
@@ -31118,13 +30254,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Caesar",
+                                        "gameName": "Caesar",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/655/1042_655_Caesar.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "凯撒大帝",
+                                        "gameName": "凯撒大帝",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/655/1042_655_Caesar_CN.jpg"
                 }
             ],
@@ -31190,13 +30324,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Slam Dunk Contest Lock 2 Spin",
+                                        "gameName": "Slam Dunk Contest Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/668/1042_668_SlamDunkContestLock2Spin.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "灌篮大赛 锁好运",
+                                        "gameName": "灌篮大赛 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/668/1042_668_SlamDunkContestLock2Spin_CN.jpg"
                 }
             ],
@@ -31262,13 +30394,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Legend of Paladin",
+                                        "gameName": "Legend of Paladin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/377/1042_377_LegendofPaladin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "剑侠奇缘",
+                                        "gameName": "剑侠奇缘",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/377/1042_377_LegendofPaladin_CN.png"
                 }
             ],
@@ -31334,13 +30464,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Calorie Killer",
+                                        "gameName": "Calorie Killer",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/589/1042_589_CalorieKiller.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "卡路里杀手",
+                                        "gameName": "卡路里杀手",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/589/1042_589_CalorieKiller_CN.png"
                 }
             ],
@@ -31406,13 +30534,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chinese Quyi",
+                                        "gameName": "Chinese Quyi",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/129/1042_129_ChineseQuyi.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "中国曲艺",
+                                        "gameName": "中国曲艺",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/129/1042_129_ChineseQuyi_CN.png"
                 }
             ],
@@ -31478,13 +30604,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Elf Castle",
+                                        "gameName": "Elf Castle",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/692/1042_692_ElfCastle.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "精灵城",
+                                        "gameName": "精灵城",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/692/1042_692_ElfCastle_CN.png"
                 }
             ],
@@ -31550,13 +30674,11 @@ export const kaGames = [
             "lines": 30,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Buzzkill Bonanza",
+                                        "gameName": "Buzzkill Bonanza",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/638/1042_638_BuzzkillBonanza.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "灭蝇杀手",
+                                        "gameName": "灭蝇杀手",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/638/1042_638_BuzzkillBonanza_CN.png"
                 }
             ],
@@ -31622,13 +30744,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Gypsy Fusion Reels",
+                                        "gameName": "Gypsy Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/46/1042_46_GypsyFusionReels.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "吉普赛人 巨路发",
+                                        "gameName": "吉普赛人 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/46/1042_46_GypsyFusionReels_CN.png"
                 }
             ],
@@ -31694,13 +30814,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Archer Robin Hood",
+                                        "gameName": "Archer Robin Hood",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/400/1042_400_ArcherRobinHood.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神箭手",
+                                        "gameName": "神箭手",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/400/1042_400_ArcherRobinHood_CN.png"
                 }
             ],
@@ -31766,13 +30884,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ofrenda Magic",
+                                        "gameName": "Ofrenda Magic",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/618/1042_618_OfrendaMagic.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "回忆魔法",
+                                        "gameName": "回忆魔法",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/618/1042_618_OfrendaMagic_CN.png"
                 }
             ],
@@ -31838,13 +30954,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mirror House",
+                                        "gameName": "Mirror House",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/234/1042_234_MirrorHouse.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "伯爵夫人",
+                                        "gameName": "伯爵夫人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/234/1042_234_MirrorHouse_CN.png"
                 }
             ],
@@ -31910,13 +31024,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Snow Leopards",
+                                        "gameName": "Snow Leopards",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/458/1042_458_SnowLeopards.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "雪豹",
+                                        "gameName": "雪豹",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/458/1042_458_SnowLeopards_CN.png"
                 }
             ],
@@ -31982,13 +31094,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Poseidon's Wrath",
+                                        "gameName": "Poseidon's Wrath",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/659/1042_659_PoseidonsWrath.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "海神之怒",
+                                        "gameName": "海神之怒",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/659/1042_659_PoseidonsWrath_CN.jpg"
                 }
             ],
@@ -32054,13 +31164,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Evil Pumpkin",
+                                        "gameName": "Evil Pumpkin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/167/1042_167_EvilPumpkin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "邪惡南瓜",
+                                        "gameName": "邪惡南瓜",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/167/1042_167_EvilPumpkin_CN.png"
                 }
             ],
@@ -32126,13 +31234,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Boxing Roo",
+                                        "gameName": "Boxing Roo",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/27/1042_27_BoxingRoo.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "拳击袋鼠",
+                                        "gameName": "拳击袋鼠",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/27/1042_27_BoxingRoo_CN.png"
                 }
             ],
@@ -32198,13 +31304,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Aurora",
+                                        "gameName": "Aurora",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/531/1042_531_Aurora.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "极光",
+                                        "gameName": "极光",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/531/1042_531_Aurora_CN.png"
                 }
             ],
@@ -32270,13 +31374,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hanabi",
+                                        "gameName": "Hanabi",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/69/1042_69_Hanabi.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "花火",
+                                        "gameName": "花火",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/69/1042_69_Hanabi_CN.png"
                 }
             ],
@@ -32342,13 +31444,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Witch Academy",
+                                        "gameName": "Witch Academy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/271/1042_271_WitchAcademy.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔女学院",
+                                        "gameName": "魔女学院",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/271/1042_271_WitchAcademy_CN.png"
                 }
             ],
@@ -32414,13 +31514,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Green Party",
+                                        "gameName": "Green Party",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/87/1042_87_GreenParty.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "绿色派对",
+                                        "gameName": "绿色派对",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/87/1042_87_GreenParty_CN.png"
                 }
             ],
@@ -32486,13 +31584,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortune Lions",
+                                        "gameName": "Fortune Lions",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/411/1042_411_FortuneLions.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "石狮",
+                                        "gameName": "石狮",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/411/1042_411_FortuneLions_CN.png"
                 }
             ],
@@ -32558,13 +31654,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Five Fortune Gods",
+                                        "gameName": "Five Fortune Gods",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/138/1042_138_FiveFortuneGods.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "五路财神",
+                                        "gameName": "五路财神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/138/1042_138_FiveFortuneGods_CN.png"
                 }
             ],
@@ -32630,13 +31724,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wild Detective",
+                                        "gameName": "Wild Detective",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/691/1042_691_WildDetective.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "荒唐警探",
+                                        "gameName": "荒唐警探",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/691/1042_691_WildDetectiv_CN.png"
                 }
             ],
@@ -32702,13 +31794,11 @@ export const kaGames = [
             "lines": 25,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Robo Revolution",
+                                        "gameName": "Robo Revolution",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/631/1042_631_RoboRevolution.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "机器人狂潮",
+                                        "gameName": "机器人狂潮",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/631/1042_631_RoboRevolution_CN.png"
                 }
             ],
@@ -32774,13 +31864,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Koningsdag",
+                                        "gameName": "Koningsdag",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/660/1042_660_Koningsdag.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "国王节",
+                                        "gameName": "国王节",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/660/1042_660_Koningsdag_CN.jpg"
                 }
             ],
@@ -32846,13 +31934,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Tomb Heroes",
+                                        "gameName": "Tomb Heroes",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/288/1042_288_TombHeroes.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神仙侠侣",
+                                        "gameName": "神仙侠侣",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/288/1042_288_TombHeroes_CN.png"
                 }
             ],
@@ -32918,13 +32004,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Happy Indian Chef",
+                                        "gameName": "Happy Indian Chef",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/249/1042_249_HappyIndianChef.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "印度厨神",
+                                        "gameName": "印度厨神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/249/1042_249_HappyIndianChef_CN.png"
                 }
             ],
@@ -32990,13 +32074,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Casino",
+                                        "gameName": "Lucky Casino",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/355/1042_355_LuckyCasino.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "如意赌坊",
+                                        "gameName": "如意赌坊",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/355/1042_355_LuckyCasino_CN.png"
                 }
             ],
@@ -33062,13 +32144,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Egyptian Deity",
+                                        "gameName": "Egyptian Deity",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/601/1042_601_EgyptianDeity.jpg?v=1"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "埃及神",
+                                        "gameName": "埃及神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/601/1042_601_EgyptianDeity_CN.jpg?v=1"
                 }
             ],
@@ -33134,13 +32214,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Couch Potato",
+                                        "gameName": "Couch Potato",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/646/1042_646_CouchPotato.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "沙发马铃薯",
+                                        "gameName": "沙发马铃薯",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/646/1042_646_CouchPotato_CN.jpg"
                 }
             ],
@@ -33206,13 +32284,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bonus Vending",
+                                        "gameName": "Bonus Vending",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/242/1042_242_BonusVending.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "疯狂贩卖机",
+                                        "gameName": "疯狂贩卖机",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/242/1042_242_BonusVending_CN.png"
                 }
             ],
@@ -33278,13 +32354,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Shopping Mall Tycoon",
+                                        "gameName": "Shopping Mall Tycoon",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/614/1042_614_ShoppingMallTycoon.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "商业大亨",
+                                        "gameName": "商业大亨",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/614/1042_614_ShoppingMallTycoon_CN.png"
                 }
             ],
@@ -33350,13 +32424,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Demon Fox",
+                                        "gameName": "Demon Fox",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/202/1042_202_DemonFox.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "百变妖狐",
+                                        "gameName": "百变妖狐",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/202/1042_202_DemonFox_CN.png"
                 }
             ],
@@ -33422,13 +32494,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "HiLo",
+                                        "gameName": "HiLo",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/648/1042_648_HiLo.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "猜高低",
+                                        "gameName": "猜高低",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/648/1042_648_HiLo_CN.png"
                 }
             ],
@@ -33494,13 +32564,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Alice In Wonderland",
+                                        "gameName": "Alice In Wonderland",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/530/1042_530_AliceInWonderland.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "梦游爱丽丝",
+                                        "gameName": "梦游爱丽丝",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/530/1042_530_AliceInWonderland_CN.png"
                 }
             ],
@@ -33566,13 +32634,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Space Storm",
+                                        "gameName": "Space Storm",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/358/1042_358_SpaceStorm.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "太空风暴",
+                                        "gameName": "太空风暴",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/358/1042_358_SpaceStorm_CN.png"
                 }
             ],
@@ -33638,13 +32704,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Year Of The Tiger",
+                                        "gameName": "Year Of The Tiger",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/255/1042_255_YearOfTheTiger.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "虎年吉祥",
+                                        "gameName": "虎年吉祥",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/255/1042_255_YearOfTheTiger_CN.png"
                 }
             ],
@@ -33710,13 +32774,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Primeval Rainforest",
+                                        "gameName": "Primeval Rainforest",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/427/1042_427_PrimevalRainforest.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "原始雨林",
+                                        "gameName": "原始雨林",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/427/1042_427_PrimevalRainforest_CN.png"
                 }
             ],
@@ -33782,13 +32844,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Vampires Tale",
+                                        "gameName": "Vampires Tale",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/442/1042_442_VampiresTale.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "吸血鬼传说",
+                                        "gameName": "吸血鬼传说",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/442/1042_442_VampiresTale_CN.png"
                 }
             ],
@@ -33854,13 +32914,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chinese Pastry",
+                                        "gameName": "Chinese Pastry",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/212/1042_212_ChinesePastry.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "宝味斋",
+                                        "gameName": "宝味斋",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/212/1042_212_ChinesePastry_CN.png"
                 }
             ],
@@ -33926,13 +32984,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Toro Amigo",
+                                        "gameName": "Toro Amigo",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/684/1042_684_ToroAmigo.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "斗牛阿米戈",
+                                        "gameName": "斗牛阿米戈",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/684/1042_684_ToroAmigo_CN.jpg"
                 }
             ],
@@ -33998,13 +33054,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fairy Forest Tale",
+                                        "gameName": "Fairy Forest Tale",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/320/1042_320_FairyForestTale.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "精灵之森",
+                                        "gameName": "精灵之森",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/320/1042_320_FairyForestTale_CN.png"
                 }
             ],
@@ -34070,13 +33124,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Blast Man",
+                                        "gameName": "Blast Man",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/31/1042_31_BlastMan.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "炸裂超人",
+                                        "gameName": "炸裂超人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/31/1042_31_BlastMan_CN.png"
                 }
             ],
@@ -34142,13 +33194,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortuna",
+                                        "gameName": "Fortuna",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/77/1042_77_Fortuna.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "幸运女神",
+                                        "gameName": "幸运女神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/77/1042_77_Fortuna_CN.png"
                 }
             ],
@@ -34214,13 +33264,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "5 Heroes",
+                                        "gameName": "5 Heroes",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/125/1042_125_5Heroes.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "鸿运五虎",
+                                        "gameName": "鸿运五虎",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/125/1042_125_5Heroes_CN.png"
                 }
             ],
@@ -34286,13 +33334,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sexy Lips",
+                                        "gameName": "Sexy Lips",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/158/1042_158_SexyLips.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "红唇美人",
+                                        "gameName": "红唇美人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/158/1042_158_SexyLips_CN.png"
                 }
             ],
@@ -34358,13 +33404,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ba Wang Bie Ji",
+                                        "gameName": "Ba Wang Bie Ji",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/508/1042_508_BaWangBieJi.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "霸王别姬",
+                                        "gameName": "霸王别姬",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/508/1042_508_BaWangBieJi_CN.png"
                 }
             ],
@@ -34430,13 +33474,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Veggies Plot",
+                                        "gameName": "Veggies Plot",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/374/1042_374_VeggiesPlot.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "蔬果乐园",
+                                        "gameName": "蔬果乐园",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/374/1042_374_VeggiesPlot_CN.png"
                 }
             ],
@@ -34502,13 +33544,11 @@ export const kaGames = [
             "lines": 30,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Priest VS. Vampire",
+                                        "gameName": "Priest VS. Vampire",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/644/1042_644_PriestVSVampire.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "神圣对决",
+                                        "gameName": "神圣对决",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/644/1042_644_PriestVSVampire_CN.jpg"
                 }
             ],
@@ -34574,13 +33614,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Mask of Zorro",
+                                        "gameName": "The Mask of Zorro",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/430/1042_430_TheMaskofZorro.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "蒙面侠佐罗",
+                                        "gameName": "蒙面侠佐罗",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/430/1042_430_TheMaskofZorro_CN.png"
                 }
             ],
@@ -34646,13 +33684,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hu Hu Fighting",
+                                        "gameName": "Hu Hu Fighting",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/336/1042_336_HuHuFighting.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "唬力全开",
+                                        "gameName": "唬力全开",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/336/1042_336_HuHuFighting_CN.png"
                 }
             ],
@@ -34718,13 +33754,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Divine Garden Fusion Reels",
+                                        "gameName": "Divine Garden Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/689/1042_689_DivineGardenFusionReels.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "女神的花园 巨路发",
+                                        "gameName": "女神的花园 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/689/1042_689_DivineGardenFusionReels_CN.png"
                 }
             ],
@@ -34790,13 +33824,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cu Ju",
+                                        "gameName": "Cu Ju",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/359/1042_359_CuJu.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "蹴鞠",
+                                        "gameName": "蹴鞠",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/359/1042_359_CuJu_CN.png"
                 }
             ],
@@ -34862,13 +33894,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wild Vick 2 Adventure Journey",
+                                        "gameName": "Wild Vick 2 Adventure Journey",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/230/1042_230_WildVick2AdventureJourney.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "熊孩子2 冒险旅程",
+                                        "gameName": "熊孩子2 冒险旅程",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/230/1042_230_WildVick2AdventureJourney_CN.png"
                 }
             ],
@@ -34934,13 +33964,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon Boat 2 Lock 2 Spin",
+                                        "gameName": "Dragon Boat 2 Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/218/1042_218_DragonBoat2Lock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "龙舟2 锁好运",
+                                        "gameName": "龙舟2 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/218/1042_218_DragonBoat2Lock2Spin_CN.png"
                 }
             ],
@@ -35006,13 +34034,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Miss Tiger",
+                                        "gameName": "Miss Tiger",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/472/1042_472_MissTiger.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "虎妞",
+                                        "gameName": "虎妞",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/472/1042_472_MissTiger_CN.png"
                 }
             ],
@@ -35078,13 +34104,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "American Burger",
+                                        "gameName": "American Burger",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/246/1042_246_AmericanBurger.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "美式汉堡",
+                                        "gameName": "美式汉堡",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/246/1042_246_AmericanBurger_CN.png"
                 }
             ],
@@ -35150,13 +34174,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Quick Play Jewels",
+                                        "gameName": "Quick Play Jewels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/429/1042_429_QuickPlayJewels.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "钻石闪闪亮",
+                                        "gameName": "钻石闪闪亮",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/429/1042_429_QuickPlayJewels_CN.png"
                 }
             ],
@@ -35222,13 +34244,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Coffee Wild",
+                                        "gameName": "Coffee Wild",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/95/1042_95_CoffeeWild.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "来杯咖啡",
+                                        "gameName": "来杯咖啡",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/95/1042_95_CoffeeWild_CN.png"
                 }
             ],
@@ -35294,13 +34314,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Tuan Yuan",
+                                        "gameName": "Tuan Yuan",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/131/1042_131_TuanYuan.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "团团圆圆",
+                                        "gameName": "团团圆圆",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/131/1042_131_TuanYuan_CN.png"
                 }
             ],
@@ -35366,13 +34384,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Trippy Mushrooms",
+                                        "gameName": "Trippy Mushrooms",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/505/1042_505_TrippyMushrooms.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "迷幻蘑菇",
+                                        "gameName": "迷幻蘑菇",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/505/1042_505_TrippyMushrooms_CN.png"
                 }
             ],
@@ -35438,13 +34454,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bunny Girl",
+                                        "gameName": "Bunny Girl",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/133/1042_133_BunnyGirl.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "萌兔美眉",
+                                        "gameName": "萌兔美眉",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/133/1042_133_BunnyGirl_CN.png"
                 }
             ],
@@ -35510,13 +34524,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Egyptian Mythology",
+                                        "gameName": "Egyptian Mythology",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/438/1042_438_EgyptianMythology.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "埃及神话",
+                                        "gameName": "埃及神话",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/438/1042_438_EgyptianMythology_CN.png"
                 }
             ],
@@ -35582,13 +34594,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Nezha",
+                                        "gameName": "Nezha",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/514/1042_514_Nezha.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "哪吒",
+                                        "gameName": "哪吒",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/514/1042_514_Nezha_CN.png"
                 }
             ],
@@ -35654,13 +34664,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Neanderthals",
+                                        "gameName": "Neanderthals",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/512/1042_512_Neanderthals.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "尼安德塔人",
+                                        "gameName": "尼安德塔人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/512/1042_512_Neanderthals_CN.png"
                 }
             ],
@@ -35726,13 +34734,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "A Girls Best Friend",
+                                        "gameName": "A Girls Best Friend",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/480/1042_480_AGirlsBestFriend.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "钻石闪亮亮",
+                                        "gameName": "钻石闪亮亮",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/480/1042_480_AGirlsBestFriend_CN.png"
                 }
             ],
@@ -35798,13 +34804,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dinosaur Park",
+                                        "gameName": "Dinosaur Park",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/626/1042_626_DinosaurPark.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "恐龙公园",
+                                        "gameName": "恐龙公园",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/626/1042_626_DinosaurPark_CN.png"
                 }
             ],
@@ -35870,13 +34874,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Joker Slot",
+                                        "gameName": "Joker Slot",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/436/1042_436_JokerSlot.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "王牌老虎机",
+                                        "gameName": "王牌老虎机",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/436/1042_436_JokerSlot_CN.png"
                 }
             ],
@@ -35942,13 +34944,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Journey to the West",
+                                        "gameName": "Journey to the West",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/341/1042_341_JourneytotheWest.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔幻西游",
+                                        "gameName": "魔幻西游",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/341/1042_341_JourneytotheWest_CN.png"
                 }
             ],
@@ -36014,13 +35014,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Black Rider",
+                                        "gameName": "Black Rider",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/23/1042_23_BlackRider.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "黑骑士",
+                                        "gameName": "黑骑士",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/23/1042_23_BlackRider_CN.png"
                 }
             ],
@@ -36086,13 +35084,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Rainbow Jellyfish",
+                                        "gameName": "Rainbow Jellyfish",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/657/1042_657_RainbowJellyfish.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "彩虹水母",
+                                        "gameName": "彩虹水母",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/657/1042_657_RainbowJellyfish_CN.jpg"
                 }
             ],
@@ -36158,13 +35154,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Yu Gong",
+                                        "gameName": "Yu Gong",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/474/1042_474_YuGong.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "愚公移山",
+                                        "gameName": "愚公移山",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/474/1042_474_YuGong_CN.png"
                 }
             ],
@@ -36230,13 +35224,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Geisha",
+                                        "gameName": "Geisha",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/150/1042_150_Geisha.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "艺伎",
+                                        "gameName": "艺伎",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/150/1042_150_Geisha_CN.png"
                 }
             ],
@@ -36302,13 +35294,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cthulhu Secret",
+                                        "gameName": "Cthulhu Secret",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/204/1042_204_CthulhuSecret.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "克苏鲁秘密",
+                                        "gameName": "克苏鲁秘密",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/204/1042_204_CthulhuSecret_CN.png"
                 }
             ],
@@ -36374,13 +35364,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Emoji",
+                                        "gameName": "Emoji",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/357/1042_357_Emoji.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "表情符号",
+                                        "gameName": "表情符号",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/357/1042_357_Emoji_CN.png"
                 }
             ],
@@ -36446,13 +35434,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Andar Bahar",
+                                        "gameName": "Andar Bahar",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/701/1042_701_AndarBahar.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "安达巴哈",
+                                        "gameName": "安达巴哈",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/701/1042_701_AndarBahar_CN.jpg"
                 }
             ],
@@ -36518,13 +35504,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Yamato",
+                                        "gameName": "Yamato",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/538/1042_538_Yamato.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "宇宙战舰",
+                                        "gameName": "宇宙战舰",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/538/1042_538_Yamato_CN.png"
                 }
             ],
@@ -36590,13 +35574,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sky Force",
+                                        "gameName": "Sky Force",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/29/1042_29_SkyForce.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "空中部队",
+                                        "gameName": "空中部队",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/29/1042_29_SkyForce_CN.png"
                 }
             ],
@@ -36662,13 +35644,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Gem Fusion Reels",
+                                        "gameName": "Lucky Gem Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/206/1042_206_LuckyGemFusionReels.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "招财宝石 巨路发",
+                                        "gameName": "招财宝石 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/206/1042_206_LuckyGemFusionReels_CN.png"
                 }
             ],
@@ -36734,13 +35714,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Po Chi Lam",
+                                        "gameName": "Po Chi Lam",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/257/1042_257_PoChiLam.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "宝芝林",
+                                        "gameName": "宝芝林",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/257/1042_257_PoChiLam_CN.png"
                 }
             ],
@@ -36806,13 +35784,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hip Hop Pigeon",
+                                        "gameName": "Hip Hop Pigeon",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/627/1042_627_HipHopPigeon.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "嘻哈大鸽",
+                                        "gameName": "嘻哈大鸽",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/627/1042_627_HipHopPigeon_CN.png"
                 }
             ],
@@ -36878,13 +35854,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bull Stampede",
+                                        "gameName": "Bull Stampede",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/425/1042_425_BullStampede.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "奔牛",
+                                        "gameName": "奔牛",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/425/1042_425_BullStampede_CN.png"
                 }
             ],
@@ -36950,13 +35924,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "County Seat",
+                                        "gameName": "County Seat",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/199/1042_199_CountySeat.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "盗官记",
+                                        "gameName": "盗官记",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/199/1042_199_CountySeat_CN.png"
                 }
             ],
@@ -37022,13 +35994,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dreamcatcher",
+                                        "gameName": "Dreamcatcher",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/525/1042_525_Dreamcatcher.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "捕梦网",
+                                        "gameName": "捕梦网",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/525/1042_525_Dreamcatcher_CN.png"
                 }
             ],
@@ -37094,13 +36064,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sunny Fruits Lock 2 Spin",
+                                        "gameName": "Sunny Fruits Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/645/1042_645_SunnyFruitsLock2Spin.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "阳光水果 锁好运",
+                                        "gameName": "阳光水果 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/645/1042_645_SunnyFruitsLock2Spin_CN.jpg"
                 }
             ],
@@ -37166,13 +36134,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Love Game",
+                                        "gameName": "Love Game",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/58/1042_58_LoveGame.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "爱情游戏",
+                                        "gameName": "爱情游戏",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/58/1042_58_LoveGame_CN.png"
                 }
             ],
@@ -37238,13 +36204,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Soul Gems Fusion Reels",
+                                        "gameName": "Soul Gems Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/102/1042_102_SoulGemsFusionReels.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "无限宝石 巨路发",
+                                        "gameName": "无限宝石 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/102/1042_102_SoulGemsFusionReels_CN.png"
                 }
             ],
@@ -37310,13 +36274,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hu Yeh",
+                                        "gameName": "Hu Yeh",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/390/1042_390_HuYeh.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "虎爷",
+                                        "gameName": "虎爷",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/390/1042_390_HuYeh_CN.png"
                 }
             ],
@@ -37382,13 +36344,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mayan Gold",
+                                        "gameName": "Mayan Gold",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/490/1042_490_MayanGold.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "玛雅宝藏",
+                                        "gameName": "玛雅宝藏",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/490/1042_490_MayanGold_CN.png"
                 }
             ],
@@ -37454,13 +36414,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Classical Dollhouse Lock 2 Spin",
+                                        "gameName": "Classical Dollhouse Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/739/1042_739_ClassicalDollhouseLock2Spin.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "古典娃娃屋 锁好运",
+                                        "gameName": "古典娃娃屋 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/739/1042_739_ClassicalDollhouseLock2Spin_CN.jpg"
                 }
             ],
@@ -37526,13 +36484,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Impossible X",
+                                        "gameName": "Impossible X",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/88/1042_88_ImpossibleX.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "跳机 X",
+                                        "gameName": "跳机 X",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/88/1042_88_ImpossibleX_CN.png"
                 }
             ],
@@ -37598,13 +36554,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chinese Opera",
+                                        "gameName": "Chinese Opera",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/501/1042_501_ChineseOpera.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "中国戏曲",
+                                        "gameName": "中国戏曲",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/501/1042_501_ChineseOpera_CN.png"
                 }
             ],
@@ -37670,13 +36624,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Samurai Way",
+                                        "gameName": "Samurai Way",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/484/1042_484_SamuraiWay.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "武士道",
+                                        "gameName": "武士道",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/484/1042_484_SamuraiWay_CN.png"
                 }
             ],
@@ -37742,13 +36694,11 @@ export const kaGames = [
             "lines": 25,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Kick Cash Croc",
+                                        "gameName": "Kick Cash Croc",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/629/1042_629_KickCashCroc.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "蹦钱鳄鱼",
+                                        "gameName": "蹦钱鳄鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/629/1042_629_KickCashCroc_CN.png"
                 }
             ],
@@ -37814,13 +36764,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Beautiful Lady",
+                                        "gameName": "Beautiful Lady",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/132/1042_132_BeautifulLady.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "唐伯虎点秋香",
+                                        "gameName": "唐伯虎点秋香",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/132/1042_132_BeautifulLady_CN.png"
                 }
             ],
@@ -37886,13 +36834,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Zhong Yi and Dragon",
+                                        "gameName": "Zhong Yi and Dragon",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/74/1042_74_ZhongYiandDragon.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "钟义与小白龙",
+                                        "gameName": "钟义与小白龙",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/74/1042_74_ZhongYiandDragon_CN.png"
                 }
             ],
@@ -37958,13 +36904,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Monster Buster",
+                                        "gameName": "Monster Buster",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/96/1042_96_MonsterBuster.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "怪物克星",
+                                        "gameName": "怪物克星",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/96/1042_96_MonsterBuster_CN.png"
                 }
             ],
@@ -38030,13 +36974,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Oriental Monster",
+                                        "gameName": "Oriental Monster",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/84/1042_84_OrientalMonster.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "东方妖怪",
+                                        "gameName": "东方妖怪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/84/1042_84_OrientalMonster_CN.png"
                 }
             ],
@@ -38102,13 +37044,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Erlang Shen",
+                                        "gameName": "Erlang Shen",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/415/1042_415_ErlangShen.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "二郎神",
+                                        "gameName": "二郎神",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/415/1042_415_ErlangShen_CN.png"
                 }
             ],
@@ -38174,13 +37114,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mania Vegas Flowin",
+                                        "gameName": "Mania Vegas Flowin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/682/1042_682_ManiaVegasFlowin.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "疯狂不夜城 连财运",
+                                        "gameName": "疯狂不夜城 连财运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/682/1042_682_ManiaVegasFlowin_CN.jpg"
                 }
             ],
@@ -38246,13 +37184,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dark Fortress",
+                                        "gameName": "Dark Fortress",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/337/1042_337_DarkFortress.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "暗黑要塞",
+                                        "gameName": "暗黑要塞",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/337/1042_337_DarkFortress_CN.png"
                 }
             ],
@@ -38318,13 +37254,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Santa Bumble Bee Hold and Win",
+                                        "gameName": "Santa Bumble Bee Hold and Win",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/260/1042_260_SantaBumbleBeeHoldandWin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "圣诞大黄蜂 集鸿运",
+                                        "gameName": "圣诞大黄蜂 集鸿运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/260/1042_260_SantaBumbleBeeHoldandWin_CN.png"
                 }
             ],
@@ -38390,13 +37324,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Great Courtyard",
+                                        "gameName": "Great Courtyard",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/172/1042_172_GreatCourtyard.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "金豪门",
+                                        "gameName": "金豪门",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/172/1042_172_GreatCourtyard_CN.png"
                 }
             ],
@@ -38462,13 +37394,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Silk Road",
+                                        "gameName": "Silk Road",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/518/1042_518_SilkRoad.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "丝路",
+                                        "gameName": "丝路",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/518/1042_518_SilkRoad_CN.png"
                 }
             ],
@@ -38534,13 +37464,11 @@ export const kaGames = [
             "lines": 25,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mouse on the Prairie",
+                                        "gameName": "Mouse on the Prairie",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/607/1042_607_MouseonthePrairie.png?v=1"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "草原上的老鼠",
+                                        "gameName": "草原上的老鼠",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/607/1042_607_MouseonthePrairie_CN.png?v=1"
                 }
             ],
@@ -38606,13 +37534,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Candy Mania",
+                                        "gameName": "Candy Mania",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/353/1042_353_CandyMania.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "疯狂糖果",
+                                        "gameName": "疯狂糖果",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/353/1042_353_CandyMania_CN.png"
                 }
             ],
@@ -38678,13 +37604,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Roulette Double Win",
+                                        "gameName": "Roulette Double Win",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/738/1042_738_RouletteDoubleWin.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "双倍轮盘",
+                                        "gameName": "双倍轮盘",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/738/1042_738_RouletteDoubleWin_CN.jpg"
                 }
             ],
@@ -38750,13 +37674,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Arctic Storm",
+                                        "gameName": "Arctic Storm",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/294/1042_294_ArcticStorm.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "北极风暴",
+                                        "gameName": "北极风暴",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/294/1042_294_ArcticStorm_CN.png"
                 }
             ],
@@ -38822,13 +37744,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Musketeers",
+                                        "gameName": "Musketeers",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/384/1042_384_Musketeers.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "三剑客",
+                                        "gameName": "三剑客",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/384/1042_384_Musketeers_CN.png"
                 }
             ],
@@ -38894,13 +37814,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Princess Wencheng",
+                                        "gameName": "Princess Wencheng",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/465/1042_465_PrincessWencheng.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "文成公主",
+                                        "gameName": "文成公主",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/465/1042_465_PrincessWencheng_CN.png"
                 }
             ],
@@ -38966,13 +37884,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Solomons Treasure",
+                                        "gameName": "Solomons Treasure",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/217/1042_217_SolomonsTreasure.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "所罗门宝藏",
+                                        "gameName": "所罗门宝藏",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/217/1042_217_SolomonsTreasure_CN.png"
                 }
             ],
@@ -39038,13 +37954,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Angry Piggies",
+                                        "gameName": "Angry Piggies",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/317/1042_317_AngryPiggies.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "愤怒小猪",
+                                        "gameName": "愤怒小猪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/317/1042_317_AngryPiggies_CN.png"
                 }
             ],
@@ -39110,13 +38024,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dark Family",
+                                        "gameName": "Dark Family",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/166/1042_166_DarkFamily.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "黑暗家族",
+                                        "gameName": "黑暗家族",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/166/1042_166_DarkFamily_CN.png"
                 }
             ],
@@ -39182,13 +38094,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Modern 7 Wonders",
+                                        "gameName": "Modern 7 Wonders",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/419/1042_419_Modern7Wonders.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "世界七大奇迹",
+                                        "gameName": "世界七大奇迹",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/419/1042_419_Modern7Wonders_CN.png"
                 }
             ],
@@ -39254,13 +38164,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Crazy Womens Jail",
+                                        "gameName": "Crazy Womens Jail",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/213/1042_213_CrazyWomensJail.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "狂爆女子监狱",
+                                        "gameName": "狂爆女子监狱",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/213/1042_213_CrazyWomensJail_CN.png"
                 }
             ],
@@ -39326,13 +38234,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Crystal Fruits",
+                                        "gameName": "Crystal Fruits",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/635/1042_635_CrystalFruits.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "琉璃水果",
+                                        "gameName": "琉璃水果",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/635/1042_635_CrystalFruits_CN.png"
                 }
             ],
@@ -39398,13 +38304,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mystery Shoot",
+                                        "gameName": "Mystery Shoot",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/155/1042_155_MysteryShoot.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神秘狙击场",
+                                        "gameName": "神秘狙击场",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/155/1042_155_MysteryShoot_CN.png"
                 }
             ],
@@ -39470,13 +38374,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Happy Prince",
+                                        "gameName": "The Happy Prince",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/276/1042_276_TheHappyPrince.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "快乐王子",
+                                        "gameName": "快乐王子",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/276/1042_276_TheHappyPrince_CN.png"
                 }
             ],
@@ -39542,13 +38444,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Meerkats Family",
+                                        "gameName": "Meerkats Family",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/299/1042_299_MeerkatsFamily.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "狐萌这一家",
+                                        "gameName": "狐萌这一家",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/299/1042_299_MeerkatsFamily_CN.png"
                 }
             ],
@@ -39614,13 +38514,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fastbreak",
+                                        "gameName": "Fastbreak",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/24/1042_24_Fastbreak.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "快攻",
+                                        "gameName": "快攻",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/24/1042_24_Fastbreak_CN.png"
                 }
             ],
@@ -39686,13 +38584,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Spinning In Space",
+                                        "gameName": "Spinning In Space",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/485/1042_485_SpinningInSpace.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "太空旋转",
+                                        "gameName": "太空旋转",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/485/1042_485_SpinningInSpace_CN.png"
                 }
             ],
@@ -39758,13 +38654,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Stonehenge",
+                                        "gameName": "Stonehenge",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/517/1042_517_Stonehenge.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "巨石阵",
+                                        "gameName": "巨石阵",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/517/1042_517_Stonehenge_CN.png"
                 }
             ],
@@ -39830,13 +38724,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The King of Dinosaurs",
+                                        "gameName": "The King of Dinosaurs",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/524/1042_524_TheKingofDinosaurs.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "霸王龙",
+                                        "gameName": "霸王龙",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/524/1042_524_TheKingofDinosaurs_CN.png"
                 }
             ],
@@ -39902,13 +38794,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Medieval Knights",
+                                        "gameName": "Medieval Knights",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/494/1042_494_MedievalKnights.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "中世纪骑士",
+                                        "gameName": "中世纪骑士",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/494/1042_494_MedievalKnights_CN.png"
                 }
             ],
@@ -39974,13 +38864,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Africa Run",
+                                        "gameName": "Africa Run",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/463/1042_463_AfricaRun.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "动物大迁徙",
+                                        "gameName": "动物大迁徙",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/463/1042_463_AfricaRun_CN.png"
                 }
             ],
@@ -40046,13 +38934,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Moon Goddess",
+                                        "gameName": "Moon Goddess",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/448/1042_448_MoonGoddess.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "嫦娥仙子",
+                                        "gameName": "嫦娥仙子",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/448/1042_448_MoonGoddess_CN.png"
                 }
             ],
@@ -40118,13 +39004,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fast Blast",
+                                        "gameName": "Fast Blast",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/460/1042_460_FastBlast.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "极速旋转",
+                                        "gameName": "极速旋转",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/460/1042_460_FastBlast_CN.png"
                 }
             ],
@@ -40190,13 +39074,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Baseball Fever",
+                                        "gameName": "Baseball Fever",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/303/1042_303_BaseballFever.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "棒球魂",
+                                        "gameName": "棒球魂",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/303/1042_303_BaseballFever_CN.png"
                 }
             ],
@@ -40262,13 +39144,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sweet Maid",
+                                        "gameName": "Sweet Maid",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/285/1042_285_SweetMaid.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "甜心女仆",
+                                        "gameName": "甜心女仆",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/285/1042_285_SweetMaid_CN.png"
                 }
             ],
@@ -40334,13 +39214,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Golden Ax",
+                                        "gameName": "The Golden Ax",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/386/1042_386_TheGoldenAx.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "金银斧",
+                                        "gameName": "金银斧",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/386/1042_386_TheGoldenAx_CN.png"
                 }
             ],
@@ -40406,13 +39284,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Double Fortune",
+                                        "gameName": "Double Fortune",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/313/1042_313_DoubleFortune.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "好事成双",
+                                        "gameName": "好事成双",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/313/1042_313_DoubleFortune_CN.png"
                 }
             ],
@@ -40478,13 +39354,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lion King And Eagle King",
+                                        "gameName": "Lion King And Eagle King",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/261/1042_261_LionKingAndEagleKing.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "狮子王与鹫鹰王",
+                                        "gameName": "狮子王与鹫鹰王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/261/1042_261_LionKingAndEagleKing_CN.png"
                 }
             ],
@@ -40550,13 +39424,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sushi Ninja",
+                                        "gameName": "Sushi Ninja",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/342/1042_342_SushiNinja.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "寿司忍者",
+                                        "gameName": "寿司忍者",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/342/1042_342_SushiNinja_CN.png"
                 }
             ],
@@ -40622,13 +39494,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Snow White",
+                                        "gameName": "Snow White",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/397/1042_397_SnowWhite.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "白雪公主",
+                                        "gameName": "白雪公主",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/397/1042_397_SnowWhite_CN.png"
                 }
             ],
@@ -40694,13 +39564,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mexican Cactus",
+                                        "gameName": "Mexican Cactus",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/662/1042_662_MexicanCactus.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "墨西哥仙人掌",
+                                        "gameName": "墨西哥仙人掌",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/662/1042_662_MexicanCactus_CN.jpg"
                 }
             ],
@@ -40766,13 +39634,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "X-Elements",
+                                        "gameName": "X-Elements",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/369/1042_369_X-Elements.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神秘元素",
+                                        "gameName": "神秘元素",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/369/1042_369_X-Elements_CN.png"
                 }
             ],
@@ -40838,13 +39704,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Pinocchio",
+                                        "gameName": "Pinocchio",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/418/1042_418_Pinocchio.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "小木偶",
+                                        "gameName": "小木偶",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/418/1042_418_Pinocchio_CN.png"
                 }
             ],
@@ -40910,13 +39774,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wizardry",
+                                        "gameName": "Wizardry",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/488/1042_488_Wizardry.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔法师的巫术",
+                                        "gameName": "魔法师的巫术",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/488/1042_488_Wizardry_CN.png"
                 }
             ],
@@ -40982,13 +39844,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fu Lu Shou",
+                                        "gameName": "Fu Lu Shou",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/252/1042_252_FuLuShou.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "三星报喜",
+                                        "gameName": "三星报喜",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/252/1042_252_FuLuShou_CN.png"
                 }
             ],
@@ -41054,13 +39914,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cupid And Psyche",
+                                        "gameName": "Cupid And Psyche",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/283/1042_283_CupidAndPsyche.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "邱比特和赛姬",
+                                        "gameName": "邱比特和赛姬",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/283/1042_283_CupidAndPsyche_CN.png"
                 }
             ],
@@ -41126,13 +39984,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Tiger Girl",
+                                        "gameName": "Tiger Girl",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/190/1042_190_TigerGirl.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "萌虎美眉",
+                                        "gameName": "萌虎美眉",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/190/1042_190_TigerGirl_CN.png"
                 }
             ],
@@ -41198,13 +40054,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Panda Family",
+                                        "gameName": "Panda Family",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/279/1042_279_PandaFamily.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "熊猫一族",
+                                        "gameName": "熊猫一族",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/279/1042_279_PandaFamily_CN.png"
                 }
             ],
@@ -41270,13 +40124,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Aces and Eights",
+                                        "gameName": "Aces and Eights",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/94/1042_94_AcesandEights.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "经典扑克",
+                                        "gameName": "经典扑克",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/94/1042_94_AcesandEights_CN.png"
                 }
             ],
@@ -41342,13 +40194,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Safari Discovery",
+                                        "gameName": "Safari Discovery",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/686/1042_686_SafariDiscovery.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "非洲探险",
+                                        "gameName": "非洲探险",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/686/1042_686_SafariDiscovery_CN.jpg"
                 }
             ],
@@ -41414,13 +40264,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fortune Beauty Megaways",
+                                        "gameName": "Fortune Beauty Megaways",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/253/1042_253_FortuneBeautyMegaways.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "绝代佳人 巨路发",
+                                        "gameName": "绝代佳人 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/253/1042_253_FortuneBeautyMegaways_CN.png"
                 }
             ],
@@ -41486,13 +40334,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Go Go Monsters",
+                                        "gameName": "Go Go Monsters",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/263/1042_263_GoGoMonsters.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "怪兽大作战",
+                                        "gameName": "怪兽大作战",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/263/1042_263_GoGoMonsters_CN.png"
                 }
             ],
@@ -41558,13 +40404,11 @@ export const kaGames = [
             "lines": 20,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Qomolangma",
+                                        "gameName": "Qomolangma",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/649/1042_649_Qomolangma.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "极限登峰",
+                                        "gameName": "极限登峰",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/649/1042_649_Qomolangma_CN.png"
                 }
             ],
@@ -41630,13 +40474,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Magic Carousel",
+                                        "gameName": "Magic Carousel",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/650/1042_650_MagicCarousel.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "魔法旋转木马",
+                                        "gameName": "魔法旋转木马",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/650/1042_650_MagicCarousel_CN.png"
                 }
             ],
@@ -41702,13 +40544,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Giants",
+                                        "gameName": "Giants",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/373/1042_373_Giants.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "巨人",
+                                        "gameName": "巨人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/373/1042_373_Giants_CN.png"
                 }
             ],
@@ -41774,13 +40614,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lounge Club",
+                                        "gameName": "Lounge Club",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/408/1042_408_LoungeClub.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "休闲俱乐部",
+                                        "gameName": "休闲俱乐部",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/408/1042_408_LoungeClub_CN.png"
                 }
             ],
@@ -41846,13 +40684,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mazu",
+                                        "gameName": "Mazu",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/398/1042_398_Mazu.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "妈祖",
+                                        "gameName": "妈祖",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/398/1042_398_Mazu_CN.png"
                 }
             ],
@@ -41918,13 +40754,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lands of Gold",
+                                        "gameName": "Lands of Gold",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/534/1042_534_LandsofGold.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "黄金之源",
+                                        "gameName": "黄金之源",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/534/1042_534_LandsofGold_CN.png"
                 }
             ],
@@ -41990,13 +40824,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Tumbler",
+                                        "gameName": "Lucky Tumbler",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/227/1042_227_LuckyTumbler.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "招财不倒翁",
+                                        "gameName": "招财不倒翁",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/227/1042_227_LuckyTumbler_CN.png"
                 }
             ],
@@ -42062,13 +40894,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fruit Mountain",
+                                        "gameName": "Fruit Mountain",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/521/1042_521_FruitMountain.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "花果山",
+                                        "gameName": "花果山",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/521/1042_521_FruitMountain_CN.png"
                 }
             ],
@@ -42134,13 +40964,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Four Beauties",
+                                        "gameName": "Four Beauties",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/499/1042_499_FourBeauties.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "四大美人",
+                                        "gameName": "四大美人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/499/1042_499_FourBeauties_CN.png"
                 }
             ],
@@ -42206,13 +41034,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cheer Up",
+                                        "gameName": "Cheer Up",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/72/1042_72_CheerUp.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "热血啦啦队",
+                                        "gameName": "热血啦啦队",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/72/1042_72_CheerUp_CN.png"
                 }
             ],
@@ -42278,13 +41104,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Playful Kitten Buy Feature",
+                                        "gameName": "Playful Kitten Buy Feature",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/710/1042_710_PlayfulKittenBuyFeature.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "顽皮小猫 快闪购",
+                                        "gameName": "顽皮小猫 快闪购",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/710/1042_710_PlayfulKittenBuyFeature_CN.jpg"
                 }
             ],
@@ -42350,13 +41174,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Quick Play Candy",
+                                        "gameName": "Quick Play Candy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/17/1042_17_QuickPlayCandy.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "糖果快对",
+                                        "gameName": "糖果快对",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/17/1042_17_QuickPlayCandy_CN.png"
                 }
             ],
@@ -42422,13 +41244,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hamlet",
+                                        "gameName": "Hamlet",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/187/1042_187_Hamlet.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "哈姆雷特",
+                                        "gameName": "哈姆雷特",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/187/1042_187_Hamlet_CN.png"
                 }
             ],
@@ -42494,13 +41314,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Acrobats",
+                                        "gameName": "Acrobats",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/71/1042_71_Acrobats.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "杂技",
+                                        "gameName": "杂技",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/71/1042_71_Acrobats_CN.png"
                 }
             ],
@@ -42566,13 +41384,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cowboys",
+                                        "gameName": "Cowboys",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/441/1042_441_Cowboys.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "西部牛仔",
+                                        "gameName": "西部牛仔",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/441/1042_441_Cowboys_CN.png"
                 }
             ],
@@ -42638,13 +41454,11 @@ export const kaGames = [
             "lines": 5,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Munich Beer Bash",
+                                        "gameName": "Munich Beer Bash",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/609/1042_609_MunichBeerBash.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "慕尼黑啤酒派对",
+                                        "gameName": "慕尼黑啤酒派对",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/609/1042_609_MunichBeerBash_CN.png"
                 }
             ],
@@ -42710,13 +41524,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Peter Pan",
+                                        "gameName": "Peter Pan",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/426/1042_426_PeterPan.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "彼得潘",
+                                        "gameName": "彼得潘",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/426/1042_426_PeterPan_CN.png"
                 }
             ],
@@ -42782,13 +41594,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Rarities",
+                                        "gameName": "Rarities",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/421/1042_421_Rarities.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "稀世珍宝",
+                                        "gameName": "稀世珍宝",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/421/1042_421_Rarities_CN.png"
                 }
             ],
@@ -42854,13 +41664,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Win 3 Cards",
+                                        "gameName": "Win 3 Cards",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/744/1042_744_Win3Cards.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "赢三张牌",
+                                        "gameName": "赢三张牌",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/744/1042_744_Win3Cards_CN.jpg"
                 }
             ],
@@ -42926,13 +41734,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "KungFu Kaga",
+                                        "gameName": "KungFu Kaga",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/333/1042_333_KungFuKaga.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "功夫小子",
+                                        "gameName": "功夫小子",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/333/1042_333_KungFuKaga_CN.png"
                 }
             ],
@@ -42998,13 +41804,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Phoenix Rising",
+                                        "gameName": "Phoenix Rising",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/290/1042_290_PhoenixRising.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "凤凰来仪",
+                                        "gameName": "凤凰来仪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/290/1042_290_PhoenixRising_CN.png"
                 }
             ],
@@ -43070,13 +41874,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Agent Angels",
+                                        "gameName": "Agent Angels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/226/1042_226_AgentAngels.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "特务娇娃",
+                                        "gameName": "特务娇娃",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/226/1042_226_AgentAngels_CN.png"
                 }
             ],
@@ -43142,13 +41944,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sharpshooter",
+                                        "gameName": "Sharpshooter",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/53/1042_53_Sharpshooter.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神射手",
+                                        "gameName": "神射手",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/53/1042_53_Sharpshooter_CN.png"
                 }
             ],
@@ -43214,13 +42014,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "California Gold Rush",
+                                        "gameName": "California Gold Rush",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/516/1042_516_CaliforniaGoldRush.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "加州淘金潮",
+                                        "gameName": "加州淘金潮",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/516/1042_516_CaliforniaGoldRush_CN.png"
                 }
             ],
@@ -43286,13 +42084,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Jumping Mr First",
+                                        "gameName": "Jumping Mr First",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/598/1042_598_JumpingMrFirst.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "我要跳高高",
+                                        "gameName": "我要跳高高",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/598/1042_598_JumpingMrFirst_CN.png"
                 }
             ],
@@ -43358,13 +42154,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Queen's Corgi",
+                                        "gameName": "Queen's Corgi",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/604/1042_604_QueensCorgi.jpg?v=1"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "女王的柯基",
+                                        "gameName": "女王的柯基",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/604/1042_604_QueensCorgi_CN.jpg?v=1"
                 }
             ],
@@ -43430,13 +42224,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Tap Heroes",
+                                        "gameName": "Tap Heroes",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/41/1042_41_TapHeroes.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "爆点英雄",
+                                        "gameName": "爆点英雄",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/41/1042_41_TapHeroes_CN.png"
                 }
             ],
@@ -43502,13 +42294,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sante",
+                                        "gameName": "Sante",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/312/1042_312_Sante.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "干杯",
+                                        "gameName": "干杯",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/312/1042_312_Sante_CN.png"
                 }
             ],
@@ -43574,13 +42364,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon Gate",
+                                        "gameName": "Dragon Gate",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/513/1042_513_DragonGate.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "鲤鱼跃龙门",
+                                        "gameName": "鲤鱼跃龙门",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/513/1042_513_DragonGate_CN.png"
                 }
             ],
@@ -43646,13 +42434,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Haunted Manor",
+                                        "gameName": "The Haunted Manor",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/663/1042_663_TheHauntedManor.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "鬼影深宅",
+                                        "gameName": "鬼影深宅",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/663/1042_663_TheHauntedManor_CN.jpg"
                 }
             ],
@@ -43718,13 +42504,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Party Girl",
+                                        "gameName": "Party Girl",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/367/1042_367_PartyGirl.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "夜店美眉",
+                                        "gameName": "夜店美眉",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/367/1042_367_PartyGirl_CN.png"
                 }
             ],
@@ -43790,13 +42574,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Farm Mania",
+                                        "gameName": "Farm Mania",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/478/1042_478_FarmMania.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "活力庄园",
+                                        "gameName": "活力庄园",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/478/1042_478_FarmMania_CN.png"
                 }
             ],
@@ -43862,13 +42644,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Endorser of Thor",
+                                        "gameName": "Endorser of Thor",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/68/1042_68_EndorserofThor.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "雷神代言人",
+                                        "gameName": "雷神代言人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/68/1042_68_EndorserofThor_CN.png"
                 }
             ],
@@ -43934,13 +42714,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Tower of Babel",
+                                        "gameName": "Tower of Babel",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/394/1042_394_TowerofBabel.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "巴比伦之塔",
+                                        "gameName": "巴比伦之塔",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/394/1042_394_TowerofBabel_CN.png"
                 }
             ],
@@ -44006,13 +42784,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Come On Rhythm",
+                                        "gameName": "Come On Rhythm",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/395/1042_395_ComeOnRhythm.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "动次打次",
+                                        "gameName": "动次打次",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/395/1042_395_ComeOnRhythm_CN.png"
                 }
             ],
@@ -44078,13 +42854,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Boy Who Cried Wolf",
+                                        "gameName": "The Boy Who Cried Wolf",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/224/1042_224_TheBoyWhoCriedWolf.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "狼来了",
+                                        "gameName": "狼来了",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/224/1042_224_TheBoyWhoCriedWolf_CN.png"
                 }
             ],
@@ -44150,13 +42924,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Owl In Forest",
+                                        "gameName": "Owl In Forest",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/248/1042_248_OwlInForest.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猫头鹰",
+                                        "gameName": "猫头鹰",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/248/1042_248_OwlInForest_CN.png"
                 }
             ],
@@ -44222,13 +42994,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Happy Thanksgiving",
+                                        "gameName": "Happy Thanksgiving",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/266/1042_266_HappyThanksgiving.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "感恩节大餐",
+                                        "gameName": "感恩节大餐",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/266/1042_266_HappyThanksgiving_CN.png"
                 }
             ],
@@ -44294,13 +43064,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Legend of Heroes",
+                                        "gameName": "The Legend of Heroes",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/309/1042_309_TheLegendofHeroes.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "勇者传说",
+                                        "gameName": "勇者传说",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/309/1042_309_TheLegendofHeroes_CN.png"
                 }
             ],
@@ -44366,13 +43134,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Three Bandits",
+                                        "gameName": "Three Bandits",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/308/1042_308_ThreeBandits.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "三个强盗",
+                                        "gameName": "三个强盗",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/308/1042_308_ThreeBandits_CN.png"
                 }
             ],
@@ -44438,13 +43204,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Last Fantasy",
+                                        "gameName": "Last Fantasy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/535/1042_535_LastFantasy.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "最终幻想曲",
+                                        "gameName": "最终幻想曲",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/535/1042_535_LastFantasy_CN.png"
                 }
             ],
@@ -44510,13 +43274,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Frankenstein",
+                                        "gameName": "Frankenstein",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/403/1042_403_Frankenstein.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "科学怪人",
+                                        "gameName": "科学怪人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/403/1042_403_Frankenstein_CN.png"
                 }
             ],
@@ -44582,13 +43344,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Robots",
+                                        "gameName": "Robots",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/435/1042_435_Robots.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "机器人",
+                                        "gameName": "机器人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/435/1042_435_Robots_CN.png"
                 }
             ],
@@ -44654,13 +43414,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Apes",
+                                        "gameName": "The Apes",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/464/1042_464_TheApes.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猿人",
+                                        "gameName": "猿人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/464/1042_464_TheApes_CN.png"
                 }
             ],
@@ -44726,13 +43484,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Magical Store",
+                                        "gameName": "Magical Store",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/278/1042_278_MagicalStore.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神奇杂货店",
+                                        "gameName": "神奇杂货店",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/278/1042_278_MagicalStore_CN.png"
                 }
             ],
@@ -44798,13 +43554,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cricket Winner",
+                                        "gameName": "Cricket Winner",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/97/1042_97_CricketWinner.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "板球赢家",
+                                        "gameName": "板球赢家",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/97/1042_97_CricketWinner_CN.png"
                 }
             ],
@@ -44870,13 +43624,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Elite Games",
+                                        "gameName": "Elite Games",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/106/1042_106_EliteGames.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "菁英赛事",
+                                        "gameName": "菁英赛事",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/106/1042_106_EliteGames_CN.png"
                 }
             ],
@@ -44942,13 +43694,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Genghis Khan",
+                                        "gameName": "Genghis Khan",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/376/1042_376_GenghisKhan.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "成吉思汗",
+                                        "gameName": "成吉思汗",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/376/1042_376_GenghisKhan_CN.png"
                 }
             ],
@@ -45014,13 +43764,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Street Racing",
+                                        "gameName": "Street Racing",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/422/1042_422_StreetRacing.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "速度与激情",
+                                        "gameName": "速度与激情",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/422/1042_422_StreetRacing_CN.png"
                 }
             ],
@@ -45086,13 +43834,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Monster Parade",
+                                        "gameName": "Monster Parade",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/304/1042_304_MonsterParade.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "怪兽狂欢",
+                                        "gameName": "怪兽狂欢",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/304/1042_304_MonsterParade_CN.png"
                 }
             ],
@@ -45158,13 +43904,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Squid Party Lock 2 Spin",
+                                        "gameName": "Squid Party Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/181/1042_181_SquidPartyLock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "鱿鱼派对 锁好运",
+                                        "gameName": "鱿鱼派对 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/181/1042_181_SquidPartyLock2Spin_CN.png"
                 }
             ],
@@ -45230,13 +43974,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fantasy Dragons",
+                                        "gameName": "Fantasy Dragons",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/216/1042_216_FantasyDragons.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "龙之乡",
+                                        "gameName": "龙之乡",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/216/1042_216_FantasyDragons_CN.png"
                 }
             ],
@@ -45302,13 +44044,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Vampire's Night",
+                                        "gameName": "Vampire's Night",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/636/1042_636_VampiresNight.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "吸血鬼之夜",
+                                        "gameName": "吸血鬼之夜",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/636/1041_636_VampiresNight_CN.png"
                 }
             ],
@@ -45374,13 +44114,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Red Baron",
+                                        "gameName": "Red Baron",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/93/1042_93_RedBaron.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "红色男爵",
+                                        "gameName": "红色男爵",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/93/1042_93_RedBaron_CN.png"
                 }
             ],
@@ -45446,13 +44184,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Unicorn Party",
+                                        "gameName": "Unicorn Party",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/153/1042_153_UnicornParty.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "独角兽趴踢",
+                                        "gameName": "独角兽趴踢",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/153/1042_153_UnicornParty_CN.png"
                 }
             ],
@@ -45518,13 +44254,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Da Guan Yuan",
+                                        "gameName": "Da Guan Yuan",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/256/1042_256_DaGuanYuan.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "大观园",
+                                        "gameName": "大观园",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/256/1042_256_DaGuanYuan_CN.png"
                 }
             ],
@@ -45590,13 +44324,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Longmen Express",
+                                        "gameName": "Longmen Express",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/675/1042_675_LongmenExpress.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "龙门镖局",
+                                        "gameName": "龙门镖局",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/675/1042_675_LongmenExpress_CN.jpg"
                 }
             ],
@@ -45662,13 +44394,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Polynesian",
+                                        "gameName": "Polynesian",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/527/1042_527_Polynesian.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "南岛风情",
+                                        "gameName": "南岛风情",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/527/1042_527_Polynesian_CN.png"
                 }
             ],
@@ -45734,13 +44464,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Millionaires",
+                                        "gameName": "Millionaires",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/471/1042_471_Millionaires.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "百万富翁",
+                                        "gameName": "百万富翁",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/471/1042_471_Millionaires_CN.png"
                 }
             ],
@@ -45806,13 +44534,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Three Little Pigs",
+                                        "gameName": "Three Little Pigs",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/481/1042_481_ThreeLittlePigs.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "三只小猪",
+                                        "gameName": "三只小猪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/481/1042_481_ThreeLittlePigs_CN.png"
                 }
             ],
@@ -45878,13 +44604,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Glass Slipper",
+                                        "gameName": "Glass Slipper",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/487/1042_487_GlassSlipper.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "灰姑娘的玻璃鞋",
+                                        "gameName": "灰姑娘的玻璃鞋",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/487/1042_487_GlassSlipper_CN.png"
                 }
             ],
@@ -45950,13 +44674,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chivalrous Girl",
+                                        "gameName": "Chivalrous Girl",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/182/1042_182_ChivalrousGirl.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "侠女",
+                                        "gameName": "侠女",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/182/1042_182_ChivalrousGirl_CN.png"
                 }
             ],
@@ -46022,13 +44744,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Firefighters",
+                                        "gameName": "Firefighters",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/70/1042_70_Firefighters.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "打火兄弟",
+                                        "gameName": "打火兄弟",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/70/1042_70_Firefighters_CN.png"
                 }
             ],
@@ -46094,13 +44814,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Gingerbread Land",
+                                        "gameName": "The Gingerbread Land",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/360/1042_360_TheGingerbreadLand.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "姜饼人",
+                                        "gameName": "姜饼人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/360/1042_360_TheGingerbreadLand_CN.png"
                 }
             ],
@@ -46166,13 +44884,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Baccarat",
+                                        "gameName": "Baccarat",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/452/1042_452_Baccarat.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "百家乐",
+                                        "gameName": "百家乐",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/452/1042_452_Baccarat_CN.png"
                 }
             ],
@@ -46238,13 +44954,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lobster Crazy Shack",
+                                        "gameName": "Lobster Crazy Shack",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/674/1042_674_LobsterCrazyShack.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "龙虾小屋",
+                                        "gameName": "龙虾小屋",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/674/1042_674_LobsterCrazyShack_CN.jpg"
                 }
             ],
@@ -46310,13 +45024,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wolf Warrior",
+                                        "gameName": "Wolf Warrior",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/412/1042_412_WolfWarrior.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "战狼",
+                                        "gameName": "战狼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/412/1042_412_WolfWarrior_CN.png"
                 }
             ],
@@ -46382,13 +45094,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Spring Blossom",
+                                        "gameName": "Spring Blossom",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/396/1042_396_SpringBlossom.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "花季",
+                                        "gameName": "花季",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/396/1042_396_SpringBlossom_CN.png"
                 }
             ],
@@ -46454,13 +45164,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon Gate Poker",
+                                        "gameName": "Dragon Gate Poker",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/729/1042_729_DragonGatePoker.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "射龙门",
+                                        "gameName": "射龙门",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/729/1042_729_DragonGatePoker_CN.jpg"
                 }
             ],
@@ -46526,13 +45234,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon Turtle",
+                                        "gameName": "Dragon Turtle",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/211/1042_211_DragonTurtle.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "龙龟",
+                                        "gameName": "龙龟",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/211/1042_211_DragonTurtle_CN.png"
                 }
             ],
@@ -46598,13 +45304,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Super Keno",
+                                        "gameName": "Super Keno",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/506/1042_506_SuperKeno.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "超级基诺",
+                                        "gameName": "超级基诺",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/506/1042_506_SuperKeno_CN.png"
                 }
             ],
@@ -46670,13 +45374,11 @@ export const kaGames = [
             "lines": 50,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon's Hoard",
+                                        "gameName": "Dragon's Hoard",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/606/1042_606_DragonsHoard.png?v=1"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "巨龙宝藏",
+                                        "gameName": "巨龙宝藏",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/606/1042_606_DragonsHoard_CN.png?v=1"
                 }
             ],
@@ -46742,13 +45444,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Big Apple",
+                                        "gameName": "Big Apple",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/388/1042_388_BigApple.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "纽约客",
+                                        "gameName": "纽约客",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/388/1042_388_BigApple_CN.png"
                 }
             ],
@@ -46814,13 +45514,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bombing Fruit",
+                                        "gameName": "Bombing Fruit",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/417/1042_417_BombingFruit.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "轰炸水果",
+                                        "gameName": "轰炸水果",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/417/1042_417_BombingFruit_CN.png"
                 }
             ],
@@ -46886,13 +45584,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Royal Demeanor",
+                                        "gameName": "Royal Demeanor",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/329/1042_329_RoyalDemeanor.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "王者风范",
+                                        "gameName": "王者风范",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/329/1042_329_RoyalDemeanor_CN.png"
                 }
             ],
@@ -46958,13 +45654,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lucky Penguins",
+                                        "gameName": "Lucky Penguins",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/379/1042_379_LuckyPenguins.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "幸运企鹅",
+                                        "gameName": "幸运企鹅",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/379/1042_379_LuckyPenguins_CN.png"
                 }
             ],
@@ -47030,13 +45724,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dia De Muertos",
+                                        "gameName": "Dia De Muertos",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/500/1042_500_DiaDeMuertos.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "亡灵节",
+                                        "gameName": "亡灵节",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/500/1042_500_DiaDeMuertos_CN.png"
                 }
             ],
@@ -47102,13 +45794,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Butterfly Lovers",
+                                        "gameName": "Butterfly Lovers",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/270/1042_270_ButterflyLovers.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "梁山伯与祝英台",
+                                        "gameName": "梁山伯与祝英台",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/270/1042_270_ButterflyLovers_CN.png"
                 }
             ],
@@ -47174,13 +45864,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dim Sum",
+                                        "gameName": "Dim Sum",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/522/1042_522_DimSum.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "中式点心",
+                                        "gameName": "中式点心",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/522/1042_522_DimSum_CN.png"
                 }
             ],
@@ -47246,13 +45934,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Gummy Bear Kingdom Lock 2 SpinF11",
+                                        "gameName": "Gummy Bear Kingdom Lock 2 SpinF11",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/688/1042_688_GummyBearKingdomLock2SpinF11.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "小熊软糖王国 锁好运",
+                                        "gameName": "小熊软糖王国 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/688/1042_688_GummyBearKingdomLock2SpinF11_CN.jpg"
                 }
             ],
@@ -47318,13 +46004,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fantasy Park",
+                                        "gameName": "Fantasy Park",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/510/1042_510_FantasyPark.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "奇幻乐园",
+                                        "gameName": "奇幻乐园",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/510/1042_510_FantasyPark_CN.png"
                 }
             ],
@@ -47390,13 +46074,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Legend of Athena",
+                                        "gameName": "Legend of Athena",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/214/1042_214_LegendofAthena.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "女神雅典娜",
+                                        "gameName": "女神雅典娜",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/214/1042_214_LegendofAthena_CN.png"
                 }
             ],
@@ -47462,13 +46144,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Go Escape",
+                                        "gameName": "Go Escape",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/76/1042_76_GoEscape.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "冒险逃脱",
+                                        "gameName": "冒险逃脱",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/76/1042_76_GoEscape_CN.png"
                 }
             ],
@@ -47534,13 +46214,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Terror Trail",
+                                        "gameName": "Terror Trail",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/681/1042_681_TerrorTrail.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "怪物惊魂",
+                                        "gameName": "怪物惊魂",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/681/1042_681_TerrorTrail_CN.jpg"
                 }
             ],
@@ -47606,13 +46284,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fluffy Buddy",
+                                        "gameName": "Fluffy Buddy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/370/1042_370_FluffyBuddy.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "胆小毛毛怪",
+                                        "gameName": "胆小毛毛怪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/370/1042_370_FluffyBuddy_CN.png"
                 }
             ],
@@ -47678,13 +46354,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Zashiki God",
+                                        "gameName": "Zashiki God",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/241/1042_241_ZashikiGod.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "座敷童子",
+                                        "gameName": "座敷童子",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/241/1042_241_ZashikiGod_CN.png"
                 }
             ],
@@ -47750,13 +46424,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Frog Prince",
+                                        "gameName": "The Frog Prince",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/40/1042_40_TheFrogPrince.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "青蛙王子",
+                                        "gameName": "青蛙王子",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/40/1042_40_TheFrogPrince_CN.png"
                 }
             ],
@@ -47822,13 +46494,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lu Ban",
+                                        "gameName": "Lu Ban",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/690/1042_690_LuBan.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "鲁班",
+                                        "gameName": "鲁班",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/690/1042_690_LuBan_CN.png"
                 }
             ],
@@ -47894,13 +46564,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Putter King",
+                                        "gameName": "Putter King",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/596/1042_596_PutterKing.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "推杆王",
+                                        "gameName": "推杆王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/596/1042_596_PutterKing_CN.png"
                 }
             ],
@@ -47966,13 +46634,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Secret of Ocean 2",
+                                        "gameName": "Secret of Ocean 2",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/664/1042_664_SecretOfOcean2.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "海洋传说 2",
+                                        "gameName": "海洋传说 2",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/664/1042_664_SecretOfOcean2_CN.jpg"
                 }
             ],
@@ -48038,13 +46704,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mythic",
+                                        "gameName": "Mythic",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/492/1042_492_Mythic.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "神话世纪",
+                                        "gameName": "神话世纪",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/492/1042_492_Mythic_CN.png"
                 }
             ],
@@ -48110,13 +46774,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Jellymania",
+                                        "gameName": "Jellymania",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/459/1042_459_Jellymania.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "果冻乐园",
+                                        "gameName": "果冻乐园",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/459/1042_459_Jellymania_CN.png"
                 }
             ],
@@ -48182,13 +46844,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Lazy Rich",
+                                        "gameName": "Lazy Rich",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/149/1042_149_LazyRich.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "慵懒时光",
+                                        "gameName": "慵懒时光",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/149/1042_149_LazyRich_CN.png"
                 }
             ],
@@ -48254,13 +46914,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Magic Queen",
+                                        "gameName": "Magic Queen",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/215/1042_215_MagicQueen.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔术女王",
+                                        "gameName": "魔术女王",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/215/1042_215_MagicQueen_CN.png"
                 }
             ],
@@ -48326,13 +46984,11 @@ export const kaGames = [
             "lines": 50,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Stellar Fantasia",
+                                        "gameName": "Stellar Fantasia",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/623/1042_623_StellarFantasia.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "星辰美少女",
+                                        "gameName": "星辰美少女",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/623/1042_623_StellarFantasia_CN.png"
                 }
             ],
@@ -48398,13 +47054,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Deep Sea Adventure",
+                                        "gameName": "Deep Sea Adventure",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/483/1042_483_DeepSeaAdventure.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "深海之旅",
+                                        "gameName": "深海之旅",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/483/1042_483_DeepSeaAdventure_CN.png"
                 }
             ],
@@ -48470,13 +47124,11 @@ export const kaGames = [
             "lines": 5,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bizarre Barber",
+                                        "gameName": "Bizarre Barber",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/610/1042_610_BizarreBarber.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "疯狂理发师",
+                                        "gameName": "疯狂理发师",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/610/1042_610_BizarreBarber_CN.png"
                 }
             ],
@@ -48542,13 +47194,11 @@ export const kaGames = [
             "lines": 243,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Underwater Treasure",
+                                        "gameName": "Underwater Treasure",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/630/1042_630_UnderwaterTreasure.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "深海宝藏",
+                                        "gameName": "深海宝藏",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/630/1042_630_UnderwaterTreasure_CN.png"
                 }
             ],
@@ -48614,13 +47264,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mutant Abyss",
+                                        "gameName": "Mutant Abyss",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/671/1042_671_MutantAbyss.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "异变深渊",
+                                        "gameName": "异变深渊",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/671/1042_671_MutantAbyss_CN.jpg"
                 }
             ],
@@ -48686,13 +47334,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hunter Helibu",
+                                        "gameName": "Hunter Helibu",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/220/1042_220_HunterHelibu.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猎人海力布",
+                                        "gameName": "猎人海力布",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/220/1042_220_HunterHelibu_CN.png"
                 }
             ],
@@ -48758,13 +47404,11 @@ export const kaGames = [
             "lines": 75,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Four Seasons",
+                                        "gameName": "Four Seasons",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/613/1042_613_FourSeasons.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "四季物语",
+                                        "gameName": "四季物语",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/613/1042_613_FourSeasons_CN.png"
                 }
             ],
@@ -48830,13 +47474,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Charlottes Web",
+                                        "gameName": "Charlottes Web",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/281/1042_281_CharlottesWeb.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "夏洛特的网",
+                                        "gameName": "夏洛特的网",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/281/1042_281_CharlottesWeb_CN.png"
                 }
             ],
@@ -48902,13 +47544,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Legend of Fox Spirit",
+                                        "gameName": "Legend of Fox Spirit",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/298/1042_298_LegendofFoxSpirit.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "狐仙情缘",
+                                        "gameName": "狐仙情缘",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/298/1042_298_LegendofFoxSpirit_CN.png"
                 }
             ],
@@ -48974,13 +47614,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Honey Money",
+                                        "gameName": "Honey Money",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/381/1042_381_HoneyMoney.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "蜂蜜派对",
+                                        "gameName": "蜂蜜派对",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/381/1042_381_HoneyMoney_CN.png"
                 }
             ],
@@ -49046,13 +47684,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hat Seller",
+                                        "gameName": "Hat Seller",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/392/1042_392_HatSeller.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "帽子商人",
+                                        "gameName": "帽子商人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/392/1042_392_HatSeller_CN.png"
                 }
             ],
@@ -49118,13 +47754,11 @@ export const kaGames = [
             "lines": 10,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Crazy Oktoberfest",
+                                        "gameName": "Crazy Oktoberfest",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/605/1042_605_CrazyOktoberfest.png?v=1"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "狂欢啤酒节",
+                                        "gameName": "狂欢啤酒节",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/605/1042_605_CrazyOktoberfest_CN.png?v=1"
                 }
             ],
@@ -49190,13 +47824,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bumble Bee",
+                                        "gameName": "Bumble Bee",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/399/1042_399_BumbleBee.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "大黄蜂",
+                                        "gameName": "大黄蜂",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/399/1042_399_BumbleBee_CN.png"
                 }
             ],
@@ -49262,13 +47894,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Area 51 Lock 2 Spin",
+                                        "gameName": "Area 51 Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/693/1042_693_Area51Lock2Spin.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "51禁区 锁好运",
+                                        "gameName": "51禁区 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/693/1042_693_Area51Lock2Spin_CN.png"
                 }
             ],
@@ -49334,13 +47964,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "SNS Friends",
+                                        "gameName": "SNS Friends",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/537/1042_537_SNSFriends.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "社交网之友",
+                                        "gameName": "社交网之友",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/537/1042_537_SNSFriends_CN.png"
                 }
             ],
@@ -49406,13 +48034,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dozen Roulette",
+                                        "gameName": "Dozen Roulette",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/732/1042_732_DozenRoulette.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "十二数字轮盘",
+                                        "gameName": "十二数字轮盘",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/732/1042_732_DozenRoulette_CN.jpg"
                 }
             ],
@@ -49478,13 +48104,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Blocky Block 2",
+                                        "gameName": "Blocky Block 2",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/338/1042_338_BlockyBlock2.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "块块乐2",
+                                        "gameName": "块块乐2",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/338/1042_338_BlockyBlock2_CN.png"
                 }
             ],
@@ -49550,13 +48174,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mega Roulette",
+                                        "gameName": "Mega Roulette",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/666/1042_666_MegaRoulette.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "百亿欧式轮盘",
+                                        "gameName": "百亿欧式轮盘",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/666/1042_666_MegaRoulette_CN.jpg"
                 }
             ],
@@ -49622,13 +48244,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Book of Moon Fusion Reels",
+                                        "gameName": "Book of Moon Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/184/1042_184_BookofMoonFusionReels.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "月之书 巨路发",
+                                        "gameName": "月之书 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/184/1042_184_BookofMoonFusionReels_CN.png"
                 }
             ],
@@ -49694,13 +48314,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Magician House",
+                                        "gameName": "Magician House",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/222/1042_222_MagicianHouse.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔法师家",
+                                        "gameName": "魔法师家",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/222/1042_222_MagicianHouse_CN.png"
                 }
             ],
@@ -49766,13 +48384,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Super Slime",
+                                        "gameName": "Super Slime",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/238/1042_238_SuperSlime.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "超能史莱姆",
+                                        "gameName": "超能史莱姆",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/238/1042_238_SuperSlime_CN.png"
                 }
             ],
@@ -49838,13 +48454,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mystery Doctor",
+                                        "gameName": "Mystery Doctor",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/687/1042_687_MysteryDoctor.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "神秘怪医",
+                                        "gameName": "神秘怪医",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/687/1042_687_MysteryDoctor_CN.jpg"
                 }
             ],
@@ -49910,13 +48524,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Don Quixote",
+                                        "gameName": "Don Quixote",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/380/1042_380_DonQuixote.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "唐吉诃德",
+                                        "gameName": "唐吉诃德",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/380/1042_380_DonQuixote_CN.png"
                 }
             ],
@@ -49982,13 +48594,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Shopping Fiend",
+                                        "gameName": "Shopping Fiend",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/432/1042_432_ShoppingFiend.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "购物狂",
+                                        "gameName": "购物狂",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/432/1042_432_ShoppingFiend_CN.png"
                 }
             ],
@@ -50054,13 +48664,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Ghost Festival",
+                                        "gameName": "Ghost Festival",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/201/1042_201_GhostFestival.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "鬼门开",
+                                        "gameName": "鬼门开",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/201/1042_201_GhostFestival_CN.png"
                 }
             ],
@@ -50126,13 +48734,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Toy World",
+                                        "gameName": "Toy World",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/264/1042_264_ToyWorld.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "玩具世界",
+                                        "gameName": "玩具世界",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/264/1042_264_ToyWorld_CN.png"
                 }
             ],
@@ -50198,13 +48804,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Home Run X",
+                                        "gameName": "Home Run X",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/63/1042_63_HomeRunX.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "全垒打X",
+                                        "gameName": "全垒打X",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/63/1042_63_HomeRunX_CN.png"
                 }
             ],
@@ -50270,13 +48874,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Animal Land",
+                                        "gameName": "Animal Land",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/91/1042_91_AnimalLand.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "动物森林",
+                                        "gameName": "动物森林",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/91/1042_91_AnimalLand_CN.png"
                 }
             ],
@@ -50342,13 +48944,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Siberian Wolves",
+                                        "gameName": "Siberian Wolves",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/416/1042_416_SiberianWolves.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "西伯利亚狼",
+                                        "gameName": "西伯利亚狼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/416/1042_416_SiberianWolves_CN.png"
                 }
             ],
@@ -50414,13 +49014,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Black Swan Lock 2 Spin",
+                                        "gameName": "Black Swan Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/709/1042_709_BlackSwanLock2Spin.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "黑天鹅 锁好运",
+                                        "gameName": "黑天鹅 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/709/1042_709_BlackSwanLock2Spin_CN.jpg"
                 }
             ],
@@ -50486,13 +49084,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Museum of Fantasy Fusion Reels",
+                                        "gameName": "Museum of Fantasy Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/608/1042_608_MuseumofFantasyFusionReels.png?v=1"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "奇幻博物馆 巨路发",
+                                        "gameName": "奇幻博物馆 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/608/1042_608_MuseumofFantasyFusionReels_CN.png?v=1"
                 }
             ],
@@ -50558,13 +49154,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Little Prince Lock 2 Spin",
+                                        "gameName": "The Little Prince Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/79/1042_79_TheLittlePrinceLock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "小王子 锁好运",
+                                        "gameName": "小王子 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/79/1042_79_TheLittlePrinceLock2Spin_CN.png"
                 }
             ],
@@ -50630,13 +49224,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Pok Deng",
+                                        "gameName": "Pok Deng",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/723/1042_723_PokDeng.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "博丁",
+                                        "gameName": "博丁",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/723/1042_723_PokDeng_CN.jpg"
                 }
             ],
@@ -50702,13 +49294,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Golden Shanghai",
+                                        "gameName": "Golden Shanghai",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/470/1042_470_GoldenShanghai.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "夜上海",
+                                        "gameName": "夜上海",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/470/1042_470_GoldenShanghai_CN.png"
                 }
             ],
@@ -50774,13 +49364,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Fantasy War",
+                                        "gameName": "Fantasy War",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/36/1042_36_FantasyWar.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "战争联盟",
+                                        "gameName": "战争联盟",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/36/1042_36_FantasyWar_CN.png"
                 }
             ],
@@ -50846,13 +49434,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Medal Winner Megaways",
+                                        "gameName": "Medal Winner Megaways",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/356/1042_356_MedalWinnerMegaways.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "大赢家",
+                                        "gameName": "大赢家",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/356/1042_356_MedalWinnerMegaways_CN.png"
                 }
             ],
@@ -50918,13 +49504,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Millennium Love",
+                                        "gameName": "Millennium Love",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/295/1042_295_MillenniumLove.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "千年之恋",
+                                        "gameName": "千年之恋",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/295/1042_295_MillenniumLove_CN.png"
                 }
             ],
@@ -50990,13 +49574,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Stone Age",
+                                        "gameName": "Stone Age",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/34/1042_34_StoneAge.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "石器时代",
+                                        "gameName": "石器时代",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/34/1042_34_StoneAge_CN.png"
                 }
             ],
@@ -51062,13 +49644,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Shark Treasure",
+                                        "gameName": "Shark Treasure",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/712/1042_712_SharkTreasure.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "鲨鱼宝藏",
+                                        "gameName": "鲨鱼宝藏",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/712/1042_712_SharkTreasure_CN.jpg"
                 }
             ],
@@ -51134,13 +49714,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Boy Toys",
+                                        "gameName": "Boy Toys",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/468/1042_468_BoyToys.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "高富帅",
+                                        "gameName": "高富帅",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/468/1042_468_BoyToys_CN.png"
                 }
             ],
@@ -51206,13 +49784,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "WanFu JinAn",
+                                        "gameName": "WanFu JinAn",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/387/1042_387_WanFuJinAn.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "万福金安",
+                                        "gameName": "万福金安",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/387/1042_387_WanFuJinAn_CN.png"
                 }
             ],
@@ -51278,13 +49854,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Mermaid Seas",
+                                        "gameName": "Mermaid Seas",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/439/1042_439_MermaidSeas.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "美人鱼",
+                                        "gameName": "美人鱼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/439/1042_439_MermaidSeas_CN.png"
                 }
             ],
@@ -51350,13 +49924,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cheerleading Team",
+                                        "gameName": "Cheerleading Team",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/162/1042_162_CheerleadingTeam.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "啦啦队",
+                                        "gameName": "啦啦队",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/162/1042_162_CheerleadingTeam_CN.png"
                 }
             ],
@@ -51422,13 +49994,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Infinity X",
+                                        "gameName": "Infinity X",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/73/1042_73_InfinityX.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "突破极限X",
+                                        "gameName": "突破极限X",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/73/1042_73_InfinityX_CN.png"
                 }
             ],
@@ -51494,13 +50064,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Circus Hunting",
+                                        "gameName": "Circus Hunting",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/677/1042_677_CircusHunting.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "猎杀马戏团",
+                                        "gameName": "猎杀马戏团",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/677/1042_677_CircusHunting_CN.jpg"
                 }
             ],
@@ -51566,13 +50134,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Slavic Fantasy",
+                                        "gameName": "Slavic Fantasy",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/678/1042_678_SlavicFantasy.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "梦幻斯拉夫",
+                                        "gameName": "梦幻斯拉夫",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/678/1042_678_SlavicFantasy_CN.jpg"
                 }
             ],
@@ -51638,13 +50204,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hell Deep Sea",
+                                        "gameName": "Hell Deep Sea",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/755/1042_755_HellDeepSea.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "深海地狱",
+                                        "gameName": "深海地狱",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/755/1042_755_HellDeepSea_CN.jpg"
                 }
             ],
@@ -51710,13 +50274,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chicken Leap",
+                                        "gameName": "Chicken Leap",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/756/1042_756_ChickenLeap.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "鸡不可挡",
+                                        "gameName": "鸡不可挡",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/756/1042_756_ChickenLeap_CN.jpg"
                 }
             ],
@@ -51782,13 +50344,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hot Coin Buy Feature",
+                                        "gameName": "Hot Coin Buy Feature",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/757/1042_757_HotCoinBuyFeature.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "狂热奖金 快闪购",
+                                        "gameName": "狂热奖金 快闪购",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/757/1042_757_HotCoinBuyFeature_CN.jpg"
                 }
             ],
@@ -51854,13 +50414,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Stocked Bar",
+                                        "gameName": "Stocked Bar",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/504/1042_504_StockedBar.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "不醉不归",
+                                        "gameName": "不醉不归",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/504/1042_504_StockedBar_CN.png"
                 }
             ],
@@ -51926,13 +50484,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Leprechauns",
+                                        "gameName": "Leprechauns",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/509/1042_509_Leprechauns.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "魔法精灵",
+                                        "gameName": "魔法精灵",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/509/1042_509_Leprechauns_CN.png"
                 }
             ],
@@ -51998,13 +50554,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "da Vinci",
+                                        "gameName": "da Vinci",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/515/1042_515_daVinci.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "发明家达芬奇",
+                                        "gameName": "发明家达芬奇",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/515/1042_515_daVinci_CN.png"
                 }
             ],
@@ -52070,13 +50624,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Taiwan Black Bear",
+                                        "gameName": "Taiwan Black Bear",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/523/1042_523_TaiwanBlackBear.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "台湾黑熊",
+                                        "gameName": "台湾黑熊",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/523/1042_523_TaiwanBlackBear_CN.png"
                 }
             ],
@@ -52142,13 +50694,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wild Alaska",
+                                        "gameName": "Wild Alaska",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/528/1042_528_WildAlaska.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "荒野生存",
+                                        "gameName": "荒野生存",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/528/1042_528_WildAlaska_CN.png"
                 }
             ],
@@ -52214,13 +50764,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Break Through Lock 2 Spin",
+                                        "gameName": "Break Through Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/599/1042_599_BreakThroughLock2Spin.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "疾风突破 锁好运",
+                                        "gameName": "疾风突破 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/599/1042_599_BreakThroughLock2Spin_CN.png"
                 }
             ],
@@ -52286,13 +50834,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Cannibal Garden",
+                                        "gameName": "Cannibal Garden",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/617/1042_617_CannibalGarden.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "食人花园",
+                                        "gameName": "食人花园",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/617/1042_617_CannibalGarden_CN.png"
                 }
             ],
@@ -52358,13 +50904,11 @@ export const kaGames = [
             "lines": 1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Christmas Wheel",
+                                        "gameName": "Christmas Wheel",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/633/1042_633_ChristmasWheel.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "圣诞幸运轮",
+                                        "gameName": "圣诞幸运轮",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/633/1042_633_ChristmasWheel_CN.png"
                 }
             ],
@@ -52430,13 +50974,11 @@ export const kaGames = [
             "lines": 20,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Quick Garden",
+                                        "gameName": "Quick Garden",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/639/1042_639_QuickGarden.png"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "快捷花园",
+                                        "gameName": "快捷花园",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/639/1042_639_QuickGarden_CN.png"
                 }
             ],
@@ -52502,13 +51044,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "French Roulette",
+                                        "gameName": "French Roulette",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/642/1042_642_FrenchRoulette.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "法式轮盘",
+                                        "gameName": "法式轮盘",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/642/1042_642_FrenchRoulette_CN.jpg"
                 }
             ],
@@ -52574,13 +51114,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Crazy Party",
+                                        "gameName": "Crazy Party",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/653/1042_653_CrazyParty.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "疯狂派对",
+                                        "gameName": "疯狂派对",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/653/1042_653_CrazyParty_CN.jpg"
                 }
             ],
@@ -52646,13 +51184,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon Tiger",
+                                        "gameName": "Dragon Tiger",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/654/1042_654_DragonTiger.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "龙虎百家乐",
+                                        "gameName": "龙虎百家乐",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/654/1042_654_DragonTiger_CN.jpg"
                 }
             ],
@@ -52718,13 +51254,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dinosaur Carnival",
+                                        "gameName": "Dinosaur Carnival",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/670/1042_670_DinosaurCarnival.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "恐龙狂欢",
+                                        "gameName": "恐龙狂欢",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/670/1042_670_DinosaurCarnival_CN.jpg"
                 }
             ],
@@ -52790,13 +51324,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Super 7",
+                                        "gameName": "Super 7",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/672/1042_672_Super7.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "超级7",
+                                        "gameName": "超级7",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/672/1042_672_Super7_CN.jpg"
                 }
             ],
@@ -52862,13 +51394,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Candy Storm",
+                                        "gameName": "Candy Storm",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/343/1042_343_CandyStorm.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "糖果风暴",
+                                        "gameName": "糖果风暴",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/343/1042_343_CandyStorm_CN.png"
                 }
             ],
@@ -52934,13 +51464,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dracula",
+                                        "gameName": "Dracula",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/344/1042_344_Dracula.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "德古拉",
+                                        "gameName": "德古拉",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/344/1042_344_Dracula_CN.png"
                 }
             ],
@@ -53006,13 +51534,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Artificial Intelligence",
+                                        "gameName": "Artificial Intelligence",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/349/1042_349_ArtificialIntelligence.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "人工智能",
+                                        "gameName": "人工智能",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/349/1042_349_ArtificialIntelligence_CN.png"
                 }
             ],
@@ -53078,13 +51604,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Heng and Ha",
+                                        "gameName": "Heng and Ha",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/378/1042_378_HengandHa.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "哼哈二将",
+                                        "gameName": "哼哈二将",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/378/1042_378_HengandHa_CN.png"
                 }
             ],
@@ -53150,13 +51674,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Blocky Block",
+                                        "gameName": "Blocky Block",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/383/1042_383_BlockyBlock.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "块块乐",
+                                        "gameName": "块块乐",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/383/1042_383_BlockyBlock_CN.png"
                 }
             ],
@@ -53222,13 +51744,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Wizard of Oz",
+                                        "gameName": "The Wizard of Oz",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/389/1042_389_TheWizardofOz.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "奥兹历险记",
+                                        "gameName": "奥兹历险记",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/389/1042_389_TheWizardofOz_CN.png"
                 }
             ],
@@ -53294,13 +51814,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Won Won Rich",
+                                        "gameName": "Won Won Rich",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/391/1042_391_WonWonRich.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "旺旺来",
+                                        "gameName": "旺旺来",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/391/1042_391_WonWonRich_CN.png"
                 }
             ],
@@ -53366,13 +51884,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sunny Bikini",
+                                        "gameName": "Sunny Bikini",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/393/1042_393_SunnyBikini.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "阳光比基尼",
+                                        "gameName": "阳光比基尼",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/393/1042_393_SunnyBikini_CN.png"
                 }
             ],
@@ -53438,13 +51954,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Nian",
+                                        "gameName": "Nian",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/404/1042_404_Nian.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "年兽",
+                                        "gameName": "年兽",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/404/1042_404_Nian_CN.png"
                 }
             ],
@@ -53510,13 +52024,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "A Thirsty Crow",
+                                        "gameName": "A Thirsty Crow",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/420/1042_420_AThirstyCrow.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "口渴的乌鸦",
+                                        "gameName": "口渴的乌鸦",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/420/1042_420_AThirstyCrow_CN.png"
                 }
             ],
@@ -53582,13 +52094,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The Nut Cracker",
+                                        "gameName": "The Nut Cracker",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/428/1042_428_TheNutCracker.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "胡桃夹子",
+                                        "gameName": "胡桃夹子",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/428/1042_428_TheNutCracker_CN.png"
                 }
             ],
@@ -53654,13 +52164,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "X-Bomber",
+                                        "gameName": "X-Bomber",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/434/1042_434_X-Bomber.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "炸弹特工",
+                                        "gameName": "炸弹特工",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/434/1042_434_X-Bomber_CN.png"
                 }
             ],
@@ -53726,13 +52234,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "UFO",
+                                        "gameName": "UFO",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/437/1042_437_UFO.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "飞碟",
+                                        "gameName": "飞碟",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/437/1042_437_UFO_CN.png"
                 }
             ],
@@ -53798,13 +52304,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Wu Gang",
+                                        "gameName": "Wu Gang",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/447/1042_447_WuGang.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "吴刚伐桂",
+                                        "gameName": "吴刚伐桂",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/447/1042_447_WuGang_CN.png"
                 }
             ],
@@ -53870,13 +52374,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Chi You",
+                                        "gameName": "Chi You",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/453/1042_453_ChiYou.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "蚩尤",
+                                        "gameName": "蚩尤",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/453/1042_453_ChiYou_CN.png"
                 }
             ],
@@ -53942,13 +52444,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Dragon Boat",
+                                        "gameName": "Dragon Boat",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/456/1042_456_DragonBoat.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "龙舟",
+                                        "gameName": "龙舟",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/456/1042_456_DragonBoat_CN.png"
                 }
             ],
@@ -54014,13 +52514,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Route 66",
+                                        "gameName": "Route 66",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/461/1042_461_Route66.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "66号公路",
+                                        "gameName": "66号公路",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/461/1042_461_Route66_CN.png"
                 }
             ],
@@ -54086,13 +52584,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Artist Studio",
+                                        "gameName": "Artist Studio",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/462/1042_462_ArtistStudio.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "画家工作室",
+                                        "gameName": "画家工作室",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/462/1042_462_ArtistStudio_CN.png"
                 }
             ],
@@ -54158,13 +52654,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Pirate King",
+                                        "gameName": "Pirate King",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/477/1042_477_PirateKing.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "海贼王寻宝",
+                                        "gameName": "海贼王寻宝",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/477/1042_477_PirateKing_CN.png"
                 }
             ],
@@ -54230,13 +52724,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bakery Sweetness",
+                                        "gameName": "Bakery Sweetness",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/486/1042_486_BakerySweetness.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "香甜面包店",
+                                        "gameName": "香甜面包店",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/486/1042_486_BakerySweetness_CN.png"
                 }
             ],
@@ -54302,13 +52794,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Kitty Living",
+                                        "gameName": "Kitty Living",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/495/1042_495_KittyLiving.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猫咪生活",
+                                        "gameName": "猫咪生活",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/495/1042_495_KittyLiving_CN.png"
                 }
             ],
@@ -54374,13 +52864,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Jungle",
+                                        "gameName": "Jungle",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/497/1042_497_Jungle.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "丛林冒险",
+                                        "gameName": "丛林冒险",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/497/1042_497_Jungle_CN.png"
                 }
             ],
@@ -54446,13 +52934,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Oriental Beast",
+                                        "gameName": "Oriental Beast",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/143/1042_143_OrientalBeast.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "东方萌兽",
+                                        "gameName": "东方萌兽",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/143/1042_143_OrientalBeast_CN.png"
                 }
             ],
@@ -54518,13 +53004,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Holiday Carol Lock 2 Spin",
+                                        "gameName": "Holiday Carol Lock 2 Spin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/146/1042_146_HolidayCarolLock2Spin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "圣诞颂歌 锁好运",
+                                        "gameName": "圣诞颂歌 锁好运",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/146/1042_146_HolidayCarolLock2Spin_CN.png"
                 }
             ],
@@ -54590,13 +53074,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sinbad",
+                                        "gameName": "Sinbad",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/154/1042_154_Sinbad.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "辛巴达",
+                                        "gameName": "辛巴达",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/154/1042_154_Sinbad_CN.png"
                 }
             ],
@@ -54662,13 +53144,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Rich Diwali",
+                                        "gameName": "Rich Diwali",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/170/1042_170_RichDiwali.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "印度灯节",
+                                        "gameName": "印度灯节",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/170/1042_170_RichDiwali_CN.png"
                 }
             ],
@@ -54734,13 +53214,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hare vs Tortoise",
+                                        "gameName": "Hare vs Tortoise",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/185/1042_185_HarevsTortoise.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "龟兔赛跑",
+                                        "gameName": "龟兔赛跑",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/185/1042_185_HarevsTortoise_CN.png"
                 }
             ],
@@ -54806,13 +53284,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Creator Ra",
+                                        "gameName": "Creator Ra",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/191/1042_191_CreatorRa.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "创造神拉",
+                                        "gameName": "创造神拉",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/191/1042_191_CreatorRa_CN.png"
                 }
             ],
@@ -54878,13 +53354,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Secret Agent",
+                                        "gameName": "Secret Agent",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/192/1042_192_SecretAgent.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "秘密特务",
+                                        "gameName": "秘密特务",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/192/1042_192_SecretAgent_CN.png"
                 }
             ],
@@ -54950,13 +53424,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Seagull",
+                                        "gameName": "Seagull",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/193/1042_193_Seagull.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "海鸥",
+                                        "gameName": "海鸥",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/193/1042_193_Seagull_CN.png"
                 }
             ],
@@ -55022,13 +53494,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Pied Piper",
+                                        "gameName": "Pied Piper",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/237/1042_237_PiedPiper.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "吹笛人",
+                                        "gameName": "吹笛人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/237/1042_237_PiedPiper_CN.png"
                 }
             ],
@@ -55094,13 +53564,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "White Deer",
+                                        "gameName": "White Deer",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/251/1042_251_WhiteDeer.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "白鹿传奇",
+                                        "gameName": "白鹿传奇",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/251/1042_251_WhiteDeer_CN.png"
                 }
             ],
@@ -55166,13 +53634,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Sky Journey",
+                                        "gameName": "Sky Journey",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/274/1042_274_SkyJourney.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "天空之旅",
+                                        "gameName": "天空之旅",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/274/1042_274_SkyJourney_CN.png"
                 }
             ],
@@ -55238,13 +53704,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Monkey and Crab",
+                                        "gameName": "Monkey and Crab",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/286/1042_286_MonkeyandCrab.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "猿蟹大战",
+                                        "gameName": "猿蟹大战",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/286/1042_286_MonkeyandCrab_CN.png"
                 }
             ],
@@ -55310,13 +53774,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Soldiers",
+                                        "gameName": "Soldiers",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/292/1042_292_Soldiers.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "美国大兵",
+                                        "gameName": "美国大兵",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/292/1042_292_Soldiers_CN.png"
                 }
             ],
@@ -55382,13 +53844,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "The West Chamber",
+                                        "gameName": "The West Chamber",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/293/1042_293_TheWestChamber.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "西厢记",
+                                        "gameName": "西厢记",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/293/1042_293_TheWestChamber_CN.png"
                 }
             ],
@@ -55454,13 +53914,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Alien Invasion",
+                                        "gameName": "Alien Invasion",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/39/1042_39_AlienInvasion.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "异形入侵",
+                                        "gameName": "异形入侵",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/39/1042_39_AlienInvasion_CN.png"
                 }
             ],
@@ -55526,13 +53984,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Puffer Swimming",
+                                        "gameName": "Puffer Swimming",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/52/1042_52_PufferSwimming.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "游泳吧帕佛",
+                                        "gameName": "游泳吧帕佛",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/52/1042_52_PufferSwimming_CN.png"
                 }
             ],
@@ -55598,13 +54054,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Kick Pumpkin",
+                                        "gameName": "Kick Pumpkin",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/57/1042_57_KickPumpkin.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "踢爆南瓜",
+                                        "gameName": "踢爆南瓜",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/57/1042_57_KickPumpkin_CN.png"
                 }
             ],
@@ -55670,13 +54124,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Hypersonic X",
+                                        "gameName": "Hypersonic X",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/83/1042_83_HypersonicX.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "超音速 X",
+                                        "gameName": "超音速 X",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/83/1042_83_HypersonicX_CN.png"
                 }
             ],
@@ -55742,13 +54194,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Bear Run",
+                                        "gameName": "Bear Run",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/98/1042_98_BearRun.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "奔跑吧贝尔",
+                                        "gameName": "奔跑吧贝尔",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/98/1042_98_BearRun_CN.png"
                 }
             ],
@@ -55814,13 +54264,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "BionicHuman",
+                                        "gameName": "BionicHuman",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/111/1042_111_BionicHuman.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "仿生人",
+                                        "gameName": "仿生人",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/111/1042_111_BionicHuman_CN.png"
                 }
             ],
@@ -55886,13 +54334,11 @@ export const kaGames = [
             "lines": -1,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Romance In England",
+                                        "gameName": "Romance In England",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/121/1042_121_RomanceInEngland.png"
                 },
                 {
-                    "language": "ZH_CN",
-                    "gameName": "浪漫英伦",
+                                        "gameName": "浪漫英伦",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/121/1042_121_RomanceInEngland_CN.png"
                 }
             ],
@@ -55958,13 +54404,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Passionate Basketball",
+                                        "gameName": "Passionate Basketball",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/758/1042_758_PassionateBasketball.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "热血篮球",
+                                        "gameName": "热血篮球",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/758/1042_758_PassionateBasketball_CN.jpg"
                 }
             ],
@@ -56030,13 +54474,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Forest Scorpion",
+                                        "gameName": "Forest Scorpion",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/759/1042_759_ForestScorpion.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "森林毒蝎",
+                                        "gameName": "森林毒蝎",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/759/1042_759_ForestScorpion_CN.jpg"
                 }
             ],
@@ -56102,13 +54544,11 @@ export const kaGames = [
             "lines": 0,
             "gameInfos": [
                 {
-                    "language": "en",
-                    "gameName": "Captain Black Cat Fusion Reels",
+                                        "gameName": "Captain Black Cat Fusion Reels",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/760/1042_760_CaptainBlackCat.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "黑猫船长 巨路发",
+                                        "gameName": "黑猫船长 巨路发",
                     "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/760/1042_760_CaptainBlackCat_CN.jpg"
                 }
             ],

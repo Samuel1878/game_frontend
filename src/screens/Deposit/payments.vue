@@ -11,7 +11,7 @@ import { toast } from "vue-sonner";
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useClipboard } from "@vueuse/core";
-import { Copy, CreditCardIcon, PhoneCallIcon } from "lucide-vue-next";
+import { Copy, CreditCardIcon } from "lucide-vue-next";
 import breadcrumb from "@/components/breadcrumb/index.vue";
 import type { depositFormData } from "@/utils/types";
 import { useAuthStore } from "@/stores/auth";

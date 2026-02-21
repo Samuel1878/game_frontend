@@ -1,7 +1,7 @@
 
 
 export interface GameInfo {
-  language: string
+  language?: string
   gameName: string
   gameIconUrl: string
 }
@@ -20,8 +20,8 @@ export interface Game {
   lines: number
 
   gameInfos: GameInfo[]
-  supportedCurrencies: string[]
-  blockCountries: string[]
+  supportedCurrencies?: string[]
+  blockCountries?: string[]
 
   isMaintain: boolean
   isEnabled: boolean

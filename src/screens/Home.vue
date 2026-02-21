@@ -12,19 +12,44 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAuthStore } from "@/stores/auth";
-import { gameStore } from "@/stores/game";
-import { toast } from "vue-sonner";
+
 import { useWallet } from "@/stores/wallet";
-import { gameOption, slotGameProviders, topGames } from "@/consts";
+import {
+  gameOption,
+  hotGames,
+  RTPGames,
+  topGames,
+  topTableGames,
+} from "@/consts";
 import { sboGames } from "@/consts/sboGames";
-import { ArrowLeft, ArrowRight, CrownIcon } from "lucide-vue-next";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Coins,
+  CrownIcon,
+  SearchIcon,
+  Users2Icon,
+} from "lucide-vue-next";
+import ScrollViews from "@/components/scrollViews.vue";
+import { arcadeGames } from "@/consts/games";
+import GameViews from "@/components/gameViews.vue";
+import { jiliGames } from "@/consts/jiliGames";
+import { pragmaticPlayGames } from "@/consts/pragmaticGames";
+import ProviderOptions from "@/components/providerOptions.vue";
+import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/input-group'
 const api = ref<CarouselApi>();
-const gameType = ref<string>("slots");
+const gameType = ref<string>("lobby");
 const totalCount = ref(0);
 const authStore = useAuthStore();
 let games = ref<Game[] | null>(sboGames);
-const useGameStore = gameStore();
+// const useGameStore = gameStore();
 const current = ref(0);
+// const filterByNewGameType = (
+//   games: Game[],
+//   type: number
+// ): Game[] => {
+//   return games.filter(game => game.newGameType === type)
+// }
 
 function setApi(val: CarouselApi) {
   api.value = val;
@@ -46,27 +71,27 @@ console.log("user", authStore.user);
 //   const response = await getGameByGpId(1094);
 //   if (response) games.value = response.seamlessGameProviderGames;
 // });
-const enterGame = (game: Game) => {
-  console.log("entering game", game);
-  if (!authStore.isLoggedIn || !authStore.user) {
-    toast("Please login to enter the game");
-    return;
-  }
-  useGameStore.setGames(game);
-};
-const cliamhandlern = () => {
-  console.log("Cliamed");
-};
+// const enterGame = (game: Game) => {
+//   console.log("entering game", game);
+//   if (!authStore.isLoggedIn || !authStore.user) {
+//     toast("Please login to enter the game");
+//     return;
+//   }
+//   useGameStore.setGames(game);
+// };
+// const cliamhandlern = () => {
+//   console.log("Cliamed");
+// };
 // const getGameByGp = async (e: number) => {
 //   const respnse = await getGameByGpId(e);
 //   if (respnse) return (games.value = respnse?.seamlessGameProviderGames);
 // };
-const chooseGame = (gpid: number) => {
-  games.value =
-    slotGameProviders
-      .filter((e) => e.GpId === gpid)[0]
-      ?.data.filter((e) => e.newGameType === 201) || null;
-};
+// const chooseGame = (gpid: number) => {
+//   games.value =
+//     slotGameProviders
+//       .filter((e) => e.GpId === gpid)[0]
+//       ?.data.filter((e) => e.newGameType === 201) || null;
+// };
 
 const chooseOption = (value: string) => (gameType.value = value);
 
@@ -81,7 +106,7 @@ const scroll = (dir: "left" | "right") => {
     behavior: "smooth",
   });
 };
-console.log(games.value);
+
 </script>
 <template>
   <main class="bg-slate-950 max-w-6xl w-full flex justify-between flex-col">
@@ -109,7 +134,7 @@ console.log(games.value);
                         Get welcome bonus for newly registered users
                       </p>
                       <button
-                        @click="cliamhandlern"
+                        @click=""
                         class="mt-6 h-10 px-4 bg-sky-600 rounded-lg text-gray-50"
                       >
                         Claim
@@ -123,12 +148,12 @@ console.log(games.value);
         </div>
       </div>
 
-      <div v-if="games" class="flex items-center w-full my-4 flex-col lg:grid">
-        <div class="relative w-full my-2 pl-4 pr-4 md:pl-14 flex">
+      <div v-if="games" class="flex items-center w-full flex-col lg:grid">
+        <div class="relative w-full mt-1 pl-2 pr-2 md:pl-10 flex">
           <!-- Left Arrow -->
           <button
             @click="scroll('left')"
-            class="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-transparent hover:bg-slate-700/80 px-2 h-8 rounded-sm shadow-lg transition"
+            class="absolute left-1 top-1/2 -translate-y-1/2 z-10 bg-transparent hover:bg-slate-700/80 px-2 h-8 rounded-sm shadow-lg transition"
           >
             <ArrowLeft class="w-5 h-5 text-sky-400" />
           </button>
@@ -159,56 +184,75 @@ console.log(games.value);
           <!-- Right Arrow -->
           <button
             @click="scroll('right')"
-            class="absolute right-4 top-1/2 -translate-y-1/2 z-10 hover:bg-slate-700/70 bg-transparent p-2 rounded-sm shadow-lg transition"
+            class="absolute right-1 top-1/2 -translate-y-1/2 z-10 hover:bg-slate-700/70 bg-transparent p-2 rounded-sm shadow-lg transition"
           >
             <ArrowRight class="w-5 h-5 text-sky-400" />
           </button>
         </div>
+         
+
         <section
           class="w-full h-full p-2"
           id="lobby"
           v-if="gameType === 'lobby'"
         >
-          <article class="w-full space-y-2" id="TopGame">
-            <div class="flex w-full items-center justify-between">
-              <div class="flex gap-1 items-center">
-                <CrownIcon :size="18" class="text-sky-500" />
-                <p class="font-bold text-slate-200 text-sm">Hot Games</p>
-              </div>
-              <div class="bg-slate-800 px-2 rounded-sm text-center text-sm h-8 flex justify-center items-center">
-                <p class="font-normal">View More</p>
-              </div>
+          <ScrollViews
+            :game-data="hotGames"
+            header="Hot Games"
+            :icon="CrownIcon"
+          />
+          <ScrollViews
+            :game-data="topGames"
+            header="Top Picks"
+            :icon="Users2Icon"
+          />
+          <ScrollViews :game-data="RTPGames" header="Most Wins" :icon="Coins" />
+        </section>
 
-            </div>
-            <div v-for="topGame in topGames" class="flex w-60 h-30">
-              <div
-                v-if="
-                  topGame?.gameInfos.filter((e) => e.language === 'en')[0]
-                    ?.gameIconUrl
-                "
-                class="h-45 rounded-2xl bg-gray-800 overflow-hidden"
-              >
-                <img
-                  :src="
-                    topGame?.gameInfos.filter((e) => e.language === 'en')[0]
-                      ?.gameIconUrl
-                  "
-                  alt="game thumbnail"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <div class="h-45 rounded-2xl bg-gray-800 overflow-hidden">
-                <img
-                  :src="
-                    topGame?.gameInfos.filter((e) => e.language === 'zh_cn')[0]
-                      ?.gameIconUrl
-                  "
-                  alt="game thumbnail"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </article>
+                <section
+          v-else-if="gameType === 'slots'"
+          class="w-full h-full p-2"
+        >
+        <aside class="flex justify-between items-center gap-2">
+          <InputGroup class="border-sky-500 ring-sky-500 ring-0">
+      <InputGroupInput  placeholder="Search..." />
+      <InputGroupAddon>
+        <SearchIcon />
+      </InputGroupAddon>
+    </InputGroup>
+ <ProviderOptions/>
+        </aside>
+          
+          <!-- <ScrollViews
+            :game-data="topSlotGames"
+            header="Top Slots"
+            :icon="CrownIcon"
+          /> -->
+         <GameViews header="All Slots" :game-data="jiliGames"/>
+        </section>
+
+
+        <section
+          v-else-if="gameType === 'tableGames'"
+          class="w-full h-full p-2"
+        >
+          <ScrollViews
+            :game-data="topTableGames"
+            header="Top Games"
+            :icon="CrownIcon"
+          />
+            <GameViews header="All Games" :game-data="pragmaticPlayGames"/>
+        </section>
+        <section
+          v-else-if="gameType === 'arcadeGames'"
+          class="w-full h-full p-2"
+        >
+          <!-- <ScrollViews
+            :game-data="topTableGames"
+            header="Top Games"
+            :icon="CrownIcon"
+          /> -->
+          <GameViews header="Arcade Games" :game-data="arcadeGames"/>
         </section>
       </div>
       <div v-else class="flex items-center flex-col lg:grid">
@@ -233,6 +277,7 @@ console.log(games.value);
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

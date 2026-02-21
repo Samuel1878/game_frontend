@@ -1,45 +1,177 @@
-import type {Game} from "@/utils/types";
-export const africanBuffaloLobby :Game[]= [
-   {
-            "gameProviderId": 1094,
-            "gameID": 5,
-            "gameType": 2,
-            "newGameType": 200,
-            "rank": 2,
-            "device": "d/m",
+export const arcadeGames = [
+     {
+            "gameProviderId": 1029,
+            "gameID": 49,
+            "gameType": 6,
+            "newGameType": 202,
+            "rank": 12,
+            "device": "d,m",
             "platform": "HTML5",
-            "provider": "AfricanBuffalo",
-            "rtp": 0.950000,
-            "rows": 0,
-            "reels": 0,
-            "lines": 0,
+            "provider": "568winGames",
+            "rtp": 0.985400,
+            "rows": -1,
+            "reels": -1,
+            "lines": -1,
             "gameInfos": [
                 {
                     "language": "en",
-                    "gameName": "African Buffalo Scatter (50)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/5/1094_5_AfricanBuffaloScatter50.png?v=1"
+                    "gameName": "Plinko",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/568WinGames/49/plinko.jpg"
                 },
                 {
-                    "language": "zh_cn",
-                    "gameName": "African Buffalo Scatter (50)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/5/1094_5_AfricanBuffaloScatter50.png?v=1"
+                    "language": "ZH_CN",
+                    "gameName": "Plinko",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/568WinGames/49/plinko.jpg"
                 }
             ],
             "supportedCurrencies": [
+                "AED",
+                "AUD",
+                "BDT",
+                "BRL",
+                "CAD",
+                "EUR",
+                "GBP",
+                "HKD",
+                "IDO",
+                "IDR",
+                "INR",
+                "JPY",
+                "KHR",
+                "KRW",
+                "LAK",
                 "MMK",
-                "TMP"
+                "MYR",
+                "NPR",
+                "PHP",
+                "SEK",
+                "THB",
+                "TMP",
+                "USD",
+                "VND",
+                "VNO",
+                "ZAR"
             ],
-            "blockCountries": [],
+            "blockCountries": [
+                "CN"
+            ],
             "isMaintain": false,
             "isEnabled": true,
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
             "isProviderOnline": true
-        }
-]
-export const africanBuffaloSlots:Game[]= [
-        {
+        },
+];
+export const topSlotGames = [
+                 {
+                "gameProviderId": 1094,
+                "gameID": 1,
+                "gameType": 2,
+                "newGameType": 201,
+                "rank": 1,
+                "device": "d/m",
+                "platform": "HTML5",
+                "provider": "AfricanBuffalo",
+                "rtp": 0.950000,
+                "rows": 3,
+                "reels": 5,
+                "lines": 25,
+                "gameInfos": [
+                    {
+                        "language": "en",
+                        "gameName": "African Buffalo(50)",
+                        "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
+                    },
+                    {
+                        "language": "MY_MM",
+                        "gameName": "African Buffalo(50)",
+                        "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
+                    }
+                ],
+                "supportedCurrencies": [
+                    "MMK",
+                    "TMP"
+                ],
+                "blockCountries": [],
+                "isMaintain": false,
+                "isEnabled": true,
+                "isProvideCommission": false,
+                "hasHedgeBet": false,
+                "providerStatus": "Online",
+                "isProviderOnline": true
+            },
+                    {
+                "gameProviderId": 3,
+                "gameID": 438,
+                "gameType": 2,
+                "newGameType": 201,
+                "rank": 1,
+                "device": "d/m",
+                "platform": "HTML5",
+                "provider": "PragmaticPlay",
+                "rtp": 0.965000,
+                "rows": 5,
+                "reels": 6,
+                "lines": 20,
+                "gameInfos": [
+                    {
+                        "language": "en",
+                        "gameName": "Gates of Olympus 1000",
+                        "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/438/3_438_GatesofOlympus1000.png?v=6"
+                    },
+                    {
+                        "language": "zh_cn",
+                        "gameName": "奥林匹斯之门 1000™",
+                        "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PragmaticPlay/3_438_GatesofOlympus1000_CN.png"
+                    }
+                ],
+                "supportedCurrencies": [
+                    "KZT",
+                    "IDO",
+                    "IDR",
+                    "TMP",
+                    "VND",
+                    "VNO",
+                    "AUD",
+                    "BDT",
+                    "BND",
+                    "BRL",
+                    "CAD",
+                    "CHF",
+                    "CNY",
+                    "EUR",
+                    "GBP",
+                    "HKD",
+                    "INR",
+                    "JPY",
+                    "KHR",
+                    "KRW",
+                    "LAK",
+                    "LKR",
+                    "MMK",
+                    "MXN",
+                    "MYR",
+                    "NGN",
+                    "NOK",
+                    "NPR",
+                    "NZD",
+                    "PHP",
+                    "PKR",
+                    "THB",
+                    "TRY",
+                    "USD",
+                    "ZAR"
+                ],
+                "blockCountries": [],
+                "isMaintain": false,
+                "isEnabled": true,
+                "isProvideCommission": false,
+                "hasHedgeBet": false,
+                "providerStatus": "Online",
+                "isProviderOnline": true
+            },
+             {
             "gameProviderId": 1094,
             "gameID": 16,
             "gameType": 2,
@@ -409,190 +541,74 @@ export const africanBuffaloSlots:Game[]= [
             "providerStatus": "Online",
             "isProviderOnline": true
         },
-        {
-            "gameProviderId": 1094,
-            "gameID": 6,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 6,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "AfricanBuffalo",
-            "rtp": 0.950000,
-            "rows": 0,
-            "reels": 0,
-            "lines": 0,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "African Buffalo Scatter (500)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/6/1094_6_AfricanBuffaloScatter500.png"
-                },
-                {
-                    "language": "zh_cn",
-                    "gameName": "African Buffalo Scatter (500)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/6/1094_6_AfricanBuffaloScatter500.png"
-                }
-            ],
-            "supportedCurrencies": [
-                "MMK",
-                "TMP"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true
-        },
-        
-        {
-            "gameProviderId": 1094,
-            "gameID": 1,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 1,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "AfricanBuffalo",
-            "rtp": 0.950000,
-            "rows": 3,
-            "reels": 5,
-            "lines": 25,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "African Buffalo(50)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                },
-                {
-                    "language": "MY_MM",
-                    "gameName": "African Buffalo(50)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                }
-            ],
-            "supportedCurrencies": [
-                "MMK",
-                "TMP"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true
-        },
-        {
-            "gameProviderId": 1094,
-            "gameID": 2,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 3,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "AfricanBuffalo",
-            "rtp": 0.950000,
-            "rows": 3,
-            "reels": 5,
-            "lines": 25,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "African Buffalo(500)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                },
-                {
-                    "language": "MY_MM",
-                    "gameName": "African Buffalo(500)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                }
-            ],
-            "supportedCurrencies": [
-                "MMK",
-                "TMP"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true
-        },
-        {
-            "gameProviderId": 1094,
-            "gameID": 3,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 4,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "AfricanBuffalo",
-            "rtp": 0.950000,
-            "rows": 3,
-            "reels": 5,
-            "lines": 25,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "African Buffalo(5000)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                },
-                {
-                    "language": "MY_MM",
-                    "gameName": "African Buffalo(5000)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                }
-            ],
-            "supportedCurrencies": [
-                "MMK",
-                "TMP"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true
-        },
-        {
-            "gameProviderId": 1094,
-            "gameID": 4,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 5,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "AfricanBuffalo",
-            "rtp": 0.950000,
-            "rows": 3,
-            "reels": 5,
-            "lines": 25,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "African Buffalo(10000)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                },
-                {
-                    "language": "MY_MM",
-                    "gameName": "African Buffalo(10000)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                }
-            ],
-            "supportedCurrencies": [
-                "MMK",
-                "TMP"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true
-        }
+            {
+                "gameProviderId": 3,
+                "gameID": 567,
+                "gameType": 2,
+                "newGameType": 201,
+                "rank": 2,
+                "device": "d/m",
+                "platform": "HTML5",
+                "provider": "PragmaticPlay",
+                "rtp": 0.970000,
+                "rows": 4,
+                "reels": 5,
+                "lines": 1999,
+                "gameInfos": [
+                    {
+                        "language": "en",
+                        "gameName": "Mahjong Wins 2",
+                        "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/567/3_567_MahjongWins2.png?v=1"
+                    },
+                    {
+                        "language": "zh_cn",
+                        "gameName": "麻将大胜2",
+                        "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/567/3_567_MahjongWins2_CN.png"
+                    }
+                ],
+                "supportedCurrencies": [
+                    "KZT",
+                    "IDO",
+                    "IDR",
+                    "TMP",
+                    "VND",
+                    "VNO",
+                    "AUD",
+                    "BDT",
+                    "BND",
+                    "BRL",
+                    "CAD",
+                    "CHF",
+                    "CNY",
+                    "EUR",
+                    "GBP",
+                    "HKD",
+                    "INR",
+                    "JPY",
+                    "KHR",
+                    "KRW",
+                    "LAK",
+                    "LKR",
+                    "MMK",
+                    "MXN",
+                    "MYR",
+                    "NGN",
+                    "NOK",
+                    "NPR",
+                    "NZD",
+                    "PHP",
+                    "PKR",
+                    "THB",
+                    "TRY",
+                    "USD",
+                    "ZAR"
+                ],
+                "blockCountries": [],
+                "isMaintain": false,
+                "isEnabled": true,
+                "isProvideCommission": false,
+                "hasHedgeBet": false,
+                "providerStatus": "Online",
+                "isProviderOnline": true
+            },
 ]
