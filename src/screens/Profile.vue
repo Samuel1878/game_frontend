@@ -30,7 +30,7 @@ console.log("user", authStore.user)
       <p class="text-gray-50 font-bold text-md">{{ authStore.user?.status }}</p>
     </div>
   </section>
-  <button class="w-full h-12 rounded-lg text-gray-50 font-bold bg-red-600">
+  <button class="w-full h-12 rounded-lg text-gray-50 font-bold bg-sky-600">
     Logout
   </button>
   </main>

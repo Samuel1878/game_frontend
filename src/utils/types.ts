@@ -118,3 +118,41 @@ export interface wallet {
   updated_at?:string;
   freezed_amount?:number;
 }
+
+
+// export interface GameInfo {
+//   language: string;
+//   gameName: string;
+//   gameIconUrl: string;
+// }
+
+// export type DeviceType = "d/m" | "d" | "m" | string; // you can expand later if needed
+
+// export type ProviderStatus = "Online" | "Offline" | string;
+
+// export interface GameType {
+//   gameProviderId: number;
+//   gameID: number;
+//   gameType: number;
+//   newGameType: number;
+//   rank: number;
+//   device: DeviceType;
+//   platform: string; // e.g. "HTML5"
+//   provider: string; // e.g. "KAGaming"
+//   rtp: number;
+//   rows: number;
+//   reels: number;
+//   lines: number;
+
+//   gameInfos: GameInfo[];
+//   supportedCurrencies: string[];
+//   blockCountries: string[];
+
+//   isMaintain: boolean;
+//   isEnabled: boolean;
+//   isProvideCommission: boolean;
+//   hasHedgeBet: boolean;
+
+//   providerStatus: ProviderStatus;
+//   isProviderOnline: boolean;
+// }

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Skeleton } from '@/components/ui/skeleton';
-import { getGameListAPI } from '@/services/gameAPI';
 import { useAuthStore } from '@/stores/auth';
 import { gameStore } from '@/stores/game';
 import type{ Game } from '@/utils/types';

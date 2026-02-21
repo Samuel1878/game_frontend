@@ -33,21 +33,17 @@ const routes = [
   {
     path:"/deposit/:payment_method",
     component:Payments,
-    meta:{requireAuth:true}
+    meta:{requiresAuth:true}
   },
-  {
-    path:"/withdraw",
-    component:Withdraw,
-       meta:{requiresAuth:false}
-  },
+
   {
     path:"/withdraw/:payment_method",
     component:PaymentsWithdraw,
-    meta:{requireAuth:true}
+    meta:{requiresAuth:true}
   },
   {path:"/profile",
   component:Profile,
-  meta:{requireAuth:true}
+  meta:{requiresAuth:true}
 }
 ]
 

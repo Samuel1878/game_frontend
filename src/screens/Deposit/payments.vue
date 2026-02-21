@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import { paymentMethod } from "@/consts";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+  InputGroupText,
+
+} from '@/components/ui/input-group'
 import { toast } from "vue-sonner";
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useClipboard } from "@vueuse/core";
-import { Copy } from "lucide-vue-next";
+import { Copy, CreditCardIcon, PhoneCallIcon } from "lucide-vue-next";
 import breadcrumb from "@/components/breadcrumb/index.vue";
 import type { depositFormData } from "@/utils/types";
 import { useAuthStore } from "@/stores/auth";
@@ -115,13 +122,23 @@ const copyHandler = () => {
         <div class="flex flex-col flex-1 p-4 h-full bg-gray-900 rounded-b-2xl gap-3">
           <div class="space-y-1">
             <label for="account_name">Account Name</label>
-            <input
+            <!-- <input
               type="text"
               name="account_name"
               v-model="form.account_name"
               class="p-2 border border-gray-300 w-full h-12 rounded-xl px-4"
               placeholder=""
-            />
+            /> -->
+            <InputGroup  class="h-12 rounded-lg font-bold border-0 ring-sky-500 ring-1 bg-gray-800">
+    
+      <InputGroupAddon>
+                <CreditCardIcon />
+      </InputGroupAddon>
+      <InputGroupInput v-model="amount"   type="number" placeholder="0.00" />
+      <InputGroupAddon align="inline-end">
+        <InputGroupText class="text-gray-100"></InputGroupText>
+      </InputGroupAddon>
+    </InputGroup>
           </div>
           <div class="space-y-1">
             <p>Phone Number/Account No.</p>
@@ -148,7 +165,7 @@ const copyHandler = () => {
         <div class="flex flex-1 mt-10">
           <button
             type="submit"
-            class="bg-red-600 h-12 font-bold text-gray-50 w-full rounded-xl flex justify-center items-center"
+            class="bg-sky-600 h-12 font-bold text-gray-50 w-full rounded-xl flex justify-center items-center"
           >
             Submit
           </button>

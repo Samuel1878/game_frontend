@@ -3,7 +3,7 @@
     <div class="text-center px-6">
       <h1 class="text-9xl font-extrabold text-gray-800 tracking-widest">404</h1>
 
-      <div class="bg-indigo-600 px-4 py-2 text-sm rounded rotate-12 inline-block text-white mt-4">
+      <div class="bg-sky-600 px-4 py-2 text-sm rounded rotate-12 inline-block text-white mt-4">
         Page Not Found
       </div>
 
@@ -18,7 +18,7 @@
         >
           Go Home
         </router-link> -->
-        <button  class="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
+        <button  class="px-6 py-3 bg-sky-600 text-white rounded-lg shadow hover:bg-sky-700 transition">
             Go Home
         </button>
         <button

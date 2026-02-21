@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, watch, watchEffect } from "vue";
+import { ref, watchEffect } from "vue";
 import AuthModal from "@/components/Auth.vue";
 import { Toaster } from "./components/ui/sonner";
 import { useUIStore } from "./stores/ui";
-import { CircleUser, CoinsIcon, Gamepad2Icon, HomeIcon, SplineIcon, Wallet, WalletIcon } from "lucide-vue-next";
+import { CircleUser, CoinsIcon, Gamepad2Icon, HomeIcon, Wallet, WalletIcon } from "lucide-vue-next";
 import { useAuthStore } from "./stores/auth";
 import { useWallet } from "./stores/wallet";
 
@@ -35,9 +35,9 @@ const goToLoginHandler = () => {
         <!-- LOGO -->
         <RouterLink
           to="/"
-          class="text-lg flex items-center gap-2 font-extrabold tracking-wide transition hover:text-amber-300 lg:text-2xl"
+          class="text-lg flex items-center gap-2 font-extrabold tracking-wide transition hover:text-sky-300 lg:text-2xl"
         >
-          <p class=" text-red-500 font-extrabold text-4xl">96</p>
+          <p class=" text-sky-500 font-extrabold text-4xl">999</p>
           <di>
             <p class="text-gray-400 font-mono text-sm">ONLINE</p>
           <p class="text-gray-100 font-bold text-sm">CASINO</p>
@@ -67,7 +67,7 @@ const goToLoginHandler = () => {
           <button
             @click="goToLoginHandler"
             v-else
-            class="rounded-sm px-4 py-2 font-medium bg-red-600 text-gray-50"
+            class="rounded-sm px-4 py-2 font-medium bg-sky-600 text-gray-50"
           >
             Login
           </button>
@@ -157,14 +157,14 @@ const goToLoginHandler = () => {
 @reference "tailwindcss";
 
 .nav-link {
-  @apply text-gray-300 font-medium transition hover:text-yellow-400;
+  @apply text-gray-300 font-medium transition hover:text-sky-400;
 }
 
 .router-link-active.nav-link {
-  @apply text-yellow-400;
+  @apply text-sky-400;
 }
 
 .mobile-link {
-  @apply rounded-lg px-3 py-2 text-gray-300 transition hover:bg-gray-800 hover:text-yellow-400;
+  @apply rounded-lg px-3 py-2 text-gray-300 transition hover:bg-gray-800 hover:text-sky-400;
 }
 </style>

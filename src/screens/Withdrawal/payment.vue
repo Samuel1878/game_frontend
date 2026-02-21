@@ -82,7 +82,7 @@ const submit = async () => {
         <!-- <Input v-model="amount" type="number" placeholder="Amount" class="p-2 border border-gray-300 w-full h-12 rounded-2xl px-4"/> -->
         <div></div>
         <button
-          class="mt-6 bg-red-600 h-12 text-gray-50 font-bold w-full rounded-xl flex justify-center items-center"
+          class="mt-6 bg-sky-600 h-12 text-gray-50 font-bold w-full rounded-xl flex justify-center items-center"
         >
           Submit
         </button>

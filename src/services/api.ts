@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const api = axios.create({
-  baseURL: "http://localhost:3000", // change this
+  baseURL: "https://api.999luckytoad.site", // change this
   headers: {
     'Content-Type': 'application/json',
   },
