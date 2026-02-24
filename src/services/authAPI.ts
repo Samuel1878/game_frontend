@@ -1,12 +1,12 @@
 
-import api from './api'
+import api, { apiWithCre } from './api'
 
 export interface AuthPayload {
   username: string
   password: string
 }
 export interface AuthResponse {
-  user: {
+
     id: number
     name: string
     email: string | null
@@ -16,16 +16,25 @@ export interface AuthResponse {
     level: number
     created_at: string
     uid: string
-  }
-  token: string
+  
 } 
 export const login = async (data: AuthPayload):Promise<AuthResponse> => {
-  const res = await api.post('/api/v1/auth/login', data)
-  return res.data // { token: string }
+  const res = await api.post('/auth/login', data)
+  return res.data 
 }
 
 export const register = async (data: AuthPayload):Promise<AuthResponse> => {
-  const res = await api.post('/api/v1/auth/register', data)
+  const res = await api.post('/auth/register', data)
   console.log("register response", res)
   return res.data
+}
+
+export const getProfile = async ():Promise<AuthResponse | null >=> {
+  try {
+    const res = await api.get("/user/profile", { withCredentials: true });
+    if (res.status === 200) return res.data;
+    return null
+  } catch (error) {
+    return null;
+  }
 }

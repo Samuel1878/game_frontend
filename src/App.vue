@@ -1,22 +1,15 @@
 <script setup lang="ts">
-import { ref, watchEffect } from "vue";
+import { ref } from "vue";
 import AuthModal from "@/components/Auth.vue";
 import { Toaster } from "./components/ui/sonner";
 import { useUIStore } from "./stores/ui";
 import { CircleUser, CoinsIcon, Gamepad2Icon, HomeIcon, Wallet, WalletIcon } from "lucide-vue-next";
 import { useAuthStore } from "./stores/auth";
 import { useWallet } from "./stores/wallet";
-
-// const isLoggedIn = ref(false);
 const authStore = useAuthStore();
-const wallet = useWallet();
-watchEffect(()=>{
-wallet.setWallet(authStore.user?.name ?? null)
-})
-
-console.log("OPEN_APP")
 const mobileOpen = ref(false);
 const uiStore = useUIStore();
+const wallet = useWallet();
 const goToLoginHandler = () => {
   uiStore.openAuthModal();
 };
@@ -58,7 +51,7 @@ const goToLoginHandler = () => {
           <RouterLink to="/profile" class="py-2 px-4 bg-gray-900 rounded-sm flex items-center gap-2"  v-show="authStore.isLoggedIn">
             <Wallet class="text-sm"/>
             <p class="font-bold text-lg text-gray-50">
-              {{ wallet?.balance || "0.00" }}
+              {{ wallet.balance || "0.00" }}
             </p>
           </RouterLink>
           <RouterLink to="/profile" v-if="authStore.isLoggedIn" class="rounded-full">
@@ -145,7 +138,7 @@ const goToLoginHandler = () => {
     <section class="w-full relative flex flex-col items-center">
       <Toaster
         
-        class="w-full font-bold text-lg flex items-center justify-center gap-4 text-gray-50 bottom-0 bg-gray-500 text-center z-40 rounded-lg"
+        class="w-full font-bold text-lg gap-4 text-sky-50 bottom-0  text-center z-40 rounded-lg"
       />
       <RouterView />
       <AuthModal />

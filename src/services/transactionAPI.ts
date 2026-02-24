@@ -18,7 +18,7 @@ export const depositHandlerAPI = async(data:depositFormData, param:paramType) =>
 
 export const withdrawalHandlerAPI = async (data:withdrawalInfo, param:withdrawParamType) => {
     try {
-        const response = await api.post("/api/v1/user/transaction/withdraw", data, {
+        const response = await api.post("/user/transaction/withdraw", data, {
             params:param
         });
         if (response.status===200)return response.data;
@@ -31,7 +31,7 @@ export const withdrawalHandlerAPI = async (data:withdrawalInfo, param:withdrawPa
 
 export const getUserBalance =async(name:string)=>{
     try {
-        const response = await api.get("/api/v1/user/balance", {
+        const response = await api.get("/user/balance", {
     params:{
         name:name
     }

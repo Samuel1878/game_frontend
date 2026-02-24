@@ -3,7 +3,7 @@ import type { Game } from '@/utils/types';
 import { ArrowLeft, ArrowRight } from "lucide-vue-next";
 import { ref, type Component } from 'vue';
 
-const props = defineProps<{ header?: string, gameData?: Game[], handler?: () => void , icon?:Component}>();
+const props = defineProps<{ header?: string, gameData?: Game[], handler?: (gameData:Game) => void , icon?:Component}>();
 const topGameRef = ref<HTMLElement | null>(null)
 const scrollTop = (dir: "left" | "right") => {
   if (!topGameRef.value) return;
@@ -39,7 +39,7 @@ const scrollTop = (dir: "left" | "right") => {
     </div>
     <div class="flex bg-slate-950 gap-1 items-center w-full overflow-x-auto no-scrollbar scroll-smooth"
       ref="topGameRef">
-      <div v-for="game in gameData" class="rounded-xl">
+      <div v-for="game in gameData" class="rounded-xl" @click="handler?.(game)">
         <div v-if="
           game?.gameInfos.filter((e) => e.language === 'en')[0]
             ?.gameIconUrl

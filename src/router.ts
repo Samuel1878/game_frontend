@@ -33,7 +33,7 @@ const routes = [
   {
     path:"/deposit/:payment_method",
     component:Payments,
-    meta:{requiresAuth:true}
+    meta:{requiresAuth:false}
   },
 
   {

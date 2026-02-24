@@ -42,8 +42,9 @@ export interface userInfo {
   password?:string;
   status:boolean;
   id:number;
-  token?:string| null;
-  balance?:number;
+  // token?:string| null;
+  // balance?:number;
+  // currency?:string;
   role?:string | null;
   level?:number ;
   created_at:string;

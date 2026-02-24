@@ -13,7 +13,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAuthStore } from "@/stores/auth";
 
-import { useWallet } from "@/stores/wallet";
+// import { useWallet } from "@/stores/wallet";
 import {
   gameOption,
   hotGames,
@@ -36,11 +36,18 @@ import GameViews from "@/components/gameViews.vue";
 import { jiliGames } from "@/consts/jiliGames";
 import { pragmaticPlayGames } from "@/consts/pragmaticGames";
 import ProviderOptions from "@/components/providerOptions.vue";
-import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/input-group'
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group";
+import { toast } from "vue-sonner";
+import { gameStore } from "@/stores/game";
 const api = ref<CarouselApi>();
 const gameType = ref<string>("lobby");
 const totalCount = ref(0);
 const authStore = useAuthStore();
+const useGameStore = gameStore();
 let games = ref<Game[] | null>(sboGames);
 // const useGameStore = gameStore();
 const current = ref(0);
@@ -54,10 +61,10 @@ const current = ref(0);
 function setApi(val: CarouselApi) {
   api.value = val;
 }
-const wallet = useWallet();
-watchEffect(() => {
-  wallet.setWallet(authStore.user?.name ?? null);
-});
+// const wallet = useWallet();
+// watchEffect(() => {
+//   wallet.setWallet(authStore.user?.name ?? null);
+// });
 watchOnce(api, (api) => {
   if (!api) return;
   totalCount.value = api.scrollSnapList().length;
@@ -71,14 +78,25 @@ console.log("user", authStore.user);
 //   const response = await getGameByGpId(1094);
 //   if (response) games.value = response.seamlessGameProviderGames;
 // });
-// const enterGame = (game: Game) => {
-//   console.log("entering game", game);
-//   if (!authStore.isLoggedIn || !authStore.user) {
-//     toast("Please login to enter the game");
-//     return;
-//   }
-//   useGameStore.setGames(game);
-// };
+const enterGame = (game: Game) => {
+  if (!authStore.isLoggedIn || !authStore.user) {
+    toast.warning("Please login to enter the game")
+    return
+  }
+
+
+
+  // const baseUrl = new URL(`https:${}`)
+
+  // baseUrl.searchParams.set("gpid", String(game.gameProviderId))
+  // baseUrl.searchParams.set("gameid", String(game.gameID))
+  // baseUrl.searchParams.set("lang", "en")
+  // baseUrl.searchParams.set("device", "m")
+  // baseUrl.searchParams.set("betCode", "")
+
+  // window.location.href = baseUrl.toString()
+    useGameStore.setGames(game)
+}
 // const cliamhandlern = () => {
 //   console.log("Cliamed");
 // };
@@ -106,7 +124,6 @@ const scroll = (dir: "left" | "right") => {
     behavior: "smooth",
   });
 };
-
 </script>
 <template>
   <main class="bg-slate-950 max-w-6xl w-full flex justify-between flex-col">
@@ -189,7 +206,6 @@ const scroll = (dir: "left" | "right") => {
             <ArrowRight class="w-5 h-5 text-sky-400" />
           </button>
         </div>
-         
 
         <section
           class="w-full h-full p-2"
@@ -200,37 +216,44 @@ const scroll = (dir: "left" | "right") => {
             :game-data="hotGames"
             header="Hot Games"
             :icon="CrownIcon"
+            :handler="enterGame"
           />
           <ScrollViews
             :game-data="topGames"
             header="Top Picks"
             :icon="Users2Icon"
+            :handler="enterGame"
           />
-          <ScrollViews :game-data="RTPGames" header="Most Wins" :icon="Coins" />
+          <ScrollViews
+            :game-data="RTPGames"
+            header="Most Wins"
+            :icon="Coins"
+            :handler="enterGame"
+          />
         </section>
 
-                <section
-          v-else-if="gameType === 'slots'"
-          class="w-full h-full p-2"
-        >
-        <aside class="flex justify-between items-center gap-2">
-          <InputGroup class="border-sky-500 ring-sky-500 ring-0">
-      <InputGroupInput  placeholder="Search..." />
-      <InputGroupAddon>
-        <SearchIcon />
-      </InputGroupAddon>
-    </InputGroup>
- <ProviderOptions/>
-        </aside>
-          
+        <section v-else-if="gameType === 'slots'" class="w-full h-full p-2">
+          <aside class="flex justify-between items-center gap-2">
+            <InputGroup class="border-sky-500 ring-sky-500 ring-0">
+              <InputGroupInput placeholder="Search..." />
+              <InputGroupAddon>
+                <SearchIcon />
+              </InputGroupAddon>
+            </InputGroup>
+            <ProviderOptions />
+          </aside>
+
           <!-- <ScrollViews
             :game-data="topSlotGames"
             header="Top Slots"
             :icon="CrownIcon"
           /> -->
-         <GameViews header="All Slots" :game-data="jiliGames"/>
+          <GameViews
+            header="All Slots"
+            :game-data="jiliGames"
+            :handler="enterGame"
+          />
         </section>
-
 
         <section
           v-else-if="gameType === 'tableGames'"
@@ -240,8 +263,13 @@ const scroll = (dir: "left" | "right") => {
             :game-data="topTableGames"
             header="Top Games"
             :icon="CrownIcon"
+            :handler="enterGame"
           />
-            <GameViews header="All Games" :game-data="pragmaticPlayGames"/>
+          <GameViews
+            header="All Games"
+            :game-data="pragmaticPlayGames"
+            :handler="enterGame"
+          />
         </section>
         <section
           v-else-if="gameType === 'arcadeGames'"
@@ -252,7 +280,11 @@ const scroll = (dir: "left" | "right") => {
             header="Top Games"
             :icon="CrownIcon"
           /> -->
-          <GameViews header="Arcade Games" :game-data="arcadeGames"/>
+          <GameViews
+            header="Arcade Games"
+            :game-data="arcadeGames"
+            :handler="enterGame"
+          />
         </section>
       </div>
       <div v-else class="flex items-center flex-col lg:grid">

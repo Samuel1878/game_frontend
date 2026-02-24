@@ -3,12 +3,15 @@ import './style.css'
 import App from './App.vue'
 import { createPinia } from "pinia";
 import router from './router'; 
-import piniaPersist from 'pinia-plugin-persistedstate'
+import { useAuthStore } from './stores/auth';
 const pinia = createPinia();
 const app = createApp(App);
 
-pinia.use(piniaPersist)
 app.use(pinia)
 app.use(router);
-app.mount("#app");
+
+const authStore = useAuthStore();
+authStore.autoLogin().then(()=>{
+   app.mount("#app");
+})
 

@@ -3,7 +3,7 @@ import api from "./api";
 
 
 export async function getGameListAPI(): Promise<gameListRespone | null> {
-  const response = await api.get("/api/v1/game/game_list");
+  const response = await api.get("/game/game_list");
   console.log("response", response)
   if (response.status === 200) return response.data;
   return null;
@@ -11,7 +11,7 @@ export async function getGameListAPI(): Promise<gameListRespone | null> {
 export async function getGameByGpId (gpid:number) {
   try {
     console.log("gpid", gpid)
-    const response = await api.get("/api/v1/game/get_game_gpid",{
+    const response = await api.get("/game/get_game_gpid",{
       params:{
         gpid
       }

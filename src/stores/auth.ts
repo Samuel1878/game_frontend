@@ -1,65 +1,56 @@
+
 import { defineStore } from "pinia";
-import type { supabaseUserRes } from "@/utils/types";
 import api from "@/services/api";
+import { initSocket, disconnectSocket } from "@/socket";
 import { toast } from "vue-sonner";
-type authStoreType = {
-  user:supabaseUserRes | null;
-  token:string | null;
-  isLoggedIn:boolean;
-  url:string | null;
-}
+import type { userInfo } from "@/utils/types";
+import router from "@/router";
+
+
 export const useAuthStore = defineStore("auth", {
-  state: ():authStoreType => ({
-    user: null,
-    token: null,
+  state: () => ({
+    user: null as userInfo | null,
     isLoggedIn: false,
-    url: null,
+    loading: true,
   }),
-  
+
   actions: {
-    logout() {
-      this.token = null;
-      this.user = null;
-      this.isLoggedIn = false;
-      this.url = null;
-    
-    },
-    async login(payload: {
-      name?: string | null;
-      password: string;
-    }) {
+
+    async login(payload: { name: string; password: string }) {
       try {
-         const response = await api.post('/api/v1/auth/login', payload)
-        console.log("response", response) 
-        if (response.status === 200 || response.status === 201) {   
-          this.user = response.data.user;
-          this.token = response.data.token;   
-          this.isLoggedIn = true;
-          this.url = response.data.url;
-          return
-        }
-        this.logout()
-      } catch (error) {
-        this.logout()
-        console.log("error", error)
-        return; 
+        const res = await api.post("/auth/login", payload);
+        this.user = res.data;
+        this.isLoggedIn = true;
+        initSocket();
+      } catch (err) {
+        this.logout();
+        throw err;
       }
-
     },
 
-    async register(payload: { name?: string | null; password: string }) {
+    async autoLogin() {
+      try {
+        const res = await api.get("/user/profile");
+
+        this.user = res.data;
+        this.isLoggedIn = true;
+
+        initSocket(); // connect socket after session verified
+      } catch {
+        this.user = null;
+        this.isLoggedIn = false;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+      async register(payload: { name?: string | null; password: string }) {
 
       try {
-        const response = await api.post('/api/v1/auth/register', payload)
+        const response = await api.post('/auth/register', payload)
         console.log("response", response) 
         if (response.status === 200 || response.status === 201) {   
-          // this.user = response.data.user;
-          // this.token = response.data.token;
-          // this.isLoggedIn = true;   
-          // this.url = response.data.url;
           toast.success("Registration successful! Please log in.");
-          
-          
           return
         }
         console.log("registration failed", response?.data)
@@ -68,14 +59,19 @@ export const useAuthStore = defineStore("auth", {
         // this.logout()
         console.log("error", error)
       }
-   
+    },
+
+    async logout() {
+      try {
+        await api.post("/auth/logout");
+      } catch {
+        console.log("logout failed")
+      }
+
+      this.user = null;
+      this.isLoggedIn = false;
+      disconnectSocket();
+      router.replace("/")
     },
   },
-  // persist: {
-  //   key:"auth",
-  //   storage: sessionStorage,
-  // },
-
-},
- 
-);
+});
