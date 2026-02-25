@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { Game } from "@/utils/types";
-import { ref, watchEffect } from "vue";
+import { ref } from "vue";
 import type { CarouselApi } from "@/components/ui/carousel";
 import { watchOnce } from "@vueuse/core";
 import { Card, CardContent } from "@/components/ui/card";
@@ -33,7 +33,6 @@ import {
 import ScrollViews from "@/components/scrollViews.vue";
 import { arcadeGames } from "@/consts/games";
 import GameViews from "@/components/gameViews.vue";
-import { jiliGames } from "@/consts/jiliGames";
 import { pragmaticPlayGames } from "@/consts/pragmaticGames";
 import ProviderOptions from "@/components/providerOptions.vue";
 import {
@@ -43,28 +42,19 @@ import {
 } from "@/components/ui/input-group";
 import { toast } from "vue-sonner";
 import { gameStore } from "@/stores/game";
+import { africanBuffaloSlots } from "@/consts/afbGames";
 const api = ref<CarouselApi>();
 const gameType = ref<string>("lobby");
 const totalCount = ref(0);
 const authStore = useAuthStore();
 const useGameStore = gameStore();
 let games = ref<Game[] | null>(sboGames);
-// const useGameStore = gameStore();
 const current = ref(0);
-// const filterByNewGameType = (
-//   games: Game[],
-//   type: number
-// ): Game[] => {
-//   return games.filter(game => game.newGameType === type)
-// }
-
+const slotGames = ref<Game[]>(africanBuffaloSlots)
+const value = ref();
 function setApi(val: CarouselApi) {
   api.value = val;
 }
-// const wallet = useWallet();
-// watchEffect(() => {
-//   wallet.setWallet(authStore.user?.name ?? null);
-// });
 watchOnce(api, (api) => {
   if (!api) return;
   totalCount.value = api.scrollSnapList().length;
@@ -74,18 +64,12 @@ watchOnce(api, (api) => {
   });
 });
 console.log("user", authStore.user);
-// watchEffect(async () => {
-//   const response = await getGameByGpId(1094);
-//   if (response) games.value = response.seamlessGameProviderGames;
-// });
+
 const enterGame = (game: Game) => {
   if (!authStore.isLoggedIn || !authStore.user) {
     toast.warning("Please login to enter the game")
     return
   }
-
-
-
   // const baseUrl = new URL(`https:${}`)
 
   // baseUrl.searchParams.set("gpid", String(game.gameProviderId))
@@ -97,19 +81,6 @@ const enterGame = (game: Game) => {
   // window.location.href = baseUrl.toString()
     useGameStore.setGames(game)
 }
-// const cliamhandlern = () => {
-//   console.log("Cliamed");
-// };
-// const getGameByGp = async (e: number) => {
-//   const respnse = await getGameByGpId(e);
-//   if (respnse) return (games.value = respnse?.seamlessGameProviderGames);
-// };
-// const chooseGame = (gpid: number) => {
-//   games.value =
-//     slotGameProviders
-//       .filter((e) => e.GpId === gpid)[0]
-//       ?.data.filter((e) => e.newGameType === 201) || null;
-// };
 
 const chooseOption = (value: string) => (gameType.value = value);
 
@@ -240,7 +211,7 @@ const scroll = (dir: "left" | "right") => {
                 <SearchIcon />
               </InputGroupAddon>
             </InputGroup>
-            <ProviderOptions />
+           <ProviderOptions :value="value" :set-value="(v)=>value=v"/>
           </aside>
 
           <!-- <ScrollViews
@@ -250,7 +221,7 @@ const scroll = (dir: "left" | "right") => {
           /> -->
           <GameViews
             header="All Slots"
-            :game-data="jiliGames"
+            :game-data="slotGames"
             :handler="enterGame"
           />
         </section>

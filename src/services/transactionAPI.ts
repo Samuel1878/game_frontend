@@ -3,7 +3,7 @@ import api from "./api";
 
 export const depositHandlerAPI = async(data:depositFormData, param:paramType) => {
     try {
-         const response = await api.post("/api/v1/user/transaction/deposit",data , {
+         const response = await api.post("/user/transaction/deposit",data , {
             params:param
          });
     console.log("response", response)

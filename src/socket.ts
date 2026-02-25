@@ -12,11 +12,12 @@ export const initSocket = () => {
     autoConnect: true,
     reconnection: true,
   });
-
+  const auth = useAuthStore();
   const wallet = useWallet();
   socket.on("connect", () => {
     console.log("Socket connected:", socket?.id);
   });
+  socket.emit("join", auth.user?.uid);
 
   socket.on("disconnect", () => {
     console.log("Socket disconnected");

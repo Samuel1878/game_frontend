@@ -1,12 +1,11 @@
 
-import api, { apiWithCre } from './api'
+import api from './api'
 
 export interface AuthPayload {
   username: string
   password: string
 }
 export interface AuthResponse {
-
     id: number
     name: string
     email: string | null

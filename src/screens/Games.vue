@@ -3,15 +3,12 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { useAuthStore } from '@/stores/auth';
 import { gameStore } from '@/stores/game';
 import type{ Game } from '@/utils/types';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { toast } from 'vue-sonner';
 import {useUIStore} from '@/stores/ui';
-import { gameOption, hotGames, RTPGames, topGames, topTableGames } from '@/consts';
+import { gameOption, gameProviders, hotGames, RTPGames, topGames, topTableGames, type providersType } from '@/consts';
 import { sboGames } from '@/consts/sboGames';
-// import type { CarouselApi } from '@/components/ui/carousel';
-// import { watchOnce } from '@vueuse/core';
-import { Coins, CrownIcon, SearchIcon, Users2Icon } from 'lucide-vue-next';
-import { jiliGames } from '@/consts/jiliGames';
+import { ArrowLeft, ArrowRight, Coins, CrownIcon, SearchIcon, Users2Icon } from 'lucide-vue-next';
 import { pragmaticPlayGames } from '@/consts/pragmaticGames';
 import { arcadeGames } from '@/consts/games';
 import ScrollViews from '@/components/scrollViews.vue';
@@ -21,21 +18,13 @@ import InputGroupAddon from '@/components/ui/input-group/InputGroupAddon.vue';
 import ProviderOptions from '@/components/providerOptions.vue';
 import GameViews from '@/components/gameViews.vue';
 import { Card, CardContent } from '@/components/ui/card';
-// const totalCount = ref(0);
-let games = ref<Game[] | null>(sboGames);
-// const current = ref(0);
-// const api = ref<CarouselApi>();
-const gameType = ref<string>("lobby");
+import { refDebounced } from "@vueuse/core";
 
-// watchOnce(api, (api) => {
-//   if (!api) return;
-//   totalCount.value = api.scrollSnapList().length;
-//   current.value = api.selectedScrollSnap() + 1;
-//   api.on("select", () => {
-//     current.value = api.selectedScrollSnap() + 1;
-//   });
-// });
-// const games = ref<Game[] | null>(null);
+const searchQuery = ref("");
+const debouncedSearch = refDebounced(searchQuery, 300);
+const selectedProvider = ref<{name:string, GpId:number}>({name:"", GpId:0});
+let games = ref<Game[] | null>(sboGames);
+const gameType = ref<string>("lobby");
 const ui = useUIStore();
 const authStore = useAuthStore();
 const useGameStore = gameStore();
@@ -53,6 +42,25 @@ const scroll = (dir: "left" | "right") => {
   });
 };
 
+// const AllSlotGames = computed(() => {
+//   // const filteredProviders = filterGames(gameProviders);
+
+//   return gameProviders.flatMap(provider => provider.game);
+// });
+
+const filteredSlotGames = computed(() => {
+  const search = debouncedSearch.value.toLowerCase();
+  return gameProviders
+    .filter(provider =>
+      provider.GpId === selectedProvider.value.GpId
+    )
+    .flatMap(provider =>
+      provider.game.filter(game =>
+        !search ||
+        game.gameInfos[0]?.gameName.toLowerCase().includes(search)
+      )
+    ).sort((a, b)=>a.rank - b.rank);
+});
 
 const enterGame = (game: Game) => {
   if (!game) return;  
@@ -62,9 +70,13 @@ const enterGame = (game: Game) => {
     return;
   }
   console.log("entering game", game);
-  
   useGameStore.setGames(game)
 } 
+const setProvider = (name:string, GpId:number)=>{
+    selectedProvider.value.name=name ; 
+    selectedProvider.value.GpId=GpId
+}
+
 </script>
 <template>
     <main class="bg-slate-950 max-w-6xl w-full flex justify-between flex-col">
@@ -138,12 +150,12 @@ const enterGame = (game: Game) => {
         <section v-else-if="gameType === 'slots'" class="w-full h-full p-2">
           <aside class="flex justify-between items-center gap-2">
             <InputGroup class="border-sky-500 ring-sky-500 ring-0">
-              <InputGroupInput placeholder="Search..." />
+              <InputGroupInput v-model="searchQuery" placeholder="Search..." />
               <InputGroupAddon>
                 <SearchIcon />
               </InputGroupAddon>
             </InputGroup>
-            <ProviderOptions />
+            <ProviderOptions :provider-name="selectedProvider.name" :-gp-id="selectedProvider.GpId" :set-value="setProvider"/>
           </aside>
 
           <!-- <ScrollViews
@@ -153,7 +165,7 @@ const enterGame = (game: Game) => {
           /> -->
           <GameViews
             header="All Slots"
-            :game-data="jiliGames"
+            :game-data="filteredSlotGames"
             :handler="enterGame"
           />
         </section>
@@ -178,11 +190,6 @@ const enterGame = (game: Game) => {
           v-else-if="gameType === 'arcadeGames'"
           class="w-full h-full p-2"
         >
-          <!-- <ScrollViews
-            :game-data="topTableGames"
-            header="Top Games"
-            :icon="CrownIcon"
-          /> -->
           <GameViews
             header="Arcade Games"
             :game-data="arcadeGames"

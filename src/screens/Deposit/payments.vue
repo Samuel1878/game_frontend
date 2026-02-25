@@ -10,7 +10,7 @@ import { toast } from "vue-sonner";
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useClipboard } from "@vueuse/core";
-import { Copy, CreditCardIcon, LetterText, PhoneCallIcon, PhoneIcon } from "lucide-vue-next";
+import { Copy, CreditCardIcon, LetterText, PhoneIcon } from "lucide-vue-next";
 import ApplyBreadCrumb from "@/components/breadcrumb/index.vue";
 import type { depositFormData } from "@/utils/types";
 import { useAuthStore } from "@/stores/auth";
@@ -112,19 +112,6 @@ const breadcrumbs = [
                  <p class="text-slate-30 font-bold">{{ name }}</p>
               </div>
             </div>
-
-            <!-- <div v-if="isSupported" class="flex justify-between my-2">
-              <p>Phone Number:</p>
-              <button @click="copyHandler" class="cursor-pointer flex gap-2">
-                 <p class="text-lg">
-                <code>{{ text || source }}</code>
-              </p><Copy />
-              </button>
-            </div>
-            <div class="my-2 flex justify-between">
-              <p>Name</p>
-              <p>{{ name }}</p>
-            </div> -->
           </div>
        
         </div>
@@ -139,7 +126,7 @@ const breadcrumbs = [
           <div class="space-y-1.5 w-full">
             <label for="account_name" class="text-slate-400 font-semibold:">Account Name</label>
             <InputGroup
-              class="h-12 rounded-lg w-full px-4 font-bold border-0 ring-sky-500 ring-1 bg-gray-800"
+              class="h-12 rounded-lg w-full font-bold border-0 ring-sky-500 ring-1 bg-gray-800"
             >
               <InputGroupAddon>
                 <CreditCardIcon />

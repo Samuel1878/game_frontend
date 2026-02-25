@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next'
+import { CheckCircle, CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { Button } from '@/components/ui/button'
 import {
@@ -18,7 +18,11 @@ import {
 import { slotGameProviders } from '@/consts'
 
 const open = ref(false)
-const value = ref('')
+const props = defineProps<{
+  providerName?:string;
+  GpId?:number;
+  setValue:(name:string, GpId:number)=>void
+}>()
 </script>
 
 <template>
@@ -31,9 +35,9 @@ const value = ref('')
         class=" justify-between bg-slate-800 border-0 ring-0"
       >
         {{
-          value
-            ? slotGameProviders.find(framework => framework.name === value)?.name
-            : 'Providers'
+          GpId
+            ? slotGameProviders.find(framework => framework.GpId === GpId)?.name
+            : 'All'
         }}
         <ChevronsUpDownIcon class="ml-1 h-4 w-4 shrink-0 opacity-50" />
       </Button>
@@ -48,14 +52,15 @@ const value = ref('')
               v-for="framework in slotGameProviders"
               :key="framework.name"
               :value="framework.name"
-              class="text-sky-100 text-lg"
+                :class="['text-lg', providerName===framework.name ? 'text-sky-500 bg-slate-800':'text-sky-50 bg-slate-900']"
               @select="() => {
-                value = value === framework.name ? '' : framework.name
+                setValue(framework.name, framework.GpId)
                 open = false
+                
               }"
             >
-              <CheckIcon
-                :class="['mr-2 h-4 w-4', value === framework.name ? 'opacity-100' : 'opacity-0']"
+              <CheckCircle
+                :class="['mr-2 h-4 w-4', providerName === framework.name ? 'opacity-100 text-sky-600' : 'opacity-0']"
               />
               {{framework.name }}
             </CommandItem>

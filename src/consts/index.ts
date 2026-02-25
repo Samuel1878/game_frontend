@@ -11,11 +11,18 @@ import { fastSpinGames } from "./fastspinGames";
 import { fachaiGames } from "./faChaiGames";
 import { sboGames } from "./sboGames";
 import { winGames } from "./568winGames";
+import type { Game } from "@/utils/types";
 export interface paymentTypes {
     id:number,
     label:string,
     value:string,
     icon:string
+}
+export interface providersType {
+    id:number;
+    GpId:number;
+    providerName:string;
+    game:Game[]
 }
 export const amounts = [
     2000,
@@ -27,6 +34,80 @@ export const amounts = [
     200000,
     500000
 
+];
+export const gameProviders:providersType[] = [
+    {
+        id:1,
+        GpId:1094,
+        providerName:"AfricanBuffalo",
+        game:africanBuffaloSlots
+    },
+    {
+        id:2,
+        GpId:3,
+        providerName:"PragmaticPlay",
+        game:pragmaticPlayGames
+    },
+        {
+        id:3,
+        GpId:1020,
+        providerName:"JiLiGaming",
+        game:jiliGames
+    },
+        {
+        id:4,
+        GpId:35,
+        providerName:"PGSoft",
+        game:pgSoftGames
+    },    {
+        id:5,
+        GpId:1085,
+        providerName:"VAGaming",
+        game:vaSlots
+    },    {
+        id:6,
+        GpId:14,
+        providerName:"SBOSlot",
+        game:sboGames
+    },    
+    {
+        id:7,
+        GpId:1042,
+        providerName:"KAGaming",
+        game:kaGames
+    },    {
+        id:8,
+        GpId:1079,
+        providerName:"Fastspin",
+        game:fastSpinGames
+    },    {
+        id:9,
+        GpId:1046,
+        providerName:"FaChai",
+        game:fachaiGames
+    },
+      {
+        id:10,
+        GpId:1034,
+        providerName:"AdvantPlay",
+        game:advantPlayGames
+    },
+      {
+        id:11,
+        GpId:1029,
+        providerName:"568winGames",
+        game:winGames
+    },
+    {
+        id:12,
+        GpId:0,
+        providerName:"All Providers",
+        game:[...winGames, 
+            ...fachaiGames,...advantPlayGames,
+            ...fastSpinGames,...kaGames,...sboGames,
+            ...vaSlots,...pgSoftGames,...jiliGames,
+            ...pragmaticPlayGames,...africanBuffaloSlots]
+    }
 ]
 
 export const paymentMethod:paymentTypes[] = [
@@ -115,11 +196,18 @@ export const gameOption = [
 },
 ]
 export const slotGameProviders = [
+        {
+        id:12,
+        name: "All Providers",
+        GpId:0,
+        icon:African_Buffalo,
+        
+        
+    },
     {
         id:1,
         name: "African Buffalo",
         GpId:1094,
-        data:africanBuffaloSlots,
         icon:African_Buffalo,
         
         
@@ -129,7 +217,6 @@ export const slotGameProviders = [
         name: "PG Soft",
         GpId:35,
         icon:PG_Soft,
-        data:pgSoftGames
         
         
     },
@@ -138,7 +225,6 @@ export const slotGameProviders = [
         name: "Fastspin",
         GpId:1079,
         icon:Fast_Spin,
-        data:fastSpinGames
         
         
     },
@@ -147,7 +233,6 @@ export const slotGameProviders = [
         name: "JILI",
         GpId:1020,
         icon:Jili,
-        data:jiliGames
         
         
     },
@@ -156,7 +241,6 @@ export const slotGameProviders = [
         name: "FaChoi",
         GpId:1046,
         icon:FaChai,
-        data:fachaiGames
         
         
     }   , {
@@ -164,7 +248,6 @@ export const slotGameProviders = [
         name: "KA Gaming",
         GpId:1042,
         icon:KA_Gaming,
-        data:kaGames
         
         
     }  ,  {
@@ -172,7 +255,6 @@ export const slotGameProviders = [
         name: "Pragmatic Play",
         GpId:3,
         icon:Pragmatic_Play,
-        data:pragmaticPlayGames
         
         
     },
@@ -181,7 +263,6 @@ export const slotGameProviders = [
         name: "Advantplay",
         GpId:1034,
         icon:Advantplay,
-        data:advantPlayGames
         
         
     },
@@ -190,7 +271,6 @@ export const slotGameProviders = [
         name: "VA Gaming",
         GpId:1085,
         icon:VA_Gaming,
-        data:vaSlots
         
         
     },
@@ -199,14 +279,12 @@ export const slotGameProviders = [
         name:"SBO games",
         GpId:14,
         icon:null,
-        data:sboGames
     },
     {
         id:11,
         name:"568Win Games",
         GpId:1029,
         icon:null,
-        data:winGames
     }
 ]
 

@@ -49,14 +49,23 @@ export const useAuthStore = defineStore("auth", {
       try {
         const response = await api.post('/auth/register', payload)
         console.log("response", response) 
-        if (response.status === 200 || response.status === 201) {   
-          toast.success("Registration successful! Please log in.");
+        if (response.status === 200 || response.status === 201) { 
+          this.user = response.data;
+          this.isLoggedIn = true;
+          initSocket();
+          this.loading = false
+          toast.success("Registration successful.");
+          return
+        }
+        else if (response.status ===203){
+          toast.warning(response.data?.message);
           return
         }
         console.log("registration failed", response?.data)
-        // this.logout()
+        this.logout()
       } catch (error) {
-        // this.logout()
+        this.logout()
+          toast.warning("registration failed")
         console.log("error", error)
       }
     },

@@ -71,14 +71,14 @@ function getGameIcon(game: Game): string | undefined {
       <button
         v-for="(game, index) in visibleGames"
         :key="game?.gameID ?? index"
-        class="w-auto cursor-pointer overflow-hidden rounded-xl"
+        class="w-auto cursor-pointer overflow-hidden rounded-lg"
         @click="handler?.(game)"
       >
         <img
           v-if="getGameIcon(game)"
           :src="getGameIcon(game)"
           alt="game thumbnail"
-          class="min-w-18  max-w-32 h-45 object-fit rounded-xl"
+          class="min-w-22 w-auto max-w-32 h-45 object-cover rounded-lg"
         />
       </button>
     </div>
