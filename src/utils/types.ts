@@ -40,11 +40,12 @@ export interface userInfo {
   phone?:string | null;
   email?:string | null;
   password?:string;
-  status:boolean;
+  status?:string;
   id:number;
   // token?:string| null;
   // balance?:number;
   // currency?:string;
+
   role?:string | null;
   level?:number ;
   created_at:string;
@@ -76,18 +77,18 @@ export interface depositFormData {
   id?:number;
   inv_id?:string;
   user_id:number | null;
-  payment:string | null;
-  request_amount:number | null;
+  payment?:string | null;
+  request_amount?:number | null;
   actual_amount?:number;
   uuid?:string|null;
   completed?:boolean;
   status?:string;
   remark?:string;
-  account_no:string | null;
-  account_name:string | null;
+  account_no?:string | null;
+  account_name?:string | null;
   created_at?:string;
   updated_at?:string;
-  tid:string;
+  tid?:string;
   payment_account?:string | null;
   payment_number?:string | null;
     ref_no?:string|null;
@@ -100,7 +101,7 @@ export interface withdrawalInfo {
   id?:number;
   user_id?:number;
   uuid?:string;
-  amount:number;
+  amount?:number;
   payment_method?:string;
   status?:string;
   created_at?:string;
@@ -108,7 +109,8 @@ export interface withdrawalInfo {
   withdraw_name?:string;
   withdraw_no?:string;
   remark?:string;
-  
+  txn_id?:string;
+  is_completed?:boolean;
 }
 export interface withdrawParamType {
   user_id:number;

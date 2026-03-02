@@ -1,4 +1,4 @@
-import { Advantplay, African_Buffalo, ayaPayLogo, FaChai, Fast_Spin, Jili, KA_Gaming, kbzLogo, PG_Soft, Pragmatic_Play, usdtLogo, VA_Gaming, wavePayLogo } from "@/utils";
+import { Advantplay, African_Buffalo, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin, Jili, KA_Gaming, kbzLogo, PG_Soft, Pragmatic_Play, usdtLogo, VA_Gaming, wavePayLogo } from "@/utils";
 import { Gamepad2Icon, HeartIcon, StarIcon } from "lucide-vue-next";
 import {  africanBuffaloSlots } from "./afbGames";
 import { jiliGames } from "./jiliGames";
@@ -12,6 +12,7 @@ import { fachaiGames } from "./faChaiGames";
 import { sboGames } from "./sboGames";
 import { winGames } from "./568winGames";
 import type { Game } from "@/utils/types";
+export const usdtRateToMMK = 4000;
 export interface paymentTypes {
     id:number,
     label:string,
@@ -137,6 +138,26 @@ export const paymentMethod:paymentTypes[] = [
         icon:usdtLogo
     }
 ];
+export const homeSlide = [
+    {
+        image:banner_1,
+        title:"Welcome bonus",
+        description:"Deposit now to get welcome bonus",
+        button:"deposit"
+    },
+        {
+        image:banner_2,
+        title:"Welcome bonus",
+        description:"Deposit now to get welcome bonus",
+        button:"deposit"
+    }
+    ,    {
+        image:banner_3,
+        title:"Welcome bonus",
+        description:"Deposit now to get welcome bonus",
+        button:"deposit"
+    }
+]
 export const homeOptions = [
     {
         value:"hotGames",

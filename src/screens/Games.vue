@@ -6,7 +6,7 @@ import type{ Game } from '@/utils/types';
 import { computed, ref } from 'vue';
 import { toast } from 'vue-sonner';
 import {useUIStore} from '@/stores/ui';
-import { gameOption, gameProviders, hotGames, RTPGames, topGames, topTableGames, type providersType } from '@/consts';
+import { gameOption, gameProviders, hotGames, RTPGames, topGames, topTableGames } from '@/consts';
 import { sboGames } from '@/consts/sboGames';
 import { ArrowLeft, ArrowRight, Coins, CrownIcon, SearchIcon, Users2Icon } from 'lucide-vue-next';
 import { pragmaticPlayGames } from '@/consts/pragmaticGames';
@@ -19,6 +19,7 @@ import ProviderOptions from '@/components/providerOptions.vue';
 import GameViews from '@/components/gameViews.vue';
 import { Card, CardContent } from '@/components/ui/card';
 import { refDebounced } from "@vueuse/core";
+import { enterGameAPI } from '@/services/gameAPI';
 
 const searchQuery = ref("");
 const debouncedSearch = refDebounced(searchQuery, 300);
@@ -42,12 +43,6 @@ const scroll = (dir: "left" | "right") => {
   });
 };
 
-// const AllSlotGames = computed(() => {
-//   // const filteredProviders = filterGames(gameProviders);
-
-//   return gameProviders.flatMap(provider => provider.game);
-// });
-
 const filteredSlotGames = computed(() => {
   const search = debouncedSearch.value.toLowerCase();
   return gameProviders
@@ -62,16 +57,43 @@ const filteredSlotGames = computed(() => {
     ).sort((a, b)=>a.rank - b.rank);
 });
 
-const enterGame = (game: Game) => {
-  if (!game) return;  
-  else if (!authStore.isLoggedIn || !authStore.user) {
+const enterGame = async (game: Game) => {
+  if (!game) return;
+
+  if (!authStore.isLoggedIn || !authStore.user) {
     toast("Please login to enter the game");
-    ui.openAuthModal("/"); 
+    ui.openAuthModal("/");
     return;
   }
-  console.log("entering game", game);
-  useGameStore.setGames(game)
-} 
+
+  try {
+    const data = await enterGameAPI({
+      userName: authStore.user.name ?? "",
+      gameId: game.gameID,
+      gpId: game.gameProviderId,
+    });
+
+    if (!data?.url) {
+      toast("Failed to launch game");
+      return;
+    }
+
+    useGameStore.setGames(game);
+
+    const launchUrl =
+      `${data.url}` +
+      `&gpid=${game.gameProviderId}` +
+      `&gameid=${game.gameID}` +
+      `&lang=en&device=m&betCode=`;
+
+    // External redirect
+    window.location.href = launchUrl;
+
+  } catch (error) {
+    console.error(error);
+    toast("Something went wrong");
+  }
+};
 const setProvider = (name:string, GpId:number)=>{
     selectedProvider.value.name=name ; 
     selectedProvider.value.GpId=GpId
@@ -157,12 +179,6 @@ const setProvider = (name:string, GpId:number)=>{
             </InputGroup>
             <ProviderOptions :provider-name="selectedProvider.name" :-gp-id="selectedProvider.GpId" :set-value="setProvider"/>
           </aside>
-
-          <!-- <ScrollViews
-            :game-data="topSlotGames"
-            header="Top Slots"
-            :icon="CrownIcon"
-          /> -->
           <GameViews
             header="All Slots"
             :game-data="filteredSlotGames"

@@ -8,6 +8,11 @@ import { useUIStore } from "./stores/ui";
 import Payments from "./screens/Deposit/payments.vue";
 import Profile from "./screens/Profile.vue";
 import PaymentsWithdraw from "@/screens/Withdrawal/payment.vue";
+import Help from "./screens/help.vue";
+import Terms from "./screens/terms.vue";
+import Policy from "./screens/policy.vue";
+import Responsible from "./screens/responsible.vue";
+import Transactions from "./screens/Transactions.vue";
 
 const routes = [
   {
@@ -41,10 +46,36 @@ const routes = [
     component:PaymentsWithdraw,
     meta:{requiresAuth:true}
   },
-  {path:"/profile",
+  {
+    path:"/profile",
   component:Profile,
   meta:{requiresAuth:true}
-}
+},
+{
+ path:"/profile/:id/transactions",
+  component:Transactions,
+  meta:{requiresAuth:true}
+},
+ {
+    path:"/help",
+    component:Help,
+    meta:{requiresAuth:false}
+  },
+   {
+    path:"/terms",
+    component:Terms,
+    meta:{requiresAuth:false}
+  },
+   {
+    path:"/privacy",
+    component:Policy,
+    meta:{requiresAuth:false}
+  },
+   {
+    path:"/responsible",
+    component:Responsible,
+    meta:{requiresAuth:false}
+  },
 ]
 
 const router = createRouter({

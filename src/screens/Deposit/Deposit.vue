@@ -8,16 +8,27 @@ import {
   InputGroupText,
 
 } from '@/components/ui/input-group'
+import { HistoryIcon } from "lucide-vue-next";
+import { useAuthStore } from "@/stores/auth";
+import router from "@/router";
 const amount = ref<number>();
+  const authStore = useAuthStore()
 const setAmount = (a: number) => {
   amount.value = a;
 };
 </script>
 <template>
   <main class="text-gray-100 bg-gray-950 p-2 w-full">
-    
+  
     <section class="p-2 rounded-lg bg-gray-900">
-    <h1 class="text-md text-gray-50 mt-3 mb-1 font-bold">Set deposit amount*</h1>
+     
+        <div class="flex justify-between items-center my-3">
+           <h1 class="text-md text-gray-50 font-bold">Set deposit amount*</h1>
+      <button class="p-2" @click="router.push(`/profile/${authStore.user?.id}/transactions`)">
+        <HistoryIcon/>
+      </button>
+    </div>
+    
         <InputGroup  class="h-12 rounded-lg font-bold border-0 ring-sky-500 ring-1 bg-gray-800">
     
       <InputGroupAddon>

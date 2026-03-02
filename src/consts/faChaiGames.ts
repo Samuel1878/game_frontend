@@ -1112,12 +1112,12 @@ export const fachaiGames = [
                 {
                     "language": "en",
                     "gameName": "CHINESE NEW YEAR MOREWAYS",
-                    "gameIconUrl": "//gp-demo.ggppqqgg.comhttps://cdn-test.cdn568.net/FaChai/52/1046_52_CHINESENEW YEARMOREWAYS.jpg"
+                    "gameIconUrl": "https://cdn-test.cdn568.net/FaChai/52/1046_52_CHINESENEW YEARMOREWAYS.jpg"
                 },
                 {
                     "language": "zh_cn",
                     "gameName": "大过年路路发",
-                    "gameIconUrl": "//gp-demo.ggppqqgg.comhttps://cdn-test.cdn568.net/FaChai/52/1046_52_CHINESENEW YEARMOREWAYS_CN.jpg"
+                    "gameIconUrl": "https://cdn-test.cdn568.net/FaChai/52/1046_52_CHINESENEW YEARMOREWAYS_CN.jpg"
                 }
             ],
             "supportedCurrencies": [

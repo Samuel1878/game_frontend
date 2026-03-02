@@ -4281,12 +4281,12 @@ export const pgSoftGames:Game[] = [
                 {
                     "language": "en",
                     "gameName": "Chocolate Deluxe",
-                    "gameIconUrl": "//gp-demo.ggppqqgg.comhttps://cdn-test.cdn568.net/PGSoft/178/Cholcolate 200x200.png"
+                    "gameIconUrl": "https://cdn-test.cdn568.net/PGSoft/178/Cholcolate 200x200.png"
                 },
                 {
                     "language": "zh_cn",
                     "gameName": "真爱巧克力",
-                    "gameIconUrl": "//gp-demo.ggppqqgg.comhttps://cdn-test.cdn568.net/PGSoft/178/Cholcolate 200x200.png"
+                    "gameIconUrl": "https://cdn-test.cdn568.net/PGSoft/178/Cholcolate 200x200.png"
                 }
             ],
             "supportedCurrencies": [

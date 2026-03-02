@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import AuthModal from "@/components/Auth.vue";
 import { Toaster } from "./components/ui/sonner";
+import 'vue-sonner/style.css'
 import { useUIStore } from "./stores/ui";
 import { CircleUser, CoinsIcon, Gamepad2Icon, HomeIcon, Wallet, WalletIcon } from "lucide-vue-next";
 import { useAuthStore } from "./stores/auth";
@@ -28,10 +29,10 @@ const goToLoginHandler = () => {
         <!-- LOGO -->
         <RouterLink
           to="/"
-          class="text-lg flex items-center gap-2 font-extrabold tracking-wide transition hover:text-sky-300 lg:text-2xl"
+          class="text-lg flex items-center gap-1 font-extrabold tracking-wide transition hover:text-sky-300 lg:text-2xl"
         >
           <p class=" text-sky-500 font-extrabold text-4xl">999</p>
-          <di>
+          <di >
             <p class="text-gray-400 font-mono text-sm">ONLINE</p>
           <p class="text-gray-100 font-bold text-sm">CASINO</p>
           </di>
@@ -48,13 +49,16 @@ const goToLoginHandler = () => {
 
         <!-- MOBILE BUTTON -->
         <div class="flex items-center gap-2 justify-end">
-          <RouterLink to="/profile" class="py-2 px-4 bg-gray-900 rounded-sm flex items-center gap-2"  v-show="authStore.isLoggedIn">
+          <RouterLink to="/deposit" class="h-10 px-2 bg-gray-800 rounded-sm flex items-center gap-2"  v-show="authStore.isLoggedIn">
             <Wallet class="text-sm"/>
             <p class="font-bold text-lg text-gray-50">
               {{ wallet.balance || "0.00" }}
             </p>
           </RouterLink>
-          <RouterLink to="/profile" v-if="authStore.isLoggedIn" class="rounded-full">
+          <!-- <button class="bg-sky-500 h-10s">
+            <Plus/>
+          </button> -->
+          <RouterLink to="/profile" v-if="authStore.isLoggedIn" class="rounded-full"   @click="mobileOpen = false">
             <CircleUser />
           </RouterLink>
           <button
@@ -107,7 +111,7 @@ const goToLoginHandler = () => {
             @click="mobileOpen = !mobileOpen"
             >
                <Gamepad2Icon/>
-            <p class="text-md font-bold">Slot Games</p>
+            <p class="text-md font-bold">Games</p>
             </RouterLink
           >
           <RouterLink
@@ -137,8 +141,7 @@ const goToLoginHandler = () => {
     <!-- PAGE CONTENT (CENTERED) -->
     <section class="w-full relative flex flex-col items-center">
       <Toaster
-        
-        class="w-full font-bold text-lg gap-4 text-sky-50 bottom-0  text-center z-40 rounded-lg"
+        class="text-white"
       />
       <RouterView />
       <AuthModal />

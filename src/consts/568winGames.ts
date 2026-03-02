@@ -7024,7 +7024,7 @@ export const winGames = [
                 {
                     "language": "en",
                     "gameName": "300 Spartans",
-                    "gameIconUrl": "//gp-demo.ggppqqgg.comhttps://cdn-test.cdn568.net/568winGames/364/300 Spartans_200x200px.jpg"
+                    "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/364/300 Spartans_200x200px.jpg"
                 }
             ],
             "supportedCurrencies": [
@@ -11183,7 +11183,7 @@ export const winGames = [
                 {
                     "language": "en",
                     "gameName": "Gates of Olympus",
-                    "gameIconUrl": "//gp-demo.ggppqqgg.comhttps://cdn-test.cdn568.net/568winGames/347/gates of olympus_game entry200.png"
+                    "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/347/gates of olympus_game entry200.png"
                 }
             ],
             "supportedCurrencies": [
@@ -17181,7 +17181,7 @@ export const winGames = [
                 {
                     "language": "en",
                     "gameName": "Party Skull",
-                    "gameIconUrl": "//gp-demo.ggppqqgg.comhttps://cdn-test.cdn568.net/568winGames/366/Skull Party_200x200px.jpg"
+                    "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/366/Skull Party_200x200px.jpg"
                 }
             ],
             "supportedCurrencies": [
@@ -17250,7 +17250,7 @@ export const winGames = [
                 {
                     "language": "en",
                     "gameName": "Diamond Crab",
-                    "gameIconUrl": "//gp-demo.ggppqqgg.comhttps://cdn-test.cdn568.net/568winGames/368/Diamond Crab_200x200px.jpg"
+                    "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/368/Diamond Crab_200x200px.jpg"
                 }
             ],
             "supportedCurrencies": [

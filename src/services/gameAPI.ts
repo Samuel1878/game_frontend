@@ -23,4 +23,13 @@ export async function getGameByGpId (gpid:number) {
     return null;
 
   }
+};
+export const enterGameAPI = async (data:{userName:string, gpId:number, gameId:number}) => {
+  try {
+    const response = await api.post("/game/enter_game", data);
+    if (response.status===200) return response.data;
+    return null
+  } catch (error) {
+    return null
+  }
 }

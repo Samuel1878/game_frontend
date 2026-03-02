@@ -24,9 +24,9 @@ const scrollTop = (dir: "left" | "right") => {
         <p class="font-bold text-slate-200 text-sm">{{ header }}</p>
       </div>
       <div class="flex gap-1">
-        <p class="font-normal bg-slate-800 px-2 rounded-sm text-center text-sm h-8 flex justify-center items-center">
+        <RouterLink to="/games"  class="font-normal bg-slate-800 px-2 rounded-sm text-center text-sm h-8 flex justify-center items-center">
           View More
-        </p>
+        </RouterLink>
         <button @click="scrollTop('left')"
           class="bg-slate-800 hover:bg-slate-700/80 px-2 h-8 rounded-sm shadow-lg transition">
           <ArrowLeft class="w-5 h-5 text-sky-400" />

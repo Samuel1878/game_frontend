@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { Input } from "@/components/ui/input";
 import { paymentMethod } from "@/consts";
+import router from "@/router";
 import { withdrawalHandlerAPI } from "@/services/transactionAPI";
 import { useAuthStore } from "@/stores/auth";
 import type { withdrawalInfo, withdrawParamType } from "@/utils/types";
@@ -45,6 +46,7 @@ const submit = async () => {
   const response = await withdrawalHandlerAPI(data, param);
   if (response) {
     toast("Withdrawal form submitted successfully!");
+    router.back()
     return;
   }
   toast("Internal error!");

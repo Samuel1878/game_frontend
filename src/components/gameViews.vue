@@ -57,10 +57,10 @@ onUnmounted(() => {
   observer?.disconnect()
 })
 function getGameIcon(game: Game): string | undefined {
-  const en = game.gameInfos.find(e => e.language === "en")
+  const en = game.gameInfos[0];
   if (en?.gameIconUrl) return en.gameIconUrl
 
-  const zh = game.gameInfos.find(e => e.language === "zh_cn")
+  const zh = game.gameInfos[1]
   return zh?.gameIconUrl
 }
 </script>
@@ -80,6 +80,7 @@ function getGameIcon(game: Game): string | undefined {
           alt="game thumbnail"
           class="min-w-22 w-auto max-w-32 h-45 object-cover rounded-lg"
         />
+        
       </button>
     </div>
 

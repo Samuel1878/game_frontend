@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { amounts, paymentMethod } from "@/consts";
 import { ref } from "vue";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+  InputGroupText,
+} from "@/components/ui/input-group";
 const amount = ref<number>();
 const setAmount = (a:number)=>{
   amount.value = a
@@ -11,6 +17,16 @@ const setAmount = (a:number)=>{
  <h1 class="text-md text-gray-50 my-3 font-bold">
       Set withrawal amount
     </h1>
+    <InputGroup  class="h-12 rounded-lg font-bold border-0 ring-sky-500 ring-1 bg-gray-800">
+    
+      <InputGroupAddon>
+        <InputGroupText class="font-bold text-gray-200">K</InputGroupText>
+      </InputGroupAddon>
+      <InputGroupInput v-model="amount" type="number" placeholder="0.00" />
+      <InputGroupAddon align="inline-end">
+        <InputGroupText class="text-gray-100">MMK</InputGroupText>
+      </InputGroupAddon>
+    </InputGroup>
     <div class="text-gray-50 w-full grid grid-cols-4 grid-rows-2 my-3 mt-6 gap-2">
       <button @click="setAmount(a)" v-for="a in amounts" class="p-2 px-4 rounded-lg bg-gray-900 font-bold text-lg">
         {{ 

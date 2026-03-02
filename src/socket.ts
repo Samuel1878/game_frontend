@@ -19,17 +19,26 @@ export const initSocket = () => {
   });
   socket.emit("join", auth.user?.uid);
 
+
+  // Listen deposit update
+  socket.on("deposit:update", (data) => {
+    console.log("Deposit update:", data);
+  });
+
+  // Listen withdrawal update
+  // socket.on("withdraw:update", (data) => {
+  //   console.log("Withdraw update:", data);
+  // });
+  socket.on("balance-update", (data) => {
+    console.log("balance-updated",data)
+    wallet.setWallet(  data?.balance, data?.currency || "MMK")
+  });
+  
   socket.on("disconnect", () => {
     console.log("Socket disconnected");
     wallet.resetWallet();
 
   });
-
-  socket.on("balance-update", (data) => {
-    console.log(data)
-    wallet.setWallet(  data?.balance, data?.currency)
-  });
-
   return socket;
 };
 

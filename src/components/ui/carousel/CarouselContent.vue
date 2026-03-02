@@ -9,7 +9,7 @@ defineOptions({
 
 const props = defineProps<WithClassAsProps>()
 
-const { orientation } = useCarousel()
+const { carouselRef, orientation } = useCarousel()
 </script>
 
 <template>

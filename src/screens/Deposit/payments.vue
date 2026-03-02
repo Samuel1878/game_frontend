@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { paymentMethod } from "@/consts";
+import { paymentMethod, usdtRateToMMK } from "@/consts";
 import {
   InputGroup,
   InputGroupAddon,
@@ -15,10 +15,11 @@ import ApplyBreadCrumb from "@/components/breadcrumb/index.vue";
 import type { depositFormData } from "@/utils/types";
 import { useAuthStore } from "@/stores/auth";
 import { depositHandlerAPI } from "@/services/transactionAPI";
+import router from "@/router";
 const source = ref("09883370394");
 const name = ref("SARMWELA");
 console.log();
-const { text, copy, isSupported } = useClipboard({ source });
+const { text, copy } = useClipboard({ source });
 const route = useRoute();
 const auth = useAuthStore();
 console.log(route.query);
@@ -72,6 +73,9 @@ const submitHandler = async () => {
 
   if (response) {
     toast.success("Deposit request submitted successfully!");
+    setTimeout(()=>{
+      router.back();
+    },1000)
   } else {
     toast.error("Failed to submit deposit request.");
   }
@@ -88,11 +92,8 @@ const breadcrumbs = [
 <template>
   <main class="bg-state-900 w-full">
     <ApplyBreadCrumb :items="breadcrumbs" />
-    <section class="px-3 h-full w-full">
-      <form
-        class="space-y-2 w-full h-full gap-2"
-        @submit.prevent="submitHandler"
-      >
+    <section class="px-3 h-full w-full space-y-2">
+
         <div class="flex flex-col gap-4 relative bg-slate-900 p-2 rounded-t-2xl">
           <div id="payments" class="flex flex-col">
             <div class="flex rounded-lg items-center gap-3 bg-slate-800 p-2">
@@ -104,22 +105,35 @@ const breadcrumbs = [
               <div>
                
                 <button @click="copyHandler" class="cursor-pointer flex gap-3">
-                  <p class="text-lg">
+                  <p class="text-lg" v-show="payment?.value !== 'usdt'" >
                     <code>{{ text || source }}</code>
+                  </p>
+                  <p v-show="payment?.value === 'usdt'" >
+                    0x0as3f3fs3fag3t9aj3mFEvaF23C
                   </p>
                   <Copy class="text-sky-600"/>
                 </button>
-                 <p class="text-slate-30 font-bold">{{ name }}</p>
+                 <p v-show="payment?.value !== 'usdt'" class="text-slate-30 font-bold">{{ name }}</p>
               </div>
             </div>
           </div>
        
         </div>
         <div class="w-full bg-slate-900 p-2 flex justify-between items-center">
-          <p>Amount</p>
-   <p class="text-white font-bold text-2xl">K {{ amount }}</p>
+          <p class="text-gray-400 font-bold text-sm" v-show="payment?.value!=='usdt'">Amount</p>
+              <p class="text-gray-400 font-bold text-sm" v-show="payment?.value==='usdt'">Amount in MMK</p>
+          <div class="text-right">
+<p class="text-white font-bold text-2xl">{{ amount }} MMK</p>
+ <p v-show="payment?.value ==='usdt'" class="text-gray-500 text-sm font-normal"> {{ amount ? (Number(amount) / usdtRateToMMK).toFixed(2) : '0.00' }} USDT</p>
+         <p v-show="payment?.value ==='usdt'" class="text-gray-500 text-sm font-normal"> 1 USD ~ {{ usdtRateToMMK }} MMK</p>
 
+          </div>
+         
         </div>
+              <form
+        class=" w-full h-full gap-2"
+        @submit.prevent="submitHandler"
+      >
         <div
           class="flex flex-col w-full flex-1 p-4 h-full bg-gray-900 rounded-b-2xl gap-3"
         >
@@ -131,7 +145,7 @@ const breadcrumbs = [
               <InputGroupAddon>
                 <CreditCardIcon />
               </InputGroupAddon>
-              <InputGroupInput class="w-full" v-model="form.account_name" type="text" placeholder="Name" />
+              <InputGroupInput :disabled="payment?.value==='usdt'" class="w-full" v-model="form.account_name" type="text" placeholder="Name" />
               <InputGroupAddon align="inline-end">
                 <InputGroupText class="text-gray-100"></InputGroupText>
               </InputGroupAddon>
@@ -145,7 +159,7 @@ const breadcrumbs = [
               <InputGroupAddon>
                 <PhoneIcon />
               </InputGroupAddon>
-              <InputGroupInput v-model="form.account_no" type="number" placeholder="09xxxxxx" />
+              <InputGroupInput :disabled="payment?.value==='usdt'" v-model="form.account_no" type="number" placeholder="09xxxxxx" />
               <InputGroupAddon align="inline-end">
                 <InputGroupText class="text-gray-100"></InputGroupText>
               </InputGroupAddon>
@@ -192,6 +206,7 @@ const breadcrumbs = [
         <div class="flex flex-1 mt-10">
           <button
             type="submit"
+            name="submit"
             class="bg-sky-600 h-12 font-bold text-gray-50 w-full rounded-xl flex justify-center items-center"
           >
             Submit

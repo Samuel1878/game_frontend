@@ -47,4 +47,33 @@ return null
 
 
 
-} 
+} ;
+
+export const getDepositById = async (user_id:number) => {
+    try {
+         const response = await api.get("/user/get_deposits", {
+        params:{
+            user_id:user_id
+        }
+    });
+    if (response.status===200)return response.data;
+    return null
+    } catch (error) {
+        return null
+    }
+   
+
+};
+export const getWithdrawalsById = async (user_id:number)=>{
+        try {
+         const response = await api.get("/user/get_withdrawals", {
+        params:{
+            user_id:user_id
+        }
+    });
+    if (response.status===200)return response.data;
+    return null
+    } catch (error) {
+        return null
+    }
+}

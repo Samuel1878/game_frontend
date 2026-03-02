@@ -12,6 +12,9 @@ import Pragmatic_Play from "@/assets/pragmatic_play.png";
 import Advantplay from "@/assets/advant_play.png";
 import African_Buffalo from "@/assets/african_buffalo.png";
 
+import banner_1 from "@/assets/banner_1.png";
+import banner_2 from "@/assets/banner_2.png";
+import banner_3 from "@/assets/banner_3.png";
 export {
     kbzLogo,
     ayaPayLogo,
@@ -25,7 +28,10 @@ export {
     KA_Gaming,
     Pragmatic_Play,
     Advantplay,
-    African_Buffalo
+    African_Buffalo,
+    banner_1,
+    banner_2,
+    banner_3
 }
 export const isAuthenticated = () => {
   return !!localStorage.getItem("token")
