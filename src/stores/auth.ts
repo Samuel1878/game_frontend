@@ -21,10 +21,12 @@ export const useAuthStore = defineStore("auth", {
         const res = await api.post("/auth/login", payload);
         this.user = res.data;
         this.isLoggedIn = true;
+
         initSocket();
+        return true
       } catch (err) {
         this.logout();
-        throw err;
+        return err
       }
     },
 
@@ -55,17 +57,17 @@ export const useAuthStore = defineStore("auth", {
           initSocket();
           this.loading = false
           toast.success("Registration successful.");
-          return
+          return 
         }
         else if (response.status ===203){
           toast.warning(response.data?.message);
-          return
+          return 
         }
         console.log("registration failed", response?.data)
         this.logout()
       } catch (error) {
         this.logout()
-          toast.warning("registration failed")
+        toast.warning("registration failed")
         console.log("error", error)
       }
     },

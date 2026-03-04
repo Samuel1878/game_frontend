@@ -7,6 +7,7 @@ import { useUIStore } from "./stores/ui";
 import { CircleUser, CoinsIcon, Gamepad2Icon, HomeIcon, Wallet, WalletIcon } from "lucide-vue-next";
 import { useAuthStore } from "./stores/auth";
 import { useWallet } from "./stores/wallet";
+import { formatPrice } from "./utils";
 const authStore = useAuthStore();
 const mobileOpen = ref(false);
 const uiStore = useUIStore();
@@ -18,13 +19,13 @@ const goToLoginHandler = () => {
 
 <template>
   <!-- APP SHELL -->
-  <main class="min-h-screen w-full bg-gray-950 text-gray-100 overflow-x-hidden">
+  <main class="min-h-screen w-full overflow-y-auto relative bg-gray-950 text-gray-100 overflow-x-hidden">
     <!-- NAVBAR (FULL WIDTH) -->
     <nav
-      class="sticky top-0 right-0 left-0 z-50 w-full border-b border-gray-900 bg-gray-950 backdrop-blur"
+      class="sticky top-0 right-0 left-0 z-50 w-full border-b border-gray-900 bg-slate-950"
     >
       <div
-        class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4"
+        class="mx-auto flex max-w-7xl items-center justify-between p-4 h-15"
       >
         <!-- LOGO -->
         <RouterLink
@@ -52,12 +53,9 @@ const goToLoginHandler = () => {
           <RouterLink to="/deposit" class="h-10 px-2 bg-gray-800 rounded-sm flex items-center gap-2"  v-show="authStore.isLoggedIn">
             <Wallet class="text-sm"/>
             <p class="font-bold text-lg text-gray-50">
-              {{ wallet.balance || "0.00" }}
+              {{formatPrice(wallet.balance)  || "0.00" }}
             </p>
           </RouterLink>
-          <!-- <button class="bg-sky-500 h-10s">
-            <Plus/>
-          </button> -->
           <RouterLink to="/profile" v-if="authStore.isLoggedIn" class="rounded-full"   @click="mobileOpen = false">
             <CircleUser />
           </RouterLink>
@@ -96,33 +94,33 @@ const goToLoginHandler = () => {
       >
         <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4">
           <RouterLink
-            class="mobile-link flex gap-2 items-center hover:bg-gray-900"
+            class="mobile-link flex gap-2 items-center hover:bg-gray-900 border-b border-slate-800"
             to="/"
             @click="mobileOpen = !mobileOpen"
             >
             <HomeIcon/>
             <p class="text-md font-bold">Home</p>
             
-            </RouterLink
-          >
+          </RouterLink
+            >
           <RouterLink
-            class="mobile-link flex gap-2 items-center hover:bg-gray-900"
+            class="mobile-link flex gap-2 items-center hover:bg-gray-900 border-b border-slate-800"
             to="/games"
             @click="mobileOpen = !mobileOpen"
             >
-               <Gamepad2Icon/>
+            <Gamepad2Icon/>
             <p class="text-md font-bold">Games</p>
             </RouterLink
           >
           <RouterLink
-           class="mobile-link flex gap-2 items-center hover:bg-gray-900"
+           class="mobile-link flex gap-2 items-center hover:bg-gray-900 border-b border-slate-800"
             to="/deposit"
             @click="mobileOpen = !mobileOpen"
             >   <CoinsIcon/>
             <p class="text-md font-bold">Deposit</p></RouterLink
           >
           <RouterLink
-            class="mobile-link flex gap-2 items-center hover:bg-gray-900"
+            class="mobile-link flex gap-2 items-center hover:bg-gray-900 border-b border-slate-800"
             to="/withdrawal"
             @click="mobileOpen = !mobileOpen"
             >   <WalletIcon/>
@@ -141,7 +139,6 @@ const goToLoginHandler = () => {
     <!-- PAGE CONTENT (CENTERED) -->
     <section class="w-full relative flex flex-col items-center">
       <Toaster
-        class="text-white"
       />
       <RouterView />
       <AuthModal />

@@ -1,16 +1,15 @@
 import { io, Socket } from "socket.io-client";
 import { useAuthStore } from "@/stores/auth";
 import { useWallet } from "./stores/wallet";
-
 let socket: Socket | null = null;
-
 export const initSocket = () => {
   if (socket) return socket;
-
-  socket = io("http://localhost:3000", {
-    withCredentials: true, // ✅ send session cookie
+  socket = io("https://api.999luckytoad.site", {
+    withCredentials: true, 
     autoConnect: true,
     reconnection: true,
+    // path: "/socket.io",
+    transports: ["websocket", "polling"]
   });
   const auth = useAuthStore();
   const wallet = useWallet();
@@ -36,7 +35,7 @@ export const initSocket = () => {
   
   socket.on("disconnect", () => {
     console.log("Socket disconnected");
-    wallet.resetWallet();
+    // wallet.resetWallet();
 
   });
   return socket;

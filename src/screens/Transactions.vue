@@ -45,18 +45,15 @@ const fetchData = async () => {
 };
 watch(
   () => activeTab.value,
-  async() => {
-   
-    authStore.isLoggedIn && await fetchData();
-       loading.value = false
+  async () => {
+    authStore.isLoggedIn && (await fetchData());
+    loading.value = false;
   },
 );
-onMounted(async() => {
-    authStore.isLoggedIn && await fetchData();
-    loading.value =false
-})
-
-
+onMounted(async () => {
+  authStore.isLoggedIn && (await fetchData());
+  loading.value = false;
+});
 
 const totalPages = computed(() =>
   activeTab.value === "deposit"
@@ -66,7 +63,7 @@ const totalPages = computed(() =>
 
 const paginatedWithdrawals = computed(() => {
   const start = (currentPage.value - 1) * perPage;
-  return  withdrawals.value?.slice(start, start + perPage);
+  return withdrawals.value?.slice(start, start + perPage);
 });
 const paginatedDeposits = computed(() => {
   const start = (currentPage.value - 1) * perPage;
@@ -91,10 +88,7 @@ const viewDeposit = (deposit: depositFormData) => {
 </script>
 
 <template>
-    
-  <main
-    class="min-h-screen bg-linear-to-b w-full from-gray-950 to-black px-4"
-  >
+  <main class="min-h-screen bg-linear-to-b w-full from-gray-950 to-black px-4">
     <div class="max-w-5xl mx-auto space-y-8">
       <!-- Header -->
       <div
@@ -160,7 +154,6 @@ const viewDeposit = (deposit: depositFormData) => {
       <div v-else>
         <div v-if="activeTab === 'deposit'">
           <div
-         
             class="hidden md:block bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden"
           >
             <div
@@ -175,7 +168,7 @@ const viewDeposit = (deposit: depositFormData) => {
             <div
               v-for="txn in paginatedDeposits"
               :key="txn.id"
-               @click="viewDeposit(txn)"
+              @click="viewDeposit(txn)"
               class="grid grid-cols-4 px-6 py-4 border-t border-gray-800 text-sm items-center"
             >
               <span class="text-white font-medium">{{ txn.inv_id }}</span>
@@ -187,7 +180,7 @@ const viewDeposit = (deposit: depositFormData) => {
               <span
                 class="px-3 py-1 text-xs capitalize rounded-full w-fit"
                 :class="{
-                  'bg-emerald-600 text-white': txn.status === 'approved',
+                  'bg-sky-600 text-white': txn.status === 'approved',
                   'bg-yellow-500 text-black': txn.status === 'pending',
                   'bg-red-600 text-white': txn.status === 'rejected',
                 }"
@@ -196,7 +189,7 @@ const viewDeposit = (deposit: depositFormData) => {
               </span>
 
               <span class="text-gray-400">{{
-                moment(txn.created_at).format("DD-MM-YYYY hh:mm a")
+                moment(txn.created_at).format("DD-MM-YYYY hh:mm A")
               }}</span>
             </div>
           </div>
@@ -205,18 +198,17 @@ const viewDeposit = (deposit: depositFormData) => {
             <div
               v-for="txn in paginatedDeposits"
               :key="txn.id"
-                 @click="viewDeposit(txn)"
-              
+              @click="viewDeposit(txn)"
               class="bg-gray-900 border border-gray-800 rounded-2xl p-4 space-y-2"
             >
-              <div class="flex justify-between">
+              <!-- <div class="flex justify-between">
                 <span class="text-gray-400 text-sm">ID</span>
-                <span class="text-white text-sm">{{ txn.inv_id}}</span>
-              </div>
+                <span class="text-white text-sm">{{ txn.inv_id }}</span>
+              </div> -->
 
               <div class="flex justify-between">
                 <span class="text-gray-400 text-sm">Amount</span>
-                <span>
+                <span class="font-bold text-white">
                   {{ formatAmount(Number(txn.request_amount)) }}
                 </span>
               </div>
@@ -224,9 +216,9 @@ const viewDeposit = (deposit: depositFormData) => {
               <div class="flex justify-between">
                 <span class="text-gray-400 text-sm">Status</span>
                 <span
-                  class="px-2 py-1 text-xs rounded-full capitalize"
+                  class="px-2 py-1 text-sm font-bold rounded-full capitalize"
                   :class="{
-                    'bg-emerald-600 text-white': txn.status === 'approved',
+                    'bg-sky-600 text-white': txn.status === 'approved',
                     'bg-yellow-500 text-black': txn.status === 'pending',
                     'bg-red-600 text-white': txn.status === 'rejected',
                   }"
@@ -238,15 +230,15 @@ const viewDeposit = (deposit: depositFormData) => {
               <div class="flex justify-between">
                 <span class="text-gray-400 text-sm">Date</span>
                 <span class="text-gray-400 text-sm">{{
-                  moment(txn?.created_at).format("DD-MM-YYYY hh:mm a")
+                  moment(txn?.created_at).format("DD-MM-YYYY hh:mm A")
                 }}</span>
               </div>
             </div>
           </div>
         </div>
+
         <div v-else>
- <div
-         
+          <div
             class="hidden md:block bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden"
           >
             <div
@@ -261,7 +253,7 @@ const viewDeposit = (deposit: depositFormData) => {
             <div
               v-for="txn in paginatedWithdrawals"
               :key="txn.id"
-               @click="viewWithdrawal(txn)"
+              @click="viewWithdrawal(txn)"
               class="grid grid-cols-4 px-6 py-4 border-t border-gray-800 text-sm items-center"
             >
               <span class="text-white font-medium">{{ txn?.txn_id }}</span>
@@ -291,13 +283,12 @@ const viewDeposit = (deposit: depositFormData) => {
             <div
               v-for="txn in paginatedWithdrawals"
               :key="txn.id"
-                 @click="viewWithdrawal(txn)"
-              
+              @click="viewWithdrawal(txn)"
               class="bg-gray-900 border border-gray-800 rounded-2xl p-4 space-y-2"
             >
               <div class="flex justify-between">
                 <span class="text-gray-400 text-sm">ID</span>
-                <span class="text-white text-sm">{{ txn.txn_id}}</span>
+                <span class="text-white text-sm">{{ txn.txn_id }}</span>
               </div>
 
               <div class="flex justify-between">
@@ -331,7 +322,7 @@ const viewDeposit = (deposit: depositFormData) => {
           </div>
         </div>
         <!-- Pagination -->
-        <div class="flex justify-center items-center gap-4 mt-6">
+        <div class="flex justify-center items-center gap-2 fixed bottom-0 right-0 left-0">
           <button
             @click="changePage(currentPage - 1)"
             class="px-4 py-2 bg-gray-800 text-gray-400 rounded-lg"
@@ -352,13 +343,13 @@ const viewDeposit = (deposit: depositFormData) => {
         </div>
       </div>
     </div>
-        <WithdrawDetail
-    :open="showWithdrawDialog"
-    :withdrawal="selectedWithdrawal"
-    @update:open="(val) => (showWithdrawDialog = val)"
-    @exported="handleWithdrawExport"
+    <WithdrawDetail
+      :open="showWithdrawDialog"
+      :withdrawal="selectedWithdrawal"
+      @update:open="(val) => (showWithdrawDialog = val)"
+      @exported="handleWithdrawExport"
     />
-     <DepositDetail
+    <DepositDetail
       :open="showDialog"
       :deposit="selectedDeposit"
       @update:open="(val) => (showDialog = val)"

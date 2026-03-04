@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { CopyIcon, DownloadIcon } from "lucide-vue-next";
+import { formattedAmount } from "@/utils";
 
 interface Props {
   open: boolean;
@@ -22,15 +23,11 @@ const emit = defineEmits(["update:open", "exported"]);
 
 const close = () => emit("update:open", false);
 
-const formattedAmount = computed(() =>
-  props.withdrawal?.amount
-    ? props.withdrawal.amount.toLocaleString() + " MMK"
-    : "-"
-);
+
 
 const formattedDate = computed(() =>
   props.withdrawal?.created_at
-    ? moment(props.withdrawal.created_at).format("DD-MM-YYYY hh:mm a")
+    ? moment(props.withdrawal.created_at).format("DD-MM-YYYY hh:mm A")
     : "-"
 );
 
@@ -81,7 +78,7 @@ const exportData = () => {
         <div class="flex justify-between">
           <span class="text-gray-400 text-sm">Amount</span>
           <span class="text-emerald-400 font-semibold">
-            {{ formattedAmount }}
+            {{ formattedAmount(Number(props.withdrawal?.amount)) }}
           </span>
         </div>
 
@@ -106,7 +103,7 @@ const exportData = () => {
         <div class="flex justify-between items-center">
           <span class="text-gray-400 text-sm">Status</span>
           <span
-            class="px-3 py-1 text-xs rounded-full"
+            class="px-3 py-1 text-sm rounded-full"
             :class="{
               'bg-emerald-600 text-white': withdrawal.status === 'approved',
               'bg-yellow-500 text-black': withdrawal.status === 'pending',
@@ -119,7 +116,7 @@ const exportData = () => {
 
         <!-- Date -->
         <div class="flex justify-between">
-          <span class="text-gray-400 text-sm">Created At</span>
+          <span class="text-gray-400 text-sm">Date</span>
           <span class="text-gray-400 text-sm">
             {{ formattedDate }}
           </span>
@@ -128,7 +125,7 @@ const exportData = () => {
         <!-- Remark -->
         <div v-if="withdrawal.remark" class="border-t border-gray-800 pt-3">
           <p class="text-gray-400 text-sm mb-1">Remark</p>
-          <p class="text-sm text-gray-200">{{ withdrawal.remark }}</p>
+          <p class=" text-gray-200 text-xs">{{ withdrawal.remark }}</p>
         </div>
       </div>
 

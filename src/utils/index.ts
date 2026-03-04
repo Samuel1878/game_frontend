@@ -33,6 +33,12 @@ export {
     banner_2,
     banner_3
 }
-export const isAuthenticated = () => {
-  return !!localStorage.getItem("token")
+
+export function formatPrice(value: number) {
+  return new Intl.NumberFormat('en-US').format(value)
 }
+
+export const formattedAmount = (amount:number) =>
+  amount
+    ? amount.toLocaleString() + " MMK"
+    : "-";

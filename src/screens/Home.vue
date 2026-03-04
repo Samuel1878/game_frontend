@@ -42,21 +42,21 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group";
 import { toast } from "vue-sonner";
-import { gameStore } from "@/stores/game";
 import { africanBuffaloSlots } from "@/consts/afbGames";
 import { enterGameAPI } from "@/services/gameAPI";
-import CarouselPrevious from "@/components/ui/carousel/CarouselPrevious.vue";
-import CarouselNext from "@/components/ui/carousel/CarouselNext.vue";
 import Button from "@/components/ui/button/Button.vue";
 import Footer from "@/components/footer.vue";
 import router from "@/router";
+import Loading from "@/components/loading.vue";
+import { useUIStore } from "@/stores/ui";
 
 const gameType = ref<string>("lobby");
   const searchQuery = ref<string>("");
 const debouncedSearch = refDebounced(searchQuery, 300);
 const selectedProvider = ref<{name:string, GpId:number}>({name:"", GpId:0});
 const authStore = useAuthStore();
-const useGameStore = gameStore();
+const ui = useUIStore();
+const loading = ref(false)
 let games = ref<Game[] | null>(sboGames);
 const api = ref<CarouselApi | null>(null);
 const current = ref(0);
@@ -103,16 +103,15 @@ watch(
   },
   { immediate: true },
 );
-console.log("user", authStore.user);
-watch(api, (val) => {
-  console.log("Embla API:", val);
-});
+
 const enterGame = async (game: Game) => {
-  if (!game) return;
+  loading.value = true;
+  if (!game) return loading.value = false;
 
   if (!authStore.isLoggedIn || !authStore.user) {
-    toast("Please login to enter the game");
-    // ui.openAuthModal("/");
+    toast.warning("Please login to enter the game");
+    ui.openAuthModal("/");
+    loading.value= false;
     return;
   }
 
@@ -124,24 +123,28 @@ const enterGame = async (game: Game) => {
     });
 
     if (!data?.url) {
-      toast("Failed to launch game");
+      toast.warning("Failed to launch game");
+      loading.value =false;
       return;
     }
 
-    useGameStore.setGames(game);
+    // useGameStore.setGames(game);
 
     const launchUrl =
       `${data.url}` +
       `&gpid=${game.gameProviderId}` +
-      `&gameid=${game.gameID}` +
+      `&gameid=${game.gameID}true` +
       `&lang=en&device=m&betCode=`;
 
     // External redirect
+ 
     window.location.href = launchUrl;
+    loading.value = false
 
   } catch (error) {
     console.error(error);
-    toast("Something went wrong");
+    loading.value = false
+    toast.error("Something went wrong");
   }
 };
 const setProvider = (name:string, GpId:number)=>{
@@ -166,18 +169,19 @@ const scroll = (dir: "left" | "right") => {
 </script>
 <template>
   <main class="bg-slate-950 max-w-6xl w-full flex justify-between flex-col">
+    <Loading :show="loading" :message="'loading...'"/>
     <div>
       <div>
-        <div class="w-full px-2">
+        <div class="w-full p-2">
           <Carousel
-            class="relative w-full min-h-65 overflow-hidden"
+            class="relative w-full min-h-60 cursor-pointer"
             @init-api="setApi"
             :opts="{loop:true, align: 'start'}"
             :plugins="[plugin]"
             @mouseenter="plugin.stop"
             @mouseleave="[plugin.reset(), plugin.play(), console.log('Running')];"
           >
-            <CarouselContent class="flex h-full">
+            <CarouselContent class="">
               <CarouselItem
                 v-for="(slide, index) in homeSlide"
                 :key="index"
@@ -194,23 +198,9 @@ const scroll = (dir: "left" | "right") => {
                       backgroundPosition: 'center',
                     }"
                   >
-                    <!-- <div class="absolute bottom-4 left-4 space-y-4">
-                      <p class="text-sky-500 font-bold text-4xl">
-                        {{ slide.title }}
-                      </p>
-                      <p class="text-gray-300 font-medium text-2xl">
-                        {{ slide.description }}
-                      </p>
-                      <button
-                        @click="claimBonus"
-                        class="mt-6 h-10 px-4 bg-sky-600 rounded-lg text-white capitalize"
-                      >
-                        {{ slide.button }}
-                      </button>
-                    </div> -->
+                  
                   </CardContent>
-                   <CarouselPrevious />
-    <CarouselNext />
+                   
                 </Card>
               </CarouselItem>
             </CarouselContent>

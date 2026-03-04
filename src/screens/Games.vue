@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { Skeleton } from '@/components/ui/skeleton';
 import { useAuthStore } from '@/stores/auth';
-import { gameStore } from '@/stores/game';
 import type{ Game } from '@/utils/types';
 import { computed, ref } from 'vue';
 import { toast } from 'vue-sonner';
 import {useUIStore} from '@/stores/ui';
 import { gameOption, gameProviders, hotGames, RTPGames, topGames, topTableGames } from '@/consts';
 import { sboGames } from '@/consts/sboGames';
-import { ArrowLeft, ArrowRight, Coins, CrownIcon, SearchIcon, Users2Icon } from 'lucide-vue-next';
+import { ArrowLeft, ArrowRight, Coins, CrownIcon, GoalIcon, SearchIcon, Users2Icon } from 'lucide-vue-next';
 import { pragmaticPlayGames } from '@/consts/pragmaticGames';
 import { arcadeGames } from '@/consts/games';
 import ScrollViews from '@/components/scrollViews.vue';
@@ -20,6 +19,8 @@ import GameViews from '@/components/gameViews.vue';
 import { Card, CardContent } from '@/components/ui/card';
 import { refDebounced } from "@vueuse/core";
 import { enterGameAPI } from '@/services/gameAPI';
+import { africanBuffaloSlots } from '@/consts/afbGames';
+import Loading from '@/components/loading.vue';
 
 const searchQuery = ref("");
 const debouncedSearch = refDebounced(searchQuery, 300);
@@ -27,8 +28,8 @@ const selectedProvider = ref<{name:string, GpId:number}>({name:"", GpId:0});
 let games = ref<Game[] | null>(sboGames);
 const gameType = ref<string>("lobby");
 const ui = useUIStore();
+const loading = ref(false);
 const authStore = useAuthStore();
-const useGameStore = gameStore();
 const chooseOption = (value: string) => (gameType.value = value);
 
 const scrollEl = ref<HTMLElement | null>(null);
@@ -58,10 +59,14 @@ const filteredSlotGames = computed(() => {
 });
 
 const enterGame = async (game: Game) => {
-  if (!game) return;
+  loading.value = true
+  if (!game) return loading.value = false;
 
   if (!authStore.isLoggedIn || !authStore.user) {
+     loading.value = false
+
     toast("Please login to enter the game");
+    
     ui.openAuthModal("/");
     return;
   }
@@ -74,11 +79,12 @@ const enterGame = async (game: Game) => {
     });
 
     if (!data?.url) {
+       loading.value = false
       toast("Failed to launch game");
       return;
     }
 
-    useGameStore.setGames(game);
+    // useGameStore.setGames(game);
 
     const launchUrl =
       `${data.url}` +
@@ -88,8 +94,9 @@ const enterGame = async (game: Game) => {
 
     // External redirect
     window.location.href = launchUrl;
-
+ loading.value = false
   } catch (error) {
+     loading.value = false
     console.error(error);
     toast("Something went wrong");
   }
@@ -102,6 +109,7 @@ const setProvider = (name:string, GpId:number)=>{
 </script>
 <template>
     <main class="bg-slate-950 max-w-6xl w-full flex justify-between flex-col">
+       <Loading :show="loading" :message="'loading...'"/>
         <div v-if="games" class="flex items-center w-full flex-col lg:grid">
         <div class="relative w-full mt-1 pl-2 pr-2 md:pl-10 flex">
           <!-- Left Arrow -->
@@ -167,6 +175,14 @@ const setProvider = (name:string, GpId:number)=>{
             :icon="Coins"
             :handler="enterGame"
           />
+
+                 <ScrollViews
+            :game-data="africanBuffaloSlots"
+            header="Best Provider"
+            :icon="GoalIcon"
+            :handler="enterGame"
+          />
+
         </section>
 
         <section v-else-if="gameType === 'slots'" class="w-full h-full p-2">
