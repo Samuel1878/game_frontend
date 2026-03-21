@@ -1,0 +1,22 @@
+{
+    "name":"Name",
+    "home":"Home",
+    "login":"Login",
+    "play_now":"Play now",
+    "games":"Games",
+    "hot_games":"Hot games",
+    "top_picks":"Top picks",
+    "most_wins":"Most wins",
+    "view_more":"View more",
+    "deposit":"Deposit",
+    "withdraw":"Withdraw",
+    "profile":"Profile",
+    "transactions":"Transactions",
+    "best_provider":"Best Provider",
+    "password":"Password",
+    "register":"Register",
+    "confirm":"Confirm",
+    "accept_terms":"Accept terms and conditions",
+    "already_have_one":"Already have one?",
+    "do_not_have":"Don't have an account"
+}

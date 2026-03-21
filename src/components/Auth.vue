@@ -22,6 +22,7 @@ import {
 import { LockIcon, User, X } from "lucide-vue-next";
 import { Checkbox } from "./ui/checkbox";
 import { Spinner } from "./ui/spinner";
+import { useI18n } from "vue-i18n";
 const auth = useAuthStore();
 const ui = useUIStore();
 const router = useRouter();
@@ -35,7 +36,7 @@ const form = ref({
   password: "",
   conPassword: "",
 });
-
+const {t} = useI18n();
 const submit = async () => {
   loadingButton.value = true ;
   if (isLogin.value) {
@@ -65,7 +66,7 @@ const submit = async () => {
     <DialogContent :show-close-button="false" class="bg-gray-900 border-gray-800 text-gray-100 rounded-2xl">
       <DialogHeader>
         <DialogTitle class="text-gray-100 my-4 font-bold">
-          {{ isLogin ? "Login" : "Register" }}
+          {{ isLogin ? t("login") : t("register") }}
         </DialogTitle>
         <button class="absolute right-5 top-5 cursor-pointer" @click="ui.closeAuthModal()">
           <X />
@@ -76,7 +77,7 @@ const submit = async () => {
           <InputGroupAddon>
             <User />
           </InputGroupAddon>
-          <InputGroupInput class="w-full" v-model="form.username" type="text" placeholder="Name" />
+          <InputGroupInput class="w-full" v-model="form.username" type="text" :placeholder="t('name')" />
           <InputGroupAddon align="inline-end">
             <InputGroupText class="text-gray-100"></InputGroupText>
           </InputGroupAddon>
@@ -86,7 +87,7 @@ const submit = async () => {
           <InputGroupAddon>
             <LockIcon />
           </InputGroupAddon>
-          <InputGroupInput class="w-full" v-model="form.password" type="text" placeholder="Password" />
+          <InputGroupInput class="w-full" v-model="form.password" type="text" :placeholder="t('password')" />
           <InputGroupAddon align="inline-end">
             <InputGroupText class="text-gray-100"></InputGroupText>
           </InputGroupAddon>
@@ -109,13 +110,13 @@ const submit = async () => {
           </div>
           <div class="flex items-center text-xs text-gray-400 gap-2 mb-2 px-1">
           <Checkbox class="text-sm" id="terms" :model-value="checked" v-on:update:model-value="checked = !checked" />
-          <Label for="terms">Accept terms and conditions</Label>
+          <Label for="terms">{{ t("accept_terms") }}</Label>
 
         </div>
           <Button class="w-full bg-sky-600 text-gray-100 cursor-pointer flex items-center justify-center gap-2 rounded-lg h-12 hover:bg-sky-600">
             <Spinner v-show="loadingButton" class="text-gray-800"/>
             <p>
-{{  isLogin ? "Login" : "Register" }}
+{{  isLogin ? t("login") : t("register")  }}
             </p>
             
           </Button>
@@ -124,9 +125,9 @@ const submit = async () => {
       </form>
 
       <div class="text-center text-sm text-gray-400">
-        {{ isLogin ? "Don't have an account?" : "Already have one?" }}
+        {{ isLogin ? t("do_not_have") : t("already_have_one") }}
         <button class="ml-1 text-sky-600 font-bold cursor-pointer underline" @click="isLogin = !isLogin">
-          {{ isLogin ? "Register" : "Login" }}
+          {{ isLogin ? t("register") : t("login") }}
         </button>
       </div>
     </DialogContent>

@@ -97,7 +97,7 @@ const authStore = useAuthStore()
           </div> -->
 
         </div>
-        <Button class=" bg-gray-800 rounded-xl absolute top-2 right-2 z-40 p-2 flex gap-2" :disabled="!authStore.user" @click="router.push(`/profile/${authStore.user?.id}/transactions`)">
+        <Button class=" bg-gray-800 rounded-xl absolute top-2 right-2 z-40 p-2 flex gap-2" :disabled="!authStore.user" @click="router.push(`/transactions`)">
           
           <HistoryIcon class="w-13 h-12"/>
           <p>Transactions</p>

@@ -15,6 +15,9 @@ import African_Buffalo from "@/assets/african_buffalo.png";
 import banner_1 from "@/assets/banner_1.png";
 import banner_2 from "@/assets/banner_2.png";
 import banner_3 from "@/assets/banner_3.png";
+import en from "@/assets/localization/en.json";
+import mm from "@/assets/localization/mm.json";
+import cn from "@/assets/localization/cn.json";
 export {
     kbzLogo,
     ayaPayLogo,
@@ -31,7 +34,10 @@ export {
     African_Buffalo,
     banner_1,
     banner_2,
-    banner_3
+    banner_3,
+    en,
+    mm,
+    cn
 }
 
 export function formatPrice(value: number) {

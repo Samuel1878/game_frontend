@@ -50,6 +50,7 @@ const submit = async () => {
     return;
   }
   toast("Internal error!");
+  router.back()
 };
 </script>
 

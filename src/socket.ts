@@ -4,11 +4,10 @@ import { useWallet } from "./stores/wallet";
 let socket: Socket | null = null;
 export const initSocket = () => {
   if (socket) return socket;
-  socket = io("https://api.999luckytoad.site", {
+  socket = io("http://localhost:3000", {
     withCredentials: true, 
     autoConnect: true,
     reconnection: true,
-    // path: "/socket.io",
     transports: ["websocket", "polling"]
   });
   const auth = useAuthStore();
@@ -18,16 +17,13 @@ export const initSocket = () => {
   });
   socket.emit("join", auth.user?.uid);
 
-
-  // Listen deposit update
   socket.on("deposit:update", (data) => {
     console.log("Deposit update:", data);
   });
+  socket.on("withdraw:update", (data) => {
+    console.log("Withdraw update:", data);
+  });
 
-  // Listen withdrawal update
-  // socket.on("withdraw:update", (data) => {
-  //   console.log("Withdraw update:", data);
-  // });
   socket.on("balance-update", (data) => {
     console.log("balance-updated",data)
     wallet.setWallet(  data?.balance, data?.currency || "MMK")

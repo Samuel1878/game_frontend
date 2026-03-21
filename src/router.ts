@@ -33,12 +33,12 @@ const routes = [
   {
     path:"/deposit",
     component:Deposit,
-    meta:{requiresAuth:false}
+    meta:{requiresAuth:true}
   },
   {
     path:"/deposit/:payment_method",
     component:Payments,
-    meta:{requiresAuth:false}
+    meta:{requiresAuth:true}
   },
 
   {
@@ -52,7 +52,7 @@ const routes = [
   meta:{requiresAuth:true}
 },
 {
- path:"/profile/:id/transactions",
+ path:"/transactions",
   component:Transactions,
   meta:{requiresAuth:true}
 },
