@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { ga, getGameIcon } from '@/utils';
 import type { Game } from '@/utils/types';
-import { ArrowLeft, ArrowRight } from "lucide-vue-next";
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-vue-next";
 import { ref, type Component } from 'vue';
 import { useI18n } from 'vue-i18n';
 const {t} = useI18n();
-const props = defineProps<{ header?: string, gameData?: Game[], handler?: (gameData:Game) => void , icon?:Component}>();
+const props = defineProps<{ label?:string, labelStyle?:string, header?: string, gameData?: Game[], handler?: (gameData:Game) => void , icon?:string}>();
 const topGameRef = ref<HTMLElement | null>(null)
 const scrollTop = (dir: "left" | "right") => {
   if (!topGameRef.value) return;
@@ -18,42 +19,40 @@ const scrollTop = (dir: "left" | "right") => {
 </script>
 
 <template>
-  <article class="w-full space-y-2" id="TopGame">
+  <article class="w-full" id="TopGame">
     <div class="flex w-full items-center justify-between my-2">
       <div class="flex gap-1 items-center">
-        <component :is="icon" class="text-sky-500" :size="16" />
+        <img :src="icon"/>
         <p class="font-bold text-gray-200 text-sm">{{ header }}</p>
       </div>
       <div class="flex gap-1">
-        <RouterLink to="/games"  class="font-normal bg-gray-800 px-2 rounded-sm text-center text-sm h-8 flex justify-center items-center">
+        <!-- <RouterLink to="/games"  class="font-normal bg-gray-800 shadow-gray-700/50 shadow-inner px-2 rounded-sm text-center text-xs h-6 flex justify-center items-center">
         {{ t("view_more") }}
-        </RouterLink>
+        </RouterLink> -->
         <button @click="scrollTop('left')"
-          class="bg-gray-800 hover:bg-gray-700/80 px-2 h-8 rounded-sm shadow-lg transition">
-          <ArrowLeft class="w-5 h-5 text-sky-400" />
+          class="bg-gray-800 hover:bg-gray-700/80 shadow-gray-700/50 shadow-inner px-2 h-8 rounded-sm transition">
+          <ChevronLeft class="w-5 h-5 text-sky-400" />
         </button>
         <button @click="scrollTop('right')"
-          class="bg-gray-800 hover:bg-gray-700/80 px-2 h-8 rounded-sm shadow-lg transition">
-          <ArrowRight class="w-5 h-5 text-sky-400" />
+          class="bg-gray-800 hover:bg-gray-700/80 px-2 h-8 rounded-sm shadow-gray-700/50 shadow-inner transition">
+          <ChevronRight class="w-5 h-5 text-sky-400" />
         </button>
       </div>
     </div>
-    <div class="flex bg-gray-900 gap-1 items-center w-full overflow-x-auto no-scrollbar scroll-smooth"
+    <div class="flex bg-gray-900 gap-1.5 items-center w-full overflow-x-auto no-scrollbar scroll-smooth"
       ref="topGameRef">
-      <div v-for="game in gameData" class="rounded-xl" @click="handler?.(game)">
-        <div v-if="
-          game?.gameInfos.filter((e) => e.language === 'en')[0]
-            ?.gameIconUrl
-        ">
-          <img :src="game?.gameInfos.filter((e) => e.language === 'en')[0]
-              ?.gameIconUrl
-            " alt="game thumbnail" class="min-w-26 w-auto max-w-32 h-45 object-fit rounded-xl" />
-        </div>
-        <div v-else class="min-w-22 w-auto max-w-32 h-45 object-fit rounded-xl">
-          <img :src="game?.gameInfos.filter(
-            (e) => e.language === 'zh_cn',
-          )[0]?.gameIconUrl
-            " alt="game thumbnail CN" class="w-full h-full object-cover" />
+      <div v-for="game in gameData" class="rounded-md relative"  @click="handler?.(game)">
+        <div class="">
+          <!-- <img v-show="label" :src="label" :class="labelStyle" class="absolute top-1 left-1"/> -->
+            <div v-if="game.badge" class="flex gap-1 absolute top-1 left-1">
+            <img v-show="game?.badge" class="" :src="game?.badge"/>
+               <img v-show="game?.badge_1" class="" :src="game?.badge_1"/>
+
+            </div>
+          
+            
+            <img :src="getGameIcon(game)" alt="game thumbnail" class="min-w-22 w-auto max-w-32 h-36 object-fit rounded-md" />
+        
         </div>
       </div>
     </div>

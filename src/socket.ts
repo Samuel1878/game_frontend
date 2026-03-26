@@ -16,23 +16,19 @@ export const initSocket = () => {
     console.log("Socket connected:", socket?.id);
   });
   socket.emit("join", auth.user?.uid);
-
   socket.on("deposit:update", (data) => {
     console.log("Deposit update:", data);
   });
   socket.on("withdraw:update", (data) => {
-    console.log("Withdraw update:", data);
+    console.log("Withdraw update: ", data);
   });
-
   socket.on("balance-update", (data) => {
     console.log("balance-updated",data)
     wallet.setWallet(  data?.balance, data?.currency || "MMK")
   });
-  
   socket.on("disconnect", () => {
     console.log("Socket disconnected");
     // wallet.resetWallet();
-
   });
   return socket;
 };

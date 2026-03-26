@@ -1,87 +1,175 @@
 <script setup lang="ts">
-const year = new Date().getFullYear()
+import { footer_images } from '@/consts';
+import { _18_plus, askgamblers, ayaPayLogo, discord_black, download_white, facebook_black, ga, gambling_therapy, gamcare, kbzLogo, mg, ssl_icon, telegram_black, trust, usdtLogo, viber_black, wavePayLogo } from '@/utils';
+import { useI18n } from 'vue-i18n';
 
+const year = new Date().getFullYear()
+const {t} = useI18n();
 const quickLinks = [
-  { name: "Home", path: "/" },
-  { name: "Games", path: "/games" },
-  { name: "Deposit", path: "/deposit" },
-  { name: "Withdraw", path: "/withdrawal" },
+  { name: t('home'), path: "/" },
+  { name: t('games'), path: "/games" },
+  { name: t('deposit'), path: "/deposit" },
+  { name: t('withdraw'), path: "/withdrawal" },
+    { name: t('download'), path: "#download" },
 ]
 
 const supportLinks = [
-  { name: "Help Center", path: "/help" },
-  { name: "Terms & Conditions", path: "/terms" },
+  { name: t('help_center'), path: "/help" },
+  { name: t('terms_and_conditions'), path: "/terms" },
   { name: "Privacy Policy", path: "/privacy" },
   { name: "Responsible Gaming", path: "/responsible" },
+  {name:"FAQ", path:"/faq"},
+  {
+    name:"Bonus Terms And Conditions",
+    path:"/bonus/terms_and_conditions"
+  }
+];
+const eventLinks = [
+  {
+    name:"Promotions",path:"/promotions"
+  },
+  {
+    name:"Bonus",
+    path:"/bonus"
+  }
+];
+const payments = [
+  {
+    name:"KBZ pay",
+    src:kbzLogo
+  },
+  {
+    name:"Wave Money",
+    src:wavePayLogo,
+  },
+  {
+    name:"AYA pay",
+    src:ayaPayLogo
+  },
+  {
+    name:"USDT",
+    src:usdtLogo
+  }
+];
+const socials = [
+  facebook_black,
+  telegram_black,
+  viber_black,
+  discord_black,
+];
+const certification = [
+
+  mg,
+  gamcare,
+  ga,
+  trust,
+  gambling_therapy,
+  askgamblers,
+
 ]
 </script>
 
 <template>
-  <footer class="bg-slate-950 text-gray-400 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-3 py-12 grid gap-10 md:grid-cols-4">
-
+  <footer class="bg-gray-900 text-gray-200 py-10">
+    <div class="max-w-7xl flex flex-col items-center px-6 w-full">
       <!-- Brand -->
-      <div class="space-y-4">
-        <h2 class="text-2xl font-bold text-white">999 Casino</h2>
-        <p class="text-sm text-gray-500">
-          Play your favorite casino games anytime, anywhere. 
-          Fast payouts, secure gaming, and exciting bonuses.
-        </p>
-      </div>
-
-      <!-- Quick Links -->
-      <div>
-        <h3 class="text-white font-semibold mb-4">Products</h3>
-        <ul class="space-y-2">
-          <li v-for="link in quickLinks" :key="link.name">
-            <router-link
-              :to="link.path"
-              class="hover:text-sky-400 transition"
-            >
-              {{ link.name }}
-            </router-link>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Support -->
-      <div>
-        <h3 class="text-white font-semibold mb-4">Support</h3>
-        <ul class="space-y-2">
-          <li v-for="link in supportLinks" :key="link.name">
-            <router-link
-              :to="link.path"
-              class="hover:text-sky-400 transition"
-            >
-              {{ link.name }}
-            </router-link>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Payment & Social -->
-      <div class="space-y-4">
-        <h3 class="text-white font-semibold">Payment Methods</h3>
-        <div class="flex flex-wrap gap-3 text-sm text-gray-500">
-          <span class="bg-slate-800 px-3 py-1 rounded">KBZ pay</span>
-          <span class="bg-slate-800 px-3 py-1 rounded">Wave Money</span>
-          <span class="bg-slate-800 px-3 py-1 rounded">AYA pay</span>
+      <div class="gap-4 flex flex-col items-center w-full">
+        <h2 class="text-lg font-extrabold text-white text-center">{{ t('footer_header') }}</h2>
+        <div class="flex gap-1 flex-wrap items-center justify-center">
+         <img v-for="value in footer_images" :src="value" class="h-5 md:h-9 lg:-11 my-2"/>
         </div>
+      </div>
+      <!-- Quick Links -->
+      <div class="grid grid-cols-2 my-12 md:grid-cols-4">
+        <div class="">
+          <h3 class="text-white font-semibold mb-4">Products</h3>
+          <div class="space-y-2">
+            <div v-for="link in quickLinks" :key="link.name">
+              <router-link
+                :to="link.path"
+              
+              >
+              <p class="hover:text-sky-400 text-md text-gray-500">
+                      {{ link.name }}
+              </p>
+               
+              </router-link>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <h3 class="text-white font-semibold mb-4">Support</h3>
+          <div class="space-y-2">
+            <div v-for="link in supportLinks" :key="link.name">
+              <router-link
+                :to="link.path"
+              
+              >
+              <p class="hover:text-sky-400 text-md text-gray-500">
+                      {{ link.name }}
+              </p>
+               
+              </router-link>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <h3 class="text-white font-semibold mb-4">Events</h3>
+          <div class="space-y-2">
+            <div v-for="link in eventLinks" :key="link.name">
+              <router-link
+                :to="link.path"
+              
+              >
+              <p class="hover:text-sky-400 text-md text-gray-500">
+                      {{ link.name }}
+              </p>
+               
+              </router-link>
+            </div>
+          </div>
+        </div>
+        <div class="my-6">
+          <h3 class="text-white font-semibold mb-4">Payments</h3>
+          <div class="flex">
+            <div v-for="link in payments" :key="link.name" class="flex gap-2">
+              <p>
 
-        <div>
-          <h3 class="text-white font-semibold mt-6 mb-3">Follow Us</h3>
-          <div class="flex gap-4 text-lg">
-            <a href="#" class="hover:text-sky-400">Telegram</a>
-            <a href="#" class="hover:text-sky-400">Viber</a>
-            <a href="#" class="hover:text-sky-400">Twitter</a>
+              </p>
+              <img :src="link.src" class="cover w-8 h-8 rounded-sm bg-gray-50"/>
+            </div>
           </div>
         </div>
       </div>
+      <div class="border-gray-700 w-full max-w-6xl border-y flex justify-between items-center py-7">
+        <div class="flex gap-4">
+          <img :src="_18_plus" class=""/>
+          <img :src="ssl_icon" class=""/>
+        </div>
+        <div class="flex gap-2">
+          <div class="" v-for="value in socials">
+          <img :src="value"/>
+          </div>
+        </div>
+      
+      </div>
+      <div class="flex items-center w-full justify-center gap-8 my-8 flex-wrap">
+        <div class="flex items-center gap-2 justify-center">
+          <div class="" v-for="value in certification">
+            <img :src="value" class="h-7"/>
+          </div>
+        </div>
+        <div class="">
+          <img :src="download_white" class="h-9"/>
+        </div>
+      </div>
     </div>
-
     <!-- Bottom Bar -->
     <div class="border-t border-slate-800 py-4 text-center text-sm text-gray-500">
-      © {{ year }} 999 Casino. All rights reserved.
+      <p> © {{ year }} 999 Casino. All rights reserved.</p>
+      <p class="text-white font-mono text-xs my-2">Gambling can be addictive. Play responsibly.</p>
+     
     </div>
+
   </footer>
 </template>

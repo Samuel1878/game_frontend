@@ -37,7 +37,7 @@ const props = defineProps<{
         {{
           GpId
             ? slotGameProviders.find(framework => framework.GpId === GpId)?.name
-            : 'All'
+            : 'All Provider'
         }}
         <ChevronsUpDownIcon class="ml-1 h-4 w-4 shrink-0 opacity-50" />
       </Button>

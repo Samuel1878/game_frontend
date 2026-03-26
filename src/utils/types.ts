@@ -29,7 +29,9 @@ export interface Game {
   hasHedgeBet: boolean
 
   providerStatus: 'Online' | 'Offline' | string
-  isProviderOnline: boolean
+  isProviderOnline: boolean,
+  badge?:string;
+  badge_1?:string;
 }
 export interface gameListRespone {
       seamlessGameProviderGames:Game[]
@@ -42,10 +44,6 @@ export interface userInfo {
   password?:string;
   status?:string;
   id:number;
-  // token?:string| null;
-  // balance?:number;
-  // currency?:string;
-
   role?:string | null;
   level?:number ;
   created_at:string;
@@ -69,10 +67,7 @@ export interface supabaseUserRes {
   level?:number ;
   created_at:string;
   uid:string
-  
 }
-
-
 export interface depositFormData {    
   id?:number;
   inv_id?:string;

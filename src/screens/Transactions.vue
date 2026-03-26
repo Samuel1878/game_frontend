@@ -346,13 +346,13 @@ const viewDeposit = (deposit: depositFormData) => {
     <WithdrawDetail
       :open="showWithdrawDialog"
       :withdrawal="selectedWithdrawal"
-      @update:open="(val) => (showWithdrawDialog = val)"
+      @update:open="(val:boolean) => (showWithdrawDialog = val)"
       @exported="handleWithdrawExport"
     />
     <DepositDetail
       :open="showDialog"
       :deposit="selectedDeposit"
-      @update:open="(val) => (showDialog = val)"
+      @update:open="(val:boolean) => (showDialog = val)"
       @exported="handleExported"
     />
   </main>

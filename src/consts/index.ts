@@ -1,4 +1,4 @@
-import { Advantplay, African_Buffalo, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin, Jili, KA_Gaming, kbzLogo, PG_Soft, Pragmatic_Play, usdtLogo, VA_Gaming, wavePayLogo } from "@/utils";
+import { Advantplay, African_Buffalo,pg_white, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin, Jili, KA_Gaming, kbzLogo, PG_Soft, Pragmatic_Play, usdtLogo, VA_Gaming, wavePayLogo, bank_transfer, skrill, netent, interac, playsgo, pp_white, neosurf, paysafe, neteller, softswiss, pushgaming, hot, star_svg, hot_rtp, drops_wins } from "@/utils";
 import { Gamepad2Icon, HeartIcon, StarIcon } from "lucide-vue-next";
 import {  africanBuffaloSlots } from "./afbGames";
 import { jiliGames } from "./jiliGames";
@@ -13,6 +13,22 @@ import { sboGames } from "./sboGames";
 import { winGames } from "./568winGames";
 import type { Game } from "@/utils/types";
 export const usdtRateToMMK = 4000;
+export const footer_images = [
+   pg_white,
+   bank_transfer,
+   skrill,
+   interac,
+   netent,
+   playsgo,
+   pp_white,
+   neosurf,
+   paysafe,
+   neteller,
+   softswiss,
+   pushgaming
+
+
+]
 export interface paymentTypes {
     id:number,
     label:string,
@@ -110,7 +126,6 @@ export const gameProviders:providersType[] = [
             ...pragmaticPlayGames,...africanBuffaloSlots]
     }
 ]
-
 export const paymentMethod:paymentTypes[] = [
     {
         id:1,
@@ -177,14 +192,14 @@ export const homeOptions = [
 ];
 export const gameOption = [
 {
-    label:"Lobby",
+    label:"lobby",
     value:"lobby",
     icon:null,
     type:"Games",
 
 },
 {
-    label:"Slots",
+    label:"slots",
     value:"slots",
     icon:null,
     type:"Games"
@@ -197,19 +212,19 @@ export const gameOption = [
 
 // },
 {
-    label:"Table Games",
+    label:"table_games",
     value:"tableGames",
     icon:null,
     type:"Games"
 },
 {
-    label:"Arcade Games",
+    label:"arcade_games",
     value:"arcadeGames",
     icon:null,
     type:"Games"
 },
 {
-    label:"Chess",
+    label:"chess",
     value:"chess",
     icon:null,
     type:"Games",
@@ -217,11 +232,12 @@ export const gameOption = [
 },
 ]
 export const slotGameProviders = [
+           
         {
-        id:12,
-        name: "All Providers",
-        GpId:0,
-        icon:African_Buffalo,
+        id:4,
+        name: "JILI",
+        GpId:1020,
+        icon:Jili,
         
         
     },
@@ -233,14 +249,7 @@ export const slotGameProviders = [
         
         
     },
-        {
-        id:2,
-        name: "PG Soft",
-        GpId:35,
-        icon:PG_Soft,
-        
-        
-    },
+
         {
         id:3,
         name: "Fastspin",
@@ -249,14 +258,7 @@ export const slotGameProviders = [
         
         
     },
-        {
-        id:4,
-        name: "JILI",
-        GpId:1020,
-        icon:Jili,
-        
-        
-    },
+
         {
         id:5,
         name: "FaChoi",
@@ -295,20 +297,27 @@ export const slotGameProviders = [
         
         
     },
-    {
-        id:10,
-        name:"SBO games",
-        GpId:14,
-        icon:null,
+     {
+        id:2,
+        name: "PG Soft",
+        GpId:35,
+        icon:PG_Soft,
+        
+        
     },
-    {
-        id:11,
-        name:"568Win Games",
-        GpId:1029,
-        icon:null,
-    }
+    // {
+    //     id:10,
+    //     name:"SBO games",
+    //     GpId:14,
+    //     icon:null,
+    // },
+    // {
+    //     id:11,
+    //     name:"568Win Games",
+    //     GpId:1029,
+    //     icon:null,
+    // }
 ]
-
 export const hotGames = [
              {
             "gameProviderId": 1094,
@@ -345,9 +354,11 @@ export const hotGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+            "badge":hot
         },
                 {
+                        "badge":hot,
             "gameProviderId": 3,
             "gameID": 438,
             "gameType": 2,
@@ -413,7 +424,8 @@ export const hotGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+                "badge":hot
         },
          {
             "gameProviderId": 1094,
@@ -450,7 +462,8 @@ export const hotGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+                "badge":hot
         },
       {
             "gameProviderId": 1029,
@@ -478,39 +491,7 @@ export const hotGames = [
                 }
             ],
             "supportedCurrencies": [
-                "TMP",
-                "AED",
-                "AUD",
-                "BDT",
-                "CAD",
-                "EUR",
-                "GBP",
-                "HKD",
-                "IDR",
-                "IDO",
-                "INR",
-                "JPY",
-                "KRW",
-                "MMK",
-                "MYR",
-                "NPR",
-                "PHP",
-                "SEK",
-                "THB",
-                "USD",
-                "VND",
-                "VNO",
-                "ZAR",
-                "NGN",
-                "BND",
-                "BRL",
-                "CHF",
-                "CNY",
-                "LAK",
-                "MXN",
-                "NOK",
-                "NZD",
-                "RUB",
+   
                 "KHR"
             ],
             "blockCountries": [],
@@ -519,7 +500,8 @@ export const hotGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+                "badge":hot
         },
          {
             "gameProviderId": 1094,
@@ -556,7 +538,8 @@ export const hotGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+                "badge":hot
         },
         {
             "gameProviderId": 14,
@@ -584,21 +567,7 @@ export const hotGames = [
                 }
             ],
             "supportedCurrencies": [
-                "AUD",
-                "CAD",
-                "CNY",
-                "EUR",
-                "GBP",
-                "HKD",
-                "IDR",
-                "JPY",
-                "KHR",
-                "KRW",
-                "MMK",
-                "MYR",
-                "SEK",
-                "THB",
-                "VND"
+
             ],
             "blockCountries": [],
             "isMaintain": false,
@@ -606,7 +575,8 @@ export const hotGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+                "badge":hot
         },
         {
             "gameProviderId": 14,
@@ -656,7 +626,8 @@ export const hotGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+                "badge":hot
         },
          {
             "gameProviderId": 1029,
@@ -719,7 +690,8 @@ export const hotGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+            "badge":hot
         },
 
 ]
@@ -750,31 +722,7 @@ export const topGames = [
                 }
             ],
             "supportedCurrencies": [
-                "AED",
-                "AUD",
-                "BDT",
-                "BND",
-                "KHR",
-                "BRL",
-                "CAD",
-                "CHF",
-                "CNY",
-                "EUR",
-                "GBP",
-                "HKD",
-                "IDO",
-                "TMP",
-                "IDR",
-                "INR",
-                "JPY",
-                "KRW",
-                "LAK",
-                "MMK",
-                "MXN",
-                "MYR",
-                "NOK",
-                "NPR",
-                "NZD",
+                
                 "RUB",
                 "SEK",
                 "THB",
@@ -790,8 +738,86 @@ export const topGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+              "badge":drops_wins,
+           
         },
+          {
+            "gameProviderId": 1046,
+            "gameID": 48,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 4,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "FaChai",
+            "rtp": 0.965000,
+            "rows": -1,
+            "reels": -1,
+            "lines": 0,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "QUEEN OF INCA",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/FaChai/48/1046_48_QUEENOFINCA.jpg"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "印加女皇",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/FaChai/48/1046_48_QUEENOFINCA_CN.jpg"
+                }
+            ],
+            "supportedCurrencies": [
+                "TMP",
+                "AED",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CLP",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "IDR",
+                "IDO",
+                "INR",
+                "JPY",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "RUB",
+                "SEK",
+                "SGD",
+                "THB",
+                "TRY",
+                "USD",
+                "VND",
+                "VNO",
+                "ZAR",
+                "MMK"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+               "badge":drops_wins,
+             "badge_1":hot_rtp
+        },
+          
          {
             "gameProviderId": 1085,
             "gameID": 6,
@@ -824,7 +850,9 @@ export const topGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+            
         },
     {
             "gameProviderId": 3,
@@ -894,7 +922,9 @@ export const topGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+                "badge":drops_wins,
+         
         },
   {
             "gameProviderId": 1029,
@@ -963,7 +993,9 @@ export const topGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+             "badge_1":hot_rtp
         },
          {
             "gameProviderId": 1042,
@@ -1035,7 +1067,9 @@ export const topGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+          
         }, 
          {
             "gameProviderId": 35,
@@ -1092,8 +1126,11 @@ export const topGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+          
         },
+       
                 {
             "gameProviderId": 14,
             "gameID": 9,
@@ -1142,7 +1179,9 @@ export const topGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+             "badge_1":hot_rtp
         },
        
         {
@@ -1177,7 +1216,9 @@ export const topGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+           
         },
          {
             "gameProviderId": 1020,
@@ -1236,13 +1277,160 @@ export const topGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+           
         },
-    ];
-
-
+];
 export const RTPGames = [
-            {
+     {
+            "gameProviderId": 1046,
+            "gameID": 5,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 5,
+            "device": "d,m",
+            "platform": "HTML5",
+            "provider": "FaChai",
+            "rtp": 0.965000,
+            "rows": 3,
+            "reels": 5,
+            "lines": 243,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "LUCKY FORTUNES",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/Fachai/5/1046_5_LUCKYFORTUNES.jpg"
+                },
+                {
+                    "language": "ZH_CN",
+                    "gameName": "财富连连",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/Fachai/5/1046_5_LUCKYFORTUNES_CN.jpg"
+                }
+            ],
+            "supportedCurrencies": [
+                "TMP",
+                "AED",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CLP",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "IDR",
+                "IDO",
+                "INR",
+                "JPY",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "RUB",
+                "SEK",
+                "SGD",
+                "THB",
+                "TRY",
+                "USD",
+                "VND",
+                "VNO",
+                "ZAR",
+                "MMK"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": true,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+               "badge":drops_wins,
+             "badge_1":hot_rtp
+        },
+         {
+            "gameProviderId": 3,
+            "gameID": 494,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 7,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "PragmaticPlay",
+            "rtp": 0.965300,
+            "rows": 5,
+            "reels": 6,
+            "lines": 20,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Sweet Bonanza 1000",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/494/3_494_SweetBonanza1000.png?v=6"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "甜入心扉 1000",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PragmaticPlay/3_494_SweetBonanza1000_CN.png"
+                }
+            ],
+            "supportedCurrencies": [
+                "KZT",
+                "IDO",
+                "IDR",
+                "TMP",
+                "VND",
+                "VNO",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "INR",
+                "JPY",
+                "KHR",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MMK",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "THB",
+                "TRY",
+                "USD",
+                "ZAR"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+              "badge":drops_wins,
+             "badge_1":hot_rtp
+        },
+     {
             "gameProviderId": 3,
             "gameID": 397,
             "gameType": 2,
@@ -1310,7 +1498,9 @@ export const RTPGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+            
+             "badge":hot_rtp
         },
             {
             "gameProviderId": 1029,
@@ -1366,8 +1556,11 @@ export const RTPGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+             "badge_1":hot_rtp
         },
+          
      {
             "gameProviderId": 1029,
             "gameID": 364,
@@ -1435,7 +1628,9 @@ export const RTPGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+           
         },
          {
             "gameProviderId": 3,
@@ -1530,8 +1725,11 @@ export const RTPGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+             "badge_1":hot_rtp
         },
+       
          {
             "gameProviderId": 3,
             "gameID": 9,
@@ -1625,7 +1823,9 @@ export const RTPGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+             "badge_1":hot_rtp
         },
             
      {
@@ -1689,7 +1889,9 @@ export const RTPGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+             "badge_1":hot_rtp
         },
             {
             "gameProviderId": 3,
@@ -1759,7 +1961,9 @@ export const RTPGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+             "badge_1":hot_rtp
         },
     {
             "gameProviderId": 3,
@@ -1829,7 +2033,9 @@ export const RTPGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+             "badge_1":hot_rtp
         },
          {
             "gameProviderId": 1029,
@@ -1892,7 +2098,9 @@ export const RTPGames = [
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
-            "isProviderOnline": true
+            "isProviderOnline": true,
+               "badge":drops_wins,
+        
         },
 ]
 export const tableGames = [
@@ -10938,3 +11146,4 @@ export const topTableGames = [
 }
        
 ]
+

@@ -14,6 +14,7 @@ const changeLang = (lang: string|any) => {
   locale.value = lang;
   localStorage.setItem("lang", lang);
 };
+
 const flags:any = {
   en: "🇺🇸",
   cn: "🇨🇳",
@@ -27,14 +28,20 @@ const flags:any = {
     @update:model-value="changeLang"
     class="bg-gray-900 border-0"
   >
-    <SelectTrigger class="w-full border-0 bg-gray-800 py-2 space-x-4 text-gray-100 font-bold">
-      <SelectValue placeholder="Language" />
+    <SelectTrigger class="text-2xl border-0 text-center">
+      <span>{{ flags[locale] }}</span>
     </SelectTrigger>
 
-    <SelectContent class="bg-gray-800 border-gray-700">
-      <SelectItem value="en" class="text-gray-100 font-bold border-b border-b-gray-700"><span>{{ flags.en }}</span>English  </SelectItem>
-      <SelectItem value="cn" class="text-gray-100 font-bold border-b border-b-gray-700"><span>{{ flags.cn }}</span>中文  </SelectItem>
-      <SelectItem value="mm" class="text-gray-100 font-bold border-b border-b-gray-700"> <span>{{ flags.mm }}</span>မြန်မာ </SelectItem>
+    <SelectContent class="bg-gray-800 border-gray-700 px-4">
+      <SelectItem value="en" class="text-gray-100 font-bold border-b border-b-gray-700">
+        <span class="mr-2">{{ flags.en }}</span> English
+      </SelectItem>
+      <SelectItem value="cn" class="text-gray-100 font-bold border-b border-b-gray-700">
+        <span class="mr-2">{{ flags.cn }}</span> 中文
+      </SelectItem>
+      <SelectItem value="mm" class="text-gray-100 font-bold border-b border-b-gray-700">
+        <span class="mr-2">{{ flags.mm }}</span> မြန်မာ
+      </SelectItem>
     </SelectContent>
   </Select>
 </template>

@@ -78,7 +78,7 @@ function getGameIcon(game: Game): string | undefined {
           v-if="getGameIcon(game)"
           :src="getGameIcon(game)"
           alt="game thumbnail"
-          class="min-w-22 w-auto max-w-32 h-45 object-cover rounded-lg"
+          class="min-w-22 w-auto h-36 object-fit rounded-lg"
         />
         
       </button>

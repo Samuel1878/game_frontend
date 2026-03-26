@@ -91,7 +91,7 @@ const copyTxn = () => {
 </script>
 
 <template>
-  <Dialog :open="open" @update:open="(val) => emit('update:open', val)">
+  <Dialog :open="open" @update:open="(val:boolean) => emit('update:open', val)">
     <DialogContent class="bg-gray-900 border border-gray-800 text-white max-w-lg rounded-2xl">
       <DialogHeader>
         <DialogTitle>Deposit Transaction Details</DialogTitle>

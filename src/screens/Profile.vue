@@ -2,6 +2,7 @@
 import Button from '@/components/ui/button/Button.vue';
 import router from '@/router';
 import { useAuthStore } from '@/stores/auth'
+import { profile } from '@/utils';
 import { User2Icon, LogOutIcon, HistoryIcon } from 'lucide-vue-next'
 
 const authStore = useAuthStore()
@@ -25,7 +26,7 @@ const authStore = useAuthStore()
             <div
               class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center"
             >
-              <User2Icon class="text-gray-900 w-16 h-16" />
+            <img :src="profile" class="rounded-full"/>
             </div>
           </div>
 
