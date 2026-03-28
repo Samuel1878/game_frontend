@@ -28,7 +28,8 @@
     "set_deposit_amount":"输入充值金额",
     "choose_payment_method":"选择你的充值方式",
     "amount":"金额",
-    "account_name":"充值账户姓名",
+    "sender_account_name":"ငွေလွှဲမည့် အကောင့်အမည်",
+    "receiver_account_name":"ငွေလက်ခံမည့် အကောင့်အမည်",
     "phone_number":"充值账户号码",
     "last_5_digit_of_transaction":"填写账单最后5个数字",
     "submit":"提交",
@@ -62,8 +63,10 @@
     "date":"日期",
     "download":"下载",
     "close":"关闭",
-    "detail":"明细"
+    "detail":"明细",
 
+    "footer_header":"THE BEST PAYMENT SOLUTIONS AND GAME PROVIDERS",
+    "download_header":"Play on the go. Anywhere anytime"
 
 
 

@@ -6,30 +6,30 @@ import { useI18n } from 'vue-i18n';
 const year = new Date().getFullYear()
 const {t} = useI18n();
 const quickLinks = [
-  { name: t('home'), path: "/" },
-  { name: t('games'), path: "/games" },
-  { name: t('deposit'), path: "/deposit" },
-  { name: t('withdraw'), path: "/withdrawal" },
-    { name: t('download'), path: "#download" },
+  { name: 'home', path: "/" },
+  { name: 'games', path: "/games" },
+  { name: 'deposit', path: "/deposit" },
+  { name: 'withdraw', path: "/withdrawal" },
+  { name: 'download', path: "#download" },
 ]
 
 const supportLinks = [
-  { name: t('help_center'), path: "/help" },
-  { name: t('terms_and_conditions'), path: "/terms" },
-  { name: "Privacy Policy", path: "/privacy" },
-  { name: "Responsible Gaming", path: "/responsible" },
-  {name:"FAQ", path:"/faq"},
+  { name: 'help_center', path: "/help" },
+  { name: 'terms_and_conditions', path: "/terms" },
+  { name: 'policy_and_privacy', path: "/privacy" },
+  { name: 'responsible_gaming', path: "/responsible" },
+  {name:'faq', path:"/faq"},
   {
-    name:"Bonus Terms And Conditions",
+    name:'bonus_terms_and_conditions',
     path:"/bonus/terms_and_conditions"
   }
 ];
 const eventLinks = [
   {
-    name:"Promotions",path:"/promotions"
+    name:'promotions',path:"/promotions"
   },
   {
-    name:"Bonus",
+    name:'bonus',
     path:"/bonus"
   }
 ];
@@ -82,7 +82,7 @@ const certification = [
       <!-- Quick Links -->
       <div class="grid grid-cols-2 my-12 md:grid-cols-4">
         <div class="">
-          <h3 class="text-white font-semibold mb-4">Products</h3>
+          <h3 class="text-white font-semibold mb-4">{{ t('products') }}</h3>
           <div class="space-y-2">
             <div v-for="link in quickLinks" :key="link.name">
               <router-link
@@ -90,7 +90,7 @@ const certification = [
               
               >
               <p class="hover:text-sky-400 text-md text-gray-500">
-                      {{ link.name }}
+                      {{ t(link.name) }}
               </p>
                
               </router-link>
@@ -98,7 +98,7 @@ const certification = [
           </div>
         </div>
         <div class="">
-          <h3 class="text-white font-semibold mb-4">Support</h3>
+          <h3 class="text-white font-semibold mb-4">{{ t('support') }}</h3>
           <div class="space-y-2">
             <div v-for="link in supportLinks" :key="link.name">
               <router-link
@@ -106,7 +106,7 @@ const certification = [
               
               >
               <p class="hover:text-sky-400 text-md text-gray-500">
-                      {{ link.name }}
+                      {{ t(link.name) }}
               </p>
                
               </router-link>
@@ -114,7 +114,7 @@ const certification = [
           </div>
         </div>
         <div class="">
-          <h3 class="text-white font-semibold mb-4">Events</h3>
+          <h3 class="text-white font-semibold mb-4">{{ t('events') }}</h3>
           <div class="space-y-2">
             <div v-for="link in eventLinks" :key="link.name">
               <router-link
@@ -122,7 +122,7 @@ const certification = [
               
               >
               <p class="hover:text-sky-400 text-md text-gray-500">
-                      {{ link.name }}
+                      {{ t(link.name) }}
               </p>
                
               </router-link>
@@ -130,7 +130,7 @@ const certification = [
           </div>
         </div>
         <div class="my-6">
-          <h3 class="text-white font-semibold mb-4">Payments</h3>
+          <h3 class="text-white font-semibold mb-4">{{ t('payment_method') }}</h3>
           <div class="flex">
             <div v-for="link in payments" :key="link.name" class="flex gap-2">
               <p>

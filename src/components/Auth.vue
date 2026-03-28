@@ -19,10 +19,11 @@ import {
   InputGroupText,
 
 } from '@/components/ui/input-group'
-import { LockIcon, User, X } from "lucide-vue-next";
+import { EyeIcon, EyeOff, LockIcon, User, X } from "lucide-vue-next";
 import { Checkbox } from "./ui/checkbox";
 import { Spinner } from "./ui/spinner";
 import { useI18n } from "vue-i18n";
+import { toast } from "vue-sonner";
 const auth = useAuthStore();
 const ui = useUIStore();
 const router = useRouter();
@@ -45,7 +46,6 @@ const isValid = computed(() => {
   if (!checked.value) return false;
   return true;
 });
-
 const submit = async () => {
   errorMessage.value = "";
 
@@ -70,19 +70,64 @@ const submit = async () => {
         password: form.value.password,
       });
     }
-    console.log(response)
-    ui.closeAuthModal();
 
-    if (redirectAfterAuth.value) {
-      router.push(redirectAfterAuth.value);
+    console.log(response);
+    if (response?.status === 200) {
+      toast.success(response.message);
+      ui.closeAuthModal();
+      if (redirectAfterAuth.value) {
+        router.push(redirectAfterAuth.value);
+      }
+    } else {
+    
+      errorMessage.value =
+        response?.message || "Invalid username or password";
     }
 
   } catch (err: any) {
-    errorMessage.value = err?.message || "Something went wrong";
+    errorMessage.value =
+      err?.message || "Something went wrong";
   } finally {
     loadingButton.value = false;
   }
 };
+// const submit = async () => {
+//   errorMessage.value = "";
+
+//   if (!isValid.value) {
+//     errorMessage.value = "Please fill all fields correctly";
+//     return;
+//   }
+
+//   loadingButton.value = true;
+
+//   try {
+//     let response;
+//     if (isLogin.value) {
+//       response = await auth.login({
+//         name: form.value.username,
+//         password: form.value.password,
+//       });
+//     } else {
+//       response = await auth.register({
+//         name: form.value.username,
+//         password: form.value.password,
+//       });
+//     }
+//     console.log(response)
+//     if (response){
+//       ui.closeAuthModal();
+//       if (redirectAfterAuth.value) {
+//         router.push(redirectAfterAuth.value);
+//       }
+//     }
+//   } catch (err: any) {
+//     errorMessage.value = err?.message || "Something went wrong";
+//   } finally {
+ 
+//     loadingButton.value = false;
+//   }
+// };
 // const submit = async () => {
 //   loadingButton.value = true ;
 //   if (isLogin.value) {
@@ -109,7 +154,7 @@ const submit = async () => {
 
 <template>
   <Dialog v-model:open="authModalOpen">
-    <DialogContent :show-close-button="false" class="bg-gray-900 border-gray-800 text-gray-100 rounded-2xl">
+    <DialogContent :show-close-button="false" class="to-gray-900 from-gray-800 bg-linear-to-br border-gray-700 text-gray-100 rounded-2xl">
       <DialogHeader>
         <DialogTitle class="text-gray-100 my-4 font-bold">
           {{ isLogin ? t("login") : t("register") }}
@@ -138,7 +183,8 @@ const submit = async () => {
             :placeholder="t('password')" />
           <InputGroupAddon align="inline-end">
             <button type="button" @click="showPassword = !showPassword">
-              {{ showPassword ? '🙈' : '👁' }}
+              <EyeOff v-if="showPassword"/> 
+              <EyeIcon v-else/> 
             </button>
           </InputGroupAddon>
         </InputGroup>

@@ -26,7 +26,7 @@ const routes = [
     meta:{requiresAuth:false}
   },
   {
-    path:"/withdrawal",
+    path:"/withdraw",
     component:Withdraw,
     meta:{requiresAuth:true}
   },

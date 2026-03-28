@@ -1,29 +1,17 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import AuthModal from "@/components/Auth.vue";
 import { Toaster } from "./components/ui/sonner";
 import 'vue-sonner/style.css'
 import { useUIStore } from "./stores/ui";
-import { ApertureIcon, CircleUser, CoinsIcon, Gamepad2Icon, HomeIcon, Wallet, WalletIcon, XIcon } from "lucide-vue-next";
+import { ApertureIcon,  Wallet } from "lucide-vue-next";
 import { useAuthStore } from "./stores/auth";
 import { useWallet } from "./stores/wallet";
 import { formatPrice } from "./utils";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from '@/components/ui/drawer'
-import Button from "./components/ui/button/Button.vue";
+
 import LanguageBtn from "./components/languageBtn.vue";
 import { useI18n } from "vue-i18n";
 import BottomNav from "./components/layout/bottomNav.vue";
 const authStore = useAuthStore();
-const mobileOpen = ref(false);
 const uiStore = useUIStore();
 const wallet = useWallet();
 const { t } = useI18n()
@@ -50,7 +38,7 @@ const goToLoginHandler = () => {
           <RouterLink class="nav-link" to="/">Home</RouterLink>
           <RouterLink class="nav-link" to="/games">Games</RouterLink>
           <RouterLink class="nav-link" to="/deposit">Deposit</RouterLink>
-          <RouterLink class="nav-link" to="/withdrawal">Withdraw</RouterLink>
+          <RouterLink class="nav-link" to="/withdraw">Withdraw</RouterLink>
         </div>
         <div class="flex items-center gap-2 justify-end">
           <RouterLink to="/deposit" v-show="authStore.isLoggedIn" class="flex items-center gap-2 px-2 h-10
@@ -138,12 +126,16 @@ const goToLoginHandler = () => {
     </nav>
 
     <section class="w-full relative flex flex-col items-center pb-15 bg-gray-900">
-      <Toaster class=" bg-gray-50"/>
+
       <RouterView />
       <AuthModal />
       <BottomNav />
     </section>
-
+      <Toaster
+        position="top-left"
+        richColors
+ 
+      />
   </main>
 </template>
 

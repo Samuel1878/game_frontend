@@ -4,7 +4,6 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
 } from '@/components/ui/select'
 import { useI18n } from "vue-i18n";
 
@@ -16,7 +15,7 @@ const changeLang = (lang: string|any) => {
 };
 
 const flags:any = {
-  en: "🇺🇸",
+  en: "🇬🇧",
   cn: "🇨🇳",
   mm: "🇲🇲",
 };
@@ -32,14 +31,14 @@ const flags:any = {
       <span>{{ flags[locale] }}</span>
     </SelectTrigger>
 
-    <SelectContent class="bg-gray-800 border-gray-700 px-4">
-      <SelectItem value="en" class="text-gray-100 font-bold border-b border-b-gray-700">
+    <SelectContent class="bg-gray-800 border border-gray-700 px-4">
+      <SelectItem value="en" class="text-gray-100 font-bold py-2 text-md border-b border-b-gray-700">
         <span class="mr-2">{{ flags.en }}</span> English
       </SelectItem>
-      <SelectItem value="cn" class="text-gray-100 font-bold border-b border-b-gray-700">
+      <SelectItem value="cn" class="text-gray-100 py-2 font-bold text-md border-b border-b-gray-700">
         <span class="mr-2">{{ flags.cn }}</span> 中文
       </SelectItem>
-      <SelectItem value="mm" class="text-gray-100 font-bold border-b border-b-gray-700">
+      <SelectItem value="mm" class="text-gray-100 py-2 font-bold text-md">
         <span class="mr-2">{{ flags.mm }}</span> မြန်မာ
       </SelectItem>
     </SelectContent>

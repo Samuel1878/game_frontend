@@ -117,7 +117,20 @@ export interface wallet {
   freezed_amount?:number;
 }
 
-
+export type PaymentMethod = {
+  account_balance: number|string;
+  account_name: string;
+  account_number: string;
+  created_at: string;
+  id: number|string;
+  is_available: boolean;
+  label: string;
+  max: number|string;
+  max_per_transaction: number|string;
+  priority: number|string;
+  remark: string | null;
+  value: string;
+};
 // export interface GameInfo {
 //   language: string;
 //   gameName: string;

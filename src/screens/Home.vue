@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Game } from "@/utils/types";
-import { ref, watch } from "vue";
-import type { CarouselApi } from "@/components/ui/carousel";
+import { ref } from "vue";
+
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -19,22 +19,8 @@ import {
 } from "@/consts";
 import { sboGames } from "@/consts/sboGames";
 import {
-  BanknoteArrowDown,
-  BanknoteArrowUp,
-  BellRing,
-  Coins,
-  CrownIcon,
-  Download,
-  DownloadIcon,
-  Gamepad2Icon,
-  GoalIcon,
-  HistoryIcon,
-  InfoIcon,
-  LucideWalletMinimal,
   QrCode,
-  User2Icon,
-  Users2Icon,
-  Wallet2Icon,
+
 } from "lucide-vue-next";
 import ScrollViews from "@/components/scrollViews.vue";
 import { toast } from "vue-sonner";
@@ -47,7 +33,7 @@ import Loading from "@/components/loading.vue";
 import { useUIStore } from "@/stores/ui";
 import { useI18n } from "vue-i18n";
 import ProvidersView from "@/components/providersView.vue";
-import CarouselNext from "@/components/ui/carousel/CarouselNext.vue";
+
 import { drops_wins, golds_box, hot, hot_icon, hot_rtp, hot_rtp_icon, phone, spin_svg, star_svg, top_icon } from "@/utils";
 
 const gameType = ref<string>("lobby");
@@ -55,9 +41,9 @@ const authStore = useAuthStore();
 const ui = useUIStore();
 const loading = ref(false);
 let games = ref<Game[] | null>(sboGames);
-const api = ref<CarouselApi | null>(null);
-const current = ref(0);
-const totalCount = ref(0);
+// const api = ref<CarouselApi | null>(null);
+// const current = ref(0);
+// const totalCount = ref(0);
 const { t } = useI18n();
 
 const plugin = Autoplay({

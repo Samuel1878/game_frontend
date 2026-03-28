@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Home, Gamepad2, User, CoinsIcon, BanknoteArrowDownIcon, BanknoteArrowUp } from "lucide-vue-next";
+import { Home, Gamepad2, User, BanknoteArrowDownIcon, BanknoteArrowUp } from "lucide-vue-next";
 import { useRoute, useRouter } from "vue-router";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
@@ -12,7 +12,7 @@ const navItems = [
   { name: "home", icon: Home, path: "/" },
   { name: "deposit", icon: BanknoteArrowDownIcon, path: "/deposit" },
   { name: "games", icon: Gamepad2, path: "/games", center: true },
-  { name: "withdraw", icon: BanknoteArrowUp, path: "/withdrawal" },
+  { name: "withdraw", icon: BanknoteArrowUp, path: "/withdraw" },
   { name: "profile", icon: User, path: "/profile" },
 ];
 const go = (path: string) => {
@@ -38,7 +38,7 @@ const indicatorStyle = computed(() => {
             ring-gray-700
              bg-[#020617]/90 backdrop-blur-xl
              border-t border-t-white/10
-             rounded-t-3xl shadow-lg overflow-hidden"
+             rounded-t-md shadow-lg overflow-hidden"
     >
       
       <div class="absolute top-0 left-0 w-full h-1">

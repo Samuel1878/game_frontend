@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { ga, getGameIcon } from '@/utils';
+import {  getGameIcon } from '@/utils';
 import type { Game } from '@/utils/types';
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-vue-next";
-import { ref, type Component } from 'vue';
-import { useI18n } from 'vue-i18n';
-const {t} = useI18n();
+import {  ChevronLeft, ChevronRight } from "lucide-vue-next";
+import { ref } from 'vue';
+
 const props = defineProps<{ label?:string, labelStyle?:string, header?: string, gameData?: Game[], handler?: (gameData:Game) => void , icon?:string}>();
 const topGameRef = ref<HTMLElement | null>(null)
 const scrollTop = (dir: "left" | "right") => {

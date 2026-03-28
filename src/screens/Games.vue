@@ -7,7 +7,7 @@ import { toast } from 'vue-sonner';
 import { useUIStore } from '@/stores/ui';
 import { gameOption, gameProviders, hotGames, RTPGames, topGames, topTableGames } from '@/consts';
 import { sboGames } from '@/consts/sboGames';
-import { ArrowLeft, ArrowRight, Coins, CrownIcon, GoalIcon, SearchIcon, Users2Icon } from 'lucide-vue-next';
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, SearchIcon } from 'lucide-vue-next';
 import { pragmaticPlayGames } from '@/consts/pragmaticGames';
 import { arcadeGames } from '@/consts/games';
 import ScrollViews from '@/components/scrollViews.vue';
@@ -114,23 +114,23 @@ const setProvider = (name: string, GpId: number) => {
 
 </script>
 <template>
-  <main class="bg-slate-950 max-w-6xl w-full flex justify-between flex-col">
+  <main class="bg-gray-950 max-w-6xl w-full flex justify-between flex-col">
     <Loading :show="loading" :message="'loading...'" />
     <div v-if="games" class="flex items-center w-full flex-col lg:grid">
       <div class="relative w-full mt-1 pl-2 pr-2 md:pl-10 flex">
         <!-- Left Arrow -->
         <button @click="scroll('left')"
-          class="absolute left-1 top-1/2 -translate-y-1/2 z-10 bg-transparent hover:bg-slate-700/80 px-2 h-8 rounded-sm shadow-lg transition">
-          <ArrowLeft class="w-5 h-5 text-sky-400" />
+          class="absolute -left-1 bg-gray-700 top-1/2 -translate-y-1/2 flex items-center justify-center z-10 hover:bg-gray-700/80 h-6 w-6 rounded-full shadow-lg transition">
+          <ChevronLeft class="w-3 h-3 text-sky-400" />
         </button>
         <!-- Scroll Container -->
         <div ref="scrollEl"
-          class="flex gap-2 bg-slate-950 items-center w-full overflow-x-auto no-scrollbar scroll-smooth">
+          class="flex gap-2 bg-gray-950 items-center w-full overflow-x-auto no-scrollbar scroll-smooth">
           <button v-for="(option, index) in gameOption" :key="index" @click="chooseOption(option.value)"
             class="shrink-0 flex flex-col peer-last:mr-4 gap-2 justify-center items-center text-sm whitespace-nowrap">
             <Card class="border-0 bg-gray-800 px-2 py-2 hover:bg-gray-700 transition rounded-sm">
               <CardContent class="flex items-center justify-center">
-                <span class="`text-xs font-semibold text-slate-200`">
+                <span class="`text-xs font-semibold text-gray-200`">
                   {{ t(option.label) }}
                 </span>
               </CardContent>
@@ -138,8 +138,8 @@ const setProvider = (name: string, GpId: number) => {
           </button>
         </div>
         <button @click="scroll('right')"
-          class="absolute right-1 top-1/2 -translate-y-1/2 z-10 hover:bg-slate-700/70 bg-transparent p-2 rounded-sm shadow-lg transition">
-          <ArrowRight class="w-5 h-5 text-sky-400" />
+          class="absolute w-6 h-6 flex justify-center items-center -right-1 top-1/2 -translate-y-1/2 z-10 hover:bg-gray-700/70 bg-gray-700 rounded-full shadow-lg transition">
+          <ChevronRight class="w-3 h-3 text-sky-400" />
         </button>
       </div>
       <section class="w-full h-full p-2" id="lobby" v-if="gameType === 'lobby'">

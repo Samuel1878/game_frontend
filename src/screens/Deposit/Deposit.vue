@@ -6,16 +6,13 @@ import {
   InputGroupAddon,
   InputGroupInput,
   InputGroupText,
-
 } from '@/components/ui/input-group'
 import { Headset, HistoryIcon } from "lucide-vue-next";
-import { useAuthStore } from "@/stores/auth";
 import router from "@/router";
 import { discord, formatPrice, telegram, viber } from "@/utils";
 import { useI18n } from "vue-i18n";
 const amount = ref<number>();
 const { t } = useI18n()
-const authStore = useAuthStore()
 const setAmount = (a: number) => {
   amount.value = a;
 };
@@ -23,11 +20,11 @@ const setAmount = (a: number) => {
 <template>
   <main class="text-gray-100 bg-gray-950 flex flex-col justify-between p-2 w-full">
     <div>
-    <section class="p-2 rounded-lg bg-linear-to-br shadow-inner shadow-gray-600 from-gray-700 to-gray-900">
+    <section class="p-2 rounded-lg bg-linear-to-br shadow-inner shadow-gray-800 from-gray-800 to-gray-900">
 
       <div class="flex justify-between items-center my-3">
         <h1 class="text-md text-gray-50 font-bold">{{ t('set_deposit_amount') }}</h1>
-        <button class="p-2" @click="router.push(`/profile/${authStore.user?.id}/transactions`)">
+        <button class="p-2" @click="router.push(`/transactions`)">
           <HistoryIcon />
         </button>
       </div>
@@ -42,10 +39,6 @@ const setAmount = (a: number) => {
           <InputGroupText class="text-gray-100">MMK</InputGroupText>
         </InputGroupAddon>
       </InputGroup>
-      <!-- <Input
-     
-      placeholder="Enter Amount"
-    /> -->
       <div class="text-sky-400 w-full grid grid-cols-4 grid-rows-2 my-3 gap-2">
         <button @click="setAmount(a)" v-for="a in amounts" class="border border-gray-700 p-2 rounded-lg bg-gray-900 font-bold text-md">
           {{ formatPrice(a) }}
@@ -60,7 +53,7 @@ const setAmount = (a: number) => {
 
         <RouterLink :disabled="amount && amount > 1000" v-for="payment in paymentMethod" :key="payment.id"
           :to="`/deposit/${payment.value}?amount=${amount}`"
-          class="p-2 px-4 flex flex-col bg-gray-900 shadow-inner shadow-gray-700 justify-between gap-4 rounded-xl items-center">
+          class="p-2 px-4 flex flex-col bg-gray-900 shadow-inner cursor-pointer shadow-gray-700 justify-between gap-4 rounded-xl items-center">
           <img :src="payment.icon" alt="logo"
             class="w-15 h-15 p-2 bg-gray-800 object-cover rounded-2xl overflow-hidden" />
 
@@ -74,7 +67,7 @@ const setAmount = (a: number) => {
     
 
     <div class="rounded-md border-gray-800 bg-gray-900 mt-6 p-3 text-sm">
-      <p class="mb-4 text-center text-lg font-bold">Need Help?</p>
+      <p class="mb-4 text-center text-lg font-bold">{{ t('need_help') }}</p>
       <div class="flex items-center justify-center gap-4">
         <div class="text-black bg-amber-400 h-9 rounded-full w-9 flex justify-center items-center">
           <Headset/>

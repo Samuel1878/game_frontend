@@ -16,20 +16,56 @@ export const useAuthStore = defineStore("auth", {
 
   actions: {
 
-    async login(payload: { name: string; password: string }) {
-      try {
-        const res = await api.post("/auth/login", payload);
-        this.user = res.data;
-        this.isLoggedIn = true;
+    // async login(payload: { name: string; password: string }) {
+    //   try {
+    //     const res = await api.post("/auth/login", payload);
+    //     this.user = res.data;
+    //     this.isLoggedIn = true;
 
-        initSocket();
-        return true
-      } catch (err) {
-        this.logout();
-        return err
-      }
-    },
+    //     initSocket();
+    //     return {status:200 , message:"Successfully logged in"}
+    //   } catch (err:apiError) {
+    //     console.log(err);
+    //     this.logout();
+    //     return {status:err?.status}
+    //   }
+    // },
+async login(payload: { name: string; password: string }) {
+  try {
+    const res = await api.post("/auth/login", payload);
 
+    // ✅ store user
+    this.user = res.data.user;
+
+    // ✅ store token (if exists)
+    if (res.data.token) {
+      localStorage.setItem("token", res.data.token);
+      api.defaults.headers.common["Authorization"] = `Bearer ${res.data.token}`;
+    }
+
+    this.isLoggedIn = true;
+
+    // ✅ init socket after login
+    initSocket();
+
+    return {
+      status: 200,
+      message: "Successfully logged in",
+    };
+
+  } catch (err: any) {
+    console.error("Login error:", err);
+
+    this.logout();
+
+    return {
+      status: err?.response?.status || 500,
+      message:
+        err?.response?.data?.message ||
+        "Invalid username or password",
+    };
+  }
+},
     async autoLogin() {
       try {
         const res = await api.get("/user/profile");
