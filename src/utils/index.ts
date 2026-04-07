@@ -12,9 +12,13 @@ import Pragmatic_Play from "@/assets/pragmatic_play.png";
 import Advantplay from "@/assets/advant_play.png";
 import African_Buffalo from "@/assets/african_buffalo.png";
 
-import banner_1 from "@/assets/image/banner_1.svg";
-import banner_2 from "@/assets/banner_2.png";
-import banner_3 from "@/assets/banner_3.png";
+import banner_1 from "@/assets/image/slider_1.svg";
+import banner_2 from "@/assets/image/slider_2.svg";
+import banner_3 from "@/assets/image/slider_3.svg";
+import slot_banner from "@/assets/image/slot.svg";
+import casino_banner from "@/assets/image/casino.svg";
+import lobby_banner from "@/assets/image/lobby.svg";
+import arcade_banner from "@/assets/image/arcade.svg";
 import en from "@/assets/localization/en.json";
 import mm from "@/assets/localization/mm.json";
 import cn from "@/assets/localization/cn.json";
@@ -63,7 +67,29 @@ import ssl_icon from "@/assets/image/ssl_icon.svg";
 import discord_black from "@/assets/image/discord_black.svg";
 import type { Game } from "./types";
 import phone from "@/assets/image/phone.svg";
-import profile from "@/assets/image/profile.png"
+import profile from "@/assets/image/profile.png";
+import cn_flag from "@/assets/image/cn.png";
+import en_flag from "@/assets/image/eng.png";
+import mm_flag from "@/assets/image/mm.png";
+import bank_ico from "@/assets/icon/ico-bank.svg";
+import clipboard_ico from "@/assets/icon/ico-clipboard.svg";
+import receipt_icon from "@/assets/icon/ico-receipt.svg";
+import wallet_icon from "@/assets/icon/ico-wallet.svg";
+import in_icon from "@/assets/icon/icon-in.svg"
+export {
+  cn_flag,
+  en_flag,
+  mm_flag, 
+  slot_banner,
+  casino_banner,
+  lobby_banner,
+  arcade_banner, 
+  bank_ico,
+  clipboard_ico,
+  receipt_icon,
+  wallet_icon,
+  in_icon
+}
 export {
   profile,
   phone,

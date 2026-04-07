@@ -53,7 +53,7 @@
     "loading":"Loading",
     "invoice_id":"Invoice ID",
     "request_amount":"Resquest Amount",
-    "actual_amount":"确认金额",
+    "actual_amount":"Actual Amount",
     "deposit_payment_method":"Deposit Payment Method",
     "status":"Status",
     "pending":"Pending",
@@ -67,8 +67,33 @@
     "footer_header":"THE BEST PAYMENT SOLUTIONS AND GAME PROVIDERS",
     "download_header":"Play on the go. Anywhere anytime",
 
-    "need_help":"Need Help?"
+    "need_help":"Need Help?",
+    "contact_support":"Contact Support",
+    "faqs":"FAQs",
+    "bank_accounts":"Bank Accounts",
+    "add_account":"Add Account",
 
+    "account_number":"Account Number",
+    "account_name":"Account Name"  ,
+    "new":"New Lunches",
+    "title_one":"WELCOME BONUS",
+    "description_one":"Deposit and get 100% cash back for new users",
+    "button_one":"Deposit Now",
+    "title_two":"MEMBERSHIP CASH BACK",
+    "description_two":"10% cash back on deposit. Get on it!",
+    "button_two":"Play Now",
+    "title_three":"EVENTS AND REWARDS",
+    "description_three":"Join our communities and enjoy rewards and other promotions",
+    "button_three":"Join Us",
 
+    "invalid":"Invalid",
+    "success":"Success",
+    "email":"Email",
+    "limits_and_regulations":"Limits And Regulations",
+    "download_apk":"Download APK",
+    "install_guide":"Install Guide",
+    "faq":"FAQ",
+    "bonus":"Bonus",
+     "events_and_community":"Events And Community"
 
 }

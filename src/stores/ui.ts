@@ -1,3 +1,4 @@
+import router from '@/router'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
@@ -11,7 +12,8 @@ export const useUIStore = defineStore('ui', () => {
   }
 
   const closeAuthModal = () => {
-    authModalOpen.value = false
+    authModalOpen.value = false;
+    router.replace("/")
   }
 
   return {

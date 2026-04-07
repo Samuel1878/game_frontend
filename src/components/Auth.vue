@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import {
   InputGroup,
   InputGroupAddon,
@@ -32,6 +32,7 @@ const loadingButton = ref(false);
 const { authModalOpen, redirectAfterAuth } = storeToRefs(ui);
 const isLogin = ref(true);
 const errorMessage = ref("");
+const regex = /^[A-Za-z0-9_]{6,40}$/;
 const form = ref({
   username: "",
   password: "",
@@ -39,8 +40,13 @@ const form = ref({
 });
 const { t } = useI18n();
 const showPassword = ref(false);
-
+onMounted(() => {
+  if (auth.accessToken) {
+    ui.closeAuthModal();
+  }
+}); 
 const isValid = computed(() => {
+    if (!regex.test(form.value.username)) return false;
   if (!form.value.username || !form.value.password) return false;
   if (!isLogin.value && form.value.password !== form.value.conPassword) return false;
   if (!checked.value) return false;
@@ -79,7 +85,6 @@ const submit = async () => {
         router.push(redirectAfterAuth.value);
       }
     } else {
-    
       errorMessage.value =
         response?.message || "Invalid username or password";
     }
@@ -154,7 +159,10 @@ const submit = async () => {
 
 <template>
   <Dialog v-model:open="authModalOpen">
-    <DialogContent :show-close-button="false" class="to-gray-900 from-gray-800 bg-linear-to-br border-gray-700 text-gray-100 rounded-2xl">
+    <DialogContent :dismissible="false" @interact-outside.prevent :show-close-button="false" class="bg-gray-900 
+        bg-linear-to-br from-white/5 via-white/10 to-white/5
+        backdrop-blur-2xl border border-white/10
+        shadow-[0_10px_40px_rgba(0,0,0,0.6)] text-gray-100 rounded-2xl">
       <DialogHeader>
         <DialogTitle class="text-gray-100 my-4 font-bold">
           {{ isLogin ? t("login") : t("register") }}
@@ -163,9 +171,9 @@ const submit = async () => {
           <X />
         </button>
       </DialogHeader>
-      <form class="space-y-4 border border-gray-800/50 p-2 rounded-xl shadow-xs shadow-gray-600"
+      <form class="space-y-4 "
         @submit.prevent="submit">
-        <InputGroup class="h-12 rounded-lg w-full font-bold border-0 ring-gray-700 ring-1 bg-gray-800">
+        <InputGroup class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
           <InputGroupAddon>
             <User />
           </InputGroupAddon>
@@ -175,7 +183,7 @@ const submit = async () => {
           </InputGroupAddon>
         </InputGroup>
 
-        <InputGroup class="h-12 rounded-lg w-full font-bold border-0 ring-gray-700 ring-1 bg-gray-800">
+        <InputGroup class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
           <InputGroupAddon>
             <LockIcon />
           </InputGroupAddon>
@@ -190,7 +198,7 @@ const submit = async () => {
         </InputGroup>
 
         <InputGroup v-show="!isLogin"
-          class="h-12 rounded-lg w-full font-bold border-0 ring-gray-700 ring-1 bg-gray-800">
+          class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
           <InputGroupAddon>
             <LockIcon />
           </InputGroupAddon>

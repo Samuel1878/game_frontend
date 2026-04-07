@@ -13,7 +13,7 @@ const navItems = [
   { name: "deposit", icon: BanknoteArrowDownIcon, path: "/deposit" },
   { name: "games", icon: Gamepad2, path: "/games", center: true },
   { name: "withdraw", icon: BanknoteArrowUp, path: "/withdraw" },
-  { name: "profile", icon: User, path: "/profile" },
+  { name: "profile", icon: User, path: "/user/profile" },
 ];
 const go = (path: string) => {
   router.push(path);

@@ -18,25 +18,21 @@ export interface Game {
   rows: number
   reels: number
   lines: number
-
   gameInfos: GameInfo[]
   supportedCurrencies?: string[]
   blockCountries?: string[]
-
   isMaintain: boolean
   isEnabled: boolean
   isProvideCommission: boolean
   hasHedgeBet: boolean
-
   providerStatus: 'Online' | 'Offline' | string
   isProviderOnline: boolean,
   badge?:string;
   badge_1?:string;
 }
 export interface gameListRespone {
-      seamlessGameProviderGames:Game[]
+  seamlessGameProviderGames:Game[]
 }
-
 export interface userInfo {
   name?:string;
   phone?:string | null;
@@ -47,7 +43,8 @@ export interface userInfo {
   role?:string | null;
   level?:number ;
   created_at:string;
-  uid:string
+  uid:string;
+  
 }
 export interface userInfoResponse {
   user:userInfo;
@@ -86,7 +83,7 @@ export interface depositFormData {
   tid?:string;
   payment_account?:string | null;
   payment_number?:string | null;
-    ref_no?:string|null;
+  ref_no?:string|null;
 }
 export interface paramType {
   user_id:number|null;
@@ -130,6 +127,27 @@ export type PaymentMethod = {
   priority: number|string;
   remark: string | null;
   value: string;
+};
+
+export interface BankAccount {
+  id: number;
+  user_id: number;
+  account_name: string;
+  account_number: string;
+  label: string;
+  value: string;
+  created_at?: string;
+  updated_at?: string;
+  is_available?: boolean;
+  tag: number | 1 | 0;
+};
+export interface BankAccountPros  {
+  account_name: string;
+  account_number: string;
+  label: string;
+  value: string;
+  is_available?: boolean;
+  tag: number | 1 | 0;
 };
 // export interface GameInfo {
 //   language: string;

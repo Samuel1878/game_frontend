@@ -1,4 +1,4 @@
-import { Advantplay, African_Buffalo,pg_white, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin, Jili, KA_Gaming, kbzLogo, PG_Soft, Pragmatic_Play, usdtLogo, VA_Gaming, wavePayLogo, bank_transfer, skrill, netent, interac, playsgo, pp_white, neosurf, paysafe, neteller, softswiss, pushgaming, hot, hot_rtp, drops_wins } from "@/utils";
+import { Advantplay, African_Buffalo,pg_white, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin, Jili, KA_Gaming, kbzLogo, PG_Soft, Pragmatic_Play, usdtLogo, VA_Gaming, wavePayLogo, bank_transfer, skrill, netent, interac, playsgo, pp_white, neosurf, paysafe, neteller, softswiss, pushgaming, hot, hot_rtp, drops_wins, spin_svg, new_svg, lobby_banner, slot_banner, casino_banner, arcade_banner } from "@/utils";
 import { Gamepad2Icon, HeartIcon, StarIcon } from "lucide-vue-next";
 import {  africanBuffaloSlots } from "./afbGames";
 import { jiliGames } from "./jiliGames";
@@ -125,7 +125,8 @@ export const gameProviders:providersType[] = [
             ...vaSlots,...pgSoftGames,...jiliGames,
             ...pragmaticPlayGames,...africanBuffaloSlots]
     }
-]
+];
+
 export const paymentMethod:paymentTypes[] = [
     {
         id:1,
@@ -142,7 +143,7 @@ export const paymentMethod:paymentTypes[] = [
     },
     {
         id:3,
-        label:"Aya Pay",
+        label:"AYA Pay",
         value:"ayaPay",
         icon:ayaPayLogo
     },
@@ -154,23 +155,28 @@ export const paymentMethod:paymentTypes[] = [
     }
 ];
 export const homeSlide = [
-    {
+    {   id:1,
         image:banner_1,
-        title:"Welcome bonus",
-        description:"Deposit now to get welcome bonus",
-        button:"deposit"
+        title:"title_one",
+        description:"description_one",
+        button:"button_one",
+        action:""
     },
-        {
+    {
+        id:2,
         image:banner_2,
-        title:"Welcome bonus",
-        description:"Deposit now to get welcome bonus",
-        button:"deposit"
+        title:"title_two",
+        description:"description_two",
+        button:"button_two",
+        action:""
     }
     ,    {
+        id:3,
         image:banner_3,
-        title:"Welcome bonus",
-        description:"Deposit now to get welcome bonus",
-        button:"deposit"
+        title:"title_three",
+        description:"description_three",
+        button:"button_three",
+        action:""
     }
 ]
 export const homeOptions = [
@@ -194,38 +200,39 @@ export const gameOption = [
 {
     label:"lobby",
     value:"lobby",
-    icon:null,
+    icon:lobby_banner,
     type:"Games",
 
 },
 {
     label:"slots",
     value:"slots",
-    icon:null,
+    icon:slot_banner,
     type:"Games"
 },
-// {
-//     label:"Live Casino",
-//     value:"liveCasino",
-//     icon:null,
-//     type:"Live Casino",
 
-// },
 {
     label:"table_games",
     value:"tableGames",
-    icon:null,
+    icon:casino_banner,
     type:"Games"
 },
 {
     label:"arcade_games",
     value:"arcadeGames",
-    icon:null,
+    icon:arcade_banner,
     type:"Games"
 },
 {
     label:"chess",
     value:"chess",
+    icon:null,
+    type:"Games",
+
+},
+{
+    label:"coming_soon",
+    value:"comingSoon",
     icon:null,
     type:"Games",
 
@@ -319,46 +326,10 @@ export const slotGameProviders = [
     // }
 ]
 export const hotGames = [
-             {
-            "gameProviderId": 1094,
-            "gameID": 1,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 1,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "AfricanBuffalo",
-            "rtp": 0.950000,
-            "rows": 3,
-            "reels": 5,
-            "lines": 25,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "African Buffalo(50)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                },
-                {
-                    "language": "MY_MM",
-                    "gameName": "African Buffalo(50)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                }
-            ],
-            "supportedCurrencies": [
-                "MMK",
-                "TMP"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-            "badge":hot
-        },
-                {
-                        "badge":hot,
+
+        {
+            "badge":hot,
+            "badge_1":drops_wins,
             "gameProviderId": 3,
             "gameID": 438,
             "gameType": 2,
@@ -392,357 +363,7 @@ export const hotGames = [
             "providerStatus": "Online",
             "isProviderOnline": true
         },
-        {
-            "gameProviderId": 3,
-            "gameID": 567,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 2,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "PragmaticPlay",
-            "rtp": 0.970000,
-            "rows": 4,
-            "reels": 5,
-            "lines": 1999,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "Mahjong Wins 2",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/567/3_567_MahjongWins2.png?v=1"
-                },
-                {
-                    "language": "zh_cn",
-                    "gameName": "麻将大胜2",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/567/3_567_MahjongWins2_CN.png"
-                }
-            ],
-
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-                "badge":hot
-        },
          {
-            "gameProviderId": 1094,
-            "gameID": 5,
-            "gameType": 2,
-            "newGameType": 200,
-            "rank": 2,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "AfricanBuffalo",
-            "rtp": 0.950000,
-            "rows": 0,
-            "reels": 0,
-            "lines": 0,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "African Buffalo Scatter (50)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/5/1094_5_AfricanBuffaloScatter50.png?v=1"
-                },
-                {
-                    "language": "zh_cn",
-                    "gameName": "African Buffalo Scatter (50)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/5/1094_5_AfricanBuffaloScatter50.png?v=1"
-                }
-            ],
-            "supportedCurrencies": [
-                "MMK",
-                "TMP"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-                "badge":hot
-        },
-      {
-            "gameProviderId": 1029,
-            "gameID": 369,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 2,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "568winGames",
-            "rtp": 0.963000,
-            "rows": 3,
-            "reels": 3,
-            "lines": -1,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "Gold Volcano",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/369/1029_369_GoldVolcano.png"
-                },
-                {
-                    "language": "zh_cn",
-                    "gameName": "黄金火山",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/369/1029_369_GoldVolcano_CN.png"
-                }
-            ],
-            "supportedCurrencies": [
-   
-                "KHR"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-                "badge":hot
-        },
-         {
-            "gameProviderId": 1094,
-            "gameID": 2,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 3,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "AfricanBuffalo",
-            "rtp": 0.950000,
-            "rows": 3,
-            "reels": 5,
-            "lines": 25,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "African Buffalo(500)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                },
-                {
-                    "language": "MY_MM",
-                    "gameName": "African Buffalo(500)",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
-                }
-            ],
-            "supportedCurrencies": [
-                "MMK",
-                "TMP"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-                "badge":hot
-        },
-        {
-            "gameProviderId": 14,
-            "gameID": 8,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 2,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "SBOSlot",
-            "rtp": 0.950000,
-            "rows": 0,
-            "reels": 0,
-            "lines": 0,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "5Treasures",
-                    "gameIconUrl": "https://img-3-1.cdn568.net/images/games/CreativeGaming/DuoFuDuoCai5Treasures.png"
-                },
-                {
-                    "language": "zh_cn",
-                    "gameName": "黄金选择",
-                    "gameIconUrl": "https://img-3-1.cdn568.net/images/games/CreativeGaming/DuoFuDuoCai5Treasures.png"
-                }
-            ],
-            "supportedCurrencies": [
-
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-                "badge":hot
-        },
-        {
-            "gameProviderId": 14,
-            "gameID": 19,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 3,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "SBOSlot",
-            "rtp": 0.950000,
-            "rows": 0,
-            "reels": 0,
-            "lines": 0,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "Golden Tale",
-                    "gameIconUrl": "https://img-3-1.cdn568.net/images/games/CreativeGaming/JuFuGoldenTale.png"
-                },
-                {
-                    "language": "zh_cn",
-                    "gameName": "黄金传奇",
-                    "gameIconUrl": "https://img-3-1.cdn568.net/images/games/CreativeGaming/JuFuGoldenTale.png"
-                }
-            ],
-            "supportedCurrencies": [
-                "AUD",
-                "CAD",
-                "CNY",
-                "EUR",
-                "GBP",
-                "HKD",
-                "IDR",
-                "JPY",
-                "KHR",
-                "KRW",
-                "MMK",
-                "MYR",
-                "SEK",
-                "THB",
-                "VND"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-                "badge":hot
-        },
-         {
-            "gameProviderId": 1029,
-            "gameID": 50,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 3,
-            "device": "d,m",
-            "platform": "HTML5",
-            "provider": "568winGames",
-            "rtp": 0.972800,
-            "rows": 6,
-            "reels": 5,
-            "lines": -1,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "Maneki Neko",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/568WinGames/50/manekiNeko.jpg"
-                },
-                {
-                    "language": "ZH_CN",
-                    "gameName": "招财猫",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/568WinGames/50/manekiNeko.jpg"
-                }
-            ],
-            "supportedCurrencies": [
-                "AED",
-                "AUD",
-                "BDT",
-                "BRL",
-                "CAD",
-                "EUR",
-                "GBP",
-                "HKD",
-                "IDO",
-                "IDR",
-                "INR",
-                "JPY",
-                "KHR",
-                "KRW",
-                "LAK",
-                "MMK",
-                "MYR",
-                "NPR",
-                "PHP",
-                "SEK",
-                "THB",
-                "TMP",
-                "USD",
-                "VND",
-                "VNO",
-                "ZAR"
-            ],
-            "blockCountries": [
-                "CN"
-            ],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-            "badge":hot
-        },
-
-]
-export const topGames = [
-     {
-            "gameProviderId": 1034,
-            "gameID": 75,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 1,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "AdvantPlay",
-            "rtp": 0.960000,
-            "rows": 0,
-            "reels": 0,
-            "lines": 720,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "Mahjong Roar",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AdvantPlay/75/1034_75_MahjongRoar.jpg"
-                },
-                {
-                    "language": "zh_cn",
-                    "gameName": "龙腾麻将",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/AdvantPlay/75/1034_75_MahjongRoar_CN.jpg"
-                }
-            ],
-            "supportedCurrencies": [
-                
-                "RUB",
-                "SEK",
-                "THB",
-                "USD",
-                "UCC",
-                "VNO",
-                "VND",
-                "ZAR"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-              "badge":drops_wins,
-           
-        },
-          {
             "gameProviderId": 1046,
             "gameID": 48,
             "gameType": 2,
@@ -814,36 +435,184 @@ export const topGames = [
             "hasHedgeBet": false,
             "providerStatus": "Online",
             "isProviderOnline": true,
-               "badge":drops_wins,
-             "badge_1":hot_rtp
-        },
+               "badge":hot,
           
-         {
-            "gameProviderId": 1085,
-            "gameID": 6,
+        },
+
+      
+        
+        {
+              "badge":hot,
+              "badge_1":hot_rtp,
+            "gameProviderId": 3,
+            "gameID": 448,
             "gameType": 2,
             "newGameType": 201,
-            "rank": 1,
-            "device": "d,m",
+            "rank": 11,
+            "device": "d/m",
             "platform": "HTML5",
-            "provider": "",
-            "rtp": 0.960000,
-            "rows": 3,
-            "reels": 3,
-            "lines": 5,
+            "provider": "PragmaticPlay",
+            "rtp": 0.964800,
+            "rows": 4,
+            "reels": 5,
+            "lines": 1024,
             "gameInfos": [
                 {
                     "language": "en",
-                    "gameName": "Golden Empire2",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/VAGaming/6/1085_6_GoldenEmpire2.png"
+                    "gameName": "Mahjong Wins Bonus",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/448/3_448_MahjongWinsBonus.png?v=1"
                 },
                 {
                     "language": "zh_cn",
-                    "gameName": "黄金帝国2",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/VAGaming/6/1085_6_GoldenEmpire2_CN.png"
+                    "gameName": "麻将大胜Bonus",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PragmaticPlay/3_448_MahjongWinsBonus_CN.png"
                 }
             ],
-
+            "supportedCurrencies": [
+                "KZT",
+                "IDO",
+                "IDR",
+                "TMP",
+                "VND",
+                "VNO",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "INR",
+                "JPY",
+                "KHR",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MMK",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "THB",
+                "TRY",
+                "USD",
+                "ZAR"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true
+        },
+         {
+         "badge":hot,
+            "gameProviderId": 3,
+            "gameID": 473,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 5,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "PragmaticPlay",
+            "rtp": 0.965300,
+            "rows": 7,
+            "reels": 7,
+            "lines": 20,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Sugar Rush 1000",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/473/3_473_SugarRush1000.png?v=6"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "极速糖果1000",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PragmaticPlay/3_473_SugarRush1000_CN.png"
+                }
+            ],
+            "supportedCurrencies": [
+                "KZT",
+                "IDO",
+                "IDR",
+                "TMP",
+                "VND",
+                "VNO",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "INR",
+                "JPY",
+                "KHR",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MMK",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "THB",
+                "TRY",
+                "USD",
+                "ZAR"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true
+        },
+         {
+            "gameProviderId": 1094,
+            "gameID": 2,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 3,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "AfricanBuffalo",
+            "rtp": 0.950000,
+            "rows": 3,
+            "reels": 5,
+            "lines": 25,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "African Buffalo(500)",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
+                },
+                {
+                    "language": "MY_MM",
+                    "gameName": "African Buffalo(500)",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png"
+                }
+            ],
+            "supportedCurrencies": [
+                "MMK",
+                "TMP"
+            ],
             "blockCountries": [],
             "isMaintain": false,
             "isEnabled": true,
@@ -851,10 +620,334 @@ export const topGames = [
             "hasHedgeBet": false,
             "providerStatus": "Online",
             "isProviderOnline": true,
-               "badge":drops_wins,
-            
+                "badge":hot
         },
-    {
+       {
+            "gameProviderId": 1034,
+            "gameID": 46,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 2,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "AdvantPlay",
+            "rtp": 0.970800,
+            "rows": 3,
+            "reels": 5,
+            "lines": 25,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Dragon Chi’s Quest",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/AdvantPlay/46/1034_46_DragonChisQuest.jpg"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "祥龙极气",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/AdvantPlay/46/1034_46_DragonChisQuest_CN.jpg"
+                }
+            ],
+            "supportedCurrencies": [
+                "AED",
+                "AUD",
+                "BDT",
+                "BND",
+                "KHR",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "IDO",
+                "TMP",
+                "IDR",
+                "INR",
+                "JPY",
+                "KRW",
+                "LAK",
+                "MMK",
+                "MXN",
+                "MYR",
+                "NOK",
+                "NPR",
+                "NZD",
+                "RUB",
+                "SEK",
+                "THB",
+                "USD",
+                "UCC",
+                "VNO",
+                "VND",
+                "ZAR"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":hot,
+            "badge_1":hot_rtp
+        },
+         {
+            "gameProviderId": 3,
+            "gameID": 596,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 6,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "PragmaticPlay",
+            "rtp": 0.965000,
+            "rows": 5,
+            "reels": 6,
+            "lines": 20,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Gates of Olympus Super Scatter",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/596/3_596_GatesofOlympusSuperScatter.png"
+                }
+            ],
+            "supportedCurrencies": [
+                "KZT",
+                "IDO",
+                "IDR",
+                "TMP",
+                "VND",
+                "VNO",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "INR",
+                "JPY",
+                "KHR",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MMK",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "THB",
+                "TRY",
+                "USD",
+                "ZAR"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":hot
+        },
+          {
+            "gameProviderId": 1034,
+            "gameID": 74,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 4,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "AdvantPlay",
+            "rtp": 0.974800,
+            "rows": 5,
+            "reels": 6,
+            "lines": 32400,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "LABUBU: Fall In Wild",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/AdvantPlay/74/1034_74_LABUBUFallInWild.jpg"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "LABUBU: 春天野在家",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/AdvantPlay/74/1034_74_LABUBUFallInWild_CN.jpg"
+                }
+            ],
+            "supportedCurrencies": [
+                "AED",
+                "AUD",
+                "BDT",
+                "BND",
+                "KHR",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "IDO",
+                "TMP",
+                "IDR",
+                "INR",
+                "JPY",
+                "KRW",
+                "LAK",
+                "MMK",
+                "MXN",
+                "MYR",
+                "NOK",
+                "NPR",
+                "NZD",
+                "RUB",
+                "SEK",
+                "THB",
+                "USD",
+                "UCC",
+                "VNO",
+                "VND",
+                "ZAR"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":hot
+        },
+
+]
+export const topGames = [
+     {
+            "gameProviderId": 1034,
+            "gameID": 75,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 1,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "AdvantPlay",
+            "rtp": 0.960000,
+            "rows": 0,
+            "reels": 0,
+            "lines": 720,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Mahjong Roar",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/AdvantPlay/75/1034_75_MahjongRoar.jpg"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "龙腾麻将",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/AdvantPlay/75/1034_75_MahjongRoar_CN.jpg"
+                }
+            ],
+            "supportedCurrencies": [
+                
+                "RUB",
+                "SEK",
+                "THB",
+                "USD",
+                "UCC",
+                "VNO",
+                "VND",
+                "ZAR"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+              "badge":drops_wins,
+                 "badge_1":hot_rtp
+           
+        },  {
+            "badge":drops_wins,
+            "gameProviderId": 1034,
+            "gameID": 76,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 3,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "AdvantPlay",
+            "rtp": 0.970500,
+            "rows": 0,
+            "reels": 0,
+            "lines": 0,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Golden Egypt",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/AdvantPlay/76/1034_76_GoldenEgypt.jpg"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "埃及辉光",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/AdvantPlay/76/1034_76_GoldenEgypt_CN.jpg"
+                }
+            ],
+            "supportedCurrencies": [
+                "AED",
+                "AUD",
+                "BDT",
+                "BND",
+                "KHR",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "IDO",
+                "TMP",
+                "IDR",
+                "INR",
+                "JPY",
+                "KRW",
+                "LAK",
+                "MMK",
+                "MXN",
+                "MYR",
+                "NOK",
+                "NPR",
+                "NZD",
+                "RUB",
+                "SEK",
+                "THB",
+                "USD",
+                "UCC",
+                "VNO",
+                "VND",
+                "ZAR"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true
+        },
+         
+
+        {
             "gameProviderId": 3,
             "gameID": 388,
             "gameType": 2,
@@ -926,103 +1019,33 @@ export const topGames = [
                 "badge":drops_wins,
          
         },
-  {
-            "gameProviderId": 1029,
-            "gameID": 352,
+                 {
+            "gameProviderId": 1046,
+            "gameID": 51,
             "gameType": 2,
             "newGameType": 201,
-            "rank": 1,
+            "rank": 2,
             "device": "d/m",
             "platform": "HTML5",
-            "provider": "568winGames",
+            "provider": "FaChai",
             "rtp": 0.965000,
             "rows": 5,
             "reels": 6,
-            "lines": -1,
+            "lines": 0,
             "gameInfos": [
                 {
                     "language": "en",
-                    "gameName": "Olympian Zeus",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/352/1029_352_OlympianZeus.png"
+                    "gameName": "POKER WIN",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/FaChai/51/1046_51_POKERWIN.jpg"
                 },
                 {
                     "language": "zh_cn",
-                    "gameName": "奥林匹亚宙斯",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/352/1029_352_OlympianZeus_CN.png"
+                    "gameName": "至尊王牌",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/FaChai/51/1046_51_POKERWIN_CN.jpg"
                 }
             ],
             "supportedCurrencies": [
                 "TMP",
-                "AED",
-                "AUD",
-                "BDT",
-                "CAD",
-                "EUR",
-                "GBP",
-                "HKD",
-                "IDR",
-                "IDO",
-                "INR",
-                "JPY",
-                "KRW",
-                "MMK",
-                "MYR",
-                "NPR",
-                "PHP",
-                "SEK",
-                "THB",
-                "USD",
-                "VND",
-                "VNO",
-                "ZAR",
-                "NGN",
-                "BND",
-                "BRL",
-                "CHF",
-                "CNY",
-                "LAK",
-                "MXN",
-                "NOK",
-                "NZD",
-                "RUB",
-                "KHR"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-               "badge":drops_wins,
-             "badge_1":hot_rtp
-        },
-         {
-            "gameProviderId": 1042,
-            "gameID": 3,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 1,
-            "device": "d,m",
-            "platform": "HTML5",
-            "provider": "KAGaming",
-            "rtp": 0.960000,
-            "rows": -1,
-            "reels": -1,
-            "lines": -1,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "Golden Bull",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/3/1042_3_GoldenBull.png"
-                },
-                {
-                    "language": "ZH_CN",
-                    "gameName": "牛转钱坤",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/KAGaming/3/1042_3_GoldenBull_CN.png"
-                }
-            ],
-            "supportedCurrencies": [
                 "AED",
                 "AUD",
                 "BDT",
@@ -1036,15 +1059,139 @@ export const topGames = [
                 "GBP",
                 "HKD",
                 "IDR",
+                "IDO",
                 "INR",
                 "JPY",
-                "KHR",
                 "KRW",
                 "LAK",
                 "LKR",
-                "MMK",
                 "MXN",
                 "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "RUB",
+                "SEK",
+                "SGD",
+                "THB",
+                "TRY",
+                "USD",
+                "VND",
+                "VNO",
+                "ZAR",
+                "MMK"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":drops_wins
+        },
+                  {
+            "gameProviderId": 1079,
+            "gameID": 49,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 3,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "Fastspin",
+            "rtp": 0.966100,
+            "rows": 4,
+            "reels": 5,
+            "lines": 2000,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Mahjong Princess",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/Fastspin/49/1079_49_MahjongPrincess.png"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "麻将女神",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/Fastspin/49/1079_49_MahjongPrincess_CN.png"
+                }
+            ],
+            "supportedCurrencies": [
+                "RUB",
+                "SAR",
+                "SEK",
+                "THB",
+                "TJS",
+                "TMT",
+                "TND",
+                "TRY",
+                "TZS",
+                "UAH",
+                "UGX",
+                "USD",
+                "VND",
+                "VNO",
+                "XAF",
+                "XOF",
+                "ZAR",
+                "ZMW",
+                "TMP",
+                "AED",
+                "AMD",
+                "ARS",
+                "AUD",
+                "AZN",
+                "BAM",
+                "BDT",
+                "BGN",
+                "BIF",
+                "BND",
+                "BRL",
+                "BYN",
+                "CAD",
+                "CHF",
+                "CLP",
+                "CNY",
+                "COP",
+                "CRC",
+                "CZK",
+                "DKK",
+                "DZD",
+                "EGP",
+                "BOP",
+                "DOP",
+                "ETB",
+                "EUR",
+                "GBP",
+                "GEL",
+                "GHS",
+                "GTQ",
+                "HKD",
+                "HUF",
+                "IDO",
+                "IDR",
+                "ILS",
+                "INR",
+                "IRR",
+                "JPY",
+                "KES",
+                "KGS",
+                "KHR",
+                "KRW",
+                "KZT",
+                "LAK",
+                "LBP",
+                "LKR",
+                "MAD",
+                "MDL",
+                "MMK",
+                "MNT",
+                "MXN",
+                "MYK",
+                "MYR",
+                "MZN",
                 "NGN",
                 "NOK",
                 "NPR",
@@ -1052,126 +1199,132 @@ export const topGames = [
                 "PEN",
                 "PHP",
                 "PKR",
+                "PLN",
+                "PYG",
+                "QAR",
+                "RON",
+                "RSD"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":drops_wins
+        },
+        {
+            "gameProviderId": 1079,
+            "gameID": 5,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 2,
+            "device": "d,m",
+            "platform": "HTML5",
+            "provider": "Fastspin",
+            "rtp": 0.967000,
+            "rows": 4,
+            "reels": 5,
+            "lines": 1024,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Adventure To The West",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/Fastspin/5/1079_5_AdventureToTheWest.png"
+                },
+                {
+                    "language": "ZH_CN",
+                    "gameName": "嘻游记",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/Fastspin/5/1079_5_AdventureToTheWest_CN.png"
+                }
+            ],
+            "supportedCurrencies": [
                 "RUB",
+                "SAR",
                 "SEK",
                 "THB",
+                "TJS",
+                "TMT",
+                "TND",
                 "TRY",
+                "TZS",
+                "UAH",
+                "UGX",
                 "USD",
                 "VND",
+                "VNO",
+                "XAF",
+                "XOF",
                 "ZAR",
-                "TMP"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-               "badge":drops_wins,
-          
-        }, 
-         {
-            "gameProviderId": 35,
-            "gameID": 65,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 1,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "PGSoft",
-            "rtp": 0.969200,
-            "rows": 0,
-            "reels": 0,
-            "lines": 20,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "Mahjong Ways",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PGSoft/35_65_MahjongWays.jpg"
-                },
-                {
-                    "language": "zh_cn",
-                    "gameName": "麻将胡了",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PGSoft/35_65_MahjongWays_CN.jpg"
-                },
-                {
-                    "language": "zh_tw",
-                    "gameName": "麻将胡了",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PGSoft/35_65_MahjongWays_CN.jpg"
-                }
-            ],
-            "supportedCurrencies": [
+                "ZMW",
                 "TMP",
-                "BDT",
-                "BRL",
-                "CNY",
-                "EUR",
-                "IDR",
-                "INR",
-                "JPY",
-                "KHR",
-                "KRW",
-                "LAK",
-                "MMK",
-                "MXN",
-                "PHP",
-                "THB",
-                "USD",
-                "VND"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-               "badge":drops_wins,
-          
-        },
-       
-                {
-            "gameProviderId": 14,
-            "gameID": 9,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 1,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "SBOSlot",
-            "rtp": 0.950000,
-            "rows": 0,
-            "reels": 0,
-            "lines": 0,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "88Fortunes",
-                    "gameIconUrl": "https://img-3-1.cdn568.net/images/games/CreativeGaming/DuoFuDuoCai88Fortune.png"
-                },
-                {
-                    "language": "zh_cn",
-                    "gameName": "财富发发",
-                    "gameIconUrl": "https://img-3-1.cdn568.net/images/games/CreativeGaming/DuoFuDuoCai88Fortune.png"
-                }
-            ],
-            "supportedCurrencies": [
+                "AED",
+                "AMD",
+                "ARS",
                 "AUD",
+                "AZN",
+                "BAM",
+                "BDT",
+                "BGN",
+                "BIF",
+                "BND",
+                "BRL",
+                "BYN",
                 "CAD",
+                "CHF",
+                "CLP",
                 "CNY",
+                "COP",
+                "CRC",
+                "CZK",
+                "DKK",
+                "DZD",
+                "EGP",
+                "BOP",
+                "DOP",
+                "ETB",
                 "EUR",
                 "GBP",
+                "GEL",
+                "GHS",
+                "GTQ",
                 "HKD",
+                "HUF",
+                "IDO",
                 "IDR",
+                "ILS",
+                "INR",
+                "IRR",
                 "JPY",
+                "KES",
+                "KGS",
                 "KHR",
                 "KRW",
+                "KZT",
+                "LAK",
+                "LBP",
+                "LKR",
+                "MAD",
+                "MDL",
                 "MMK",
+                "MNT",
+                "MXN",
+                "MYK",
                 "MYR",
-                "SEK",
-                "THB",
-                "VND"
+                "MZN",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PEN",
+                "PHP",
+                "PKR",
+                "PLN",
+                "PYG",
+                "QAR",
+                "RON",
+                "RSD"
             ],
             "blockCountries": [],
             "isMaintain": false,
@@ -1180,9 +1333,84 @@ export const topGames = [
             "hasHedgeBet": false,
             "providerStatus": "Online",
             "isProviderOnline": true,
-               "badge":drops_wins,
-             "badge_1":hot_rtp
+            "badge":drops_wins
         },
+        
+    
+//   {
+//             "gameProviderId": 1029,
+//             "gameID": 352,
+//             "gameType": 2,
+//             "newGameType": 201,
+//             "rank": 1,
+//             "device": "d/m",
+//             "platform": "HTML5",
+//             "provider": "568winGames",
+//             "rtp": 0.965000,
+//             "rows": 5,
+//             "reels": 6,
+//             "lines": -1,
+//             "gameInfos": [
+//                 {
+//                     "language": "en",
+//                     "gameName": "Olympian Zeus",
+//                     "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/352/1029_352_OlympianZeus.png"
+//                 },
+//                 {
+//                     "language": "zh_cn",
+//                     "gameName": "奥林匹亚宙斯",
+//                     "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/352/1029_352_OlympianZeus_CN.png"
+//                 }
+//             ],
+//             "supportedCurrencies": [
+//                 "TMP",
+//                 "AED",
+//                 "AUD",
+//                 "BDT",
+//                 "CAD",
+//                 "EUR",
+//                 "GBP",
+//                 "HKD",
+//                 "IDR",
+//                 "IDO",
+//                 "INR",
+//                 "JPY",
+//                 "KRW",
+//                 "MMK",
+//                 "MYR",
+//                 "NPR",
+//                 "PHP",
+//                 "SEK",
+//                 "THB",
+//                 "USD",
+//                 "VND",
+//                 "VNO",
+//                 "ZAR",
+//                 "NGN",
+//                 "BND",
+//                 "BRL",
+//                 "CHF",
+//                 "CNY",
+//                 "LAK",
+//                 "MXN",
+//                 "NOK",
+//                 "NZD",
+//                 "RUB",
+//                 "KHR"
+//             ],
+//             "blockCountries": [],
+//             "isMaintain": false,
+//             "isEnabled": true,
+//             "isProvideCommission": false,
+//             "hasHedgeBet": false,
+//             "providerStatus": "Online",
+//             "isProviderOnline": true,
+//                "badge":drops_wins,
+//              "badge_1":hot_rtp
+//         },
+        
+        
+      
        
         {
             "gameProviderId": 1079,
@@ -1281,8 +1509,119 @@ export const topGames = [
                "badge":drops_wins,
            
         },
+         {
+            "gameProviderId": 1085,
+            "gameID": 6,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 1,
+            "device": "d,m",
+            "platform": "HTML5",
+            "provider": "",
+            "rtp": 0.960000,
+            "rows": 3,
+            "reels": 3,
+            "lines": 5,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Golden Empire2",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/VAGaming/6/1085_6_GoldenEmpire2.png"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "黄金帝国2",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/VAGaming/6/1085_6_GoldenEmpire2_CN.png"
+                }
+            ],
+
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+               "badge":drops_wins,
+            
+        },
 ];
 export const RTPGames = [
+     {
+            "gameProviderId": 1046,
+            "gameID": 52,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 1,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "FaChai",
+            "rtp": 0.965000,
+            "rows": 0,
+            "reels": 0,
+            "lines": 0,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "CHINESE NEW YEAR MOREWAYS",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/FaChai/52/1046_52_CHINESENEW YEARMOREWAYS.jpg"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "大过年路路发",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/FaChai/52/1046_52_CHINESENEW YEARMOREWAYS_CN.jpg"
+                }
+            ],
+            "supportedCurrencies": [
+                "TMP",
+                "AED",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CLP",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "IDR",
+                "IDO",
+                "INR",
+                "JPY",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "RUB",
+                "SEK",
+                "SGD",
+                "THB",
+                "TRY",
+                "USD",
+                "VND",
+                "VNO",
+                "ZAR",
+                "MMK"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":drops_wins,
+            "badge_1":hot_rtp
+        },
      {
             "gameProviderId": 1046,
             "gameID": 5,
@@ -1430,6 +1769,248 @@ export const RTPGames = [
               "badge":drops_wins,
              "badge_1":hot_rtp
         },
+         {
+            "gameProviderId": 3,
+            "gameID": 287,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 12,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "PragmaticPlay",
+            "rtp": 0.970000,
+            "rows": 7,
+            "reels": 7,
+            "lines": 20,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Sugar Rush",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/287/3_287_SugarRush.png?v=1"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "极速糖果",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/287/3_287_SugarRush_CN.png"
+                }
+            ],
+            "supportedCurrencies": [
+                "KZT",
+                "IDO",
+                "IDR",
+                "TMP",
+                "VND",
+                "VNO",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "INR",
+                "JPY",
+                "KHR",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MMK",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "THB",
+                "TRY",
+                "USD",
+                "ZAR"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true
+        },
+         {
+            "gameProviderId": 35,
+            "gameID": 65,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 1,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "PGSoft",
+            "rtp": 0.969200,
+            "rows": 0,
+            "reels": 0,
+            "lines": 20,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Mahjong Ways",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PGSoft/35_65_MahjongWays.jpg"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "麻将胡了",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PGSoft/35_65_MahjongWays_CN.jpg"
+                },
+                {
+                    "language": "zh_tw",
+                    "gameName": "麻将胡了",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PGSoft/35_65_MahjongWays_CN.jpg"
+                }
+            ],
+            "supportedCurrencies": [
+                "TMP",
+                "BDT",
+                "BRL",
+                "CNY",
+                "EUR",
+                "IDR",
+                "INR",
+                "JPY",
+                "KHR",
+                "KRW",
+                "LAK",
+                "MMK",
+                "MXN",
+                "PHP",
+                "THB",
+                "USD",
+                "VND"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+               "badge":drops_wins,
+            "badge_1":hot_rtp
+        },
+        {
+            "gameProviderId": 35,
+            "gameID": 74,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 2,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "PGSoft",
+            "rtp": 0.969500,
+            "rows": 0,
+            "reels": 0,
+            "lines": 20,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Mahjong Ways 2",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PGSoft/35_74_MahjongWays2.png"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "麻将胡了2",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PGSoft/35_74_MahjongWays2_CN.png"
+                },
+                {
+                    "language": "zh_tw",
+                    "gameName": "麻將胡了2",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PGSoft/35_74_MahjongWays2_CN.png"
+                }
+            ],
+            "supportedCurrencies": [
+                "TMP",
+                "BDT",
+                "BRL",
+                "CNY",
+                "EUR",
+                "IDR",
+                "INR",
+                "JPY",
+                "KHR",
+                "KRW",
+                "LAK",
+                "MMK",
+                "MXN",
+                "PHP",
+                "THB",
+                "USD",
+                "VND"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+               "badge":drops_wins,
+            "badge_1":hot_rtp
+        },
+        {
+            "gameProviderId": 35,
+            "gameID": 134,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 3,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "PGSoft",
+            "rtp": 0.967500,
+            "rows": 0,
+            "reels": 0,
+            "lines": 0,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Wild Bounty Showdown",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PGSoft/WildBountyShowdown.jpg"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "赏金大对决",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PGSoft/WildBountyShowdown_CN.jpg"
+                }
+            ],
+            "supportedCurrencies": [
+                "TMP",
+                "BDT",
+                "BRL",
+                "CNY",
+                "EUR",
+                "IDR",
+                "INR",
+                "JPY",
+                "KHR",
+                "KRW",
+                "LAK",
+                "MMK",
+                "MXN",
+                "PHP",
+                "THB",
+                "USD",
+                "VND"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":drops_wins,
+            "badge_1":hot_rtp
+        },
      {
             "gameProviderId": 3,
             "gameID": 397,
@@ -1502,35 +2083,40 @@ export const RTPGames = [
             
              "badge":hot_rtp
         },
-            {
+        
+         
+       
+         {
             "gameProviderId": 1029,
-            "gameID": 60,
+            "gameID": 50,
             "gameType": 2,
             "newGameType": 201,
-            "rank": 127,
+            "rank": 3,
             "device": "d,m",
             "platform": "HTML5",
             "provider": "568winGames",
-            "rtp": 0.980156,
-            "rows": -1,
-            "reels": -1,
+            "rtp": 0.972800,
+            "rows": 6,
+            "reels": 5,
             "lines": -1,
             "gameInfos": [
                 {
                     "language": "en",
-                    "gameName": "Sweet Dream",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/60/1029_60_SweetDream.jpg"
+                    "gameName": "Maneki Neko",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/568WinGames/50/manekiNeko.jpg"
                 },
                 {
                     "language": "ZH_CN",
-                    "gameName": "甜蜜之梦",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/568winGames/60/1029_60_SweetDream_CN.jpg"
+                    "gameName": "招财猫",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/568WinGames/50/manekiNeko.jpg"
                 }
             ],
             "supportedCurrencies": [
+                "AED",
                 "AUD",
+                "BDT",
+                "BRL",
                 "CAD",
-                "CNY",
                 "EUR",
                 "GBP",
                 "HKD",
@@ -1538,9 +2124,12 @@ export const RTPGames = [
                 "IDR",
                 "INR",
                 "JPY",
+                "KHR",
                 "KRW",
+                "LAK",
                 "MMK",
                 "MYR",
+                "NPR",
                 "PHP",
                 "SEK",
                 "THB",
@@ -1550,15 +2139,16 @@ export const RTPGames = [
                 "VNO",
                 "ZAR"
             ],
-            "blockCountries": [],
+            "blockCountries": [
+                "CN"
+            ],
             "isMaintain": false,
             "isEnabled": true,
             "isProvideCommission": false,
             "hasHedgeBet": false,
             "providerStatus": "Online",
             "isProviderOnline": true,
-               "badge":drops_wins,
-             "badge_1":hot_rtp
+            "badge":hot_rtp
         },
           
      {
@@ -1630,203 +2220,12 @@ export const RTPGames = [
             "providerStatus": "Online",
             "isProviderOnline": true,
                "badge":drops_wins,
+               
            
         },
-         {
-            "gameProviderId": 3,
-            "gameID": 112,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 547,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "PragmaticPlay",
-            "rtp": 0.980000,
-            "rows": 3,
-            "reels": 3,
-            "lines": 1,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "Triple Tigers",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/112/3_112_TripleTigers.png?v=1"
-                },
-                {
-                    "language": "id_id",
-                    "gameName": "Harimau Bertiga",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/112/3_112_TripleTigers.png"
-                },
-                {
-                    "language": "ja_jp",
-                    "gameName": "トリプルタイガース",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/112/3_112_TripleTigers.png"
-                },
-                {
-                    "language": "ko_kr",
-                    "gameName": "트리플 타이거스",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/112/3_112_TripleTigers.png"
-                },
-                {
-                    "language": "th_th",
-                    "gameName": "สามพยัคฆ์",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/112/3_112_TripleTigers.png"
-                },
-                {
-                    "language": "vi_vn",
-                    "gameName": "Ba Chú Hổ",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/112/3_112_TripleTigers.png"
-                },
-                {
-                    "language": "zh_cn",
-                    "gameName": "三只老虎",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/112/3_112_TripleTigers_CN.png"
-                }
-            ],
-            "supportedCurrencies": [
-                "KZT",
-                "IDO",
-                "IDR",
-                "TMP",
-                "VND",
-                "VNO",
-                "AUD",
-                "BDT",
-                "BND",
-                "BRL",
-                "CAD",
-                "CHF",
-                "CNY",
-                "EUR",
-                "GBP",
-                "HKD",
-                "INR",
-                "JPY",
-                "KHR",
-                "KRW",
-                "LAK",
-                "LKR",
-                "MMK",
-                "MXN",
-                "MYR",
-                "NGN",
-                "NOK",
-                "NPR",
-                "NZD",
-                "PHP",
-                "PKR",
-                "THB",
-                "TRY",
-                "USD",
-                "ZAR"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-               "badge":drops_wins,
-             "badge_1":hot_rtp
-        },
        
-         {
-            "gameProviderId": 3,
-            "gameID": 9,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 669,
-            "device": "d/m",
-            "platform": "HTML5",
-            "provider": "PragmaticPlay",
-            "rtp": 0.980000,
-            "rows": 3,
-            "reels": 3,
-            "lines": 5,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "888 Gold",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/9/3_9_888Gold.png"
-                },
-                {
-                    "language": "id_id",
-                    "gameName": "888 Emas",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/9/3_9_888Gold.png"
-                },
-                {
-                    "language": "ja_jp",
-                    "gameName": "888ゴールド",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/9/3_9_888Gold.png"
-                },
-                {
-                    "language": "ko_kr",
-                    "gameName": "888 골드",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/9/3_9_888Gold.png"
-                },
-                {
-                    "language": "th_th",
-                    "gameName": "นักรบพยัคฆ",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/9/3_9_888Gold.png"
-                },
-                {
-                    "language": "vi_vn",
-                    "gameName": "Vàng 888",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/9/3_9_888Gold.png"
-                },
-                {
-                    "language": "zh_cn",
-                    "gameName": "富贵888",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/9/3_9_888Gold_CN.png"
-                }
-            ],
-            "supportedCurrencies": [
-                "KZT",
-                "IDO",
-                "IDR",
-                "TMP",
-                "VND",
-                "VNO",
-                "AUD",
-                "BDT",
-                "BND",
-                "BRL",
-                "CAD",
-                "CHF",
-                "CNY",
-                "EUR",
-                "GBP",
-                "HKD",
-                "INR",
-                "JPY",
-                "KHR",
-                "KRW",
-                "LAK",
-                "LKR",
-                "MMK",
-                "MXN",
-                "MYR",
-                "NGN",
-                "NOK",
-                "NPR",
-                "NZD",
-                "PHP",
-                "PKR",
-                "THB",
-                "TRY",
-                "USD",
-                "ZAR"
-            ],
-            "blockCountries": [],
-            "isMaintain": false,
-            "isEnabled": true,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-               "badge":drops_wins,
-             "badge_1":hot_rtp
-        },
+       
+      
             
      {
             "gameProviderId": 1029,
@@ -1893,7 +2292,450 @@ export const RTPGames = [
                "badge":drops_wins,
              "badge_1":hot_rtp
         },
+           
+       
+];
+export const newGames = [
+      {
+            "gameProviderId": 3,
+            "gameID": 529,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 16,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "PragmaticPlay",
+            "rtp": 0.960000,
+            "rows": 6,
+            "reels": 6,
+            "lines": 0,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Wisdom of Athena 1000",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/529/3_529_WisdomofAthena1000.png?v=5"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "雅典娜的智慧 1000",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/529/3_529_WisdomOfAthena1000_CN.png"
+                }
+            ],
+            "supportedCurrencies": [
+                "KZT",
+                "IDO",
+                "IDR",
+                "TMP",
+                "VND",
+                "VNO",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "INR",
+                "JPY",
+                "KHR",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MMK",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "THB",
+                "TRY",
+                "USD",
+                "ZAR"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":new_svg
+        },
+         {
+            "gameProviderId": 3,
+            "gameID": 467,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 13,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "PragmaticPlay",
+            "rtp": 0.965000,
+            "rows": 6,
+            "reels": 5,
+            "lines": 20,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Gates of Gatot Kaca 1000",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/PragmaticPlay/467/3_467_GatesofGatotKaca1000.png?v=6"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "印尼传奇迦多铎卡1000",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/images/games/PragmaticPlay/3_467_GatesofGatotKaca1000_CN.png"
+                }
+            ],
+            "supportedCurrencies": [
+                "KZT",
+                "IDO",
+                "IDR",
+                "TMP",
+                "VND",
+                "VNO",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "INR",
+                "JPY",
+                "KHR",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MMK",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "THB",
+                "TRY",
+                "USD",
+                "ZAR"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":new_svg
+        },
+         {
+            "gameProviderId": 1085,
+            "gameID": 2,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 3,
+            "device": "d,m",
+            "platform": "HTML5",
+            "provider": "VAGaming",
+            "rtp": 0.960000,
+            "rows": 5,
+            "reels": 4,
+            "lines": -1,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "Mahjong Self-Drawn Win 3",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/VAGaming/2/1085_2_MahjongSelfDrawnWin3.png"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "麻将自摸 3",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/VAGaming/2/1085_2_MahjongSelfDrawnWin3_CN.png"
+                }
+            ],
+            "supportedCurrencies": [
+                "TMP",
+                "AOA",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "ETB",
+                "EUR",
+                "GBP",
+                "GHS",
+                "HKD",
+                "HUF",
+                "IDO",
+                "IDR",
+                "INR",
+                "IRR",
+                "JPY",
+                "KES",
+                "KHR",
+                "KRW",
+                "KZT",
+                "LAK",
+                "LKR",
+                "LSL",
+                "MMK",
+                "MWK",
+                "MXN",
+                "MYK",
+                "MYR",
+                "MZN",
+                "NAD",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PEN",
+                "PHP",
+                "PLN",
+                "RUB",
+                "SEK",
+                "SLL",
+                "SZL",
+                "THB",
+                "TND",
+                "TRY",
+                "TZS",
+                "UAH",
+                "USD",
+                "VND",
+                "VNO",
+                "XAF",
+                "XOF",
+                "ZAR",
+                "ZMW"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":new_svg
+        },
+               {
+            "gameProviderId": 1046,
+            "gameID": 46,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 6,
+            "device": "d,m",
+            "platform": "HTML5",
+            "provider": "FaChai",
+            "rtp": 0.965000,
+            "rows": -1,
+            "reels": -1,
+            "lines": 32400,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "LEGEND OF INCA",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/Fachai/46/1046_46_LEGENDOFINCA.jpg"
+                },
+                {
+                    "language": "ZH_CN",
+                    "gameName": "印加传奇",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/Fachai/46/1046_46_LEGENDOFINCA_CN.jpg"
+                }
+            ],
+            "supportedCurrencies": [
+                "TMP",
+                "AED",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CLP",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "IDR",
+                "IDO",
+                "INR",
+                "JPY",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "RUB",
+                "SEK",
+                "SGD",
+                "THB",
+                "TRY",
+                "USD",
+                "VND",
+                "VNO",
+                "ZAR",
+                "MMK"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": true,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":new_svg
+        },
+               {
+            "gameProviderId": 1046,
+            "gameID": 56,
+            "gameType": 2,
+            "newGameType": 201,
+            "rank": 16,
+            "device": "d/m",
+            "platform": "HTML5",
+            "provider": "FaChai",
+            "rtp": 0.965000,
+            "rows": 0,
+            "reels": 0,
+            "lines": 0,
+            "gameInfos": [
+                {
+                    "language": "en",
+                    "gameName": "TREASURES OF ODIN",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/FaChai/56/1046_56_TREASURESOFODIN.jpg"
+                },
+                {
+                    "language": "zh_cn",
+                    "gameName": "奥丁之宝",
+                    "gameIconUrl": "https://cdn-test.cdn568.net/FaChai/56/1046_56_TREASURESOFODIN_CN.jpg"
+                }
+            ],
+            "supportedCurrencies": [
+                "TMP",
+                "AED",
+                "AUD",
+                "BDT",
+                "BND",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CLP",
+                "CNY",
+                "EUR",
+                "GBP",
+                "HKD",
+                "IDR",
+                "IDO",
+                "INR",
+                "JPY",
+                "KRW",
+                "LAK",
+                "LKR",
+                "MXN",
+                "MYR",
+                "NGN",
+                "NOK",
+                "NPR",
+                "NZD",
+                "PHP",
+                "PKR",
+                "RUB",
+                "SEK",
+                "SGD",
+                "THB",
+                "TRY",
+                "USD",
+                "VND",
+                "VNO",
+                "ZAR",
+                "MMK"
+            ],
+            "blockCountries": [],
+            "isMaintain": false,
+            "isEnabled": true,
+            "isProvideCommission": false,
+            "hasHedgeBet": false,
+            "providerStatus": "Online",
+            "isProviderOnline": true,
+            "badge":new_svg
+        },
+]
+export const tableGames = [
+    {
+        "gameProviderId": 1020,
+        "gameID": 216,
+        "gameType": 3,
+        "newGameType": 204,
+        "rank": 144,
+        "device": "d/m",
+        "platform": "HTML5",
+        "provider": "JiLiGaming",
+        "rtp": 0.97,
+        "rows": 0,
+        "reels": 0,
+        "lines": 0,
+        "gameInfos": [
             {
+                "language": "en",
+                "gameName": "Chicken Dash 10000",
+                "gameIconUrl": "https://cdn-test.cdn568.net/JiLiGaming/216/1020_216_ChickenDash10000.png"
+            }
+        ],
+        "supportedCurrencies": [
+            "CNY",
+            "USD",
+            "THB",
+            "MMK",
+            "INR",
+            "IDO",
+            "TMP",
+            "MYR",
+            "VNO",
+            "NPR",
+            "VND",
+            "IDR",
+            "JPY",
+            "BND",
+            "HKD",
+            "PHP",
+            "RUB",
+            "BDT",
+            "BRL",
+            "MXN",
+            "LAK",
+            "KRW",
+            "EUR",
+            "KHR"
+        ],
+        "blockCountries": [],
+        "isMaintain": false,
+        "isEnabled": true,
+        "isProvideCommission": false,
+        "hasHedgeBet": false,
+        "providerStatus": "Online",
+        "isProviderOnline": true
+    },
+     {
             "gameProviderId": 3,
             "gameID": 186,
             "gameType": 3,
@@ -2034,130 +2876,8 @@ export const RTPGames = [
             "hasHedgeBet": false,
             "providerStatus": "Online",
             "isProviderOnline": true,
-               "badge":drops_wins,
-             "badge_1":hot_rtp
-        },
-         {
-            "gameProviderId": 1029,
-            "gameID": 39,
-            "gameType": 2,
-            "newGameType": 201,
-            "rank": 352,
-            "device": "d,m",
-            "platform": "HTML5",
-            "provider": "568winGames",
-            "rtp": 0.990300,
-            "rows": 3,
-            "reels": 3,
-            "lines": 5,
-            "gameInfos": [
-                {
-                    "language": "en",
-                    "gameName": "Burger King",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/568WinGames/39/burgerKing.jpg"
-                },
-                {
-                    "language": "ZH_CN",
-                    "gameName": "汉堡王",
-                    "gameIconUrl": "https://cdn-test.cdn568.net/568WinGames/39/burgerKing.jpg"
-                }
-            ],
-            "supportedCurrencies": [
-                "AED",
-                "AUD",
-                "BDT",
-                "BRL",
-                "CAD",
-                "EUR",
-                "GBP",
-                "HKD",
-                "IDO",
-                "IDR",
-                "INR",
-                "JPY",
-                "KHR",
-                "KRW",
-                "LAK",
-                "MMK",
-                "MYR",
-                "NPR",
-                "PHP",
-                "SEK",
-                "THB",
-                "TMP",
-                "USD",
-                "VND",
-                "VNO",
-                "ZAR"
-            ],
-            "blockCountries": [
-                "CN"
-            ],
-            "isMaintain": true,
-            "isEnabled": false,
-            "isProvideCommission": false,
-            "hasHedgeBet": false,
-            "providerStatus": "Online",
-            "isProviderOnline": true,
-               "badge":drops_wins,
         
         },
-]
-export const tableGames = [
-    {
-        "gameProviderId": 1020,
-        "gameID": 216,
-        "gameType": 3,
-        "newGameType": 204,
-        "rank": 144,
-        "device": "d/m",
-        "platform": "HTML5",
-        "provider": "JiLiGaming",
-        "rtp": 0.97,
-        "rows": 0,
-        "reels": 0,
-        "lines": 0,
-        "gameInfos": [
-            {
-                "language": "en",
-                "gameName": "Chicken Dash 10000",
-                "gameIconUrl": "https://cdn-test.cdn568.net/JiLiGaming/216/1020_216_ChickenDash10000.png"
-            }
-        ],
-        "supportedCurrencies": [
-            "CNY",
-            "USD",
-            "THB",
-            "MMK",
-            "INR",
-            "IDO",
-            "TMP",
-            "MYR",
-            "VNO",
-            "NPR",
-            "VND",
-            "IDR",
-            "JPY",
-            "BND",
-            "HKD",
-            "PHP",
-            "RUB",
-            "BDT",
-            "BRL",
-            "MXN",
-            "LAK",
-            "KRW",
-            "EUR",
-            "KHR"
-        ],
-        "blockCountries": [],
-        "isMaintain": false,
-        "isEnabled": true,
-        "isProvideCommission": false,
-        "hasHedgeBet": false,
-        "providerStatus": "Online",
-        "isProviderOnline": true
-    },
     {
         "gameProviderId": 1020,
         "gameID": 215,

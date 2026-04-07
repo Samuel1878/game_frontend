@@ -12,11 +12,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { CopyIcon, DownloadIcon } from "lucide-vue-next";
 import { formattedAmount } from "@/utils";
+import { useI18n } from "vue-i18n";
 
 interface Props {
   open: boolean;
   withdrawal: withdrawalInfo | null;
 }
+const {t} = useI18n();
 
 const props = defineProps<Props>();
 const emit = defineEmits(["update:open", "exported"]);
@@ -55,11 +57,11 @@ const exportData = () => {
 
 <template>
   <Dialog :open="open" @update:open="emit('update:open', $event)">
-    <DialogContent class="bg-gray-900 border border-gray-800 text-white max-w-lg rounded-2xl">
+    <DialogContent class="w-sm bg-gray-900 cursor-pointer bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_5px_rgba(0,0,0,0.5)] transition text-white max-w-lg rounded-2xl">
       
       <DialogHeader>
         <DialogTitle class="text-xl font-bold">
-          Withdrawal Details
+          {{ t("detail") }}
         </DialogTitle>
       </DialogHeader>
 
@@ -67,7 +69,7 @@ const exportData = () => {
 
         <!-- Transaction ID -->
         <div class="flex justify-between items-center">
-          <span class="text-gray-400 text-sm">Transaction ID</span>
+          <span class="text-gray-400 text-sm">{{ t("invoice_id") }}</span>
           <div class="flex items-center gap-2">
             <span class="font-semibold text-sm">{{ withdrawal.txn_id }}</span>
             <CopyIcon class="w-4 h-4 cursor-pointer text-gray-400 hover:text-white" @click="copyTxn" />
@@ -76,7 +78,7 @@ const exportData = () => {
 
         <!-- Amount -->
         <div class="flex justify-between">
-          <span class="text-gray-400 text-sm">Amount</span>
+          <span class="text-gray-400 text-sm">{{ t("amount") }}</span>
           <span class="text-emerald-400 font-semibold">
             {{ formattedAmount(Number(props.withdrawal?.amount)) }}
           </span>
@@ -84,24 +86,24 @@ const exportData = () => {
 
         <!-- Payment Method -->
         <div class="flex justify-between">
-          <span class="text-gray-400 text-sm">Payment Method</span>
+          <span class="text-gray-400 text-sm">{{ t("payment_method") }}</span>
           <span>{{ withdrawal.payment_method }}</span>
         </div>
 
         <!-- Withdraw Account -->
         <div class="flex justify-between">
-          <span class="text-gray-400 text-sm">Withdraw Name</span>
+          <span class="text-gray-400 text-sm">{{ t("account_name") }}</span>
           <span>{{ withdrawal.withdraw_name }}</span>
         </div>
 
         <div class="flex justify-between">
-          <span class="text-gray-400 text-sm">Withdraw No</span>
+          <span class="text-gray-400 text-sm">{{ t("account_number") }}</span>
           <span>{{ withdrawal.withdraw_no }}</span>
         </div>
 
         <!-- Status -->
         <div class="flex justify-between items-center">
-          <span class="text-gray-400 text-sm">Status</span>
+          <span class="text-gray-400 text-sm">{{ t("status") }}</span>
           <span
             class="px-3 py-1 text-sm rounded-full"
             :class="{
@@ -116,7 +118,7 @@ const exportData = () => {
 
         <!-- Date -->
         <div class="flex justify-between">
-          <span class="text-gray-400 text-sm">Date</span>
+          <span class="text-gray-400 text-sm">{{ t("date") }}</span>
           <span class="text-gray-400 text-sm">
             {{ formattedDate }}
           </span>
@@ -124,14 +126,14 @@ const exportData = () => {
 
         <!-- Remark -->
         <div v-if="withdrawal.remark" class="border-t border-gray-800 pt-3">
-          <p class="text-gray-400 text-sm mb-1">Remark</p>
+          <p class="text-gray-400 text-sm mb-1">{{ t("remark") }}</p>
           <p class=" text-gray-200 text-xs">{{ withdrawal.remark }}</p>
         </div>
       </div>
 
       <DialogFooter class="mt-6 flex justify-between">
         <Button variant="outline" @click="close">
-          Close
+          {{ t("close") }}
         </Button>
 
         <Button
@@ -139,7 +141,7 @@ const exportData = () => {
           @click="exportData"
         >
           <DownloadIcon class="w-4 h-4" />
-          Export
+          {{ t("download") }}
         </Button>
       </DialogFooter>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { amounts, paymentMethod } from "@/consts";
+import { amounts, paymentMethod, type paymentTypes } from "@/consts";
 import { ref } from "vue";
 import {
   InputGroup,
@@ -7,77 +7,142 @@ import {
   InputGroupInput,
   InputGroupText,
 } from "@/components/ui/input-group";
-import router from "@/router";
-import { useI18n } from "vue-i18n";
-import { discord, formatPrice, telegram, viber } from "@/utils";
 import { Headset, HistoryIcon } from "lucide-vue-next";
-const amount = ref<number>();
+import router from "@/router";
+import { discord, formatPrice, receipt_icon, telegram, viber } from "@/utils";
+import { useI18n } from "vue-i18n";
+const amount = ref<number>(0);
 const { t } = useI18n();
-const setAmount = (a:number)=>{
-  amount.value = a
-}
+const setAmount = (a: number) => {
+  amount.value = a;
+};
+const goToPayment = (payment: paymentTypes) => {
+  if (amount.value > 2000) {
+    router.push(`/withdraw/${payment.value}?amount=${amount.value}`);
+  }
+};
 </script>
 <template>
-  <main class="text-gray-100 bg-gray-950 flex flex-col justify-between p-2 w-full">
-    <div>
-    <section class="p-2 rounded-lg bg-linear-to-br shadow-inner shadow-gray-800 from-gray-800 to-gray-900">
-      <div class="flex justify-between items-center my-3">
-        <h1 class="text-md text-gray-50 font-bold">{{ t('set_withdraw_amount') }}</h1>
-        <button class="p-2 bg-gray-700 rounded-2xl" @click="router.push(`/transactions`)">
-          <HistoryIcon />
-        </button>
-      </div>
-      <InputGroup class="h-12 rounded-lg font-bold border-0 ring-gray-700 ring bg-gray-950">
+  <main
+    class="text-gray-100 min-h-screen flex justify-center bg-linear-to-b from-gray-900 to-gray-800 w-full"
+  >
+   
+    <div class="flex flex-col p-2 w-full max-w-3xl">
+      <div>
+        <!-- Amount Section -->
+        <section
+          class="p-4 rounded-2xl bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+        >
+          <!-- Header -->
+          <div class="flex justify-between items-center mb-4">
+            <h1 class="text-lg font-bold tracking-wide">
+              {{ t("set_withdraw_amount") }}
+            </h1>
+            <button
+              class="px-2 py-2 border-white/10 border shadow-inner backdrop-blur-2xl rounded-lg bg-linear-to-br from-white/5 via-white/10 to-white/5 bg-gray-800 hover:bg-white/10 transition"
+              @click="router.push('/transactions')"
+            >
+              <img class="" :src="receipt_icon"/>
+            </button>
+          </div>
 
-        <InputGroupAddon>
-          <InputGroupText class="font-bold text-gray-200">K</InputGroupText>
-        </InputGroupAddon>
-        <InputGroupInput v-model="amount" type="number" class="text-sky-400" placeholder="0.00" />
-        <InputGroupAddon align="inline-end">
-          <InputGroupText class="text-gray-100">MMK</InputGroupText>
-        </InputGroupAddon>
-      </InputGroup>
-      <div class="text-sky-400 w-full grid grid-cols-4 grid-rows-2 my-3 gap-2">
-        <button @click="setAmount(a)" v-for="a in amounts" class="border border-gray-700 p-2 rounded-lg bg-gray-900 font-bold text-md">
-          {{ formatPrice(a) }}
-        </button>
+          <!-- Input -->
+          <InputGroup
+            class="h-14 rounded-xl bg-gray-900/50 border border-white/10 focus-within:ring-2 focus-within:ring-sky-400 transition"
+          >
+            <InputGroupAddon>
+              <InputGroupText class="text-gray-400 font-bold">K</InputGroupText>
+            </InputGroupAddon>
+
+            <InputGroupInput
+              v-model="amount"
+              type="number"
+              class="text-sky-400 text-lg font-bold bg-transparent"
+              placeholder="0.00"
+            />
+
+            <InputGroupAddon align="inline-end">
+              <InputGroupText class="text-gray-400">MMK</InputGroupText>
+            </InputGroupAddon>
+          </InputGroup>
+
+          <!-- Quick Amounts -->
+          <div class="grid grid-cols-4 gap-2 mt-4">
+            <button
+              v-for="a in amounts"
+              :key="a"
+              @click="setAmount(a)"
+              :class="[
+                'py-2 rounded-lg text-sm font-semibold transition',
+                amount === a
+                  ? 'bg-sky-500 text-white shadow-lg shadow-sky-500/30'
+                  : 'bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300',
+              ]"
+            >
+              {{ formatPrice(a) }}
+            </button>
+          </div>
+        </section>
+
+        <section class="mt-6">
+          <h1 class="text-md font-bold text-center mb-4">
+            {{ t("choose_payment_method") }}
+          </h1>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div
+              v-for="payment in paymentMethod"
+              :key="payment.id"
+              @click="goToPayment(payment)"
+              class="group p-4 rounded-2xl bg-linear-to-br from-white/5 to-white/10 border border-white/10 hover:border-sky-400/40 hover:shadow-lg hover:shadow-sky-500/10 active:scale-[0.97] transition flex flex-col items-center gap-3"
+            >
+              <div
+                class="p-3 rounded-xl bg-black/40 backdrop-blur-2xl group-hover:scale-110 transition"
+              >
+                <img
+                  :src="payment.icon"
+                  class="w-12 h-12 object-cover rounded-lg"
+                />
+              </div>
+
+              <p class="font-semibold text-gray-200 group-hover:text-white">
+                {{ payment.label }}
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
 
-    </section>
-    <section v-show="amount && amount > 1000">
-      <h1 class="text-md text-gray-50 my-3 font-bold text-center">{{ t('choose_payment_method') }}</h1>
-      <div class="grid grid-cols-2 gap-4">
+      <section
+        class="mt-6 p-4 rounded-2xl bg-linear-to-br from-white/5 to-white/10 border border-white/10 backdrop-blur-xl"
+      >
+        <p class="text-center font-semibold mb-4">
+          {{ t("need_help") }}
+        </p>
 
-        <RouterLink :disabled="amount && amount > 1000" v-for="payment in paymentMethod" :key="payment.id"
-          :to="`/withdraw/${payment.value}?amount=${amount}`"
-          class="p-2 px-4 flex flex-col bg-gray-900 shadow-inner cursor-pointer shadow-gray-700 justify-between gap-4 rounded-xl items-center">
-          <img :src="payment.icon" alt="logo"
-            class="w-15 h-15 p-2 bg-gray-800 object-cover rounded-2xl overflow-hidden" />
+        <div class="flex justify-center gap-5">
+          <!-- Support -->
+          <div
+            class="w-10 h-10 rounded-full bg-amber-400 flex items-center justify-center shadow-md"
+          >
+            <Headset class="text-black" />
+          </div>
 
-          <p class="text-gray-100 font-bold text-md">
-            {{ payment.label }}
-          </p>
-        </RouterLink>
-      </div>
-    </section>
-    </div>
-    <div class="rounded-md border-gray-800 bg-gray-900 mt-6 p-3 text-sm">
-      <p class="mb-4 text-center text-lg font-bold">{{ t('need_help') }}</p>
-      <div class="flex items-center justify-center gap-4">
-        <div class="text-black bg-amber-400 h-9 rounded-full w-9 flex justify-center items-center">
-          <Headset/>
+          <!-- Socials -->
+          <img
+            :src="viber"
+            class="w-10 h-10 hover:scale-110 transition cursor-pointer"
+          />
+          <img
+            :src="telegram"
+            class="w-10 h-10 hover:scale-110 transition cursor-pointer"
+          />
+          <img
+            :src="discord"
+            class="w-10 h-10 hover:scale-110 transition cursor-pointer"
+          />
         </div>
-        <div>
-          <img :src="viber"/>
-        </div>
-         <div>
-          <img :src="telegram"/>
-        </div>
-         <div>
-          <img :src="discord"/>
-        </div>
-      </div>
+      </section>
     </div>
   </main>
 </template>
-

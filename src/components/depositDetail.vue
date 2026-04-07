@@ -14,28 +14,8 @@ import { CopyIcon, DownloadIcon } from "lucide-vue-next";
 import { formatPrice } from "@/utils";
 import moment from "moment";
 import { Button } from "./ui/button";
-
-// export interface DepositFormData {    
-//   id?: number;
-//   inv_id?: string;
-//   user_id: number | null;
-//   payment: string | null;
-//   request_amount: number | null;
-//   actual_amount?: number;
-//   uuid?: string | null;
-//   completed?: boolean;
-//   status?: string;
-//   remark?: string;
-//   account_no: string | null;
-//   account_name: string | null;
-//   created_at?: string;
-//   updated_at?: string;
-//   tid: string;
-//   payment_account?: string | null;
-//   payment_number?: string | null;
-//   ref_no?: string | null;
-// }
-
+import { useI18n } from "vue-i18n";
+const {t} = useI18n();
 const props = defineProps<{
   open: boolean;
   deposit: depositFormData | null;
@@ -92,15 +72,15 @@ const copyTxn = () => {
 
 <template>
   <Dialog :open="open" @update:open="(val:boolean) => emit('update:open', val)">
-    <DialogContent class="bg-gray-900 border border-gray-800 text-white max-w-lg rounded-2xl">
+    <DialogContent class="bg-gray-900 cursor-pointer bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_5px_rgba(0,0,0,0.5)] transition rounded-2xl text-white max-w-lg w-sm">
       <DialogHeader>
-        <DialogTitle>Deposit Transaction Details</DialogTitle>
+        <DialogTitle>{{ t("detail") }}</DialogTitle>
       </DialogHeader>
 
       <div class="grid gap-2 py-2 md:grid-cols-2">
 
         <div class="flex justify-between items-center text-sm">
-          <label class="text-gray-400 text-sm">Invoice ID</label>
+          <label class="text-gray-400 text-sm">{{ t('invoice_id') }}</label>
           <p class="text-white text-sm font-semibold flex gap-2">
             {{ localDeposit?.inv_id }}  
             <CopyIcon class="w-4 h-4 cursor-pointer text-gray-400 hover:text-white" @click="copyTxn" />
@@ -112,30 +92,30 @@ const copyTxn = () => {
           <p class="text-white font-semibold">{{ localDeposit?.tid }}</p>
         </div>
         <div class="flex justify-between items-center text-sm">
-          <label class="text-gray-400 text-sm">Payment Method</label>
+          <label class="text-gray-400 text-sm">{{ t("payment_method") }}</label>
           <p class="text-white font-semibold">{{ localDeposit?.payment }}</p>
         </div>
 
         <div class="flex justify-between items-center text-sm">
-          <label class="text-gray-400 text-sm">Request Amount</label>
+          <label class="text-gray-400 text-sm">{{ t("request_amount") }}</label>
           <p class="text-sky-400 font-semibold">{{ formatPrice(localDeposit?.request_amount ?? 0)  }} MMK</p>
         </div>
 
         <div class="flex justify-between items-center text-sm">
-          <label class="text-gray-400 text-sm">Actual Amount</label>
+          <label class="text-gray-400 text-sm">{{ t("actual_amount") }}</label>
           <p class="text-sky-400 font-semibold">{{formatPrice(localDeposit?.actual_amount ?? 0)  }} MMK</p>
         </div>
         <div class="flex justify-between items-center text-sm">
-          <label class="text-gray-400 text-sm">Account Name</label>
+          <label class="text-gray-400 text-sm">{{ t("account_name") }}</label>
           <p class="text-white font-semibold">{{ localDeposit?.account_name }}</p>
         </div>
 
         <div class="flex justify-between items-center text-sm">
-          <label class="text-gray-400 text-sm">Account Number</label>
+          <label class="text-gray-400 text-sm">{{ t("account_number") }}</label>
           <p class="text-white font-semibold">{{ localDeposit?.account_no }}</p>
         </div>
         <div class="flex justify-between items-center text-sm">
-          <label class="text-gray-400 text-sm">Status</label>
+          <label class="text-gray-400 text-sm">{{ t("status") }}</label>
           <p
             class="px-2 py-1 w-fit text-sm rounded-full capitalize"
             :class="{
@@ -149,12 +129,12 @@ const copyTxn = () => {
         </div>
 
         <div class="md:col-span-2 flex justify-between items-center text-sm">
-          <label class="text-gray-400 text-sm">Remark</label>
+          <label class="text-gray-400 text-sm">{{ t("remark") }}</label>
           <p class="text-white font-semibold text-xs">{{ localDeposit?.remark }}</p>
         </div>
 
         <div class="md:col-span-2 flex justify-between items-center text-sm">
-          <label class="text-gray-400 text-sm">Date</label>
+          <label class="text-gray-400 text-sm">{{ t("date") }}</label>
           <p class="text-white font-semibold">{{moment(localDeposit?.created_at).format("DD/MM/YYYY hh:mm A") }}</p>
         </div>
 
@@ -165,7 +145,7 @@ const copyTxn = () => {
           @click="emit('update:open', false)"
           class="px-4 py-2 rounded-md border border-sky-100"
         >
-          Close
+          {{ t("close") }}
         </Button>
  
 
@@ -175,7 +155,7 @@ const copyTxn = () => {
           class="px-4 py-2 bg-sky-500 text-white font-bold rounded-md flex gap-2"
         >
             <DownloadIcon/>
-          Export CSV
+          {{ t("download") }}
         </Button>
       </DialogFooter>
     </DialogContent>

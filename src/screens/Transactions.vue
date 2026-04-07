@@ -7,6 +7,7 @@ import { ref, computed, onMounted, watch } from "vue";
 import moment from "moment";
 import DepositDetail from "@/components/depositDetail.vue";
 import WithdrawDetail from "@/components/withdrawDetail.vue";
+import { useI18n } from "vue-i18n";
 type Type = "deposit" | "withdraw";
 
 const activeTab = ref<Type>("deposit");
@@ -16,9 +17,9 @@ const selectedDeposit = ref<depositFormData | null>(null);
 // pagination
 const currentPage = ref(1);
 const perPage = 5;
-
+const{t} = useI18n()
 // date filter
-const dateFilter = ref<"7" | "30" | "all">("7");
+
 const deposits = ref<depositFormData[]>([]);
 const withdrawals = ref<withdrawalInfo[]>([]);
 const showWithdrawDialog = ref(false);
@@ -46,12 +47,12 @@ const fetchData = async () => {
 watch(
   () => activeTab.value,
   async () => {
-    authStore.isLoggedIn && (await fetchData());
+    authStore.accessToken && authStore.user && (await fetchData());
     loading.value = false;
   },
 );
 onMounted(async () => {
-  authStore.isLoggedIn && (await fetchData());
+  authStore.accessToken&& authStore.user && (await fetchData());
   loading.value = false;
 });
 
@@ -88,30 +89,15 @@ const viewDeposit = (deposit: depositFormData) => {
 </script>
 
 <template>
-  <main class="min-h-screen bg-linear-to-b w-full from-gray-950 to-black px-4">
+  <main class="min-h-screen bg-linear-to-b w-full from-gray-900 to-gray-800 px-4">
     <div class="max-w-5xl mx-auto space-y-8">
       <!-- Header -->
       <div
         class="flex flex-col md:flex-row md:justify-between md:items-center gap-4"
       >
-        <h1 class="text-3xl font-bold text-white">Transaction History</h1>
+        <h1 class="text-lg font-bold text-white">{{ t("transaction_history") }}</h1>
 
         <!-- Date Filter -->
-        <div class="flex gap-3">
-          <button
-            v-for="option in ['7', '30', 'all']"
-            :key="option"
-            @click="dateFilter = option as any"
-            :class="[
-              'px-4 py-2 rounded-lg text-sm font-semibold',
-              dateFilter === option
-                ? 'bg-sky-600 text-white'
-                : 'bg-gray-800 text-gray-400',
-            ]"
-          >
-            {{ option === "all" ? "All" : option + " Days" }}
-          </button>
-        </div>
       </div>
 
       <!-- Tabs -->
@@ -120,24 +106,24 @@ const viewDeposit = (deposit: depositFormData) => {
           @click="activeTab = 'deposit'"
           :class="
             activeTab === 'deposit'
-              ? 'bg-sky-600 text-white px-6 py-2 rounded-xl flex gap-2 items-center'
+              ? 'bg-sky-600 text-white flex-1 px-6 py-2 rounded-xl flex gap-2 items-center'
               : 'bg-gray-800 text-gray-400 px-6 py-2 rounded-xl flex gap-2 items-center'
           "
         >
           <Wallet2Icon />
-          <p>Deposits</p>
+          <p>{{ t('deposit')}}</p>
         </button>
 
         <button
           @click="activeTab = 'withdraw'"
           :class="
             activeTab === 'withdraw'
-              ? 'bg-emerald-600 text-white px-6 py-2 rounded-xl flex gap-2 items-center'
+              ? 'bg-emerald-600 text-white flex-1 px-6 py-2 rounded-xl flex gap-2 items-center'
               : 'bg-gray-800 text-gray-400 px-6 py-2 rounded-xl flex gap-2 items-center'
           "
         >
           <CoinsIcon />
-          <p>Withdrawals</p>
+          <p>{{ t('withdraw') }}</p>
         </button>
       </div>
 
@@ -159,10 +145,10 @@ const viewDeposit = (deposit: depositFormData) => {
             <div
               class="grid grid-cols-4 bg-gray-800 text-gray-400 text-sm px-6 py-3"
             >
-              <span>ID</span>
-              <span>Amount</span>
-              <span>Status</span>
-              <span>Date</span>
+              <span>{{ t('id') }}</span>
+              <span>{{ t('amount') }}</span>
+              <span>{{t('status')}}</span>
+              <span>{{ t("date") }}</span>
             </div>
 
             <div
@@ -199,7 +185,7 @@ const viewDeposit = (deposit: depositFormData) => {
               v-for="txn in paginatedDeposits"
               :key="txn.id"
               @click="viewDeposit(txn)"
-              class="bg-gray-900 border border-gray-800 rounded-2xl p-4 space-y-2"
+              class="p-4 space-y-2 cursor-pointer bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_5px_rgba(0,0,0,0.5)] transition rounded-2xl"
             >
               <!-- <div class="flex justify-between">
                 <span class="text-gray-400 text-sm">ID</span>
@@ -207,14 +193,14 @@ const viewDeposit = (deposit: depositFormData) => {
               </div> -->
 
               <div class="flex justify-between">
-                <span class="text-gray-400 text-sm">Amount</span>
+                <span class="text-gray-400 text-sm">{{t('amount')}}</span>
                 <span class="font-bold text-white">
                   {{ formatAmount(Number(txn.request_amount)) }}
                 </span>
               </div>
 
               <div class="flex justify-between">
-                <span class="text-gray-400 text-sm">Status</span>
+                <span class="text-gray-400 text-sm">{{t('status')}}</span>
                 <span
                   class="px-2 py-1 text-sm font-bold rounded-full capitalize"
                   :class="{
@@ -228,7 +214,7 @@ const viewDeposit = (deposit: depositFormData) => {
               </div>
 
               <div class="flex justify-between">
-                <span class="text-gray-400 text-sm">Date</span>
+                <span class="text-gray-400 text-sm">{{t('date')}}</span>
                 <span class="text-gray-400 text-sm">{{
                   moment(txn?.created_at).format("DD-MM-YYYY hh:mm A")
                 }}</span>
@@ -244,10 +230,10 @@ const viewDeposit = (deposit: depositFormData) => {
             <div
               class="grid grid-cols-4 bg-gray-800 text-gray-400 text-sm px-6 py-3"
             >
-              <span>ID</span>
-              <span>Amount</span>
-              <span>Status</span>
-              <span>Date</span>
+              <span>{{ t('id') }}</span>
+              <span>{{t('amount')}}</span>
+              <span>{{t("status")}}</span>
+              <span>{{t("date")}}</span>
             </div>
 
             <div
@@ -284,22 +270,22 @@ const viewDeposit = (deposit: depositFormData) => {
               v-for="txn in paginatedWithdrawals"
               :key="txn.id"
               @click="viewWithdrawal(txn)"
-              class="bg-gray-900 border border-gray-800 rounded-2xl p-4 space-y-2"
+              class="bg-gray-900 p-4 space-y-2 cursor-pointer bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_5px_rgba(0,0,0,0.5)] transition rounded-2xl"
             >
               <div class="flex justify-between">
-                <span class="text-gray-400 text-sm">ID</span>
+                <span class="text-gray-400 text-sm">{{ t('id') }}</span>
                 <span class="text-white text-sm">{{ txn.txn_id }}</span>
               </div>
 
               <div class="flex justify-between">
-                <span class="text-gray-400 text-sm">Amount</span>
+                <span class="text-gray-400 text-sm">{{ t("amount") }}</span>
                 <span>
                   {{ formatAmount(Number(txn.amount)) }}
                 </span>
               </div>
 
               <div class="flex justify-between">
-                <span class="text-gray-400 text-sm">Status</span>
+                <span class="text-gray-400 text-sm">{{t('status')}}</span>
                 <span
                   class="px-2 py-1 text-xs rounded-full capitalize"
                   :class="{
@@ -313,7 +299,7 @@ const viewDeposit = (deposit: depositFormData) => {
               </div>
 
               <div class="flex justify-between">
-                <span class="text-gray-400 text-sm">Date</span>
+                <span class="text-gray-400 text-sm">{{ t('date') }}</span>
                 <span class="text-gray-400 text-sm">{{
                   moment(txn?.created_at).format("DD-MM-YYYY hh:mm a")
                 }}</span>

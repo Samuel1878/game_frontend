@@ -1,124 +1,109 @@
-
 import { defineStore } from "pinia";
 import api from "@/services/api";
 import { initSocket, disconnectSocket } from "@/socket";
-import { toast } from "vue-sonner";
 import type { userInfo } from "@/utils/types";
 import router from "@/router";
 
-
 export const useAuthStore = defineStore("auth", {
   state: () => ({
+    accessToken: null as string | null,
     user: null as userInfo | null,
-    isLoggedIn: false,
-    loading: true,
+    initialized: false,
   }),
 
   actions: {
+    setToken(token: string) {
+      this.accessToken = token;
+    },
 
-    // async login(payload: { name: string; password: string }) {
-    //   try {
-    //     const res = await api.post("/auth/login", payload);
-    //     this.user = res.data;
-    //     this.isLoggedIn = true;
+    setUser(user: userInfo) {
+      this.user = user;
+    },
 
-    //     initSocket();
-    //     return {status:200 , message:"Successfully logged in"}
-    //   } catch (err:apiError) {
-    //     console.log(err);
-    //     this.logout();
-    //     return {status:err?.status}
-    //   }
-    // },
-async login(payload: { name: string; password: string }) {
-  try {
-    const res = await api.post("/auth/login", payload);
-
-    // ✅ store user
-    this.user = res.data.user;
-
-    // ✅ store token (if exists)
-    if (res.data.token) {
-      localStorage.setItem("token", res.data.token);
-      api.defaults.headers.common["Authorization"] = `Bearer ${res.data.token}`;
-    }
-
-    this.isLoggedIn = true;
-
-    // ✅ init socket after login
-    initSocket();
-
-    return {
-      status: 200,
-      message: "Successfully logged in",
-    };
-
-  } catch (err: any) {
-    console.error("Login error:", err);
-
-    this.logout();
-
-    return {
-      status: err?.response?.status || 500,
-      message:
-        err?.response?.data?.message ||
-        "Invalid username or password",
-    };
-  }
-},
-    async autoLogin() {
+    clearAuth() {
+      this.accessToken = null;
+      this.user = null;
+      disconnectSocket();
+    },
+    async login(payload: { name: string; password: string }) {
       try {
-        const res = await api.get("/user/profile");
-
-        this.user = res.data;
-        this.isLoggedIn = true;
-
-        initSocket(); // connect socket after session verified
+        const res = await api.post("/auth/login", payload);
+        console.log("response", res);
+        this.setToken(res.data.accessToken);
+        await this.fetchUser();
+        initSocket();
+        return {
+          status: 200,
+          message: "Successfully logged in",
+        };
+      } catch (err: any) {
+        console.error("Login error:", err);
+        this.logout();
+        return {
+          status: err?.response?.status || 500,
+          message:
+            err?.response?.data?.message || "Invalid username or password",
+        };
+      }
+    },
+    async fetchUser() {
+      const res = await api.get("/user/profile");
+      console.log("Fetched user profile:", res.data);
+      this.setUser(res.data);
+    },
+    async init() {
+      try {
+        const res = await api.post("/auth/refresh");
+        console.log("Token refreshed:", res.data);
+        this.setToken(res.data.accessToken);
+        await this.fetchUser();
+        initSocket(); // reconnect socket on reload
       } catch {
-        this.user = null;
-        this.isLoggedIn = false;
+        this.clearAuth();
       } finally {
-        this.loading = false;
+        this.initialized = true;
       }
     },
 
-      async register(payload: { name?: string | null; password: string }) {
-
+    async register(payload: { name?: string | null; password: string }) {
       try {
-        const response = await api.post('/auth/register', payload)
-        console.log("response", response) 
-        if (response.status === 200 || response.status === 201) { 
+        const response = await api.post("/auth/register", payload);
+        console.log("response", response);
+        if (response.status === 200 || response.status === 201) {
           this.user = response.data;
-          this.isLoggedIn = true;
-          initSocket();
-          this.loading = false
-          toast.success("Registration successful.");
-          return 
+        this.setToken(response.data.accessToken);
+        await this.fetchUser();
+        initSocket();
+
+          return {
+            status: 200,
+            message: "Successfully logged in",
+          };
+        } else if (response.status === 203) {
+          return {
+            status: 203,
+            message: response.data?.message || "User already exit",
+          };
         }
-        else if (response.status ===203){
-          toast.warning(response.data?.message);
-          return 
-        }
-        console.log("registration failed", response?.data)
-        this.logout()
+        this.logout();
       } catch (error) {
-        this.logout()
-        toast.warning("registration failed")
-        console.log("error", error)
-      }
+        this.logout();
+        return {
+          status:500,
+          message:"Something went wrong"
+        }
+      } 
     },
 
     async logout() {
       try {
         await api.post("/auth/logout");
       } catch {
-        console.log("logout failed")
+        console.log("logout failed");
       }
 
-      this.user = null;
-      this.isLoggedIn = false;
-      disconnectSocket();
-      router.replace("/")
+      this.clearAuth();
+      router.replace("/");
     },
   },
 });

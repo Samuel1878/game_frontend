@@ -6,13 +6,14 @@ import Deposit from "./screens/Deposit/Deposit.vue";
 import { useAuthStore } from "./stores/auth";
 import { useUIStore } from "./stores/ui";
 import Payments from "./screens/Deposit/payments.vue";
-import Profile from "./screens/Profile.vue";
+import Profile from "./screens/User/Profile.vue";
 import PaymentsWithdraw from "@/screens/Withdrawal/payment.vue";
 import Help from "./screens/help.vue";
 import Terms from "./screens/terms.vue";
 import Policy from "./screens/policy.vue";
 import Responsible from "./screens/responsible.vue";
 import Transactions from "./screens/Transactions.vue";
+import BankAccount from "./screens/User/bankAccount.vue";
 
 const routes = [
   {
@@ -47,8 +48,13 @@ const routes = [
     meta:{requiresAuth:true}
   },
   {
-    path:"/profile",
+    path:"/user/profile",
   component:Profile,
+  meta:{requiresAuth:true}
+},
+{
+  path:"/user/bank-accounts",
+  component:BankAccount,
   meta:{requiresAuth:true}
 },
 {
@@ -76,6 +82,10 @@ const routes = [
     component:Responsible,
     meta:{requiresAuth:false}
   },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
+  },
 ]
 
 const router = createRouter({
@@ -83,14 +93,17 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to) => {
+router.beforeEach(async (to, _, next) => {
   const auth = useAuthStore()
   const ui = useUIStore()
-
-  if (to.meta.requiresAuth && !auth.isLoggedIn) {
+  if (!auth.initialized) {
+    // await auth.init();
+  }
+  if (to.meta.requiresAuth && !auth.accessToken) {
     ui.openAuthModal(to.fullPath) 
     return false 
   }
+  next()
 })
 
 export default router

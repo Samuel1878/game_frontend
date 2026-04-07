@@ -29,18 +29,19 @@ const scrollTop = (dir: "left" | "right") => {
         {{ t("view_more") }}
         </RouterLink> -->
         <button @click="scrollTop('left')"
-          class="bg-gray-800 hover:bg-gray-700/80 shadow-gray-700/50 shadow-inner px-2 h-8 rounded-sm transition">
-          <ChevronLeft class="w-5 h-5 text-sky-400" />
+          class="bg-gray-700/50 border-white/10 border hover:bg-gray-700/80 shadow-white/10 px-2 h-8 rounded-sm transition">
+          <ChevronLeft class="w-5 h-5 text-gray-400" />
         </button>
         <button @click="scrollTop('right')"
-          class="bg-gray-800 hover:bg-gray-700/80 px-2 h-8 rounded-sm shadow-gray-700/50 shadow-inner transition">
-          <ChevronRight class="w-5 h-5 text-sky-400" />
+          class="bg-gray-700/50 hover:bg-gray-700/80 border-white/10 border px-2 h-8 rounded-sm shadow-white/10 transition">
+          <ChevronRight class="w-5 h-5 text-gray-400" />
         </button>
       </div>
     </div>
-    <div class="flex bg-gray-900 gap-1.5 items-center w-full overflow-x-auto no-scrollbar scroll-smooth"
+    <div class="flex backdrop-blur-2xl gap-1.5 items-center w-full overflow-x-auto no-scrollbar scroll-smooth"
       ref="topGameRef">
-      <div v-for="game in gameData" class="rounded-md relative"  @click="handler?.(game)">
+      <div v-for="game in gameData" class="rounded-md relative 
+        shadow-inner border border-white/20"  @click="handler?.(game)">
         <div class="">
           <!-- <img v-show="label" :src="label" :class="labelStyle" class="absolute top-1 left-1"/> -->
             <div v-if="game.badge" class="flex gap-1 absolute top-1 left-1">

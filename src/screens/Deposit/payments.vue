@@ -7,7 +7,7 @@ import {
   InputGroupText,
 } from "@/components/ui/input-group";
 import { toast } from "vue-sonner";
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useClipboard } from "@vueuse/core";
 import {
@@ -15,7 +15,6 @@ import {
   Copy,
   CreditCardIcon,
   LoaderCircleIcon,
-  LoaderPinwheel,
   PhoneIcon,
   RefreshCcw,
 } from "lucide-vue-next";
@@ -34,8 +33,12 @@ const { t } = useI18n();
 const route = useRoute();
 const auth = useAuthStore();
 const priority = ref(1);
-const changePriority = () => {
+const switching = ref(false);
+const submitting = ref(false);
+const changePriority = async () => {
   if (!payments.value?.length) return;
+
+  switching.value = true;
 
   const priorities = [
     ...new Set(payments.value.map((e) => Number(e.priority))),
@@ -49,6 +52,10 @@ const changePriority = () => {
       : currentIndex + 1;
 
   priority.value = priorities[nextIndex] || 1;
+
+  setTimeout(() => {
+    switching.value = false;
+  }, 300);
 };
 const chosenAccount = computed(() => {
   if (!payments.value?.length) return null;
@@ -58,8 +65,6 @@ const chosenAccount = computed(() => {
   );
 
   if (found) return found;
-
-  // fallback to lowest priority
   const sorted = [...payments.value].sort(
     (a, b) => Number(a.priority) - Number(b.priority),
   );
@@ -73,7 +78,7 @@ const form = ref({
   last5Digit: "",
   account_no: "",
 });
-const { text, copy } = useClipboard({ source: "" });
+const {  copy } = useClipboard({ source: "" });
 const payment = computed(
   () => paymentMethod.filter((e) => e.value === route.params.payment_method)[0],
 );
@@ -100,7 +105,10 @@ const getPaymentMethods = async () => {
   }
 };
 const submitHandler = async () => {
-  if (!payment.value) {
+  if (submitting.value) return;
+  submitting.value = true;
+  try {
+      if (!payment.value) {
     toast.error("Invalid payment method");
     return;
   } else if (
@@ -112,44 +120,46 @@ const submitHandler = async () => {
     return;
   } else if (!amount) {
     toast.error("Invalid amount!");
-  } else if (auth.isLoggedIn === false) {
+  } else if (auth.accessToken === null || auth.user === null) {
     toast.error("Login to submit deposit request");
 
     return;
   }
-  const data: depositFormData = {
-    account_name: form.value.account_name,
-    tid: form.value.last5Digit,
-    request_amount: parseFloat(amount as string),
-    payment: payment.value?.value || null,
-    account_no: form.value.account_no,
-    user_id: auth.user?.id || null,
-    uuid: auth.user?.uid || null,
+    const data: depositFormData = {
+      account_name: form.value.account_name,
+      tid: form.value.last5Digit,
+      request_amount: parseFloat(amount as string),
+      payment: payment.value?.value || null,
+      account_no: form.value.account_no,
+      user_id: auth.user?.id || null,
+      uuid: auth.user?.uid || null,
 
-    payment_account: chosenAccount.value?.account_name || null,
-    payment_number: chosenAccount.value?.account_number || null,
-  };
-  const param = {
-    user_id: auth.user?.id || null,
-    uuid: auth.user?.uid || null,
-  };
-  console.log("payload", data);
-  const response = await depositHandlerAPI(data, param);
+      payment_account: chosenAccount.value?.account_name || null,
+      payment_number: chosenAccount.value?.account_number || null,
+    };
+    const param = {
+      user_id: auth.user?.id || null,
+      uuid: auth.user?.uid || null,
+    };
+    console.log("payload", data);
+    const response = await depositHandlerAPI(data, param);
 
-  if (response) {
-    toast.success("Deposit request submitted successfully!");
-    setTimeout(() => {
-      router.back();
-    }, 1000);
-  } else {
-    toast.error("Failed to submit deposit request.");
+    if (response) {
+      toast.success("Deposit request submitted successfully!");
+      setTimeout(() => router.back(), 1000);
+    } else {
+      toast.error("Failed to submit deposit request.");
+    }
+  } finally {
+    submitting.value = false;
   }
 };
 const copyHandler = () => {
   if (!chosenAccount.value?.account_number) return;
 
   copy(chosenAccount.value.account_number);
-  toast.success("Copied successfully!");
+
+  toast.success(`Copied: ${chosenAccount.value.account_number.slice(-4)}`);
 };
 const breadcrumbs = [
   { label: "Deposit", to: "/deposit" },
@@ -157,14 +167,14 @@ const breadcrumbs = [
 ];
 </script>
 <template>
-  <main class="bg-gray-950 w-full flex items-center flex-col min-h-svh">
+  <main class="bg-gray-900 w-full flex items-center flex-col min-h-svh">
     <div class="w-full">
       <ApplyBreadCrumb :items="breadcrumbs" />
     </div>
-    <section class="px-3 max-w-5xl h-full w-full space-y-2">
+    <section class="px-3 max-w-3xl h-full w-full space-y-2">
       <form class="w-full h-full gap-2" @submit.prevent="submitHandler">
         <div
-          class="flex flex-col w-full flex-1 p-4 h-full shadow-inner shadow-gray-700 bg-linear-to-br from-gray-800 to-gray-900 rounded-t-2xl gap-3"
+          class="flex flex-col w-full flex-1 p-4 h-full bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-b-0 border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0)] rounded-t-2xl gap-3"
         >
           <div class="space-y-2 w-full">
             <label for="account_name" class="text-slate-400 font-semibold:">{{
@@ -266,31 +276,34 @@ const breadcrumbs = [
         </div>
 
         <div
-          class="flex flex-col w-full mt-1 gap-4 relative shadow-inner rounded-b-2xl bg-linear-to-tl from-gray-800 to-gray-900"
+          class="flex flex-col w-full mt-1 gap-4 relative rounded-b-2xl bg-linear-to-bl from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-t-0 border-white/10 shadow-[0_5px_50px_rgba(0,0,0,0.6)]"
         >
           <div class="absolute -top-3 flex justify-between -right-3 -left-3">
-            <div class="h-6 w-6 bg-gray-950 rounded-full"></div>
-            <div class="h-6 w-6 bg-gray-950 rounded-full"></div>
+            <div class="h-6 w-6 bg-gray-900 rounded-full"></div>
+            <div class="h-6 w-6 bg-gray-900 rounded-full"></div>
           </div>
           <div
             id="payments"
             class="flex items-center w-full justify-between px-4"
           >
-            <div class="flex items-center gap-3 py-6">
-              <div class="rounded-lg bg-gray-50 overflow-hidden">
+            <div class="flex items-center gap-2 py-6">
+              <div
+                class="p-3 w-15 rounded-xl bg-black/40 backdrop-blur-2xl"
+              >
                 <img
                   :src="payment?.icon"
-                  alt="logo"
-                  class="rounded-lg w-12 h-12"
+                  class="w-12 h-12 object-cover rounded-lg"
                 />
               </div>
               <Transition name="fade-slide" mode="out-in">
                 <div :key="chosenAccount?.id" class="w-full">
-                  <button
-                    @click="copyHandler"
-                    class="cursor-pointer gap-3"
-                  >
-                    <p class=" text-gray-300 text-wrap" :class="chosenAccount?.value==='usdt'?'text-sm':'text-lg'">
+                  <button @click="copyHandler" class="cursor-pointer gap-3">
+                    <p
+                      class="text-gray-300 text-wrap"
+                      :class="
+                        chosenAccount?.value === 'usdt' ? 'text-sm' : 'text-lg'
+                      "
+                    >
                       <code>{{ chosenAccount?.account_number }}</code>
                     </p>
                   </button>
@@ -301,13 +314,23 @@ const breadcrumbs = [
                 </div>
               </Transition>
             </div>
-            <Copy class="text-sky-600" @click="copyHandler" />
+            <Copy
+              @click="copyHandler"
+              class="text-sky-400 cursor-pointer hover:scale-110 active:scale-95 transition"
+            />
           </div>
           <div class="flex justify-between items-center px-4 py-2">
-            <div>
-              <p>
-                {{priority === 1 ? t("primary_account") : t("secondary_account")}}
-              </p>
+            <div class="flex items-center gap-2">
+              <span
+                class="text-xs px-2 py-1 rounded-full font-semibold"
+                :class="
+                  priority === 1
+                    ? 'bg-green-500/20 text-green-400'
+                    : 'bg-yellow-500/20 text-yellow-400'
+                "
+              >
+                {{ priority === 1 ? "Primary" : "Secondary" }}
+              </span>
             </div>
             <div>
               <Button
@@ -315,19 +338,20 @@ const breadcrumbs = [
                 @click.prevent="changePriority"
                 class="w-full active:scale-95 transition border-sky-400 text-sky-400 font-bold text-lg px-2 py-1"
               >
-              <RefreshCcw class="animate-spin" />
+                <RefreshCcw :class="switching ? 'animate-spin' : ''" />
               </Button>
             </div>
           </div>
         </div>
         <div class="flex flex-1 mt-10">
-          <button
-            type="submit"
-            name="submit"
-            class="bg-sky-600 h-12 font-bold text-gray-50 w-full rounded-xl flex justify-center items-center"
-          >
-            Submit
-          </button>
+         <button
+  :disabled="submitting"
+  type="submit"
+  class="bg-sky-600 h-12 font-bold text-gray-50 w-full rounded-xl flex justify-center items-center gap-2 disabled:opacity-50"
+>
+  <LoaderCircleIcon v-if="submitting" class="animate-spin" />
+  Submit
+</button>
         </div>
       </form>
     </section>

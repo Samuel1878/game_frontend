@@ -15,22 +15,22 @@ const quickLinks = [
 
 const supportLinks = [
   { name: 'help_center', path: "/help" },
-  { name: 'terms_and_conditions', path: "/terms" },
-  { name: 'policy_and_privacy', path: "/privacy" },
-  { name: 'responsible_gaming', path: "/responsible" },
-  {name:'faq', path:"/faq"},
+  { name: 'terms_and_conditions', path: "/about/terms" },
+  { name: 'policy_and_privacy', path: "/about/privacy" },
+  { name: 'responsible_gaming', path: "/about/responsible" },
+  {name:'faqs', path:"/info/faq"},
   {
-    name:'bonus_terms_and_conditions',
-    path:"/bonus/terms_and_conditions"
+    name:'limits_and_regulations',
+    path:"/info/limits_and_regulations"
   }
 ];
 const eventLinks = [
   {
-    name:'promotions',path:"/promotions"
+    name:'events_and_community',path:"/info/community"
   },
   {
     name:'bonus',
-    path:"/bonus"
+    path:"/info/bonus"
   }
 ];
 const payments = [
@@ -73,7 +73,7 @@ const certification = [
   <footer class="bg-gray-900 text-gray-200 py-10">
     <div class="max-w-7xl flex flex-col items-center px-6 w-full">
       <!-- Brand -->
-      <div class="gap-4 flex flex-col items-center w-full">
+      <div class="gap-8 flex flex-col items-center w-full">
         <h2 class="text-lg font-extrabold text-white text-center">{{ t('footer_header') }}</h2>
         <div class="flex gap-1 flex-wrap items-center justify-center">
          <img v-for="value in footer_images" :src="value" class="h-5 md:h-9 lg:-11 my-2"/>

@@ -1,4 +1,5 @@
 
+import type { BankAccountPros } from '@/utils/types'
 import api from './api'
 
 export interface AuthPayload {
@@ -36,4 +37,50 @@ export const getProfile = async ():Promise<AuthResponse | null >=> {
   } catch (error) {
     return null;
   }
-}
+};
+export const addBankAccountAPI = async (data:BankAccountPros)=>{      
+  try {
+    const res = await api.post("/user/add_bank_account", data);
+    if (res.status === 200) return res.data;
+    return null
+  } catch (error) {
+    return null;
+  }
+};
+export const updateBankAccountAPI = async (id:number, data:BankAccountPros)=>{      
+  try {
+    const res = await api.put(`/user/update_bank_account/${id}`, data);
+    if (res.status === 200) return res.data;
+    return null
+  } catch (error) {
+    return null;
+  }
+};
+export const deleteBankAccountAPI = async (id:number)=>{
+  try {
+    const res = await api.delete(`/user/delete_bank_account/${id}`);
+    if (res.status === 200) return res.data;
+    return null
+  } catch (error) {
+    return null;
+  }
+};
+
+export const getUserBankAccountAPI = async()=>{
+    try {
+        const response = await api.get("/user/get_bank_accounts");
+        if (response.status===200)return response.data;
+        return null
+    } catch (error) {
+        console.log(error);
+        return null
+    }
+};
+
+// export const logout = async () => {
+//   try {
+//     await api.post("/auth/logout");
+//   } catch (error) {
+//     console.error("Logout error:", error);
+//   }
+// };

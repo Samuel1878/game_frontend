@@ -80,11 +80,11 @@ export const getWithdrawalsById = async (user_id:number)=>{
 
 export const getPaymentMethodsByType = async (type:string, is_available:boolean) => {
     try {
-        const response = await api.get(`/user/payment-methods/${type}/${is_available}`);
+        const response = await api.get(`/user/payment_methods/${type}/${is_available}`);
         if (response.status===200)return response.data;
         return null
     } catch (error) {
         console.log(error);
         return null
     }
-}
+};
