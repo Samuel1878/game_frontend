@@ -7,7 +7,7 @@ import { toast } from 'vue-sonner';
 import { useUIStore } from '@/stores/ui';
 import { gameOption, gameProviders, hotGames, newGames, RTPGames, topGames, topTableGames } from '@/consts';
 import { sboGames } from '@/consts/sboGames';
-import { ChevronLeft, ChevronRight, SearchIcon } from 'lucide-vue-next';
+import { SearchIcon } from 'lucide-vue-next';
 import { arcadeGames } from '@/consts/games';
 import ScrollViews from '@/components/scrollViews.vue';
 import InputGroup from '@/components/ui/input-group/InputGroup.vue';
@@ -15,7 +15,7 @@ import InputGroupInput from '@/components/ui/input-group/InputGroupInput.vue';
 import InputGroupAddon from '@/components/ui/input-group/InputGroupAddon.vue';
 import ProviderOptions from '@/components/providerOptions.vue';
 import GameViews from '@/components/gameViews.vue';
-import { Card, CardContent } from '@/components/ui/card';
+
 import { refDebounced } from "@vueuse/core";
 import { enterGameAPI } from '@/services/gameAPI';
 import { africanBuffaloSlots } from '@/consts/afbGames';
@@ -36,17 +36,17 @@ const loading = ref(false);
 const authStore = useAuthStore();
 const chooseOption = (value: string) => (gameType.value = value);
 
-const scrollEl = ref<HTMLElement | null>(null);
+// const scrollEl = ref<HTMLElement | null>(null);
 
-const scroll = (dir: "left" | "right") => {
-  if (!scrollEl.value) return;
+// const scroll = (dir: "left" | "right") => {
+//   if (!scrollEl.value) return;
 
-  const amount = 200;
-  scrollEl.value.scrollBy({
-    left: dir === "left" ? -amount : amount,
-    behavior: "smooth",
-  });
-};
+//   const amount = 200;
+//   scrollEl.value.scrollBy({
+//     left: dir === "left" ? -amount : amount,
+//     behavior: "smooth",
+//   });
+// };
 
 const filteredSlotGames = computed(() => {
   const search = debouncedSearch.value.toLowerCase();

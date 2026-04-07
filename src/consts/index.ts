@@ -1,4 +1,4 @@
-import { Advantplay, African_Buffalo,pg_white, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin, Jili, KA_Gaming, kbzLogo, PG_Soft, Pragmatic_Play, usdtLogo, VA_Gaming, wavePayLogo, bank_transfer, skrill, netent, interac, playsgo, pp_white, neosurf, paysafe, neteller, softswiss, pushgaming, hot, hot_rtp, drops_wins, spin_svg, new_svg, lobby_banner, slot_banner, casino_banner, arcade_banner } from "@/utils";
+import { Advantplay, African_Buffalo,pg_white, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin, Jili, KA_Gaming, kbzLogo, PG_Soft, Pragmatic_Play, usdtLogo, VA_Gaming, wavePayLogo, bank_transfer, skrill, netent, interac, playsgo, pp_white, neosurf, paysafe, neteller, softswiss, pushgaming, hot, hot_rtp, drops_wins, new_svg, lobby_banner, slot_banner, casino_banner, arcade_banner } from "@/utils";
 import { Gamepad2Icon, HeartIcon, StarIcon } from "lucide-vue-next";
 import {  africanBuffaloSlots } from "./afbGames";
 import { jiliGames } from "./jiliGames";

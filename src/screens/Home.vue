@@ -1,16 +1,10 @@
 <script lang="ts" setup>
 import type { Game } from "@/utils/types";
 import { ref } from "vue";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+// import Autoplay from "embla-carousel-autoplay";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAuthStore } from "@/stores/auth";
-import { homeSlide, hotGames, newGames, RTPGames, topGames } from "@/consts";
+import { hotGames, newGames, RTPGames, topGames } from "@/consts";
 import { sboGames } from "@/consts/sboGames";
 import { QrCode } from "lucide-vue-next";
 import ScrollViews from "@/components/scrollViews.vue";
@@ -49,11 +43,7 @@ let games = ref<Game[] | null>(sboGames);
 // const totalCount = ref(0);
 const { t } = useI18n();
 
-const plugin = Autoplay({
-  delay: 2000,
-  stopOnMouseEnter: true,
-  stopOnInteraction: false,
-});
+
 const enterGame = async (game: Game) => {
   loading.value = true;
   if (!game) return (loading.value = false);

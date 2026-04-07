@@ -152,7 +152,7 @@ watch(() => form.value.value, (val) => {
                                 {{ acc.label }}
                             </p>
                             <p class="text-xl tracking-widest font-semibold" @click="copyAccount(acc.account_number)">
-                                **** **** **** {{ acc.account_number?.slice(-4) }}
+                                **** **** {{ acc.account_number }}
                             </p>
                             <div class="flex justify-between items-end">
                                 <p class="text-sm">{{ acc.account_name }}</p>
@@ -162,10 +162,10 @@ watch(() => form.value.value, (val) => {
                             </div>
                             <div class="flex gap-2 mt-4">
                                 <Button size="sm" class="bg-sky-400" @click="openEdit(acc)">
-                                    Edit
+                                    {{t('edit')}}
                                 </Button>
                                 <Button size="sm" variant="destructive" @click="deleteAccount(acc.id)">
-                                    Delete
+                                    {{ t("delete") }}
                                 </Button>
                             </div>
                         </div>
@@ -262,8 +262,8 @@ watch(() => form.value.value, (val) => {
                 </div>
 
                 <DialogFooter class="mt-4">
-                    <Button @click="showDialog=false">Cancel</Button>
-                    <Button class="bg-sky-400 h-12 rounded-lg font-bold" @click="saveAccount">Save</Button>
+                    <Button @click="showDialog=false">{{ t("cancel") }}</Button>
+                    <Button class="bg-sky-400 h-12 rounded-lg font-bold" @click="saveAccount">{{ t('save') }}</Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>

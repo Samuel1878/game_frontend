@@ -94,6 +94,9 @@
      "bonus":"Bonus",
       "events_and_community":"Events And Community",
         "id":"ID",
-     "transaction_history":"Transaction History"
+     "transaction_history":"Transaction History",
+        "save":"Save",
+     "edit":"Edit",
+     "delete":"Delete"
 
 }

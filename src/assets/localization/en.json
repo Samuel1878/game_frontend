@@ -75,7 +75,7 @@
 
     "account_number":"Account Number",
     "account_name":"Account Name"  ,
-    "new":"New Lunches",
+    "new":"New Launch",
     "title_one":"WELCOME BONUS",
     "description_one":"Deposit and get 100% cash back for new users",
     "button_one":"Deposit Now",
@@ -94,6 +94,10 @@
     "install_guide":"Install Guide",
     "faq":"FAQ",
     "bonus":"Bonus",
-     "events_and_community":"Events And Community"
-
+     "events_and_community":"Events And Community",
+     "id":"ID",
+     "transaction_history":"Transaction History",
+     "save":"Save",
+     "edit":"Edit",
+     "delete":"Delete"
 }

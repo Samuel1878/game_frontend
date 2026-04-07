@@ -7,7 +7,7 @@ import {
   InputGroupInput,
   InputGroupText,
 } from "@/components/ui/input-group";
-import { Headset, HistoryIcon } from "lucide-vue-next";
+import { Headset } from "lucide-vue-next";
 import router from "@/router";
 import { discord, formatPrice, receipt_icon, telegram, viber } from "@/utils";
 import { useI18n } from "vue-i18n";

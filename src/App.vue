@@ -3,7 +3,7 @@ import AuthModal from "@/components/Auth.vue";
 import { Toaster } from "./components/ui/sonner";
 import "vue-sonner/style.css";
 import { useUIStore } from "./stores/ui";
-import { ApertureIcon, Wallet } from "lucide-vue-next";
+import { ApertureIcon } from "lucide-vue-next";
 import { useAuthStore } from "./stores/auth";
 import { useWallet } from "./stores/wallet";
 import { formatPrice, wallet_icon } from "./utils";
