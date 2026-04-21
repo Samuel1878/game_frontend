@@ -22,7 +22,7 @@ const sortedGames = computed(() =>
 /* --------------------------
    2️⃣ Lazy chunk rendering
 ---------------------------*/
-const chunkSize = 40
+const chunkSize = 30
 const visibleCount = ref(chunkSize)
 
 const visibleGames = computed(() =>
@@ -65,23 +65,31 @@ function getGameIcon(game: Game): string | undefined {
 }
 </script>
 <template>
-  <article>
+  <article class="px-2">
    
     <div class="grid grid-cols-3 md:flex flex-wrap gap-1.5 my-2">
-      <button
-        v-for="(game, index) in visibleGames"
-        :key="game?.gameID ?? index"
-        class="w-auto cursor-pointer overflow-hidden rounded-lg"
-        @click="handler?.(game)"
-      >
-        <img
-          v-if="getGameIcon(game)"
-          :src="getGameIcon(game)"
-          alt="game thumbnail"
-          class="min-w-22 w-auto h-36 object-fit rounded-lg"
-        />
-        
-      </button>
+
+<button
+  v-for="(game, index) in visibleGames"
+  :key="game?.gameID ?? index"
+  class="relative overflow-hidden rounded-lg border border-white/20 group
+         hover:-translate-y-1 transition-all duration-300"
+  @click="handler?.(game)"
+>
+  <!-- Glass reflection (auto slow) -->
+  <div class="glass absolute inset-0"></div>
+
+  <!-- Shine flash (on hover only) -->
+  <div class="shine absolute inset-0"></div>
+<div class="absolute inset-0 bg-black/10 rounded-lg"></div>
+  <img
+    v-if="getGameIcon(game)"
+    :src="getGameIcon(game)"
+    class="min-w-22 h-36 rounded-lg object-cover
+           transition-transform duration-300 group-hover:scale-105"
+  />
+</button>
+      
     </div>
 
     <!-- invisible trigger -->

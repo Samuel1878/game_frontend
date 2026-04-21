@@ -24,6 +24,7 @@ import { jiliGames } from '@/consts/jiliGames';
 import { useI18n } from 'vue-i18n';
 import { hot_icon, hot_rtp_icon, new_svg, star_svg, top_icon } from '@/utils';
 import { fastSpinGames } from '@/consts/fastspinGames';
+import { useReturnRefresh } from '@/utils/useReturn';
 
 const searchQuery = ref("");
 const debouncedSearch = refDebounced(searchQuery, 300);
@@ -69,7 +70,7 @@ const enterGame = async (game: Game) => {
   if (!authStore.accessToken || !authStore.user) {
     loading.value = false
 
-    toast("Please login to enter the game");
+    toast.warning("Please login to enter the game");
 
     ui.openAuthModal("/");
     return;
@@ -85,7 +86,7 @@ const enterGame = async (game: Game) => {
     if (!data?.url) {
       loading.value = false
       
-      toast("Failed to launch game");
+      toast.error("Failed to launch game");
 
       return;
     }
@@ -99,12 +100,12 @@ const enterGame = async (game: Game) => {
       `&lang=en&device=m&betCode=`;
 
     // External redirect
-    window.location.href = launchUrl;
+    window.location.replace(launchUrl);
     loading.value = false
   } catch (error) {
     loading.value = false
     console.error(error);
-    toast("Something went wrong");
+    toast.error("Something went wrong");
   }
 };
 const setProvider = (name: string, GpId: number) => {
@@ -112,12 +113,15 @@ const setProvider = (name: string, GpId: number) => {
   selectedProvider.value.GpId = GpId
 }
 
+useReturnRefresh(()=>{
+  authStore.fetchUser();
+})
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">
     <Loading :show="loading" :message="'loading...'" />
     <div v-if="games" class="flex items-center w-full flex-col lg:grid">
-      <div class="flex gap-2 w-full px-2 mt-2 justify-center">
+      <!-- <div class="flex gap-2 w-full px-2 mt-2 justify-center">
           <button
              v-for="(option, index) in gameOption" 
              :key="index" 
@@ -126,7 +130,7 @@ const setProvider = (name: string, GpId: number) => {
              class="border" >
            <img :src="option.icon" class="w-full h-full" v-if="option.icon"/>
           </button>
-      </div>
+      </div> -->
       <section class="w-full h-full p-2" id="lobby" v-if="gameType === 'lobby'">
         <ScrollViews :game-data="hotGames" :header="t('hot_games')" :icon="hot_icon" 
           :handler="enterGame" />

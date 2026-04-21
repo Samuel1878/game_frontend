@@ -29,18 +29,18 @@ const flags:any = {
     class="bg-gray-900 border-0"
   >
     <SelectTrigger class="text-2xl border-0 text-center">
-      <img :src="flags[locale]" class="w-9 h-9" />
+      <img :src="flags[locale]" class="w-8 h-8" />
     </SelectTrigger>
 
     <SelectContent class="bg-gray-800 border border-gray-700 px-4">
       <SelectItem value="en" class="text-gray-100 font-bold py-2 text-md border-b border-b-gray-700">
-        <span class="mr-2"><img :src="flags.en" class="w-10 h-10" /></span> English
+        <span class="mr-2"><img :src="flags.en" class="w-8 h-8" /></span> English
       </SelectItem>
       <SelectItem value="cn" class="text-gray-100 py-2 font-bold text-md border-b border-b-gray-700">
-        <span class="mr-2"><img :src="flags.cn" class="w-10 h-10" /></span> 中文
+        <span class="mr-2"><img :src="flags.cn" class="w-8 h-8" /></span> 中文
       </SelectItem>
       <SelectItem value="mm" class="text-gray-100 py-2 font-bold text-md">
-        <span class="mr-2"><img :src="flags.mm" class="w-10 h-10" /></span> မြန်မာ
+        <span class="mr-2"><img :src="flags.mm" class="w-8 h-8" /></span> မြန်မာ
       </SelectItem>
     </SelectContent>
   </Select>

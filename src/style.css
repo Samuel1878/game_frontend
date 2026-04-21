@@ -140,6 +140,84 @@ body {
   min-height: 100vh; */
   /* background-color: "red"; */
 }
+/* --------------------------
+   SHINE (fast flash)
+---------------------------*/
+@keyframes shine {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* hover shine */
+.shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.6),
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.group:hover .shine::before {
+  animation: shine 0.7s ease;
+}
+
+
+/* --------------------------
+   GLASS REFLECTION (slow premium)
+---------------------------*/
+@keyframes glass {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.15;
+  }
+  60% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateX(150%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+/* auto glass sweep */
+.glass::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,.6),
+    rgba(255,255,255,0.12),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: glass 2s infinite;
+  pointer-events: none;
+}
 
 
 #app {

@@ -612,3 +612,6 @@ export const topSlotGames = [
                 "isProviderOnline": true
             },
 ]
+export const fishGames = [
+    
+]

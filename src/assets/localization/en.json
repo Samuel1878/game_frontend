@@ -99,5 +99,26 @@
      "transaction_history":"Transaction History",
      "save":"Save",
      "edit":"Edit",
-     "delete":"Delete"
+     "delete":"Delete",
+     "choose_withdraw_account":"Choose Withdraw Account",
+     "referral_id":"Referral Code",
+     "optional":"optional",
+
+     "phone_verification":"Phone Verification",
+     "account_active":"Active",
+     "enter_phone_number":"Enter Phone Number",
+     "enter_otp":"Enter OTP code",
+     "name_phone":"Username / Phone",
+     "promotion":"Promotion",
+     "game_title_slot":"Slot Games",
+     "game_description_slot":"Spin and win your favorites",
+     "search_game":"Search games",
+     "game_title_buffalo":"Buffalo Games",
+     "game_description_buffalo":"Catch your favorite buffalos",
+     "game_title_fish":"Fishing Games",
+     "game_description_fish":"Catch your favorite fish",
+     "game_title_casino":"Casino",
+     "game_description_casino":"Play your favorite casino in one place",
+     "game_title_arcade":"Arcade Games",
+     "game_description_arcade":"Play flexible arcade games"
 }

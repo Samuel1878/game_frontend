@@ -74,11 +74,11 @@ const submit = async () => {
   };
   const response = await withdrawalHandlerAPI(data, param);
   if (response) {
-    toast("Withdrawal form submitted successfully!");
+    toast.success("Withdrawal form submitted successfully!");
     router.back();
     return;
   }
-  toast("Internal error!");
+  toast.error("Internal error!");
   router.back();
 };
 const breadcrumbs = [
@@ -101,14 +101,14 @@ onMounted(()=>{
       <div
         class="w-full flex  rounded-t-2xl gap-2 items-center justify-between"
       >
-      <div class="px-3 py-1 backdrop-blur-2xl border-white/30 border 2xl">
-<img
-          :src="payment?.icon"
-          alt="logo"
-          class="rounded-lg object-cover w-12 h-12 overflow-hidden"
-        />
-      </div>
-        
+            <div
+                class="p-3 w-15 rounded-xl bg-black/40 backdrop-blur-2xl"
+              >
+                <img
+                  :src="payment?.icon"
+                  class="w-12 h-12 object-cover rounded-lg"
+                />
+              </div>
         <p class="font-bold text-center text-2xl">{{ amount }} MMK</p>
       </div>
 

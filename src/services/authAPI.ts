@@ -5,6 +5,7 @@ import api from './api'
 export interface AuthPayload {
   username: string
   password: string
+  referral_code?:string | null;
 }
 export interface AuthResponse {
     id: number
@@ -28,7 +29,14 @@ export const register = async (data: AuthPayload):Promise<AuthResponse> => {
   console.log("register response", res)
   return res.data
 }
-
+export const refreshAPI = async ():Promise<null | any> => {
+  try {
+    const res = await api.post("/auth/refresh");
+    return res.data
+  } catch (error) {
+    return null
+  }
+}
 export const getProfile = async ():Promise<AuthResponse | null >=> {
   try {
     const res = await api.get("/user/profile", { withCredentials: true });
@@ -77,10 +85,36 @@ export const getUserBankAccountAPI = async()=>{
     }
 };
 
-// export const logout = async () => {
-//   try {
-//     await api.post("/auth/logout");
-//   } catch (error) {
-//     console.error("Logout error:", error);
-//   }
-// };
+// api/auth.ts
+
+
+export const requestOTP = async(phone: string) => {
+  try {
+     const response = await api.post("/user/otp/request", { phone });
+     return response.data
+  } catch (error) {
+    console.log(error);
+    return true
+  }
+}
+ 
+
+export const verifyOTP = async(phone: string, code: string) =>{
+  try {
+    const response = await api.post("/user/otp/verify", { phone, code });
+    return response.data
+  } catch (error) {
+     console.log(error);
+    return null
+  }
+}
+
+
+export const resetPassword = (phone: string, newPassword: string) =>
+  api.post("/auth/password/reset", { phone, newPassword });
+
+export const changePassword = (data: any) =>
+  api.post("/user/password/change", data);
+
+export const bindPhone = (phone: string) =>
+  api.post("/user/phone/bind", { phone });

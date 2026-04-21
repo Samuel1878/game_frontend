@@ -292,7 +292,7 @@ const breadcrumbs = [
               >
                 <img
                   :src="payment?.icon"
-                  class="w-12 h-12 object-cover rounded-lg"
+                  class="w-12 h-12 object-contain rounded-lg"
                 />
               </div>
               <Transition name="fade-slide" mode="out-in">

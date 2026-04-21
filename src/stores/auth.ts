@@ -3,29 +3,34 @@ import api from "@/services/api";
 import { initSocket, disconnectSocket } from "@/socket";
 import type { userInfo } from "@/utils/types";
 import router from "@/router";
-
+import { refreshAPI } from "@/services/authAPI";
+import { useWallet } from "./wallet";
+interface walletType{
+  balance:number;
+  currency:string;
+};
 export const useAuthStore = defineStore("auth", {
   state: () => ({
     accessToken: null as string | null,
     user: null as userInfo | null,
     initialized: false,
+    // wallet: null as walletType | null
   }),
-
   actions: {
     setToken(token: string) {
       this.accessToken = token;
     },
-
-    setUser(user: userInfo) {
+    setUser({user, wallet}: {user:userInfo,wallet:walletType}) {
+      const walletStore = useWallet();
       this.user = user;
+      walletStore.setWallet(wallet.balance, wallet.currency)
     },
-
     clearAuth() {
       this.accessToken = null;
       this.user = null;
       disconnectSocket();
     },
-    async login(payload: { name: string; password: string }) {
+    async login(payload: { name: string; password: string, isPhoneNumber:boolean }) {
       try {
         const res = await api.post("/auth/login", payload);
         console.log("response", res);
@@ -47,25 +52,30 @@ export const useAuthStore = defineStore("auth", {
       }
     },
     async fetchUser() {
-      const res = await api.get("/user/profile");
-      console.log("Fetched user profile:", res.data);
-      this.setUser(res.data);
+      try {
+        const res = await api.get("/user/profile");
+        console.log("Fetched user profile:", res.data);
+        this.setUser(res.data);
+        return true
+      } catch (error) {
+        return false
+      }
     },
     async init() {
       try {
-        const res = await api.post("/auth/refresh");
-        console.log("Token refreshed:", res.data);
-        this.setToken(res.data.accessToken);
+        const resData = await refreshAPI();
+        if (resData){
+        this.setToken(resData?.accessToken);
         await this.fetchUser();
         initSocket(); // reconnect socket on reload
+        }
       } catch {
         this.clearAuth();
       } finally {
         this.initialized = true;
       }
     },
-
-    async register(payload: { name?: string | null; password: string }) {
+    async register(payload: { name?: string | null; password: string ; referral_code:string|null; phone:string}) {
       try {
         const response = await api.post("/auth/register", payload);
         console.log("response", response);
@@ -74,7 +84,6 @@ export const useAuthStore = defineStore("auth", {
         this.setToken(response.data.accessToken);
         await this.fetchUser();
         initSocket();
-
           return {
             status: 200,
             message: "Successfully logged in",

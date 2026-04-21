@@ -15,6 +15,7 @@ import {
   CircleQuestionMark,
   CopyIcon,
   Share2Icon,
+  PhoneIcon,
 } from "lucide-vue-next";
 import moment from "moment";
 import { useI18n } from "vue-i18n";
@@ -62,7 +63,10 @@ const authStore = useAuthStore();
               >
                 {{ authStore.user?.name }}
               </h2>
-              <p class="text-gray-400 text-sm">ID: {{ authStore.user?.id }}</p>
+              <p class="text-gray-400 text-sm flex gap-2 items-center"><span>
+                <PhoneIcon :size="15"/>
+              </span>{{ authStore.user?.phone }}</p>
+            
             </div>
           </div>
           <!-- Status -->
@@ -134,7 +138,7 @@ const authStore = useAuthStore();
             <ChevronRightIcon class="w-5 h-5 text-gray-500" />
           </div>
           <div
-            @click="router.push(`/transactions`)"
+            @click="router.push(`/user/kyc-verification/mobile-phone`)"
             class="w-full flex items-center justify-between py-4 pr-4 border-b border-gray-700"
           >
             <div class="flex gap-3 items-center">
@@ -155,7 +159,7 @@ const authStore = useAuthStore();
             </div>
           </div>
           <div
-            @click="router.push(`/transactions`)"
+            @click="router.push(`/user/kyc-verification/email`)"
             class="w-full flex items-center justify-between py-4 pr-4 border-b border-gray-700"
           >
             <div class="flex gap-3 items-center">
@@ -172,7 +176,7 @@ const authStore = useAuthStore();
             </div>
           </div>
           <div
-            @click="router.push(`/transactions`)"
+            @click="router.push(`/user/setting/change-password`)"
             class="w-full flex items-center justify-between py-4 pr-4 border-b border-gray-700"
           >
             <div class="flex gap-3 items-center">
@@ -184,7 +188,7 @@ const authStore = useAuthStore();
             </div>
           </div>
           <div
-            @click="router.push(`/transactions`)"
+            @click="router.push(`/info/limits-and-regulations`)"
             class="w-full flex items-center justify-between py-4 pr-4"
           >
             <div class="flex gap-3 items-center">
@@ -202,7 +206,6 @@ const authStore = useAuthStore();
           class="rounded-xl bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_5px_rgba(0,0,0,0.5)] transition pl-4 py-2"
         >
           <div
-            @click="router.push(`/transactions`)"
             class="w-full flex items-center justify-between py-4 pr-4 border-b border-gray-700"
           >
             <div class="flex gap-3 items-center">
@@ -215,7 +218,7 @@ const authStore = useAuthStore();
           </div>
 
           <div
-            @click="router.push(`/transactions`)"
+            @click="router.push(`/info/help-center`)"
             class="w-full flex items-center justify-between py-4 pr-4 border-b border-gray-700"
           >
             <div class="flex gap-3 items-center">

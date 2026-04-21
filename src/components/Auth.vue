@@ -19,7 +19,7 @@ import {
   InputGroupText,
 
 } from '@/components/ui/input-group'
-import { EyeIcon, EyeOff, LockIcon, User, X } from "lucide-vue-next";
+import { EyeIcon, EyeOff, LockIcon, PhoneIcon, Share2Icon, User, X } from "lucide-vue-next";
 import { Checkbox } from "./ui/checkbox";
 import { Spinner } from "./ui/spinner";
 import { useI18n } from "vue-i18n";
@@ -31,13 +31,17 @@ const checked = ref(true);
 const loadingButton = ref(false);
 const { authModalOpen, redirectAfterAuth } = storeToRefs(ui);
 const isLogin = ref(true);
+const referral_code = ref(localStorage.getItem("referral_code")||"")
 const errorMessage = ref("");
 const regex = /^[A-Za-z0-9_]{6,40}$/;
+const referral_regex = /^[A-Z][0-9]{3}$/;
 const form = ref({
   username: "",
+  phone:"",
   password: "",
   conPassword: "",
 });
+const loginName = ref("");
 const { t } = useI18n();
 const showPassword = ref(false);
 onMounted(() => {
@@ -54,26 +58,28 @@ const isValid = computed(() => {
 });
 const submit = async () => {
   errorMessage.value = "";
-
   if (!isValid.value) {
     errorMessage.value = "Please fill all fields correctly";
     return;
   }
-
   loadingButton.value = true;
-
   try {
     let response;
 
     if (isLogin.value) {
+      
       response = await auth.login({
-        name: form.value.username,
+        name: loginName.value,
         password: form.value.password,
+        isPhoneNumber: loginName.value.startsWith("09")?true:false
       });
     } else {
+      
       response = await auth.register({
         name: form.value.username,
+        phone:form.value.phone,
         password: form.value.password,
+        referral_code:referral_regex.test(referral_code.value) ? referral_code.value : null
       });
     }
 
@@ -96,65 +102,7 @@ const submit = async () => {
     loadingButton.value = false;
   }
 };
-// const submit = async () => {
-//   errorMessage.value = "";
 
-//   if (!isValid.value) {
-//     errorMessage.value = "Please fill all fields correctly";
-//     return;
-//   }
-
-//   loadingButton.value = true;
-
-//   try {
-//     let response;
-//     if (isLogin.value) {
-//       response = await auth.login({
-//         name: form.value.username,
-//         password: form.value.password,
-//       });
-//     } else {
-//       response = await auth.register({
-//         name: form.value.username,
-//         password: form.value.password,
-//       });
-//     }
-//     console.log(response)
-//     if (response){
-//       ui.closeAuthModal();
-//       if (redirectAfterAuth.value) {
-//         router.push(redirectAfterAuth.value);
-//       }
-//     }
-//   } catch (err: any) {
-//     errorMessage.value = err?.message || "Something went wrong";
-//   } finally {
- 
-//     loadingButton.value = false;
-//   }
-// };
-// const submit = async () => {
-//   loadingButton.value = true ;
-//   if (isLogin.value) {
-//     const response = await auth.login({
-//       name: form.value.username,
-//       password: form.value.password,
-//     });
-//     loadingButton.value = false;
-//     console.log(response)
-//   } else {
-//     const response = await auth.register({
-//       name: form.value.username,
-//       password: form.value.password,
-//     });
-//     loadingButton.value = false
-//      console.log(response)
-//   }
-//   ui.closeAuthModal();
-//   if (redirectAfterAuth.value) {
-//     router.push(redirectAfterAuth.value);
-//   }
-// };
 </script>
 
 <template>
@@ -173,7 +121,16 @@ const submit = async () => {
       </DialogHeader>
       <form class="space-y-4 "
         @submit.prevent="submit">
-        <InputGroup class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
+        <InputGroup v-if="isLogin" class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
+          <InputGroupAddon>
+            <User />
+          </InputGroupAddon>
+          <InputGroupInput class="w-full" v-model="loginName" type="text" :placeholder="t('name_phone')" />
+          <InputGroupAddon align="inline-end">
+            <InputGroupText class="text-gray-100"></InputGroupText>
+          </InputGroupAddon>
+        </InputGroup>
+        <InputGroup v-else class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
           <InputGroupAddon>
             <User />
           </InputGroupAddon>
@@ -182,6 +139,18 @@ const submit = async () => {
             <InputGroupText class="text-gray-100"></InputGroupText>
           </InputGroupAddon>
         </InputGroup>
+
+        <InputGroup class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50"
+          v-show="!isLogin">
+          <InputGroupAddon>
+            <PhoneIcon />
+          </InputGroupAddon>
+          <InputGroupInput class="w-full" v-model="form.phone" type="text" :placeholder="t('phone_number')" />
+          <InputGroupAddon align="inline-end">
+            <InputGroupText class="text-gray-100"></InputGroupText>
+          </InputGroupAddon>
+        </InputGroup>
+
 
         <InputGroup class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
           <InputGroupAddon>
@@ -208,7 +177,19 @@ const submit = async () => {
             <InputGroupText class="text-gray-100"></InputGroupText>
           </InputGroupAddon>
         </InputGroup>
-        <div class=" mt-10">
+
+        <InputGroup v-show="!isLogin"
+          class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
+          <InputGroupAddon>
+            <Share2Icon />
+          </InputGroupAddon>
+          <InputGroupInput class="w-full" v-model="referral_code"
+            :placeholder="t('referral_id')" />
+          <InputGroupAddon align="inline-end">
+            <InputGroupText class="text-gray-100"></InputGroupText>
+          </InputGroupAddon>
+        </InputGroup>
+        <div class=" mt-18">
           <div class="h-8">
             <p v-if="errorMessage" class="text-red-500 text-sm px-1">
               {{ errorMessage }}

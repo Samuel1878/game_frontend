@@ -17,7 +17,7 @@ const setAmount = (a: number) => {
   amount.value = a;
 };
 const goToPayment = (payment: paymentTypes) => {
-  if (amount.value > 2000) {
+  if (amount.value >= 2000 && amount.value <=1000000) {
     router.push(`/deposit/${payment.value}?amount=${amount.value}`);
   }
 };

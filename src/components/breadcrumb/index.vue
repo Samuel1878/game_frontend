@@ -7,8 +7,9 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { useI18n } from "vue-i18n";
 import { RouterLink } from "vue-router";
-
+const {t} = useI18n();
 export type Crumb = {
   label?: string | any;
   to?: string; // if no "to" → it's current page
@@ -31,10 +32,10 @@ const props = defineProps<{
           <BreadcrumbLink
             v-if="item.to && index !== items.length - 1"
             as-child
-            class="hover:text-primary transition-colors text-sky-500"
+            class="hover:text-primary font-bold transition-colors text-sky-500"
           >
             <RouterLink :to="item.to">
-              {{ item.label }}
+              {{ t(item.label) }}
             </RouterLink>
           </BreadcrumbLink>
 
@@ -43,7 +44,7 @@ const props = defineProps<{
             v-else
             class="font-medium text-sky-100"
           >
-            {{ item.label }}
+            {{ t(item.label) }}
           </BreadcrumbPage>
 
         </BreadcrumbItem>

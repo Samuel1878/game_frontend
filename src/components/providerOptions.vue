@@ -1,4 +1,52 @@
 <script setup lang="ts">
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, FreeMode } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+
+import { getGameIcon } from '@/utils';
+import type { Game } from '@/utils/types';
+import { ChevronLeft, ChevronRight } from "lucide-vue-next";
+import { gameProviders, slotGameProviders } from '@/consts';
+
+const props = defineProps<{
+  label?: string,
+  labelStyle?: string,
+  header?: string,
+  gameData?: Game[],
+  handler?: (gameData:any) => void,
+  icon?: string
+}>();
+</script>
+<template>
+  <div>
+    <Swiper
+      :modules="[Navigation, FreeMode]"
+      :slides-per-view="'auto'"
+      :space-between="8"
+      :free-mode="true"
+      :navigation="{
+        prevEl: '.prev-btn',
+        nextEl: '.next-btn'
+      }"
+      class="w-full"
+    >
+      <SwiperSlide
+        v-for="game in slotGameProviders"
+        :key="game?.id"
+        class="w-auto!"
+      >
+        <div
+          class="rounded-md relative shadow-inner border border-white/20"
+          @click="handler?.(game)"
+        >
+
+        </div>
+      </SwiperSlide>
+    </Swiper>
+  </div>
+</template>
+<!-- <script setup lang="ts">
 import { CheckCircle, ChevronsUpDownIcon } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { Button } from '@/components/ui/button'
@@ -69,4 +117,4 @@ const props = defineProps<{
       </Command>
     </PopoverContent>
   </Popover>
-</template>
+</template> -->

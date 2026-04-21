@@ -6,17 +6,39 @@ import { useUIStore } from "./stores/ui";
 import { ApertureIcon } from "lucide-vue-next";
 import { useAuthStore } from "./stores/auth";
 import { useWallet } from "./stores/wallet";
-import { formatPrice, wallet_icon } from "./utils";
-
+import { formatPrice, logo, wallet_icon } from "./utils";
 import LanguageBtn from "./components/languageBtn.vue";
 import { useI18n } from "vue-i18n";
 import BottomNav from "./components/layout/bottomNav.vue";
+import { onMounted, onUnmounted } from "vue";
 const authStore = useAuthStore();
 const uiStore = useUIStore();
 const wallet = useWallet();
+
 const { t } = useI18n();
 const goToLoginHandler = () => {
   uiStore.openAuthModal();
+};
+
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const referral = urlParams.get("rid");
+
+  if (referral) {
+    localStorage.setItem("referral_code", referral);
+  }
+  window.addEventListener("pageshow", handlePageShow);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("pageshow", handlePageShow);
+});
+
+const handlePageShow = (event: PageTransitionEvent) => {
+  if (event.persisted) {
+    console.log("reload")
+    window.location.reload();
+  }
 };
 </script>
 
@@ -33,13 +55,13 @@ const goToLoginHandler = () => {
       <div class="mx-auto flex max-w-7xl items-center justify-between p-4 h-14">
         <RouterLink
           to="/"
-          class="text-lg flex items-center gap-1 font-extrabold tracking-wide transition hover:text-sky-300 lg:text-2xl"
+          class="flex items-center"
         >
           <!-- <p class=" text-sky-500 font-extrabold text-4xl">999</p> -->
-          <ApertureIcon class="text-sky-500" />
+          <img :src="logo" class="h-35"/>
           <!-- <di> -->
           <!-- <p class="text-gray-400 font-mono text-sm">ONLINE</p> -->
-          <p class="text-gray-100 font-extrabold text-xl font-sans">96BETX</p>
+          <!-- <p class="text-gray-100 font-extrabold text-lg font-sans">BETX</p> -->
           <!-- </di> -->
         </RouterLink>
         <div class="hidden items-center gap-6 lg:flex">
@@ -75,6 +97,7 @@ const goToLoginHandler = () => {
     <section
       class="w-full relative flex flex-col items-center pb-15 bg-gray-900"
     >
+    
       <RouterView />
       <AuthModal />
       <BottomNav />
@@ -100,67 +123,4 @@ const goToLoginHandler = () => {
   animation: slideDown 1s ease-out;
 }
 </style>
-<!-- <Drawer v-model:open="mobileOpen" direction="top" class="lg:hidden">
-        <DrawerContent class="fixed inset-0 top-0 h-screen bg-gray-900 border-none p-0 animate-slide-down">
-          <DrawerHeader class="flex flex-row items-center justify-between p-4 border-b border-gray-800">
-            <DrawerTitle class="text-lg font-bold text-white">
-              <RouterLink to="/"
-                @click="mobileOpen=false"
-                class="text-lg flex items-center gap-1 font-extrabold tracking-wide transition hover:text-sky-300 lg:text-2xl">
-                <p class=" text-sky-500 font-extrabold text-4xl">999</p>
-                <di>
-                  <p class="text-gray-400 font-mono text-sm">ONLINE</p>
-                  <p class="text-gray-100 font-bold text-sm">CASINO</p>
-                </di>
-              </RouterLink>
-            </DrawerTitle>
-            <DrawerClose>
-              <button class="text-gray-400 hover:text-white text-xl">
-                <XIcon />
-              </button>
-            </DrawerClose>
-          </DrawerHeader>
 
-          <div class="flex flex-col gap-2 p-4 text-lg">
-            <div class="py-2">
-              <RouterLink v-if="authStore.isLoggedIn" to="/profile" class="mobile-link flex items-center gap-3"
-                @click="mobileOpen = false">
-                <CircleUser />
-                Profile
-              </RouterLink>
-              <div v-else class=" flex flex-col items-center w-full gap-2">
-                <Button @click="goToLoginHandler(); mobileOpen = false"
-                  class="text-center flex items-center justify-center px-8 text-md py-2 bg-sky-400 text-gray-950">
-                  {{ t('login') }}
-                </Button>
-                <p class="text-sm text-gray-400">Login or register to get 100% bonus</p>
-
-              </div>
-            </div>
-            <div class="border-t border-gray-800 my-2"></div>
-            <RouterLink to="/" class=" flex items-center gap-3 text-gray-100 py-2 hover:bg-gray-800"
-              @click="mobileOpen = false">
-              <HomeIcon />
-              {{ t('home') }}
-            </RouterLink>
-
-            <RouterLink to="/games" class="mobile-link flex items-center gap-3 py-2" @click="mobileOpen = false">
-              <Gamepad2Icon />
-              {{ t('games') }}
-            </RouterLink>
-
-            <RouterLink to="/deposit" class="mobile-link flex items-center gap-3 py-2" @click="mobileOpen = false">
-              <CoinsIcon />
-              {{ t('deposit') }}
-            </RouterLink>
-
-            <RouterLink to="/withdrawal" class="mobile-link flex items-center gap-3 py-2" @click="mobileOpen = false">
-              <WalletIcon />
-              {{t('withdraw')}}
-            </RouterLink>
-          </div>
-          <DrawerFooter>
-            <LanguageBtn/>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer> -->

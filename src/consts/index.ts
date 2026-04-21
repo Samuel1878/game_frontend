@@ -1,5 +1,6 @@
-import { Advantplay, African_Buffalo,pg_white, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin, Jili, KA_Gaming, kbzLogo, PG_Soft, Pragmatic_Play, usdtLogo, VA_Gaming, wavePayLogo, bank_transfer, skrill, netent, interac, playsgo, pp_white, neosurf, paysafe, neteller, softswiss, pushgaming, hot, hot_rtp, drops_wins, new_svg, lobby_banner, slot_banner, casino_banner, arcade_banner } from "@/utils";
-import { Gamepad2Icon, HeartIcon, StarIcon } from "lucide-vue-next";
+import { Advantplay, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin, Jili, KA_Gaming, kbzLogo, PG_Soft, Pragmatic_Play, usdtLogo, VA_Gaming, wavePayLogo, bank_transfer, softswiss, hot, hot_rtp, drops_wins, new_svg, 
+     slot, buffalo, fish, casino, chess, home, 
+     paysafe} from "@/utils";
 import {  africanBuffaloSlots } from "./afbGames";
 import { jiliGames } from "./jiliGames";
 import { pragmaticPlayGames } from "./pragmaticGames";
@@ -14,18 +15,17 @@ import { winGames } from "./568winGames";
 import type { Game } from "@/utils/types";
 export const usdtRateToMMK = 4000;
 export const footer_images = [
-   pg_white,
+    PG_Soft,
+    Pragmatic_Play,
+    Jili,
+    
+    Fast_Spin,
+    KA_Gaming,
    bank_transfer,
-   skrill,
-   interac,
-   netent,
-   playsgo,
-   pp_white,
-   neosurf,
-   paysafe,
-   neteller,
+    FaChai,
    softswiss,
-   pushgaming
+   VA_Gaming,
+    paysafe
 
 
 ]
@@ -179,48 +179,64 @@ export const homeSlide = [
         action:""
     }
 ]
-export const homeOptions = [
+export const gameOptions = [
     {
-        value:"hotGames",
-        label:"Hot Games",
-        icon:StarIcon
+        path:"/",
+        label:"lobby",
+        image:home
+    },
+      {
+        path:"/slots",
+        label:"slots",
+        image:slot
     },
     {
-        value:"favGames",
-        label:"Favorite Games",
-        icon:HeartIcon
+        path:"/buffalo",
+        label:"buffalo",
+        image:buffalo
+    },
+        {
+        path:"/fishing",
+        label:"fishing",
+        image:fish
     },
     {
-        value:"slot",
-        label:"Slots",
-        icon:Gamepad2Icon
-    }
+        path:"/casino",
+        label:"casino",
+        image:casino
+    },
+        {
+        path:"/arcade-games",
+        label:"arcade_games",
+        image:chess
+    },
+  
 ];
 export const gameOption = [
 {
     label:"lobby",
     value:"lobby",
-    icon:lobby_banner,
+
     type:"Games",
 
 },
 {
     label:"slots",
     value:"slots",
-    icon:slot_banner,
+
     type:"Games"
 },
 
 {
     label:"table_games",
     value:"tableGames",
-    icon:casino_banner,
+ 
     type:"Games"
 },
 {
     label:"arcade_games",
     value:"arcadeGames",
-    icon:arcade_banner,
+
     type:"Games"
 },
 {
@@ -239,72 +255,15 @@ export const gameOption = [
 },
 ]
 export const slotGameProviders = [
-           
-        {
-        id:4,
-        name: "JILI",
-        GpId:1020,
-        icon:Jili,
-        
-        
-    },
     {
         id:1,
-        name: "African Buffalo",
-        GpId:1094,
-        icon:African_Buffalo,
-        
-        
-    },
-
-        {
-        id:3,
-        name: "Fastspin",
-        GpId:1079,
-        icon:Fast_Spin,
-        
-        
-    },
-
-        {
-        id:5,
-        name: "FaChoi",
-        GpId:1046,
-        icon:FaChai,
-        
-        
-    }   , {
-        id:6,
-        name: "KA Gaming",
-        GpId:1042,
-        icon:KA_Gaming,
-        
-        
-    }  ,  {
-        id:7,
         name: "Pragmatic Play",
         GpId:3,
         icon:Pragmatic_Play,
         
         
     },
-     {
-        id:8,
-        name: "Advantplay",
-        GpId:1034,
-        icon:Advantplay,
-        
-        
-    },
-     {
-        id:9,
-        name: "VA Gaming",
-        GpId:1085,
-        icon:VA_Gaming,
-        
-        
-    },
-     {
+    {
         id:2,
         name: "PG Soft",
         GpId:35,
@@ -312,6 +271,55 @@ export const slotGameProviders = [
         
         
     },
+        {
+        id:3,
+        name: "JILI",
+        GpId:1020,
+        icon:Jili,
+        
+        
+    },
+
+        {
+        id:4,
+        name: "FaChoi",
+        GpId:1046,
+        icon:FaChai,
+        
+        
+    } ,
+    {
+        id:5,
+        name: "Fastspin",
+        GpId:1079,
+        icon:Fast_Spin,
+        
+        
+    },
+ 
+    {
+        id:6,
+        name: "KA Gaming",
+        GpId:1042,
+        icon:KA_Gaming,
+        
+        
+    }  ,
+     {
+        id:7,
+        name: "Advantplay",
+        GpId:1034,
+        icon:Advantplay,
+        
+        
+    },
+     {
+        id:8,
+        name: "VA Gaming",
+        GpId:1085,
+        icon:VA_Gaming,    
+    },
+     
     // {
     //     id:10,
     //     name:"SBO games",

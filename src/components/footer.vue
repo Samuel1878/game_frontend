@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { footer_images } from '@/consts';
-import { _18_plus, askgamblers, ayaPayLogo, discord_black, download_white, facebook_black, ga, gambling_therapy, gamcare, kbzLogo, mg, ssl_icon, telegram_black, trust, usdtLogo, viber_black, wavePayLogo } from '@/utils';
+import { _18_plus, askgamblers, ayaPayLogo, discord_black, download_white, facebook_black, ga, gambling_therapy, gamcare, kbzLogo, ssl_icon, telegram_black, trust, usdtLogo, viber_black, wavePayLogo } from '@/utils';
 import { useI18n } from 'vue-i18n';
 
 const year = new Date().getFullYear()
@@ -10,7 +10,7 @@ const quickLinks = [
   { name: 'games', path: "/games" },
   { name: 'deposit', path: "/deposit" },
   { name: 'withdraw', path: "/withdrawal" },
-  { name: 'download', path: "#download" },
+  { name: 'download', path: "/download" },
 ]
 
 const supportLinks = [
@@ -58,8 +58,6 @@ const socials = [
   discord_black,
 ];
 const certification = [
-
-  mg,
   gamcare,
   ga,
   trust,
@@ -73,17 +71,17 @@ const certification = [
   <footer class="bg-gray-900 text-gray-200 py-10">
     <div class="max-w-7xl flex flex-col items-center px-6 w-full">
       <!-- Brand -->
-      <div class="gap-8 flex flex-col items-center w-full">
+      <!-- <div class="gap-8 flex flex-col items-center w-full">
         <h2 class="text-lg font-extrabold text-white text-center">{{ t('footer_header') }}</h2>
         <div class="flex gap-1 flex-wrap items-center justify-center">
-         <img v-for="value in footer_images" :src="value" class="h-5 md:h-9 lg:-11 my-2"/>
+         <img v-for="value in footer_images" :src="value" class="h-10 md:h-15 lg:-18 my-2"/>
         </div>
-      </div>
+      </div> -->
       <!-- Quick Links -->
-      <div class="grid grid-cols-2 my-12 md:grid-cols-4">
-        <div class="">
+      <div class="grid grid-cols-1 my-12 md:grid-cols-2 lg:grid-cols-4 w-full gap-8">
+        <div class="border-t border-gray-400/20 py-2">
           <h3 class="text-white font-semibold mb-4">{{ t('products') }}</h3>
-          <div class="space-y-2">
+          <div class="space-y-4">
             <div v-for="link in quickLinks" :key="link.name">
               <router-link
                 :to="link.path"
@@ -97,9 +95,9 @@ const certification = [
             </div>
           </div>
         </div>
-        <div class="">
+        <div class="border-t border-gray-400/20 py-2">
           <h3 class="text-white font-semibold mb-4">{{ t('support') }}</h3>
-          <div class="space-y-2">
+          <div class="space-y-4">
             <div v-for="link in supportLinks" :key="link.name">
               <router-link
                 :to="link.path"
@@ -113,9 +111,9 @@ const certification = [
             </div>
           </div>
         </div>
-        <div class="">
+        <div class="border-t border-gray-400/20 py-2">
           <h3 class="text-white font-semibold mb-4">{{ t('events') }}</h3>
-          <div class="space-y-2">
+          <div class="space-y-4">
             <div v-for="link in eventLinks" :key="link.name">
               <router-link
                 :to="link.path"
@@ -129,7 +127,7 @@ const certification = [
             </div>
           </div>
         </div>
-        <div class="my-6">
+        <div class="border-t border-gray-400/20 py-2">
           <h3 class="text-white font-semibold mb-4">{{ t('payment_method') }}</h3>
           <div class="flex">
             <div v-for="link in payments" :key="link.name" class="flex gap-2">
