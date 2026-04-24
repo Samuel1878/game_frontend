@@ -15,7 +15,7 @@ import InputOTP from "@/components/ui/input-otp/InputOTP.vue";
 import InputOTPGroup from "@/components/ui/input-otp/InputOTPGroup.vue";
 import InputOTPSlot from "@/components/ui/input-otp/InputOTPSlot.vue";
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from "vue-input-otp";
-import router from "@/router";
+
 const { t } = useI18n();
 const phone = ref("");
 const emit = defineEmits(["success"]);

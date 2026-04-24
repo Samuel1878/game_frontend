@@ -6,7 +6,7 @@ import { africanBuffaloSlots } from '@/consts/afbGames';
 import { enterGameAPI } from '@/services/gameAPI';
 import { useAuthStore } from '@/stores/auth';
 import { useUIStore } from '@/stores/ui';
-import { buffalo, slot } from '@/utils';
+import { buffalo } from '@/utils';
 import type { Game } from '@/utils/types';
 import { useReturnRefresh } from '@/utils/useReturn';
 import { ref } from 'vue';

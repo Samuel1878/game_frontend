@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Home, User, BanknoteArrowUp, GiftIcon } from "lucide-vue-next";
+import { Home, User, GiftIcon, Wallet } from "lucide-vue-next";
 import { useRoute, useRouter } from "vue-router";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
@@ -12,7 +12,7 @@ const navItems = [
   { name: "home", icon: Home, path: "/" },
   { name: "promotion", icon: GiftIcon, path: "/promotions" },
   // { name: "games", icon: Gamepad2, path: "/games", center: true },
-  { name: "deposit", icon: BanknoteArrowUp, path: "/deposit" },
+  { name: "deposit", icon: Wallet, path: "/deposit" },
   { name: "profile", icon: User, path: "/user/profile" },
 ];
 const go = (path: string) => {
@@ -38,7 +38,7 @@ const indicatorStyle = computed(() => {
             ring-gray-700
              bg-[#020617]/90 backdrop-blur-xl
              border-t border-t-white/10
-              shadow-lg rounded-2xl"
+              shadow-lg rounded-lg"
     >
       
       <div class="absolute bottom-0 left-0 h-1 w-full">
@@ -77,7 +77,7 @@ const indicatorStyle = computed(() => {
               ? 'text-sky-400'
               : 'text-gray-500 hover:text-white'"
           >
-            <component :is="item.icon" class="w-5 h-5" />
+            <component :is="item.icon" class="w-6 h-6" />
             <span class="font-medium">{{ t(item.name) }}</span>
           </button>
 

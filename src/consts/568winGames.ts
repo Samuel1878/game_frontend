@@ -1,4 +1,4 @@
-export const winGames = [
+ export const winGames = [
         {
             "gameProviderId": 1029,
             "gameID": 495,

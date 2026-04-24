@@ -9,13 +9,13 @@ const getDefaultLang = () => {
   const saved = localStorage.getItem("lang");
 
   if (saved) return saved;
-  const browser = navigator.language.startsWith("mm") ? "mm" : "en";
+  const browser = navigator.language.startsWith("mm") ? "mm" : "cn";
   return browser;
 };
 
 export const i18n = createI18n({
   legacy: false,
   locale: getDefaultLang(),
-  fallbackLocale: "en",
+  fallbackLocale: "cn",
   messages,
 });

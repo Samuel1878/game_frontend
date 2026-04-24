@@ -1,6 +1,6 @@
 import kbzLogo from "@/assets/image/kbzpay.svg";
 import wavePayLogo from "@/assets/image/wavepay.jpeg";
-import ayaPayLogo from "@/assets/image/ayaPay.jpeg"
+import ayaPayLogo from "@/assets/image/ayabanking.png"
 import usdtLogo from "@/assets/image/USDT.png";
 import VA_Gaming from "@/assets/image/va-white.webp";
 import PG_Soft from "@/assets/image/PG-WHITE.png";
@@ -69,8 +69,27 @@ import slot from "@/assets/icon/slot.png";
 import fish from "@/assets/icon/fish.png";
 import casino from "@/assets/icon/livecasino.png";
 import chess from "@/assets/icon/chess.png";
-import logo from "@/assets/Logo.png"
+import logo from "@/assets/Logo.png";
+import kbzBanking from "@/assets/image/kbzbanking-new.png"
+import accountCenter from "@/assets/icon/account-center.png"
+import depositHistoryIcon from "@/assets/icon/deposit-yellow.png";
+import withdrawHistoryIcon from "@/assets/icon/withdraw-yellow.png";
+import helpCenter  from "@/assets/icon/help-center.svg"
+import download from "@/assets/icon/download.png";
+import transaction from "@/assets/icon/money-statement.png";
+import share from "@/assets/icon/invite-code.png";
+import logout from "@/assets/icon/logout.svg"
+
 export {
+  logout,
+  helpCenter,
+  share,
+  download,
+  transaction,
+  accountCenter,
+  depositHistoryIcon,
+  withdrawHistoryIcon,
+  kbzBanking,
   logo,
   fish,
   casino,
@@ -153,9 +172,9 @@ export const formattedAmount = (amount:number) =>
     : "-";
 
 export function getGameIcon(game: Game): string | undefined {
-  const en = game.gameInfos[0];
+  const en = game.gameInfos[1];
   if (en?.gameIconUrl) return en.gameIconUrl
 
-  const zh = game.gameInfos[1];
+  const zh = game.gameInfos[0];
   return zh?.gameIconUrl
 }

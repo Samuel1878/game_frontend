@@ -3,7 +3,6 @@ import AuthModal from "@/components/Auth.vue";
 import { Toaster } from "./components/ui/sonner";
 import "vue-sonner/style.css";
 import { useUIStore } from "./stores/ui";
-import { ApertureIcon } from "lucide-vue-next";
 import { useAuthStore } from "./stores/auth";
 import { useWallet } from "./stores/wallet";
 import { formatPrice, logo, wallet_icon } from "./utils";
@@ -40,6 +39,7 @@ const handlePageShow = (event: PageTransitionEvent) => {
     window.location.reload();
   }
 };
+
 </script>
 
 <template>
@@ -71,8 +71,8 @@ const handlePageShow = (event: PageTransitionEvent) => {
           <RouterLink class="nav-link" to="/withdraw">Withdraw</RouterLink>
         </div>
         <div class="flex items-center gap-2 justify-end">
-          <RouterLink
-            to="/deposit"
+          <div
+            @click="authStore.fetchUser"
             v-show="authStore.user"
             class="flex items-center gap-2 px-2 h-10 bg-gray-800/40 rounded-md border border-white/20 shadow-inner hover:shadow-lg transition-shadow duration-300"
           >
@@ -80,7 +80,7 @@ const handlePageShow = (event: PageTransitionEvent) => {
             <p class="font-bold text-md text-yellow-500">
               {{ formatPrice(wallet.balance || 0) || "0.00" }}
             </p>
-          </RouterLink>
+          </div>
 
           <button
             @click="goToLoginHandler"

@@ -1,4 +1,4 @@
-export const advantPlayGames = [
+ export const advantPlayGames = [
 {
             "gameProviderId": 1034,
             "gameID": 85,

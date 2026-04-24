@@ -109,7 +109,8 @@
      "enter_phone_number":"Enter Phone Number",
      "enter_otp":"Enter OTP code",
      "name_phone":"Username / Phone",
-     "promotion":"Promotion",
+     "promotions":"Promotions",
+       "promotion":"Promotion",
      "game_title_slot":"Slot Games",
      "game_description_slot":"Spin and win your favorites",
      "search_game":"Search games",
@@ -120,5 +121,15 @@
      "game_title_casino":"Casino",
      "game_description_casino":"Play your favorite casino in one place",
      "game_title_arcade":"Arcade Games",
-     "game_description_arcade":"Play flexible arcade games"
+     "game_description_arcade":"Play flexible arcade games",
+     "services":"Services",
+     "arcade":"Arcade",
+     "arcade-gamge":"Arcade Games",
+     "bank":"Bank",
+     "deposit_history":"Deposit History",
+     "withdraw_history":"Withdraw History",
+     "update_password":"Update Password",
+     "transaction":"Transaction",
+     "download_app":"Download App",
+     "invite":"Invite"
 }

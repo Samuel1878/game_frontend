@@ -14,8 +14,7 @@ import { slot } from '@/utils';
 import type { Game } from '@/utils/types';
 import { useReturnRefresh } from '@/utils/useReturn';
 import { refDebounced } from '@vueuse/core';
-import { ArrowLeftCircle, ArrowRight, ChevronLeft, ChevronRight, LucideArrowRight, SearchIcon } from 'lucide-vue-next';
-import { onMounted } from 'vue';
+import { ChevronLeft, ChevronRight, SearchIcon } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { toast } from 'vue-sonner';
@@ -113,7 +112,7 @@ const scroll = (direction: "left" | "right") => {
 useReturnRefresh(() => {
     authStore.fetchUser();
 })
-</script>ProviderOptions
+</script>
 <template>
     <main class="bg-gray-900 max-w-lg w-full flex justify-between flex-col">
         <div class="p-2">

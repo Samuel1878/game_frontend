@@ -1,29 +1,31 @@
-<script setup>
+<script setup lang="ts">
 import { Navigation, Pagination, Scrollbar, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { homeSlide } from "@/consts";
 import { useI18n } from "vue-i18n";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+// import "swiper/css";
+import "swiper/swiper.css";
+// import "swiper/";
 const autoplayConfig = {
   delay: 3000, // ⏱ time between slides
   disableOnInteraction: false, // keep autoplay after swipe
 };
 const { t } = useI18n();
+
 </script>
 
 <template>
-  <Swiper
-    :modules="[Navigation, Pagination, Scrollbar, Autoplay]"
-    :slides-per-view="1"
-    :space-between="10"
-    :speed="1500"
-    :autoplay="autoplayConfig"
-    :loop="true"
-    :navigation="false"
-    :pagination="{ clickable: true }"
-  >
+<Swiper
+  v-if="homeSlide && homeSlide.length > 0"
+  :modules="[Navigation, Pagination, Scrollbar, Autoplay]"
+  :slides-per-view="1"
+  :space-between="10"
+  :speed="1500"
+  :autoplay="autoplayConfig"
+  :loop="false"
+  :navigation="false"
+  :pagination="{ clickable: true }"
+>
     <SwiperSlide
       v-for="slide in homeSlide"
       :key="slide.id"
@@ -43,7 +45,7 @@ const { t } = useI18n();
 
         <button
           @click="() => console.log('clicked')"
-          class="cursor-pointer transition-transform duration-300 hover:scale-110 h-10 px-4 w-fit rounded-lg border-2 border-white/10 bg-gradient-to-b shadow-xl from-gray-100/10 to-gray-200/10"
+          class="cursor-pointer transition-transform duration-300 hover:scale-110 h-10 px-4 w-fit rounded-lg border-2 border-white/10 bg-linear-to-b shadow-xl from-gray-100/10 to-gray-200/10"
         >
           {{ t(slide.button) }}
         </button>

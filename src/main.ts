@@ -11,16 +11,16 @@ const app = createApp(App);
 app.use(i18n);
 app.use(pinia);
 app.use(router);
+app.mount('#app');
+const auth = useAuthStore();
 
-(async () => {
+const boot = async () => {
   try {
-    const auth = useAuthStore();
-    await auth.init()
-    console.log("Auth initialized");
-    
-    app.mount('#app');
-  } catch (err) {
-    console.error("Failed to initialize auth:", err);
-    window.location.href = "/";
+    await auth.init();
+  } catch (e) {
+    console.error(e);
   }
-})();
+};
+
+boot();
+

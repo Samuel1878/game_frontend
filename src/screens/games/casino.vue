@@ -2,12 +2,11 @@
 import Footer from '@/components/footer.vue';
 import GameViews from '@/components/gameViews.vue';
 import GameOptions from '@/components/layout/gameOptions.vue';
-import { topTableGames } from '@/consts';
-import { africanBuffaloSlots } from '@/consts/afbGames';
+import { topTableGames } from '@/consts/games.ts';
 import { enterGameAPI } from '@/services/gameAPI';
 import { useAuthStore } from '@/stores/auth';
 import { useUIStore } from '@/stores/ui';
-import {  casino, fish } from '@/utils';
+import {  casino } from '@/utils';
 import type { Game } from '@/utils/types';
 import { useReturnRefresh } from '@/utils/useReturn';
 import { ref } from 'vue';

@@ -1,18 +1,25 @@
 <script setup lang="ts">
-import { footer_images } from '@/consts';
-import { _18_plus, askgamblers, ayaPayLogo, discord_black, download_white, facebook_black, ga, gambling_therapy, gamcare, kbzLogo, ssl_icon, telegram_black, trust, usdtLogo, viber_black, wavePayLogo } from '@/utils';
+import { _18_plus, askgamblers, ayaPayLogo, discord_black, download_white, facebook_black, ga, gambling_therapy, gamcare, kbzBanking, kbzLogo, ssl_icon, telegram_black, trust, usdtLogo, viber_black, wavePayLogo } from '@/utils';
 import { useI18n } from 'vue-i18n';
 
 const year = new Date().getFullYear()
 const {t} = useI18n();
 const quickLinks = [
-  { name: 'home', path: "/" },
-  { name: 'games', path: "/games" },
+  { name: 'lobby', path: "/" },
+  { name: 'slots', path: "/slots" },
+  { name: 'buffalo', path: "/buffalo" },
+    { name: 'fishing', path: "/fishing" },
+      { name: 'casino', path: "/casino" },
+        { name: 'arcade', path: "/arcade-games" },
+  
+]
+
+const services = [
   { name: 'deposit', path: "/deposit" },
   { name: 'withdraw', path: "/withdrawal" },
   { name: 'download', path: "/download" },
+    { name: 'promotion', path: "/promotions" },
 ]
-
 const supportLinks = [
   { name: 'help_center', path: "/help" },
   { name: 'terms_and_conditions', path: "/about/terms" },
@@ -24,15 +31,15 @@ const supportLinks = [
     path:"/info/limits_and_regulations"
   }
 ];
-const eventLinks = [
-  {
-    name:'events_and_community',path:"/info/community"
-  },
-  {
-    name:'bonus',
-    path:"/info/bonus"
-  }
-];
+// const eventLinks = [
+//   {
+//     name:'events_and_community',path:"/info/community"
+//   },
+//   {
+//     name:'bonus',
+//     path:"/info/bonus"
+//   }
+// ];
 const payments = [
   {
     name:"KBZ pay",
@@ -45,6 +52,10 @@ const payments = [
   {
     name:"AYA pay",
     src:ayaPayLogo
+  },
+  {
+    name:"KBZ Banking",
+    src:kbzBanking
   },
   {
     name:"USDT",
@@ -79,10 +90,26 @@ const certification = [
       </div> -->
       <!-- Quick Links -->
       <div class="grid grid-cols-1 my-12 md:grid-cols-2 lg:grid-cols-4 w-full gap-8">
-        <div class="border-t border-gray-400/20 py-2">
+        <div class="border-t border-gray-400/20 py-2 pt-6">
           <h3 class="text-white font-semibold mb-4">{{ t('products') }}</h3>
           <div class="space-y-4">
             <div v-for="link in quickLinks" :key="link.name">
+              <router-link
+                :to="link.path"
+              
+              >
+              <p class="hover:text-sky-400 text-md text-gray-500">
+                      {{ t(link.name) }}
+              </p>
+               
+              </router-link>
+            </div>
+          </div>
+        </div>
+         <div class="border-t border-gray-400/20 py-2 pt-6">
+          <h3 class="text-white font-semibold mb-4">{{ t('services') }}</h3>
+          <div class="space-y-4">
+            <div v-for="link in services" :key="link.name">
               <router-link
                 :to="link.path"
               
@@ -111,30 +138,16 @@ const certification = [
             </div>
           </div>
         </div>
-        <div class="border-t border-gray-400/20 py-2">
-          <h3 class="text-white font-semibold mb-4">{{ t('events') }}</h3>
-          <div class="space-y-4">
-            <div v-for="link in eventLinks" :key="link.name">
-              <router-link
-                :to="link.path"
-              
-              >
-              <p class="hover:text-sky-400 text-md text-gray-500">
-                      {{ t(link.name) }}
-              </p>
-               
-              </router-link>
-            </div>
-          </div>
-        </div>
+       
         <div class="border-t border-gray-400/20 py-2">
           <h3 class="text-white font-semibold mb-4">{{ t('payment_method') }}</h3>
-          <div class="flex">
-            <div v-for="link in payments" :key="link.name" class="flex gap-2">
-              <p>
-
+          <div class="flex gap-4 flex-wrap ">
+            <div v-for="link in payments" :key="link.name" class="flex gap-2 flex-col items-center justify-between">
+              
+              <img :src="link.src" class="cover w-12 h-12 rounded-lg bg-none"/>
+              <p class="text-white font-bold text-sm">
+                {{ link.name}}
               </p>
-              <img :src="link.src" class="cover w-8 h-8 rounded-sm bg-gray-50"/>
             </div>
           </div>
         </div>

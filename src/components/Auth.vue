@@ -24,6 +24,7 @@ import { Checkbox } from "./ui/checkbox";
 import { Spinner } from "./ui/spinner";
 import { useI18n } from "vue-i18n";
 import { toast } from "vue-sonner";
+import DialogDescription from "./ui/dialog/DialogDescription.vue";
 const auth = useAuthStore();
 const ui = useUIStore();
 const router = useRouter();
@@ -50,7 +51,11 @@ onMounted(() => {
   }
 }); 
 const isValid = computed(() => {
-    if (!regex.test(form.value.username)) return false;
+  if (isLogin.value){
+   if (!regex.test(loginName.value )|| !form.value.password) return false;
+    return true
+  }
+  
   if (!form.value.username || !form.value.password) return false;
   if (!isLogin.value && form.value.password !== form.value.conPassword) return false;
   if (!checked.value) return false;
@@ -111,10 +116,13 @@ const submit = async () => {
         bg-linear-to-br from-white/5 via-white/10 to-white/5
         backdrop-blur-2xl border border-white/10
         shadow-[0_10px_40px_rgba(0,0,0,0.6)] text-gray-100 rounded-2xl">
-      <DialogHeader>
-        <DialogTitle class="text-gray-100 my-4 font-bold">
+      <DialogHeader class="my-2">
+        <DialogTitle class="text-gray-100 font-bold text-start">
           {{ isLogin ? t("login") : t("register") }}
         </DialogTitle>
+        <DialogDescription class="text-start text-gray-400">
+          {{   isLogin ? t("login") : t("register") }}
+        </DialogDescription>
         <button class="absolute right-5 top-5 cursor-pointer" @click="ui.closeAuthModal()">
           <X />
         </button>
@@ -189,7 +197,7 @@ const submit = async () => {
             <InputGroupText class="text-gray-100"></InputGroupText>
           </InputGroupAddon>
         </InputGroup>
-        <div class=" mt-18">
+        <div class=" mt-8">
           <div class="h-8">
             <p v-if="errorMessage" class="text-red-500 text-sm px-1">
               {{ errorMessage }}

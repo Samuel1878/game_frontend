@@ -56,25 +56,54 @@ export const useAuthStore = defineStore("auth", {
         const res = await api.get("/user/profile");
         console.log("Fetched user profile:", res.data);
         this.setUser(res.data);
+        
         return true
       } catch (error) {
+        this.clearAuth()
         return false
       }
     },
+
+    // async init() {
+    //   try {
+    //     const resData = await refreshAPI();
+    //     if (resData){
+    //     this.setToken(resData?.accessToken);
+    //     await this.fetchUser();
+    //     initSocket(); // reconnect socket on reload
+    //     }
+    //   } catch {
+    //     this.clearAuth();
+    //   } finally {
+    //     this.initialized = true;
+    //   }
+    // },
     async init() {
-      try {
-        const resData = await refreshAPI();
-        if (resData){
-        this.setToken(resData?.accessToken);
-        await this.fetchUser();
-        initSocket(); // reconnect socket on reload
-        }
-      } catch {
-        this.clearAuth();
-      } finally {
-        this.initialized = true;
-      }
-    },
+  try {
+    const resData = await refreshAPI();
+
+    if (!resData?.accessToken) {
+      throw new Error("No refresh token");
+    }
+
+    this.setToken(resData.accessToken);
+
+    const ok = await this.fetchUser();
+
+    if (!ok) {
+      throw new Error("User fetch failed");
+    }
+
+    initSocket();
+
+  } catch (err) {
+    console.log("Auth init failed:", err);
+    this.clearAuth();
+    router.replace("/"); // or /login
+  } finally {
+    this.initialized = true;
+  }
+},
     async register(payload: { name?: string | null; password: string ; referral_code:string|null; phone:string}) {
       try {
         const response = await api.post("/auth/register", payload);

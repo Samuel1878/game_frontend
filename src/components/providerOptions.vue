@@ -4,10 +4,9 @@ import { Navigation, FreeMode } from 'swiper/modules';
 // import 'swiper/css';
 // import 'swiper/css/navigation';
 
-import { getGameIcon } from '@/utils';
 import type { Game } from '@/utils/types';
-import { ChevronLeft, ChevronRight } from "lucide-vue-next";
-import { gameProviders, slotGameProviders } from '@/consts';
+
+import { slotGameProviders } from '@/consts';
 
 const props = defineProps<{
   label?: string,
