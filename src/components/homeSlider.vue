@@ -31,6 +31,7 @@ const { t } = useI18n();
       :key="slide.id"
       class="relative w-full"
     >
+      <template>
       <img :src="slide.image" class="w-full h-46 object-cover rounded-2xl" />
       <div class="absolute left-4 bottom-4 top-6 flex-col flex justify-between">
         <div>
@@ -50,6 +51,7 @@ const { t } = useI18n();
           {{ t(slide.button) }}
         </button>
       </div>
+      </template>
     </SwiperSlide>
   </Swiper>
 </template>

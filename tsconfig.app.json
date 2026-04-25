@@ -17,5 +17,5 @@
       ]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue","src/*.ts", "src/consts/advantPlayGames.ts", "src/consts/568winGames.ts", "src/consts/afbGames.ts", "src/consts/jiliGames.ts", "src/consts/fastspinGames.ts", "src/consts/faChaiGames.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue","src/*.ts","src/*.vue", "src/consts/advantPlayGames.ts", "src/consts/568winGames.ts", "src/consts/afbGames.ts", "src/consts/jiliGames.ts", "src/consts/fastspinGames.ts", "src/consts/faChaiGames.ts"]
 }
