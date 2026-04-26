@@ -110,11 +110,18 @@ export const verifyOTP = async(phone: string, code: string) =>{
 }
 
 
-export const resetPassword = (phone: string, newPassword: string) =>
+export const resetPassword = (phone: string, newPassword: string) => 
   api.post("/auth/password/reset", { phone, newPassword });
 
-export const changePassword = (data: any) =>
-  api.post("/user/password/change", data);
+export const changePassword = async(data: any) => {
+  try {
+    const response = await api.post("/user/password/change", data);
+    return response.data
+  } catch (error) {
+    return null
+  }
+}
+  
 
 export const bindPhone = (phone: string) =>
   api.post("/user/phone/bind", { phone });

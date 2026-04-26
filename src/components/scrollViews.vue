@@ -4,7 +4,8 @@ import type { Game } from '@/utils/types';
 import { ChevronLeft, ChevronRight } from "lucide-vue-next";
 import { computed } from 'vue';
 import {  ref } from 'vue';
-
+import { useI18n } from 'vue-i18n';
+const {t} = useI18n();
 const props = defineProps<{ label?: string, labelStyle?: string, header?: string, gameData?: Game[], handler?: (gameData: Game) => void, icon: string }>();
 const topGameRef = ref<HTMLElement | null>(null)
 const scrollTop = (dir: "left" | "right") => {
@@ -33,7 +34,7 @@ const total = computed(() => props.gameData?.length ?? 0)
            bg-gray-800/80 border border-white/10
            text-gray-300 hover:text-white hover:bg-gray-700/80
            transition">
-          View More ({{ total }})
+          {{t('view_more')}} ({{ total }})
         </button>
 
         <!-- Arrows -->

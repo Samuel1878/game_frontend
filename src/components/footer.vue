@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { _18_plus, askgamblers, ayaPayLogo, discord_black, download_white, facebook_black, ga, gambling_therapy, gamcare, kbzBanking, kbzLogo, ssl_icon, telegram_black, trust, usdtLogo, viber_black, wavePayLogo } from '@/utils';
+import router from '@/router';
+import { _18_plus, askgamblers, ayaPayLogo, discord_black, download_white, facebook_black, ga, gambling_therapy, gamcare, kbzBanking, kbzLogo, openDiscord, openTelegram, openViber, ssl_icon, telegram_black, trust, usdtLogo, viber_black, wavePayLogo } from '@/utils';
 import { useI18n } from 'vue-i18n';
 
 const year = new Date().getFullYear()
@@ -24,7 +25,7 @@ const supportLinks = [
   { name: 'help_center', path: "/help" },
   { name: 'terms_and_conditions', path: "/about/terms" },
   { name: 'policy_and_privacy', path: "/about/privacy" },
-  { name: 'responsible_gaming', path: "/about/responsible" },
+  { name: 'responsibility', path: "/about/responsible" },
   {name:'faqs', path:"/info/faq"},
   {
     name:'limits_and_regulations',
@@ -63,10 +64,22 @@ const payments = [
   }
 ];
 const socials = [
-  facebook_black,
-  telegram_black,
-  viber_black,
-  discord_black,
+  {
+    icon : facebook_black,
+    action:()=>{}
+  },
+  {
+    icon: telegram_black,
+    action:openTelegram
+  },
+  {
+    icon:viber_black,
+    action:openViber
+  },
+  {
+    icon:discord_black,
+    action:openDiscord
+  }
 ];
 const certification = [
   gamcare,
@@ -158,8 +171,8 @@ const certification = [
           <img :src="ssl_icon" class=""/>
         </div>
         <div class="flex gap-2">
-          <div class="" v-for="value in socials">
-          <img :src="value"/>
+          <div @click="value.action" class="" v-for="value in socials">
+          <img :src="value.icon"/>
           </div>
         </div>
       
@@ -170,7 +183,7 @@ const certification = [
             <img :src="value" class="h-7"/>
           </div>
         </div>
-        <div class="">
+        <div class="" @click="router.push('/download')">
           <img :src="download_white" class="h-9"/>
         </div>
       </div>

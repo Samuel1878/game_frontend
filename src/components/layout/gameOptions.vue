@@ -20,7 +20,7 @@ const gotoPath = (path:string) => {
             :class="props.current_page===option.label?'bg-gray-500/20':'bg-none'"
              @click="gotoPath(option.path)" :key="option.id">
                     <img :src="option.image" class="w-10 h-10"/>
-                    <p class="text-sm text-white">{{t(option.label) }}</p>
+                    <p class="text-sm text-white text-nowrap">{{t(option.label) }}</p>
            
             </div>
         </div>

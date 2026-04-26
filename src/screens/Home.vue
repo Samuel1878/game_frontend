@@ -86,24 +86,24 @@ onMounted(() => {
       <div class="w-full mb-2 bg-gray-900 border-gray-800 border-0 px-2">
 
         <div
-          class="flex my-1 p-1 items-center rounded-2xl bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+          class="flex my-1 p-1 py-0.5 items-center rounded-2xl bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
           <BellRingIcon :size="16" class="text-gray-100 mx-2" />
           <div class="w-full overflow-hidden">
             <div class="flex w-max animate-marquee gap-10 text-xs text-sky-400 font-medium">
-              <span>🎉 Welcome! Get your bonus today</span>
-              <span>💰 Deposit now and earn rewards</span>
-              <span>🔥 Limited time promotion running</span>
-              <span>🎁 Daily rewards available</span>
+              <span>🎉 {{ t("description_one") }}</span>
+              <span>💰 {{ t("description_two") }}</span>
+              <span>🎁 {{ t("description_three") }}</span>
+              
 
-              <span>🎉 Welcome! Get your bonus today</span>
-              <span>💰 Deposit now and earn rewards</span>
-              <span>🔥 Limited time promotion running</span>
-              <span>🎁 Daily rewards available</span>
+            <span>🎉 {{ t("description_one") }}</span>
+              <span>💰 {{ t("description_two") }}</span>
+              <span>🔥 {{ t("description_three") }}</span>
+        
             </div>
           </div>
 
           <div class="px-2">
-            <button class="bg-sky-400 rounded-full p-1">
+            <button class="bg-sky-400 rounded-full p-1 animate-pulse-scale" @click="router.push('/download')">
               <Download :size="13" class="text-gray-900" />
             </button>
           </div>
@@ -114,7 +114,7 @@ onMounted(() => {
         <div class="flex justify-between gap-4 pb-2">
           <button
             @click="router.push('/deposit')"
-            class="w-full h-8 cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+            class="w-full h-8 shine-auto overflow-hidden relative cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
 
             <span class="font-bold">
               {{ t("deposit") }}
@@ -122,7 +122,7 @@ onMounted(() => {
           </button>
           <button
             @click="router.push('/withdraw')"
-            class="w-full h-8 cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+            class="w-full h-8 shine-auto overflow-hidden cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
 
             <span class="font-bold">
               {{ t("withdraw") }}

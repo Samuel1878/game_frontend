@@ -11,7 +11,9 @@ import { Advantplay, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin
      share,
      download,
      helpCenter,
-     logout} from "@/utils";
+     logout,
+     kbzBanking,
+     banner_4} from "@/utils";
 import {  africanBuffaloSlots } from "./afbGames";
 import { jiliGames } from "./jiliGames";
 import { pragmaticPlayGames } from "./pragmaticGames";
@@ -25,6 +27,7 @@ import { sboGames } from "./sboGames";
 import { winGames } from "./568winGames";
 import type { Game } from "@/utils/types";
 import router from "@/router";
+import { useAuthStore } from "@/stores/auth";
 export const usdtRateToMMK = 4000;
 export const footer_images = [
     PG_Soft,
@@ -157,14 +160,91 @@ export const paymentMethod:paymentTypes[] = [
         value:"ayaPay",
         icon:ayaPayLogo
     },
+            {
+        id:4,
+        label:"KBZ Bank",
+        value:"kbzBank",
+        icon:kbzBanking
+    },
     {
-        id:3,
+        id:5,
         label:"USDT",
         value:"usdt",
         icon:usdtLogo
+    },
+
+
+];
+export const paymentMethodOption = [
+    {
+        id:1,
+        label:"all",
+        value:"all",
+        
+    },
+    {
+        id:2,
+        label:"KBZ Pay",
+        value:"kbzPay",
+    
+
+    },
+    {
+        id:3,
+        label:"Wave Pay",
+        value:"wavePay",
+   
+    },
+    {
+        id:4,
+        label:"AYA Pay",
+        value:"ayaPay",
+   
+    },
+    {
+        id:5,
+        label:"USDT",
+        value:"usdt",
+    
+    },
+    {
+        id:6,
+        label:"KBZ Bank",
+        value:"kbzBank",
+    
     }
 ];
+export const paymentMethodDeposit:paymentTypes[] = [
+    {
+        id:1,
+        label:"KBZ Pay",
+        value:"kbzPay",
+        icon:kbzLogo
+
+    },
+    {
+        id:2,
+        label:"Wave Pay",
+        value:"wavePay",
+        icon:wavePayLogo
+    },
+    {
+        id:3,
+        label:"AYA Pay",
+        value:"ayaPay",
+        icon:ayaPayLogo
+    },
+    {
+        id:4,
+        label:"USDT",
+        value:"usdt",
+        icon:usdtLogo
+    },
+
+
+];
 export const homeSlide = [
+
     {   id:1,
         image:banner_1,
         title:"title_one",
@@ -187,7 +267,14 @@ export const homeSlide = [
         description:"description_three",
         button:"button_three",
         action:""
-    }
+    },
+     {   id:4,
+        image:banner_4,
+        title:"title_one",
+        description:"description_one",
+        button:"button_one",
+        action:""
+    },
 ]
 export const gameOptions = [
     {
@@ -334,7 +421,7 @@ export const MembershipCenter = [
         id:1,
         label:"update_password",
         action:()=>{
-            router.push("/user/change-password")
+            router.push("/user/update-password")
         },
         image:accountCenter
     },
@@ -391,7 +478,8 @@ export const MembershipCenter = [
         id:8,
         label:"logout",
                action:()=>{
-                router.push("/download")
+                const auth = useAuthStore();
+                auth.logout()
         },
         image:logout
     },

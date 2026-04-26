@@ -8,21 +8,34 @@ import {
 import type { BankAccount, BankAccountPros } from "@/utils/types";
 
 export const useBankStore = defineStore("bank", {
-  state: () => ({
-    accounts: [] as BankAccount[],
-    loading: false,
-  }),
+state: () => ({
+  accounts: [] as BankAccount[],
+  loading: false,
+  selectedPayment: "all" as string,
+}),
+getters: {
+  filteredAccounts: (state) => {
+    if (state.selectedPayment === "all") return state.accounts;
 
+    return state.accounts.filter(
+      (acc) => acc.value === state.selectedPayment
+    );
+  },
+},
   actions: {
     async fetchAccounts() {
       this.loading = true;
       try {
         this.accounts = await getUserBankAccountAPI();
+        console.log(this.accounts)
       } finally {
         this.loading = false;
       }
     },
-
+  setFilter(value: string) {
+    console.log(value)
+    this.selectedPayment = value
+  },
     async addAccount(data:BankAccountPros ) {
       const res = await addBankAccountAPI(data);
       this.accounts.push(res);

@@ -3,10 +3,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import Withdraw from "@/screens/Withdrawal/index.vue";
 import Deposit from "@/screens/Deposit/Deposit.vue";
 import { useAuthStore } from "./stores/auth";
-// import { useUIStore } from "./stores/ui";
 import Payments from "./screens/Deposit/payments.vue";
 import Profile from "./screens/User/Profile.vue";
-import PaymentsWithdraw from "@/screens/Withdrawal/payment.vue";
 import Help from "./screens/help.vue";
 import Terms from "./screens/terms.vue";
 import Policy from "./screens/policy.vue";
@@ -23,6 +21,9 @@ import Arcade from "./screens/games/arcade.vue";
 import Promotions from "@/screens/promotions/index.vue";
 import PromotionDetail from "./screens/promotions/detail.vue";
 import { useUIStore } from "./stores/ui";
+import UpdatePassword from "./screens/User/updatePassword.vue";
+import DepositHistory from "./screens/transaction/depositHistory.vue";
+import WithdrawHistory from "./screens/transaction/withdrawHistory.vue";
 
 
 const routes = [
@@ -73,24 +74,18 @@ const routes = [
   },
   {
     path: "/deposit",
-    meta: { requiresAuth: true },
+    meta: { hideNavbar:true,hideTopNav:true, requiresAuth:true },
     component: Deposit,
   },
   {
     path: "/deposit/:payment_method",
     component: Payments,
-    meta: { hideNavbar: true },
+    meta: { hideNavbar: true , hideTopNav:true, requiresAuth:true},
   },
   {
     path: "/withdraw",
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: true, hideTopNav:true, hideNavbar:true },
     component: Withdraw,
-  },
-
-  {
-    path: "/withdraw/:payment_method",
-    component: PaymentsWithdraw,
-    meta: { hideNavbar: true },
   },
   {
     path: "/user/profile",
@@ -107,10 +102,25 @@ const routes = [
     component: Transactions,
     meta: { requiresAuth: true },
   },
+    {
+    path: "/user/deposit-history",
+    component: DepositHistory,
+    meta: { requiresAuth: true,hideTopNav:true, hideNavbar:true },
+  },
+      {
+    path: "/user/withdraw-history",
+    component: WithdrawHistory,
+    meta: { requiresAuth: true,hideTopNav:true, hideNavbar:true },
+  },
+  {
+    path: "/user/update-password",
+    component: UpdatePassword,
+    meta: { requiresAuth: true ,hideTopNav:true, hideNavbar:true},
+  },
   {
     path: "/user/bank-accounts",
     component: BankAccount,
-    meta: { hideNavbar: true },
+    meta: { hideNavbar: true, hideTopNav:true },
   },
   {
     path: "/help",
@@ -146,7 +156,7 @@ router.beforeEach(async (to) => {
   const ui = useUIStore()
 
   if (!auth.initialized) {
-    // await auth.init(); // IMPORTANT
+    await auth.init(); // IMPORTANT
   }
 
   if (to.meta.requiresAuth && !auth.accessToken) {

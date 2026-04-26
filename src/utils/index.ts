@@ -14,6 +14,7 @@ import Advantplay from "@/assets/image/advant_play.png";
 import banner_1 from "@/assets/image/slider_1.jpg";
 import banner_2 from "@/assets/image/slider_2.jpg";
 import banner_3 from "@/assets/image/slider_3.jpg";
+import banner_4 from "@/assets/image/slider_4.jpg";
 import en from "@/assets/localization/en.json";
 import mm from "@/assets/localization/mm.json";
 import cn from "@/assets/localization/cn.json";
@@ -140,7 +141,7 @@ export {
   viber,
   viber_black,
 
-
+banner_4,
     kbzLogo,
     ayaPayLogo,
     wavePayLogo,
@@ -177,3 +178,28 @@ export function getGameIcon(game: Game): string {
 
   return icon || logo;
 }
+
+// useTawk.ts
+declare global {
+  interface Window {
+    Tawk_API?: {
+      maximize: () => void;
+    };
+  }
+}
+
+export const openChat = () => {
+  if (window.Tawk_API) {
+    window.Tawk_API.maximize();
+  }
+};
+export const bankThemes: Record<string, string> = {
+    kbzPay: "from-white/50 via-blue-500 to-blue-400/40",
+    wavePay: "from-yellow-500/90 via-yellow-500/80 to-yellow-400/100",
+    ayaPay: "from-orange-600/40 via-red-500 to-red-400/10",
+    cbPay: "from-red-600 via-rose-500 to-pink-500",
+    kbzBanking: "from-white/50 via-blue-400 to-gray-400/30",
+};
+export const openViber = () => window.open('https://viber.com', '_blank');
+export const openTelegram = () => window.open('https://t.me/samuelalalax', '_blank');
+export const openDiscord = () => window.open('https://discord.gg/your_invite', '_blank')

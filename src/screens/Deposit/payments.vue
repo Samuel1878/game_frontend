@@ -12,14 +12,10 @@ import { useRoute } from "vue-router";
 import { useClipboard } from "@vueuse/core";
 import {
   ChartNoAxesColumnDecreasing,
-  // Copy,
-  // CopyIcon,
-  // CreditCardIcon,
-  // LoaderCircleIcon,
-  // PhoneIcon,
-  // RefreshCcw,
+  CopyIcon,
+  Headset,
+  RefreshCcw,
 } from "lucide-vue-next";
-import ApplyBreadCrumb from "@/components/breadcrumb/index.vue";
 import type { depositFormData, PaymentMethod } from "@/utils/types";
 import { useAuthStore } from "@/stores/auth";
 import {
@@ -28,31 +24,46 @@ import {
 } from "@/services/transactionAPI";
 import router from "@/router";
 import { useI18n } from "vue-i18n";
-// import { formatPrice } from "@/utils";
-// import Button from "@/components/ui/button/Button.vue";
+import CustomNavBar from "@/components/layout/customNavBar.vue";
+import { openChat, receipt_icon } from "@/utils";
+import HelpBox from "@/components/layout/helpBox.vue";
 const { t } = useI18n();
 const route = useRoute();
 const auth = useAuthStore();
 const priority = ref(1);
 const switching = ref(false);
 const submitting = ref(false);
+const accountIndex = ref(0);
 const changePriority = async () => {
   if (!payments.value?.length) return;
 
   switching.value = true;
 
-  const priorities = [
-    ...new Set(payments.value.map((e) => Number(e.priority))),
-  ].sort((a, b) => a - b);
+  const samePriority = payments.value.filter(
+    (e) => Number(e.priority) === priority.value
+  );
 
-  const currentIndex = priorities.indexOf(priority.value);
+  // ✅ if multiple in same priority → rotate inside group
+  if (samePriority.length > 1) {
+    accountIndex.value =
+      (accountIndex.value + 1) % samePriority.length;
+  } else {
+    // 🔁 fallback → change priority
+    const priorities = [
+      ...new Set(payments.value.map((e) => Number(e.priority))),
+    ].sort((a, b) => a - b);
 
-  const nextIndex =
-    currentIndex === -1 || currentIndex === priorities.length - 1
-      ? 0
-      : currentIndex + 1;
+    const currentIndex = priorities.indexOf(priority.value);
 
-  priority.value = priorities[nextIndex] || 1;
+    const nextIndex =
+      currentIndex === -1 || currentIndex === priorities.length - 1
+        ? 0
+        : currentIndex + 1;
+
+    priority.value = priorities[nextIndex] || 1;
+
+    accountIndex.value = 0; // reset index
+  }
 
   setTimeout(() => {
     switching.value = false;
@@ -61,16 +72,13 @@ const changePriority = async () => {
 const chosenAccount = computed(() => {
   if (!payments.value?.length) return null;
 
-  const found = payments.value.find(
-    (e) => Number(e.priority) === priority.value,
+  const samePriority = payments.value.filter(
+    (e) => Number(e.priority) === priority.value
   );
 
-  if (found) return found;
-  const sorted = [...payments.value].sort(
-    (a, b) => Number(a.priority) - Number(b.priority),
-  );
+  if (!samePriority.length) return null;
 
-  return sorted[0] || null;
+  return samePriority[accountIndex.value % samePriority.length];
 });
 const payments = ref<PaymentMethod[] | null>(null);
 const { amount } = route.query;
@@ -160,42 +168,56 @@ const copyHandler = (value:any) => {
 
   toast.success(`Copied: ${value}`);
 };
-const breadcrumbs = [
-  { label: "Deposit", to: "/deposit" },
-  { label: payment?.value?.label },
-];
+
 </script>
 <template>
-  <main class="bg-gray-900 w-full flex items-center flex-col min-h-svh">
-    <div class="w-full">
-      <ApplyBreadCrumb :items="breadcrumbs" />
-    </div>
-    <section class="px-3 max-w-3xl h-full w-full space-y-2">
-      <form class="w-full h-full gap-2" @submit.prevent="submitHandler">
-                <div
-          class="flex flex-col w-full flex-1 p-2 gap-6 h-full bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0)] rounded-lg">
+  <main class="bg-gray-900 w-full gap-2 flex items-center flex-col min-h-svh">
+  <CustomNavBar title="transfer" backTo="/deposit">
+    <template #right>
+      <button>
+        <img class="w-7 h-7" :src="receipt_icon" />
+      </button>
+      <button @click="openChat">
+        <Headset class="w-6 h-6" />
+      </button>
+    </template>
+  </CustomNavBar>
+    <section class="px-2 max-w-3xl h-full w-full space-y-2">
+      <form class="w-full h-full space-y-2" @submit.prevent="submitHandler">
+        <div class="flex justify-between w-full px-3 p-2 items-center rounded-lg glass-bg border">
+          <div class="rounded-lg overflow-hidden bg-black/40 backdrop-blur-2xl">
+            <img :src="payment?.icon" class="w-12 h-12" />
+          </div>
+          <p class="font-bold text-white">{{ payment?.label }}</p>
+          <button type="button" @click="changePriority"
+            class="active:scale-95 transition text-sky-400 font-bold text-lg px-2 py-1">
+              <RefreshCcw :class="switching ? 'animate-spin' : ''" />
+          </button>
+        </div>
+        <div
+          class="flex flex-col w-full flex-1 p-4 gap-6 h-full bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0)] rounded-lg">
           <div class="w-full flex justify-between items-center">
-            <p>{{ t('name') }}</p>
-            <p>{{ chosenAccount?.account_name }}</p>
+            <p class="text-xs text-gray-300">{{ t('name') }}</p>
+            <p class="text-lg text-gray-50 font-bold">{{ chosenAccount?.account_name }}</p>
           </div>
           <div class="w-full flex justify-between items-center">
-            <p>{{ t('acount_number') }}</p>
+            <p v-show="payment?.value!=='usdt'" class="text-xs text-gray-300">{{ t('account_number') }}</p>
             <div class="flex gap-2 items-center">
-              <p>{{ chosenAccount?.account_number }}</p>
-              <button class="flex gap-1 items-center p-2 rounded-full" @click="copyHandler(chosenAccount?.account_number??'')">
-                <CopyIcon class="text-gray-200 " />
-                <p>{{ t("copy") }}</p>
+              <p class=" text-amber-400 font-bold" :class="payment?.value==='usdt'?'text-xs':'text-lg'">{{ chosenAccount?.account_number }}</p>
+              <button type="button" class="flex gap-1 items-center p-2 rounded-full bg-gray-500/20" @click="copyHandler(chosenAccount?.account_number??'')">
+                <CopyIcon class="text-gray-200 w-4 h-4" />
+                <p class="text-xs text-gray-300">{{ t("copy") }}</p>
               </button>
             </div>
 
           </div>
            <div class="w-full flex justify-between items-center">
-            <p>{{ t('transfer_amount') }}</p>
+            <p class="text-xs text-gray-300">{{ t('amount') }}</p>
             <div class="flex gap-2 items-center">
-              <p>{{ amount }}</p>
-              <button class="flex gap-1 items-center p-2 rounded-full bg-gray-500/20" @click="copyHandler(amount??'')">
-                <CopyIcon class="text-gray-200 p-2 rounded-full" />
-                <p>{{ t("copy") }}</p>
+              <p class="text-lg text-gray-50 font-bold">{{ amount }}</p>
+              <button type="button" class="flex gap-1 items-center p-2 rounded-full bg-gray-500/20" @click="copyHandler(amount??'')">
+                <CopyIcon class="text-gray-200 w-4 h-4" />
+                <p class="text-xs text-gray-200">{{ t("copy") }}</p>
               </button>
             </div>
 
@@ -203,53 +225,10 @@ const breadcrumbs = [
         </div>
         <div
           class="flex flex-col w-full flex-1 p-4 h-full bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-b-0 border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0)] rounded-lg">
-          <!-- <div class="space-y-2 w-full">
-            <label for="account_name" class="text-slate-400 font-semibold:">{{
-              t("sender_account_name")
-            }}</label>
-            <InputGroup
-              class="h-12 rounded-lg w-full font-bold border border-gray-700 ring-sky-500 ring-0 bg-gray-900"
-            >
-              <InputGroupAddon>
-                <CreditCardIcon class="text-gray-200" />
-              </InputGroupAddon>
-              <InputGroupInput
-                :disabled="payment?.value === 'usdt'"
-                class="w-full"
-                v-model="form.account_name"
-                type="text"
-                :placeholder="t('name')"
-              />
-              <InputGroupAddon align="inline-end">
-                <InputGroupText class="text-gray-100"></InputGroupText>
-              </InputGroupAddon>
-            </InputGroup>
-          </div> -->
-          <!-- <div class="space-y-2">
-            <label for="account_name" class="text-gray-400 font-semibold:">{{
-              t("phone_number")
-            }}</label>
-            <InputGroup
-              class="h-12 rounded-lg font-bold border ring-sky-500 border-gray-700 bg-gray-900"
-            >
-              <InputGroupAddon>
-                <PhoneIcon />
-              </InputGroupAddon>
-              <InputGroupInput
-                :disabled="payment?.value === 'usdt'"
-                v-model="form.account_no"
-                type="number"
-                placeholder="09xxxxxx"
-              />
-              <InputGroupAddon align="inline-end">
-                <InputGroupText class="text-gray-100"></InputGroupText>
-              </InputGroupAddon>
-            </InputGroup>
-          </div> -->
           <div class="space-y-2">
             <label for="account_name" class="text-gray-400 font-semibold:">{{ t("last_5_digit_of_transaction") }}
             </label>
-            <InputGroup class="h-12 rounded-lg font-bold border border-gray-700 ring-sky-500 ring-0 bg-gray-900">
+            <InputGroup class="h-12 mt-2 rounded-lg font-bold border border-gray-700 ring-sky-500 ring-0 bg-gray-900">
               <InputGroupAddon>
                 <ChartNoAxesColumnDecreasing />
               </InputGroupAddon>
@@ -258,106 +237,31 @@ const breadcrumbs = [
                 <InputGroupText class="text-gray-100"></InputGroupText>
               </InputGroupAddon>
             </InputGroup>
-          </div>
-          <div>
-              <Button variant="outline" @click.prevent="changePriority"
-                class="w-full active:scale-95 transition border-sky-400 text-sky-400 font-bold text-lg px-2 py-1">
-                <RefreshCcw :class="switching ? 'animate-spin' : ''" />
-              </Button>
-            </div>
-          <!-- <div class="w-full p-2 flex justify-between items-center">
-            <p class="text-gray-400 font-bold text-lg" v-show="payment?.value !== 'usdt'">
-              {{ t("amount") }}
-            </p>
-            <p class="text-gray-400 font-bold text-sm" v-show="payment?.value === 'usdt'">
-              Amount in MMK
-            </p>
-            <div class="text-right">
-              <p class="text-sky-400 font-bold text-xl">
-                {{ formatPrice(Number(amount)) }} MMK
-              </p>
-              <p v-show="payment?.value === 'usdt'" class="text-sky-400 text-lg font-normal">
-                {{
-                  amount ? (Number(amount) / usdtRateToMMK).toFixed(2) : "0.00"
-                }}
-                USDT
-              </p>
-              <p v-show="payment?.value === 'usdt'" class="text-gray-500 text-sm font-normal">
-                1 USD ~ {{ usdtRateToMMK }} MMK
-              </p>
-            </div>
-          </div> -->
+          </div>  
         </div>
-
-        <!-- <div
-          class="flex flex-col w-full mt-1 gap-4 relative rounded-b-2xl bg-linear-to-bl from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-t-0 border-white/10 shadow-[0_5px_50px_rgba(0,0,0,0.6)]">
-          <div class="absolute -top-3 flex justify-between -right-3 -left-3">
-            <div class="h-6 w-6 bg-gray-900 rounded-full"></div>
-            <div class="h-6 w-6 bg-gray-900 rounded-full"></div>
-          </div>
-          <div id="payments" class="flex items-center w-full justify-between px-4">
-            <div class="flex items-center gap-2 py-6">
-              <div class="p-3 w-15 rounded-xl bg-black/40 backdrop-blur-2xl">
-                <img :src="payment?.icon" class="w-12 h-12 object-contain rounded-lg" />
-              </div>
-              <Transition name="fade-slide" mode="out-in">
-                <div :key="chosenAccount?.id" class="w-full">
-                  <button @click="copyHandler" class="cursor-pointer gap-3">
-                    <p class="text-gray-300 text-wrap" :class="chosenAccount?.value === 'usdt' ? 'text-sm' : 'text-lg'
-                      ">
-                      <code>{{ chosenAccount?.account_number }}</code>
-                    </p>
-                  </button>
-
-                  <p class="text-gray-50 font-bold">
-                    {{ chosenAccount?.account_name }}
-                  </p>
-                </div>
-              </Transition>
-            </div>
-            <Copy @click="copyHandler" class="text-sky-400 cursor-pointer hover:scale-110 active:scale-95 transition" />
-          </div>
-          <div class="flex justify-between items-center px-4 py-2">
-            <div class="flex items-center gap-2">
-              <span class="text-xs px-2 py-1 rounded-full font-semibold" :class="priority === 1
-                  ? 'bg-green-500/20 text-green-400'
-                  : 'bg-yellow-500/20 text-yellow-400'
-                ">
-                {{ priority === 1 ? "Primary" : "Secondary" }}
-              </span>
-            </div>
-            <div>
-              <Button variant="outline" @click.prevent="changePriority"
-                class="w-full active:scale-95 transition border-sky-400 text-sky-400 font-bold text-lg px-2 py-1">
-                <RefreshCcw :class="switching ? 'animate-spin' : ''" />
-              </Button>
-            </div>
-          </div>
-        </div> -->
         <div class="flex flex-1 mt-10">
           <button :disabled="submitting" type="submit"
-            class="bg-sky-600 h-12 font-bold text-gray-50 w-full rounded-xl flex justify-center items-center gap-2 disabled:opacity-50">
-            <LoaderCircleIcon v-if="submitting" class="animate-spin" />
-            Submit
+            class="bg-sky-600 active:scale-95 transition h-12 font-bold text-gray-50 w-full rounded-lg flex justify-center items-center gap-2 disabled:opacity-50">
+            <RefreshCcw v-if="submitting" class="animate-spin" />
+            {{ t('submit') }}
           </button>
         </div>
       </form>
+      <div class="glass-bg border rounded-2xl p-4 mt-8 space-y-6">
+        <h1 class="text-red-500 font-bold text-xl">
+          {{ t("note") }}
+        </h1>
+        <div class="flex gap-2 w-full">
+          <div class="rounded-full bg-amber-400 p-1.5 h-1.5 mt-1.5"/>
+          <p class="text-xs leading-loose font-normal text-gray-300">{{ t('payment_note_1') }}</p>
+        </div>
+        <div class="flex gap-2 w-full">
+           <div class="rounded-full bg-amber-400 p-1.5 h-1.5 mt-1.5"/>
+          <p class="text-xs leading-loose font-normal text-gray-300">{{ t('payment_note_2') }}</p>
+        </div>
+      </div>
+          <HelpBox containerStyle="w-full"/>
     </section>
+
   </main>
 </template>
-<style scoped>
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  transition: all 0.25s ease;
-}
-
-.fade-slide-enter-from {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.fade-slide-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-</style>

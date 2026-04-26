@@ -6,6 +6,7 @@ import {
   SelectTrigger,
 } from '@/components/ui/select'
 import { cn_flag, en_flag, mm_flag } from '@/utils';
+
 import { useI18n } from "vue-i18n";
 
 const { locale } = useI18n();
@@ -28,8 +29,9 @@ const flags:any = {
     @update:model-value="changeLang"
     class="bg-gray-900 border-0"
   >
-    <SelectTrigger class="text-2xl border-0 text-center">
-      <img :src="flags[locale]" class="w-8 h-8" />
+    <SelectTrigger class="border-0 px-2">
+      <img :src="flags[locale]" class="w-7 h-7" />
+       <!-- <Globe class=" text-gray-50 font-extrabold"/> -->
     </SelectTrigger>
 
     <SelectContent class="bg-gray-800 border border-gray-700 px-4">
