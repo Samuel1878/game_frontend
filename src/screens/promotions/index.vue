@@ -8,7 +8,7 @@ const { t } = useI18n();
 <template>
     <main class="bg-gray-900 max-w-lg w-full flex justify-between flex-col">
         <div class="w-full">
-            <h1 class="text-center font-extrabold text-xl">
+            <h1 class="text-center font-extrabold text-2xl">
                 {{ t("promotions") }}
             </h1>
             <div v-if="homeSlide?.length" class="p-2 flex flex-col gap-2 w-full">

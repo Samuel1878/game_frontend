@@ -6,7 +6,9 @@ export const initSocket = () => {
   if (socket) return socket;
   const auth = useAuthStore();
   if (!auth.accessToken) return;
-  socket = io("https://api.96betx.com", {
+  // socket = io("https://api.96betx.com", 
+   socket = io("http://localhost:3000", 
+    {
     withCredentials: true, 
     auth: {
       token: auth.accessToken,

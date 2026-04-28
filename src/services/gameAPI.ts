@@ -33,3 +33,46 @@ export const enterGameAPI = async (data:{userName:string, gpId:number, gameId:nu
     return null
   }
 }
+
+
+export const getGamesByProviderAPI = async ({
+  providerId,
+  limit = 20,
+  offset = 0,
+  lang = "en",
+  newGameType = 201,
+  search = '',
+  sortBy="rank",
+  top = false
+}: {
+  providerId: number;
+  limit?: number;
+  offset?: number;
+  lang?: string;
+  newGameType?: string | number;
+  search?:string;
+  sortBy?: string,   // 🔥 NEW
+  top?:boolean, 
+}) => {
+  try {
+     const res = await api.get(
+    `/game/get-games-provider/${providerId}`,
+    {
+      params: {
+        limit,
+        offset,
+        lang,
+        newGameType,
+        search,
+        sortBy,
+        top
+      },
+    }
+  );
+
+  return res.data;
+  } catch (error) {
+    return null
+  }
+ 
+};

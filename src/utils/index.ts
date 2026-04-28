@@ -80,8 +80,12 @@ import download from "@/assets/icon/download.png";
 import transaction from "@/assets/icon/money-statement.png";
 import share from "@/assets/icon/invite-code.png";
 import logout from "@/assets/icon/logout.svg"
+import sbo from "@/assets/image/sbo.png";
+import _568 from "@/assets/image/568.png";
 
 export {
+  sbo,
+  _568,
   logout,
   helpCenter,
   share,
@@ -202,4 +206,18 @@ export const bankThemes: Record<string, string> = {
 };
 export const openViber = () => window.open('https://viber.com', '_blank');
 export const openTelegram = () => window.open('https://t.me/samuelalalax', '_blank');
-export const openDiscord = () => window.open('https://discord.gg/your_invite', '_blank')
+export const openDiscord = () => window.open('https://discord.gg/your_invite', '_blank');
+
+export const formatRandomRange = (value: number) => {
+  const base = Number((value * 100).toFixed(3));
+
+  const offset = 8 + Math.random() * 2; // 8 → 10
+
+  const min = base;
+  const max = base + offset;
+
+  return `${min.toFixed(3)} - ${max.toFixed(3)}`;
+};
+
+
+export const baseURL =  "https://96betx.com";

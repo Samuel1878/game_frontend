@@ -23,14 +23,11 @@ const services = [
 ]
 const supportLinks = [
   { name: 'help_center', path: "/help" },
-  { name: 'terms_and_conditions', path: "/about/terms" },
-  { name: 'policy_and_privacy', path: "/about/privacy" },
-  { name: 'responsibility', path: "/about/responsible" },
-  {name:'faqs', path:"/info/faq"},
-  {
-    name:'limits_and_regulations',
-    path:"/info/limits_and_regulations"
-  }
+  { name: 'terms_and_conditions', path: "/terms" },
+  { name: 'policy_and_privacy', path: "/privacy" },
+  { name: 'responsibility', path: "/responsible" },
+  {name:'faqs', path:"/faq"},
+
 ];
 // const eventLinks = [
 //   {

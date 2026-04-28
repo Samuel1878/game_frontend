@@ -1,114 +1,124 @@
 <script setup lang="ts">
-import GameViews from '@/components/gameViews.vue';
+import Footer from '@/components/footer.vue';
 import GameOptions from '@/components/layout/gameOptions.vue';
 import Card from '@/components/ui/card/Card.vue';
 import CardContent from '@/components/ui/card/CardContent.vue';
 import InputGroup from '@/components/ui/input-group/InputGroup.vue';
 import InputGroupAddon from '@/components/ui/input-group/InputGroupAddon.vue';
 import InputGroupInput from '@/components/ui/input-group/InputGroupInput.vue';
-import { gameProviders, slotGameProviders } from '@/consts';
-import { enterGameAPI } from '@/services/gameAPI';
+import { slotGameProviders } from '@/consts';
+import {  getGamesByProviderAPI } from '@/services/gameAPI';
 import { useAuthStore } from '@/stores/auth';
-import { useUIStore } from '@/stores/ui';
-import { slot } from '@/utils';
-import type { Game } from '@/utils/types';
+import { useGameStore } from '@/stores/game';
+import { hot, hot_rtp_icon, slot, top_icon } from '@/utils';
+import type { gameType } from '@/utils/types';
 import { useReturnRefresh } from '@/utils/useReturn';
 import { refDebounced } from '@vueuse/core';
 import { ChevronLeft, ChevronRight, SearchIcon } from 'lucide-vue-next';
-import { computed, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { toast } from 'vue-sonner';
-const { t } = useI18n();
+const { t ,locale} = useI18n();
 const searchQuery = ref("");
-const debouncedSearch = refDebounced(searchQuery, 300);
 const selectedProvider = ref<{ name: string, GpId: number }>({ name: "", GpId: 0 });
-const ui = useUIStore();
 const loading = ref(false);
-const authStore = useAuthStore();
-
-const filteredSlotGames = computed(() => {
-    const search = debouncedSearch.value.toLowerCase();
-    return gameProviders
-        .filter(provider =>
-            provider.GpId === selectedProvider.value.GpId
-        )
-        .flatMap(provider =>
-            provider.game.filter(game =>
-                !search ||
-                game.gameInfos[0]?.gameName.toLowerCase().includes(search)
-            )
-        ).sort((a, b) => a.rank - b.rank);
-});
-
-const enterGame = async (game: Game) => {
-    loading.value = true
-    if (!game) return loading.value = false;
-
-    if (!authStore.accessToken || !authStore.user) {
-        loading.value = false
-
-        toast.warning("Please login to enter the game");
-
-        ui.openAuthModal("/");
-        return;
-    }
-
-    try {
-        const data = await enterGameAPI({
-            userName: authStore.user.name ?? "",
-            gameId: game.gameID,
-            gpId: game.gameProviderId,
-        });
-
-        if (!data?.url) {
-            loading.value = false
-
-            toast.error("Failed to launch game");
-
-            return;
-        }
-
-        // useGameStore.setGames(game);
-
-        const launchUrl =
-            `${data.url}` +
-            `&gpid=${game.gameProviderId}` +
-            `&gameid=${game.gameID}` +
-            `&lang=en&device=m&betCode=`;
-
-        // External redirect
-        window.location.replace(launchUrl);
-        loading.value = false
-    } catch (error) {
-        loading.value = false
-        console.error(error);
-        toast.error("Something went wrong");
-    }
+const games = ref<gameType[] | null>(null);
+const providerId = ref<number>(0);
+const limit = 18;
+const offset = ref(0);
+const hasMore = ref(true);
+const isLoadingMore = ref(false);
+const sortBy = ref("rank");
+const topOnly = ref(false);
+const debouncedSearch = refDebounced(searchQuery, 300);
+const gameStore = useGameStore();
+const authStore = useAuthStore()
+const onClickGame = (game: gameType) => {
+  gameStore.prepareGame(game);
 };
-const setProvider = (name: string|any, GpId: number|any) => {
+const setProvider = (name: string | any, GpId: number | any) => {
     selectedProvider.value.name = name;
     selectedProvider.value.GpId = GpId
 }
 const scrollEl = ref<HTMLElement | null>(null);
 
 const scroll = (direction: "left" | "right") => {
-  if (!scrollEl.value) return;
+    if (!scrollEl.value) return;
 
-  const scrollAmount = 200;
+    const scrollAmount = 200;
 
-  scrollEl.value.scrollBy({
-    left: direction === "left" ? -scrollAmount : scrollAmount,
-    behavior: "smooth",
-  });
+    scrollEl.value.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+    });
 };
-// onMounted(() => {
-//   if (slotGameProviders.length > 0) {
-//     selectedProvider.value = {
-//       name: slotGameProviders[0].name,
-//       GpId: slotGameProviders[0].GpId,
-//     };
-//   }
+const fetchGames = async (reset = false) => {
+  console.log("fetching game")
+
+    if (reset) {
+        offset.value = 0;
+        hasMore.value = true;
+    }
+
+    loading.value = reset;
+    isLoadingMore.value = !reset;
+    let lang = locale.value==="cn" ?"zh_cn":"en"
+    try {
+        const res = await getGamesByProviderAPI({
+            providerId: providerId.value,
+            newGameType: 201,
+            limit: limit,
+            offset: offset.value,
+            lang: lang,
+            search: debouncedSearch.value, 
+            sortBy:sortBy.value,
+            top:topOnly.value
+        });
+
+        const data = res.data;
+
+        if (reset) {
+            games.value = data;
+        } else {
+            games.value = [...(games.value || []), ...data];
+        }
+
+        // 🔥 detect end
+        if (data.length < limit) {
+            hasMore.value = false;
+        }
+
+    } catch (err) {
+        console.error(err);
+    } finally {
+        loading.value = false;
+        isLoadingMore.value = false;
+    }
+};
+const loadMore = async () => {
+    if (!hasMore.value || isLoadingMore.value) return;
+
+    offset.value += limit;
+    await fetchGames(false);
+};
+watch(debouncedSearch, () => {
+  fetchGames(true); // reset on search
+});
+onMounted(()=>fetchGames(true))
+watch(
+    () => selectedProvider.value.GpId,
+    (newVal) => {
+        providerId.value = newVal;
+        fetchGames(true); // reset
+    }
+);
+const btnClass = (active: boolean) =>
+  active
+    ? "animate-pulse-scale"
+    : "";
+// watch(debouncedSearch, () => {
+//   fetchGames(true); // reset on search
 // });
+
 useReturnRefresh(() => {
     authStore.fetchUser();
 })
@@ -138,44 +148,34 @@ useReturnRefresh(() => {
             <!-- <ProviderOptions :provider-name="selectedProvider.name" :-gp-id="selectedProvider.GpId"
                 :set-value="setProvider" /> -->
             <div class="relative w-full mt-1 pl-2 pr-2 md:pl-10 flex">
-          <!-- Left Arrow -->
-          <button
-            @click="scroll('left')"
-            class="absolute rounded-full bg-gray-50/5 left-1 top-1/2 -translate-y-1/2 z-10 hover:bg-slate-700/80 h-9 w-9 flex justify-center items-center shadow-lg transition"
-          >
-            <ChevronLeft class="w-7 h-7 text-gray-400" />
-          </button>
+                <!-- Left Arrow -->
+                <button @click="scroll('left')"
+                    class="absolute rounded-full bg-gray-50/5 left-1 top-1/2 -translate-y-1/2 z-10 hover:bg-slate-700/80 h-9 w-9 flex justify-center items-center shadow-lg transition">
+                    <ChevronLeft class="w-7 h-7 text-gray-400" />
+                </button>
 
-          <!-- Scroll Container -->
-          <div
-            ref="scrollEl"
-            class="flex gap-2 bg-gray-900 items-center w-full overflow-x-auto no-scrollbar scroll-smooth"
-          >
-            <button
-              v-for="(option, index) in slotGameProviders"
-              :key="index"
-              @click="setProvider(option?.name, option?.GpId)"
-              class="shrink-0 flex flex-col peer-last:mr-4 gap-2 justify-center items-center text-sm whitespace-nowrap"
-            >
-              <Card
-                class="p-1 hover:bg-gray-700 transition rounded-md bg-gray-800/10 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
-              >
-                <CardContent class="flex items-center justify-center">
-                  <img :src="option?.icon" class="w-20"/>
-                </CardContent>
-              </Card>
-            </button>
-          </div>
+                <!-- Scroll Container -->
+                <div ref="scrollEl"
+                    class="flex gap-2 bg-gray-900 items-center w-full overflow-x-auto no-scrollbar scroll-smooth">
+                    <button v-for="(option, index) in slotGameProviders" :key="index"
+                        @click="setProvider(option?.name, option?.GpId)"
+                        class="shrink-0 flex flex-col peer-last:mr-4 gap-2 justify-center items-center text-sm whitespace-nowrap">
+                        <Card
+                            class="p-1 hover:bg-gray-700 transition rounded-md bg-gray-800/10 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+                            <CardContent class="flex items-center justify-center">
+                                <img :src="option?.icon" class="w-20" />
+                            </CardContent>
+                        </Card>
+                    </button>
+                </div>
 
-          <!-- Right Arrow -->
-          <button
-            @click="scroll('right')"
-            class="absolute w-9 h-9 flex justify-center items-center right-1 top-1/2 -translate-y-1/2 z-10 hover:bg-gray-700/70 bg-gray-100/5 rounded-full shadow-lg transition"
-          >
-            <ChevronRight class="w-7 h-7 text-gray-400" />
-        </button>
+                <!-- Right Arrow -->
+                <button @click="scroll('right')"
+                    class="absolute w-9 h-9 flex justify-center items-center right-1 top-1/2 -translate-y-1/2 z-10 hover:bg-gray-700/70 bg-gray-100/5 rounded-full shadow-lg transition">
+                    <ChevronRight class="w-7 h-7 text-gray-400" />
+                </button>
 
-        </div>
+            </div>
             <div class="px-2">
                 <InputGroup class="border-gray-500/70 bg-gray-800/80 ring-gray-400/70 ring-0 rounded-full h-12">
                     <InputGroupInput v-model="searchQuery" :placeholder="t('search_game')" />
@@ -187,6 +187,65 @@ useReturnRefresh(() => {
 
 
         </aside>
-        <GameViews header="All Slots" :game-data="filteredSlotGames" :handler="enterGame" />
+        <div class="flex justify-between items-center pt-2 px-3">
+            <div class="flex gap-1 items-center">
+              
+                <img :src="slot" class="w-8 h-8"/>
+                <p class="">{{ t("slots") }}</p>
+            </div>
+            <div class="flex gap-4">
+                <button
+                    @click="sortBy = 'rank'; fetchGames(true)"
+                    :class="btnClass(sortBy === 'rank')"
+                >
+                   <img :src="hot"/>
+                </button>
+
+                <button
+                    @click="sortBy = 'rtp'; fetchGames(true)"
+                    :class="btnClass(sortBy === 'rtp')"
+                >
+                    <img :src="hot_rtp_icon"/>
+                </button>
+
+                <button
+                    @click="topOnly = !topOnly; providerId=0"
+                    :class="btnClass(topOnly)"
+                >
+                   <img :src="top_icon"/>
+                </button>
+            </div>
+        </div>
+        <article class="px-2">
+
+            <div class="grid grid-cols-3 md:flex flex-wrap gap-1.5 my-2">
+
+                <button v-if="games" v-for="(game, index) in games" :key="game?.id ?? index" class="relative overflow-hidden rounded-lg border border-white/20 group
+         hover:-translate-y-1 transition-all duration-300" @click="onClickGame(game)">
+                    <!-- Glass reflection (auto slow) -->
+                    <div class="glass absolute inset-0"></div>
+
+                    <!-- Shine flash (on hover only) -->
+                    <div class="shine absolute inset-0"></div>
+                    <div class="absolute inset-0 bg-black/10 rounded-lg"></div>
+                    <img :src="game.icon_url" class="min-w-22 h-36 rounded-lg object-cover
+           transition-transform duration-300 group-hover:scale-105" />
+                </button>
+
+            </div>
+
+
+
+        </article>
+        <div class="flex justify-center my-4">
+            <button v-if="hasMore" @click="loadMore"
+                class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg">
+                <span v-if="!isLoadingMore">{{ t('view_more') }}</span>
+                <span v-else>{{ t('loading') }}...</span>
+            </button>
+        </div>
+
     </main>
+    <Footer />
+
 </template>

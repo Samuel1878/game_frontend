@@ -30,18 +30,18 @@ const goToLoginHandler = () => {
           to="/"
           class="flex items-center"
         >
-          <p class="text-sky-400 font-extrabold text-4xl font-sans">T9BET</p>
+          <p class="text-sky-400 font-extrabold text-4xl font-sans">TZ99</p>
       
         </RouterLink>
         <div class="hidden items-center gap-6 lg:flex">
-          <RouterLink class="nav-link" to="/">Home</RouterLink>
-          <RouterLink class="nav-link" to="/games">Games</RouterLink>
-          <RouterLink class="nav-link" to="/deposit">Deposit</RouterLink>
-          <RouterLink class="nav-link" to="/withdraw">Withdraw</RouterLink>
+          <RouterLink class="nav-link" to="/">{{ t("home") }}</RouterLink>
+          <RouterLink class="nav-link" to="/user/profile">{{ t('profile') }}</RouterLink>
+          <RouterLink class="nav-link" to="/deposit">{{ t('deposit') }}</RouterLink>
+          <RouterLink class="nav-link" to="/withdraw">{{ t('withdraw') }}</RouterLink>
         </div>
         <div class="flex items-center gap-2 justify-end">
           <div
-        
+            @click="authStore.fetchUser"
             v-show="authStore.user"
             class="flex items-center gap-2 px-2 h-10 bg-gray-800/40 rounded-md border border-white/20 shadow-inner hover:shadow-lg transition-shadow duration-300"
           ><Wallet class="w-6 h-6 text-sky-400" />

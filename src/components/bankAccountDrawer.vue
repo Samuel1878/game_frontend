@@ -72,7 +72,7 @@ const handleSave = () => {
     >
       <!-- Header -->
       <DrawerHeader>
-        <DrawerTitle class="text-center">
+        <DrawerTitle class="text-center text-gray-100">
           {{ isEdit ? t('edit_bank_account') : t('add_bank_account') }}
         </DrawerTitle>
       </DrawerHeader>
@@ -161,9 +161,9 @@ const handleSave = () => {
       <!-- Footer -->
       <DrawerFooter class="p-4">
         <div class="flex gap-2">
-          <Button class="flex-1 h-12 border-gray-400" variant="outline" @click="emit('update:open', false)">
+          <button class="flex-1 h-12 border-gray-400 border rounded-lg" ant="outline" @click="emit('update:open', false)">
             {{ t("cancel") }}
-          </Button>
+          </button>
 
           <Button
             class="flex-1 bg-sky-400 h-12 rounded-lg font-bold"

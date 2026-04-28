@@ -34,7 +34,7 @@ const flags:any = {
        <!-- <Globe class=" text-gray-50 font-extrabold"/> -->
     </SelectTrigger>
 
-    <SelectContent class="bg-gray-800 border border-gray-700 px-4">
+    <SelectContent class="bg-gray-800 border border-gray-700 p-2">
       <SelectItem value="en" class="text-gray-100 font-bold py-2 text-md border-b border-b-gray-700">
         <span class="mr-2"><img :src="flags.en" class="w-8 h-8" /></span> English
       </SelectItem>

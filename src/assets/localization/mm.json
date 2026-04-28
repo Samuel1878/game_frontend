@@ -164,6 +164,8 @@
               "buffalo":"ကျွှဲဂိမ်း",
       "fishing":"ငါးပစ်",
       "casino":"ကာစီနို",
-      "joined":"Joined"
+      "joined":"Joined",
+            "no_record":"No Record",
+        "start_game":"Start Game"
 
 }

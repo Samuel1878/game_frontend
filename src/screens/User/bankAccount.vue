@@ -209,10 +209,7 @@ watch(() => form.value.value, (val) => {
         </section>
         <!-- Dialog -->
         <Dialog v-model:open="showDialog">
-            <DialogContent class="p-6 bg-gray-900 
-                bg-linear-to-br from-white/5 via-white/10 to-white/5
-                backdrop-blur-2xl border-2 border-white/10
-                shadow-[0_10px_40px_rgba(0,0,0,0.6)] text-white rounded-3xl w-full max-w-sm">
+            <DialogContent class="p-6 glass-bg text-white rounded-3xl w-full max-w-sm">
                 <DialogHeader>
                     <DialogTitle>
                         {{ isEdit ? t('edit_bank_account') : t('add_bank_account') }}
@@ -226,13 +223,13 @@ watch(() => form.value.value, (val) => {
                             <SelectValue :placeholder="t('choose_payment_method')" />
                             <ChevronDown />
                         </SelectTrigger>
-                        <SelectContent class="bg-gray-700">
+                        <SelectContent class="glass-bg">
                             <SelectGroup>
                                 <SelectLabel>{{ t('payment_method') }}</SelectLabel>
-                                <SelectItem v-for="item in paymentMethod" :key="item.id" :value="item.value">
+                                <SelectItem v-for="item in paymentMethod" :key="item.id" :value="item.value" class="" >
                                     <div class="flex items-center gap-2 py-2">
                                         <img :src="item.icon" alt="logo" class="w-8 h-8 object-cover rounded-full" />
-                                        <span>{{ item.label }}</span>
+                                        <span class="text-sky-400 font-bold">{{ item.label }}</span>
                                     </div>
                                 </SelectItem>
 
@@ -276,7 +273,7 @@ watch(() => form.value.value, (val) => {
                     </div>
                 </div>
                 <DialogFooter class="mt-4">
-                    <Button @click="showDialog = false">{{ t("cancel") }}</Button>
+                    <Button class="bg-none h-12 text-white" @click="showDialog = false">{{ t("cancel") }}</Button>
                     <Button class="bg-sky-400 h-12 rounded-lg font-bold" @click="saveAccount">{{ t('save') }}</Button>
                 </DialogFooter>
             </DialogContent>

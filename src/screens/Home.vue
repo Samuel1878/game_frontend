@@ -1,83 +1,38 @@
 <script lang="ts" setup>
-import type { Game } from "@/utils/types";
 import { onMounted, ref } from "vue";
 import { useAuthStore } from "@/stores/auth";
 import { footer_images } from "@/consts";
-import { hotGames, newGames, RTPGames} from "@/consts/games"
-
+import { topBuffaloGames, topCasinoGames, topFishGames, topSlotGames} from "@/consts/games"
 import {  BellRingIcon, Download  } from "lucide-vue-next";
 import ScrollViews from "@/components/scrollViews.vue";
-import { toast } from "vue-sonner";
-import { enterGameAPI } from "@/services/gameAPI";
-import Button from "@/components/ui/button/Button.vue";
 import Footer from "@/components/footer.vue";
 import router from "@/router";
 import Loading from "@/components/loading.vue";
-import { useUIStore } from "@/stores/ui";
+
 import { useI18n } from "vue-i18n";
 
 import GameOptions from "@/components/layout/gameOptions.vue";
 import {
-  golds_box,
-  hot,
-  hot_rtp,
-  hot_rtp_icon,
-  new_svg,
-  spin_svg,
-  star_svg,
-  top_icon,
+  buffalo,
+  casino,
+  fish,
+  hot_icon,
 } from "@/utils";
 
 import HomeSlider from "@/components/homeSlider.vue";
+import { useGameStore } from "@/stores/game";
 import { useReturnRefresh } from "@/utils/useReturn";
 const authStore = useAuthStore();
-const ui = useUIStore();
 const loading = ref(false);
 const { t } = useI18n();
 
-
-const enterGame = async (game: Game) => {
-  loading.value = true;
-  if (!game) return (loading.value = false);
-
-  if (!authStore.accessToken || !authStore.user) {
-    toast.warning("Please login to enter the game");
-    ui.openAuthModal("/");
-    loading.value = false;
-    return;
-  }
-  try {
-    const data = await enterGameAPI({
-      userName: authStore.user.name ?? "",
-      gameId: game.gameID,
-      gpId: game.gameProviderId,
-    });
-    if (!data?.url) {
-      toast.warning("Not enough fund!");
-      router.push("/deposit");
-      loading.value = false;
-      return;
-    }
-    const launchUrl =
-      `${data.url}` +
-      `&gpid=${game.gameProviderId}` +
-      `&gameid=${game.gameID}true` +
-      `&lang=en&device=m&betCode=`;
-    window.location.href = launchUrl;
-    loading.value = false;
-  } catch (error) {
-    console.error(error);
-    loading.value = false;
-    toast.error("Something went wrong");
-  }
-};
-useReturnRefresh(() => {
-    authStore.fetchUser();
-})
-
+const {prepareGame} = useGameStore()
 onMounted(() => {
   console.log("🏠 HOME MOUNTED");
 });
+useReturnRefresh(() => {
+    authStore.fetchUser();
+})
 </script>
 <template>
   <main class="bg-gray-900 max-w-lg w-full flex flex-col min-h-screen">
@@ -131,13 +86,18 @@ onMounted(() => {
         </div>
       </div>
       <GameOptions current_page="lobby" />
-       <div class="flex items-center w-full flex-col lg:grid bg-gray-900">
-        <section class="w-full h-full px-2">
-          <ScrollViews :label="hot" :game-data="hotGames || []" :header="t('top_picks')" :icon="top_icon"
-            :handler="enterGame" />
-        
-          <ScrollViews label-style="from-yellow-800 to-yellow-300 shadow-yellow-200 " :label="hot_rtp"
-            :game-data="RTPGames || []" :header="t('most_wins')" :icon="hot_rtp_icon" :handler="enterGame" />
+       <div class="max-w-3xl overflow-hidden flex items-center w-full flex-col lg:grid bg-gray-900">
+        <section class="w-full h-full px-2 ">
+          <ScrollViews :game-data="topSlotGames" :header="t('top_picks')" :icon="hot_icon"
+            :handler="prepareGame" :action="()=>router.push('/slots')" :is-two="true"/>
+            <ScrollViews :game-data="topBuffaloGames" :header="t('buffalo')" :icon="buffalo"
+            :handler="prepareGame" :action="()=>router.push('/buffalo')" :is-two="false"/>
+           <ScrollViews :game-data="topFishGames" :header="t('fishing')" :icon="fish"
+            :handler="prepareGame" :action="()=>router.push('/fishing')" :is-two="false"/>
+         <ScrollViews :game-data="topCasinoGames" :header="t('casino')" :icon="casino"
+            :handler="prepareGame" :action="()=>router.push('/casino')" :is-two="true"/>
+          <!-- <ScrollViews label-style="from-yellow-800 to-yellow-300 shadow-yellow-200 " :label="hot_rtp"
+            :game-data="RTPGames || []" :header="t('most_wins')" :icon="hot_rtp_icon" :handler="prepareGame" />
           <div
             class="w-full mt-4 rounded-xl relative bg-linear-to-br overflow-hidden from-amber-300 to-gray-950 h-25 flex justify-center items-center flex-col gap-2">
             <p class="text-sm font-normal now text-gray-900">
@@ -150,7 +110,7 @@ onMounted(() => {
             </Button>
           </div>
           <ScrollViews label-style="from-yellow-800 to-yellow-300 shadow-yellow-200 " :label="new_svg"
-            :game-data="newGames || []" :header="t('new')" :icon="star_svg" :handler="enterGame" />
+            :game-data="newGames || []" :header="t('new')" :icon="star_svg" :handler="prepareGame" /> -->
       
         </section>
       </div>
@@ -165,4 +125,5 @@ onMounted(() => {
     </div>
     <Footer />
   </main>
+  
 </template>

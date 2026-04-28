@@ -164,7 +164,9 @@
       "buffalo":"野牛",
       "fishing":"捕鱼",
       "casino":"真人娱乐",
-      "joined":"加入"
+      "joined":"加入",
+            "no_record":"无记录",
+        "start_game":"开始游戏"
 
 
 }

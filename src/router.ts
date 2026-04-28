@@ -24,9 +24,19 @@ import { useUIStore } from "./stores/ui";
 import UpdatePassword from "./screens/User/updatePassword.vue";
 import DepositHistory from "./screens/transaction/depositHistory.vue";
 import WithdrawHistory from "./screens/transaction/withdrawHistory.vue";
+import GameView from "./gameView.vue";
+
+
+
 
 
 const routes = [
+  {
+    path:"/game",
+    component : GameView,
+    meta: { hideNavbar:true,hideTopNav:true, requiresAuth:true },
+    
+  },
   {
     path: "/",
     component: HomeView,
@@ -120,8 +130,40 @@ const routes = [
   {
     path: "/user/bank-accounts",
     component: BankAccount,
-    meta: { hideNavbar: true, hideTopNav:true },
+    meta: { hideNavbar: true, hideTopNav:true,requiresAuth: true  },
   },
+     {
+  path: "/user/agent-center",
+  component: () => import("@/components/layout/agentLayout.vue"),
+  meta: {
+    requiresAuth: true,
+    hideTopNav: true,
+    hideNavbar: true,
+    isProtected: true,
+  },
+  children: [
+    {
+      path: "overview",
+      component: () => import("@/screens/agent/overView.vue"),
+    },
+    {
+      path: "users",
+      component: () => import("@/screens/agent/users.vue"),
+    },
+    {
+      path: "users/detail/:id",
+      component: () => import("@/screens/agent/userDetail.vue"),
+    },
+    {
+      path: "transactions",
+      component: () => import("@/screens/agent/transactionView.vue"),
+    },
+    {
+      path: "rewards",
+      component: () => import("./screens/agent/rewards.vue"),
+    },
+  ],
+},
   {
     path: "/help",
     component: Help,
@@ -144,6 +186,7 @@ const routes = [
   },
   { path: '/:pathMatch(.*)*', redirect:"/" },
 
+
 ];
 
 const router = createRouter({
@@ -163,15 +206,18 @@ router.beforeEach(async (to) => {
     ui.openAuthModal(to.fullPath);
     return { path: "/" };
   }
+  if (to.meta.isProtected && auth.user?.agent_id===0) {
+    return { path: "/" };
+  }
 
   return true;
 });
-router.beforeEach((to, from) => {
-  console.log("➡️ navigating:", from.fullPath, "→", to.fullPath);
-  return true;
-});
+// router.beforeEach((to, from) => {
+//   console.log("➡️ navigating:", from.fullPath, "→", to.fullPath);
+//   return true;
+// });
 
-router.afterEach((to) => {
-  console.log("✅ arrived at:", to.fullPath);
-});
+// router.afterEach((to) => {
+//   console.log("✅ arrived at:", to.fullPath);
+// });
 export default router;

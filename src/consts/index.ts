@@ -13,18 +13,10 @@ import { Advantplay, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin
      helpCenter,
      logout,
      kbzBanking,
-     banner_4} from "@/utils";
-import {  africanBuffaloSlots } from "./afbGames";
-import { jiliGames } from "./jiliGames";
-import { pragmaticPlayGames } from "./pragmaticGames";
-import { kaGames } from "./kaGames";
-import {  vaSlots } from "./vaGames";
-import { advantPlayGames } from "./advantPlayGames";
-import { pgSoftGames } from "./pgSoftGames";
-import { fastSpinGames } from "./fastspinGames";
-import { fachaiGames } from "./faChaiGames";
-import { sboGames } from "./sboGames";
-import { winGames } from "./568winGames";
+     banner_4,
+     sbo,
+     _568} from "@/utils";
+
 import type { Game } from "@/utils/types";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
@@ -65,80 +57,80 @@ export const amounts = [
     500000,
     1000000,
 ];
-export const gameProviders:providersType[] = [
-    {
-        id:1,
-        GpId:1094,
-        providerName:"AfricanBuffalo",
-        game:africanBuffaloSlots
-    },
-    {
-        id:2,
-        GpId:3,
-        providerName:"PragmaticPlay",
-        game:pragmaticPlayGames
-    },
-        {
-        id:3,
-        GpId:1020,
-        providerName:"JiLiGaming",
-        game:jiliGames
-    },
-        {
-        id:4,
-        GpId:35,
-        providerName:"PGSoft",
-        game:pgSoftGames
-    },    {
-        id:5,
-        GpId:1085,
-        providerName:"VAGaming",
-        game:vaSlots
-    },    {
-        id:6,
-        GpId:14,
-        providerName:"SBOSlot",
-        game:sboGames
-    },    
-    {
-        id:7,
-        GpId:1042,
-        providerName:"KAGaming",
-        game:kaGames
-    },    {
-        id:8,
-        GpId:1079,
-        providerName:"Fastspin",
-        game:fastSpinGames
-    },    {
-        id:9,
-        GpId:1046,
-        providerName:"FaChai",
-        game:fachaiGames
-    },
-      {
-        id:10,
-        GpId:1034,
-        providerName:"AdvantPlay",
-        game:advantPlayGames
-    },
-      {
-        id:11,
-        GpId:1029,
-        providerName:"568winGames",
-        game:winGames
-    },
-    {
-        id:12,
-        GpId:0,
-        providerName:"All Providers",
-        game:[...winGames, 
-            ...fachaiGames,...advantPlayGames,
-            ...fastSpinGames,...kaGames,...sboGames,
-            ...vaSlots,...pgSoftGames,...jiliGames,
-            ...pragmaticPlayGames,...africanBuffaloSlots]
-    }
-];
+// export const gameProviders:providersType[] = [
+//     {
+//         id:1,
+//         GpId:1094,
+//         providerName:"AfricanBuffalo",
+//         game:africanBuffaloSlots
+//     },
+//     {
+//         id:2,
+//         GpId:3,
+//         providerName:"PragmaticPlay",
+//         game:pragmaticPlayGames
+//     },
+//         {
+//         id:3,
+//         GpId:1020,
+//         providerName:"JiLiGaming",
+//         game:jiliGames
+//     },
+//         {
+//         id:4,
+//         GpId:35,
+//         providerName:"PGSoft",
+//         game:pgSoftGames
+//     },    {
+//         id:5,
+//         GpId:1085,
+//         providerName:"VAGaming",
+//         game:vaSlots
+//     },    {
+//         id:6,
+//         GpId:14,
+//         providerName:"SBOSlot",
+//         game:sboGames
+//     },    
+//     {
+//         id:7,
+//         GpId:1042,
+//         providerName:"KAGaming",
+//         game:kaGames
+//     },    {
+//         id:8,
+//         GpId:1079,
+//         providerName:"Fastspin",
+//         game:fastSpinGames
+//     },    {
+//         id:9,
+//         GpId:1046,
+//         providerName:"FaChai",
+//         game:fachaiGames
+//     },
+//       {
+//         id:10,
+//         GpId:1034,
+//         providerName:"AdvantPlay",
+//         game:advantPlayGames
+//     },
+//       {
+//         id:11,
+//         GpId:1029,
+//         providerName:"568winGames",
+//         game:winGames
+//     },
+//     {
+//         id:12,
+//         GpId:0,
+//         providerName:"All Providers",
+//         game:[...winGames, 
+//             ...fachaiGames,...advantPlayGames,
+//             ...fastSpinGames,...kaGames,...sboGames,
+//             ...vaSlots,...pgSoftGames,...jiliGames,
+//             ...pragmaticPlayGames,...africanBuffaloSlots]
+//     }
+// ];
 
 export const paymentMethod:paymentTypes[] = [
     {
@@ -382,18 +374,18 @@ export const slotGameProviders = [
         icon:VA_Gaming,    
     },
      
-    // {
-    //     id:10,
-    //     name:"SBO games",
-    //     GpId:14,
-    //     icon:null,
-    // },
-    // {
-    //     id:11,
-    //     name:"568Win Games",
-    //     GpId:1029,
-    //     icon:null,
-    // }
+    {
+        id:10,
+        name:"SBO games",
+        GpId:14,
+        icon:sbo,
+    },
+    {
+        id:11,
+        name:"568Win Games",
+        GpId:1029,
+        icon:_568,
+    }
 ];
 export const UserAction = [
     {
@@ -460,9 +452,9 @@ export const MembershipCenter = [
     },
      {
         id:5,
-        label:"invite",
+        label:"agent_center",
                action:()=>{
-
+            router.push("/user/agent-center/overview")
         },
         image:share
     },

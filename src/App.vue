@@ -5,6 +5,7 @@ import "vue-sonner/style.css";
 import BottomNav from "./components/layout/bottomNav.vue";
 import { onMounted, onUnmounted } from "vue";
 import TopNavBar from "./components/layout/topNavBar.vue";
+import GameDrawer from "./components/gameDrawer.vue";
 
 onMounted(() => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -40,6 +41,7 @@ const handlePageShow = (event: PageTransitionEvent) => {
       <router-view />
       <AuthModal />
       <BottomNav />
+      <GameDrawer />
     </div>
     <Toaster position="top-left" richColors />
   </main>

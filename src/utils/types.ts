@@ -1,5 +1,16 @@
 
-
+export interface gameType {
+    id: number,
+            provider_id: number,
+            game_id: number,
+            rtp: string,
+            game_rank: number,
+            name: string,
+            icon_url: string,
+            is_hot?:boolean,
+            is_hot_rtp?:boolean,
+            is_drop_win?:boolean
+}
 export interface GameInfo {
   language?: string
   gameName: string
@@ -44,6 +55,7 @@ export interface userInfo {
   level?:number ;
   created_at:string;
   uid:string;
+  agent_id?:number | null;
   
 }
 export interface userInfoResponse {
@@ -149,6 +161,18 @@ export interface BankAccountPros  {
   is_available?: boolean;
   tag: number | 1 | 0;
 };
+
+
+
+export interface transactionsParamsType {
+    page: number,
+    limit:number,
+    type: string | undefined,
+    user_id?:string | undefined,
+    startDate?:string;
+    endDate?:string | undefined;
+    agent_id?:number
+}
 // export interface GameInfo {
 //   language: string;
 //   gameName: string;

@@ -47,7 +47,7 @@ const authStore = useAuthStore();
                   <PhoneIcon :size="15" />
                 </span>
                 <span v-if="!authStore.user?.phone">{{ t("not_connected") }}</span>
-                <span v-else>{{ authStore.user?.phone }}</span>
+                <span v-else>********{{ authStore.user?.phone.slice(-3) }}</span>
               </p>
 
             </div>
@@ -69,7 +69,7 @@ const authStore = useAuthStore();
         <div class="relative z-10 grid grid-cols-2 gap-4 text-center">
           <div class="flex flex-col gap-1">
             <p class="text-lg font-bold text-white">
-              Lv. {{ authStore.user?.level }}
+              VIP. {{ authStore.user?.level }}
             </p>
             <p class="text-xs text-gray-400">{{ t('level') }}</p>
           </div>
@@ -106,6 +106,7 @@ const authStore = useAuthStore();
         <div class="grid grid-cols-4 p-2 mt-4 gap-4">
 
           <div v-for="value in MembershipCenter" class="cursor-pointer my-2 flex flex-col items-center gap-2"
+            :disabled="value.label === 'agent_center' && authStore.user?.agent_id === 0"
             @click="value.action">
             <div
               class="h-14 w-14 flex flex-col rounded-full justify-center items-center bg-yellow-400/10 bg-linear-to-br from-yellow/5 via-yellow/10 to-yellow/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
