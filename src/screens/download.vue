@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { phone } from '@/utils';
+
 import { InfoIcon, QrCode } from 'lucide-vue-next';
 import { useI18n } from 'vue-i18n';
 
@@ -16,7 +16,7 @@ const {t} = useI18n()
         }}</h>
         <div class="flex flex-col items-center md:flex-row">
           <div class="md:p-0">
-            <img :src="phone" />
+            <img src="/images/phone.svg" />
           </div>
           <div class="flex gap-4 justify-center w-full my-4">
             <div class="p-2 bg-gray-900 rounded-lg">

@@ -11,7 +11,7 @@ export const topSlotGames : gameType[] = [
             "game_rank": 4,
             "name": "Gates of Olympus",
             "icon_url": "https://khpic.cdn568.net/PragmaticPlay/170/3_170_GatesofOlympus.png",
-               is_hot:true,
+            is_hot:true,
             "is_drop_win":true,
           
         },
@@ -24,7 +24,7 @@ export const topSlotGames : gameType[] = [
             "game_rank": 1,
             "name": "Mahjong Roar",
             "icon_url": "https://khpic.cdn568.net/AdvantPlay/75/1034_75_MahjongRoar.jpg",
-                 "is_hot":true,
+            "is_hot":true,
          
             is_hot_rtp:true
         },

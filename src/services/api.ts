@@ -1,5 +1,5 @@
 import { useAuthStore } from "@/stores/auth";
-import { useUIStore } from "@/stores/ui";
+// import { useUIStore } from "@/stores/ui";
 import axios from "axios";
 
 const api = axios.create({

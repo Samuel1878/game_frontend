@@ -17,7 +17,7 @@ const loading = ref(true);
 const page = ref(1);
 const limit = 20;
 const totalPages = ref(1);
-const transactionType = ref("bonus");
+const transactionType = ref("all");
 const startDate = ref();
 const {t} = useI18n();
 const endDate = ref();
@@ -44,7 +44,7 @@ onMounted(() => {
 
 </script>
 <template>
-        <CustomNavBar title="reward_center" backTo="/user/profile">
+        <CustomNavBar title="transactions" backTo="/user/profile">
     <template #right>
 
       <button
@@ -59,9 +59,9 @@ onMounted(() => {
     <!-- Header -->
     <div class="flex items-center justify-between">
       <h1 class="text-xl font-semibold tracking-wide">
-        {{ t('rewards') }}
+        {{ t('transactions') }}
       </h1>
-      
+
       <span class="text-sm text-gray-400">
         {{ t("page") }} {{ page }} / {{ totalPages }}
       </span>
@@ -82,7 +82,37 @@ onMounted(() => {
                         <p>{{ t('search') }}</p>
         </Button>
       <!-- Type Filter -->
-      
+      <div class="flex gap-2 flex-wrap mt-2 border-t border-white/5 pt-2">
+        <button
+          @click="transactionType = 'all'"
+          class="filter-btn"
+          :class="transactionType === 'all' && 'active-filter'"
+        >
+          {{ t('all') }}
+        </button>
+        <button
+          @click="transactionType = 'bonus'"
+          class="filter-btn"
+          :class="transactionType === 'bonus' && 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30 active-filter'"
+        >
+          {{ t('bonus') }}
+        </button>
+        <button
+          @click="transactionType = 'deposit'"
+          class="filter-btn"
+          :class="transactionType === 'deposit' && 'bg-green-500/20 text-green-400 border-green-500/30 active-filter'"
+        >
+          {{ t('deposit') }}
+        </button>
+
+        <button
+          @click="transactionType = 'withdraw'"
+          class="filter-btn"
+          :class="transactionType === 'withdraw' && 'bg-red-500/20 text-red-400 border-red-500/30 active-filter'"
+        >
+          {{ t('withdraw') }}
+        </button>
+      </div>
 
     </div>
 

@@ -82,7 +82,7 @@ onMounted(() => {
       <div
         v-for="u in players"
         :key="u.id"
-        @click="router.push(`/user/agent-center/users/detail/${u.id}`)"
+        @click="router.push(`/user/agent-center/users/detail/${u.id}?name=${u.name}&status=${u.status}&created_at=${u.created_at}&level=${u.level}`)"
         class="flex justify-between px-4 py-4 active-button items-center border-b border-white/5 last:border-none hover:bg-white/5 transition"
       >
         <!-- User Info -->

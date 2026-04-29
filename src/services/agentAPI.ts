@@ -1,4 +1,4 @@
-import type { transactionsParamsType } from "@/utils/types";
+import type { CReportReqParams, transactionsParamsType } from "@/utils/types";
 import api from "./api"
 export const getAgentDataByIdAPI = async (id:number) => {
     try {
@@ -47,3 +47,23 @@ export const getAgentTransactionSummaryUidAPI = async (agent_id:number, params:{
     return null
   }
 }
+export const getTotalPlayers = async (agent_id:number) => {
+  try {
+    const response = await api.get(`/agent/get-total-players/${agent_id}`);
+    if (response.status===200)return response.data;
+    return null
+  } catch (error) {
+    return null
+  }
+}
+
+export const getCutomerReportByModifyAPI = async (data:CReportReqParams)=>{
+  try {
+    const response = await api.post("/agent/get-report-by-modify-date", data);
+    if (response.status===200) return response.data;
+    return null
+  } catch (error) {
+    return null
+  }
+}
+

@@ -3,10 +3,11 @@ import AuthModal from "@/components/Auth.vue";
 import { Toaster } from "./components/ui/sonner";
 import "vue-sonner/style.css";
 import BottomNav from "./components/layout/bottomNav.vue";
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import TopNavBar from "./components/layout/topNavBar.vue";
 import GameDrawer from "./components/gameDrawer.vue";
 
+import SnowParticle from "@/components/particles.vue";
 onMounted(() => {
   const urlParams = new URLSearchParams(window.location.search);
   const referral = urlParams.get("rid");
@@ -28,21 +29,34 @@ const handlePageShow = (event: PageTransitionEvent) => {
   }
 }
 
+
+
 </script>
 
 <template>
-  <main
-    class="min-h-screen w-full relative bg-gray-950 text-gray-100"
-  >
-   <TopNavBar/>
-    <div
-      class="w-full relative flex flex-col items-center bg-gray-900"
-    >
-      <router-view />
-      <AuthModal />
-      <BottomNav />
-      <GameDrawer />
+  <main class="min-h-screen w-full relative bg-gray-950 text-gray-100 overflow-hidden">
+
+    <!-- BACKGROUND LAYER -->
+   
+   
+    <!-- UI LAYER -->
+    <div class="relative z-10">
+      
+      <TopNavBar />
+
+      <div class="w-full relative flex flex-col items-center bg-gray-900">
+         <SnowParticle class="absolute inset-0 z-0" >
+        <router-view />
+        
+        <AuthModal />
+        <BottomNav />
+        <GameDrawer />
+        </SnowParticle>
+      </div>
+
     </div>
+
+
     <Toaster position="top-left" richColors />
   </main>
 </template>

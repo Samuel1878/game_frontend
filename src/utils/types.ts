@@ -168,44 +168,84 @@ export interface transactionsParamsType {
     page: number,
     limit:number,
     type: string | undefined,
-    user_id?:string | undefined,
+    user_id?:number | undefined,
     startDate?:string;
     endDate?:string | undefined;
     agent_id?:number
 }
-// export interface GameInfo {
-//   language: string;
-//   gameName: string;
-//   gameIconUrl: string;
-// }
 
-// export type DeviceType = "d/m" | "d" | "m" | string; // you can expand later if needed
+export interface Transaction {
+  id?: number
+  user_id: number
+  type: "deposit" | "withdraw" | 'bonus' | 'adjustment' |string
+  amount: number
+  payment_method?: string
+  txn_id?: string
+  created_by?: string
+  remark?: string
+  created_at?: string
+  updated_at?: string
+  agent?:string
+}
+export type DateFilter = "today" | "this_month" | "custom";
 
-// export type ProviderStatus = "Online" | "Offline" | string;
+export interface CReportReqParams {
+  username:string, 
+  portfolio?:string | 'SeamlessGame', 
+  filter:string, 
+  startDate?:string, 
+  endDate?:string
+}
+type BetCount = {
+  bonus?: number;
+  draw?: number;
+  lose?: number;
+  won?: number;
+};
 
-// export interface GameType {
-//   gameProviderId: number;
-//   gameID: number;
-//   gameType: number;
-//   newGameType: number;
-//   rank: number;
-//   device: DeviceType;
-//   platform: string; // e.g. "HTML5"
-//   provider: string; // e.g. "KAGaming"
-//   rtp: number;
-//   rows: number;
-//   reels: number;
-//   lines: number;
+type Turnover = {
+  bonus?: number;
+  draw?: number;
+  lose?: number;
+  won?: number;
+};
 
-//   gameInfos: GameInfo[];
-//   supportedCurrencies: string[];
-//   blockCountries: string[];
+export type ReportItem = {
+  username: string;
+  betCount: BetCount;
+  turnover: Turnover;
+  winlose: number;
+  commission: number;
+  totalDeposit: number;
+  totalWithdrawal: number;
+};
 
-//   isMaintain: boolean;
-//   isEnabled: boolean;
-//   isProvideCommission: boolean;
-//   hasHedgeBet: boolean;
+type ApiError = {
+  id: number;
+  msg: string;
+};
 
-//   providerStatus: ProviderStatus;
-//   isProviderOnline: boolean;
-// }
+export type ReportResponse = {
+  result: ReportItem[] | null;
+  serverId: string;
+  error: ApiError;
+};
+
+export type ReportSummaryType = {
+  betCount: {
+    bonus: number;
+    draw: number;
+    lose: number;
+    won: number;
+  };
+  turnover: {
+    bonus: number;
+    draw: number;
+    lose: number;
+    won: number;
+  };
+  winlose: number;
+  commission: number;
+  totalDeposit: number;
+  totalWithdrawal: number;
+};

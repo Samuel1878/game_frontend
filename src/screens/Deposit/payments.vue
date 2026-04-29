@@ -178,7 +178,7 @@ const copyHandler = (value:any) => {
         <img class="w-7 h-7" :src="receipt_icon" />
       </button>
       <button @click="openChat">
-        <Headset class="w-6 h-6" />
+        <Headset class="w-6 h-6 text-yellow-400" />
       </button>
     </template>
   </CustomNavBar>
@@ -228,7 +228,7 @@ const copyHandler = (value:any) => {
           <div class="space-y-2">
             <label for="account_name" class="text-gray-400 font-semibold:">{{ t("last_5_digit_of_transaction") }}
             </label>
-            <InputGroup class="h-12 mt-2 rounded-lg font-bold border border-gray-700 ring-sky-500 ring-0 bg-gray-900">
+            <InputGroup class="h-12 mt-2 rounded-lg font-bold border border-gray-700 ring-yellow-500 ring-0 bg-gray-900">
               <InputGroupAddon>
                 <ChartNoAxesColumnDecreasing />
               </InputGroupAddon>
@@ -241,7 +241,7 @@ const copyHandler = (value:any) => {
         </div>
         <div class="flex flex-1 mt-10">
           <button :disabled="submitting" type="submit"
-            class="bg-sky-600 active:scale-95 transition h-12 font-bold text-gray-50 w-full rounded-lg flex justify-center items-center gap-2 disabled:opacity-50">
+            class="gold-bg active-button h-12 font-bold text-gray-900 w-full rounded-lg flex justify-center items-center gap-2 disabled:opacity-50">
             <RefreshCcw v-if="submitting" class="animate-spin" />
             {{ t('submit') }}
           </button>

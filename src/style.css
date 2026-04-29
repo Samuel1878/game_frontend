@@ -242,6 +242,12 @@ body {
 .glass-bg {
   @apply bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]
 }
+.gold-bg {
+  @apply bg-yellow-400 bg-linear-to-br from-yellow-300/90 via-yellow-400/90 to-yellow-600/90 backdrop-blur-2xl border-yellow-300 shadow-[0_10px_40px_rgba(0,0,0,0.6)]
+}
+.text-glow {
+  @apply text-black/90 text-shadow-lg;
+}
 .active-button {
   @apply active:scale-95 transition
 }
@@ -277,7 +283,78 @@ body {
 .active {
   @apply bg-blue-600 text-white border-blue-500;
 }
-/* .flare {
+
+@keyframes borderShine {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+.border-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.375rem; /* same as rounded-md */
+
+  /* gold highlight line */
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 215, 0, 0.0) 35%,
+    rgba(255, 215, 0, 0.6) 50%,
+    rgba(255, 255, 255, 0.9) 52%,
+    rgba(255, 215, 0, 0.6) 55%,
+    transparent 70%
+  );
+
+  background-size: 200% 100%;
+  animation: borderShine 5s linear infinite;
+  mix-blend-mode: overlay;
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-6px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes softShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-floatGlow {
+  animation: floatGlow 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: softShimmer 10s linear infinite;
+}
+/* .flare 
   position: absolute;
   top: 20%;
   left: 20%;

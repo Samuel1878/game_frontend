@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import router from '@/router';
-import { _18_plus, askgamblers, ayaPayLogo, discord_black, download_white, facebook_black, ga, gambling_therapy, gamcare, kbzBanking, kbzLogo, openDiscord, openTelegram, openViber, ssl_icon, telegram_black, trust, usdtLogo, viber_black, wavePayLogo } from '@/utils';
+import { openDiscord, openTelegram, openViber } from '@/utils';
 import { useI18n } from 'vue-i18n';
 
 const year = new Date().getFullYear()
@@ -41,49 +41,49 @@ const supportLinks = [
 const payments = [
   {
     name:"KBZ pay",
-    src:kbzLogo
+    src:"/payments/kbzpay.svg"
   },
   {
     name:"Wave Money",
-    src:wavePayLogo,
+    src:"/payments/wavepay.jpeg",
   },
   {
     name:"AYA pay",
-    src:ayaPayLogo
+    src:"/payments/ayabanking.png"
   },
   {
     name:"KBZ Banking",
-    src:kbzBanking
+    src:"/payments/kbzbanking-new.png"
   },
   {
     name:"USDT",
-    src:usdtLogo
+    src:"/payments/USDT.png"
   }
 ];
 const socials = [
   {
-    icon : facebook_black,
+    icon : "/socials/facebook_black.svg",
     action:()=>{}
   },
   {
-    icon: telegram_black,
+    icon: "/socials/telegram_black.svg",
     action:openTelegram
   },
   {
-    icon:viber_black,
+    icon: "/socials/viber_black.svg",
     action:openViber
   },
   {
-    icon:discord_black,
+    icon:"/socials/discord_black.svg",
     action:openDiscord
   }
 ];
 const certification = [
-  gamcare,
-  ga,
-  trust,
-  gambling_therapy,
-  askgamblers,
+  "/partners/gamcare.svg",
+  "/partners/ga.svg",
+  "/partners/trust.svg",
+  "/partners/gambling_therapy.svg",
+  "/partners/askgamblers.svg",
 
 ]
 </script>
@@ -164,8 +164,8 @@ const certification = [
       </div>
       <div class="border-gray-700 w-full max-w-6xl border-y flex justify-between items-center py-7">
         <div class="flex gap-4">
-          <img :src="_18_plus" class=""/>
-          <img :src="ssl_icon" class=""/>
+          <img src="/partners/18plus.svg" class=""/>
+          <img src="/partners/ssl_icon.svg" class=""/>
         </div>
         <div class="flex gap-2">
           <div @click="value.action" class="" v-for="value in socials">
@@ -181,7 +181,7 @@ const certification = [
           </div>
         </div>
         <div class="" @click="router.push('/download')">
-          <img :src="download_white" class="h-9"/>
+          <img src="/partners/download_white.svg" class="h-9"/>
         </div>
       </div>
     </div>

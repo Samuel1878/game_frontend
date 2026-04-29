@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { discord, openChat, openDiscord, openTelegram, openViber, telegram, viber } from '@/utils';
+import { openChat, openDiscord, openTelegram, openViber } from '@/utils';
 import { Headset } from 'lucide-vue-next';
 import { useI18n } from 'vue-i18n';
 const props = defineProps<{containerStyle:string}>()
@@ -21,9 +21,9 @@ const props = defineProps<{containerStyle:string}>()
           </div>
 
           <!-- Socials -->
-          <img :src="viber" @click="openViber"  class="w-10 h-10 hover:scale-110 transition cursor-pointer" />
-          <img :src="telegram" @click="openTelegram" class="w-10 h-10 hover:scale-110 transition cursor-pointer" />
-          <img :src="discord" @click="openDiscord" class="w-10 h-10 hover:scale-110 transition cursor-pointer" />
+          <img src="/socials/viber.svg" @click="openViber"  class="w-10 h-10 hover:scale-110 transition cursor-pointer" />
+          <img src="/socials/telegram.svg" @click="openTelegram" class="w-10 h-10 hover:scale-110 transition cursor-pointer" />
+          <img src="/socials/discord.svg" @click="openDiscord" class="w-10 h-10 hover:scale-110 transition cursor-pointer" />
         </div>
       </section>
 </template>

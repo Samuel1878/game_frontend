@@ -2,7 +2,6 @@
 import { MembershipCenter, UserAction } from "@/consts";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
-import { profile } from "@/utils";
 import {
   PhoneIcon,
 } from "lucide-vue-next";
@@ -16,74 +15,99 @@ const authStore = useAuthStore();
   <main class="min-h-screen bg-gray-900 w-full px-4 py-4">
     <div class="max-w-md mx-auto space-y-4">
       <section
-        class="relative overflow-hidden rounded-2xl p-6 md:p-8 bg-linear-to-br from-white/10 via-gray-900/40 to-gray-900/40 backdrop-blur-2xl border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.6)]">
+  class="relative overflow-hidden rounded-2xl p-6 md:p-8 
+  bg-linear-to-br from-white/10 via-gray-900/50 to-gray-900/70 
+  backdrop-blur-2xl border border-white/10 
+  shadow-[0_0_40px_rgba(0,0,0,0.8)] group"
+>
 
-        <div
-          class="absolute inset-0 opacity-30 bg-linear-to-tr from-sky-500/20 via-purple-500/10 to-yellow-500/30 blur-2xl">
-        </div>
+  <!-- 🌈 ambient casino glow -->
+  <div
+    class="absolute inset-0 opacity-40 blur-3xl animate-floatGlow
+    bg-linear-to-tr from-sky-500/20 via-purple-500/10 to-yellow-400/20"
+  ></div>
 
-        <!-- Header -->
-        <div class="relative z-10 flex items-center justify-between">
-          <!-- Left: Avatar + Info -->
-          <div class="flex items-center gap-4">
-            <!-- Avatar -->
-            <div class="relative">
-              <div class="absolute inset-0 rounded-full bg-linear-to-tr from-sky-400 to-yellow-500 blur-md opacity-60">
-              </div>
-              <div
-                class="relative w-16 h-16 rounded-full p-0.5 bg-linear-to-tr from-sky-400 via-amber-200 to-yellow-500">
-                <div class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center overflow-hidden">
-                  <img :src="profile" class="w-full h-full object-cover" />
-                </div>
-              </div>
-            </div>
+  <!-- ✨ moving light sheen -->
+  <div
+    class="absolute inset-0 opacity-20 animate-shimmer
+    bg-linear-to-r from-transparent via-white/10 to-transparent"
+  ></div>
 
-            <!-- User Info -->
-            <div>
-              <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide">
-                {{ authStore.user?.name }}
-              </h2>
-              <p class="text-gray-400 text-sm flex gap-2 items-center"><span>
-                  <PhoneIcon :size="15" />
-                </span>
-                <span v-if="!authStore.user?.phone">{{ t("not_connected") }}</span>
-                <span v-else>********{{ authStore.user?.phone.slice(-3) }}</span>
-              </p>
+  <!-- soft golden edge highlight -->
+  <div class="absolute inset-0 rounded-2xl border border-yellow-400/10 pointer-events-none"></div>
 
-            </div>
-          </div>
-          <!-- Status -->
-          <div class="flex items-center gap-2">
-            <div class="w-3 h-3 rounded-full animate-pulse" :class="authStore.user?.status === 'Active'
-                ? 'bg-green-400'
-                : 'bg-red-400'
-              " />
-            <span class="text-xs text-gray-400">
-              {{ authStore.user?.status }}
-            </span>
+  <!-- CONTENT -->
+  <div class="relative z-10 flex items-center justify-between">
+
+    <!-- Avatar -->
+    <div class="flex items-center gap-4">
+
+      <div class="relative">
+        <div class="absolute inset-0 rounded-full bg-linear-to-tr from-sky-400 to-yellow-400 blur-md opacity-70 animate-pulse"></div>
+
+        <div class="relative w-16 h-16 rounded-full p-0.5 bg-linear-to-tr from-sky-400 via-yellow-300 to-yellow-500">
+          <div class="w-full h-full rounded-full bg-gray-900 overflow-hidden">
+            <img src="/images/profile.png" class="w-full h-full object-cover" />
           </div>
         </div>
-        <!-- Divider -->
-        <div class="my-6 border-t border-white/10"></div>
-        <!-- Stats -->
-        <div class="relative z-10 grid grid-cols-2 gap-4 text-center">
-          <div class="flex flex-col gap-1">
-            <p class="text-lg font-bold text-white">
-              VIP. {{ authStore.user?.level }}
-            </p>
-            <p class="text-xs text-gray-400">{{ t('level') }}</p>
-          </div>
-          <div class="flex flex-col gap-1">
-            <p class="text-lg font-bold text-white">
-              {{ moment(authStore.user?.created_at).format("MMM YYYY") }}
-            </p>
-            <p class="text-xs text-gray-400">{{ t("joined") }}</p>
-          </div>
-        </div>
-        <div
-          class="absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-sky-400/40 to-transparent">
-        </div>
-      </section>
+      </div>
+
+      <div>
+        <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide">
+          {{ authStore.user?.name }}
+        </h2>
+
+        <p class="text-gray-400 text-sm flex gap-2 items-center">
+          <PhoneIcon :size="15" />
+          <span v-if="!authStore.user?.phone">{{ t("not_connected") }}</span>
+          <span v-else> ********{{ authStore.user?.phone.slice(-3) }}</span>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Status -->
+    <div class="flex items-center gap-2">
+      <div
+        class="w-3 h-3 rounded-full animate-pulse"
+        :class="authStore.user?.status === 'Active'
+          ? 'bg-green-400 shadow-[0_0_10px_rgba(34,197,94,0.6)]'
+          : 'bg-red-400 shadow-[0_0_10px_rgba(239,68,68,0.6)]'"
+      />
+      <span class="text-xs text-gray-400">
+        {{ authStore.user?.status }}
+      </span>
+    </div>
+
+  </div>
+
+  <div class="my-6 border-t border-white/10"></div>
+
+  <!-- Stats -->
+  <div class="relative z-10 grid grid-cols-2 gap-4 text-center">
+
+    <div class="group-hover:scale-105 transition">
+      <p class="text-lg font-bold text-white">
+        VIP. {{ authStore.user?.level }}
+      </p>
+      <p class="text-xs text-gray-400">{{ t('level') }}</p>
+    </div>
+
+    <div class="group-hover:scale-105 transition">
+      <p class="text-lg font-bold text-white">
+        {{ moment(authStore.user?.created_at).format("MMM YYYY") }}
+      </p>
+      <p class="text-xs text-gray-400">{{ t("joined") }}</p>
+    </div>
+
+  </div>
+
+  <!-- bottom gold line -->
+  <div class="absolute bottom-0 left-0 w-full h-[2px]
+    bg-linear-to-r from-transparent via-yellow-400/40 to-transparent">
+  </div>
+
+</section>
       <section class="w-full flex justify-between gap-2 items-center">
 
         <div @click="router.push(value.path)" v-for="value in UserAction"

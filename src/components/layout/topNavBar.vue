@@ -30,7 +30,7 @@ const goToLoginHandler = () => {
           to="/"
           class="flex items-center"
         >
-          <p class="text-sky-400 font-extrabold text-4xl font-sans">TZ99</p>
+          <img src="/logo.png" alt="Logo" class=" h-14" />
       
         </RouterLink>
         <div class="hidden items-center gap-6 lg:flex">
@@ -44,9 +44,9 @@ const goToLoginHandler = () => {
             @click="authStore.fetchUser"
             v-show="authStore.user"
             class="flex items-center gap-2 px-2 h-10 bg-gray-800/40 rounded-md border border-white/20 shadow-inner hover:shadow-lg transition-shadow duration-300"
-          ><Wallet class="w-6 h-6 text-sky-400" />
+          ><Wallet class="w-6 h-6 text-yellow-400" />
             <!-- <img :src="wallet_icon" class="w-8 h-8"/> -->
-            <p class="font-bold text-md text-yellow-500">
+            <p class="font-bold  text-md text-yellow-500">
               {{ formatPrice(wallet.balance || 0) || "0.00" }}
             </p>
           </div>
@@ -54,7 +54,7 @@ const goToLoginHandler = () => {
           <button
             @click="goToLoginHandler"
             v-if="!authStore.user"
-            class="rounded-sm px-4 py-2 font-medium bg-sky-600 text-gray-50"
+            class="rounded-sm px-4 py-2 text-glow font-medium gold-bg active-button"
           >
             {{ t("login") }}
           </button>

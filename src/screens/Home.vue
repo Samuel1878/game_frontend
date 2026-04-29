@@ -8,7 +8,6 @@ import ScrollViews from "@/components/scrollViews.vue";
 import Footer from "@/components/footer.vue";
 import router from "@/router";
 import Loading from "@/components/loading.vue";
-
 import { useI18n } from "vue-i18n";
 
 import GameOptions from "@/components/layout/gameOptions.vue";
@@ -44,7 +43,7 @@ useReturnRefresh(() => {
           class="flex my-1 p-1 py-0.5 items-center rounded-2xl bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
           <BellRingIcon :size="16" class="text-gray-100 mx-2" />
           <div class="w-full overflow-hidden">
-            <div class="flex w-max animate-marquee gap-10 text-xs text-sky-400 font-medium">
+            <div class="flex w-max animate-marquee gap-10 text-xs text-yellow-400 font-medium">
               <span>🎉 {{ t("description_one") }}</span>
               <span>💰 {{ t("description_two") }}</span>
               <span>🎁 {{ t("description_three") }}</span>
@@ -58,7 +57,7 @@ useReturnRefresh(() => {
           </div>
 
           <div class="px-2">
-            <button class="bg-sky-400 rounded-full p-1 animate-pulse-scale" @click="router.push('/download')">
+            <button class="gold-bg rounded-full p-1 animate-pulse-scale" @click="router.push('/download')">
               <Download :size="13" class="text-gray-900" />
             </button>
           </div>
@@ -69,9 +68,9 @@ useReturnRefresh(() => {
         <div class="flex justify-between gap-4 pb-2">
           <button
             @click="router.push('/deposit')"
-            class="w-full h-8 shine-auto overflow-hidden relative cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+            class="w-full h-8 gold-bg shine-auto overflow-hidden relative cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
 
-            <span class="font-bold">
+            <span class="font-bold text-glow">
               {{ t("deposit") }}
             </span>
           </button>

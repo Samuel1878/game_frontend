@@ -46,7 +46,7 @@ const goToPayment = () => {
       </button>
       <button
         v-on:click="openChat">
-        <Headset class="w-6 h-6" />
+        <Headset class="w-6 h-6 text-yellow-400" />
       </button>
       <LanguageBtn/>
     </template>
@@ -57,7 +57,7 @@ const goToPayment = () => {
         <section
           class="p-4 space-y-4 relative rounded-2xl bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
           <div class="flex gap-2 w-full">
-             <div class="rounded-full bg-sky-400 p-1.5 h-1.5 mt-1.5"/>
+             <div class="rounded-full bg-yellow-400 p-1.5 h-1.5 mt-1.5 animate-pulse"/>
           <h1 class="text-md font-bold">
 
             {{ t("choose_payment_method") }}
@@ -66,12 +66,12 @@ const goToPayment = () => {
           <div class="grid grid-cols-2 gap-2">
             <div v-for="payment in paymentMethodDeposit" :key="payment.id" @click="choosePayment(payment.value)"
               class="group p-4 rounded-2xl relative bg-linear-to-br from-white/5 to-white/10 border-2  hover:border-sky-400/40 hover:shadow-lg hover:shadow-sky-500/10 active:scale-[0.97] transition flex flex-col items-center gap-3"
-              :class="chosePayment === payment.value ? 'border-sky-400' : 'border-white/10'">
+              :class="chosePayment === payment.value ? 'border-yellow-400 animate-pulse' : 'border-white/10'">
               <div class="p-2 rounded-xl bg-black/40 backdrop-blur-2xl group-hover:scale-110 transition">
                 <img :src="payment.icon" class="w-12 h-12 object-cover rounded-lg" />
               </div>
               <CircleCheck v-show="chosePayment === payment.value"
-                class="text-sky-400 w-7 h-7 absolute right-2 top-2 font-bold" />
+                class="text-yellow-400 w-7 h-7 absolute right-2 top-2 font-bold" />
               <p class="font-semibold text-gray-200 group-hover:text-white">
                 {{ payment.label }}
               </p>
@@ -83,18 +83,18 @@ const goToPayment = () => {
         </section>
         <div class="p-4 mt-2 space-y-4 relative rounded-2xl glass-bg">
           <div class="flex gap-2 w-full mb-4">
-             <div class="rounded-full bg-sky-400 p-1.5 h-1.5 mt-1.5"/>
+             <div class="rounded-full bg-yellow-400 p-1.5 h-1.5 mt-1.5 animate-pulse"/>
             <h1 class="text-md font-bold tracking-wide">
               {{ t("set_deposit_amount") }}
             </h1>
           </div>
           <InputGroup
-            class="h-14 rounded-xl bg-gray-900/50 border border-white/10 focus-within:ring-2 focus-within:ring-sky-400 transition">
+            class="h-14 rounded-xl bg-gray-900/50 border border-white/10 focus-within:ring-2 focus-within:ring-yellow-400 transition">
             <InputGroupAddon>
               <InputGroupText class="text-gray-400 font-bold">K</InputGroupText>
             </InputGroupAddon>
 
-            <InputGroupInput v-model="amount" type="number" class="text-sky-400 text-lg font-bold bg-transparent"
+            <InputGroupInput v-model="amount" type="number" class="text-yellow-400 text-lg font-bold bg-transparent"
               :placeholder="chosePayment !== 'usdt' ? '5,000 - 1,000,000' : '10 - 4,000'" />
 
             <InputGroupAddon align="inline-end">
@@ -102,7 +102,7 @@ const goToPayment = () => {
             </InputGroupAddon>
           </InputGroup>
           <div v-if="chosePayment === 'usdt'" class="p-2 bg-gray-700/20 rounded-lg space-y-2">
-            <p class="text-md text-sky-400 font-normal">
+            <p class="text-md text-yellow-400 font-normal">
               USDT
             </p>
             <p class="text-gray-100">
@@ -113,7 +113,7 @@ const goToPayment = () => {
             </p>
             <p class="text-gray-200 text-sm" v-show="amount">
               {{ t("you_will_receive_about") }}:
-              <span class="text-sky-400 text-md font-bold">
+              <span class="text-yellow-400 text-md font-bold">
                 {{ Number(amount) * Number(usdtRateToMMK) }} MMK
               </span>
             </p>
@@ -122,7 +122,7 @@ const goToPayment = () => {
             <button v-for="a in amounts" :key="a" @click="setAmount(a)" :class="[
               'py-2 rounded-lg text-sm font-semibold active-button',
               amount === a
-                ? 'bg-sky-500 text-white shadow-lg shadow-sky-500/30'
+                ? 'bg-yellow-400 text-gray-900 shadow-lg shadow-yellow-400/30'
                 : 'bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300',
             ]">
               {{ formatPrice(a) }}
@@ -133,7 +133,9 @@ const goToPayment = () => {
       
     </div>
     <div class="w-full  fixed bottom-0 right-0 left-0 p-4 glass-bg border-t">
-      <button :disabled="!amount || !chosePayment" @click="goToPayment" class="w-full disabled:bg-gray-400/50 font-bold text-white active-button rounded-lg h-12 bg-sky-400 flex items-center justify-center">
+      <button :disabled="!amount || !chosePayment" @click="goToPayment" 
+          :class="!amount || !chosePayment ? 'bg-yellow-400/50' : ' gold-bg '"
+      class="w-full disabled:bg-yellow-400/80 font-bold text-glow active-button rounded-lg h-12 flex items-center justify-center">
         {{ t('next') }}
       </button>
     </div>

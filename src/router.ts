@@ -9,7 +9,7 @@ import Help from "./screens/help.vue";
 import Terms from "./screens/terms.vue";
 import Policy from "./screens/policy.vue";
 import Responsible from "./screens/responsible.vue";
-import Transactions from "./screens/Transactions.vue";
+import Transactions from "./screens/transaction/transactions.vue";
 import BankAccount from "./screens/User/bankAccount.vue";
 import PhoneNumber from "./screens/User/phoneNumber.vue";
 import Slots from "./screens/games/slots.vue";
@@ -110,7 +110,7 @@ const routes = [
   {
     path: "/user/transactions",
     component: Transactions,
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: true ,hideTopNav:true, hideNavbar:true},
   },
     {
     path: "/user/deposit-history",

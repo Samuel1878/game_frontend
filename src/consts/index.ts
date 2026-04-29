@@ -1,6 +1,7 @@
-import { Advantplay, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin, Jili, KA_Gaming, kbzLogo, PG_Soft, Pragmatic_Play, usdtLogo, VA_Gaming, wavePayLogo, bank_transfer, softswiss,
+import { 
+    
      slot, buffalo, fish, casino, chess, home, 
-     paysafe,
+  
      wallet_icon,
      in_icon,
      bank_ico,
@@ -12,26 +13,27 @@ import { Advantplay, ayaPayLogo, banner_1, banner_2, banner_3, FaChai, Fast_Spin
      download,
      helpCenter,
      logout,
-     kbzBanking,
-     banner_4,
-     sbo,
-     _568} from "@/utils";
+} from "@/utils";
 
 import type { Game } from "@/utils/types";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
 export const usdtRateToMMK = 4000;
 export const footer_images = [
-    PG_Soft,
-    Pragmatic_Play,
-    Jili,
-    Fast_Spin,
-    KA_Gaming,
-   bank_transfer,
-    FaChai,
-   softswiss,
-   VA_Gaming,
-    paysafe
+    '/providers/PG-WHITE.png',
+    '/providers/PP-WHITE.png',
+    '/providers/JL-WHITE.png',
+    '/providers/fast_spin.png',
+    '/providers/KA-WHITE.png',
+    '/partners/bank_transfer.svg',
+    "/providers/FC-WHITE.png",
+   "/providers/advant_play.png",
+   "/providers/va-white.webp",
+   "/providers/sbo.png",
+   "/providers/568.png",
+   "/providers/advant_play.png",
+   "/partners/softswiss.svg",
+    "/partners/paysafe.svg",
 
 
 ]
@@ -137,32 +139,32 @@ export const paymentMethod:paymentTypes[] = [
         id:1,
         label:"KBZ Pay",
         value:"kbzPay",
-        icon:kbzLogo
+        icon:"/payments/kbzpay.svg"
 
     },
     {
         id:2,
         label:"Wave Pay",
         value:"wavePay",
-        icon:wavePayLogo
+        icon:"/payments/wavepay.jpeg"
     },
     {
         id:3,
         label:"AYA Pay",
         value:"ayaPay",
-        icon:ayaPayLogo
+        icon:"/payments/ayabanking.png"
     },
             {
         id:4,
         label:"KBZ Bank",
         value:"kbzBank",
-        icon:kbzBanking
+        icon:"/payments/kbzbanking-new.png"
     },
     {
         id:5,
         label:"USDT",
         value:"usdt",
-        icon:usdtLogo
+        icon:'/payments/USDT.png'
     },
 
 
@@ -211,26 +213,26 @@ export const paymentMethodDeposit:paymentTypes[] = [
         id:1,
         label:"KBZ Pay",
         value:"kbzPay",
-        icon:kbzLogo
+        icon:"/payments/kbzpay.svg"
 
     },
     {
         id:2,
         label:"Wave Pay",
         value:"wavePay",
-        icon:wavePayLogo
+        icon:"/payments/wavepay.jpeg"
     },
     {
         id:3,
         label:"AYA Pay",
         value:"ayaPay",
-        icon:ayaPayLogo
+        icon:"/payments/ayabanking.png"
     },
     {
         id:4,
         label:"USDT",
         value:"usdt",
-        icon:usdtLogo
+        icon:'/payments/USDT.png'
     },
 
 
@@ -238,7 +240,7 @@ export const paymentMethodDeposit:paymentTypes[] = [
 export const homeSlide = [
 
     {   id:1,
-        image:banner_1,
+        image:"/images/slider_1.jpg",
         title:"title_one",
         description:"description_one",
         button:"button_one",
@@ -246,7 +248,7 @@ export const homeSlide = [
     },
     {
         id:2,
-        image:banner_2,
+        image:"/images/slider_2.jpg",
         title:"title_two",
         description:"description_two",
         button:"button_two",
@@ -254,14 +256,14 @@ export const homeSlide = [
     }
     ,    {
         id:3,
-        image:banner_3,
+        image:"/images/slider_3.jpg",
         title:"title_three",
         description:"description_three",
         button:"button_three",
         action:""
     },
      {   id:4,
-        image:banner_4,
+        image:"/images/slider_4.jpg",
         title:"title_one",
         description:"description_one",
         button:"button_one",
@@ -313,7 +315,7 @@ export const slotGameProviders = [
         id:1,
         name: "Pragmatic Play",
         GpId:3,
-        icon:Pragmatic_Play,
+        icon:"/providers/PP-WHITE.png",
         
         
     },
@@ -321,7 +323,7 @@ export const slotGameProviders = [
         id:2,
         name: "PG Soft",
         GpId:35,
-        icon:PG_Soft,
+        icon:"/providers/PG-WHITE.png",
         
         
     },
@@ -329,8 +331,7 @@ export const slotGameProviders = [
         id:3,
         name: "JILI",
         GpId:1020,
-        icon:Jili,
-        
+        icon:"/providers/JL-WHITE.png",
         
     },
 
@@ -338,7 +339,7 @@ export const slotGameProviders = [
         id:4,
         name: "FaChoi",
         GpId:1046,
-        icon:FaChai,
+        icon:  "/providers/FC-WHITE.png",
         
         
     } ,
@@ -346,7 +347,7 @@ export const slotGameProviders = [
         id:5,
         name: "Fastspin",
         GpId:1079,
-        icon:Fast_Spin,
+        icon:"/providers/fast_spin.png",
         
         
     },
@@ -355,7 +356,7 @@ export const slotGameProviders = [
         id:6,
         name: "KA Gaming",
         GpId:1042,
-        icon:KA_Gaming,
+        icon:"/providers/KA-WHITE.png",
         
         
     }  ,
@@ -363,7 +364,7 @@ export const slotGameProviders = [
         id:7,
         name: "Advantplay",
         GpId:1034,
-        icon:Advantplay,
+        icon:"/providers/advant_play.png",
         
         
     },
@@ -371,20 +372,20 @@ export const slotGameProviders = [
         id:8,
         name: "VA Gaming",
         GpId:1085,
-        icon:VA_Gaming,    
+        icon:"/providers/va-white.webp",    
     },
      
     {
         id:10,
         name:"SBO games",
         GpId:14,
-        icon:sbo,
+        icon:"/providers/sbo.png",
     },
     {
         id:11,
         name:"568Win Games",
         GpId:1029,
-        icon:_568,
+        icon:"/providers/568.png",
     }
 ];
 export const UserAction = [

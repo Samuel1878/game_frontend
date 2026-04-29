@@ -115,21 +115,33 @@ const submit = async () => {
     <DialogContent :dismissible="false" @interact-outside.prevent :show-close-button="false" class="bg-gray-900 
         bg-linear-to-br from-white/5 via-white/10 to-white/5
         backdrop-blur-2xl border border-white/10
-        shadow-[0_10px_40px_rgba(0,0,0,0.6)] text-gray-100 rounded-2xl">
-      <DialogHeader class="my-2">
-        <DialogTitle class="text-gray-100 font-bold text-start">
+        shadow-[0_10px_40px_rgba(0,0,0,0.6)] text-gray-100 rounded-2xl p-0 pb-4 w-full">
+      <DialogHeader class="mb-2 bg-gray-800/50 border-b border-gray-700/50 rounded-t-2xl p-4 relative">
+         <div class="glass absolute inset-0"></div>
+
+          <div class="shine absolute inset-0"></div>
+          <div class="absolute inset-0 bg-black/10 rounded-lg"></div>
+        <div class="flex gap-2 items-center">
+          <img src="/favicon.png" class="w-20 h-20"/>
+          <div>
+ <DialogTitle class="text-amber-400 font-bold text-start text-2xl flex">
+           <!-- <img src="/public/favicon.png" class="w-10 h-10"/> -->
           {{ isLogin ? t("login") : t("register") }}
         </DialogTitle>
         <DialogDescription class="text-start text-gray-400">
-          {{   isLogin ? t("login") : t("register") }}
+          {{   isLogin ? t("login_to_your_account") : t("register_new_account") }}
         </DialogDescription>
+          </div>
+       
+        </div>
+        
         <button class="absolute right-5 top-5 cursor-pointer" @click="ui.closeAuthModal()">
           <X />
         </button>
       </DialogHeader>
-      <form class="space-y-4 "
+      <form class="space-y-4 px-4"
         @submit.prevent="submit">
-        <InputGroup v-if="isLogin" class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
+        <InputGroup v-if="isLogin" class="h-12 rounded-lg w-full font-medium ring-amber-400 ring-0 bg-gray-700/50">
           <InputGroupAddon>
             <User />
           </InputGroupAddon>
@@ -138,7 +150,7 @@ const submit = async () => {
             <InputGroupText class="text-gray-100"></InputGroupText>
           </InputGroupAddon>
         </InputGroup>
-        <InputGroup v-else class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
+        <InputGroup v-else class="h-12 rounded-lg w-full font-medium border ring-amber-400 ring-0 bg-gray-700/50">
           <InputGroupAddon>
             <User />
           </InputGroupAddon>
@@ -148,7 +160,7 @@ const submit = async () => {
           </InputGroupAddon>
         </InputGroup>
 
-        <InputGroup class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50"
+        <InputGroup class="h-12 rounded-lg w-full font-medium border ring-amber-400 ring-0 bg-gray-700/50"
           v-show="!isLogin">
           <InputGroupAddon>
             <PhoneIcon />
@@ -205,13 +217,13 @@ const submit = async () => {
           </div>
           <div class="flex items-center text-xs text-gray-400 gap-2 mb-2 px-1">
             <Checkbox class="text-sm" id="terms" :model-value="checked" v-on:update:model-value="checked = !checked" />
-            <Label for="terms">{{ t("accept_terms") }}</Label>
+            <Label for="terms" class="text-gray-400">{{ t("accept_terms") }}</Label>
 
           </div>
           <Button :disabled="!isValid || loadingButton" class="w-full h-12 rounded-lg flex items-center justify-center gap-2
-         bg-sky-600 hover:bg-sky-500 disabled:opacity-50 disabled:cursor-not-allowed">
+         gold-bg active-button disabled:opacity-50 disabled:cursor-not-allowed">
             <Spinner v-if="loadingButton" />
-            <span>
+            <span class="text-glow">
               {{ isLogin ? t("login") : t("register") }}
             </span>
           </Button>
@@ -223,6 +235,8 @@ const submit = async () => {
           {{ isLogin ? t("register") : t("login") }}
         </button>
       </div>
+
+           
     </DialogContent>
   </Dialog>
 </template>
