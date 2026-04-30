@@ -31,29 +31,30 @@ const goHome = () => {
 </script>
 
 <template>
-  <div class="w-full">
-    <div class="w-full h-10 flex justify-between z-50 bg-gray-900/20 items-center px-6 fixed top-0 right-0 left-0">
-        <div class="px-4 " v-on:click="goBack">
-            <ChevronLeft class="text-gray-100 w-8 h-8"/>
-        </div>
-        <div v-on:click="goHome" class="flex justify-center items-center">
-            <img src="/logo.png" class="h-10"/>
-        </div>
+  <div class="fixed inset-0 bg-black overflow-hidden">
+
+    <!-- HEADER (overlay) -->
+    <div
+      class="absolute top-0 left-0 right-0 z-50 h-9 flex justify-between items-center px-4 bg-gray-900/50 backdrop-blur pointer-events-none"
+    >
+      <div class="pointer-events-auto cursor-pointer px-2" @click="goBack">
+        <ChevronLeft class="text-gray-100 w-7 h-7" />
+      </div>
+
+      <div class="pointer-events-auto cursor-pointer flex justify-center items-center" @click="goHome">
+        <img src="/logo.png" class="h-8" />
+      </div>
     </div>
-    <!-- <iframe
-      v-if="gameStore.launchUrl"
-      :src="gameStore.launchUrl"
-      class="w-full h-full border-0"
-      allowfullscreen
-    /> -->
-  <div class="fixed inset-0 w-screen h-screen bg-black">
-  <iframe
-   v-if="gameStore.launchUrl"
-      :src="gameStore.launchUrl"
-    class="w-full h-full border-0"
-    allowfullscreen
-  >
-</iframe>
-</div>
+
+    <!-- GAME -->
+    <div class="absolute inset-0 pt-9">
+      <iframe
+        v-if="gameStore.launchUrl"
+        :src="gameStore.launchUrl"
+        class="w-full h-full border-0"
+        allowfullscreen
+      />
+    </div>
+
   </div>
 </template>
