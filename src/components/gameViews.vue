@@ -72,20 +72,22 @@ function getGameIcon(game: Game): string | undefined {
 <button
   v-for="(game, index) in visibleGames"
   :key="game?.gameID ?? index"
-  class="relative overflow-hidden rounded-lg border border-white/20 group
+  class="relative overflow-hidden rounded-lg border border-yellow-400 group
          hover:-translate-y-1 transition-all duration-300"
   @click="handler?.(game)"
 >
-  <!-- Glass reflection (auto slow) -->
-  <div class="glass absolute inset-0"></div>
+           <div
+            class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/5 to-yellow-400/30">
+          </div>
+          <div class="pointer-events-none absolute inset-0 rounded-md border-shine"></div>
+  <!-- <div class="glass absolute inset-0"></div>
 
-  <!-- Shine flash (on hover only) -->
   <div class="shine absolute inset-0"></div>
-<div class="absolute inset-0 bg-black/10 rounded-lg"></div>
+<div class="absolute inset-0 bg-black/10 rounded-lg"></div> -->
   <img
     v-if="getGameIcon(game)"
     :src="getGameIcon(game)"
-    class="min-w-22 h-36 rounded-lg object-cover
+    class="min-w-22 h-33 rounded-lg object-cover
            transition-transform duration-300 group-hover:scale-105"
   />
 </button>

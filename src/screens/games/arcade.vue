@@ -67,8 +67,8 @@ const loadMore = async () => {
     offset.value += limit;
     await fetchGames(false);
 };
-useReturnRefresh(() => {
-    authStore.fetchUser();
+useReturnRefresh(async() => {
+    await authStore.init();
 })
 </script>
 <template>

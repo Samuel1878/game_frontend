@@ -2,7 +2,7 @@
 import { onMounted, ref } from "vue";
 import { useAuthStore } from "@/stores/auth";
 import { footer_images } from "@/consts";
-import { topBuffaloGames, topCasinoGames, topFishGames, topSlotGames} from "@/consts/games"
+import { hotGames, topBuffaloGames, topCasinoGames, topFishGames, topSlotGames} from "@/consts/games"
 import {  BellRingIcon, Download  } from "lucide-vue-next";
 import ScrollViews from "@/components/scrollViews.vue";
 import Footer from "@/components/footer.vue";
@@ -16,6 +16,7 @@ import {
   casino,
   fish,
   hot_icon,
+  slot,
 } from "@/utils";
 
 import HomeSlider from "@/components/homeSlider.vue";
@@ -29,8 +30,8 @@ const {prepareGame} = useGameStore()
 onMounted(() => {
   console.log("🏠 HOME MOUNTED");
 });
-useReturnRefresh(() => {
-    authStore.fetchUser();
+useReturnRefresh(async() => {
+    await authStore.init();
 })
 </script>
 <template>
@@ -88,7 +89,9 @@ useReturnRefresh(() => {
        <div class="max-w-3xl overflow-hidden flex items-center w-full flex-col lg:grid bg-gray-900">
         <section class="w-full h-full px-2 ">
           <ScrollViews :game-data="topSlotGames" :header="t('top_picks')" :icon="hot_icon"
-            :handler="prepareGame" :action="()=>router.push('/slots')" :is-two="true"/>
+            :handler="prepareGame" :action="()=>router.push('/slots')" :is-two="false"/>
+             <ScrollViews :game-data="hotGames" :header="t('slots')" :icon="slot"
+            :handler="prepareGame" :action="()=>router.push('/slots')" :is-two="false"/>
             <ScrollViews :game-data="topBuffaloGames" :header="t('buffalo')" :icon="buffalo"
             :handler="prepareGame" :action="()=>router.push('/buffalo')" :is-two="false"/>
            <ScrollViews :game-data="topFishGames" :header="t('fishing')" :icon="fish"
@@ -114,11 +117,11 @@ useReturnRefresh(() => {
         </section>
       </div>
     </div>
-    <div class="max-w-7xl flex flex-col items-center p-6 w-full">
-      <div class="gap-8 flex flex-col items-center w-full">
-        <h2 class="text-lg font-extrabold text-white text-center">{{ t('footer_header') }}</h2>
+    <div class="max-w-7xl flex flex-col items-center p-6 mt-8 w-full">
+      <div class="gap-5 flex flex-col items-center w-full">
+        <h2 class="text-lg font-extrabold text-white text-center text-linear-gold ">{{ t('footer_header') }}</h2>
         <div class="flex gap-1 flex-wrap items-center justify-center">
-          <img :key="value" v-for="value in footer_images" :src="value" class="h-10 md:h-15 lg:-18 my-2" />
+          <img :key="value" v-for="value in footer_images" :src="value" class="h-7 md:h-15 lg:-18 my-2" />
         </div>
       </div>
     </div>

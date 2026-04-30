@@ -14,17 +14,22 @@ import { useI18n } from "vue-i18n";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import HelpBox from "@/components/layout/helpBox.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
+import { useAuthStore } from "@/stores/auth";
+import { useUIStore } from "@/stores/ui";
+const ui = useUIStore()
 const amount = ref<number>();
 const { t } = useI18n();
 const chosePayment = ref("");
 const setAmount = (a: number) => {
   amount.value = a;
 };
+const authStore = useAuthStore()
 const choosePayment = (value: string) => {
   chosePayment.value = value
 }
 
 const goToPayment = () => {
+  if(!authStore.user || !authStore.accessToken)return ui.openAuthModal();
   if (chosePayment.value === 'usdt') {
     if (amount.value && amount.value >= 10 && amount.value <= 40000) {
       router.push(`/deposit/${chosePayment.value}?amount=${amount.value}`);

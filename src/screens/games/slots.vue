@@ -119,8 +119,8 @@ const btnClass = (active: boolean) =>
 //   fetchGames(true); // reset on search
 // });
 
-useReturnRefresh(() => {
-    authStore.fetchUser();
+useReturnRefresh(async() => {
+   await authStore.fetchUser();
 })
 </script>
 <template>

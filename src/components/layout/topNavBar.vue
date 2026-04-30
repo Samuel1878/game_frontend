@@ -47,10 +47,9 @@ const goToLoginHandler = () => {
           ><Wallet class="w-6 h-6 text-yellow-400" />
             <!-- <img :src="wallet_icon" class="w-8 h-8"/> -->
             <p class="font-bold  text-md text-yellow-500">
-              {{ formatPrice(wallet.balance || 0) || "0.00" }}
+              {{ formatPrice(wallet.balance || 0) }}
             </p>
           </div>
-
           <button
             @click="goToLoginHandler"
             v-if="!authStore.user"

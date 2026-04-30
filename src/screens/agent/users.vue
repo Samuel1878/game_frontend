@@ -88,7 +88,7 @@ onMounted(() => {
         <!-- User Info -->
         <div class="flex items-center gap-3 flex-1">
           <!-- Avatar -->
-          <div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-sm font-semibold">
+          <div class="w-9 h-9 rounded-full bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-sm font-semibold">
             {{ u.name?.charAt(0).toUpperCase() }}
           </div>
 

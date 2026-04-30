@@ -1,39 +1,60 @@
 <script setup lang="ts">
+import Footer from '@/components/footer.vue';
+import LanguageBtn from '@/components/languageBtn.vue';
+import CustomNavBar from '@/components/layout/customNavBar.vue';
+import HelpBox from '@/components/layout/helpBox.vue';
+import { openChat } from '@/utils';
+import { Headset } from 'lucide-vue-next';
+import { useI18n } from 'vue-i18n';
+const {t} = useI18n()
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-950 text-gray-300 px-6 py-12">
+    <CustomNavBar title="help_center" backTo="/">
+    <template #right>
+
+      <button @click="openChat">
+        <Headset class="w-6 h-6" />
+      </button>
+      <LanguageBtn />
+    </template>
+  </CustomNavBar>
+  <div class=" bg-slate-950 text-gray-300 px-6 py-6">
     <div class="max-w-4xl mx-auto space-y-10">
-      <h1 class="text-4xl font-bold text-white">Help Center</h1>
+      <h1 class="text-4xl font-bold text-white">
+        {{ t("help_center") }}
+      </h1>
 
       <section class="space-y-4">
-        <h2 class="text-xl text-sky-400 font-semibold">Account Issues</h2>
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("account_issues") }}
+        </h2>
         <p>
-          If you're having trouble logging in or registering, please ensure your
-          credentials are correct. You may reset your password using the “Forgot Password” option.
+          {{ t("account_issues_desc") }}
         </p>
       </section>
 
       <section class="space-y-4">
-        <h2 class="text-xl text-sky-400 font-semibold">Deposits & Withdrawals</h2>
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("deposit_withdraw") }}
+        </h2>
         <p>
-          Deposits are processed instantly. Withdrawals may take 5–30 minutes
-          depending on verification status.
+          {{ t("deposit_withdraw_desc") }}
         </p>
       </section>
 
       <section class="space-y-4">
-        <h2 class="text-xl text-sky-400 font-semibold">Game Launch Problems</h2>
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("game_launch_issues") }}
+        </h2>
         <p>
-          If a game fails to launch, ensure your internet connection is stable
-          and your account session is valid.
+          {{ t("game_launch_issues_desc") }}
         </p>
       </section>
 
-      <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
-        <p class="text-white font-semibold">Need more help?</p>
-        <p class="text-gray-400">Contact our 24/7 support team via Live Chat.</p>
-      </div>
+      <HelpBox container-style="w-full"/>
     </div>
+
   </div>
+  <Footer/>
 </template>

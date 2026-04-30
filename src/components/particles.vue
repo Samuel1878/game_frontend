@@ -15,6 +15,121 @@
 </template>
 
 <script setup lang="ts">
+// const particlesOptions = {
+//   fullScreen: {
+//     enable: false
+//   },
+
+//   background: {
+//     color: { value: "transparent" }
+//   },
+
+//   fpsLimit: 60,
+
+//   particles: {
+//     number: {
+//       value: 80,
+//       density: {
+//         enable: true,
+//         area: 800
+//       }
+//     },
+
+//     color: {
+//       value: [
+//         "#ffb7c5",
+//         "#ff9eb5",
+//         "#ffd1dc",
+//         "#f8a8c1",
+//         "#ffcad4"
+//       ]
+//     },
+
+//     shape: {
+//       type: "circle",
+//       options: {
+//         polygon: {
+//           sides: 5
+//         }
+//       }
+//     },
+
+//     opacity: {
+//       value: 0.8,
+//       random: true,
+//       animation: {
+//         enable: true,
+//         speed: 0.6,
+//         minimumValue: 0.3,
+//         sync: false
+//       }
+//     },
+
+//     size: {
+//       value: { min: 3, max: 8 },
+//       random: true,
+//       animation: {
+//         enable: true,
+//         speed: 1,
+//         minimumValue: 2,
+//         sync: false
+//       }
+//     },
+
+//     move: {
+//       enable: true,
+
+//       // 🌬 wind + gravity mix (key for realism)
+//       direction: "bottom",
+
+//       speed: {
+//         min: 0.5,
+//         max: 1.5
+//       },
+
+//       outModes: {
+//         default: "out"
+//       },
+
+//       gravity: {
+//         enable: true,
+//         acceleration: 0.15
+//       },
+
+//       drift: {
+//         min: -1,
+//         max: 1
+//       },
+
+//       random: true,
+//       straight: false
+//     },
+
+//     rotate: {
+//       value: {
+//         min: 0,
+//         max: 360
+//       },
+//       direction: "random",
+//       animation: {
+//         enable: true,
+//         speed: 2,
+//         sync: false
+//       }
+//     },
+
+//     wobble: {
+//       enable: true,
+//       distance: 10,
+//       speed: {
+//         min: -2,
+//         max: 2
+//       }
+//     }
+//   },
+
+//   detectRetina: true
+// };
 const particlesOptions = {
   background: {
     color: { value: "transparent" }, // Let Tailwind handle the background color
@@ -34,17 +149,31 @@ const particlesOptions = {
       }
     },
     "color": {
-      "value": ["#fff", "#a0c8ff", "#ffb3c1", "#b3fff5", "#EFBF04"]
+      "value": ["#fff",  "#ffb7c5",
+        "#ff9eb5",
+        "#ffd1dc",
+        "#f8a8c1",
+         "#ffcad4", "#ff6b87", "#ff5675"]
     },
     "shape": {
-      "type": "circle",
+      type: "polygon",
       "stroke": {
-        "width": 0,
-        "color": "#000000"
+        "width": 2,
+        "color": "#fff"
       },
-      "polygon": {
-        "nb_sides": 5
+      options: {
+        polygon: {
+          sides: 11
+        }
       }
+      // "type": "circle",
+      // "stroke": {
+      //   "width": 0,
+      //   "color": "#000000"
+      // },
+      // "polygon": {
+      //   "nb_sides": 10
+      // }
     },
     shadow: {
     enable: true,
@@ -52,20 +181,20 @@ const particlesOptions = {
     color: "#ffffff"
     },
     "opacity": {
-      "value": 0.3,
+      "value": 0.5,
       "random": true,
       "anim": {
-        "enable": false,
-        "speed": 0.2,
+        "enable": true,
+        "speed": 1,
         "opacity_min": 0.1,
         "sync": false
       }
     },
     "size": {
-      "value": 6,
+      "value": { min: 4, max: 8 },
       "random": true,
       "anim": {
-        "enable": false,
+        "enable": true,
         "speed": 40,
         "size_min": 0.1,
         "sync": false
@@ -80,14 +209,14 @@ const particlesOptions = {
     },
     "move": {
       "enable": true,
-      "speed": 6,
+      "speed": 3,
       "direction": "bottom",
       "random": false,
       "straight": false,
       "out_mode": "out",
       "bounce": false,
       "attract": {
-        "enable": false,
+        "enable": true,
         "rotateX": 600,
         "rotateY": 1200
       }

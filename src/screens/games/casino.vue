@@ -88,8 +88,8 @@ watch(debouncedSearch, () => {
   fetchGames(true); // reset on search
 });
 onMounted(()=>fetchGames(true))
-useReturnRefresh(() => {
-    authStore.fetchUser();
+useReturnRefresh(async() => {
+    await authStore.init();
 })
 </script>
 <template>

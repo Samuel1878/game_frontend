@@ -64,7 +64,7 @@
     "download":"下载",
     "close":"关闭",
     "detail":"明细",
-    "footer_header":"最佳支付解决方案和游戏提供商",
+    "footer_header":"我们值得信赖的合作伙伴与顶级游戏供应商",
     "download_header":"随时随地，想玩就玩。",
 
     "need_help":"需要帮助吗？",
@@ -100,6 +100,7 @@
      "delete":"删除",
        "choose_withdraw_account":"选择提现账户",
        "referral_id":"推荐码",
+       "referral_placeholder": "推荐码（可选）",
          "optional":"选修的",
 
      "phone_verification":"电话验证",
@@ -151,7 +152,6 @@
       "enter_new_password":"输入新密码",
       "confirm_new_password":"确认新密码",
       "please_fill_all_fields":"请填写所有字段",
-      "password_too_short":"密码太短",
       "passwords_do_not_match":"密码不匹配",
       "something_went_wrong":"出了点问题",
       "password_changed_successfully":"密码修改成功",
@@ -166,7 +166,137 @@
       "casino":"真人娱乐",
       "joined":"加入",
             "no_record":"无记录",
-        "start_game":"开始游戏"
+        "start_game":"开始游戏",
+
+
+  "agent_center": "代理中心",
+  "my_team": "我的团队",
+  "my_performance": "我的业绩",
+  "my_team_members": "我的团队成员",
+  "total_deposit": "总存款",
+  "total_withdraw": "总提现",
+  "total_rebate": "总返佣",
+  "rebate": "返佣",
+  "my_rebate": "我的返佣",
+  "my_rebate_history": "我的返佣记录",
+  "no_rebate_history": "暂无返佣记录",
+  "rebate_history": "返佣记录",
+  "my_team_performance": "团队业绩",
+  "my_team_performance_history": "团队业绩记录",
+  "no_team_performance_history": "暂无团队业绩记录",
+  "team_performance_history": "团队业绩记录",
+  "my_team_members_list": "团队成员列表",
+  "username": "用户名",
+  "join_date": "加入日期",
+  "performance": "业绩",
+  "rebate_amount": "返佣金额",
+  "agent_center_description": "欢迎来到代理中心！您可以在这里管理团队、查看业绩并跟踪返佣。立即开始发展您的团队，享受成为代理的收益！",
+  "search": "搜索",
+  "page": "页",
+  "prev": "上一页",
+  "total": "总计",
+  "today": "今日",
+  "this_month": "本月",
+  "custom": "自定义",
+  "overview": "概览",
+
+  "login_to_your_account": "登录您的账户",
+  "register_new_account": "注册新账户",
+
+  "required_name_phone": "请输入用户名或手机号",
+  "required_username": "请输入用户名",
+  "required_phone": "请输入手机号",
+  "required_password": "请输入密码",
+  "invalid_username_format": "用户名需为6-40位（字母、数字或下划线）",
+  "invalid_phone": "手机号格式不正确",
+  "password_too_short": "密码至少需要6位",
+  "password_not_match": "两次输入的密码不一致",
+  "must_accept_terms": "请先同意条款",
+  "invalid_referral_code": "推荐码格式无效",
+  "customer_service":"全天候服务",
+
+  "account_issues": "账户问题",
+  "account_issues_desc": "如果您在登录或注册时遇到问题，请确保您的信息正确。您可以通过“忘记密码”重置密码或联系客服。",
+  "deposit_withdraw": "充值与提现",
+  "deposit_withdraw_desc": "充值通常是即时到账。提现根据审核情况可能需要5至30分钟。",
+  "game_launch_issues": "游戏启动问题",
+  "game_launch_issues_desc": "如果游戏无法启动，请确保网络连接稳定，并且您的账户登录状态有效。",
+   "privacy_policy": "隐私政策",
+  "privacy_last_updated": "最后更新：2026年",
+
+  "privacy_collect_title": "我们收集的信息",
+  "privacy_collect_desc": "我们收集提供服务所需的信息，包括账户资料（如用户名和联系方式）、交易记录以及用于优化平台体验的使用数据。",
+
+  "privacy_use_title": "信息的使用方式",
+  "privacy_use_desc": "您的信息将用于运营和维护平台服务、处理交易、提升用户体验、防止欺诈以及遵守相关法律法规。",
+
+  "privacy_protection_title": "数据保护",
+  "privacy_protection_desc": "我们采用行业标准的安全措施，包括加密和安全存储，以保护您的个人数据免受未经授权的访问、丢失或滥用。",
+
+  "privacy_third_party_title": "第三方共享",
+  "privacy_third_party_desc": "我们不会出售您的个人信息。数据仅在必要时与受信任且持牌的服务提供商共享，以提供游戏服务和处理交易。",
+
+  "privacy_user_rights_title": "您的权利",
+  "privacy_user_rights_desc": "您有权访问、更新或请求删除您的个人数据。如有任何隐私相关问题，请联系客户支持团队。",
+  "responsible_gaming": "负责任博彩",
+  "responsible_gaming_desc": "我们致力于为所有用户提供安全、健康的游戏环境。",
+
+  "play_responsibly_title": "理性娱乐",
+  "play_responsibly_desc": "游戏应作为娱乐方式，而非收入来源或解决财务问题的手段。请在能力范围内参与。",
+
+  "self_control_title": "自我控制工具",
+  "self_control_desc": "我们提供存款限制、自我排除及冷静期等功能，帮助您合理管理游戏行为。",
+
+  "underage_title": "未成年人限制",
+  "underage_desc": "严禁18岁以下用户访问或使用本平台，我们执行严格的年龄验证措施。",
+
+  "need_support_title": "需要帮助？",
+  "need_support_desc": "如果您认为游戏已对您的生活产生负面影响，请及时寻求专业帮助或联系客户支持。",
+  "terms_title": "条款与条件",
+  "terms_last_updated": "最后更新：2026年",
+
+  "terms_acceptance_title": "1. 条款接受",
+  "terms_acceptance_desc": "访问或使用本平台即表示您已阅读、理解并同意遵守本条款与条件。",
+
+  "terms_eligibility_title": "2. 使用资格",
+  "terms_eligibility_desc": "您必须年满18岁或符合所在地区的合法博彩年龄，方可注册和使用本平台服务。",
+
+  "terms_account_title": "3. 账户责任",
+  "terms_account_desc": "用户需对账户信息保密，并对账户内发生的所有活动承担责任。",
+
+  "terms_bonus_title": "4. 红利与优惠",
+  "terms_bonus_desc": "所有优惠均受相关条款约束，包括流水要求。平台保留随时修改或取消活动的权利。",
+
+  "terms_termination_title": "5. 账户终止",
+  "terms_termination_desc": "如用户违反规则、存在欺诈行为或违反法律法规，平台有权暂停或终止账户。",
+   "faq_title": "常见问题",
+
+  "faq_q1": "如何注册账户？",
+  "faq_a1": "点击注册按钮，填写您的信息并完成注册流程，请确保信息准确。",
+
+  "faq_q2": "如何充值？",
+  "faq_a2": "进入充值页面，选择支付方式并按照提示操作，充值通常即时到账。",
+
+  "faq_q3": "提现需要多久？",
+  "faq_a3": "提现通常在5至30分钟内完成，具体取决于审核和网络情况。",
+
+  "faq_q4": "为什么无法登录？",
+  "faq_a4": "请检查用户名和密码是否正确，如仍有问题，请使用“忘记密码”或联系客服。",
+
+  "faq_q5": "为什么游戏无法加载？",
+  "faq_a5": "请确保网络稳定，并使用最新浏览器，或尝试刷新页面。",
+
+  "faq_q6": "有优惠活动吗？",
+  "faq_a6": "有的，请查看优惠页面获取最新活动信息及规则。",
+
+  "faq_q7": "如何联系客服？",
+  "faq_a7": "您可以通过在线客服或Viber、Telegram等方式联系我们。",
+  "marketing":"体验2026 年最顶级的在线娱乐场之一。畅玩老虎机、体育、真人娱乐、PVP、捕鱼等多种游戏，享受国际标准的高品质游戏体验",
+    "brand_name": "TZ99赌场",
+  "all_rights_reserved": "版权所有。",
+  "responsible_warning": "赌博可能会上瘾，请理性游戏。",
+  "mobile_coming_soon":"移动版即将推出",
+  "download_center":"下载中心"
 
 
 }

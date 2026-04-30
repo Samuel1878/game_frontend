@@ -25,6 +25,7 @@ import UpdatePassword from "./screens/User/updatePassword.vue";
 import DepositHistory from "./screens/transaction/depositHistory.vue";
 import WithdrawHistory from "./screens/transaction/withdrawHistory.vue";
 import GameView from "./gameView.vue";
+import Faq from "./screens/faq.vue";
 
 
 
@@ -50,7 +51,7 @@ const routes = [
   {
     path: "/download",
     component: Download,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false ,hideNavbar:true,hideTopNav:true},
   },
   {
     path: "/buffalo",
@@ -84,7 +85,7 @@ const routes = [
   },
   {
     path: "/deposit",
-    meta: { hideNavbar:true,hideTopNav:true, requiresAuth:true },
+    meta: { hideNavbar:true,hideTopNav:true, requiresAuth:false },
     component: Deposit,
   },
   {
@@ -99,7 +100,7 @@ const routes = [
   },
   {
     path: "/user/profile",
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: false },
     component: Profile,
   },
   {
@@ -139,7 +140,7 @@ const routes = [
     requiresAuth: true,
     hideTopNav: true,
     hideNavbar: true,
-    isProtected: true,
+    // isProtected: true,
   },
   children: [
     {
@@ -167,22 +168,27 @@ const routes = [
   {
     path: "/help",
     component: Help,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false,hideTopNav:true,hideNavbar: true  },
   },
   {
     path: "/terms",
     component: Terms,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false ,hideTopNav:true,hideNavbar: true},
   },
   {
     path: "/privacy",
     component: Policy,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false ,hideTopNav:true,hideNavbar: true},
   },
   {
     path: "/responsible",
     component: Responsible,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false,hideTopNav:true,hideNavbar: true },
+  },
+  {
+    path: "/faq",
+    component: Faq,
+    meta: { requiresAuth: false,hideTopNav:true,hideNavbar: true },
   },
   { path: '/:pathMatch(.*)*', redirect:"/" },
 
@@ -206,9 +212,9 @@ router.beforeEach(async (to) => {
     ui.openAuthModal(to.fullPath);
     return { path: "/" };
   }
-  if (to.meta.isProtected && auth.user?.agent_id===0) {
-    return { path: "/" };
-  }
+  // if (to.meta.isProtected && auth.user?.agent_id===0) {
+  //   return { path: "/" };
+  // }
 
   return true;
 });

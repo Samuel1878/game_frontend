@@ -77,8 +77,8 @@ const btnClass = (active: boolean) =>
   active
     ? "animate-pulse-scale"
     : "";
-useReturnRefresh(() => {
-    authStore.fetchUser();
+useReturnRefresh(async() => {
+    authStore.init();
 })
 </script>
 <template>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Footer from '@/components/footer.vue';
 import GameOptions from '@/components/layout/gameOptions.vue';
+import { topBuffaloGames } from '@/consts/games';
 import { getGamesByProviderAPI } from '@/services/gameAPI';
 import { useAuthStore } from '@/stores/auth';
 import { useGameStore } from '@/stores/game';
@@ -10,7 +11,7 @@ import { useReturnRefresh } from '@/utils/useReturn';
 import { onMounted, ref } from 'vue';
 
 import { useI18n } from 'vue-i18n';
-const { t } = useI18n();
+const { t ,locale} = useI18n();
 const loading = ref(false);
 const games = ref<gameType[] | null>(null);
 // const providerId = ref<number>(0);
@@ -20,56 +21,56 @@ const hasMore = ref(true);
 const isLoadingMore = ref(false);
 const authStore = useAuthStore();
 const {prepareGame} = useGameStore()
-const fetchGames = async (reset = false) => {
+// const fetchGames = async (reset = false) => {
 
-    if (reset) {
-        offset.value = 0;
-        hasMore.value = true;
-    }
+//     if (reset) {
+//         offset.value = 0;
+//         hasMore.value = true;
+//     }
 
-    loading.value = reset;
-    isLoadingMore.value = !reset;
+//     loading.value = reset;
+//     isLoadingMore.value = !reset;
 
-    try {
-        const res = await getGamesByProviderAPI({
-            providerId: 1094,
-            newGameType: 201,
-            limit: limit,
-            offset: offset.value,
-            lang: "en",
-            //   search: debouncedSearch.value, // 🔥 add this backend support
-        });
+//     try {
+//         const res = await getGamesByProviderAPI({
+//             providerId: 1094,
+//             newGameType: 201,
+//             limit: limit,
+//             offset: offset.value,
+//             lang: "en",
+//             //   search: debouncedSearch.value, // 🔥 add this backend support
+//         });
 
-        const data = res.data;
+//         const data = res.data;
 
-        if (reset) {
-            games.value = data;
-        } else {
-            games.value = [...(games.value || []), ...data];
-        }
+//         if (reset) {
+//             games.value = data;
+//         } else {
+//             games.value = [...(games.value || []), ...data];
+//         }
 
-        // 🔥 detect end
-        if (data.length < limit) {
-            hasMore.value = false;
-        }
+//         // 🔥 detect end
+//         if (data.length < limit) {
+//             hasMore.value = false;
+//         }
 
-    } catch (err) {
-        console.error(err);
-    } finally {
-        loading.value = false;
-        isLoadingMore.value = false;
-    }
-};
-onMounted(()=>fetchGames(true))
-const loadMore = async () => {
-    if (!hasMore.value || isLoadingMore.value) return;
+//     } catch (err) {
+//         console.error(err);
+//     } finally {
+//         loading.value = false;
+//         isLoadingMore.value = false;
+//     }
+// };
+// onMounted(()=>fetchGames(true))
+// const loadMore = async () => {
+//     if (!hasMore.value || isLoadingMore.value) return;
 
-    offset.value += limit;
-    await fetchGames(false);
-};
+//     offset.value += limit;
+//     await fetchGames(false);
+// };
 
-useReturnRefresh(() => {
-    authStore.fetchUser();
+useReturnRefresh(async() => {
+    await authStore.init();
 })
 </script>
 <template>
@@ -97,7 +98,7 @@ useReturnRefresh(() => {
 
             <div class="grid grid-cols-3 md:flex flex-wrap gap-1.5 my-2">
 
-                <button v-if="games" v-for="(game, index) in games" :key="game?.id ?? index" class="relative overflow-hidden rounded-lg border border-white/20 group
+                <button v-if="topBuffaloGames" v-for="(game, index) in topBuffaloGames" :key="game?.id ?? index" class="relative overflow-hidden rounded-lg border border-white/20 group
          hover:-translate-y-1 transition-all duration-300" @click="prepareGame(game)">
                     <!-- Glass reflection (auto slow) -->
                     <div class="glass absolute inset-0"></div>
@@ -105,7 +106,7 @@ useReturnRefresh(() => {
                     <!-- Shine flash (on hover only) -->
                     <div class="shine absolute inset-0"></div>
                     <div class="absolute inset-0 bg-black/10 rounded-lg"></div>
-                    <img :src="game.icon_url" class="min-w-22 h-36 rounded-lg object-cover
+                    <img :src="locale==='cn'? game.cn_icon_url:game.icon_url" class="min-w-22 h-33 rounded-lg object-cover
            transition-transform duration-300 group-hover:scale-105" />
                 </button>
 
@@ -114,7 +115,7 @@ useReturnRefresh(() => {
 
 
         </article>
-        <div class="flex justify-center my-4">
+        <!-- <div class="flex justify-center my-4">
             <button
                 v-if="hasMore"
                 @click="loadMore"
@@ -123,7 +124,7 @@ useReturnRefresh(() => {
                 <span v-if="!isLoadingMore">{{ t('view_more') }}</span>
                 <span v-else>{{ t('loading') }}...</span>
             </button>
-        </div>
+        </div> -->
     
         <Footer/>
     </main>

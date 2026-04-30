@@ -5,7 +5,8 @@ import { homeSlide } from "@/consts";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
+import { useI18n } from "vue-i18n";
+const {locale} = useI18n()
 </script>
 
 <template>
@@ -27,7 +28,7 @@ import "swiper/css/navigation";
       >
         <div class="h-46">
           <img
-            :src="slide.image"
+            :src="locale==='cn'?slide.cn_image :slide.image"
             class="w-full h-full object-cover rounded-2xl"
           />
         </div>

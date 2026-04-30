@@ -1,45 +1,84 @@
 <script setup lang="ts">
+import Footer from '@/components/footer.vue';
+import LanguageBtn from '@/components/languageBtn.vue';
+import CustomNavBar from '@/components/layout/customNavBar.vue';
+import { openChat } from '@/utils';
+import { Headset } from 'lucide-vue-next';
+import { useI18n } from 'vue-i18n';
+
+const {t} = useI18n();
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-950 text-gray-300 px-6 py-12">
-    <div class="max-w-4xl mx-auto space-y-8">
-      <h1 class="text-4xl font-bold text-white">Terms & Conditions</h1>
+     <CustomNavBar title="terms_title" backTo="/">
+    <template #right>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">1. Acceptance of Terms</h2>
+      <button @click="openChat">
+        <Headset class="w-6 h-6" />
+      </button>
+      <LanguageBtn />
+    </template>
+  </CustomNavBar>
+  <div class=" bg-gray-900 text-gray-300 px-6 py-12">
+    <div class="max-w-4xl mx-auto space-y-10">
+
+      <!-- Title -->
+      <div class="space-y-2">
+        <h1 class="text-4xl font-bold text-white">
+          {{ t("terms_title") }}
+        </h1>
+        <p class="text-sm text-gray-400">
+          {{ t("terms_last_updated") }}
+        </p>
+      </div>
+
+      <!-- Sections -->
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("terms_acceptance_title") }}
+        </h2>
         <p>
-          By accessing and using this platform, you agree to comply with these Terms & Conditions.
+          {{ t("terms_acceptance_desc") }}
         </p>
       </section>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">2. Eligibility</h2>
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("terms_eligibility_title") }}
+        </h2>
         <p>
-          You must be at least 18 years old to register and play.
+          {{ t("terms_eligibility_desc") }}
         </p>
       </section>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">3. Account Responsibility</h2>
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("terms_account_title") }}
+        </h2>
         <p>
-          Users are responsible for maintaining the confidentiality of their account credentials.
+          {{ t("terms_account_desc") }}
         </p>
       </section>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">4. Bonus & Promotions</h2>
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("terms_bonus_title") }}
+        </h2>
         <p>
-          Bonuses are subject to wagering requirements and may be withdrawn at our discretion.
+          {{ t("terms_bonus_desc") }}
         </p>
       </section>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">5. Termination</h2>
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("terms_termination_title") }}
+        </h2>
         <p>
-          We reserve the right to suspend or terminate accounts for violations of our policies.
+          {{ t("terms_termination_desc") }}
         </p>
       </section>
+
     </div>
   </div>
+  <Footer/>
 </template>

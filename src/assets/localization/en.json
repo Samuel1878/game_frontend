@@ -44,7 +44,6 @@
     "help_center":"Help Center",
     "terms_and_conditions":"Terms And Conditions",
     "policy_and_privacy":"Policy And Privacy",
-    "responsible_gaming":"Responsible Gaming",
     "payment_method":"Payment Method",
     "contact_us":"Contract Us",
     "logout":"Logout",
@@ -64,7 +63,7 @@
     "download":"Download",
     "close":"Close",
     "detail":"Detail",
-    "footer_header":"THE BEST PAYMENT SOLUTIONS AND GAME PROVIDERS",
+    "footer_header":"Our trusted partners and leading game providers",
     "download_header":"Play on the go. Anywhere anytime",
 
     "need_help":"Need Help?",
@@ -102,7 +101,8 @@
      "delete":"Delete",
      "choose_withdraw_account":"Choose Withdraw Account",
      "referral_id":"Referral Code",
-     "optional":"optional",
+      "referral_placeholder": "Referral ID (Optional)",
+     "optional":"Optional",
 
      "phone_verification":"Phone Verification",
      "account_active":"Active",
@@ -141,6 +141,7 @@
       "no_bank_accounts":"No bank account",
      "transfer":"Transfer",
      "copy":"Copy",
+     "responsibility":"Responsibility",
       "membership_center":"Membership Center",
      "deposit_payment_description":"Please enter the deposit amount and submit. After transfer, enter the last 5 digits of the transaction number correctly. We kindly ask you to use payment method correctly",
      "note":"Notes",
@@ -153,7 +154,6 @@
       "enter_new_password":"Enter new password",
       "confirm_new_password":"Confirm new password",
       "please_fill_all_fields":"Please fill all fields",
-      "password_too_short":"Password too short",
       "passwords_do_not_match":"Passwords do not match",
       "something_went_wrong":"Something went wrong",
       "password_changed_successfully":"Password changed successfully",
@@ -199,6 +199,108 @@
       "today":"Today",
       "this_month":"This Month",
       "custom":"Custom",
-      "overview":"Overview"
+      "overview":"Overview",
 
+      "login_to_your_account":"Log in to your account",
+      "register_new_account":"Register new account",
+      
+  "required_name_phone": "Name or phone is required",
+  "required_username": "Username is required",
+  "required_phone": "Phone number is required",
+  "required_password": "Password is required",
+  "invalid_username_format": "Username must be 6-40 characters (letters, numbers, underscore)",
+  "invalid_phone": "Invalid phone number format",
+  "password_too_short": "Password must be at least 6 characters",
+  "password_not_match": "Passwords do not match",
+  "must_accept_terms": "You must accept the terms",
+  "invalid_referral_code": "Invalid referral code format",
+  "customer_service":"24/7 Service",
+
+
+
+
+  "account_issues": "Account Issues",
+  "account_issues_desc": "If you're having trouble logging in or registering, please ensure your credentials are correct. You may reset your password using the \"Forgot Password\" option or contact customer service.",
+  "deposit_withdraw": "Deposits & Withdrawals",
+  "deposit_withdraw_desc": "Deposits are processed instantly. Withdrawals may take 5–30 minutes depending on verification status.",
+  "game_launch_issues": "Game Launch Problems",
+  "game_launch_issues_desc": "If a game fails to launch, ensure your internet connection is stable and your account session is valid.",
+"privacy_policy": "Privacy Policy",
+  "privacy_last_updated": "Last updated: 2026",
+
+  "privacy_collect_title": "Information We Collect",
+  "privacy_collect_desc": "We collect information necessary to provide our services, including account details (such as username and contact information), transaction records, and usage data to improve platform performance.",
+
+  "privacy_use_title": "How We Use Your Information",
+  "privacy_use_desc": "Your information is used to operate and maintain our services, process transactions, enhance user experience, prevent fraud, and comply with legal obligations.",
+
+  "privacy_protection_title": "Data Protection",
+  "privacy_protection_desc": "We implement industry-standard security measures, including encryption and secure storage, to safeguard your personal data against unauthorized access, loss, or misuse.",
+
+  "privacy_third_party_title": "Third-Party Sharing",
+  "privacy_third_party_desc": "We do not sell your personal information. Data may be shared with trusted and licensed service providers solely for the purpose of delivering gaming services and processing transactions.",
+
+  "privacy_user_rights_title": "Your Rights",
+  "privacy_user_rights_desc": "You have the right to access, update, or request deletion of your personal data. For any privacy-related concerns, please contact our customer support team.",
+
+  "responsible_gaming": "Responsible Gaming",
+  "responsible_gaming_desc": "We are committed to promoting safe and responsible gaming practices for all users.",
+
+  "play_responsibly_title": "Play Responsibly",
+  "play_responsibly_desc": "Gaming should be viewed as a form of entertainment, not as a source of income or financial solution. Always play within your limits.",
+
+  "self_control_title": "Self-Control Tools",
+  "self_control_desc": "We provide tools such as deposit limits, self-exclusion options, and cooling-off periods to help you manage your gaming activity.",
+
+  "underage_title": "Underage Gambling",
+  "underage_desc": "Access to our platform is strictly prohibited for individuals under the age of 18. We enforce strict age verification policies.",
+
+  "need_support_title": "Need Support?",
+  "need_support_desc": "If you feel that gaming is negatively affecting your life, we strongly encourage you to seek professional assistance or contact our support team.",
+    "terms_title": "Terms & Conditions",
+  "terms_last_updated": "Last updated: 2026",
+
+  "terms_acceptance_title": "1. Acceptance of Terms",
+  "terms_acceptance_desc": "By accessing or using this platform, you acknowledge that you have read, understood, and agreed to be bound by these Terms & Conditions.",
+
+  "terms_eligibility_title": "2. Eligibility",
+  "terms_eligibility_desc": "You must be at least 18 years of age or meet the legal gambling age in your jurisdiction to register and use our services.",
+
+  "terms_account_title": "3. Account Responsibility",
+  "terms_account_desc": "Users are responsible for maintaining the confidentiality of their account credentials. Any activity conducted through your account will be considered your responsibility.",
+
+  "terms_bonus_title": "4. Bonuses & Promotions",
+  "terms_bonus_desc": "All bonuses and promotions are subject to specific terms, including wagering requirements. We reserve the right to modify or cancel promotions at any time.",
+
+  "terms_termination_title": "5. Account Suspension & Termination",
+  "terms_termination_desc": "We reserve the right to suspend or terminate any account that violates our policies, engages in fraudulent activity, or breaches applicable laws.",
+   "faq_title": "Frequently Asked Questions",
+
+  "faq_q1": "How do I create an account?",
+  "faq_a1": "Click on the Register button, fill in your details, and complete the sign-up process. Make sure your information is accurate.",
+
+  "faq_q2": "How can I deposit funds?",
+  "faq_a2": "Go to the Deposit section, choose your preferred payment method, and follow the instructions. Deposits are usually processed instantly.",
+
+  "faq_q3": "How long do withdrawals take?",
+  "faq_a3": "Withdrawals are typically processed within 5–30 minutes depending on verification and network conditions.",
+
+  "faq_q4": "Why can’t I log in?",
+  "faq_a4": "Please check your username and password. If the issue persists, use the “Forgot Password” option or contact customer support.",
+
+  "faq_q5": "Why is a game not loading?",
+  "faq_a5": "Ensure your internet connection is stable and your browser is up to date. You may also try refreshing the page.",
+
+  "faq_q6": "Are there any bonuses available?",
+  "faq_a6": "Yes, we offer various promotions and bonuses. Please check the Promotions page for the latest offers and terms.",
+
+  "faq_q7": "How can I contact support?",
+  "faq_a7": "You can contact our support team via live chat or messaging apps such as Viber or Telegram.",
+
+  "marketing":"The most impressive casino. The best online casino sites in 2026 that provide Slots, Sports, Live, PVP, Fishing etc., so that players can get a better experience in the international standard of casino games (Game Casino).",
+  "brand_name": "TZ99 Casino",
+  "all_rights_reserved": "All rights reserved.",
+  "responsible_warning": "Gambling can be addictive. Please play responsibly.",
+  "mobile_coming_soon":"Mobile version coming soon",
+  "download_center":"Download Center"
 }

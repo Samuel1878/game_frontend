@@ -36,9 +36,12 @@ const indicatorStyle = computed(() => {
       class="relative max-w-md w-full
             ring-1
             ring-gray-700
+            overflow-hidden
              bg-[#020617]/60 backdrop-blur-2xl
-             border border-t-white/5
-              shadow-lg rounded-lg m-1"
+             border border-white/5 
+              shadow-lg rounded-full m-1"
+
+              
     >
       
       <div class="absolute bottom-0 left-0 h-1 w-full">

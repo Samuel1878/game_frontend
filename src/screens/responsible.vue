@@ -1,38 +1,76 @@
 <script setup lang="ts">
+import Footer from '@/components/footer.vue';
+import LanguageBtn from '@/components/languageBtn.vue';
+import CustomNavBar from '@/components/layout/customNavBar.vue';
+import { openChat } from '@/utils';
+import { Headset } from 'lucide-vue-next';
+import { useI18n } from 'vue-i18n';
+
+const {t} = useI18n()
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-950 text-gray-300 px-6 py-12">
-    <div class="max-w-4xl mx-auto space-y-8">
-      <h1 class="text-4xl font-bold text-white">Responsible Gaming</h1>
+   <CustomNavBar title="responsible_gaming" backTo="/">
+    <template #right>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">Play Responsibly</h2>
+      <button @click="openChat">
+        <Headset class="w-6 h-6" />
+      </button>
+      <LanguageBtn />
+    </template>
+  </CustomNavBar>
+  <div class=" bg-gray-900 text-gray-300 px-6 py-12">
+    <div class="max-w-4xl mx-auto space-y-10">
+
+      <!-- Title -->
+      <div class="space-y-2">
+        <h1 class="text-4xl font-bold text-white">
+          {{ t("responsible_gaming") }}
+        </h1>
+        <p class="text-sm text-gray-400">
+          {{ t("responsible_gaming_desc") }}
+        </p>
+      </div>
+
+      <!-- Sections -->
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("play_responsibly_title") }}
+        </h2>
         <p>
-          Gambling should be entertainment, not a way to earn income.
+          {{ t("play_responsibly_desc") }}
         </p>
       </section>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">Self-Control Tools</h2>
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("self_control_title") }}
+        </h2>
         <p>
-          We provide deposit limits, self-exclusion options, and cooling-off periods.
+          {{ t("self_control_desc") }}
         </p>
       </section>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">Underage Gambling</h2>
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("underage_title") }}
+        </h2>
         <p>
-          Strictly prohibited for anyone under 18 years old.
+          {{ t("underage_desc") }}
         </p>
       </section>
 
-      <section class="bg-slate-900 p-6 rounded-xl border border-slate-800">
-        <p class="text-red-400 font-semibold">Need Support?</p>
+      <!-- Support box -->
+      <section class="bg-slate-900 p-6 rounded-xl border border-slate-800 space-y-2">
+        <p class="text-red-400 font-semibold">
+          {{ t("need_support_title") }}
+        </p>
         <p>
-          If gambling is affecting your life, please seek professional help.
+          {{ t("need_support_desc") }}
         </p>
       </section>
+
     </div>
   </div>
+  <Footer/>
 </template>

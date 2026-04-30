@@ -1,42 +1,78 @@
 <script setup lang="ts">
+import Footer from "@/components/footer.vue";
+import LanguageBtn from "@/components/languageBtn.vue";
+import CustomNavBar from "@/components/layout/customNavBar.vue";
+import { openChat } from "@/utils";
+import { Headset, InfoIcon, QrCode } from "lucide-vue-next";
+import { useI18n } from "vue-i18n";
+import { toast } from "vue-sonner";
 
-import { InfoIcon, QrCode } from 'lucide-vue-next';
-import { useI18n } from 'vue-i18n';
-
-const {t} = useI18n()
+const { t } = useI18n();
 </script>
+
 <template>
-    <main>
-         <section
-        id="download"
-        class="p-8 bg-gray-900 flex flex-col items-center gap-4"
-      >
-        <h class="text-xl font-extrabold text-center">{{
-          t("download_header")
-        }}</h>
-        <div class="flex flex-col items-center md:flex-row">
-          <div class="md:p-0">
-            <img src="/images/phone.svg" />
-          </div>
-          <div class="flex gap-4 justify-center w-full my-4">
-            <div class="p-2 bg-gray-900 rounded-lg">
-              <QrCode class="w-25 h-25" />
-            </div>
-            <div class="flex flex-col items-center gap-4">
-              <div
-                class="bg-linear-to-br from-gray-700 to-gray-900 h-10 px-6 flex items-center shadow-gray-600 shadow-inner rounded-full justify-center"
-              >
-                <p class="text-gray-400 font-bold">{{ t('download_apk') }}</p>
-              </div>
-              <div class="text-sky-400 font-bold flex gap-2 underline">
-                <span>
-                  <InfoIcon />
-                </span>
-                {{ t('install_guide') }}
-              </div>
-            </div>
-          </div>
+       <CustomNavBar title="download_center" backTo="/">
+    <template #right>
+
+      <button @click="openChat">
+        <Headset class="w-6 h-6" />
+      </button>
+      <LanguageBtn/>
+    </template>
+  </CustomNavBar>
+  <main class=" bg-gray-900 text-white flex items-center justify-center px-4 py-10">
+
+    <section
+      id="download"
+      class="w-full max-w-3xl bg-gray-900/60 border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col items-center gap-6"
+    >
+
+      <!-- Title -->
+      <h1 class="text-lg md:text-2xl font-extrabold text-center">
+        {{ t("download_header") }}
+      </h1>
+
+      <!-- Phone image -->
+      <img
+        src="/images/phone.svg"
+        class="w-40 md:w-56 object-contain"
+      />
+
+      <!-- Content -->
+      <div class="flex flex-col md:flex-row items-center gap-6 w-full justify-center">
+
+        <!-- QR -->
+        <div class="p-3 bg-gray-800 rounded-xl border border-white/10">
+          <QrCode class="w-24 h-24 text-white" />
         </div>
-      </section>
-    </main>
+
+        <!-- Actions -->
+        <div class="flex flex-col items-center gap-4">
+
+          <div
+            v-on:click="toast('mobile_coming_soon')"
+            class="bg-linear-to-br from-gray-700/70 to-gray-900 h-10 px-6 flex items-center rounded-full border border-white/10"
+          >
+            <p class="text-gray-300 font-semibold text-sm">
+              {{ t("download_apk") }}
+            </p>
+          </div>
+
+          <div class="text-sky-400 font-medium flex items-center gap-2 underline cursor-pointer">
+            <InfoIcon class="w-4 h-4" />
+            <span>{{ t("install_guide") }}</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile note -->
+      <p class="text-xs text-gray-500 text-center mt-2">
+        {{ t("mobile_coming_soon") }}
+      </p>
+
+    </section>
+
+  </main>
+  <Footer/>
 </template>

@@ -4,7 +4,7 @@ import { ref } from 'vue'
 
 export const useUIStore = defineStore('ui', () => {
   const authModalOpen = ref(false)
-  const redirectAfterAuth = ref<string | null>(null)
+  const redirectAfterAuth = ref<string | null>(null);
 
   const openAuthModal = (redirect?: string) => {
     authModalOpen.value = true

@@ -64,20 +64,20 @@ export const useAuthStore = defineStore("auth", {
       }
     },
     async init() {
-  try {
-    const resData = await refreshAPI();
+      try {
+        const resData = await refreshAPI();
 
-    if (!resData?.accessToken) {
-      throw new Error("No refresh token");
-    }
+        if (!resData?.accessToken) {
+          throw new Error("No refresh token");
+        }
 
-    this.setToken(resData.accessToken);
+        this.setToken(resData.accessToken);
 
-    const ok = await this.fetchUser();
+        const ok = await this.fetchUser();
 
-    if (!ok) {
-      throw new Error("User fetch failed");
-    }
+        if (!ok) {
+          throw new Error("User fetch failed");
+        }
 
     initSocket();
 

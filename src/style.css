@@ -318,8 +318,9 @@ body {
   );
 
   background-size: 200% 100%;
-  animation: borderShine 5s linear infinite;
+  animation: borderShine 3s linear infinite;
   mix-blend-mode: overlay;
+  /* animation-delay: var(--shine-delay, 1s); */
 }
 
 @keyframes floatGlow {
@@ -336,7 +337,11 @@ body {
     opacity: 0.6;
   }
 }
-
+.text-linear-gold {
+  background: linear-gradient(90deg, #f7d774, #ffd700, #ffb800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 @keyframes softShimmer {
   0% {
     background-position: 200% 0;

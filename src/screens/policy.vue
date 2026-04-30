@@ -1,38 +1,84 @@
 <script setup lang="ts">
+import Footer from '@/components/footer.vue';
+import LanguageBtn from '@/components/languageBtn.vue';
+import CustomNavBar from '@/components/layout/customNavBar.vue';
+import { openChat } from '@/utils';
+import { Headset } from 'lucide-vue-next';
+import { useI18n } from 'vue-i18n';
+
+const {t} = useI18n();
 </script>
-
 <template>
-  <div class="min-h-screen bg-slate-950 text-gray-300 px-6 py-12">
-    <div class="max-w-4xl mx-auto space-y-8">
-      <h1 class="text-4xl font-bold text-white">Privacy Policy</h1>
+      <CustomNavBar title="" backTo="/">
+    <template #right>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">Information We Collect</h2>
+      <button @click="openChat">
+        <Headset class="w-6 h-6" />
+      </button>
+      <LanguageBtn />
+    </template>
+  </CustomNavBar>
+  <div class=" bg-gray-900 text-gray-300 px-6 py-6">
+    <div class="max-w-4xl mx-auto space-y-10">
+      
+      <!-- Title -->
+      <div class="space-y-2">
+        <h1 class="text-4xl font-bold text-white">
+          {{ t("privacy_policy") }}
+        </h1>
+        <p class="text-sm text-gray-400">
+          {{ t("privacy_last_updated") }}
+        </p>
+      </div>
+
+      <!-- Sections -->
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("privacy_collect_title") }}
+        </h2>
         <p>
-          We collect personal information such as username, email, and transaction data.
+          {{ t("privacy_collect_desc") }}
         </p>
       </section>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">How We Use Information</h2>
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("privacy_use_title") }}
+        </h2>
         <p>
-          Your data is used to provide gaming services, process transactions, and improve experience.
+          {{ t("privacy_use_desc") }}
         </p>
       </section>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">Data Protection</h2>
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("privacy_protection_title") }}
+        </h2>
         <p>
-          We implement industry-standard security measures to protect your information.
+          {{ t("privacy_protection_desc") }}
         </p>
       </section>
 
-      <section>
-        <h2 class="text-xl text-sky-400 font-semibold">Third-Party Sharing</h2>
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("privacy_third_party_title") }}
+        </h2>
         <p>
-          We do not sell personal information. Data may be shared with licensed game providers.
+          {{ t("privacy_third_party_desc") }}
         </p>
       </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl text-yellow-400 font-semibold">
+          {{ t("privacy_user_rights_title") }}
+        </h2>
+        <p>
+          {{ t("privacy_user_rights_desc") }}
+        </p>
+      </section>
+
     </div>
+    
   </div>
+  <Footer/>
 </template>

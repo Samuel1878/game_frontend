@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import router from '@/router';
-import { openDiscord, openTelegram, openViber } from '@/utils';
+import { goFacebook, openDiscord, openTelegram, openViber } from '@/utils';
 import { useI18n } from 'vue-i18n';
 
 const year = new Date().getFullYear()
@@ -25,8 +25,8 @@ const supportLinks = [
   { name: 'help_center', path: "/help" },
   { name: 'terms_and_conditions', path: "/terms" },
   { name: 'policy_and_privacy', path: "/privacy" },
-  { name: 'responsibility', path: "/responsible" },
-  {name:'faqs', path:"/faq"},
+  { name: 'responsible_gaming', path: "/responsible" },
+  {name:'faq', path:"/faq"},
 
 ];
 // const eventLinks = [
@@ -63,7 +63,7 @@ const payments = [
 const socials = [
   {
     icon : "/socials/facebook_black.svg",
-    action:()=>{}
+    action:goFacebook
   },
   {
     icon: "/socials/telegram_black.svg",
@@ -90,15 +90,13 @@ const certification = [
 
 <template>
   <footer class="bg-gray-900 text-gray-200 py-10">
-    <div class="max-w-7xl flex flex-col items-center px-6 w-full">
-      <!-- Brand -->
-      <!-- <div class="gap-8 flex flex-col items-center w-full">
-        <h2 class="text-lg font-extrabold text-white text-center">{{ t('footer_header') }}</h2>
-        <div class="flex gap-1 flex-wrap items-center justify-center">
-         <img v-for="value in footer_images" :src="value" class="h-10 md:h-15 lg:-18 my-2"/>
-        </div>
-      </div> -->
-      <!-- Quick Links -->
+    <div class="max-w-7xl flex flex-col items-center px-6 w-full ">
+      <div class="flex flex-col gap-2 px-2 border-t border-gray-600/50">
+        <img src="/logo.png" class="h-30"/>
+        <p class="text-gray-200 font-bold leading-loose text-xs">
+          {{ t('marketing') }}
+        </p>
+      </div>
       <div class="grid grid-cols-1 my-12 md:grid-cols-2 lg:grid-cols-4 w-full gap-8">
         <div class="border-t border-gray-400/20 py-2 pt-6">
           <h3 class="text-white font-semibold mb-4">{{ t('products') }}</h3>
@@ -186,11 +184,16 @@ const certification = [
       </div>
     </div>
     <!-- Bottom Bar -->
-    <div class="border-t border-slate-800 py-4 text-center text-sm text-gray-500">
-      <p> © {{ year }} 999 Casino. All rights reserved.</p>
-      <p class="text-white font-mono text-xs my-2">Gambling can be addictive. Play responsibly.</p>
-     
-    </div>
+   <div class="border-t border-gray-800 py-4 text-center text-sm text-gray-500 mb-10 space-y-2">
+  
+  <p>
+    © {{ year }} {{ t("brand_name") }}. {{ t("all_rights_reserved") }}
+  </p>
 
+  <p class="text-white font-mono text-xs">
+    {{ t("responsible_warning") }}
+  </p>
+
+</div>
   </footer>
 </template>

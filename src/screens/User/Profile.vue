@@ -2,13 +2,16 @@
 import { MembershipCenter, UserAction } from "@/consts";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
+import { useUIStore } from "@/stores/ui";
 import {
+  ChevronRight,
   PhoneIcon,
 } from "lucide-vue-next";
 import moment from "moment";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 const authStore = useAuthStore();
+const uiStore = useUIStore()
 </script>
 
 <template>
@@ -52,7 +55,7 @@ const authStore = useAuthStore();
         </div>
       </div>
 
-      <div>
+      <div v-if="authStore.user && authStore.accessToken">
         <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide">
           {{ authStore.user?.name }}
         </h2>
@@ -63,11 +66,15 @@ const authStore = useAuthStore();
           <span v-else> ********{{ authStore.user?.phone.slice(-3) }}</span>
         </p>
       </div>
+      <div v-else class="flex gap-3 items-center cursor-pointer" v-on:click="uiStore.openAuthModal()">
+        <p >{{ t('login_to_your_account') }}</p>
+        <ChevronRight/>
+      </div>
 
     </div>
 
     <!-- Status -->
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2" v-show="authStore.user">
       <div
         class="w-3 h-3 rounded-full animate-pulse"
         :class="authStore.user?.status === 'Active'
@@ -88,7 +95,7 @@ const authStore = useAuthStore();
 
     <div class="group-hover:scale-105 transition">
       <p class="text-lg font-bold text-white">
-        VIP. {{ authStore.user?.level }}
+        VIP. {{ authStore.user?.level ||0}}
       </p>
       <p class="text-xs text-gray-400">{{ t('level') }}</p>
     </div>
@@ -130,7 +137,7 @@ const authStore = useAuthStore();
         <div class="grid grid-cols-4 p-2 mt-4 gap-4">
 
           <div v-for="value in MembershipCenter" class="cursor-pointer my-2 flex flex-col items-center gap-2"
-            :disabled="value.label === 'agent_center' && authStore.user?.agent_id === 0"
+
             @click="value.action">
             <div
               class="h-14 w-14 flex flex-col rounded-full justify-center items-center bg-yellow-400/10 bg-linear-to-br from-yellow/5 via-yellow/10 to-yellow/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">

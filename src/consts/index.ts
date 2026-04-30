@@ -13,6 +13,8 @@ import {
      download,
      helpCenter,
      logout,
+     services,
+     openChat,
 } from "@/utils";
 
 import type { Game } from "@/utils/types";
@@ -241,6 +243,7 @@ export const homeSlide = [
 
     {   id:1,
         image:"/images/slider_1.jpg",
+        cn_image:"/images/slider_1_cn.jpg",
         title:"title_one",
         description:"description_one",
         button:"button_one",
@@ -249,6 +252,7 @@ export const homeSlide = [
     {
         id:2,
         image:"/images/slider_2.jpg",
+        cn_image:"/images/slider_2_cn.jpg",
         title:"title_two",
         description:"description_two",
         button:"button_two",
@@ -257,6 +261,7 @@ export const homeSlide = [
     ,    {
         id:3,
         image:"/images/slider_3.jpg",
+        cn_image:"/images/slider_3_cn.jpg",
         title:"title_three",
         description:"description_three",
         button:"button_three",
@@ -264,6 +269,7 @@ export const homeSlide = [
     },
      {   id:4,
         image:"/images/slider_4.jpg",
+        cn_image:"/images/slider_4_cn.jpg",
         title:"title_one",
         description:"description_one",
         button:"button_one",
@@ -443,15 +449,7 @@ export const MembershipCenter = [
         },
         image:transaction
     },
-      {
-        id:4,
-        label:"help_center",
-               action:()=>{
-
-        },
-        image:helpCenter
-    },
-     {
+    {
         id:5,
         label:"agent_center",
                action:()=>{
@@ -460,6 +458,16 @@ export const MembershipCenter = [
         image:share
     },
     {
+        id:9,
+        label:"customer_service",
+               action:()=>{
+                openChat()
+        },
+        image:services
+    },
+      
+     
+    {
         id:6,
         label:"download_app",
                action:()=>{
@@ -467,6 +475,15 @@ export const MembershipCenter = [
         },
         image:download
     },
+    {
+        id:4,
+        label:"help_center",
+               action:()=>{
+                router.push("/help")
+        },
+        image:helpCenter
+    },
+    
     {
         id:8,
         label:"logout",

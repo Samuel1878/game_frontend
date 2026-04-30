@@ -4,7 +4,7 @@ import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 
 const props = defineProps<{
-  title: string;
+  title?: string;
   backTo?: string;
 }>();
 const {t} = useI18n();
@@ -36,7 +36,7 @@ const goBack = () => {
     </div>
 
     <!-- CENTER (Absolute for perfect centering) -->
-    <div class="absolute left-1/2 -translate-x-1/2 text-center font-semibold">
+    <div v-if="title" class="absolute left-1/2 -translate-x-1/2 text-center font-semibold">
       {{ t(title) }}
     </div>
 

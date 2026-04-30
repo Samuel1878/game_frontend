@@ -9,7 +9,8 @@ export interface gameType {
             icon_url: string,
             is_hot?:boolean,
             is_hot_rtp?:boolean,
-            is_drop_win?:boolean
+            is_drop_win?:boolean,
+            cn_icon_url?:string
 }
 export interface GameInfo {
   language?: string
