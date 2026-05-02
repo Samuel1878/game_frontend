@@ -7,10 +7,11 @@ import moment from "moment";
 import WithdrawDetail from "@/components/withdrawDetail.vue";
 import { useI18n } from "vue-i18n";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
-import { CoinsIcon, Headset } from "lucide-vue-next";
+import { ChevronLeft, ChevronRight, CoinsIcon, Headset } from "lucide-vue-next";
 import { openChat } from "@/utils";
 import LanguageBtn from "@/components/languageBtn.vue";
-
+import { watch } from "vue";
+import DatePicker from "@/components/CalenderView.vue";
 const { t } = useI18n();
 const authStore = useAuthStore();
 
@@ -19,31 +20,44 @@ const loading = ref(true);
 
 const currentPage = ref(1);
 const perPage = 5;
-
+const from = ref();
+const to = ref();
 const showDialog = ref(false);
 const selectedWithdrawal = ref<withdrawalInfo | null>(null);
-
+const totalPages = ref(0);
+const total = ref(0);
 const fetchData = async () => {
   if (!authStore.user?.id) return;
-
-  const response = await getWithdrawalsById(authStore.user.id);
+  const response = await getWithdrawalsById({
+    page: currentPage.value,
+    user_id: authStore.user.id,
+    from: from.value,
+    to: to.value,
+    limit: perPage
+  });
   if (response) {
-    withdrawals.value = response
+    withdrawals.value = response.data
+    totalPages.value = response.pagination.totalPages;
+    total.value = response.pagination.total;
   }
   loading.value = false;
 };
-
 onMounted(fetchData);
 
-const totalPages = computed(() =>
-  Math.ceil(withdrawals.value.length / perPage)
-);
-
-const paginatedWithdrawals = computed(() => {
-  const start = (currentPage.value - 1) * perPage;
-  return withdrawals.value.slice(start, start + perPage);
+watch([currentPage, from, to], () => {
+  fetchData();
 });
+const goPrev = () => {
+  if (currentPage.value > 1) {
+    currentPage.value--;
+  }
+};
 
+const goNext = () => {
+  if (currentPage.value < totalPages.value) {
+    currentPage.value++;
+  }
+};
 const viewWithdrawal = (w: withdrawalInfo) => {
   selectedWithdrawal.value = w;
   showDialog.value = true;
@@ -66,7 +80,15 @@ const formatAmount = (a: number) =>
   <main class="min-h-screen bg-gray-900 p-4 text-white w-full">
 
 
-
+    <div class="glass-bg p-4 rounded-2xl mb-4">
+      <div class="flex justify-center items-center gap-2">
+        <DatePicker v-model="from" :placeholder="t('start_date')" />
+        <DatePicker v-model="to" :placeholder="t('end_date')" />
+      </div>
+      <!-- <button class="mt-3 w-full bg-yellow-500 py-2 rounded-lg text-sm" @click="fetchData">
+          {{ t('search') }}
+        </button> -->
+    </div>
     <div v-if="loading">{{ t('loading') }}...</div>
     <div v-else-if="!withdrawals.length" class="flex flex-col items-center justify-center mt-20 text-gray-400">
       <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4">
@@ -80,7 +102,7 @@ const formatAmount = (a: number) =>
       </p> -->
     </div>
     <div v-else class="space-y-3">
-      <div v-for="txn in paginatedWithdrawals" :key="txn.id" @click="viewWithdrawal(txn)"
+      <div v-for="txn in withdrawals" :key="txn.id" @click="viewWithdrawal(txn)"
         class="bg-gray-900 p-4 space-y-2 cursor-pointer bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_5px_rgba(0,0,0,0.5)] transition rounded-2xl">
         <div class="flex justify-between">
           <span class="text-gray-400 text-sm">{{ t('id') }}</span>
@@ -101,7 +123,7 @@ const formatAmount = (a: number) =>
             'bg-yellow-500 text-black': txn.status === 'pending',
             'bg-red-600 text-white': txn.status === 'rejected',
           }">
-            {{ txn.status }}
+            {{ t(txn.status||"") }}
           </span>
         </div>
 
@@ -114,10 +136,28 @@ const formatAmount = (a: number) =>
       </div>
     </div>
 
-    <div v-show="paginatedWithdrawals.length" class="flex justify-center gap-2 mt-6">
-      <button @click="currentPage--">Prev</button>
-      <span>{{ currentPage }} / {{ totalPages }}</span>
-      <button @click="currentPage++">Next</button>
+    <div v-if="totalPages > 1" class="flex justify-between px-4 gap-2 mt-6 items-center">
+      <button :disabled="currentPage === 1" @click="goPrev" :class="[
+        'h-8 px-3 rounded border border-white/10 flex items-center',
+        currentPage === 1
+          ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
+          : 'bg-gray-800/70  hover:bg-gray-700'
+      ]">
+      <ChevronLeft class="w-4 h-4 text-gray-400"/>
+        {{ t("prev") }}
+      </button>
+      <span class="text-sm text-gray-300">
+        {{ currentPage }} / {{ totalPages }}
+      </span>
+      <button :disabled="currentPage === totalPages" @click="goNext" :class="[
+        'h-8 px-3 rounded border flex items-center gap-1 border-white/10',
+        currentPage === totalPages
+          ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
+          : 'bg-gray-800/70  hover:bg-gray-700'
+      ]">
+        <span>{{ t("next") }}</span>
+        <ChevronRight class="w-4 h-4 text-gray-400" />
+      </button>
     </div>
 
     <WithdrawDetail :open="showDialog" :withdrawal="selectedWithdrawal" @update:open="(v: boolean) => showDialog = v" />

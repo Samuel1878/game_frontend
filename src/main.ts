@@ -7,6 +7,7 @@ import { i18n } from './lib/i18n';
 
 import Particles from "@tsparticles/vue3";
 import { loadSlim } from "@tsparticles/slim";
+import { useAuthStore } from './stores/auth';
 
 const pinia = createPinia();
 const app = createApp(App);
@@ -18,24 +19,10 @@ app.use(Particles, {
 app.use(i18n);
 app.use(pinia);
 app.use(router);
+const auth = useAuthStore();
 
-// app.use(Particles, {
-//   init: async (engine:Engine) => {
-//     await loadSlim(engine);
-//   },
-// });
-
-// const auth = useAuthStore();
-
-// const boot = async () => {
-//   try {
-//     await auth.init();
-//   } catch (e) {
-//     console.error(e);
-//   }
-// };
-
-// boot();
+// 🔥 CRITICAL: restore session before app loads
+await auth.init();
 router.isReady().then(() => {
   app.mount("#app");
 });

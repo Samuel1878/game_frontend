@@ -62,7 +62,7 @@ const uiStore = useUIStore()
 
         <p class="text-gray-400 text-sm flex gap-2 items-center">
           <PhoneIcon :size="15" />
-          <span v-if="!authStore.user?.phone">{{ t("not_connected") }}</span>
+          <span v-if="!authStore.user?.phone">***********</span>
           <span v-else> ********{{ authStore.user?.phone.slice(-3) }}</span>
         </p>
       </div>
@@ -82,7 +82,7 @@ const uiStore = useUIStore()
           : 'bg-red-400 shadow-[0_0_10px_rgba(239,68,68,0.6)]'"
       />
       <span class="text-xs text-gray-400">
-        {{ authStore.user?.status }}
+        {{ authStore.user?.status}}
       </span>
     </div>
 
@@ -134,16 +134,17 @@ const uiStore = useUIStore()
           </p>
           <div class="h-0.5 w-full bg-amber-500/30" />
         </div>
-        <div class="grid grid-cols-4 p-2 mt-4 gap-4">
+        <div class="grid grid-cols-4 p-2 my-4 mb-20 gap-4">
 
           <div v-for="value in MembershipCenter" class="cursor-pointer my-2 flex flex-col items-center gap-2"
 
             @click="value.action">
             <div
               class="h-14 w-14 flex flex-col rounded-full justify-center items-center bg-yellow-400/10 bg-linear-to-br from-yellow/5 via-yellow/10 to-yellow/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
-              <img :src="value.image" class="w-10 h-10" />
+              <img v-if="value.image" :src="value.image" class="w-10 h-10" />
+              <component v-else :is="value?.icon" class="w-8 h-8 text-[#c59c07b4]" />
             </div>
-            <p class="text-gray-300 text-sm text-wrap text-center">{{ t(value.label) }}</p>
+            <p class="text-gray-300 text-xs text-wrap text-center">{{ t(value.label) }}</p>
           </div>
         </div>
 

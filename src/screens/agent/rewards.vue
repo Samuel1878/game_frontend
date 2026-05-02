@@ -22,9 +22,12 @@ const startDate = ref();
 const {t} = useI18n();
 const endDate = ref();
 const fetchTransaction = async () => {
-    console.log("fetching local db transactions");
+        if (!authStore.user?.agent_id){
+        // toast.error("ERROR")
+        return 
+    }
     loading.value = true
-
+    
     const res = await getAllTransactionsByUserId({
         page: page.value,
         limit,
@@ -61,7 +64,7 @@ onMounted(() => {
       <h1 class="text-xl font-semibold tracking-wide">
         {{ t('rewards') }}
       </h1>
-      
+
       <span class="text-sm text-gray-400">
         {{ t("page") }} {{ page }} / {{ totalPages }}
       </span>
@@ -72,8 +75,8 @@ onMounted(() => {
 
       <!-- Date Range -->
       <div class="flex gap-2 justify-center">
-        <DatePicker v-model="startDate" placeholder="Start Date" />
-        <DatePicker v-model="endDate" placeholder="End Date" />
+         <DatePicker v-model="startDate" :placeholder="t('start_date')" />
+        <DatePicker v-model="endDate" :placeholder="t('end_date')" />
          
       </div>
        <Button :disabled="!startDate || !endDate" @click="startDate && endDate && fetchTransaction()"

@@ -10,7 +10,8 @@ export interface gameType {
             is_hot?:boolean,
             is_hot_rtp?:boolean,
             is_drop_win?:boolean,
-            cn_icon_url?:string
+            cn_icon_url?:string,
+            cn_name?:string
 }
 export interface GameInfo {
   language?: string
@@ -178,7 +179,7 @@ export interface transactionsParamsType {
 export interface Transaction {
   id?: number
   user_id: number
-  type: "deposit" | "withdraw" | 'bonus' | 'adjustment' |string
+  type: "deposit" | "withdraw" | 'bonus' | 'adjustment'|'refund' |string
   amount: number
   payment_method?: string
   txn_id?: string

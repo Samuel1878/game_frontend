@@ -6,9 +6,9 @@ export const useWallet = defineStore('wallet', () => {
   const balance = ref<number>(0);
   const currency = ref<string>("");
 
-  const setWallet = (b:number, c:string) => {
+  const setWallet = (b:number, c?:string) => {
     balance.value = b;
-    currency.value = c;
+    currency.value = c || "MMK";
   };
   const resetWallet = () => {
     balance.value = 0;

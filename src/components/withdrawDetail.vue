@@ -112,7 +112,7 @@ const exportData = () => {
               'bg-red-600 text-white': withdrawal.status === 'rejected'
             }"
           >
-            {{ withdrawal.status }}
+            {{ t(withdrawal.status||'') }}
           </span>
         </div>
 
@@ -132,7 +132,7 @@ const exportData = () => {
       </div>
 
       <DialogFooter class="mt-6 flex justify-between">
-        <Button variant="outline" @click="close">
+        <Button class="px-4 py-2 rounded-md border border-gray-100" @click="close">
           {{ t("close") }}
         </Button>
 

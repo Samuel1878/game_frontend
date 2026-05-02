@@ -50,21 +50,25 @@ const chooseAccount = (data: BankAccount) => {
   choosen.value = true
 };
 const submit = async () => {
-  if (!amount.value) return toast.error("something_went_wrong");
+  if (!amount.value) return toast.error("please_enter_amount");
   if (amount.value > walletStore.balance) return toast.error(t("insufficient_balance"))
-  if (withdrawForm.value.method === 'usdt') {
-    if (amount.value && amount.value <= 45000 || amount.value >= 20000000) {
-      toast.error("amount_must_be_between_45000_10000000")
+const amountNum = Number(amount.value);
+
+  if (withdrawForm.value.method === "usdt") {
+    if (amountNum < 45000 || amountNum > 20000000) {
+      toast.error(t("amount_must_be_between_45000_10000000"));
+      return;
+      }
+    } else {
+    if (amountNum < 5000 || amountNum > 1000000) {
+      toast.error(t("amount_must_be_between_5000_1000000"));
+      return;
     }
-    return
   }
-  if (amount.value && amount.value <= 5000 || amount.value >= 1000000) {
-    toast.error("amount_must_be_between_5000_1000000");
-    return
-  }
-  if (!authStore.accessToken || !authStore.user) return toast.error("unauthorized");
+
+  if (!authStore.accessToken || !authStore.user) return toast.error(t("unauthorized"));
   if (!amount || !withdrawForm.value.name || !withdrawForm.value.number) {
-    toast.error("please_fill_all_fields");
+    toast.error(t("choose_account"));
     return;
   }
   const data: withdrawalInfo = {
@@ -79,11 +83,11 @@ const submit = async () => {
   };
   const response = await withdrawalHandlerAPI(data, param);
   if (response) {
-    toast.success("success");
+    toast.success(t("success"));
     router.back();
     return;
   }
-  toast.error("something_went_wrong");
+  toast.error(t("something_went_wrong"));
   router.back();
 };
 
@@ -169,9 +173,9 @@ const saveAccount = async () => {
       v-for="payment in paymentMethodOption"
       :key="payment.value"
       @click="bankStore.setFilter(payment.value)"
-      class="flex-shrink-0 px-4 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 border"
+      class="shrink-0 px-4 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 border"
       :class="selectedPayment === payment.value
-        ? 'bg-sky-400 text-black border-sky-300 shadow-lg shadow-sky-400/20 scale-105'
+        ? 'bg-yellow-400 text-black border-yellow-300 shadow-lg shadow-sky-400/20 scale-105'
         : 'bg-gray-900 text-gray-300 border-gray-700 hover:border-gray-500'"
     >
       <span class="text-sm font-semibold whitespace-nowrap">
@@ -179,9 +183,9 @@ const saveAccount = async () => {
       </span>
     </div>
 
-  </div>
+    </div>
 
-</div>
+  </div>
         <div class="flex gap-2 py-2 no-scrollbar"
           :class="filteredAccounts?.length ? 'overflow-x-scroll' : 'justify-center'">
           <!-- BANK ACCOUNTS -->
@@ -192,6 +196,7 @@ const saveAccount = async () => {
               acc.is_available
                 ? 'shadow-green-500/10 shadow-lg'
                 : 'shadow-red-500/10 shadow-inner',
+                acc.value === withdrawForm.method ? 'animate-pulse border-yellow-400 border-2' : 'animate-none border-0'
             ]">
               <div class="absolute inset-0 bg-white/10 backdrop-blur-xl"></div>
 
@@ -216,7 +221,7 @@ const saveAccount = async () => {
               <div class="absolute top-3 right-3">
                 <span class="text-xs px-2 py-1 rounded-full font-semibold"
                   :class="acc.is_available ? 'bg-green-500/80' : 'bg-red-500/80'">
-                  {{ acc.is_available ? "Active" : "Disabled" }}
+                  {{ acc.is_available ?t( "active") : t("closed")  }}
                 </span>
               </div>
             </div>
@@ -274,7 +279,7 @@ const saveAccount = async () => {
           <button v-for="a in amounts" :key="a" @click="setAmount(a)" :class="[
             'py-2 rounded-lg text-sm font-semibold active-button',
             amount === a
-              ? 'bg-yellow-500 text-black shadow-lg shadow-yellow-500/20'
+              ? 'bg-yellow-500 animate-pulse text-black shadow-lg shadow-yellow-500/20'
               : 'bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300',
           ]">
             {{ formatPrice(a) }}

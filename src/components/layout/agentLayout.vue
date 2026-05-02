@@ -8,6 +8,7 @@ import { getAgentDataByIdAPI } from "@/services/agentAPI";
 import { useAgentStore } from "@/stores/agentStore";
 import { useAuthStore } from "@/stores/auth";
 import { onMounted } from "vue";
+import { useI18n } from "vue-i18n";
 const agentStore = useAgentStore();
 const authStore = useAuthStore();
 const route = useRoute();
@@ -27,16 +28,17 @@ const fetchAgentData = async () => {
     agentStore.loading = false;
   }
 };
+const {t} = useI18n()
 onMounted(() => {
     fetchAgentData()
 })
 const tabs = [
   { label: "home", icon: "🏠", path: "/" },
 
-  { label: "Tx", icon: "💰", path: "/user/agent-center/transactions" },
-    { label: "Overview", icon: "📊", path: "/user/agent-center/overview", center:true },
-  { label: "Users", icon: "👥", path: "/user/agent-center/users" },
-  { label: "Rewards", icon: "🎁", path: "/user/agent-center/rewards" },
+  { label: "tx", icon: "💰", path: "/user/agent-center/transactions" },
+    { label: "overview", icon: "📊", path: "/user/agent-center/overview", center:true },
+  { label: "players", icon: "👥", path: "/user/agent-center/users" },
+  { label: "rewards", icon: "🎁", path: "/user/agent-center/rewards" },
 ];
 
 const go = (p: string) => router.push(p);
@@ -51,25 +53,25 @@ const go = (p: string) => router.push(p);
 
    <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[95%] max-w-md bg-[#111827]/90 backdrop-blur border border-white/10 rounded-2xl px-2 py-2 flex justify-between items-center shadow-xl">
       <button
-        v-for="t in tabs"
-        :key="t.path"
-        @click="go(t.path)"
+        v-for="tb in tabs"
+        :key="tb.path"
+        @click="go(tb.path)"
         class="flex flex-col items-center flex-1 py-2 text-xs relative"
-        :class="route.path === t.path ? 'text-white' : 'text-gray-400'"
+        :class="route.path === tb.path ? 'text-white' : 'text-gray-400'"
       >
         <!-- CENTER BUTTON -->
-        <div v-if="t.center"
-             class="absolute -top-6 bg-blue-600 w-14 h-14 rounded-full flex items-center justify-center shadow-lg border-4 border-[#0b0f19]">
-          <span class="text-xl">{{ t.icon }}</span>
+        <div v-if="tb.center"
+             class="absolute -top-6 bg-yellow-500 w-14 h-14 rounded-full flex items-center justify-center shadow-lg border-4 border-[#0b0f19]">
+          <span class="text-xl">{{ tb.icon }}</span>
         </div>
 
         <!-- NORMAL BUTTON -->
         <template v-else>
-          <span class="text-lg">{{ t.icon }}</span>
+          <span class="text-lg">{{ tb.icon }}</span>
         </template>
 
-        <span :class="t.center ? 'mt-6 text-[11px]' : 'text-[11px]'">
-          {{ t.label }}
+        <span :class="tb.center ? 'mt-6 text-[11px]' : 'text-[11px]'">
+          {{ t(tb.label) }}
         </span>
       </button>
     </nav>

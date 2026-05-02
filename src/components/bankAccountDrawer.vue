@@ -111,7 +111,7 @@ const handleSave = () => {
         <div class="grid grid-cols-3 gap-2 mb-4">
             <div class="" v-for="item in paymentMethod" v-on:click="choosePayment(item)">
                 <div class="flex flex-col items-center gap-2 p-2 border-2 rounded-lg" 
-                    :class="form.value===item.value?'border-sky-400 text-sky-400':'border-gray-400/30 text-white'">
+                    :class="form.value===item.value?'border-yellow-400 text-yellow-400 animate-pulse':'border-gray-400/30 text-white'">
                   <img :src="item.icon" class="w-8 h-8 rounded-full" />
                   <span>{{ item.label }}</span>
                 </div>
@@ -148,7 +148,7 @@ const handleSave = () => {
           <button
             @click="form.is_available = !form.is_available"
             class="w-12 h-6 rounded-full relative"
-            :class="form.is_available ? 'bg-green-500' : 'bg-gray-600'"
+            :class="form.is_available ? 'bg-yellow-500' : 'bg-gray-600'"
           >
             <span
               class="absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition"
@@ -164,9 +164,8 @@ const handleSave = () => {
           <button class="flex-1 h-12 border-gray-400 border rounded-lg" ant="outline" @click="emit('update:open', false)">
             {{ t("cancel") }}
           </button>
-
           <Button
-            class="flex-1 bg-sky-400 h-12 rounded-lg font-bold"
+            class="flex-1 gold-bg h-12 rounded-lg font-bold"
             @click="handleSave"
           >
             {{ t("save") }}

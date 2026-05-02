@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { amounts, paymentMethodDeposit, usdtRateToMMK } from "@/consts";
+import { amounts, paymentMethod, paymentMethodDeposit, usdtRateToMMK } from "@/consts";
 import { ref } from "vue";
 import {
   InputGroup,
@@ -36,6 +36,13 @@ const goToPayment = () => {
     }
     return
   }
+  
+  if (chosePayment.value ==='kbzBank') {
+     if (amount.value && amount.value >= 100000 && amount.value <= 50000000) {
+      router.push(`/deposit/${chosePayment.value}?amount=${amount.value}`);
+    }
+    return
+  }
   if (amount.value && amount.value >= 5000 && amount.value <= 1000000) {
     router.push(`/deposit/${chosePayment.value}?amount=${amount.value}`);
   }
@@ -68,15 +75,15 @@ const goToPayment = () => {
             {{ t("choose_payment_method") }}
           </h1>
           </div>
-          <div class="grid grid-cols-2 gap-2">
-            <div v-for="payment in paymentMethodDeposit" :key="payment.id" @click="choosePayment(payment.value)"
-              class="group p-4 rounded-2xl relative bg-linear-to-br from-white/5 to-white/10 border-2  hover:border-sky-400/40 hover:shadow-lg hover:shadow-sky-500/10 active:scale-[0.97] transition flex flex-col items-center gap-3"
+          <div class="flex flex-wrap justify-center gap-2">
+            <div v-for="payment in paymentMethod" :key="payment.id" @click="choosePayment(payment.value)"
+              class="group  w-[48%] p-4 rounded-2xl relative bg-linear-to-br from-white/5 to-white/10 border-2  hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-500/10 active:scale-[0.97] transition flex flex-col items-center gap-3"
               :class="chosePayment === payment.value ? 'border-yellow-400 animate-pulse' : 'border-white/10'">
               <div class="p-2 rounded-xl bg-black/40 backdrop-blur-2xl group-hover:scale-110 transition">
-                <img :src="payment.icon" class="w-12 h-12 object-cover rounded-lg" />
+                <img :src="payment.icon" class="w-10 h-10 object-cover rounded-lg" />
               </div>
               <CircleCheck v-show="chosePayment === payment.value"
-                class="text-yellow-400 w-7 h-7 absolute right-2 top-2 font-bold" />
+                class="text-yellow-400 w-6 h-6 absolute right-2 top-2 font-bold" />
               <p class="font-semibold text-gray-200 group-hover:text-white">
                 {{ payment.label }}
               </p>
@@ -93,7 +100,7 @@ const goToPayment = () => {
               {{ t("set_deposit_amount") }}
             </h1>
           </div>
-          <InputGroup
+          <InputGroup :class="{ 'error-shake': !amount }"
             class="h-14 rounded-xl bg-gray-900/50 border border-white/10 focus-within:ring-2 focus-within:ring-yellow-400 transition">
             <InputGroupAddon>
               <InputGroupText class="text-gray-400 font-bold">K</InputGroupText>
@@ -127,7 +134,7 @@ const goToPayment = () => {
             <button v-for="a in amounts" :key="a" @click="setAmount(a)" :class="[
               'py-2 rounded-lg text-sm font-semibold active-button',
               amount === a
-                ? 'bg-yellow-400 text-gray-900 shadow-lg shadow-yellow-400/30'
+                ? 'bg-yellow-400 text-gray-900 shadow-lg shadow-yellow-400/30 animate-pulse'
                 : 'bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300',
             ]">
               {{ formatPrice(a) }}

@@ -95,7 +95,6 @@ const setMode = (m: typeof mode.value) => {
 };
 
 const fetchTransaction = async () => {
-    console.log("Fetching Transaction", authStore.user?.agent_id)
     if (!authStore.user?.agent_id || !id){
         toast.error("ERROR")
         return 
@@ -141,7 +140,7 @@ onMounted(() => {
     <!-- HEADER -->
     <div class="flex flex-col gap-2 justify-between">
       <div class="flex gap-2 items-center p-2 glass-bg rounded-lg">
-        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-sm font-semibold">
+        <div class="w-9 h-9 rounded-full bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-sm font-semibold">
             {{ String(name)?.charAt(0).toUpperCase() }}
         </div>
         <div>

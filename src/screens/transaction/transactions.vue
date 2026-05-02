@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAuthStore } from '@/stores/auth';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { getAllTransactionsByUserId } from '../../services/transactionAPI';
 import DatePicker from "@/components/CalenderView.vue";
 import type { Transaction } from '@/utils/types';
@@ -41,7 +41,7 @@ const fetchTransaction = async () => {
 onMounted(() => {
     fetchTransaction()
 });
-
+watch([page, transactionType], fetchTransaction);
 </script>
 <template>
         <CustomNavBar title="transactions" backTo="/user/profile">
@@ -72,8 +72,8 @@ onMounted(() => {
 
       <!-- Date Range -->
       <div class="flex gap-2 justify-center">
-        <DatePicker v-model="startDate" placeholder="Start Date" />
-        <DatePicker v-model="endDate" placeholder="End Date" />
+         <DatePicker v-model="startDate" :placeholder="t('start_date')" />
+        <DatePicker v-model="endDate" :placeholder="t('end_date')" />
          
       </div>
        <Button :disabled="!startDate || !endDate" @click="startDate && endDate && fetchTransaction()"

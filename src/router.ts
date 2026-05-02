@@ -204,9 +204,9 @@ router.beforeEach(async (to) => {
   const auth = useAuthStore();
   const ui = useUIStore()
 
-  if (!auth.initialized) {
-    await auth.init(); // IMPORTANT
-  }
+  // if (!auth.initialized) {
+  //   await auth.init(); // IMPORTANT
+  // }
 
   if (to.meta.requiresAuth && !auth.accessToken) {
     ui.openAuthModal(to.fullPath);

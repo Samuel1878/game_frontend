@@ -49,12 +49,10 @@ return null
 
 } ;
 
-export const getDepositById = async (user_id:number) => {
+export const getDepositById = async (param:{ user_id:number, page:number, limit :number, from?:string, to?:string}) => {
     try {
          const response = await api.get("/user/get_deposits", {
-        params:{
-            user_id:user_id
-        }
+        params:param
     });
     if (response.status===200)return response.data;
     return null
@@ -64,12 +62,10 @@ export const getDepositById = async (user_id:number) => {
    
 
 };
-export const getWithdrawalsById = async (user_id:number)=>{
+export const getWithdrawalsById = async (param:{ user_id:number, page:number, limit :number, from?:string, to?:string})=>{
         try {
          const response = await api.get("/user/get_withdrawals", {
-        params:{
-            user_id:user_id
-        }
+        params:param
     });
     if (response.status===200)return response.data;
     return null

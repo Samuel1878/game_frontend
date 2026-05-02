@@ -26,9 +26,8 @@ const { t } = useI18n();
 const transactionType = ref("all");
 
 const fetchTransaction = async () => {
-  console.log("Fetching Transaction", authStore.user?.agent_id)
   if (!authStore.user?.agent_id) {
-    toast.error("ERROR")
+    // toast.error("ERROR")
     return
   }
   const res = await getAllTransactionsAPI({
@@ -81,8 +80,8 @@ onMounted(() => {
 
       <!-- Date Range -->
       <div class="flex gap-2 justify-center">
-        <DatePicker v-model="startDate" placeholder="Start Date" />
-        <DatePicker v-model="endDate" placeholder="End Date" />
+        <DatePicker v-model="startDate" :placeholder="t('start_date')" />
+        <DatePicker v-model="endDate" :placeholder="t('end_date')" />
 
       </div>
       <Button :disabled="!startDate || !endDate" @click="startDate && endDate && fetchTransaction()"

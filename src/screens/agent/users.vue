@@ -22,7 +22,6 @@ const authStore = useAuthStore();
 
 const router = useRouter();
 const fetchPlayers = async (agent: number) => {
-    console.log("Fetching Player")
     try {
         loadingUsers.value = true
         const res = await getUserByAgentAPI(agent, _currentPage.value, _pageSize.value);

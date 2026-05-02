@@ -101,31 +101,32 @@ const getPaymentMethods = async () => {
       true,
     );
     if (response === null) {
-      toast.error("Failed to fetch payment methods");
+      toast.error(t("try_again"));
       return;
     }
     const data = await response;
     payments.value = data.sort(
       (a: PaymentMethod, b: PaymentMethod) => Number(a.id) - Number(b.id),
     );
-    console.log("payment methods", data);
+    // console.log("payment methods", data);
   } catch (error) {
     console.error("Error fetching payment methods:", error);
   }
 };
+// const isLast5Valid = computed(() => /^[0-9]{5}$/.test(form.value.last5Digit));
 const submitHandler = async () => {
   if (submitting.value) return;
   submitting.value = true;
   try {
     if (!payment.value) {
-      toast.error("Invalid payment method");
+      toast.error(t("try_again"));
       return;
     } else if (
       // !form.value.account_name ||
       !form.value.last5Digit
       // !form.value.account_no
     ) {
-      toast.error("Last 5 digit must not be empty");
+      toast.error(t("last_5_digit_must_be_filed"));
       return;
     } else if (!amount) {
       toast.error("Invalid amount!");
@@ -152,10 +153,10 @@ const submitHandler = async () => {
     const response = await depositHandlerAPI(data, param);
 
     if (response) {
-      toast.success("Deposit request submitted successfully!");
-      setTimeout(() => router.back(), 1000);
+      toast.success(t('deposit_success'));
+      setTimeout(() => router.push("/user/profile"), 1000);
     } else {
-      toast.error("Failed to submit deposit request.");
+      toast.error(t("try_again"));
     }
   } finally {
     submitting.value = false;
@@ -166,7 +167,7 @@ const copyHandler = (value:any) => {
 
   copy(value);
 
-  toast.success(`Copied: ${value}`);
+  toast.success(`${t('copied')}: ${value}`);
 };
 
 </script>
@@ -232,7 +233,7 @@ const copyHandler = (value:any) => {
               <InputGroupAddon>
                 <ChartNoAxesColumnDecreasing />
               </InputGroupAddon>
-              <InputGroupInput type="text" name="last5Digit" v-model="form.last5Digit" />
+              <InputGroupInput type="text" maxlength="6" name="last5Digit" v-model="form.last5Digit" />
               <InputGroupAddon align="inline-end">
                 <InputGroupText class="text-gray-100"></InputGroupText>
               </InputGroupAddon>

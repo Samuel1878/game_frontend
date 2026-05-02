@@ -124,7 +124,7 @@ const copyTxn = () => {
               'bg-red-600 text-white': localDeposit?.status === 'rejected'
             }"
           >
-            {{ localDeposit?.status }}
+            {{ t(localDeposit?.status||"" )}}
           </p>
         </div>
 
@@ -143,7 +143,7 @@ const copyTxn = () => {
       <DialogFooter class="flex justify-between">
         <Button
           @click="emit('update:open', false)"
-          class="px-4 py-2 rounded-md border border-sky-100"
+          class="px-4 py-2 rounded-md border border-gray-100"
         >
           {{ t("close") }}
         </Button>

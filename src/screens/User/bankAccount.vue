@@ -40,7 +40,7 @@ import LanguageBtn from '@/components/languageBtn.vue'
 const { copy } = useClipboard();
 const copyAccount = (num: string) => {
     copy(num);
-    toast.success("Copied!");
+    toast.success(t('copied: ') + num);
 };
 const bankStore = useBankStore()
 const { filteredAccounts, loading, selectedPayment } = storeToRefs(bankStore)
@@ -174,7 +174,7 @@ watch(() => form.value.value, (val) => {
                             </div>
                             <div class="flex justify-between items-center mt-4">
                                 <div class="flex gap-2">
- <Button size="sm" class="bg-sky-400" @click="openEdit(acc)">
+ <Button size="sm" class="bg-black text-yellow-400" @click="openEdit(acc)">
                                     {{ t('edit') }}
                                 </Button>
                                 <Button size="sm" variant="destructive" @click="deleteAccount(acc.id)">
@@ -219,7 +219,7 @@ watch(() => form.value.value, (val) => {
                 <div class="space-y-3 mt-4">
                     <Select v-model="form.value">
                         <SelectTrigger
-                            class="w-full h-12 text-md py-6 rounded-lg font-bold border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
+                            class="w-full h-12 text-md py-6 rounded-lg font-bold border border-gray-700 ring-yellow-400 ring-0 bg-gray-700/50">
                             <SelectValue :placeholder="t('choose_payment_method')" />
                             <ChevronDown />
                         </SelectTrigger>
@@ -229,7 +229,7 @@ watch(() => form.value.value, (val) => {
                                 <SelectItem v-for="item in paymentMethod" :key="item.id" :value="item.value" class="" >
                                     <div class="flex items-center gap-2 py-2">
                                         <img :src="item.icon" alt="logo" class="w-8 h-8 object-cover rounded-full" />
-                                        <span class="text-sky-400 font-bold">{{ item.label }}</span>
+                                        <span class="text-yellow-400 font-bold">{{ item.label }}</span>
                                     </div>
                                 </SelectItem>
 
@@ -238,7 +238,7 @@ watch(() => form.value.value, (val) => {
                     </Select>
 
                     <InputGroup
-                        class="h-12 rounded-lg w-full font-bold border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
+                        class="h-12 rounded-lg w-full font-bold border border-gray-700 ring-yellow-400 ring-0 bg-gray-700/50">
                         <InputGroupAddon>
                             <CreditCard class="text-gray-300" />
                         </InputGroupAddon>
@@ -249,7 +249,7 @@ watch(() => form.value.value, (val) => {
                         </InputGroupAddon>
                     </InputGroup>
                     <InputGroup
-                        class="h-12 rounded-lg w-full font-bold border border-gray-700 ring-sky-400 ring-0 bg-gray-700/50">
+                        class="h-12 rounded-lg w-full font-bold border border-gray-700 ring-yellow-400 ring-0 bg-gray-700/50">
                         <InputGroupAddon>
                             <UserLockIcon class="text-gray-300" />
                         </InputGroupAddon>
@@ -274,7 +274,7 @@ watch(() => form.value.value, (val) => {
                 </div>
                 <DialogFooter class="mt-4">
                     <Button class="bg-none h-12 text-white" @click="showDialog = false">{{ t("cancel") }}</Button>
-                    <Button class="bg-sky-400 h-12 rounded-lg font-bold" @click="saveAccount">{{ t('save') }}</Button>
+                    <Button class="gold-bg h-12 rounded-lg font-bold" @click="saveAccount">{{ t('save') }}</Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>

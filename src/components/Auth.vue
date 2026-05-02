@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, onUnmounted, ref } from "vue";
 import {
   InputGroup,
   InputGroupAddon,
@@ -26,6 +26,7 @@ import { Spinner } from "./ui/spinner";
 import { useI18n } from "vue-i18n";
 import { toast } from "vue-sonner";
 import DialogDescription from "./ui/dialog/DialogDescription.vue";
+import { hideTawk, showTawk } from "@/utils";
 const auth = useAuthStore();
 const ui = useUIStore();
 const router = useRouter();
@@ -56,7 +57,12 @@ onMounted(() => {
   if (auth.accessToken) {
     ui.closeAuthModal();
   }
+  // hideTawk()
 });
+// onUnmounted(()=>{
+//   showTawk()
+// })
+
 const validateForm = () => {
   // LOGIN
   if (isLogin.value) {
@@ -150,7 +156,7 @@ const submit = async () => {
         name: form.value.username,
         phone: form.value.phone,
         password: form.value.password,
-        referral_code: validReferral,
+        referral_code: referralCode.value,
       });
     }
 

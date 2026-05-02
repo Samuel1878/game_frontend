@@ -8,7 +8,7 @@ import { formatRandomRange } from "@/utils";
 
 const gameStore = useGameStore();
 const { drawerOpen, loading, selectedGame } = storeToRefs(gameStore);
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 
 const closeDrawer = () => {
@@ -25,7 +25,7 @@ const closeDrawer = () => {
         <div class="flex items-center gap-3">
           <div class="relative">
 
-            <img :src="selectedGame?.icon_url" alt="game" class="w-40 h-44 rounded-lg object-cover" />
+            <img :src="locale==='cn'?selectedGame?.cn_icon_url :selectedGame?.icon_url" alt="game" class="w-40 h-44 rounded-lg object-cover" />
             <div class="glass absolute inset-0"></div>
 
             <div class="shine absolute inset-0"></div>
@@ -34,11 +34,11 @@ const closeDrawer = () => {
 
           <div class="flex flex-col">
             <span class="text-white text-2xl font-extrabold leading-loose">
-              {{ selectedGame?.name || "Unknown Game" }}
+              {{ locale==="cn" ?selectedGame?.cn_name :selectedGame?.name || "Unknown Game" }}
             </span>
 
-            <span class="text-green-400 text-md">
-              RTP ~ {{ formatRandomRange(Number(selectedGame?.rtp) || 9.6) }}
+            <span class="text-green-400 text-sm">
+              RTP ~ {{ formatRandomRange(Number(selectedGame?.rtp) || 9.6) }}%
             </span>
           </div>
         </div>
@@ -51,7 +51,7 @@ const closeDrawer = () => {
 
           <!-- Start Game -->
           <button :disabled="loading" @click="gameStore.enterGame"
-            class="w-full h-14 rounded-lg bg-sky-400 border-white/40 border text-gray-50 font-bold active-button flex items-center justify-center">
+            class="w-full h-14 rounded-lg gold-bg border-white/40 border text-gray-50 font-bold active-button flex items-center justify-center">
             {{ loading ? t("loading") : t("start_game") }}
           </button>
           <button @click="closeDrawer"

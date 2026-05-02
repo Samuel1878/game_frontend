@@ -3,7 +3,7 @@ import api from "@/services/api";
 import { initSocket, disconnectSocket } from "@/socket";
 import type { userInfo } from "@/utils/types";
 import router from "@/router";
-import { refreshAPI } from "@/services/authAPI";
+import { refreshAPI } from "@/lib/axios";
 import { useWallet } from "./wallet";
 interface walletType{
   balance:number;
@@ -14,7 +14,6 @@ export const useAuthStore = defineStore("auth", {
     accessToken: null as string | null,
     user: null as userInfo | null,
     initialized: false,
-    // wallet: null as walletType | null
   }),
   actions: {
     setToken(token: string) {
@@ -33,7 +32,6 @@ export const useAuthStore = defineStore("auth", {
     async login(payload: { name: string; password: string, isPhoneNumber:boolean }) {
       try {
         const res = await api.post("/auth/login", payload);
-        console.log("response", res);
         this.setToken(res.data.accessToken);
         await this.fetchUser();
         initSocket();
@@ -54,7 +52,7 @@ export const useAuthStore = defineStore("auth", {
     async fetchUser() {
       try {
         const res = await api.get("/user/profile");
-        console.log("Fetched user profile:", res.data);
+        // console.log("Fetched user profile:", res.data);
         this.setUser(res.data);
         
         return true
@@ -65,6 +63,7 @@ export const useAuthStore = defineStore("auth", {
     },
     async init() {
       try {
+        console.log("RESFRESH API CALLED ")
         const resData = await refreshAPI();
 
         if (!resData?.accessToken) {
@@ -79,20 +78,20 @@ export const useAuthStore = defineStore("auth", {
           throw new Error("User fetch failed");
         }
 
-    initSocket();
+      initSocket();
 
-  } catch (err) {
-    console.log("Auth init failed:", err);
-    this.clearAuth();
-   
-  } finally {
-    this.initialized = true;
-  }
-},
+      } catch (err) {
+        console.log("Auth init failed:", err);
+        this.clearAuth();
+      
+      } finally {
+        this.initialized = true;
+      }
+    },
     async register(payload: { name?: string | null; password: string ; referral_code:string|null; phone:string}) {
       try {
         const response = await api.post("/auth/register", payload);
-        console.log("response", response);
+        // console.log("response", response);
         if (response.status === 200 || response.status === 201) {
           this.user = response.data;
         this.setToken(response.data.accessToken);
@@ -124,7 +123,8 @@ export const useAuthStore = defineStore("auth", {
       } catch {
         console.log("logout failed");
       }
-
+      const walletStore = useWallet();
+      walletStore.resetWallet();
       this.clearAuth();
       router.replace("/");
     },

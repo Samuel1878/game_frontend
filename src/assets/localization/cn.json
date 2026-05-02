@@ -16,7 +16,7 @@
     "password":"密码",
     "register":"注册",
     "confirm":"确认",
-    "accept_terms":"接受以上条件",
+    "accept_terms":"我已年满18岁，并接受条款和条件。",
     "already_have_one":"登录账号?",
     "do_not_have":"创建账号",
     "cancel":"取消",
@@ -66,7 +66,6 @@
     "detail":"明细",
     "footer_header":"我们值得信赖的合作伙伴与顶级游戏供应商",
     "download_header":"随时随地，想玩就玩。",
-
     "need_help":"需要帮助吗？",
     "contact_support":"联系客服",
     "faqs":"常见问题解答",
@@ -296,7 +295,34 @@
   "all_rights_reserved": "版权所有。",
   "responsible_warning": "赌博可能会上瘾，请理性游戏。",
   "mobile_coming_soon":"移动版即将推出",
-  "download_center":"下载中心"
+  "download_center":"下载中心",
+  
+  "total_win": "总赢额",
+  "total_loss": "总输额",
+  "commission": "佣金",
+  "bonus_count": "奖金次数",
+  "won_count": "胜利次数",
+  "lose_count": "失败次数",
+  "share_link": "分享链接",
+  "start_date": "开始日期",
+  "end_date": "结束日期",
+  "reward_center": "奖励中心",
+  "rewards": "奖励",
+  "tx": "交易",
+  "players": "玩家",
+  "copied":"已复制",
+  "ggr":"博彩总收入",
+  "partnership":"合伙",
+  "share":"分享",
+  "please_enter_amount":"请输入金额",
+  "try_again":"重新加载页面再试一次。",
+  "deposit_success":"存款申请已成功提交!",
+  "choose_account":"选择收款账户。",
+  "last_5_digit_must_be_filed":"填写交易号的最后5位数字",
+  "bet_history":"投注历史",
+  "this_feature_will_be_available_soon":"此功能即将上线。"
+
+
 
 
 }

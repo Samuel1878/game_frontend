@@ -137,17 +137,32 @@ export const formatRandomRange = (value: number) => {
   return `${min.toFixed(3)} - ${max.toFixed(3)}`;
 };
 
-export const baseURL =  "https://96betx.com";
+export const baseURL =  "https://tz99x.com";
 
-
+// export const BASE_API_URL = "https://api.96betx.com";
+// export const BASE_API_URL = "http://localhost:3000";
+export const BASE_API_URL = "https//uat-api.tz99x.com"
+// export const hideTawk = () => {
+//   if ((window as any).Tawk_API) {
+//     (window as any).Tawk_API.hideWidget();
+//   }
+// };
 export const hideTawk = () => {
-  if ((window as any).Tawk_API) {
-    (window as any).Tawk_API.hideWidget();
+  if (
+    typeof window !== "undefined" &&
+    window.Tawk_API &&
+    typeof (window as any).Tawk_API.hideWidget === "function"
+  ) {
+   ( window as any).Tawk_API.hideWidget();
+  } else {
+    console.warn("Tawk not ready yet");
   }
 };
 
 export const showTawk = () => {
-  if ((window as any).Tawk_API) {
+  if (typeof window !== "undefined" &&
+    window.Tawk_API &&
+    typeof (window as any).Tawk_API.showWidget==='function') {
     (window as any).Tawk_API.showWidget();
   }
 };

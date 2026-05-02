@@ -60,8 +60,8 @@ const total = computed(() => props.gameData?.length ?? 0)
     <div ref="topGameRef" 
       class="flex gap-2 overflow-x-auto no-scrollbar scroll-smooth">
       <div v-for="game in gameData" :key="game.id" 
-      class="relative border-2 border-amber-400 rounded-lg
-           shadow-inner cursor-pointer group 
+         class="relative border-2 border-amber-400 rounded-lg
+          shadow-inner cursor-pointer group 
          hover:-translate-y-1 transition-all active-button duration-300" 
          @click="handler?.(game)">
 
@@ -70,7 +70,7 @@ const total = computed(() => props.gameData?.length ?? 0)
             class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/5 to-yellow-400/30">
           </div>
           <div class="pointer-events-none absolute inset-0 rounded-md border-shine"></div>
-          <p style="font-size: 10px; font-weight: 900;" class="absolute bottom-0 text-shadow-xs left-0 right-0 text-center font-extrabold text-white">{{ game.name }}</p>
+          <!-- <p style="font-size: 10px; font-weight: 900;" class="absolute bottom-0 text-shadow-xs left-0 right-0 text-center font-extrabold text-white">{{ game.name }}</p> -->
           <div class="flex gap-1 absolute top-1 left-1 z-10">
             <img :src="hot" v-show="game.is_hot" class="w-4 h-4" />
             <img :src="drops_wins" v-show="game.is_drop_win" class="h-4" />

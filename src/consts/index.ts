@@ -20,6 +20,8 @@ import {
 import type { Game } from "@/utils/types";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
+import { CircleQuestionMark, Handshake, HatGlasses, HeartHandshake, MonitorDown, Share2, ShieldAlert, SquareArrowRight, Trophy, type LucideIcon } from "lucide-vue-next";
+import type { Component } from "vue";
 export const usdtRateToMMK = 4000;
 export const footer_images = [
     '/providers/PG-WHITE.png',
@@ -415,7 +417,18 @@ export const UserAction = [
     },
 
 ]
-export const MembershipCenter = [
+
+interface MembershipType {
+  id: number;
+  label: string;
+  action: () => void;
+
+  image?: string;        // image URL or asset path
+  icon?: LucideIcon | Component; // Lucide icon component
+
+  isComingSoon?: boolean;
+}
+export const MembershipCenter:MembershipType[] = [
     {
         id:1,
         label:"update_password",
@@ -427,12 +440,12 @@ export const MembershipCenter = [
     {
         id:2,
         label:"deposit_history",
-               action:()=>{
-                router.push("/user/deposit-history")
+        action:()=>{
+            router.push("/user/deposit-history")
         },
         image:depositHistoryIcon
     },
-        {
+    {
         id:3,
         label:"withdraw_history",
                action:()=>{
@@ -441,8 +454,8 @@ export const MembershipCenter = [
         image:withdrawHistoryIcon
     },
 
-            {
-        id:7,
+    {
+        id:4,
         label:"transaction",
                action:()=>{
                 router.push("/user/transactions")
@@ -457,41 +470,102 @@ export const MembershipCenter = [
         },
         image:share
     },
+
     {
-        id:9,
+        id:6,
+        label:"partnership",
+        action:()=>{
+            openChat()
+        },
+        isComingSoon:true,
+        icon:HeartHandshake
+    },
+    
+    {
+        id:7,
+        label:"rewards",
+        action:()=>{
+            openChat()
+        },
+        isComingSoon:true,
+        icon:Trophy
+    },
+        {
+        id:8,
         label:"customer_service",
                action:()=>{
                 openChat()
         },
         image:services
     },
-      
-     
+         {
+        id:9,
+        label:"share",
+        action:()=>{
+            openChat()
+        },
+        isComingSoon:true,
+        icon:Share2
+    },
+
     {
-        id:6,
+        id:10,
         label:"download_app",
                action:()=>{
                 router.push("/download")
         },
-        image:download
+        icon:MonitorDown
+        // image:download
     },
     {
-        id:4,
+        id:11,
         label:"help_center",
                action:()=>{
                 router.push("/help")
         },
         image:helpCenter
     },
-    
+
     {
-        id:8,
+        id:12,
+        label:"terms_and_conditions",
+               action:()=>{
+                router.push("/terms")
+        },
+        icon:Handshake
+    },
+        {
+        id:13,
+        label:  "policy_and_privacy",
+               action:()=>{
+                router.push("/privacy")
+        },
+        icon:HatGlasses
+    },
+        {
+        id:14,
+        label:"responsible_gaming",
+               action:()=>{
+                router.push("/responsible")
+        },
+        icon:ShieldAlert
+    },
+    {
+        id:15,
+        label:"faq",
+               action:()=>{
+                router.push("/faq")
+        },
+        icon:CircleQuestionMark
+    },
+        {
+        id:16,
         label:"logout",
                action:()=>{
                 const auth = useAuthStore();
                 auth.logout()
         },
-        image:logout
+       icon:SquareArrowRight
     },
 ]
 

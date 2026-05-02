@@ -50,7 +50,7 @@ const { t } = useI18n();
         <div class="flex flex-col items-center gap-4">
 
           <div
-            v-on:click="toast('mobile_coming_soon')"
+            v-on:click="toast(t('mobile_coming_soon'))"
             class="bg-linear-to-br from-gray-700/70 to-gray-900 h-10 px-6 flex items-center rounded-full border border-white/10"
           >
             <p class="text-gray-300 font-semibold text-sm">

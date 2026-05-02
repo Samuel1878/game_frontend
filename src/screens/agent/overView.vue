@@ -14,20 +14,21 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { type ReportSummaryType, type ReportItem} from "@/utils/types";
 import { getSummary } from "@/utils/help";
+import { useRouter } from "vue-router";
 
 const { t } = useI18n();
 const total_players = ref(0);
 const agentStore = useAgentStore();
 const agentData = storeToRefs(agentStore).agentData;
-console.log(agentData)
 const authStore = useAuthStore();
 const { copy } = useClipboard({ source: "" });
 const copyHandler = (value: any) => {
-
+    if (!value)return
   copy(value);
 
-  toast.success(`Copied: ${value}`);
+  toast.success(`${t('copied')}: ${value}`);
 };
+const router = useRouter();
 const loading = ref(false);
 const cLoading = ref(false);
 const mode = ref<"this_month" | "today" | "custom">("this_month");
@@ -164,8 +165,8 @@ onMounted(() => {
     <!-- DATE FILTER -->
     <div v-if="mode === 'custom'" class="bg-[#0f172a] p-4 rounded-2xl border border-white/5">
       <div class="flex justify-center items-center gap-2">
-        <DatePicker v-model="startDate" placeholder="From Date" />
-        <DatePicker v-model="endDate" placeholder="To Date" />
+         <DatePicker v-model="startDate" :placeholder="t('start_date')" />
+        <DatePicker v-model="endDate" :placeholder="t('end_date')" />
       </div>
 
       <button class="mt-3 w-full bg-blue-600 py-2 rounded-lg text-sm" @click="fetchCReport">
@@ -180,7 +181,7 @@ onMounted(() => {
 
     <!-- CARDS -->
     <div v-else class="grid grid-cols-2 gap-3 ">
-      <div class="card col-span-2 h-20 flex items-center justify-between px-4">
+      <div class="card col-span-2 h-20 flex items-center justify-between px-4" @click="router.push('/user/agent-center/users')">
         <span class="label text-lg">{{ t('my_team') }}</span>
         <b class="text-emerald-400 text-3xl font-bold">
           {{ total_players || 0 }}
@@ -215,7 +216,7 @@ onMounted(() => {
       <div class="flex flex-col gap-2 items-center card">
 
         <b class="text-yellow-400 text-lg">{{ formatPrice(summary?.winlose ?? 0) }}</b>
-        <span class="label">{{ t('GGR') }}</span>
+        <span class="label">{{ t('ggr') }}</span>
       </div>
 
 

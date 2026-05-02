@@ -7,6 +7,7 @@ import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
 import LanguageBtn from '../languageBtn.vue';
 import { Wallet } from 'lucide-vue-next';
+import UserTopActions from '../userTopActions.vue';
 const route = useRoute();
 const wallet = useWallet();
 const uiStore = useUIStore();
@@ -25,7 +26,7 @@ const goToLoginHandler = () => {
         backdrop-blur-2xl border-white/5
         shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
     >
-      <div class="mx-auto flex max-w-7xl items-center justify-between p-4 h-14">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 h-14">
         <RouterLink
           to="/"
           class="flex items-center"
@@ -40,23 +41,27 @@ const goToLoginHandler = () => {
           <RouterLink class="nav-link" to="/withdraw">{{ t('withdraw') }}</RouterLink>
         </div>
         <div class="flex items-center gap-2 justify-end">
-          <div
-            @click="authStore.fetchUser"
-            v-show="authStore.user"
-            class="flex items-center gap-2 px-2 h-10 bg-gray-800/40 rounded-md border border-white/20 shadow-inner hover:shadow-lg transition-shadow duration-300"
-          ><Wallet class="w-6 h-6 text-yellow-400" />
-            <!-- <img :src="wallet_icon" class="w-8 h-8"/> -->
-            <p class="font-bold  text-md text-yellow-500">
-              {{ formatPrice(wallet.balance || 0) }}
-            </p>
+          <div v-if="authStore.user && authStore.accessToken" class="flex items-center gap-2">
+            <div
+              @click="authStore.fetchUser"
+              v-show="authStore.user"
+              class="flex items-center px-2 h-9 bg-gray-800/40 rounded-md border border-white/20 shadow-inner hover:shadow-lg transition-shadow duration-300"
+            >
+              <!-- <Wallet class="w-6 h-6 text-yellow-400" /> -->
+              <!-- <img :src="wallet_icon" class="w-8 h-8"/> -->
+              <p class="font-bold  text-sm text-white">
+                {{ formatPrice(wallet.balance || 0) }} <span class="text-yellow-400 font-bold">K</span>
+              </p>
+            </div>
+            <UserTopActions/>
           </div>
-          <button
-            @click="goToLoginHandler"
-            v-if="!authStore.user"
-            class="rounded-sm px-4 py-2 text-glow font-medium gold-bg active-button"
-          >
-            {{ t("login") }}
-          </button>
+          <div v-else>
+            <button @click="goToLoginHandler"
+              v-if="!authStore.user"
+              class="rounded-sm px-4 py-2 text-glow font-medium gold-bg active-button">
+                {{ t("login") }}
+            </button>
+          </div>
           <LanguageBtn />
         </div>
       </div>

@@ -27,9 +27,6 @@ const loading = ref(false);
 const { t } = useI18n();
 
 const {prepareGame} = useGameStore()
-onMounted(() => {
-  console.log("🏠 HOME MOUNTED");
-});
 useReturnRefresh(async() => {
     await authStore.init();
 })
@@ -65,7 +62,7 @@ useReturnRefresh(async() => {
         </div>
         <HomeSlider/>
       </div>
-      <div class="w-full space-y-2 px-2" v-show="authStore.user && authStore.accessToken">
+      <div class="w-full space-y-2 px-2" v-show="authStore.user || authStore.accessToken">
         <div class="flex justify-between gap-4 pb-2">
           <button
             @click="router.push('/deposit')"
