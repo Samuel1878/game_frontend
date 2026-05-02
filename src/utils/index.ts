@@ -141,7 +141,7 @@ export const baseURL =  "https://tz99x.com";
 
 // export const BASE_API_URL = "https://api.96betx.com";
 // export const BASE_API_URL = "http://localhost:3000";
-export const BASE_API_URL = "https//uat-api.tz99x.com"
+export const BASE_API_URL = "https://uat-api.tz99x.com"
 // export const hideTawk = () => {
 //   if ((window as any).Tawk_API) {
 //     (window as any).Tawk_API.hideWidget();
