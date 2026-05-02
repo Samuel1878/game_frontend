@@ -25,7 +25,7 @@ const closeDrawer = () => {
         <div class="flex items-center gap-3">
           <div class="relative">
 
-            <img :src="locale==='cn'?selectedGame?.cn_icon_url :selectedGame?.icon_url" alt="game" class="w-40 h-44 rounded-lg object-cover" />
+            <img :src="locale==='cn'?selectedGame?.cn_icon_url?selectedGame?.cn_icon_url :selectedGame?.icon_url :selectedGame?.icon_url" alt="game" class="w-40 h-44 rounded-lg object-cover" />
             <div class="glass absolute inset-0"></div>
 
             <div class="shine absolute inset-0"></div>
@@ -34,7 +34,7 @@ const closeDrawer = () => {
 
           <div class="flex flex-col">
             <span class="text-white text-2xl font-extrabold leading-loose">
-              {{ locale==="cn" ?selectedGame?.cn_name :selectedGame?.name || "Unknown Game" }}
+              {{ locale==="cn" ?selectedGame?.cn_name? selectedGame?.cn_name:selectedGame?.name :selectedGame?.name || "Unknown Game" }}
             </span>
 
             <span class="text-green-400 text-sm">
