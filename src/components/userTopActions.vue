@@ -38,8 +38,8 @@ const changeLang = (path: string|any) => {
                 </div>
                 <p class="text-lg text-white font-bold ">{{ authStore.user?.name }}</p>
             </div>
-            <div class="space-y-4 pl-10 py-4" @click="toast.info(t('this_feature_will_be_available_soon'))">
-                <div class="h-10 flex items-center gap-4">
+            <div class="space-y-4 pl-10 py-4" >
+                <div class="h-10 flex items-center gap-4" @click="toast.info(t('this_feature_will_be_available_soon'))">
                     <SpadeIcon class="w-7 h-7 text-orange-300/50 animate-pulse"/>
                     <p class="text-shadow-lg font-bold text-gray-200">{{ t('bet_history') }}</p>
                 </div>
