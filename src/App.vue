@@ -37,12 +37,21 @@ onMounted(() => {
 
       <div class="w-full relative flex flex-col items-center bg-gray-900">
 
-        
-        <router-view />
-        
+        <div class="min-h-screen w-full bg-black flex justify-center gap-8 flex-col">
+          <p class="text-2xl text-red-600">
+            Maintainance Alert!
+          </p>
+          <p class="text-md text-yellow-300">
+            We are updating the system for the better game play experience. It will be done by tonight 5 PM. 
+          </p>
+          <p class="text-lg text-yellow-50">
+            ပိုမိုကောင်းမွန် သော ဂိမ်းအတွေ့ကြုံနင့် နိုင်ပွဲများ အတွက် ဆာဗာ ပြင်ဆင်နေပါ သဖြင့် ယနေ့ည ၅ နာရီမှသာပြန်လည် ကစားနိုင် မည် ဖြစ်သည်
+          </p>
+        </div>
+        <!-- <router-view />
         <AuthModal />
         <BottomNav />
-        <GameDrawer />
+        <GameDrawer /> -->
        
       </div>
 

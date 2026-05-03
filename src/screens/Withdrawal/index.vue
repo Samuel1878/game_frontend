@@ -49,7 +49,10 @@ const chooseAccount = (data: BankAccount) => {
   withdrawForm.value.method = data.value;
   choosen.value = true
 };
+
 const submit = async () => {
+  // toast.info("")
+  // return
   if (!amount.value) return toast.error("please_enter_amount");
   if (amount.value > walletStore.balance) return toast.error(t("insufficient_balance"))
 const amountNum = Number(amount.value);
