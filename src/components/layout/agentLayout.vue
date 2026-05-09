@@ -1,44 +1,24 @@
 <script setup lang="ts">
 import { RouterView, useRoute, useRouter } from "vue-router";
-import CustomNavBar from "./customNavBar.vue";
-import { openChat } from "@/utils";
-import LanguageBtn from "../languageBtn.vue";
-import { Headset } from "lucide-vue-next";
-import { getAgentDataByIdAPI } from "@/services/agentAPI";
+import { AlignEndHorizontal, FileChartColumn, House, Trophy, Users } from "lucide-vue-next";
 import { useAgentStore } from "@/stores/agentStore";
-import { useAuthStore } from "@/stores/auth";
 import { onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 const agentStore = useAgentStore();
-const authStore = useAuthStore();
 const route = useRoute();
 const router = useRouter();
-const fetchAgentData = async () => {
-  if (!authStore.user?.agent_id) return;
-  agentStore.loading = true;
-  try {
-        const res = await getAgentDataByIdAPI( authStore.user.agent_id);
-        console.log("Agent Data", res)
-        if (res) {
-            agentStore.setAgentData(res);
-        }
-  } catch (err) {
-    console.error(err);
-  } finally {
-    agentStore.loading = false;
-  }
-};
+
 const {t} = useI18n()
 onMounted(() => {
-    fetchAgentData()
+    agentStore.fetchAgentData()
 })
 const tabs = [
-  { label: "home", icon: "🏠", path: "/" },
+  { label: "home", icon: House, path: "/" },
 
-  { label: "tx", icon: "💰", path: "/user/agent-center/transactions" },
-    { label: "overview", icon: "📊", path: "/user/agent-center/overview", center:true },
-  { label: "players", icon: "👥", path: "/user/agent-center/users" },
-  { label: "rewards", icon: "🎁", path: "/user/agent-center/rewards" },
+  { label: "tx", icon: FileChartColumn, path: "/user/agent-center/transactions" },
+    { label: "overview", icon: AlignEndHorizontal, path: "/user/agent-center/overview", center:true },
+  { label: "players", icon: Users, path: "/user/agent-center/users" },
+  { label: "rewards", icon: Trophy, path: "/user/agent-center/rewards" },
 ];
 
 const go = (p: string) => router.push(p);
@@ -62,12 +42,12 @@ const go = (p: string) => router.push(p);
         <!-- CENTER BUTTON -->
         <div v-if="tb.center"
              class="absolute -top-6 bg-yellow-500 w-14 h-14 rounded-full flex items-center justify-center shadow-lg border-4 border-[#0b0f19]">
-          <span class="text-xl">{{ tb.icon }}</span>
+           <component :is="tb.icon || 'div'" class="w-7 h-7 text-gray-950" />
         </div>
 
         <!-- NORMAL BUTTON -->
         <template v-else>
-          <span class="text-lg">{{ tb.icon }}</span>
+          <component :is="tb.icon" class="w-6 h-6" />
         </template>
 
         <span :class="tb.center ? 'mt-6 text-[11px]' : 'text-[11px]'">

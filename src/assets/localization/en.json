@@ -327,6 +327,20 @@
 "bet_history":"Bet History",
     "deposit_success":"Deposit application submitted successfully!",
 
-    "this_feature_will_be_available_soon":"This feature will be available soon"
+    "this_feature_will_be_available_soon":"This feature will be available soon",
+
+    "user_not_found":"User not found",
+    "invalid_password":"Invalid password",
+    "account_banned":"Account banned",
+    "online":"Online",
+    "offline":"Offline",
+    "bet_list":"Bet History",
+    "refund":"Refund",
+    "adjustment":"Adjustment",
+    "win":"Win",
+    "win/lost":"Win/Lost",
+    "stake":"Stake",
+    "game":"Game",
+    "time":"Time"
 
 }

@@ -18,11 +18,12 @@ app.use(Particles, {
 });
 app.use(i18n);
 app.use(pinia);
-app.use(router);
 const auth = useAuthStore();
-
-// 🔥 CRITICAL: restore session before app loads
-await auth.init();
-router.isReady().then(() => {
+async function bootstrap() {
+  await auth.init().finally(()=>{
+  app.use(router);
   app.mount("#app");
-});
+  }); 
+}
+
+bootstrap();

@@ -139,9 +139,9 @@ export const formatRandomRange = (value: number) => {
 
 export const baseURL =  "https://tz99x.com";
 
-export const BASE_API_URL = "https://api.96betx.com"; ////PROD
+// export const BASE_API_URL = "https://api.96betx.com"; ////PROD
 // export const BASE_API_URL = "http://localhost:3000"; ////DEV
-// export const BASE_API_URL = "https://uat-api.tz99x.com" ////UAT
+export const BASE_API_URL = "https://uat-api.tz99x.com" ////UAT
 // export const hideTawk = () => {
 //   if ((window as any).Tawk_API) {
 //     (window as any).Tawk_API.hideWidget();
@@ -169,4 +169,19 @@ export const showTawk = () => {
 
 export const goFacebook = () => {
   window.open('https://facebook.com', '_blank');
+};
+
+export const toISOStringSafe = (
+  value?: string | Date
+) => {
+
+  if (!value) return "";
+
+  const date = new Date(value);
+
+  if (isNaN(date.getTime())) {
+    return "";
+  }
+
+  return date.toISOString();
 };

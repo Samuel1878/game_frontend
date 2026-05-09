@@ -2,7 +2,7 @@
 import { getDepositById } from "@/services/transactionAPI";
 import { useAuthStore } from "@/stores/auth";
 import type { depositFormData } from "@/utils/types";
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, onMounted, watch } from "vue";
 import moment from "moment";
 import DepositDetail from "@/components/depositDetail.vue";
 import { useI18n } from "vue-i18n";
@@ -86,7 +86,19 @@ const formatAmount = (a: number) =>
         </button> -->
     </div>
 
-    <div v-if="loading">{{ t('loading') }}...</div>
+    <div v-if="loading" class="p-4 space-y-3">
+      <div v-for="i in 6" :key="i" class="animate-pulse flex justify-between p-4 bg-[#0f172a] rounded-xl">
+        <div class="space-y-2">
+          <div class="h-3 w-24 bg-white/10 rounded"></div>
+          <div class="h-2 w-16 bg-white/10 rounded"></div>
+        </div>
+
+        <div class="space-y-2 text-right">
+          <div class="h-3 w-20 bg-white/10 rounded"></div>
+          <div class="h-2 w-12 bg-white/10 rounded"></div>
+        </div>
+      </div>
+    </div>
     <div v-else-if="!deposits.length" class="flex flex-col items-center justify-center mt-20 text-gray-400">
       <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4">
         <Wallet2Icon class="w-8 h-8 opacity-50" />

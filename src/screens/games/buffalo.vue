@@ -2,23 +2,13 @@
 import Footer from '@/components/footer.vue';
 import GameOptions from '@/components/layout/gameOptions.vue';
 import { topBuffaloGames } from '@/consts/games';
-import { getGamesByProviderAPI } from '@/services/gameAPI';
 import { useAuthStore } from '@/stores/auth';
 import { useGameStore } from '@/stores/game';
 import { buffalo } from '@/utils';
-import type {  gameType } from '@/utils/types';
 import { useReturnRefresh } from '@/utils/useReturn';
-import { onMounted, ref } from 'vue';
 
 import { useI18n } from 'vue-i18n';
 const { t ,locale} = useI18n();
-const loading = ref(false);
-const games = ref<gameType[] | null>(null);
-// const providerId = ref<number>(0);
-const limit = 18;
-const offset = ref(0);
-const hasMore = ref(true);
-const isLoadingMore = ref(false);
 const authStore = useAuthStore();
 const {prepareGame} = useGameStore()
 // const fetchGames = async (reset = false) => {

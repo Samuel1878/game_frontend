@@ -79,7 +79,7 @@ const indicatorStyle = computed(() => {
             class="flex flex-col items-center justify-center gap-1 text-xs transition"
             :class="route.path === item.path
               ? 'text-yellow-500'
-              : 'text-gray-500 hover:text-white'"
+              : 'text-gray-300 hover:text-white'"
           >
             <component :is="item.icon || 'div'" class="w-6 h-6" />
             <span class="font-medium">{{ t(item.name) }}</span>

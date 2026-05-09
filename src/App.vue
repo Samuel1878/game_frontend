@@ -14,10 +14,9 @@ const referralStore = useReferralStore();
 const route = useRoute()
 onMounted(() => {
   const refFromUrl = route.query.rid as string;
-
+  console.log(refFromUrl)
   if (refFromUrl && /^[A-Z][0-9]{3}$/.test(refFromUrl)) {
     referralStore.setReferral(refFromUrl);
-
     console.log("[REFERRAL CAPTURED]:", refFromUrl);
   }
 });
@@ -37,7 +36,7 @@ onMounted(() => {
 
       <div class="w-full relative flex flex-col items-center bg-gray-900">
 
-        <div class="min-h-screen w-full bg-black flex justify-center gap-8 flex-col">
+        <!-- <div class="min-h-screen w-full bg-black flex justify-center gap-8 flex-col">
           <p class="text-2xl text-red-600">
             Maintainance Alert!
           </p>
@@ -47,11 +46,11 @@ onMounted(() => {
           <p class="text-lg text-yellow-50">
             ပိုမိုကောင်းမွန် သော ဂိမ်းအတွေ့ကြုံနင့် နိုင်ပွဲများ အတွက် ဆာဗာ ပြင်ဆင်နေပါ သဖြင့် ယနေ့ည ၅ နာရီမှသာပြန်လည် ကစားနိုင် မည် ဖြစ်သည်
           </p>
-        </div>
-        <!-- <router-view />
+        </div> -->
+        <router-view />
         <AuthModal />
         <BottomNav />
-        <GameDrawer /> -->
+        <GameDrawer />
        
       </div>
 

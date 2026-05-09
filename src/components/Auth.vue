@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 import {
   InputGroup,
   InputGroupAddon,
@@ -26,7 +26,6 @@ import { Spinner } from "./ui/spinner";
 import { useI18n } from "vue-i18n";
 import { toast } from "vue-sonner";
 import DialogDescription from "./ui/dialog/DialogDescription.vue";
-import { hideTawk, showTawk } from "@/utils";
 const auth = useAuthStore();
 const ui = useUIStore();
 const router = useRouter();
@@ -36,7 +35,7 @@ const { authModalOpen, redirectAfterAuth} = storeToRefs(ui);
 const isLogin = ref(true);
 const errorMessage = ref("");
 const regex = /^[A-Za-z0-9_]{6,40}$/;
-const referral_regex = /^[A-Z][0-9]{3}$/;
+// const referral_regex = /^[A-Z][0-9]{3}$/;
 const form = ref({
   username: "",
   phone: "",
@@ -49,10 +48,7 @@ const showPassword = ref(false);
 
 
 const referralStore = useReferralStore();
-const { referralCode } = storeToRefs(referralStore);
-const validReferral = referral_regex.test(referralCode.value)
-  ? referralCode.value
-  : null;
+const { referralCode , fromRid} = storeToRefs(referralStore);
 onMounted(() => {
   if (auth.accessToken) {
     ui.closeAuthModal();
@@ -116,8 +112,9 @@ const validateForm = () => {
   return null;
 };
 const submit = async () => {
+   console.log(referralCode.value)
   errorMessage.value = "";
-  console.log(referralCode.value)
+ 
   const validationError = validateForm();
 
   if (validationError) {
@@ -297,7 +294,7 @@ const submit = async () => {
           <InputGroupAddon>
             <Share2Icon />
           </InputGroupAddon>
-          <InputGroupInput class="w-full" v-model="referralCode"  :placeholder="t('referral_placeholder')" />
+          <InputGroupInput class="w-full" :disabled="fromRid" v-model="referralCode"  :placeholder="t('referral_placeholder')" />
           <InputGroupAddon align="inline-end">
             <InputGroupText class="text-gray-100"></InputGroupText>
           </InputGroupAddon>

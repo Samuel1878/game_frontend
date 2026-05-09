@@ -172,7 +172,7 @@
   "my_team": "我的团队",
   "my_performance": "我的业绩",
   "my_team_members": "我的团队成员",
-  "total_deposit": "总存款",
+  "total_deposit": "总充值",
   "total_withdraw": "总提现",
   "total_rebate": "总返佣",
   "rebate": "返佣",
@@ -320,7 +320,22 @@
   "choose_account":"选择收款账户。",
   "last_5_digit_must_be_filed":"填写交易号的最后5位数字",
   "bet_history":"投注历史",
-  "this_feature_will_be_available_soon":"此功能即将上线。"
+  "this_feature_will_be_available_soon":"此功能即将上线。",
+
+    "user_not_found":"用户未找到",
+    "invalid_password":"密码无效",
+    "account_banned":"账号已被封禁",
+    "online":"在线",
+    "offline":"离线",
+     "bet_list":"投注清单",
+    "refund":"退款",
+    "adjustment":"调整",
+    "win":"赢",
+    "win/lost":"盈亏",
+    "stake":"投注金额",
+    "game":"游戏",
+    "time":"时间"
+    
 
 
 

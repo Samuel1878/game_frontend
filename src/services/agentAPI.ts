@@ -1,4 +1,4 @@
-import type { CReportReqParams, transactionsParamsType } from "@/utils/types";
+import type { transactionsParamsType } from "@/utils/types";
 import api from "./api"
 export const getAgentDataByIdAPI = async (id:number) => {
     try {
@@ -29,7 +29,7 @@ export const getAllTransactionsAPI = async (params:transactionsParamsType)=> {
     }
 };
 
-export const getAgentTransactionSummaryAPI = async (agent_id:number, params:{mode:string, from?:string, to?:string})=>{
+export const getAgentTransactionSummaryAPI = async (agent_id:number, params:{mode:string, startDate?:string, portfolio?:string,endDate?:string})=>{
   try {
     const response = await api.get(`/agent/transaction-summary/${agent_id}`, {params});
     if (response.status===200)return response.data;
@@ -38,9 +38,9 @@ export const getAgentTransactionSummaryAPI = async (agent_id:number, params:{mod
     return null
   }
 }
-export const getAgentTransactionSummaryUidAPI = async (agent_id:number, params:{mode:string, from?:string, to?:string, user_id?:number})=>{
+export const getAgentTransactionSummaryUidAPI = async (user_id:number, params:{mode:string, startDate?:string, portfolio?:string,endDate?:string})=>{
   try {
-    const response = await api.get(`/agent/transaction-summary-by-uid/${agent_id}`, {params});
+    const response = await api.get(`/agent/transaction-summary-by-uid/${user_id}`, {params});
     if (response.status===200)return response.data;
     return null
   } catch (error) {
@@ -57,13 +57,13 @@ export const getTotalPlayers = async (agent_id:number) => {
   }
 }
 
-export const getCutomerReportByModifyAPI = async (data:CReportReqParams)=>{
-  try {
-    const response = await api.post("/agent/get-report-by-modify-date", data);
-    if (response.status===200) return response.data;
-    return null
-  } catch (error) {
-    return null
-  }
-}
+// export const getCutomerReportByModifyAPI = async (data:CReportReqParams)=>{
+//   try {
+//     const response = await api.post("/agent/get-report-by-modify-date", data);
+//     if (response.status===200) return response.data;
+//     return null
+//   } catch (error) {
+//     return null
+//   }
+// }
 

@@ -7,11 +7,11 @@ const refreshClient = axios.create({
 });
 
 export const refreshAPI = async () => {
-    // try {
+    try {
     const res = await refreshClient.post("/auth/refresh");
     return res.data;
-    // } catch (error) {
-    //     return null
-    // }
+    } catch (error) {
+        return null
+    }
  
 };

@@ -1,12 +1,6 @@
 <script setup lang="ts">
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-} from '@/components/ui/select'
 import router from '@/router';
-import { BanknoteArrowUp, SpadeIcon, User2, Wallet } from 'lucide-vue-next';
+import { SpadeIcon } from 'lucide-vue-next';
 
 import { useI18n } from "vue-i18n";
 import Popover from './ui/popover/Popover.vue';
@@ -14,13 +8,11 @@ import PopoverTrigger from './ui/popover/PopoverTrigger.vue';
 import PopoverContent from './ui/popover/PopoverContent.vue';
 import { useAuthStore } from '@/stores/auth';
 import { depositHistoryIcon, transaction, withdrawHistoryIcon } from '@/utils';
-import { toast } from 'vue-sonner';
+
 const {t} = useI18n();
-const { locale } = useI18n();
+
 const authStore = useAuthStore()
-const changeLang = (path: string|any) => {
-    router.push(path)
-};
+
 
 </script>
 
@@ -39,9 +31,9 @@ const changeLang = (path: string|any) => {
                 <p class="text-lg text-white font-bold ">{{ authStore.user?.name }}</p>
             </div>
             <div class="space-y-4 pl-10 py-4" >
-                <div class="h-10 flex items-center gap-4" @click="toast.info(t('this_feature_will_be_available_soon'))">
-                    <SpadeIcon class="w-7 h-7 text-orange-300/50 animate-pulse"/>
-                    <p class="text-shadow-lg font-bold text-gray-200">{{ t('bet_history') }}</p>
+                <div class="h-10 flex items-center gap-4" @click="router.push('/user/betlist')">
+                    <SpadeIcon class="w-7 h-7 text-orange-300/50"/>
+                    <p class="text-shadow-lg font-bold text-gray-200">{{ t('bet_list') }}</p>
                 </div>
                <div class="h-10 flex items-center gap-2" @click="router.push('/user/transactions')">
                     <img :src="transaction" class="w-7 h-7"/>

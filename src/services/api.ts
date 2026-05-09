@@ -1,22 +1,3 @@
-// import { useAuthStore } from "@/stores/auth";
-// // import { useUIStore } from "@/stores/ui";
-// import axios from "axios";
-
-// const api = axios.create({
-//   // baseURL: "https://api.96betx.com/api/v1",
-//   baseURL:"http://localhost:3000/api/v1",
-//   withCredentials:true,
-// })
-// api.interceptors.request.use((config) => {
-//   const auth = useAuthStore();
-//   console.log("Attaching token to request:", auth.accessToken);
-//   if (auth.accessToken) {
-//     config.headers.Authorization = `Bearer ${auth.accessToken}`;
-//   }
-//   return config;
-// });
-
-// export default api;
 
 import axios from "axios";
 import { useAuthStore } from "@/stores/auth";
@@ -41,7 +22,7 @@ api.interceptors.request.use((config) => {
 });
 
 
-// 🔥 Refresh control
+let isLoggingOut = false;
 let isRefreshing = false;
 let queue: any[] = [];
 
@@ -49,7 +30,15 @@ const processQueue = (token: string | null) => {
   queue.forEach((cb) => cb(token));
   queue = [];
 };
+function triggerLogout() {
+  if (isLoggingOut) return;
+  isLoggingOut = true;
 
+  const auth = useAuthStore();
+
+  auth.logout();
+  router.push('/')
+}
 
 // 🔹 Response interceptor
 api.interceptors.response.use(
@@ -61,12 +50,14 @@ api.interceptors.response.use(
     const status = error.response?.status;
     const code = error.response?.data?.code;
 
-    // ❌ If refresh endpoint itself fails → logout
     if (originalRequest.url?.includes("/auth/refresh")) {
-      auth.logout();
+      triggerLogout()
       return Promise.reject(error);
     }
-
+    if (status === 401 && code !== "TOKEN_EXPIRED") {
+      triggerLogout();
+      return Promise.reject(error);
+    }
     // ✅ Only handle expired token
     if (
       status === 401 &&
@@ -77,8 +68,13 @@ api.interceptors.response.use(
 
       // 🟡 If already refreshing → queue request
       if (isRefreshing) {
-        return new Promise((resolve) => {
-          queue.push((token: string) => {
+          return new Promise((resolve, reject) => {
+          queue.push((token: string | null) => {
+            if (!token) {
+              reject(error);
+              return;
+            }
+
             originalRequest.headers.Authorization = `Bearer ${token}`;
             resolve(api(originalRequest));
           });

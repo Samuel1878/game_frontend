@@ -26,6 +26,7 @@ import DepositHistory from "./screens/transaction/depositHistory.vue";
 import WithdrawHistory from "./screens/transaction/withdrawHistory.vue";
 import GameView from "./gameView.vue";
 import Faq from "./screens/faq.vue";
+import BetList from "./screens/betList.vue";
 
 
 
@@ -131,6 +132,11 @@ const routes = [
   {
     path: "/user/bank-accounts",
     component: BankAccount,
+    meta: { hideNavbar: true, hideTopNav:true,requiresAuth: true  },
+  },
+    {
+    path: "/user/betlist",
+    component: BetList,
     meta: { hideNavbar: true, hideTopNav:true,requiresAuth: true  },
   },
      {

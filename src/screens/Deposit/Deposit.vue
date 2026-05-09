@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { amounts, paymentMethod, paymentMethodDeposit, usdtRateToMMK } from "@/consts";
+import { amounts, paymentMethod, usdtRateToMMK } from "@/consts";
 import { ref } from "vue";
 import {
   InputGroup,

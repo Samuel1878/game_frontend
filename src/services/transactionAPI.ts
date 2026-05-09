@@ -97,3 +97,20 @@ export const getAllTransactionsByUserId = async (param:transactionsParamsType) =
         return null
     }
 };
+
+export const getBetListAPI = async (params: {
+  username?: string;
+  startDate?: string;
+  endDate?: string;
+  portfolio?:string;
+}) => {
+
+  const response = await api.get(
+    "/user/get-bet-list",
+    {
+      params,
+    }
+  );
+
+  return response.data;
+};

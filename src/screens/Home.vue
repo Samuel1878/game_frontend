@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import {  ref } from "vue";
 import { useAuthStore } from "@/stores/auth";
 import { footer_images } from "@/consts";
 import { hotGames, topBuffaloGames, topCasinoGames, topFishGames, topSlotGames} from "@/consts/games"

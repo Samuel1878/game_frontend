@@ -58,6 +58,8 @@ export interface userInfo {
   created_at:string;
   uid:string;
   agent_id?:number | null;
+  is_oneline?:boolean;
+  last_seen?:string
   
 }
 export interface userInfoResponse {
@@ -65,20 +67,20 @@ export interface userInfoResponse {
   token:string;
   url:string | null;
 }   
-export interface supabaseUserRes {
-  name?:string;
-  phone?:string | null;
-  email?:string | null;
-  password?:string;
-  status:boolean;
-  id:number;
-  token?:string| null;
-  balance?:number;
-  role?:string | null;
-  level?:number ;
-  created_at:string;
-  uid:string
-}
+// export interface supabaseUserRes {
+//   name?:string;
+//   phone?:string | null;
+//   email?:string | null;
+//   password?:string;
+//   status:boolean;
+//   id:number;
+//   token?:string| null;
+//   balance?:number;
+//   role?:string | null;
+//   level?:number ;
+//   created_at:string;
+//   uid:string
+// }
 export interface depositFormData {    
   id?:number;
   inv_id?:string;
@@ -251,3 +253,27 @@ export type ReportSummaryType = {
   totalDeposit: number;
   totalWithdrawal: number;
 };
+export interface BetListRecord {
+  mainBetRef: string | null;
+  gamePeriodId: string | null;
+  gameRoundId: string | null;
+  gameType: string | null;
+  turnoverStake: number;
+  orderDetail: string | null;
+  gameResult: string | null;
+  gameId: number;
+  gpId: number;
+  isGameProviderPromotion: boolean;
+  orderTime: string;
+  modifyDate: string;
+  settleTime: string;
+  winLostDate: string;
+  refNo: string;
+  username: string;
+  currency: string;
+  stake: number;
+  winLost: number;
+  status: string;
+  topDownline: string | null;
+  newGameType: number;
+}

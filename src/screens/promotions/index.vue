@@ -35,8 +35,8 @@ const openDialog = (id: number) => {
     open.value = true;
     view.value = id
 }
-import { onMounted } from "vue";
-import { X, XCircle } from 'lucide-vue-next';
+
+import { X } from 'lucide-vue-next';
 
 // onMounted(() => {
 //   setTimeout(() => {

@@ -17,15 +17,16 @@ onMounted(() => {
     router.replace("/");
   }
 });
-onUnmounted(() => {
+onUnmounted(async() => {
+  // await authStore.init()
   showTawk();
 });
 const goBack = () => {
-    authStore.fetchUser();
+    authStore.init()
     router.back()
 }
 const goHome = () => {
-    authStore.fetchUser();
+    authStore.init()
     router.replace('/')
 }
 </script>

@@ -317,7 +317,21 @@
     "deposit_success":"အောင်မြင်စွာ တင်သွင်းပြီးပါပြီ။",
     "last_5_digit_must_be_filed":"နောက်ဆုံးဂဏန်း ၅ လုံးကို ဖြည့်ပါ",
     "bet_history":"လောင်းကစားမှတ်တမ်း",
-      "this_feature_will_be_available_soon":"ဤထုတ်ကုန်ကို မကြာမီ ရရှိနိုင်ပါသည်။"
+      "this_feature_will_be_available_soon":"ဤထုတ်ကုန်ကို မကြာမီ ရရှိနိုင်ပါသည်။",
+        "user_not_found":"အသုံးပြုသူကို မတွေ့ပါ",
+    "invalid_password":"စကားဝှက် မှားယွင်းနေသည်",
+    "account_banned":"အကောင့် ပိတ်ပင်ခံရ",
+    "online":"Online",
+    "offline":"Offline",
+     "bet_list":"လောင်းကစားစာရင်း",
+      "refund":"Refund",
+    "adjustment":"Adjustment",
+    "win":"Win",
+    "win/lost":"Win/Lost",
+    "stake":"Stake",
+    "game":"Game",
+    "time":"Time"
+    
 
 
 }

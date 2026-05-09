@@ -3,6 +3,7 @@ import { MembershipCenter, UserAction } from "@/consts";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
 import { useUIStore } from "@/stores/ui";
+
 import {
   ChevronRight,
   PhoneIcon,
@@ -12,6 +13,9 @@ import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 const authStore = useAuthStore();
 const uiStore = useUIStore()
+
+
+
 </script>
 
 <template>
@@ -137,8 +141,7 @@ const uiStore = useUIStore()
         <div class="grid grid-cols-4 p-2 my-4 mb-20 gap-4">
 
           <div v-for="value in MembershipCenter" class="cursor-pointer my-2 flex flex-col items-center gap-2"
-
-            @click="value.action">
+            @click=" value.action">
             <div
               class="h-14 w-14 flex flex-col rounded-full justify-center items-center bg-yellow-400/10 bg-linear-to-br from-yellow/5 via-yellow/10 to-yellow/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
               <img v-if="value.image" :src="value.image" class="w-10 h-10" />

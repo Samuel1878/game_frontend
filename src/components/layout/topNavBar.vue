@@ -6,7 +6,7 @@ import { formatPrice } from '@/utils';
 import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
 import LanguageBtn from '../languageBtn.vue';
-import { Wallet } from 'lucide-vue-next';
+
 import UserTopActions from '../userTopActions.vue';
 const route = useRoute();
 const wallet = useWallet();
@@ -41,7 +41,7 @@ const goToLoginHandler = () => {
           <RouterLink class="nav-link" to="/withdraw">{{ t('withdraw') }}</RouterLink>
         </div>
         <div class="flex items-center gap-2 justify-end">
-          <div v-if="authStore.user && authStore.accessToken" class="flex items-center gap-2">
+          <div v-if="authStore.user || authStore.accessToken" class="flex items-center gap-2">
             <div
               @click="authStore.fetchUser"
               v-show="authStore.user"
@@ -57,7 +57,7 @@ const goToLoginHandler = () => {
           </div>
           <div v-else>
             <button @click="goToLoginHandler"
-              v-if="!authStore.user"
+             
               class="rounded-sm px-4 py-2 text-glow font-medium gold-bg active-button">
                 {{ t("login") }}
             </button>

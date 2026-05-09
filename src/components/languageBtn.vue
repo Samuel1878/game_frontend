@@ -6,7 +6,6 @@ import {
   SelectTrigger,
 } from '@/components/ui/select'
 import { cn_flag, en_flag, mm_flag } from '@/utils';
-import { Globe, Globe2Icon } from 'lucide-vue-next';
 
 import { useI18n } from "vue-i18n";
 
