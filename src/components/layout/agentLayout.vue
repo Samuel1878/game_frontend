@@ -47,7 +47,7 @@ const go = (p: string) => router.push(p);
 
         <!-- NORMAL BUTTON -->
         <template v-else>
-          <component :is="tb.icon" class="w-6 h-6" />
+          <component :is="tb.icon || 'div'" class="w-6 h-6" />
         </template>
 
         <span :class="tb.center ? 'mt-6 text-[11px]' : 'text-[11px]'">
