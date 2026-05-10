@@ -150,6 +150,26 @@ watch([page, transactionType], fetchTransaction);
         >
           {{ t("adjustment") }}
         </button>
+        <button
+          @click="transactionType = 'rebate'"
+          class="filter-btn"
+          :class="
+            transactionType === 'rebate' &&
+            'bg-red-500/20 text-red-400 border-red-500/30 active-filter'
+          "
+        >
+          {{ t("rebate") }}
+        </button>
+        <!-- <button
+          @click="transactionType = 'dividend'"
+          class="filter-btn"
+          :class="
+            transactionType === 'dividend' &&
+            'bg-red-500/20 text-red-400 border-red-500/30 active-filter'
+          "
+        >
+          {{ t("dividend") }}
+        </button> -->
       </div>
     </div>
 

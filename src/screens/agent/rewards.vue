@@ -23,7 +23,7 @@ const limit = 10;
 const totalPages = ref(1);
 const totalItems = ref(0);
 
-const transactionType = ref("bonus");
+const transactionType = ref("dividend");
 const startDate = ref();
 const endDate = ref();
 
@@ -35,7 +35,7 @@ const fetchTransaction = async () => {
   const res = await getAllTransactionsByUserId({
     page: page.value,
     limit,
-    type: transactionType.value || "all",
+    type: transactionType.value || "dividend",
     startDate: startDate.value,
     endDate: endDate.value,
     user_id: authStore.user.id,
