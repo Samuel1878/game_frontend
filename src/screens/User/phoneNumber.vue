@@ -1,7 +1,7 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { ref } from "vue";
 import { bindPhone, requestOTP, verifyOTP } from "@/services/authAPI";
-import ApplyBreadCrumb from "@/components/breadcrumb/index.vue"
+
 import { useI18n } from "vue-i18n";
 import InputGroup from "@/components/ui/input-group/InputGroup.vue";
 import InputGroupAddon from "@/components/ui/input-group/InputGroupAddon.vue";
@@ -95,9 +95,7 @@ const breadcrumbs = [
             </InputOTP>
           </div>
           <div class="flex justify-between items-center">
-            <!-- <Button>
-
-            </Button> -->
+          
           </div>
         </div>
         
@@ -125,4 +123,4 @@ const breadcrumbs = [
     </div>
 
   </main>
-</template>
+</template> -->
