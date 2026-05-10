@@ -11,7 +11,6 @@ import Policy from "./screens/policy.vue";
 import Responsible from "./screens/responsible.vue";
 import Transactions from "./screens/transaction/transactions.vue";
 import BankAccount from "./screens/User/bankAccount.vue";
-import PhoneNumber from "./screens/User/phoneNumber.vue";
 import Slots from "./screens/games/slots.vue";
 import Buffalo from "./screens/games/buffalo.vue";
 import Download from "./screens/download.vue";
@@ -93,11 +92,6 @@ const routes = [
     path: "/user/profile",
     meta: { requiresAuth: false },
     component: Profile,
-  },
-  {
-    path: "/user/mobile-phone",
-    component: PhoneNumber,
-    meta: { hideNavbar: true },
   },
   {
     path: "/user/transactions",
