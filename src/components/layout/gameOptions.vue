@@ -19,8 +19,8 @@ const gotoPath = (path:string) => {
             <div v-for="option in gameOptions" class="cursor-pointer relative px-6 gap-2 rounded-full flex items-center justify-center flex-nowrap" 
             :class="props.current_page===option.label?'bg-gray-500/20':'bg-none'"
              @click="gotoPath(option.path)" :key="option.id">
-                    <img :src="option.image" class="w-10 h-10"/>
-                    <p class="text-sm text-white text-nowrap">{{t(option.label) }}</p>
+                    <img :src="option.image" class="w-8 h-8"/>
+                    <p class="text-xs text-white text-nowrap">{{t(option.label) }}</p>
            
             </div>
         </div>

@@ -64,7 +64,7 @@ watch([page, transactionType], fetchTransaction);
   <div class="space-y-4 p-4 w-full min-h-screen">
     <!-- Header -->
     <div class="flex items-center justify-between">
-      <h1 class="text-xl font-semibold tracking-wide">
+      <h1 class="text-xl font-semibold tracking-wide text-gray-100">
         {{ t("transactions") }}
       </h1>
 
@@ -209,7 +209,7 @@ watch([page, transactionType], fetchTransaction);
             />
           </div>
 
-          <div class="flex flex-col">
+          <div class="flex flex-col text-gray-100">
             <span class="text-sm font-medium">
               {{ tx.txn_id }}
             </span>

@@ -91,6 +91,7 @@ const submit = async () => {
           <InputGroupInput
             v-model="oldPassword"
             type="password"
+            class="text-white"
             :placeholder="t('enter_old_password')"
           />
         </InputGroup>
@@ -106,6 +107,7 @@ const submit = async () => {
           <InputGroupInput
             v-model="newPassword"
             type="password"
+            class="text-white"
             :placeholder="t('enter_new_password')"
           />
         </InputGroup>
@@ -119,6 +121,7 @@ const submit = async () => {
             <LockIcon class="w-4 h-4" />
           </InputGroupAddon>
           <InputGroupInput
+            class="text-white"
             v-model="confirmPassword"
             type="password"
             :placeholder="t('confirm_new_password')"
@@ -133,10 +136,7 @@ const submit = async () => {
         @click="submit"
         :disabled="loading"
         class="w-full h-12 rounded-xl
-        bg-linear-to-r from-sky-400/20 to-sky-600/20
-        border border-sky-500/30
-        text-sky-400 font-semibold
-        hover:from-sky-500/30 hover:to-sky-600/30
+        gold-bg text-glow
         active:scale-[0.98] transition"
       >
         {{ loading ? t("loading") : t("change_password") }}

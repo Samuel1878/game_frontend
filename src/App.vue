@@ -7,36 +7,44 @@ import { onMounted } from "vue";
 import TopNavBar from "./components/layout/topNavBar.vue";
 import GameDrawer from "./components/gameDrawer.vue";
 
-import SnowParticle from "@/components/particles.vue";
 import { useReferralStore } from "./stores/referralStore";
 import { useRoute } from "vue-router";
+import SideBar from "./components/sideBar.vue";
+import SidebarProvider from "./components/ui/sidebar/SidebarProvider.vue";
+import SidebarInset from "./components/ui/sidebar/SidebarInset.vue";
 const referralStore = useReferralStore();
-const route = useRoute()
+const route = useRoute();
 onMounted(() => {
   const refFromUrl = route.query.rid as string;
-  console.log(refFromUrl)
+  console.log(refFromUrl);
   if (refFromUrl && /^[A-Z][0-9]{3}$/.test(refFromUrl)) {
     referralStore.setReferral(refFromUrl);
     console.log("[REFERRAL CAPTURED]:", refFromUrl);
   }
 });
-
 </script>
 
 <template>
-  <main class="min-h-screen w-full relative bg-gray-950 text-gray-100 overflow-hidden">
-
-    <!-- BACKGROUND LAYER -->
-    <SnowParticle class="absolute inset-0 z-0" >
-   
-    <!-- UI LAYER -->
-    <div class="relative z-10">
-      
-      <TopNavBar />
-
-      <div class="w-full relative flex flex-col items-center bg-gray-900">
-
-        <!-- <div class="min-h-screen w-full bg-black flex justify-center gap-8 flex-col">
+  <!-- Force the sidebar to be open by default with :default-open="true" -->
+  <SidebarProvider :default-open="true">
+    <div class="flex min-h-screen w-full bg-gray-950">
+      <SideBar />
+      <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
+        
+        <TopNavBar />
+        <div class="relative flex-1 flex flex-col items-center w-full">
+          <router-view />
+          
+          <AuthModal />
+          <GameDrawer />
+        </div>
+        <BottomNav class="md:hidden" />
+      </SidebarInset>
+    </div>
+    <Toaster position="top-left" richColors />
+  </SidebarProvider>
+</template>
+<!-- <div class="min-h-screen w-full bg-black flex justify-center gap-8 flex-col">
           <p class="text-2xl text-red-600">
             Maintainance Alert!
           </p>
@@ -47,17 +55,3 @@ onMounted(() => {
             ပိုမိုကောင်းမွန် သော ဂိမ်းအတွေ့ကြုံနင့် နိုင်ပွဲများ အတွက် ဆာဗာ ပြင်ဆင်နေပါ သဖြင့် ယနေ့ည ၅ နာရီမှသာပြန်လည် ကစားနိုင် မည် ဖြစ်သည်
           </p>
         </div> -->
-        <router-view />
-        <AuthModal />
-        <BottomNav />
-        <GameDrawer />
-       
-      </div>
-
-    </div>
-
- </SnowParticle>
-    <Toaster position="top-left" richColors />
-  </main>
-</template>
-

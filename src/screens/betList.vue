@@ -25,7 +25,7 @@ onMounted(() => {
       <LanguageBtn />
     </template>
   </CustomNavBar>
-  <div class="w-full bg-gray-950 p-2">
+  <div class="w-full bg-gray-900 p-2">
 
 
   <div class="w-full glass-bg p-2 rounded-lg">
@@ -58,7 +58,7 @@ onMounted(() => {
     <!-- CUSTOM DATE -->
     <div
       v-if="mode === 'custom'"
-      class="rounded-2xl border border-white/5 bg-[#0f172a] p-4"
+      class="rounded-2xl border border-white/5 bg-[#0f172a] p-4 mt-2"
     >
       <div class="flex gap-2">
         <DatePicker v-model="startDate" placeholder="From Date" />

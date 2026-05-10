@@ -31,8 +31,8 @@ const ui = useUIStore();
 const router = useRouter();
 const checked = ref(true);
 const loadingButton = ref(false);
-const { authModalOpen, redirectAfterAuth} = storeToRefs(ui);
-const isLogin = ref(true);
+const { authModalOpen, redirectAfterAuth, isLogin} = storeToRefs(ui);
+// const isLogin = ref(true);
 const errorMessage = ref("");
 const regex = /^[A-Za-z0-9_]{6,40}$/;
 // const referral_regex = /^[A-Z][0-9]{3}$/;
@@ -45,20 +45,13 @@ const form = ref({
 const loginName = ref("");
 const { t } = useI18n();
 const showPassword = ref(false);
-
-
 const referralStore = useReferralStore();
 const { referralCode , fromRid} = storeToRefs(referralStore);
 onMounted(() => {
   if (auth.accessToken) {
     ui.closeAuthModal();
   }
-  // hideTawk()
 });
-// onUnmounted(()=>{
-//   showTawk()
-// })
-
 const validateForm = () => {
   // LOGIN
   if (isLogin.value) {
@@ -130,18 +123,12 @@ const submit = async () => {
         phone: form.value.phone,
       },
     });
-
-    // optional UI feedback
     toast.error(t(validationError));
-
     return;
   }
-
   loadingButton.value = true;
-
   try {
     let response;
-
     if (isLogin.value) {
       response = await auth.login({
         name: loginName.value,
@@ -156,20 +143,16 @@ const submit = async () => {
         referral_code: referralCode.value,
       });
     }
-
     console.log("[AUTH RESPONSE]:", response);
-
     if (response?.status === 200) {
       toast.success(t(response.message));
       ui.closeAuthModal();
-
       if (redirectAfterAuth.value) {
         router.push(redirectAfterAuth.value);
       }
     } else {
       errorMessage.value =
         response?.message || "invalid_username_password";
-
       console.warn("[AUTH FAILED]:", {
         message: t(errorMessage.value),
         raw: response,
@@ -177,7 +160,6 @@ const submit = async () => {
     }
   } catch (err: any) {
     errorMessage.value = err?.message || "something_went_wrong";
-
     console.error("[AUTH ERROR]:", {
       message: t(errorMessage.value),
       error: err,

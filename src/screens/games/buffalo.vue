@@ -1,121 +1,122 @@
 <script setup lang="ts">
-import Footer from '@/components/footer.vue';
-import GameOptions from '@/components/layout/gameOptions.vue';
-import { topBuffaloGames } from '@/consts/games';
-import { useAuthStore } from '@/stores/auth';
-import { useGameStore } from '@/stores/game';
-import { buffalo } from '@/utils';
-import { useReturnRefresh } from '@/utils/useReturn';
+import Footer from "@/components/footer.vue";
+import GameOptions from "@/components/layout/gameOptions.vue";
+import { topBuffaloGames } from "@/consts/games";
+import { useFakeGameStats } from "@/lib/gamStatHook";
+import { useAuthStore } from "@/stores/auth";
+import { useGameStore } from "@/stores/game";
+import { buffalo, slot } from "@/utils";
+import { useReturnRefresh } from "@/utils/useReturn";
+import { Diamond , Users} from "lucide-vue-next";
+import { nextTick, onMounted } from "vue";
 
-import { useI18n } from 'vue-i18n';
-const { t ,locale} = useI18n();
+import { useI18n } from "vue-i18n";
+const { t, locale } = useI18n();
 const authStore = useAuthStore();
-const {prepareGame} = useGameStore()
-// const fetchGames = async (reset = false) => {
+const { prepareGame } = useGameStore();
 
-//     if (reset) {
-//         offset.value = 0;
-//         hasMore.value = true;
-//     }
+const { stats: gameStats, startLive } = useFakeGameStats();
 
-//     loading.value = reset;
-//     isLoadingMore.value = !reset;
-
-//     try {
-//         const res = await getGamesByProviderAPI({
-//             providerId: 1094,
-//             newGameType: 201,
-//             limit: limit,
-//             offset: offset.value,
-//             lang: "en",
-//             //   search: debouncedSearch.value, // 🔥 add this backend support
-//         });
-
-//         const data = res.data;
-
-//         if (reset) {
-//             games.value = data;
-//         } else {
-//             games.value = [...(games.value || []), ...data];
-//         }
-
-//         // 🔥 detect end
-//         if (data.length < limit) {
-//             hasMore.value = false;
-//         }
-
-//     } catch (err) {
-//         console.error(err);
-//     } finally {
-//         loading.value = false;
-//         isLoadingMore.value = false;
-//     }
-// };
-// onMounted(()=>fetchGames(true))
-// const loadMore = async () => {
-//     if (!hasMore.value || isLoadingMore.value) return;
-
-//     offset.value += limit;
-//     await fetchGames(false);
-// };
-
-useReturnRefresh(async() => {
-    await authStore.init();
-})
+onMounted(async () => {
+  await nextTick();
+  startLive(topBuffaloGames || []);
+});
+useReturnRefresh(async () => {
+  await authStore.init();
+});
 </script>
 <template>
-    <main class="bg-gray-900 max-w-lg w-full flex justify-between flex-col">
-        <div class="p-2">
-            <div class="w-full flex gap-2 h-28 items-center justify-between 
-            rounded-2xl bg-gray-800/10 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]
-            ">
-                <div class="px-4">
-                    <img :src="buffalo" class="w-18 h-18" />
+  <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">
+    <div class="p-2">
+      <div
+        class="w-full flex gap-2 h-28 items-center justify-between rounded-2xl bg-gray-800/10 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+      >
+        <div class="px-4">
+          <img :src="buffalo" class="w-18 h-18" />
+        </div>
+        <div class="flex flex-col gap-4 justify-between flex-1">
+          <h1 class="text-white font-bold text-xl">
+            {{ t("game_title_buffalo") }}
+          </h1>
+          <p class="text-gray-400 font-medium text-md">
+            {{ t("game_description_buffalo") }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <GameOptions current_page="buffalo" />
+    <div class="flex gap-1 items-center my-2">
+        <img :src="slot" class="w-8 h-8" />
+        <p class="text-white text-lg font-bold">{{ t("buffalo") }}</p>
+     </div>
+    <article class="px-2">
+      <div
+        class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 my-2"
+      >
+        <button
+          v-if="topBuffaloGames"
+          v-for="(game, index) in topBuffaloGames"
+          :key="game?.id ?? index"
+           class="relative overflow-hidden rounded-lg hover:border-white/30 group transition-all duration-300 bg-gray-900"
+          @click="prepareGame(game)"
+        >
+            <div class="absolute inset-0 bg-black/20 z-0 group-hover:bg-black/0 transition-colors"/>
+            <div class="relative overflow-hidden rounded-lg">
+                <div
+                class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/10 to-gray-950"
+                />
+                <div
+                class="pointer-events-none absolute inset-0 rounded-md border-shine"
+                />
+          <!-- RTP + USERS -->
+                <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
+                    <div
+                    v-if="gameStats[game.id]"
+                    class="flex items-center gap-2 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
+                    >
+                        <Diamond class="w-2 h-2 text-blue-500" />
+                        <span class="text-[8px] text-white font-bold">
+                            {{ gameStats[game.id]?.rtp }}
+                        </span>
+                    </div>
+
+                    <div
+                    v-if="gameStats[game.id]"
+                    class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
+                    >
+                        <Users class="w-2 h-2 text-green-500" />
+                        <span class="text-[8px] text-white font-bold">
+                            {{ gameStats[game.id]?.users }}
+                        </span>
+                    </div>
                 </div>
-                <div class="flex flex-col gap-4 justify-between flex-1">
-                    <h1 class="text-white font-bold text-xl">
-                        {{ t("game_title_buffalo") }}
-                    </h1>
-                    <p class="text-gray-400 font-medium text-md">
-                        {{ t("game_description_buffalo") }}
+                <img
+                    :src="locale === 'cn' ? game.cn_icon_url : game.icon_url"
+                    class="w-full aspect-3/4 rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                />
+                <div
+                class="absolute bottom-0 left-0 right-0 p-1.5 z-20 bg-linear-to-t from-black/80 to-transparent"
+                >
+                    <p
+                        class="text-[10px] md:text-xs text-white font-medium truncate text-center"
+                    >
+                    {{ locale === "cn" ? game.cn_name : game.name }}
                     </p>
                 </div>
-
             </div>
-        </div>
-        <GameOptions current_page="buffalo" />
-       <article class="px-2">
+        </button>
+      </div>
+    </article>
 
-            <div class="grid grid-cols-3 md:flex flex-wrap gap-1.5 my-2">
-
-                <button v-if="topBuffaloGames" v-for="(game, index) in topBuffaloGames" :key="game?.id ?? index" class="relative overflow-hidden rounded-lg border border-white/20 group
-         hover:-translate-y-1 transition-all duration-300" @click="prepareGame(game)">
-                    <!-- Glass reflection (auto slow) -->
-                    <div class="glass absolute inset-0"></div>
-
-                    <!-- Shine flash (on hover only) -->
-                    <div class="shine absolute inset-0"></div>
-                    <div class="absolute inset-0 bg-black/10 rounded-lg"></div>
-                    <img :src="locale==='cn'? game.cn_icon_url:game.icon_url" class="min-w-22 h-33 rounded-lg object-cover
-           transition-transform duration-300 group-hover:scale-105" />
-                </button>
-
-            </div>
-
-
-
-        </article>
-        <!-- <div class="flex justify-center my-4">
-            <button
-                v-if="hasMore"
-                @click="loadMore"
-                class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg"
-            >
-                <span v-if="!isLoadingMore">{{ t('view_more') }}</span>
-                <span v-else>{{ t('loading') }}...</span>
-            </button>
-        </div> -->
-    
-        <Footer/>
-    </main>
+    <Footer />
+  </main>
 </template>
+<style scoped>
+@supports not (aspect-ratio: 3/4) {
+  img {
+    height: 150px;
+  }
+}
+</style>
+

@@ -19,7 +19,6 @@ import Fishing from "./screens/games/fishing.vue";
 import Casino from "./screens/games/casino.vue";
 import Arcade from "./screens/games/arcade.vue";
 import Promotions from "@/screens/promotions/index.vue";
-import PromotionDetail from "./screens/promotions/detail.vue";
 import { useUIStore } from "./stores/ui";
 import UpdatePassword from "./screens/User/updatePassword.vue";
 import DepositHistory from "./screens/transaction/depositHistory.vue";
@@ -27,10 +26,6 @@ import WithdrawHistory from "./screens/transaction/withdrawHistory.vue";
 import GameView from "./gameView.vue";
 import Faq from "./screens/faq.vue";
 import BetList from "./screens/betList.vue";
-
-
-
-
 
 const routes = [
   {
@@ -80,13 +75,8 @@ const routes = [
     component: Promotions,
   },
   {
-    path: "/promotions/:id",
-    component: PromotionDetail,
-    meta: { requiresAuth: false },
-  },
-  {
     path: "/deposit",
-    meta: { hideNavbar:true,hideTopNav:true, requiresAuth:false },
+    meta: { hideNavbar:false,hideTopNav:false, requiresAuth:false },
     component: Deposit,
   },
   {
@@ -96,7 +86,7 @@ const routes = [
   },
   {
     path: "/withdraw",
-    meta: { requiresAuth: true, hideTopNav:true, hideNavbar:true },
+    meta: { requiresAuth: true, hideTopNav:false, hideNavbar:false },
     component: Withdraw,
   },
   {

@@ -27,6 +27,7 @@ import { useI18n } from "vue-i18n";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat, receipt_icon } from "@/utils";
 import HelpBox from "@/components/layout/helpBox.vue";
+import LanguageBtn from "@/components/languageBtn.vue";
 const { t } = useI18n();
 const route = useRoute();
 const auth = useAuthStore();
@@ -154,7 +155,7 @@ const submitHandler = async () => {
 
     if (response) {
       toast.success(t('deposit_success'));
-      setTimeout(() => router.push("/user/profile"), 1000);
+      setTimeout(() => router.push("/user/deposit-history"), 1000);
     } else {
       toast.error(t("try_again"));
     }
@@ -172,7 +173,7 @@ const copyHandler = (value:any) => {
 
 </script>
 <template>
-  <main class="bg-gray-900 w-full gap-2 flex items-center flex-col min-h-svh">
+  <main class="bg-gray-900 w-full gap-2 flex items-center flex-col">
   <CustomNavBar title="transfer" backTo="/deposit">
     <template #right>
       <button>
@@ -181,10 +182,11 @@ const copyHandler = (value:any) => {
       <button @click="openChat">
         <Headset class="w-6 h-6 text-yellow-400" />
       </button>
+      <LanguageBtn/>
     </template>
   </CustomNavBar>
     <section class="px-2 max-w-3xl h-full w-full space-y-2">
-      <form class="w-full h-full space-y-2" @submit.prevent="submitHandler">
+      <form class="w-full  space-y-2" @submit.prevent="submitHandler">
         <div class="flex justify-between w-full px-3 p-2 items-center rounded-lg glass-bg border">
           <div class="rounded-lg overflow-hidden bg-black/40 backdrop-blur-2xl">
             <img :src="payment?.icon" class="w-12 h-12" />
@@ -196,15 +198,15 @@ const copyHandler = (value:any) => {
           </button>
         </div>
         <div
-          class="flex flex-col w-full flex-1 p-4 gap-6 h-full bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0)] rounded-lg">
+          class="flex flex-col w-full p-4 gap-6 h-full bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0)] rounded-lg">
           <div class="w-full flex justify-between items-center">
             <p class="text-xs text-gray-300">{{ t('name') }}</p>
-            <p class="text-lg text-gray-50 font-bold">{{ chosenAccount?.account_name }}</p>
+            <p class="text-lg text-yellow-500 font-bold">{{ chosenAccount?.account_name }}</p>
           </div>
           <div class="w-full flex justify-between items-center">
             <p v-show="payment?.value!=='usdt'" class="text-xs text-gray-300">{{ t('account_number') }}</p>
             <div class="flex gap-2 items-center">
-              <p class=" text-amber-400 font-bold" :class="payment?.value==='usdt'?'text-xs':'text-lg'">{{ chosenAccount?.account_number }}</p>
+              <p class=" text-amber-400 font-bold" :class="payment?.value==='usdt'?'text-xs':'text-xl'">{{ chosenAccount?.account_number }}</p>
               <button type="button" class="flex gap-1 items-center p-2 rounded-full bg-gray-500/20" @click="copyHandler(chosenAccount?.account_number??'')">
                 <CopyIcon class="text-gray-200 w-4 h-4" />
                 <p class="text-xs text-gray-300">{{ t("copy") }}</p>
@@ -229,7 +231,7 @@ const copyHandler = (value:any) => {
           <div class="space-y-2">
             <label for="account_name" class="text-gray-400 font-semibold:">{{ t("last_5_digit_of_transaction") }}
             </label>
-            <InputGroup class="h-12 mt-2 rounded-lg font-bold border border-gray-700 ring-yellow-500 ring-0 bg-gray-900">
+            <InputGroup class="h-12 mt-2 rounded-lg text-white font-bold border border-gray-700 ring-yellow-500 ring-0 bg-gray-900">
               <InputGroupAddon>
                 <ChartNoAxesColumnDecreasing />
               </InputGroupAddon>
@@ -240,13 +242,7 @@ const copyHandler = (value:any) => {
             </InputGroup>
           </div>  
         </div>
-        <div class="flex flex-1 mt-10">
-          <button :disabled="submitting" type="submit"
-            class="gold-bg active-button h-12 font-bold text-gray-900 w-full rounded-lg flex justify-center items-center gap-2 disabled:opacity-50">
-            <RefreshCcw v-if="submitting" class="animate-spin" />
-            {{ t('submit') }}
-          </button>
-        </div>
+       
       </form>
       <div class="glass-bg border rounded-2xl p-4 mt-8 space-y-6">
         <h1 class="text-red-500 font-bold text-xl">
@@ -263,6 +259,15 @@ const copyHandler = (value:any) => {
       </div>
           <HelpBox containerStyle="w-full"/>
     </section>
+    <div class="w-full  fixed bottom-0 right-0 left-0 p-4 glass-bg border-t">
+
+          <button :disabled="submitting" type="submit"
+            class="gold-bg active-button h-12 font-bold text-gray-900 w-full rounded-lg flex justify-center items-center gap-2 disabled:opacity-50">
+            <RefreshCcw v-if="submitting" class="animate-spin" />
+            {{ t('submit') }}
+          </button>
+    
+    </div>
 
   </main>
 </template>

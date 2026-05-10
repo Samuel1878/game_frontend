@@ -22,6 +22,7 @@ import {
 import HomeSlider from "@/components/homeSlider.vue";
 import { useGameStore } from "@/stores/game";
 import { useReturnRefresh } from "@/utils/useReturn";
+import ScrollGameViewTwo from "@/components/scrollGameViewTwo.vue";
 const authStore = useAuthStore();
 const loading = ref(false);
 const { t } = useI18n();
@@ -32,7 +33,7 @@ useReturnRefresh(async() => {
 })
 </script>
 <template>
-  <main class="bg-gray-900 max-w-lg w-full flex flex-col min-h-screen">
+  <main class="bg-gray-900 max-w-6xl w-full flex flex-col min-h-screen">
     <Loading :show="loading" :message="'loading...'" />
     <div>
       <div class="w-full mb-2 bg-gray-900 border-gray-800 border-0 px-2">
@@ -74,7 +75,7 @@ useReturnRefresh(async() => {
           </button>
           <button
             @click="router.push('/withdraw')"
-            class="w-full h-8 shine-auto overflow-hidden cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+            class="w-full h-8 text-linear-gold  shine-auto overflow-hidden cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
 
             <span class="font-bold">
               {{ t("withdraw") }}
@@ -83,34 +84,18 @@ useReturnRefresh(async() => {
         </div>
       </div>
       <GameOptions current_page="lobby" />
-       <div class="max-w-3xl overflow-hidden flex items-center w-full flex-col lg:grid bg-gray-900">
+       <div class=" bg-gray-900">
         <section class="w-full h-full px-2 ">
-          <ScrollViews :game-data="topSlotGames" :header="t('top_picks')" :icon="hot_icon"
-            :handler="prepareGame" :action="()=>router.push('/slots')" :is-two="false"/>
+          <ScrollGameViewTwo :game-data="topSlotGames" :header="t('top_picks')" :icon="hot_icon"
+            :handler="prepareGame" :action="()=>router.push('/slots')" />
              <ScrollViews :game-data="hotGames" :header="t('slots')" :icon="slot"
-            :handler="prepareGame" :action="()=>router.push('/slots')" :is-two="false"/>
+            :handler="prepareGame" :action="()=>router.push('/slots')" />
             <ScrollViews :game-data="topBuffaloGames" :header="t('buffalo')" :icon="buffalo"
-            :handler="prepareGame" :action="()=>router.push('/buffalo')" :is-two="false"/>
+            :handler="prepareGame" :action="()=>router.push('/buffalo')" />
            <ScrollViews :game-data="topFishGames" :header="t('fishing')" :icon="fish"
-            :handler="prepareGame" :action="()=>router.push('/fishing')" :is-two="false"/>
+            :handler="prepareGame" :action="()=>router.push('/fishing')" />
          <ScrollViews :game-data="topCasinoGames" :header="t('casino')" :icon="casino"
-            :handler="prepareGame" :action="()=>router.push('/casino')" :is-two="true"/>
-          <!-- <ScrollViews label-style="from-yellow-800 to-yellow-300 shadow-yellow-200 " :label="hot_rtp"
-            :game-data="RTPGames || []" :header="t('most_wins')" :icon="hot_rtp_icon" :handler="prepareGame" />
-          <div
-            class="w-full mt-4 rounded-xl relative bg-linear-to-br overflow-hidden from-amber-300 to-gray-950 h-25 flex justify-center items-center flex-col gap-2">
-            <p class="text-sm font-normal now text-gray-900">
-              Up to 1000% bonus everyday
-            </p>
-            <img :src="golds_box" class="absolute h-25 right-0" />
-            <img :src="spin_svg" class="absolute h-25 cover left-0 rotate-y-180" />
-            <Button class="bg-amber-400 text-gray-950" @click="router.push('/deposit')">
-              Explore now
-            </Button>
-          </div>
-          <ScrollViews label-style="from-yellow-800 to-yellow-300 shadow-yellow-200 " :label="new_svg"
-            :game-data="newGames || []" :header="t('new')" :icon="star_svg" :handler="prepareGame" /> -->
-      
+            :handler="prepareGame" :action="()=>router.push('/casino')"/>
         </section>
       </div>
     </div>

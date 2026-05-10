@@ -1,100 +1,98 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted } from "vue"
-import type { Game } from "@/utils/types"
-import type { Component } from "vue"
+import { useFakeGameStatsWithId } from "@/lib/fakeGameStatHook";
+import { useGameStore } from "@/stores/game";
+import type { gameType } from "@/utils/types"
+import { Diamond, Users } from "lucide-vue-next";
+import { watch } from "vue";
 
 const props = defineProps<{
-  header?: string
-  gameData?: Game[]
-  handler?: (game: Game) => void
-  icon?: Component
-}>()
+  gameData: gameType[]
+}>();
+console.log("gameView Mounting")
+const gameStore = useGameStore()
+const onClickGame = (game: gameType) => {
+  gameStore.prepareGame(game);
+};
+const { stats, registerKeys } = useFakeGameStatsWithId();
 
-/* --------------------------
-   1️⃣ Sort only once (computed)
----------------------------*/
-const sortedGames = computed(() =>
-  (props.gameData ?? [])
-    .slice()
-    .sort((a, b) => (a?.rank ?? 0) - (b?.rank ?? 0))
-)
+watch(
+  props.gameData,
+  (list) => {
+    if (!list?.length) return;
 
-/* --------------------------
-   2️⃣ Lazy chunk rendering
----------------------------*/
-const chunkSize = 30
-const visibleCount = ref(chunkSize)
-
-const visibleGames = computed(() =>
-  sortedGames.value.slice(0, visibleCount.value)
-)
-
-const loadMore = () => {
-  if (visibleCount.value < sortedGames.value.length) {
-    visibleCount.value += chunkSize
-  }
-}
-
-/* --------------------------
-   3️⃣ Intersection Observer
----------------------------*/
-const loadTrigger = ref<HTMLElement | null>(null)
-let observer: IntersectionObserver
-
-onMounted(() => {
-  observer = new IntersectionObserver(entries => {
-    if (entries[0]?.isIntersecting) {
-      loadMore()
-    }
-  })
-
-  if (loadTrigger.value) {
-    observer.observe(loadTrigger.value)
-  }
-})
-
-onUnmounted(() => {
-  observer?.disconnect()
-})
-function getGameIcon(game: Game): string | undefined {
-  const en = game.gameInfos[0];
-  if (en?.gameIconUrl) return en.gameIconUrl
-
-  const zh = game.gameInfos[1]
-  return zh?.gameIconUrl
-}
+    registerKeys(list.map((g) => `${g.provider_id}-${g.game_id}`));
+  },
+  { immediate: true },
+);
+const key = (game: any) => `${game.provider_id}-${game.game_id}`;
 </script>
 <template>
-  <article class="px-2">
-   
-    <div class="grid grid-cols-3 md:flex flex-wrap gap-1.5 my-2">
+    <article class="px-2">
+      <div
+        class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 my-2"
+      >
+        <button
+          v-for="(game, index) in props.gameData"
+          :key="game?.id ?? index"
+          class="relative overflow-hidden rounded-lg hover:border-white/30 group transition-all duration-300 bg-gray-900"
+          @click="onClickGame(game)"
+        >
+            <div
+                class="absolute inset-0 bg-black/20 z-0 group-hover:bg-black/0 transition-colors"
+            />
+            <div class="relative overflow-hidden rounded-lg">
+                <div
+                class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/10 to-gray-950"
+                />
+                <div
+                class="pointer-events-none absolute inset-0 rounded-md border-shine"
+                />
+                <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
+                    <div
+                        v-if="stats[key(game)]"
+                        class="flex items-center gap-2 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
+                    >
+                        <Diamond class="w-2 h-2 text-blue-500" />
+                        <span class="text-[8px] text-white font-bold">
+                        {{ stats[`${game.provider_id}-${game.game_id}`]?.rtp }}
+                        </span>
+                    </div>
 
-<button
-  v-for="(game, index) in visibleGames"
-  :key="game?.gameID ?? index"
-  class="relative overflow-hidden rounded-lg border border-yellow-400 group
-         hover:-translate-y-1 transition-all duration-300"
-  @click="handler?.(game)"
->
-           <div
-            class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/5 to-yellow-400/30">
-          </div>
-          <div class="pointer-events-none absolute inset-0 rounded-md border-shine"></div>
-  <!-- <div class="glass absolute inset-0"></div>
-
-  <div class="shine absolute inset-0"></div>
-<div class="absolute inset-0 bg-black/10 rounded-lg"></div> -->
-  <img
-    v-if="getGameIcon(game)"
-    :src="getGameIcon(game)"
-    class="min-w-22 h-33 rounded-lg object-cover
-           transition-transform duration-300 group-hover:scale-105"
-  />
-</button>
-      
-    </div>
-
-    <!-- invisible trigger -->
-    <div ref="loadTrigger" class="h-10"></div>
-  </article>
+                    <div
+                        v-if="stats[key(game)]"
+                        class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
+                    >
+                        <Users class="w-2 h-2 text-green-500" />
+                        <span class="text-[8px] text-white font-bold">
+                        {{ stats[`${game.provider_id}-${game.game_id}`]?.users }}
+                        </span>
+                    </div>
+                </div>
+                <img
+                :src="game.icon_url"
+                class="w-full aspect-3/4 rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                />
+                <div
+                class="absolute bottom-0 left-0 right-0 p-1.5 z-20 bg-linear-to-t from-black/80 to-transparent"
+                >
+                    <p
+                        class="text-[10px] md:text-xs text-white font-medium truncate text-center"
+                    >
+                        {{ game.name }}
+                    </p>
+                </div>
+            </div>
+        </button>
+      </div>
+    </article>
 </template>
+<style scoped>
+@supports not (aspect-ratio: 3/4) {
+  img {
+    height: 150px;
+  }
+}
+</style>
+
+

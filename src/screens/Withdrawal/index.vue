@@ -7,12 +7,10 @@ import {
   InputGroupInput,
   InputGroupText,
 } from "@/components/ui/input-group";
-import { Headset, PlusIcon } from "lucide-vue-next";
+import {  PlusIcon } from "lucide-vue-next";
 import router from "@/router";
-import { bankThemes, formatPrice, openChat, receipt_icon } from "@/utils";
+import { bankThemes, formatPrice} from "@/utils";
 import { useI18n } from "vue-i18n";
-import CustomNavBar from "@/components/layout/customNavBar.vue";
-import LanguageBtn from "@/components/languageBtn.vue";
 import HelpBox from "@/components/layout/helpBox.vue";
 import moment from "moment";
 import type { BankAccount, BankAccountPros, withdrawalInfo, withdrawParamType } from "@/utils/types";
@@ -63,8 +61,8 @@ const amountNum = Number(amount.value);
       return;
       }
     } else {
-    if (amountNum < 5000 || amountNum > 1000000) {
-      toast.error(t("amount_must_be_between_5000_1000000"));
+    if (amountNum < 10000 || amountNum > 1000000) {
+      toast.error(t("amount_must_be_between_10000_1000000"));
       return;
     }
   }
@@ -87,7 +85,7 @@ const amountNum = Number(amount.value);
   const response = await withdrawalHandlerAPI(data, param);
   if (response) {
     toast.success(t("success"));
-    router.back();
+    router.push("/user/withdraw-history");
     return;
   }
   toast.error(t("something_went_wrong"));
@@ -145,7 +143,7 @@ const saveAccount = async () => {
 }
 </script>
 <template>
-  <CustomNavBar title="withdraw" backTo="/">
+  <!-- <CustomNavBar title="withdraw" backTo="/">
     <template #right>
       <button class="" @click="router.push('/user/withdraw-history')">
         <img class="w-7 h-7" :src="receipt_icon" />
@@ -155,22 +153,22 @@ const saveAccount = async () => {
       </button>
       <LanguageBtn />
     </template>
-  </CustomNavBar>
+  </CustomNavBar> -->
   <main class="text-gray-100 flex justify-center bg-linear-to-b from-gray-900 to-gray-800 w-full">
-    <div class="flex flex-col p-2 w-full max-w-3xl">
+    <div class="flex flex-col p-2 w-full max-w-6xl">
       <section class="w-full">
 <div class="w-full space-y-4">
 
   <!-- HEADER -->
-  <div class="flex items-center gap-3">
+  <!-- <div class="flex items-center gap-3">
     <div class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></div>
     <h2 class="text-white text-base font-semibold tracking-wide">
       {{ t("choose_withdraw_account") }}
     </h2>
-  </div>
+  </div> -->
 
   <!-- FILTER BAR -->
-  <div class="flex gap-2 overflow-x-auto no-scrollbar px-1 py-1">
+  <div class="flex gap-2 overflow-x-auto no-scrollbar px-1 py-2">
     
     <div
       v-for="payment in paymentMethodOption"
@@ -181,7 +179,7 @@ const saveAccount = async () => {
         ? 'bg-yellow-400 text-black border-yellow-300 shadow-lg shadow-sky-400/20 scale-105'
         : 'bg-gray-900 text-gray-300 border-gray-700 hover:border-gray-500'"
     >
-      <span class="text-sm font-semibold whitespace-nowrap">
+      <span class="text-sm font-semibold whitespace-nowrap capitalize">
         {{ payment.label }}
       </span>
     </div>
@@ -315,15 +313,21 @@ const saveAccount = async () => {
           <p class="text-gray-100 font-normal text-lg">{{ withdrawForm.method }}</p>
         </div>
       </div>
+       <button @click="submit"
+        :disabled="!amount || !choosen "
+        :class="!amount || !choosen ? 'opacity-50 ' : 'opacity-100'"
+        class="w-full disabled:opacity-50 gold-bg mt-4 font-bold text-black active-button rounded-lg h-12 flex items-center justify-center">
+        {{ t('next') }}
+      </button>
       <HelpBox container-style="" />
     </div>
-    <div class="w-full  fixed bottom-0 right-0 left-0 p-4 glass-bg border-t">
+    <!-- <div class="w-full  fixed bottom-0 right-0 left-0 p-4 glass-bg border-t">
       <button @click="submit"
         :class="!amount || !choosen ? 'bg-yellow-400/50' : ' gold-bg '"
         class="w-full disabled:bg-yellow-400/70 font-bold text-black active-button rounded-lg h-12 flex items-center justify-center">
         {{ t('next') }}
       </button>
-    </div>
+    </div> -->
   </main>
   <BankAccountDrawer v-model:open="showDialog" v-model:modelValue="form" :isEdit="isEdit" @save="saveAccount" />
 </template>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import Footer from '@/components/footer.vue';
+import GameViews from '@/components/gameViews.vue';
 import GameOptions from '@/components/layout/gameOptions.vue';
 import { getGamesByProviderAPI } from '@/services/gameAPI';
 import { useAuthStore } from '@/stores/auth';
-import { useGameStore } from '@/stores/game';
 import {   chess } from '@/utils';
 import type { gameType } from '@/utils/types';
 import { useReturnRefresh } from '@/utils/useReturn';
@@ -19,7 +19,6 @@ const offset = ref(0);
 const hasMore = ref(true);
 const isLoadingMore = ref(false);
 const authStore = useAuthStore();
-const {prepareGame} = useGameStore()
 const fetchGames = async (reset = false) => {
 
     if (reset) {
@@ -72,7 +71,7 @@ useReturnRefresh(async() => {
 })
 </script>
 <template>
-    <main class="bg-gray-900 max-w-lg w-full flex justify-between flex-col">
+    <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">
         <div class="p-2">
             <div class="w-full flex gap-2 h-28 items-center justify-between 
             rounded-2xl bg-gray-800/10 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]
@@ -91,28 +90,12 @@ useReturnRefresh(async() => {
 
             </div>
         </div>
-        <GameOptions current_page="arcade-games" />
-             <article class="px-2">
-
-            <div class="grid grid-cols-3 md:flex flex-wrap gap-1.5 my-2">
-
-                <button v-if="games" v-for="(game, index) in games" :key="game?.id ?? index" class="relative overflow-hidden rounded-lg border border-white/20 group
-         hover:-translate-y-1 transition-all duration-300" @click="prepareGame(game)">
-                    <!-- Glass reflection (auto slow) -->
-                    <div class="glass absolute inset-0"></div>
-
-                    <!-- Shine flash (on hover only) -->
-                    <div class="shine absolute inset-0"></div>
-                    <div class="absolute inset-0 bg-black/10 rounded-lg"></div>
-                    <img :src="game.icon_url" class="min-w-22 h-36 rounded-lg object-cover
-           transition-transform duration-300 group-hover:scale-105" />
-                </button>
-
+        <GameOptions current_page="arcade_games" />
+        <div class="flex gap-1 items-center my-2">
+                <img :src="chess" class="w-8 h-8"/>
+                <p class="text-lg text-white font-bold">{{ t("arcade_games") }}</p>
             </div>
-
-
-
-        </article>
+            <GameViews v-if="games" :game-data="games"/>
          <div class="flex justify-center my-4">
             <button
                 v-if="hasMore"

@@ -1,69 +1,123 @@
 <script setup lang="ts">
-import { useAuthStore } from '@/stores/auth';
-import { useUIStore } from '@/stores/ui';
-import { useWallet } from '@/stores/wallet';
-import { formatPrice } from '@/utils';
-import { useI18n } from 'vue-i18n';
-import { useRoute } from 'vue-router';
-import LanguageBtn from '../languageBtn.vue';
+import { useAuthStore } from "@/stores/auth";
+import { useUIStore } from "@/stores/ui";
+import { useWallet } from "@/stores/wallet";
+import { formatPrice } from "@/utils";
+import { useI18n } from "vue-i18n";
+import { useRoute } from "vue-router";
+import LanguageBtn from "../languageBtn.vue";
 
-import UserTopActions from '../userTopActions.vue';
+import UserTopActions from "../userTopActions.vue";
+
+import { Menu } from "lucide-vue-next";
+import router from "@/router";
+import { useSidebar } from "../ui/sidebar";
 const route = useRoute();
 const wallet = useWallet();
 const uiStore = useUIStore();
 const authStore = useAuthStore();
 
-const { t } = useI18n();
-const goToLoginHandler = () => {
-  uiStore.openAuthModal();
+const { t, locale } = useI18n();
+const goToLoginHandler = (v: boolean) => {
+  uiStore.openAuthModal("/", v);
+};
+const {
+  isMobile,
+  toggleSidebar,
+  setOpenMobile,
+} = useSidebar();
+
+const openMenu = () => {
+  if (isMobile.value) {
+    setOpenMobile(true);
+  } else {
+    toggleSidebar();
+  }
 };
 </script>
 <template>
-     <nav
-        v-if="!route.meta.hideTopNav"
-      class="sticky top-0 right-0 left-0 z-30 w-full border-b-2 bg-gray-900 
-        bg-linear-to-br from-white/5 via-white/10 to-white/5
-        backdrop-blur-2xl border-white/5
-        shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
-    >
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 h-14">
-        <RouterLink
-          to="/"
-          class="flex items-center"
+  <nav
+    v-if="!route.meta.hideTopNav"
+    class="sticky top-0 right-0 left-0 z-30 w-full border-b-2 bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
+  >
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-3 h-14">
+      <div class="flex items-center gap-2 relative">
+        <button
+          class="md:hidden active:scale-90 transition cursor-pointer"
+          @click="openMenu"
         >
-          <img src="/logo.png" alt="Logo" class=" h-14" />
-      
-        </RouterLink>
-        <div class="hidden items-center gap-6 lg:flex">
-          <RouterLink class="nav-link" to="/">{{ t("home") }}</RouterLink>
-          <RouterLink class="nav-link" to="/user/profile">{{ t('profile') }}</RouterLink>
-          <RouterLink class="nav-link" to="/deposit">{{ t('deposit') }}</RouterLink>
-          <RouterLink class="nav-link" to="/withdraw">{{ t('withdraw') }}</RouterLink>
-        </div>
-        <div class="flex items-center gap-2 justify-end">
-          <div v-if="authStore.user || authStore.accessToken" class="flex items-center gap-2">
-            <div
-              @click="authStore.fetchUser"
-              v-show="authStore.user"
-              class="flex items-center px-2 h-9 bg-gray-800/40 rounded-md border border-white/20 shadow-inner hover:shadow-lg transition-shadow duration-300"
-            >
-              <!-- <Wallet class="w-6 h-6 text-yellow-400" /> -->
-              <!-- <img :src="wallet_icon" class="w-8 h-8"/> -->
-              <p class="font-bold  text-sm text-white">
-                {{ formatPrice(wallet.balance || 0) }} <span class="text-yellow-400 font-bold">K</span>
-              </p>
-            </div>
-            <UserTopActions/>
-          </div>
-          <div v-else>
-            <button @click="goToLoginHandler"
-             
-              class="rounded-sm px-4 py-2 text-glow font-medium gold-bg active-button">
-                {{ t("login") }}
-            </button>
-          </div>
-          <LanguageBtn />
+          <Menu class="w-6 h-6 text-white" />
+        </button>
+        <div @click="router.push('/')" class="cursor-pointer lg:hidden block">
+          <img src="/logo.png" alt="Logo" class="h-12" />
         </div>
       </div>
-    </nav>
+
+      <div class="flex items-center gap-2 justify-end">
+        <div v-if="authStore.user" class="flex items-center gap-2">
+          <div
+            @click="authStore.fetchUser"
+            v-show="authStore.user"
+            class="flex items-center px-2 h-9 bg-gray-800/40 rounded-md border border-white/20 shadow-inner hover:shadow-lg transition-shadow duration-300"
+          >
+            <p class="font-bold text-sm text-white">
+              {{ formatPrice(wallet.balance || 0) }}
+              <span class="text-yellow-400 font-bold">Ks</span>
+            </p>
+          </div>
+          <UserTopActions />
+        </div>
+        <div v-else class="flex gap-2">
+          <button
+            @click="goToLoginHandler(true)"
+            class="rounded-sm h-10 flex justify-center items-center text-linear-gold font-medium bg-transparent border border-white/20 active-button"
+            :class="locale === 'mm' ? 'text-xs px-2' : 'text-sm px-4'"
+          >
+            {{ t("login") }}
+          </button>
+          <button
+            @click="goToLoginHandler(false)"
+            :class="locale === 'mm' ? 'text-xs px-2' : 'text-sm px-4'"
+            class="rounded-sm h-10 relative flex justify-center items-center text-glow font-medium gold-bg active-button"
+          >
+            {{ t("register") }}
+            <div
+              class="gift-scale absolute -top-2.5 -right-2 z-10 text-xl drop-shadow-2xl"
+            >
+              🎁
+            </div>
+          </button>
+        </div>
+        <LanguageBtn />
+      </div>
+    </div>
+  </nav>
 </template>
+
+<style scoped>
+.gift-scale {
+  animation: pulseGift 2s ease-in-out infinite;
+}
+
+@keyframes pulseGift {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.12);
+  }
+
+  50% {
+    transform: scale(1.22);
+  }
+
+  75% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+</style>

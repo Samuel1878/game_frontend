@@ -4,7 +4,7 @@ import {  slotGameProviders } from '@/consts';
 
 </script>
 <template>
-    <aside class="py-8 ">
+    <aside class="py-8 my-6">
         <div class="w-full p-2 relative flex justify-between gap-2 overflow-x-auto no-scrollbar scroll-smoot">
 
         <div v-for="provider in slotGameProviders" class="relative">

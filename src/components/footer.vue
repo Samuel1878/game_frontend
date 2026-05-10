@@ -3,197 +3,155 @@ import router from '@/router';
 import { goFacebook, openDiscord, openTelegram, openViber } from '@/utils';
 import { useI18n } from 'vue-i18n';
 
-const year = new Date().getFullYear()
-const {t} = useI18n();
+const year = new Date().getFullYear();
+const { t } = useI18n();
+
 const quickLinks = [
   { name: 'lobby', path: "/" },
   { name: 'slots', path: "/slots" },
   { name: 'buffalo', path: "/buffalo" },
-    { name: 'fishing', path: "/fishing" },
-      { name: 'casino', path: "/casino" },
-        { name: 'arcade', path: "/arcade-games" },
-  
-]
+  { name: 'fishing', path: "/fishing" },
+  { name: 'casino', path: "/casino" },
+  { name: 'arcade', path: "/arcade-games" },
+];
 
 const services = [
   { name: 'deposit', path: "/deposit" },
   { name: 'withdraw', path: "/withdrawal" },
   { name: 'download', path: "/download" },
-    { name: 'promotion', path: "/promotions" },
-]
+  { name: 'promotion', path: "/promotions" },
+];
+
 const supportLinks = [
   { name: 'help_center', path: "/help" },
   { name: 'terms_and_conditions', path: "/terms" },
   { name: 'policy_and_privacy', path: "/privacy" },
   { name: 'responsible_gaming', path: "/responsible" },
-  {name:'faq', path:"/faq"},
+  { name: 'faq', path: "/faq" },
+];
 
-];
-// const eventLinks = [
-//   {
-//     name:'events_and_community',path:"/info/community"
-//   },
-//   {
-//     name:'bonus',
-//     path:"/info/bonus"
-//   }
-// ];
 const payments = [
-  {
-    name:"KBZ pay",
-    src:"/payments/kbzpay.svg"
-  },
-  {
-    name:"Wave Money",
-    src:"/payments/wavepay.jpeg",
-  },
-  {
-    name:"AYA pay",
-    src:"/payments/ayabanking.png"
-  },
-  {
-    name:"KBZ Banking",
-    src:"/payments/kbzbanking-new.png"
-  },
-  {
-    name:"USDT",
-    src:"/payments/USDT.png"
-  }
+  { name: "KBZ pay", src: "/payments/kbzpay.svg" },
+  { name: "Wave Money", src: "/payments/wavepay.jpeg" },
+  { name: "AYA pay", src: "/payments/ayabanking.png" },
+  { name: "KBZ Banking", src: "/payments/kbzbanking-new.png" },
+  { name: "USDT", src: "/payments/USDT.png" }
 ];
+
 const socials = [
-  {
-    icon : "/socials/facebook_black.svg",
-    action:goFacebook
-  },
-  {
-    icon: "/socials/telegram_black.svg",
-    action:openTelegram
-  },
-  {
-    icon: "/socials/viber_black.svg",
-    action:openViber
-  },
-  {
-    icon:"/socials/discord_black.svg",
-    action:openDiscord
-  }
+  { icon: "/socials/facebook_black.svg", action: goFacebook },
+  { icon: "/socials/telegram_black.svg", action: openTelegram },
+  { icon: "/socials/viber_black.svg", action: openViber },
+  { icon: "/socials/discord_black.svg", action: openDiscord }
 ];
+
 const certification = [
   "/partners/gamcare.svg",
   "/partners/ga.svg",
   "/partners/trust.svg",
   "/partners/gambling_therapy.svg",
   "/partners/askgamblers.svg",
-
-]
+];
 </script>
 
 <template>
-  <footer class="bg-gray-900 text-gray-200 py-10">
-    <div class="max-w-7xl flex flex-col items-center px-6 w-full ">
-      <div class="flex flex-col gap-2 px-2 border-t border-gray-600/50">
-        <img src="/logo.png" class="h-30"/>
-        <p class="text-gray-200 font-bold leading-loose text-xs">
+  <footer class="bg-gray-950/50 text-gray-200 pt-12 pb-20">
+    <div class="max-w-7xl mx-auto px-6 w-full">
+      
+      <!-- Brand Section -->
+      <div class="flex flex-col items-center mb-10">
+        <img src="/logo.png" class="h-24 md:h-30 mb-4 object-contain" alt="Logo"/>
+        <p class="text-gray-400 font-medium leading-relaxed text-xs text-center max-w-2xl">
           {{ t('marketing') }}
         </p>
       </div>
-      <div class="grid grid-cols-1 my-12 md:grid-cols-2 lg:grid-cols-4 w-full gap-8">
-        <div class="border-t border-gray-400/20 py-2 pt-6">
-          <h3 class="text-white font-semibold mb-4">{{ t('products') }}</h3>
-          <div class="space-y-4">
-            <div v-for="link in quickLinks" :key="link.name">
-              <router-link
-                :to="link.path"
-              
-              >
-              <p class="hover:text-sky-400 text-md text-gray-500">
-                      {{ t(link.name) }}
-              </p>
-               
-              </router-link>
-            </div>
+
+      <!-- Links Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 w-full gap-8 mb-12">
+        <!-- Products -->
+        <div class="border-t border-gray-700/50 pt-6">
+          <h3 class="text-white font-bold mb-5 text-sm uppercase tracking-wide">{{ t('products') }}</h3>
+          <div class="flex flex-col gap-3">
+            <router-link v-for="link in quickLinks" :key="link.name" :to="link.path" class="hover:text-amber-400 text-sm text-gray-500 transition-colors">
+              {{ t(link.name) }}
+            </router-link>
           </div>
         </div>
-         <div class="border-t border-gray-400/20 py-2 pt-6">
-          <h3 class="text-white font-semibold mb-4">{{ t('services') }}</h3>
-          <div class="space-y-4">
-            <div v-for="link in services" :key="link.name">
-              <router-link
-                :to="link.path"
-              
-              >
-              <p class="hover:text-sky-400 text-md text-gray-500">
-                      {{ t(link.name) }}
-              </p>
-               
-              </router-link>
-            </div>
+
+        <!-- Services -->
+        <div class="border-t border-gray-700/50 pt-6">
+          <h3 class="text-white font-bold mb-5 text-sm uppercase tracking-wide">{{ t('services') }}</h3>
+          <div class="flex flex-col gap-3">
+            <router-link v-for="link in services" :key="link.name" :to="link.path" class="hover:text-amber-400 text-sm text-gray-500 transition-colors">
+              {{ t(link.name) }}
+            </router-link>
           </div>
         </div>
-        <div class="border-t border-gray-400/20 py-2">
-          <h3 class="text-white font-semibold mb-4">{{ t('support') }}</h3>
-          <div class="space-y-4">
-            <div v-for="link in supportLinks" :key="link.name">
-              <router-link
-                :to="link.path"
-              
-              >
-              <p class="hover:text-sky-400 text-md text-gray-500">
-                      {{ t(link.name) }}
-              </p>
-               
-              </router-link>
-            </div>
+
+        <!-- Support -->
+        <div class="border-t border-gray-700/50 pt-6">
+          <h3 class="text-white font-bold mb-5 text-sm uppercase tracking-wide">{{ t('support') }}</h3>
+          <div class="flex flex-col gap-3">
+            <router-link v-for="link in supportLinks" :key="link.name" :to="link.path" class="hover:text-amber-400 text-sm text-gray-500 transition-colors">
+              {{ t(link.name) }}
+            </router-link>
           </div>
         </div>
        
-        <div class="border-t border-gray-400/20 py-2">
-          <h3 class="text-white font-semibold mb-4">{{ t('payment_method') }}</h3>
-          <div class="flex gap-4 flex-wrap ">
-            <div v-for="link in payments" :key="link.name" class="flex gap-2 flex-col items-center justify-between">
-              
-              <img :src="link.src" class="cover w-12 h-12 rounded-lg bg-none"/>
-              <p class="text-white font-bold text-sm">
-                {{ link.name}}
+        <!-- Payments -->
+        <div class="border-t border-gray-700/50 pt-6">
+          <h3 class="text-white font-bold mb-5 text-sm uppercase tracking-wide">{{ t('payment_method') }}</h3>
+          <div class="grid grid-cols-3 gap-3">
+            <div v-for="link in payments" :key="link.name" class="flex flex-col items-center gap-1 group">
+              <div class="w-10 h-10 md:w-12 md:h-12 bg-gray-800 rounded-lg flex items-center justify-center p-1 border border-transparent group-hover:border-gray-600 transition-all">
+                <img :src="link.src" class="w-full h-full object-contain rounded-md"/>
+              </div>
+              <p class="text-[10px] text-gray-500 text-center truncate w-full">
+                {{ link.name }}
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div class="border-gray-700 w-full max-w-6xl border-y flex justify-between items-center py-7">
+
+      <!-- Socials & Security Bar -->
+      <div class="border-y border-gray-800 w-full flex  md:flex-row justify-between items-center py-6 gap-6">
+        <div class="flex gap-6 items-center opacity-70">
+          <img src="/partners/18plus.svg" class="h-8"/>
+          <img src="/partners/ssl_icon.svg" class="h-8"/>
+        </div>
         <div class="flex gap-4">
-          <img src="/partners/18plus.svg" class=""/>
-          <img src="/partners/ssl_icon.svg" class=""/>
-        </div>
-        <div class="flex gap-2">
-          <div @click="value.action" class="" v-for="value in socials">
-          <img :src="value.icon"/>
+          <div 
+            @click="value.action" 
+            v-for="(value, i) in socials" :key="i"
+            class="cursor-pointer hover:scale-110 transition-transform active:scale-95"
+          >
+            <img :src="value.icon" class="w-7 h-7 md:w-10 md:h-10"/>
           </div>
         </div>
-      
       </div>
-      <div class="flex items-center w-full justify-center gap-8 my-8 flex-wrap">
-        <div class="flex items-center gap-2 justify-center">
-          <div class="" v-for="value in certification">
-            <img :src="value" class="h-7"/>
+
+      <!-- Certification & Download -->
+      <div class="flex flex-col md:flex-row items-center w-full justify-center gap-8 py-10 flex-wrap">
+        <div class="flex items-center gap-4 md:gap-8 justify-center flex-wrap opacity-50 hover:opacity-100 transition-opacity">
+          <div v-for="value in certification" :key="value">
+            <img :src="value" class="h-6 md:h-7 grayscale hover:grayscale-0 transition-all"/>
           </div>
         </div>
-        <div class="" @click="router.push('/download')">
-          <img src="/partners/download_white.svg" class="h-9"/>
+        <div class="cursor-pointer hover:opacity-80 transition" @click="router.push('/download')">
+          <img src="/partners/download_white.svg" class="h-10"/>
         </div>
       </div>
     </div>
-    <!-- Bottom Bar -->
-   <div class="border-t border-gray-800 py-4 text-center text-sm text-gray-500 mb-10 space-y-2">
-  
-  <p>
-    © {{ year }} {{ t("brand_name") }}. {{ t("all_rights_reserved") }}
-  </p>
 
-  <p class="text-white font-mono text-xs">
-    {{ t("responsible_warning") }}
-  </p>
-
-</div>
+    <!-- Legal Bottom Bar -->
+    <div class="border-t border-gray-800 pt-8 pb-12 text-center px-6">
+      <p class="text-xs text-gray-600 mb-4 max-w-4xl mx-auto leading-relaxed">
+        {{ t("responsible_warning") }}
+      </p>
+      <p class="text-sm text-gray-500 font-medium">
+        © {{ year }} {{ t("brand_name") }}. {{ t("all_rights_reserved") }}
+      </p>
+    </div>
   </footer>
 </template>

@@ -20,11 +20,11 @@ const { t } = useI18n();
       <LanguageBtn/>
     </template>
   </CustomNavBar>
-  <main class=" bg-gray-900 text-white flex items-center justify-center px-4 py-10">
+  <main class=" bg-gray-900 text-white flex items-center justify-center px-2 py-10">
 
     <section
       id="download"
-      class="w-full max-w-3xl bg-gray-900/60 border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col items-center gap-6"
+      class="w-full max-w-6xl bg-gray-900/60 border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col items-center gap-6"
     >
 
       <!-- Title -->
@@ -35,7 +35,7 @@ const { t } = useI18n();
       <!-- Phone image -->
       <img
         src="/images/phone.svg"
-        class="w-40 md:w-56 object-contain"
+        class="w-45 md:w-56 object-contain"
       />
 
       <!-- Content -->

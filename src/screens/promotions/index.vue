@@ -48,7 +48,7 @@ import { X } from 'lucide-vue-next';
 <template>
     <main class="bg-gray-900 max-w-lg w-full flex justify-between flex-col">
         <div class="w-full">
-            <h1 class="text-center font-extrabold text-2xl mt-2">
+            <h1 class="text-center font-extrabold text-2xl mt-2 text-white">
                 {{ t("promotions") }}
             </h1>
             <div class="p-2 flex flex-col gap-2 w-full">

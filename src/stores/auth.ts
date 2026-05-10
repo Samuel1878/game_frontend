@@ -17,6 +17,7 @@ export const useAuthStore = defineStore("auth", {
   }),
   actions: {
     setToken(token: string) {
+      localStorage.setItem("access_token", token);
       this.accessToken = token;
     },
     setUser({user, wallet}: {user:userInfo,wallet:walletType}) {
@@ -27,6 +28,7 @@ export const useAuthStore = defineStore("auth", {
     clearAuth() {
       this.accessToken = null;
       this.user = null;
+      localStorage.removeItem("access_token");
       disconnectSocket();
     },
     async login(payload: { name: string; password: string, isPhoneNumber:boolean }) {
@@ -52,46 +54,77 @@ export const useAuthStore = defineStore("auth", {
     async fetchUser() {
       try {
         const res = await api.get("/user/profile");
-        // console.log("Fetched user profile:", res.data);
         this.setUser(res.data);
-        
         return true
       } catch (error) {
-        this.clearAuth()
+        console.log("fetchUser failed", error);
         return false
       }
     },
     async init() {
       try {
-        console.log("RESFRESH API CALLED ")
-        const resData = await refreshAPI();
+        const localToken = localStorage.getItem("access_token");
 
+        if (localToken) {
+          this.setToken(localToken);
+          const ok = await this.fetchUser();
+          if (ok) {
+            initSocket();
+            return;
+          }
+        }
+        console.log("REFRESH API CALLED");
+        const resData = await refreshAPI();
         if (!resData?.accessToken) {
           throw new Error("No refresh token");
         }
-
         this.setToken(resData.accessToken);
-
         const ok = await this.fetchUser();
-
         if (!ok) {
           throw new Error("User fetch failed");
         }
-
-      initSocket();
-
+        initSocket();
       } catch (err) {
         console.log("Auth init failed:", err);
         this.clearAuth();
-      
       } finally {
         this.initialized = true;
       }
     },
+    // async init() {
+    //   try {
+    //     const localToken = localStorage.getItem("access_token");
+    //     if (localToken) {
+    //     this.setToken(localToken);
+    //       try {
+    //         await this.fetchUser();
+    //         initSocket();
+    //         return;
+    //       } catch {
+    //         console.log("FETCHING FROM LOCAL STORAGE HAS FAILED")
+    //       }
+    //     }
+    //     console.log("RESFRESH API CALLED ")
+    //     const resData = await refreshAPI();
+    //     if (!resData?.accessToken) {
+    //       throw new Error("No refresh token");
+    //     }
+    //     this.setToken(resData.accessToken);
+    //     const ok = await this.fetchUser();
+    //     if (!ok) {
+    //       throw new Error("User fetch failed");
+    //     }
+    //   initSocket();
+    //   } catch (err) {
+    //     console.log("Auth init failed:", err);
+    //     this.clearAuth();
+    //   } finally {
+    //     this.initialized = true;
+    //   }
+    // },
     async register(payload: { name?: string | null; password: string ; referral_code:string|null; phone:string}) {
       try {
         const response = await api.post("/auth/register", payload);
-        // console.log("response", response);
         if (response.status === 200 || response.status === 201) {
           this.user = response.data;
         this.setToken(response.data.accessToken);
@@ -116,7 +149,6 @@ export const useAuthStore = defineStore("auth", {
         }
       } 
     },
-
     async logout() {
       try {
         await api.post("/auth/logout");
