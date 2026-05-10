@@ -19,7 +19,6 @@ import {
   ArrowDownToLine,
   LogIn,
   UserPlus,
-  Coins,
   HeadsetIcon,
   Download,
   Gift,
@@ -47,6 +46,7 @@ const wallet = useWallet();
 const ui = useUIStore();
 const handleLogout = async() => {
   await authStore.logout();
+  setOpenMobile(false);
   router.push("/")
 };
 
