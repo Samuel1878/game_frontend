@@ -10,7 +10,7 @@ const props = defineProps<{containerStyle:string}>()
 <template>
     <section
         class="mt-6 p-4 mb-20 rounded-2xl glass-bg" :class="containerStyle">
-        <p class="text-center font-semibold mb-4">
+        <p class="text-center font-semibold mb-4 text-white">
           {{ t("need_help") }}
         </p>
 

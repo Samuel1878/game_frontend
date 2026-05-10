@@ -7,6 +7,7 @@ import {
   ArrowDownCircle,
   ArrowUpCircle,
   BarChart3,
+  ChartLine,
   Copy,
   Gift,
   Headset,
@@ -215,16 +216,16 @@ console.log(transactionReport);
       <div class="card">
         <div class="flex items-center gap-3">
           <div class="icon-box bg-blue-500/15 text-blue-400">
-            <Trophy class="w-5 h-5" />
+          <BarChart3 class="w-5 h-5" />
           </div>
 
           <div class="flex flex-col">
             <span class="label">
-              {{ t("total_win") }}
+              {{ t("turnover") }}
             </span>
 
             <b class="value text-blue-400">
-              {{ formatPrice(betReport?.turnover?.won || 0) }}
+              {{ formatPrice((betReport?.turnover?.won||0) + (betReport?.turnover?.bonus||0) + (betReport?.turnover?.lose ||0) + (betReport?.turnover?.draw ||0) || 0) }}
             </b>
           </div>
         </div>
@@ -234,45 +235,24 @@ console.log(transactionReport);
       <div class="card">
         <div class="flex items-center gap-3">
           <div class="icon-box bg-orange-500/15 text-orange-400">
-            <TrendingDown class="w-5 h-5" />
+            <ChartLine class="w-5 h-5" />
           </div>
 
           <div class="flex flex-col">
             <span class="label">
-              {{ t("total_loss") }}
+              {{ t("win_loss") }}
             </span>
 
             <b class="value text-orange-400">
-              {{ formatPrice(betReport?.turnover?.lose || 0) }}
+              {{ formatPrice((transactionReport?.deposits||0) - (transactionReport?.withdraws  || 0))||0 }}
             </b>
           </div>
         </div>
       </div>
-
-      <!-- REBATE -->
-      <div class="card">
-        <div class="flex items-center gap-3">
-          <div class="icon-box bg-purple-500/15 text-purple-400">
-            <Gift class="w-5 h-5" />
-          </div>
-
-          <div class="flex flex-col">
-            <span class="label">
-              {{ t("total_rebate") }}
-            </span>
-
-            <b class="value text-purple-400">
-              {{ formatPrice(betReport?.turnover.bonus || 0) }}
-            </b>
-          </div>
-        </div>
-      </div>
-
-      <!-- GGR -->
       <div class="card">
         <div class="flex items-center gap-3">
           <div class="icon-box bg-yellow-500/15 text-yellow-400">
-            <BarChart3 class="w-5 h-5" />
+          <Trophy class="w-5 h-5" />
           </div>
 
           <div class="flex flex-col">
@@ -287,6 +267,23 @@ console.log(transactionReport);
         </div>
       </div>
 
+      <div class="card">
+        <div class="flex items-center gap-3">
+          <div class="icon-box bg-purple-500/15 text-purple-400">
+            <Gift class="w-5 h-5" />
+          </div>
+
+          <div class="flex flex-col">
+            <span class="label">
+              {{ t("total_rebate") }}
+            </span>
+
+            <b class="value text-purple-400">
+              {{ formatPrice(transactionReport?.rebate || 0) }}
+            </b>
+          </div>
+        </div>
+      </div>
       <!-- COMMISSION -->
       <div class="card">
         <div class="flex items-center gap-3">
@@ -300,14 +297,14 @@ console.log(transactionReport);
             </span>
 
             <b class="value text-cyan-400">
-              {{ formatPrice(betReport?.commission || 0) }}
+              {{ formatPrice(transactionReport?.bonus || 0) }}
             </b>
           </div>
         </div>
       </div>
 
       <!-- BONUS COUNT -->
-      <div class="card">
+      <!-- <div class="card">
         <div class="flex items-center gap-3">
           <div class="icon-box bg-green-500/15 text-green-400">
             <Gift class="w-5 h-5" />
@@ -323,7 +320,7 @@ console.log(transactionReport);
             </b>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- WON COUNT -->
       <div class="card">
@@ -408,7 +405,7 @@ console.log(transactionReport);
 }
 
 .value {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
 }
 </style>

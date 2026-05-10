@@ -2,7 +2,7 @@
 import LanguageBtn from "@/components/languageBtn.vue";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { useBetlistStore } from "@/stores/betListStore";
-import { formatPrice, openChat } from "@/utils";
+import { formatMyanmarTime, formatPrice, openChat } from "@/utils";
 import { ClipboardX, Headset } from "lucide-vue-next";
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
@@ -106,11 +106,11 @@ onMounted(() => {
 
     <thead class="bg-[#111827] border-b border-white/10">
       <tr class="text-left text-gray-400 text-xs uppercase tracking-wider">
-        <th class="px-1 py-2">Game</th>
-        <th class="px-1 py-2">Stake</th>
-        <th class="px-1 py-2">Win/Loss</th>
-        <th class="px-1 py-2">Status</th>
-        <th class="px-1 py-2">Time</th>
+        <th class="px-1 py-2">{{ t('game') }}</th>
+        <th class="px-1 py-2">{{ t('stake') }}</th>
+        <th class="px-1 py-2">{{ t("win_loss") }}</th>
+        <th class="px-1 py-2">{{ t("status") }}</th>
+        <th class="px-1 py-2">{{ t("date") }}</th>
       </tr>
     </thead>
 
@@ -143,10 +143,10 @@ onMounted(() => {
           <span
             class="px-3 py-1 rounded-full text-xs font-medium capitalize"
             :class="{
-              'bg-green-500/15 text-green-400': item.status === 'win',
+              'bg-green-500/15 text-green-400': item.status === 'won',
               'bg-red-500/15 text-red-400': item.status === 'lose',
               'bg-yellow-500/15 text-yellow-400': item.status === 'draw',
-              'bg-gray-500/15 text-gray-300': !item.status
+              'bg-blue-500/15 text-blue-300': item.status === 'Bonus'
             }"
           >
             {{ item.status || '-' }}
@@ -155,7 +155,7 @@ onMounted(() => {
 
         <!-- TIME -->
         <td class="px-1 py-2 text-gray-500 text-xs">
-          {{ new Date(item.orderTime).toLocaleString() }}
+          {{ formatMyanmarTime(item.orderTime) }}
         </td>
       </tr>
     </tbody>

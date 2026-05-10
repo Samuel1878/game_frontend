@@ -17,6 +17,8 @@ export const useUserDashboardStore = defineStore("userDashboardStore", () => {
   const transactionReport = ref({
     deposits: 0,
     withdraws: 0,
+    rebate:0,
+    bonus:0
   });
   const setMode = (v: "today" | "this_month" | "custom", n: number) => {
     mode.value = v;
@@ -24,52 +26,14 @@ export const useUserDashboardStore = defineStore("userDashboardStore", () => {
       fetchSummary(n);
     }
   };
-  const getDateRange = () => {
-    const now = new Date();
-
-    switch (mode.value) {
-      case "today": {
-        const start = new Date();
-
-        start.setHours(0, 0, 0, 0);
-
-        return {
-          startDate: start.toISOString(),
-          endDate: now.toISOString(),
-        };
-      }
-
-      case "this_month": {
-        const start = new Date(now.getFullYear(), now.getMonth(), 1);
-
-        return {
-          startDate: start.toISOString(),
-          endDate: now.toISOString(),
-        };
-      }
-
-      case "custom":
-        return {
-          startDate: toISOStringSafe(startDate.value),
-
-          endDate: toISOStringSafe(endDate.value),
-        };
-      default:
-        return {
-          startDate: now.toISOString(),
-          endDate: now.toISOString(),
-        };
-    }
-  };
   const fetchSummary = async (user_id: number) => {
-    const dates = getDateRange();
     loading.value = true;
 
     try {
       const res = await getAgentTransactionSummaryUidAPI(user_id, {
         mode: mode.value,
-        startDate: dates.startDate,
-        endDate: dates.endDate,
+        startDate: startDate.value? toISOStringSafe(startDate.value) : undefined,
+        endDate:endDate.value? toISOStringSafe(endDate.value) : undefined,
         portfolio: portfolio.value,
       });
       console.log("ERERE", res?.betReport);

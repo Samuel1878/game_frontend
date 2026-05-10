@@ -181,7 +181,7 @@ export interface transactionsParamsType {
 export interface Transaction {
   id?: number
   user_id: number
-  type: "deposit" | "withdraw" | 'bonus' | 'adjustment'|'refund' |string
+  type: "deposit" | "withdraw" | 'bonus' | 'adjustment'|'refund' | 'rebate' | 'dividend'|string 
   amount: number
   payment_method?: string
   txn_id?: string

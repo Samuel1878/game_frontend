@@ -103,6 +103,7 @@ export const getBetListAPI = async (params: {
   startDate?: string;
   endDate?: string;
   portfolio?:string;
+  mode?:"today"|"this_month"|"custom"
 }) => {
 
   const response = await api.get(

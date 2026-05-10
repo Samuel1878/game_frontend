@@ -16,12 +16,12 @@ import {
   ArrowDownCircle,
   ArrowUpCircle,
   Trophy,
-  TrendingDown,
   Gift,
   BarChart3,
   ChevronLeft,
   ChevronRight,
   MinusCircle,
+  ChartLine,
 } from "lucide-vue-next";
 
 import { useUserDashboardStore } from "@/stores/userDashboardStore";
@@ -255,53 +255,38 @@ onMounted(() => {
 
       <div class="dashboard-card">
         <div class="icon blue">
-          <Trophy class="w-5 h-5" />
+         
+          <BarChart3 class="w-5 h-5" />
         </div>
           <div class="flex flex-col gap-2">
         <span class="dashboard-label">
-          {{ t("total_win") }}
+          {{ t("turnover") }}
         </span>
 
         <b class="dashboard-value text-blue-400">
-          {{ formatPrice(betReport?.turnover?.won || 0) }}
+          {{ formatPrice((betReport?.turnover?.won || 0)+ (betReport?.turnover?.bonus||0)+ (betReport?.turnover?.draw || 0) + (betReport?.turnover?.lose||0) ||0) }}
         </b>
         </div>
       </div>
 
       <div class="dashboard-card">
         <div class="icon orange">
-          <TrendingDown class="w-5 h-5" />
+          <ChartLine class="w-5 h-5" />
         </div>
         <div class="flex flex-col gap-2">
           <span class="dashboard-label">
-            {{ t("total_loss") }}
+            {{ t("win_loss") }}
           </span>
 
           <b class="dashboard-value text-orange-400">
-            {{ formatPrice(betReport?.turnover?.lose || 0) }}
+            {{ formatPrice((transactionReport?.deposits || 0)-(transactionReport?.withdraws||0) || 0) }}
           </b>
         </div>
       </div>
-
-      <div class="dashboard-card">
-        <div class="icon purple">
-          <Gift class="w-5 h-5" />
-        </div>
-  <div class="flex flex-col gap-2">
-        <span class="dashboard-label">
-          {{ t("total_rebate") }}
-        </span>
-
-        <b class="dashboard-value text-purple-400">
-          {{ formatPrice(betReport?.turnover?.bonus || 0) }}
-        </b>
-        </div>
-      </div>
-
       <div class="dashboard-card">
        
         <div class="icon yellow">
-          <BarChart3 class="w-5 h-5" />
+          <Trophy class="w-5 h-5" />
         </div>
           
         <div class="flex flex-col gap-2">
@@ -314,6 +299,37 @@ onMounted(() => {
           </b>
         </div>
       </div>
+
+      <div class="dashboard-card">
+        <div class="icon purple">
+          <Gift class="w-5 h-5" />
+        </div>
+        <div class="flex flex-col gap-2">
+        <span class="dashboard-label">
+          {{ t("total_rebate") }}
+        </span>
+
+        <b class="dashboard-value text-purple-400">
+          {{ formatPrice(transactionReport?.rebate|| 0) }}
+        </b>
+        </div>
+      </div>
+       <div class="dashboard-card">
+        <div class="icon purple">
+          <Gift class="w-5 h-5" />
+        </div>
+        <div class="flex flex-col gap-2">
+        <span class="dashboard-label">
+          {{ t("bonus") }}
+        </span>
+
+        <b class="dashboard-value text-purple-400">
+          {{ formatPrice(transactionReport?.bonus|| 0) }}
+        </b>
+        </div>
+      </div>
+
+      
     </div>
 
     <!-- TRANSACTION HEADER -->

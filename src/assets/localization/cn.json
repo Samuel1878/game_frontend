@@ -335,7 +335,8 @@
     "stake":"投注金额",
     "game":"游戏",
     "time":"时间",
-     "balance":"余额"
+     "balance":"余额",
+     "win_loss":"胜负"
     
 
 

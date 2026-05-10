@@ -242,7 +242,14 @@ const copyHandler = (value:any) => {
             </InputGroup>
           </div>  
         </div>
-       
+       <div class="w-full z-30  fixed bottom-0 right-0 left-0 p-4 glass-bg border-t">
+          <button :disabled="submitting" type="submit"
+            class="gold-bg active-button h-12 font-bold text-gray-900 w-full rounded-lg flex justify-center items-center gap-2 disabled:opacity-50">
+            <RefreshCcw v-if="submitting" class="animate-spin" />
+            {{ t('submit') }}
+          </button>
+    
+    </div>
       </form>
       <div class="glass-bg border rounded-2xl p-4 mt-8 space-y-6">
         <h1 class="text-red-500 font-bold text-xl">
@@ -259,15 +266,7 @@ const copyHandler = (value:any) => {
       </div>
           <HelpBox containerStyle="w-full"/>
     </section>
-    <div class="w-full  fixed bottom-0 right-0 left-0 p-4 glass-bg border-t">
-
-          <button :disabled="submitting" type="submit"
-            class="gold-bg active-button h-12 font-bold text-gray-900 w-full rounded-lg flex justify-center items-center gap-2 disabled:opacity-50">
-            <RefreshCcw v-if="submitting" class="animate-spin" />
-            {{ t('submit') }}
-          </button>
     
-    </div>
 
   </main>
 </template>

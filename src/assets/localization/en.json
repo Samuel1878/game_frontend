@@ -342,6 +342,7 @@
     "stake":"Stake",
     "game":"Game",
     "time":"Time",
-    "balance":"BALANCE"
-
+    "balance":"BALANCE",
+    "turnover":"Turnover",
+  "win_loss":"Win/Loss"
 }

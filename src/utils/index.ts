@@ -35,7 +35,7 @@ import transaction from "@/assets/icon/money-statement.png";
 import share from "@/assets/icon/invite-code.png";
 import logout from "@/assets/icon/logout.svg"
 import services from "@/assets/icon/24-7.png";
-
+import moment from "moment-timezone"
 export {
   logout,
   helpCenter,
@@ -184,4 +184,12 @@ export const toISOStringSafe = (
   }
 
   return date.toISOString();
+};
+
+export const formatMyanmarTime =(date?: string) => {
+  if (!date) return "-";
+
+  return moment.tz(date, "America/New_York")
+    .tz("Asia/Yangon")
+    .format("YYYY-MM-DD HH:mm:ss");
 };

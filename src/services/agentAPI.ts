@@ -21,9 +21,9 @@ export const getUserByAgentAPI = async (agent:number,_currentPage:number, _pageS
 
 export const getAllTransactionsAPI = async (params:transactionsParamsType)=> {
   try {
-        const response = await api.get(`/agent/get-transactions/${params.agent_id}`, {params});
-        if (response.status===200)return response.data;
-        return null
+      const response = await api.get(`/agent/get-transactions/${params.agent_id}`, {params});
+      if (response.status===200)return response.data;
+      return null
     } catch (error) {
         return null
     }

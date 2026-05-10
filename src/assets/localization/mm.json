@@ -330,7 +330,8 @@
     "stake":"Stake",
     "game":"Game",
     "time":"Time",
-      "balance":"လက်ကျန်ငွေ"
+      "balance":"လက်ကျန်ငွေ",
+      "win_loss":"အနိုင်အရှုံး"
     
 
 

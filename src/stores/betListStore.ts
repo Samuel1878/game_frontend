@@ -10,9 +10,9 @@ import {
 import type {
     BetListRecord,
 } from "@/utils/types";
-import { toISOStringSafe } from "@/utils";
 import { useAuthStore } from "./auth";
 import { getBetListAPI } from "@/services/transactionAPI";
+import { toISOStringSafe } from "@/utils";
 
 export const useBetlistStore = defineStore(
   "betListStore",
@@ -22,8 +22,7 @@ export const useBetlistStore = defineStore(
     const mode = ref<
       "today" |
       "this_month" |
-      "custom" |
-      "all"
+      "custom" 
     >("today");
     const startDate = ref();
     const endDate = ref();
@@ -33,79 +32,14 @@ export const useBetlistStore = defineStore(
       const authStore = useAuthStore();
     const setMode = (v:"today" |
       "this_month" |
-      "custom" |
-      "all")=>{
+      "custom" )=>{
         mode.value = v;
         if (v!=="custom"){
 
           fetchBetList();
         }
       }
-    const getDateRange = () => {
-    const now = new Date();
-  
-    
-    switch (mode.value) {
-
-    case "today": {
-
-      const start = new Date();
-
-      start.setHours(0,0,0,0);
-
-      return {
-        startDate: start.toISOString(),
-        endDate: now.toISOString(),
-      };
-    }
-
-    case "this_month": {
-
-      const start = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        1
-      );
-
-      return {
-        startDate: start.toISOString(),
-        endDate: now.toISOString(),
-      };
-    }
-
-    case "custom":
-
-      return {
-        startDate:
-          toISOStringSafe(
-            startDate.value
-          ),
-
-        endDate:
-          toISOStringSafe(
-            endDate.value
-          ),
-      };
-
-    case "all":
-
-      return {
-        startDate:
-          new Date("2000-01-01")
-            .toISOString(),
-
-        endDate:
-          now.toISOString(),
-      };
-
-    default:
-
-      return {
-        startDate: now.toISOString(),
-        endDate: now.toISOString(),
-      };
-    }
-};
+   
     const fetchBetList =
       async () => {
         if (!authStore.user?.name)return
@@ -113,27 +47,21 @@ export const useBetlistStore = defineStore(
 
         loading.value = true;
 
-        const dates =
-          getDateRange();
-
         const response =
           await getBetListAPI({
 
             username:authStore.user?.name,
-
+            mode:mode.value,
             portfolio:
               portfolio.value,
 
             startDate:
-              dates.startDate,
-
+             startDate.value ? toISOStringSafe(startDate.value) : undefined,
             endDate:
-              dates.endDate,
+             endDate.value ? toISOStringSafe(endDate.value) : undefined,
           });
           console.log(response)
-        rawBetRecords.value =
-          response.result;
-           console.log(response)
+            rawBetRecords.value = response?.result;
 
       } catch (error) {
 
@@ -147,7 +75,7 @@ export const useBetlistStore = defineStore(
     };
     const paginatedBetRecords =
       computed(() => {
-
+         rawBetRecords
       const start =
         (betPage.value - 1)
         *
@@ -156,7 +84,7 @@ export const useBetlistStore = defineStore(
       const end =
         start + betLimit.value;
 
-      return rawBetRecords.value
+      return rawBetRecords && rawBetRecords.value
         .slice(start, end);
 
     });
