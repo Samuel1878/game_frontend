@@ -432,36 +432,7 @@ body {
   background-size: 200% 100%;
   animation: softShimmer 10s linear infinite;
 }
-/* .flare 
-  position: absolute;
-  top: 20%;
-  left: 20%;
-  width: 12px;
-  height: 12px;
-  pointer-events: none;
-}
 
-.flare::before,
-.flare::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, white, transparent 70%);
-}
-
-.flare::after {
-  transform: rotate(45deg);
-}
-
-.flare {
-  animation: flare-pop 2s infinite ease-in-out;
-}
-
-@keyframes flare-pop {
-  0%, 100% { opacity: 0; transform: scale(0.3); }
-  40% { opacity: 1; transform: scale(1.4); }
-  60% { opacity: 0.6; transform: scale(1); }
-} */
 
 @theme inline {
   --font-heading: var(--font-sans);

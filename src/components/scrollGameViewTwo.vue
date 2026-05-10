@@ -8,7 +8,7 @@ import "swiper/css/grid";
 import "swiper/css/free-mode";
 
 import type { gameType } from "@/utils/types";
-import { ChevronLeft, ChevronRight, Users, Percent, Diamond } from "lucide-vue-next";
+import { ChevronLeft, ChevronRight, Users, Diamond } from "lucide-vue-next";
 import { computed, onMounted, ref, nextTick } from "vue";
 import { useI18n } from "vue-i18n";
 import { useFakeGameStats } from "@/lib/gamStatHook";

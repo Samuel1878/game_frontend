@@ -4,13 +4,11 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
 } from '@/components/ui/select'
 import { cn_flag, en_flag, mm_flag } from '@/utils';
 import { useI18n } from "vue-i18n";
-import { Globe } from "lucide-vue-next"; // Added for a pro look
 
-const { locale, t } = useI18n();
+const { locale } = useI18n();
 
 const changeLang = (lang: string | any) => {
   locale.value = lang;
