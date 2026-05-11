@@ -5,8 +5,6 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat } from "@/utils";
 import { Headset, InfoIcon, QrCode } from "lucide-vue-next";
 import { useI18n } from "vue-i18n";
-import { toast } from "vue-sonner";
-
 import { ref, onMounted } from "vue";
 // const androidUrl = "https://api.96betx.com/apk/96betx.apk";
 // const iosUrl = "https://apps.apple.com/app/your-app-id";
