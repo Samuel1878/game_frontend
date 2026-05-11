@@ -7,7 +7,8 @@ import { ChevronLeft, ChevronRight, Users, Percent } from "lucide-vue-next";
 import { FreeMode } from "swiper/modules";
 import { computed, onMounted, ref, nextTick } from "vue";
 import { useI18n } from "vue-i18n";
-import { useFakeGameStats } from "@/lib/gamStatHook";
+import { useCasinoLiveStats } from "@/lib/gamStatHook";
+// import { useFakeGameStats } from "@/lib/gamStatHook";
 
 const swiperRef = ref<any>(null); // This will hold the Swiper instance
 const { t, locale } = useI18n();
@@ -31,12 +32,14 @@ const slideLeft = () => {
 const slideRight = () => {
   if (swiperRef.value) swiperRef.value.slideNext();
 };
-
-const { stats: gameStats, startLive } = useFakeGameStats();
+const onTouchStart = () => setPaused(true);
+const onTouchEnd = () => setPaused(false);
+const { stats, start, setPaused } = useCasinoLiveStats();
+// const { stats: gameStats, startLive } = useFakeGameStats();
 
 onMounted(async () => {
   await nextTick();
-  startLive(props.gameData || []);
+  start(props.gameData || []);
 });
 
 const total = computed(() => props.gameData?.length ?? 0);
@@ -86,6 +89,8 @@ const total = computed(() => props.gameData?.length ?? 0);
         momentumVelocityRatio: 0.8,
         sticky: false,
       }"
+      @touchStart="onTouchStart"
+      @touchEnd="onTouchEnd"
       :speed="300"
       :space-between="8"
       :slides-per-view="'auto'"
@@ -119,22 +124,22 @@ const total = computed(() => props.gameData?.length ?? 0);
             <!-- RTP + USERS -->
             <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
               <div
-                v-if="gameStats[game.id]"
+                v-if="stats[game.id]"
                 class="flex items-center gap-2 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
               >
                 <Percent class="w-2 h-2 text-blue-500" />
                 <span class="text-[8px] text-white font-bold">
-                  {{ gameStats[game.id]?.rtp }}
+                  {{ stats[game.id]?.rtp }}
                 </span>
               </div>
 
               <div
-                v-if="gameStats[game.id]"
+                v-if="stats[game.id]"
                 class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
               >
                 <Users class="w-2 h-2 text-green-500" />
                 <span class="text-[8px] text-white font-bold">
-                  {{ gameStats[game.id]?.users }}
+                  {{ stats[game.id]?.users }}
                 </span>
               </div>
             </div>

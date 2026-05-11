@@ -16,7 +16,7 @@ const open = ref(false);
 const image = [
     {
         id: 1,
-        url: "/images/vip_bonus.png"
+        url: "/images/vip_bonus.jpg"
     },
     {
         id: 2,

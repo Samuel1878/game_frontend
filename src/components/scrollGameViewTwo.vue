@@ -11,7 +11,8 @@ import type { gameType } from "@/utils/types";
 import { ChevronLeft, ChevronRight, Users, Diamond } from "lucide-vue-next";
 import { computed, onMounted, ref, nextTick } from "vue";
 import { useI18n } from "vue-i18n";
-import { useFakeGameStats } from "@/lib/gamStatHook";
+import { useCasinoLiveStats } from "@/lib/gamStatHook";
+// import { useFakeGameStats } from "@/lib/gamStatHook";
 
 const swiperRef = ref<any>(null);
 const { t, locale } = useI18n();
@@ -28,11 +29,14 @@ const onSwiper = (swiper: any) => {
   swiperRef.value = swiper;
 };
 
-const { stats: gameStats, startLive } = useFakeGameStats();
-
+const { stats, start, setPaused } = useCasinoLiveStats();
+// const { stats: gameStats, startLive } = useFakeGameStats();
+const onTouchStart = () => setPaused(true);
+const onTouchEnd = () => setPaused(false);
 onMounted(async () => {
   await nextTick();
-  startLive(props.gameData || []);
+
+  start(props.gameData || []);
 });
 
 const total = computed(() => props.gameData?.length ?? 0);
@@ -79,6 +83,8 @@ const total = computed(() => props.gameData?.length ?? 0);
       @swiper="onSwiper"
       :modules="[Grid, FreeMode]"
       :grid="{ rows: 2, fill: 'row' }"
+        @touchStart="onTouchStart"
+  @touchEnd="onTouchEnd"
       :free-mode="{
         enabled: true,
         momentum: true,
@@ -134,23 +140,23 @@ const total = computed(() => props.gameData?.length ?? 0);
             <!-- Stats Badge -->
             <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
               <div
-                v-if="gameStats[game.id]"
+                v-if="stats[game.id]"
                 class="flex items-center gap-2 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
               >
                 <!-- <p>RTP</p> -->
                 <Diamond class="w-2 h-2 text-blue-500" />
                 <span class="text-[8px] text-white font-bold">
-                  {{ gameStats[game.id]?.rtp }}
+                  {{ stats[game.id]?.rtp }}
                 </span>
               </div>
 
               <div
-                v-if="gameStats[game.id]"
+                v-if="stats[game.id]"
                 class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
               >
                 <Users class="w-2 h-2 text-green-500" />
                 <span class="text-[8px] text-white font-bold">
-                  {{ gameStats[game.id]?.users }}
+                  {{ stats[game.id]?.users }}
                 </span>
               </div>
             </div>

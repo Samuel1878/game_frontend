@@ -2,7 +2,7 @@
 import Footer from "@/components/footer.vue";
 import GameOptions from "@/components/layout/gameOptions.vue";
 import { topBuffaloGames } from "@/consts/games";
-import { useFakeGameStats } from "@/lib/gamStatHook";
+import { useGameStat } from "@/lib/gameStat";
 import { useAuthStore } from "@/stores/auth";
 import { useGameStore } from "@/stores/game";
 import { buffalo, slot } from "@/utils";
@@ -15,7 +15,7 @@ const { t, locale } = useI18n();
 const authStore = useAuthStore();
 const { prepareGame } = useGameStore();
 
-const { stats: gameStats, startLive } = useFakeGameStats();
+const { stats: gameStats, startLive } = useGameStat();
 
 onMounted(async () => {
   await nextTick();
