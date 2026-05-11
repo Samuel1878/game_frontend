@@ -6,14 +6,40 @@ import BottomNav from "./components/layout/bottomNav.vue";
 import { onMounted } from "vue";
 import TopNavBar from "./components/layout/topNavBar.vue";
 import GameDrawer from "./components/gameDrawer.vue";
-
+import { watch } from "vue";
+import { useI18n } from "vue-i18n";
 import { useReferralStore } from "./stores/referralStore";
 import { useRoute } from "vue-router";
 import SideBar from "./components/sideBar.vue";
 import SidebarProvider from "./components/ui/sidebar/SidebarProvider.vue";
 import SidebarInset from "./components/ui/sidebar/SidebarInset.vue";
+import DownloadNav from "./components/layout/downloadNav.vue";
 const referralStore = useReferralStore();
 const route = useRoute();
+
+
+
+const { locale } = useI18n();
+
+watch(
+  locale,
+  (lang) => {
+    document.documentElement.classList.remove(
+      "lang-en",
+      "lang-my",
+      "lang-zh"
+    );
+
+    if (lang === "mm") {
+      document.documentElement.classList.add("lang-my");
+    } else if (lang === "cn") {
+      document.documentElement.classList.add("lang-zh");
+    } else {
+      document.documentElement.classList.add("lang-en");
+    }
+  },
+  { immediate: true }
+);
 onMounted(() => {
   const refFromUrl = route.query.rid as string;
   console.log(refFromUrl);
@@ -25,12 +51,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- Force the sidebar to be open by default with :default-open="true" -->
   <SidebarProvider :default-open="true">
     <div class="flex min-h-screen w-full bg-gray-950">
+
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
-        
+        <DownloadNav/>
         <TopNavBar />
         <div class="relative flex-1 flex flex-col items-center w-full">
           <router-view />

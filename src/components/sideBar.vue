@@ -252,7 +252,7 @@ const { t } = useI18n();
               <button
                 v-if="authStore.user"
                 @click="handleLogout"
-                class="w-full flex bg-red-400/50 items-center justify-center gap-2 text-red-500 hover:text-red-300 hover:bg-red-400/10 py-2.5 rounded-lg transition-colors font-semibold text-sm"
+                class="w-full flex bg-red-400/30 items-center justify-center gap-2 text-red-500 hover:text-red-300 hover:bg-red-400/10 py-2.5 rounded-lg transition-colors font-semibold text-sm"
               >
                 <LogOut class="w-4 h-4" />
                 {{ t("logout") }}

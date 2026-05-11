@@ -1,5 +1,7 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@300;400;500;700&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -7,10 +9,9 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  --app-font: 'Roboto', sans-serif;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   /* background-color: "transparent"; */
@@ -84,21 +85,22 @@
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0)
 }
-
-/* a {
-  font-weight: 500;
-  color: #ffd000;
-  text-decoration: inherit;
+html.lang-en {
+  --app-font: 'Roboto', sans-serif;
 }
-a:hover {
-  color: #b99a0c;
-} */
+
+html.lang-my {
+  --app-font: 'Noto Sans Myanmar', sans-serif;
+}
+
+html.lang-zh {
+  --app-font: 'Noto Sans SC', sans-serif;
+}
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
   padding: 0;
-
+  font-family: var(--app-font);
 }
 
 @keyframes shine {

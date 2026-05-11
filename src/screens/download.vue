@@ -7,7 +7,40 @@ import { Headset, InfoIcon, QrCode } from "lucide-vue-next";
 import { useI18n } from "vue-i18n";
 import { toast } from "vue-sonner";
 
+import { ref, onMounted } from "vue";
+// const androidUrl = "https://api.96betx.com/apk/96betx.apk";
+// const iosUrl = "https://apps.apple.com/app/your-app-id";
+const currentOrigin = window.location.origin;
+const isAndroid = ref(false);
+const isIOS = ref(false);
+const loading = ref(true);
+
 const { t } = useI18n();
+
+onMounted(() => {
+  
+});
+
+function downloadAPK() {
+  const ua = navigator.userAgent;
+
+  isAndroid.value = /Android/i.test(ua);
+  isIOS.value = /iPhone|iPad|iPod/i.test(ua);
+  loading.value = false;
+  const androidUrl = `${currentOrigin}/apk/96betx.apk`;
+  const iosUrl = `${currentOrigin}/app/your-app-id`;
+  // AUTO REDIRECT (optional)
+  if (isAndroid.value) {
+    window.location.href = androidUrl;
+  }
+
+  if (isIOS.value) {
+    window.location.href = iosUrl;
+  }
+  console.log(currentOrigin)
+  window.location.href = androidUrl;
+}
+
 </script>
 
 <template>
@@ -50,7 +83,7 @@ const { t } = useI18n();
         <div class="flex flex-col items-center gap-4">
 
           <div
-            v-on:click="toast(t('mobile_coming_soon'))"
+            v-on:click="downloadAPK"
             class="bg-linear-to-br from-gray-700/70 to-gray-900 h-10 px-6 flex items-center rounded-full border border-white/10"
           >
             <p class="text-gray-300 font-semibold text-sm">

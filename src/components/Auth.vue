@@ -26,6 +26,7 @@ import { Spinner } from "./ui/spinner";
 import { useI18n } from "vue-i18n";
 import { toast } from "vue-sonner";
 import DialogDescription from "./ui/dialog/DialogDescription.vue";
+import LanguageBtn from "./languageBtn.vue";
 const auth = useAuthStore();
 const ui = useUIStore();
 const router = useRouter();
@@ -217,7 +218,16 @@ const submit = async () => {
           <InputGroupAddon>
             <User />
           </InputGroupAddon>
-          <InputGroupInput class="w-full" v-model="loginName" type="text" :placeholder="t('name_phone')" />
+          <InputGroupInput 
+            class="w-full" 
+            v-model="loginName" 
+            type="text" 
+            name="username"
+            autocomplete="username"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+            :placeholder="t('name_phone')" />
           <InputGroupAddon align="inline-end">
             <InputGroupText class="text-gray-100"></InputGroupText>
           </InputGroupAddon>
@@ -227,7 +237,17 @@ const submit = async () => {
           <InputGroupAddon>
             <User />
           </InputGroupAddon>
-          <InputGroupInput class="w-full" v-model="form.username" type="text" :placeholder="t('name')" />
+          <InputGroupInput 
+            class="w-full" 
+            v-model="form.username" 
+            type="text" 
+            name="username"
+            :placeholder="t('name')"
+            autocomplete="username"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+             />
           <InputGroupAddon align="inline-end">
             <InputGroupText class="text-gray-100"></InputGroupText>
           </InputGroupAddon>
@@ -238,7 +258,14 @@ const submit = async () => {
           <InputGroupAddon>
             <PhoneIcon />
           </InputGroupAddon>
-          <InputGroupInput class="w-full" v-model="form.phone" type="text" :placeholder="t('phone_number')" />
+          <InputGroupInput 
+            class="w-full" 
+            v-model="form.phone" 
+            type="text" 
+            name="phone"
+            autocomplete="tel"
+            inputmode="numeric"
+            :placeholder="t('phone_number')" />
           <InputGroupAddon align="inline-end">
             <InputGroupText class="text-gray-100"></InputGroupText>
           </InputGroupAddon>
@@ -249,7 +276,12 @@ const submit = async () => {
           <InputGroupAddon>
             <LockIcon />
           </InputGroupAddon>
-          <InputGroupInput class="w-full" v-model="form.password" :type="showPassword ? 'text' : 'password'"
+          <InputGroupInput 
+            class="w-full" 
+            v-model="form.password"
+            name="password"
+            :autocomplete="isLogin ? 'current-password' : 'new-password'"
+            :type="showPassword ? 'text' : 'password'"
             :placeholder="t('password')" />
           <InputGroupAddon align="inline-end">
             <button type="button" @click="showPassword = !showPassword">
@@ -264,7 +296,12 @@ const submit = async () => {
           <InputGroupAddon>
             <LockIcon />
           </InputGroupAddon>
-          <InputGroupInput class="w-full" v-model="form.conPassword" :type="showPassword ? 'text' : 'password'"
+          <InputGroupInput 
+            class="w-full"
+            v-model="form.conPassword" 
+            :type="showPassword ? 'text' : 'password'"
+            name="confirm-password"
+            autocomplete="new-password"
             :placeholder="t('confirm_password')" />
           <InputGroupAddon align="inline-end">
             <InputGroupText class="text-gray-100"></InputGroupText>
@@ -276,7 +313,11 @@ const submit = async () => {
           <InputGroupAddon>
             <Share2Icon />
           </InputGroupAddon>
-          <InputGroupInput class="w-full" :disabled="fromRid" v-model="referralCode"  :placeholder="t('referral_placeholder')" />
+          <InputGroupInput 
+            class="w-full" 
+            :disabled="fromRid" 
+            v-model="referralCode"  
+            :placeholder="t('referral_placeholder')" />
           <InputGroupAddon align="inline-end">
             <InputGroupText class="text-gray-100"></InputGroupText>
           </InputGroupAddon>
@@ -301,16 +342,27 @@ const submit = async () => {
           </Button>
         </div>
       </form>
-      <div class="w-full px-4">
-        <div class="text-center text-sm text-gray-400 border-t pt-2 border-gray-600">
-{{ isLogin ? t("do_not_have") : t("already_have_one") }}
-        <button class="ml-1 text-yellow-400 text-shadow-2xs font-bold cursor-pointer underline"
-          @click="isLogin = !isLogin">
-          {{ isLogin ? t("register") : t("login") }}
-        </button>
-        </div>
-        
-      </div>
+     <div class="w-full px-4 pt-2 border-t border-gray-600">
+  <div class="flex items-center justify-between gap-2">
+    
+    <LanguageBtn />
+
+    <div class="text-center text-sm text-gray-400 flex-1">
+      {{ isLogin ? t("do_not_have") : t("already_have_one") }}
+
+      <button
+        class="ml-1 text-yellow-400 text-shadow-2xs font-bold cursor-pointer underline"
+        @click="isLogin = !isLogin"
+      >
+        {{ isLogin ? t("register") : t("login") }}
+      </button>
+    </div>
+
+    <!-- spacer for center alignment -->
+    <div class="w-[40px]"></div>
+
+  </div>
+</div>
 
 
     </DialogContent>

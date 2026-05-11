@@ -63,80 +63,6 @@ export const amounts = [
     500000,
     1000000,
 ];
-// export const gameProviders:providersType[] = [
-//     {
-//         id:1,
-//         GpId:1094,
-//         providerName:"AfricanBuffalo",
-//         game:africanBuffaloSlots
-//     },
-//     {
-//         id:2,
-//         GpId:3,
-//         providerName:"PragmaticPlay",
-//         game:pragmaticPlayGames
-//     },
-//         {
-//         id:3,
-//         GpId:1020,
-//         providerName:"JiLiGaming",
-//         game:jiliGames
-//     },
-//         {
-//         id:4,
-//         GpId:35,
-//         providerName:"PGSoft",
-//         game:pgSoftGames
-//     },    {
-//         id:5,
-//         GpId:1085,
-//         providerName:"VAGaming",
-//         game:vaSlots
-//     },    {
-//         id:6,
-//         GpId:14,
-//         providerName:"SBOSlot",
-//         game:sboGames
-//     },    
-//     {
-//         id:7,
-//         GpId:1042,
-//         providerName:"KAGaming",
-//         game:kaGames
-//     },    {
-//         id:8,
-//         GpId:1079,
-//         providerName:"Fastspin",
-//         game:fastSpinGames
-//     },    {
-//         id:9,
-//         GpId:1046,
-//         providerName:"FaChai",
-//         game:fachaiGames
-//     },
-//       {
-//         id:10,
-//         GpId:1034,
-//         providerName:"AdvantPlay",
-//         game:advantPlayGames
-//     },
-//       {
-//         id:11,
-//         GpId:1029,
-//         providerName:"568winGames",
-//         game:winGames
-//     },
-//     {
-//         id:12,
-//         GpId:0,
-//         providerName:"All Providers",
-//         game:[...winGames, 
-//             ...fachaiGames,...advantPlayGames,
-//             ...fastSpinGames,...kaGames,...sboGames,
-//             ...vaSlots,...pgSoftGames,...jiliGames,
-//             ...pragmaticPlayGames,...africanBuffaloSlots]
-//     }
-// ];
 
 export const paymentMethod:paymentTypes[] = [
     {
@@ -428,6 +354,7 @@ interface MembershipType {
 
   isComingSoon?: boolean;
 }
+
 export const MembershipCenter:MembershipType[] = [
     {
         id:1,

@@ -75,7 +75,7 @@
     "account_name":"帐户名称"  ,
     "new":"新品发布",
     "title_one":"欢迎奖金",
-    "description_one":"新用户存款即可获得 100% 现金返还",
+    "description_one":"新用户存款即可获得 50% 现金返还",
     "button_one":"立即存款",
     "title_two":"会员返现",
     "description_two":"存款即可获得10%现金返还。赶快行动吧！",
@@ -336,7 +336,11 @@
     "game":"游戏",
     "time":"时间",
      "balance":"余额",
-     "win_loss":"胜负"
+     "win_loss":"胜负",
+      "turnover":"有效投注",
+    "update_available":"更新可用",
+    "update_now":"立即更新"
+  
     
 
 

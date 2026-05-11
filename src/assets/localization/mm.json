@@ -75,7 +75,7 @@
     "account_name":"အကောင့်အမည်"  ,
     "new":"အသစ်ထွက်ရှိမှု",
     "title_one":"ကြိုဆိုဆုကြေးငွေ",
-    "description_one":"အသုံးပြုသူအသစ်များအတွက် 100% cashback ရယူလိုက်ပါ။",
+    "description_one":"အသုံးပြုသူအသစ်များအတွက် 50% cashback ရယူလိုက်ပါ။",
     "button_one":"ယခုငွေသွင်းမည်",
     "title_two":"အသင်းဝင်ကြေးငွေပြန်အမ်းခြင်း",
     "description_two":"အပ်ငွေအပေါ် ၁၀% ပြန်အမ်းငွေ ရယူလိုက်ပါ။",
@@ -323,15 +323,19 @@
     "online":"Online",
     "offline":"Offline",
      "bet_list":"လောင်းကစားစာရင်း",
-      "refund":"Refund",
-    "adjustment":"Adjustment",
-    "win":"Win",
-    "win/lost":"Win/Lost",
-    "stake":"Stake",
-    "game":"Game",
-    "time":"Time",
+      "refund":"ပြန်အမ်းငွေ",
+    "adjustment":"ချိန်ညှိမှု",
+    "win":"အနိုင်ရ",
+    "win/lost":"အနိုင်/အရှုံး",
+    "stake":"လောင်းကြေး",
+    "game":"ဂိမ်း",
+    "time":"အချိန်",
       "balance":"လက်ကျန်ငွေ",
-      "win_loss":"အနိုင်အရှုံး"
+      "win_loss":"အနိုင်အရှုံး",
+      "turnover":"လည်ပတ်မှု",
+       "update_available":"အပ်ဒိတ်ရရှိနိုင်ပါပြီ",
+  "update_now":"ယခု အပ်ဒိတ်လုပ်ပါ"
+  
     
 
 

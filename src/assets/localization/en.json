@@ -76,7 +76,7 @@
     "account_name":"Account Name"  ,
     "new":"New Launch",
     "title_one":"WELCOME BONUS",
-    "description_one":"Deposit and get 100% cash back for new users",
+    "description_one":"Deposit and get 50% cash back for new users",
     "button_one":"Deposit Now",
     "title_two":"MEMBERSHIP CASH BACK",
     "description_two":"10% cash back on deposit. Get on it!",
@@ -344,6 +344,8 @@
     "time":"Time",
     "balance":"BALANCE",
     "turnover":"Turnover",
-  "win_loss":"Win/Loss"
+  "win_loss":"Win/Loss",
+  "update_available":"Update Available",
+  "update_now":"Update Now"
   
 }
