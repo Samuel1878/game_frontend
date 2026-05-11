@@ -39,9 +39,7 @@ const indicatorStyle = computed(() => {
             overflow-hidden
              bg-[#020617]/60 backdrop-blur-2xl
              border border-white/5 
-              shadow-lg rounded-full m-1"
-
-              
+              shadow-lg rounded-full m-1"      
     >
       
       <div class="absolute bottom-0 left-0 h-1 w-full">

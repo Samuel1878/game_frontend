@@ -28,6 +28,7 @@
     "moment-timezone": "^0.6.2",
     "native-run": "^2.0.3",
     "pinia": "^3.0.4",
+    "qrcode.vue": "^3.9.0",
     "reka-ui": "^2.9.7",
     "socket.io-client": "^4.8.3",
     "swiper": "^12.1.3",

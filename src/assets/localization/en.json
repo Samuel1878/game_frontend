@@ -344,8 +344,17 @@
     "time":"Time",
     "balance":"BALANCE",
     "turnover":"Turnover",
-  "win_loss":"Win/Loss",
-  "update_available":"Update Available",
-  "update_now":"Update Now"
-  
+    "win_loss":"Win/Loss",
+    "update_available":"Update Available",
+    "update_now":"Update Now",
+  "download_count": "Downloads",
+  "rating": "rating",
+  "scan_qr": "Scan QR",
+  "ios_lite_app": "IOS LITE APP",
+  "android_apk": "Android APK",
+  "instruction_qr": "Scan the QR code to get the download link.",
+  "instruction_android": "For Android users, you may be asked for a permission request; tap 'Allow' to install.",
+  "instruction_ios": "For iOS users, after downloading, go to Settings. You will see 'Profile Downloaded'; click to install the app.",
+  "instruction_enjoy": "You are all set. Create a new account and enjoy the games!"
 }
+  

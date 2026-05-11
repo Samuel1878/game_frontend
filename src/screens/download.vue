@@ -3,107 +3,177 @@ import Footer from "@/components/footer.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat } from "@/utils";
-import { Headset, InfoIcon, QrCode } from "lucide-vue-next";
+import { Asterisk, Headset } from "lucide-vue-next";
 import { useI18n } from "vue-i18n";
-import { ref, onMounted } from "vue";
-// const androidUrl = "https://api.96betx.com/apk/96betx.apk";
-// const iosUrl = "https://apps.apple.com/app/your-app-id";
-const currentOrigin = window.location.origin;
-const isAndroid = ref(false);
-const isIOS = ref(false);
-const loading = ref(true);
+import { ref } from "vue";
+import QrcodeVue from "qrcode.vue";
+const supabaseURL = "https://your-supabase-url.supabase.co"; // Replace with actual URL
+const loading = ref(false);
+const androidUrl = `${supabaseURL}/storage/v1/object/public/app-release/android/tz99.apk`;
 
-const { t } = useI18n();
+const iosUrl = `${supabaseURL}/storage/v1/object/public/app-release/ios/install.html`;
+const { t, locale } = useI18n();
 
-onMounted(() => {
-  
-});
-
-function downloadAPK() {
-  const ua = navigator.userAgent;
-
-  isAndroid.value = /Android/i.test(ua);
-  isIOS.value = /iPhone|iPad|iPod/i.test(ua);
+const downloadIOS = () => {
+  loading.value = true;
+  window.location.href = iosUrl;
   loading.value = false;
-  const androidUrl = `${currentOrigin}/apk/96betx.apk`;
-  const iosUrl = `${currentOrigin}/app/your-app-id`;
-  // AUTO REDIRECT (optional)
-  if (isAndroid.value) {
-    window.location.href = androidUrl;
-  }
+};
 
-  if (isIOS.value) {
-    window.location.href = iosUrl;
-  }
-  console.log(currentOrigin)
+const downloadAndroid = () => {
   window.location.href = androidUrl;
-}
-
+};
 </script>
 
 <template>
-       <CustomNavBar title="download_center" backTo="/">
+  <CustomNavBar :title="t('download_center')" backTo="/">
     <template #right>
-
       <button @click="openChat">
         <Headset class="w-6 h-6" />
       </button>
-      <LanguageBtn/>
+      <LanguageBtn />
     </template>
   </CustomNavBar>
-  <main class=" bg-gray-900 text-white flex items-center justify-center px-2 py-10">
+
+  <main
+    class="bg-gray-900 text-white flex flex-col items-center justify-center px-2 py-6"
+  >
+    <h1 class="text-lg md:text-2xl font-extrabold text-center">
+      {{ t("download_header") }}
+    </h1>
 
     <section
       id="download"
-      class="w-full max-w-6xl bg-gray-900/60 border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col items-center gap-6"
+      class="w-full max-w-6xl bg-gray-900/60 border border-white/10 rounded-2xl my-4 p-6 md:p-10 space-y-2"
     >
-
-      <!-- Title -->
-      <h1 class="text-lg md:text-2xl font-extrabold text-center">
-        {{ t("download_header") }}
-      </h1>
-
-      <!-- Phone image -->
-      <img
-        src="/images/phone.svg"
-        class="w-45 md:w-56 object-contain"
-      />
-
-      <!-- Content -->
-      <div class="flex flex-col md:flex-row items-center gap-6 w-full justify-center">
-
-        <!-- QR -->
-        <div class="p-3 bg-gray-800 rounded-xl border border-white/10">
-          <QrCode class="w-24 h-24 text-white" />
-        </div>
-
-        <!-- Actions -->
-        <div class="flex flex-col items-center gap-4">
-
-          <div
-            v-on:click="downloadAPK"
-            class="bg-linear-to-br from-gray-700/70 to-gray-900 h-10 px-6 flex items-center rounded-full border border-white/10"
-          >
-            <p class="text-gray-300 font-semibold text-sm">
-              {{ t("download_apk") }}
-            </p>
+      <div class="flex gap-2 items-center">
+        <img src="/favicon.png" class="w-12 h-12" alt="App Logo" />
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <h3 class="text-white font-bold text-lg text-linear-gold truncate">
+              TZ99
+            </h3>
+            <div
+              class="bg-white/20 px-1.5 py-0.5 rounded text-xs text-gray-300"
+            >
+              4.9 {{ t("rating") }}
+            </div>
           </div>
-
-          <div class="text-sky-400 font-medium flex items-center gap-2 underline cursor-pointer">
-            <InfoIcon class="w-4 h-4" />
-            <span>{{ t("install_guide") }}</span>
+          <div class="flex items-center gap-1 text-white/90 text-sm">
+            <span>⭐ ⭐ ⭐ ⭐ ⭐</span>
+            <span>•</span>
+            <span class="text-[9px]">10K+ {{ t("download_count") }}</span>
           </div>
-
         </div>
       </div>
 
-      <!-- Mobile note -->
-      <p class="text-xs text-gray-500 text-center mt-2">
-        {{ t("mobile_coming_soon") }}
-      </p>
+      <!-- Instructional List -->
+      <div class="space-y-2 my-6">
+        <div class="flex gap-2 items-center">
+             <Asterisk class="w-4 h-4 text-yellow-500" />
+            <p class="text-xs text-gray-400 leading-loose "> {{ t("instruction_qr") }}</p>
+        </div>
+         <div class="flex gap-2 items-center">
+             <Asterisk class="w-4 h-4 text-yellow-500" />
+            <p class="text-xs text-gray-400 leading-loose "> {{ t("instruction_android") }}</p>
+        </div>
+         <div class="flex gap-2 items-center">
+             <Asterisk class="w-4 h-4 text-yellow-500" />
+            <p class="text-xs text-gray-400 leading-loose ">{{ t("instruction_ios") }}</p>
+        </div>
+         <div class="flex gap-2 items-center">
+             <Asterisk class="w-4 h-4 text-yellow-500" />
+            <p class="text-xs text-gray-400 leading-loose ">{{ t("instruction_enjoy") }}</p>
+        </div>
+  
+      </div>
 
+      <div class="flex justify-around">
+        <div class="flex flex-col items-center gap-2">
+          <div
+            class="relative overflow-hidden rounded-3xl border border-white/10 bg-linear-to-b from-zinc-800 to-black/90 p-2 shadow-2xl"
+          >
+            <!-- Glow -->
+            <div
+              class="absolute inset-0 bg-linear-to-br from-blue-500/10 via-transparent to-cyan-500/10"
+            />
+            <div class="relative z-10 flex flex-col items-center">
+              <!-- QR Wrapper -->
+              <div
+                class="relative rounded-xl bg-white p-4 shadow-[0_0_40px_rgba(255,255,255,0.08)]"
+              >
+                <QrcodeVue
+                  :value="iosUrl"
+                  :size="90"
+                  level="H"
+                  background="#ffffff"
+                  foreground="#000000"
+                  render-as="svg"
+                />
+
+                <!-- Center Logo -->
+                <div
+                  class="absolute left-1/2 top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black shadow-lg"
+                >
+                  <img src="/favicon.png" class="h-4 w-4" alt="logo" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-white/80 text-xs">{{ t("scan_qr") }}</p>
+          <p class="text-blue-500 text-xs">{{ t("ios_lite_app") }}</p>
+          <button
+            @click="downloadIOS"
+            class="gold-bg h-10 px-6 flex items-center rounded-full"
+          >
+            <p class="text-glow font-semibold text-sm">{{ t("download") }}</p>
+          </button>
+        </div>
+
+        <div class="flex flex-col items-center gap-2">
+          <div
+            class="relative overflow-hidden rounded-3xl border border-white/10 bg-linear-to-b from-zinc-800 to-black/90 p-2 shadow-2xl"
+          >
+            <!-- Glow -->
+            <div
+              class="absolute inset-0 bg-linear-to-br from-blue-500/10 via-transparent to-cyan-500/10"
+            />
+            <div class="relative z-10 flex flex-col items-center">
+              <!-- QR Wrapper -->
+              <div
+                class="relative rounded-xl bg-white p-4 shadow-[0_0_40px_rgba(255,255,255,0.08)]"
+              >
+                <QrcodeVue
+                  :value="androidUrl"
+                  :size="90"
+                  level="H"
+                  background="#ffffff"
+                  foreground="#000000"
+                />
+                <div
+                  class="absolute left-1/2 top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black shadow-lg"
+                >
+                  <img src="/favicon.png" class="h-4 w-4" alt="logo" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-white/80 text-xs">{{ t("scan_qr") }}</p>
+          <p class="text-green-500 text-xs">{{ t("android_apk") }}</p>
+          <button
+            @click="downloadAndroid"
+            class="gold-bg h-10 px-6 flex items-center rounded-full"
+          >
+            <p class="text-glow font-semibold text-sm">
+              {{ t("download_apk") }}
+            </p>
+          </button>
+        </div>
+      </div>
+      <div class="w-full flex flex-col items-center">
+        <img :src="locale==='cn'?'/images/phone_cn.png':'/images/phone.png'" class="w-2/3"/>
+      </div>
     </section>
-
   </main>
-  <Footer/>
+  <Footer />
 </template>

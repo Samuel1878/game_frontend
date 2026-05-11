@@ -339,7 +339,18 @@
      "win_loss":"胜负",
       "turnover":"有效投注",
     "update_available":"更新可用",
-    "update_now":"立即更新"
+    "update_now":"立即更新",
+
+
+  "download_count": "下载量",
+  "rating": "评分",
+  "scan_qr": "扫描二维码",
+  "ios_lite_app": "iOS 轻量版",
+  "android_apk": "安卓安装包",
+  "instruction_qr": "扫描二维码获取下载链接。",
+  "instruction_android": "安卓用户：如果弹出权限请求，请点击“允许”以继续安装。",
+  "instruction_ios": "iOS 用户：下载后请前往“设置”，找到“已下载描述文件”，点击并确认安装。",
+  "instruction_enjoy": "一切就绪！立即创建账号，开启游戏之旅。"
   
     
 
