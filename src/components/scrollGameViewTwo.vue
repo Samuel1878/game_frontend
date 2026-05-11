@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Grid, FreeMode } from "swiper/modules";
+import { Grid } from "swiper/modules";
 
 // Swiper Styles
 import "swiper/css";
@@ -81,17 +81,11 @@ const total = computed(() => props.gameData?.length ?? 0);
     <!-- Swiper Grid Container -->
     <Swiper
       @swiper="onSwiper"
-      :modules="[Grid, FreeMode]"
+      :modules="[Grid]"
       :grid="{ rows: 2, fill: 'row' }"
         @touchStart="onTouchStart"
-  @touchEnd="onTouchEnd"
-      :free-mode="{
-        enabled: true,
-        momentum: true,
-        momentumRatio: 0.35,
-        momentumVelocityRatio: 0.8,
-        sticky: false,
-      }"
+        @touchEnd="onTouchEnd"
+      
       :speed="300"
       :space-between="8"
       :slides-per-view="3"
