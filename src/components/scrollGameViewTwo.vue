@@ -8,10 +8,10 @@ import "swiper/css/grid";
 import "swiper/css/free-mode";
 
 import type { gameType } from "@/utils/types";
-import { ChevronLeft, ChevronRight, Users, Diamond } from "lucide-vue-next";
-import { computed, onMounted, ref, nextTick } from "vue";
+import { ChevronLeft, ChevronRight } from "lucide-vue-next";
+import { computed,  ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { useCasinoLiveStats } from "@/lib/gamStatHook";
+// import { useCasinoLiveStats } from "@/lib/gamStatHook";
 // import { useFakeGameStats } from "@/lib/gamStatHook";
 
 const swiperRef = ref<any>(null);
@@ -29,15 +29,15 @@ const onSwiper = (swiper: any) => {
   swiperRef.value = swiper;
 };
 
-const { stats, start, setPaused } = useCasinoLiveStats();
+// const { stats, start, setPaused } = useCasinoLiveStats();
 // const { stats: gameStats, startLive } = useFakeGameStats();
-const onTouchStart = () => setPaused(true);
-const onTouchEnd = () => setPaused(false);
-onMounted(async () => {
-  await nextTick();
+// const onTouchStart = () => setPaused(true);
+// const onTouchEnd = () => setPaused(false);
+// onMounted(async () => {
+//   await nextTick();
 
-  start(props.gameData || []);
-});
+//   start(props.gameData || []);
+// });
 
 const total = computed(() => props.gameData?.length ?? 0);
 </script>
@@ -83,8 +83,7 @@ const total = computed(() => props.gameData?.length ?? 0);
       @swiper="onSwiper"
       :modules="[Grid]"
       :grid="{ rows: 2, fill: 'row' }"
-        @touchStart="onTouchStart"
-        @touchEnd="onTouchEnd"
+      
       
       :speed="300"
       :space-between="8"
@@ -128,16 +127,14 @@ const total = computed(() => props.gameData?.length ?? 0);
             <div
               class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60"
             />
- <div
+           <!-- <div
               class="pointer-events-none absolute inset-0 rounded-md border-shine"
             />
-            <!-- Stats Badge -->
             <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
               <div
                 v-if="stats[game.id]"
                 class="flex items-center gap-2 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
               >
-                <!-- <p>RTP</p> -->
                 <Diamond class="w-2 h-2 text-blue-500" />
                 <span class="text-[8px] text-white font-bold">
                   {{ stats[game.id]?.rtp }}
@@ -153,7 +150,7 @@ const total = computed(() => props.gameData?.length ?? 0);
                   {{ stats[game.id]?.users }}
                 </span>
               </div>
-            </div>
+            </div> -->
 
             <!-- Title Overlay -->
             <div class="absolute bottom-2 left-0 right-0 px-2">
