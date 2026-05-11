@@ -78,10 +78,22 @@ const total = computed(() => props.gameData?.length ?? 0);
     <Swiper
       @swiper="onSwiper"
       :modules="[Grid, FreeMode]"
-      :slides-per-view="3"
       :grid="{ rows: 2, fill: 'row' }"
-      :space-between="10"
-      :free-mode="true"
+      :free-mode="{
+        enabled: true,
+        momentum: true,
+        momentumRatio: 0.35,
+        momentumVelocityRatio: 0.8,
+        sticky: false,
+      }"
+      :speed="300"
+      :space-between="8"
+      :slides-per-view="3"
+      :touch-ratio="1"
+      :resistance-ratio="0.85"
+      :watch-slides-progress="false"
+      :observer="false"
+      :observe-parents="false"
       :breakpoints="{
         640: { slidesPerView: 4, grid: { rows: 2 } },
         768: { slidesPerView: 5, grid: { rows: 2 } },
