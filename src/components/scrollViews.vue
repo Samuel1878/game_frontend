@@ -81,17 +81,9 @@ const total = computed(() => props.gameData?.length ?? 0);
     </div>
     <Swiper
       @swiper="onSwiper"
-      :modules="[FreeMode]"
-      :free-mode="{
-        enabled: true,
-        momentum: true,
-        momentumRatio: 0.35,
-        momentumVelocityRatio: 0.8,
-        sticky: false,
-      }"
       @touchStart="onTouchStart"
       @touchEnd="onTouchEnd"
-      :speed="300"
+      :speed="500"
       :space-between="8"
       :slides-per-view="'auto'"
       :touch-ratio="1"
@@ -161,3 +153,12 @@ const total = computed(() => props.gameData?.length ?? 0);
     </Swiper>
   </article>
 </template>
+
+ <!-- :modules="[FreeMode]"
+      :free-mode="{
+        enabled: true,
+        momentum: true,
+        momentumRatio: 0.35,
+        momentumVelocityRatio: 0.8,
+        sticky: false,
+      }" -->

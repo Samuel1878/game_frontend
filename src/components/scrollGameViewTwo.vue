@@ -9,8 +9,9 @@ import "swiper/css/free-mode";
 
 import type { gameType } from "@/utils/types";
 import { ChevronLeft, ChevronRight } from "lucide-vue-next";
-import { computed,  ref } from "vue";
+import { computed,  nextTick,  onMounted,  ref } from "vue";
 import { useI18n } from "vue-i18n";
+import { useCasinoLiveStats } from "@/lib/gamStatHook";
 // import { useCasinoLiveStats } from "@/lib/gamStatHook";
 // import { useFakeGameStats } from "@/lib/gamStatHook";
 
@@ -29,15 +30,15 @@ const onSwiper = (swiper: any) => {
   swiperRef.value = swiper;
 };
 
-// const { stats, start, setPaused } = useCasinoLiveStats();
+const { stats, start, setPaused } = useCasinoLiveStats();
 // const { stats: gameStats, startLive } = useFakeGameStats();
-// const onTouchStart = () => setPaused(true);
-// const onTouchEnd = () => setPaused(false);
-// onMounted(async () => {
-//   await nextTick();
+const onTouchStart = () => setPaused(true);
+const onTouchEnd = () => setPaused(false);
+onMounted(async () => {
+  await nextTick();
 
-//   start(props.gameData || []);
-// });
+  start(props.gameData || []);
+});
 
 const total = computed(() => props.gameData?.length ?? 0);
 </script>
@@ -83,9 +84,9 @@ const total = computed(() => props.gameData?.length ?? 0);
       @swiper="onSwiper"
       :modules="[Grid]"
       :grid="{ rows: 2, fill: 'row' }"
-      
-      
-      :speed="300"
+      :speed="500"
+        @touchStart="onTouchStart"
+      @touchEnd="onTouchEnd"
       :space-between="8"
       :slides-per-view="3"
       :touch-ratio="1"
@@ -127,7 +128,7 @@ const total = computed(() => props.gameData?.length ?? 0);
             <div
               class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60"
             />
-           <!-- <div
+           <div
               class="pointer-events-none absolute inset-0 rounded-md border-shine"
             />
             <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
@@ -150,7 +151,7 @@ const total = computed(() => props.gameData?.length ?? 0);
                   {{ stats[game.id]?.users }}
                 </span>
               </div>
-            </div> -->
+            </div>
 
             <!-- Title Overlay -->
             <div class="absolute bottom-2 left-0 right-0 px-2">
