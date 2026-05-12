@@ -30,23 +30,27 @@ const goHome = () => {
     router.replace('/')
 }
 </script>
-
 <template>
   <div class="fixed inset-0 bg-black overflow-hidden">
+
+    <!-- TOP BAR -->
     <div
-      class="absolute top-0 left-0 right-0 z-50 h-9 flex justify-between items-center px-4 bg-gray-900/50 backdrop-blur pointer-events-none"
+      class="absolute top-0 left-0 right-0 z-50 h-9
+             flex justify-between items-center px-4
+             bg-gray-900/50 backdrop-blur
+             pt-[env(safe-area-inset-top)]"
     >
-      <div class="pointer-events-auto cursor-pointer px-2" @click="goBack">
+      <div class="cursor-pointer px-2" @click="goBack">
         <ChevronLeft class="text-gray-100 w-7 h-7" />
       </div>
 
-      <div class="pointer-events-auto cursor-pointer flex justify-center items-center" @click="goHome">
+      <div class="cursor-pointer flex items-center" @click="goHome">
         <img src="/logo.png" class="h-8" />
       </div>
     </div>
 
     <!-- GAME -->
-    <div class="absolute inset-0 pt-9">
+    <div class="absolute inset-0 pt-[calc(2.25rem+env(safe-area-inset-top))]">
       <iframe
         v-if="gameStore.launchUrl"
         :src="gameStore.launchUrl"
