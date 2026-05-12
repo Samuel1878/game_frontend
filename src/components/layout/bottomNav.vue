@@ -12,8 +12,8 @@ const {t } = useI18n();
 const navItems = [
   { name: "promotion", icon: GiftIcon, path: "/promotions" },
   { name: "deposit", icon: Wallet, path: "/deposit" },
-    { name: "home", icon: Home, path: "/" , center:true},
-    { name: "withdraw", icon: BanknoteArrowUp, path: "/withdraw" },
+  { name: "home", icon: Home, path: "/" , center:true},
+  { name: "withdraw", icon: BanknoteArrowUp, path: "/withdraw" },
   { name: "profile", icon: User, path: "/user/profile" },
 ];
 const go = (path: string) => {
@@ -31,7 +31,7 @@ const indicatorStyle = computed(() => {
 </script>
 
 <template>
-  <nav class="fixed bottom-0 left-0 right-0 z-50 md:hidden flex justify-center" v-if="!route.meta.hideNavbar">
+  <nav class="fixed pb-[env(safe-area-inset-bottom)] bg-[#020617]/60 backdrop-blur-2xl bottom-0 left-0 right-0 z-50 md:hidden flex justify-center" v-if="!route.meta.hideNavbar">
     <div
       class="relative max-w-md w-full
             ring-1
