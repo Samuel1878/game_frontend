@@ -57,7 +57,7 @@ onMounted(() => {
     >
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
-        <DownloadNav />
+     
         <TopNavBar />
         <div class="relative flex-1 flex flex-col items-center w-full">
           <router-view />

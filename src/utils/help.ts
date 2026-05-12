@@ -64,6 +64,8 @@ export const getSummary = (data: ReportItem[] | null | undefined): Summary => {
 export const toISODate = (d: any) => {
   return new Date(d.year, d.month - 1, d.day).toISOString();
 };
+export const isPWA = () => window.matchMedia("(display-mode: standalone)").matches ||
+  (window.navigator as any).standalone === true;
 
 export const isApp = () => {
   // 1. Check for Capacitor (most common in modern Vue/Ionic apps)

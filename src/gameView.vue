@@ -35,7 +35,7 @@ const goHome = () => {
 
     <!-- TOP BAR -->
     <div
-      class="absolute top-0 left-0 right-0 z-50 h-9
+      class="absolute top-0 left-0 right-0 z-50 h-10
              flex justify-between items-center px-4
              bg-gray-900/50 backdrop-blur
              pt-[env(safe-area-inset-top)]"
