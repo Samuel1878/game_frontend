@@ -20,7 +20,7 @@ const goBack = () => {
 </script>
 
 <template>
-  <header class=" flex items-center h-14 px-3 w-full border-b bg-gray-900 
+  <header class="pt-[env(safe-area-inset-top)] flex items-center h-14 px-3 w-full border-b bg-gray-900 
         bg-linear-to-br from-white/5 via-white/10 to-white/5 sticky z-40 top-0 left-0 right-0
         backdrop-blur-2xl border-white/5
         shadow-[0_10px_40px_rgba(0,0,0,0.2)]">

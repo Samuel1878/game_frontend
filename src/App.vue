@@ -55,6 +55,7 @@ onMounted(() => {
     <div
       class="flex min-h-dvh w-full bg-gray-950"
     >
+    <DownloadNav/>
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
      
