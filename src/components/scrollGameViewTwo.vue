@@ -88,7 +88,7 @@ const total = computed(() => props.gameData?.length ?? 0);
     </div>
 <Swiper
     @swiper="onSwiper"
-    :speed="500"
+    :speed="300"
     :space-between="8"
     :slides-per-view="3"
     :touch-ratio="1"
@@ -100,7 +100,7 @@ const total = computed(() => props.gameData?.length ?? 0);
       640: { slidesPerView: 4 },
       768: { slidesPerView: 5 },
       1024: { slidesPerView: 7 },
-      1280: { slidesPerView: 9 },
+      1280: { slidesPerView: 8 },
     }"
     class="pb-2!"
   >

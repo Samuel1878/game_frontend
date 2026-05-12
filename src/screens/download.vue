@@ -5,20 +5,20 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat } from "@/utils";
 import { Asterisk, Headset } from "lucide-vue-next";
 import { useI18n } from "vue-i18n";
-import { ref } from "vue";
+// import { ref } from "vue";
 import QrcodeVue from "qrcode.vue";
-const supabaseURL = "https://your-supabase-url.supabase.co"; // Replace with actual URL
-const loading = ref(false);
-const androidUrl = `${supabaseURL}/storage/v1/object/public/app-release/android/tz99.apk`;
+const supabaseURL = "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/app"; // Replace with actual URL
+// const loading = ref(false);
+const androidUrl = `${supabaseURL}/app-release.apk`;
 
 const iosUrl = `${supabaseURL}/storage/v1/object/public/app-release/ios/install.html`;
 const { t, locale } = useI18n();
 
-const downloadIOS = () => {
-  loading.value = true;
-  window.location.href = iosUrl;
-  loading.value = false;
-};
+// const downloadIOS = () => {
+//   loading.value = true;
+//   window.location.href = iosUrl;
+//   loading.value = false;
+// };
 
 const downloadAndroid = () => {
   window.location.href = androidUrl;
@@ -123,7 +123,7 @@ const downloadAndroid = () => {
           <p class="text-white/80 text-xs">{{ t("scan_qr") }}</p>
           <p class="text-blue-500 text-xs">{{ t("ios_lite_app") }}</p>
           <button
-            @click="downloadIOS"
+           
             class="gold-bg h-10 px-6 flex items-center rounded-full"
           >
             <p class="text-glow font-semibold text-sm">{{ t("download") }}</p>

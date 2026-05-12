@@ -14,6 +14,7 @@ import SideBar from "./components/sideBar.vue";
 import SidebarProvider from "./components/ui/sidebar/SidebarProvider.vue";
 import SidebarInset from "./components/ui/sidebar/SidebarInset.vue";
 import DownloadNav from "./components/layout/downloadNav.vue";
+import UpdatePopup from "./components/updatePopup.vue";
 const referralStore = useReferralStore();
 const route = useRoute();
 
@@ -53,14 +54,15 @@ onMounted(() => {
 <template>
   <SidebarProvider :default-open="true">
     <div class="flex min-h-screen w-full bg-gray-950">
-
+  
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
+      
         <DownloadNav/>
         <TopNavBar />
         <div class="relative flex-1 flex flex-col items-center w-full">
           <router-view />
-          
+              <UpdatePopup />
           <AuthModal />
           <GameDrawer />
         </div>

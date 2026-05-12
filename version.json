@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "force_update": true,
+
+  "android_url": "https://your-domain.com/download/android",
+  "ios_url": "https://your-domain.com/download/ios",
+
+  "description_en": "A new version is available. Please update the app to continue using all features securely and smoothly.",
+
+  "description_cn": "发现新版本。请更新应用程序，以继续安全稳定地使用所有功能。",
+
+  "description_mm": "ဗားရှင်းအသစ် ရရှိနိုင်ပါပြီ။ လုံခြုံစိတ်ချစွာနှင့် အဆင်ပြေပြေ အသုံးပြုနိုင်ရန် App ကို Update လုပ်ပါ။",
+
+  "title_en": "Update Available",
+  "title_cn": "发现新版本",
+  "title_mm": "ဗားရှင်းအသစ် ရရှိပါပြီ",
+
+  "button_en": "Update Now",
+  "button_cn": "立即更新",
+  "button_mm": "ယခု Update လုပ်မည်",
+
+  "notice_en": "This update is required to continue using the application.",
+  "notice_cn": "必须更新后才能继续使用应用程序。",
+  "notice_mm": "Application ကို ဆက်လက်အသုံးပြုရန် Update လိုအပ်ပါသည်။",
+
+  "release_date": "2026-05-12T08:00:00Z"
+}
