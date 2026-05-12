@@ -11,9 +11,9 @@ import type { gameType } from "@/utils/types";
 import { ChevronLeft, ChevronRight } from "lucide-vue-next";
 import { computed,  nextTick,  onMounted,  ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { useCasinoLiveStats } from "@/lib/gamStatHook";
 // import { useCasinoLiveStats } from "@/lib/gamStatHook";
-// import { useFakeGameStats } from "@/lib/gamStatHook";
+// import { useCasinoLiveStats } from "@/lib/gamStatHook";
+import { useGameStat } from "@/lib/gameStat";
 
 const swiperRef = ref<any>(null);
 const { t, locale } = useI18n();
@@ -30,14 +30,14 @@ const onSwiper = (swiper: any) => {
   swiperRef.value = swiper;
 };
 
-const { stats, start, setPaused } = useCasinoLiveStats();
-// const { stats: gameStats, startLive } = useFakeGameStats();
-const onTouchStart = () => setPaused(true);
-const onTouchEnd = () => setPaused(false);
+// const { stats, start, setPaused } = useCasinoLiveStats();
+const { stats, startLive } = useGameStat();
+// const onTouchStart = () => setPaused(true);
+// const onTouchEnd = () => setPaused(false);
 onMounted(async () => {
   await nextTick();
 
-  start(props.gameData || []);
+  startLive(props.gameData || []);
 });
 
 const total = computed(() => props.gameData?.length ?? 0);
@@ -85,8 +85,6 @@ const total = computed(() => props.gameData?.length ?? 0);
       :modules="[Grid]"
       :grid="{ rows: 2, fill: 'row' }"
       :speed="500"
-        @touchStart="onTouchStart"
-      @touchEnd="onTouchEnd"
       :space-between="8"
       :slides-per-view="3"
       :touch-ratio="1"

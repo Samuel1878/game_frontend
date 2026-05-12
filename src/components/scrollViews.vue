@@ -6,7 +6,8 @@ import type { gameType } from "@/utils/types";
 import { ChevronLeft, ChevronRight, Users, Percent } from "lucide-vue-next";
 import { computed, onMounted, ref, nextTick } from "vue";
 import { useI18n } from "vue-i18n";
-import { useCasinoLiveStats } from "@/lib/gamStatHook";
+// import { useCasinoLiveStats } from "@/lib/gamStatHook";
+import { useGameStat } from "@/lib/gameStat";
 // import { useFakeGameStats } from "@/lib/gamStatHook";
 
 const swiperRef = ref<any>(null); // This will hold the Swiper instance
@@ -31,14 +32,14 @@ const slideLeft = () => {
 const slideRight = () => {
   if (swiperRef.value) swiperRef.value.slideNext();
 };
-const onTouchStart = () => setPaused(true);
-const onTouchEnd = () => setPaused(false);
-const { stats, start, setPaused } = useCasinoLiveStats();
+// const onTouchStart = () => setPaused(true);
+// const onTouchEnd = () => setPaused(false);
+// const { stats, start, setPaused } = useCasinoLiveStats();
 // const { stats: gameStats, startLive } = useFakeGameStats();
-
+const {startLive, stats} = useGameStat()
 onMounted(async () => {
   await nextTick();
-  start(props.gameData || []);
+  startLive(props.gameData || []);
 });
 
 const total = computed(() => props.gameData?.length ?? 0);
@@ -80,8 +81,6 @@ const total = computed(() => props.gameData?.length ?? 0);
     </div>
     <Swiper
       @swiper="onSwiper"
-      @touchStart="onTouchStart"
-      @touchEnd="onTouchEnd"
       :speed="500"
       :space-between="8"
       :slides-per-view="'auto'"
