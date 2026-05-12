@@ -32,10 +32,7 @@ const slideLeft = () => {
 const slideRight = () => {
   if (swiperRef.value) swiperRef.value.slideNext();
 };
-// const onTouchStart = () => setPaused(true);
-// const onTouchEnd = () => setPaused(false);
-// const { stats, start, setPaused } = useCasinoLiveStats();
-// const { stats: gameStats, startLive } = useFakeGameStats();
+
 const {startLive, stats} = useGameStat()
 onMounted(async () => {
   await nextTick();

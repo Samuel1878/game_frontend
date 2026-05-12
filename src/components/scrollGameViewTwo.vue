@@ -1,19 +1,13 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Grid } from "swiper/modules";
-
-// Swiper Styles
 import "swiper/css";
-import "swiper/css/grid";
-import "swiper/css/free-mode";
 
 import type { gameType } from "@/utils/types";
-import { ChevronLeft, ChevronRight } from "lucide-vue-next";
-import { computed,  nextTick,  onMounted,  ref } from "vue";
+import { ChevronLeft, ChevronRight, Diamond, Users2 } from "lucide-vue-next";
+import { computed, nextTick, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
-// import { useCasinoLiveStats } from "@/lib/gamStatHook";
-// import { useCasinoLiveStats } from "@/lib/gamStatHook";
 import { useGameStat } from "@/lib/gameStat";
+
 
 const swiperRef = ref<any>(null);
 const { t, locale } = useI18n();
@@ -26,18 +20,23 @@ const props = defineProps<{
   icon: string;
 }>();
 
+const { stats, startLive } = useGameStat();
+
+onMounted(async () => {
+  await nextTick();
+  startLive(props.gameData || []);
+});
+
 const onSwiper = (swiper: any) => {
   swiperRef.value = swiper;
 };
-
-// const { stats, start, setPaused } = useCasinoLiveStats();
-const { stats, startLive } = useGameStat();
-// const onTouchStart = () => setPaused(true);
-// const onTouchEnd = () => setPaused(false);
-onMounted(async () => {
-  await nextTick();
-
-  startLive(props.gameData || []);
+const chunkedGames = computed(() => {
+  const result = [];
+  const data = props?.gameData || []; // replace gameData.value with your actual data source
+  for (let i = 0; i < data.length; i += 2) {
+    result.push(data.slice(i, i + 2));
+  }
+  return result;
 });
 
 const total = computed(() => props.gameData?.length ?? 0);
@@ -78,42 +77,41 @@ const total = computed(() => props.gameData?.length ?? 0);
         </div>
       </div>
     </div>
-
-    <!-- Swiper Grid Container -->
-    <Swiper
-      @swiper="onSwiper"
-      :modules="[Grid]"
-      :grid="{ rows: 2, fill: 'row' }"
-      :speed="500"
-      :space-between="8"
-      :slides-per-view="3"
-      :touch-ratio="1"
-      :resistance-ratio="0.85"
-      :watch-slides-progress="false"
-      :observer="false"
-      :observe-parents="false"
-      :breakpoints="{
-        640: { slidesPerView: 4, grid: { rows: 2 } },
-        768: { slidesPerView: 5, grid: { rows: 2 } },
-        1024: { slidesPerView: 7, grid: { rows: 2 } },
-        1280: { slidesPerView: 9, grid: { rows: 2 } },
-      }"
-      class="two-row-swiper pb-2!"
+<Swiper
+    @swiper="onSwiper"
+    :speed="500"
+    :space-between="8"
+    :slides-per-view="3"
+    :touch-ratio="1"
+    :resistance-ratio="0.85"
+    :watch-slides-progress="false"
+    :observer="false"
+    :observe-parents="false"
+    :breakpoints="{
+      640: { slidesPerView: 4 },
+      768: { slidesPerView: 5 },
+      1024: { slidesPerView: 7 },
+      1280: { slidesPerView: 9 },
+    }"
+    class="pb-2!"
+  >
+    <!-- Loop through the paired columns instead of individual games -->
+    <SwiperSlide
+      v-for="(gamePair, index) in chunkedGames"
+      :key="index"
+      class="h-auto!"
     >
-      <SwiperSlide
-        v-for="game in gameData || []"
-        :key="game.id"
-        class="h-auto!"
-      >
+      <!-- Stack the two games vertically with a gap -->
+      <div class="flex flex-col gap-2">
         <div
+          v-for="game in gamePair"
+          :key="game.id"
           @click="handler?.(game)"
           class="relative flex flex-col group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
         >
           <!-- Image Wrapper -->
-          <div
-            class="relative aspect-3/4 overflow-hidden rounded-lg"
-          >
-          <div
+          <div class="relative aspect-3/4 overflow-hidden rounded-lg">
+            <div
               class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/10 to-gray-950"
             />
             <img
@@ -126,9 +124,11 @@ const total = computed(() => props.gameData?.length ?? 0);
             <div
               class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60"
             />
-           <div
+            <div
               class="pointer-events-none absolute inset-0 rounded-md border-shine"
             />
+            
+            <!-- Badges -->
             <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
               <div
                 v-if="stats[game.id]"
@@ -144,7 +144,7 @@ const total = computed(() => props.gameData?.length ?? 0);
                 v-if="stats[game.id]"
                 class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
               >
-                <Users class="w-2 h-2 text-green-500" />
+                <Users2 class="w-2 h-2 text-green-500" />
                 <span class="text-[8px] text-white font-bold">
                   {{ stats[game.id]?.users }}
                 </span>
@@ -153,35 +153,18 @@ const total = computed(() => props.gameData?.length ?? 0);
 
             <!-- Title Overlay -->
             <div class="absolute bottom-2 left-0 right-0 px-2">
-              <p
-                class="text-[10px] font-bold text-white text-center truncate drop-shadow-md"
-              >
+              <p class="text-[10px] font-bold text-white text-center truncate drop-shadow-md">
                 {{ locale === "cn" ? game.cn_name : game.name }}
               </p>
             </div>
           </div>
         </div>
-      </SwiperSlide>
-    </Swiper>
+      </div>
+    </SwiperSlide>
+  </Swiper>
   </article>
 </template>
 
 <style scoped>
-/* Swiper Grid requires specific height handling */
-.two-row-swiper {
-  width: 100%;
-  height: auto;
-  /* Adjust this based on your design if slides appear squashed */
-  margin-left: auto;
-  margin-right: auto;
-}
 
-/* Ensure slides don't collapse when using Grid */
-:deep(.swiper-grid-column .swiper-wrapper) {
-  flex-direction: row !important;
-}
-
-:deep(.swiper-slide) {
-  margin-top: 10px !important; /* Vertical gap between rows */
-}
 </style>
