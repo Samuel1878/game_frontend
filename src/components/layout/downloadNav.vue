@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import router from "@/router";
+import { isApp } from "@/utils/help";
 import { Download } from "lucide-vue-next";
 import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
@@ -10,7 +11,8 @@ const APP_STORAGE_KEY = "hide-app-download-banner";
 
 onMounted(() => {
   const hidden = sessionStorage.getItem(APP_STORAGE_KEY);
-  if (!hidden) {
+  const app = isApp();
+  if (!hidden || !app) {
     setTimeout(() => {
       showBanner.value = true;
     }, 500);

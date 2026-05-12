@@ -64,3 +64,20 @@ export const getSummary = (data: ReportItem[] | null | undefined): Summary => {
 export const toISODate = (d: any) => {
   return new Date(d.year, d.month - 1, d.day).toISOString();
 };
+
+export const isApp = () => {
+  // 1. Check for Capacitor (most common in modern Vue/Ionic apps)
+  const isCapacitor = (window as any).Capacitor?.isNative;
+
+  // 2. Check for Cordova/PhoneGap
+  const isCordova = !!(window as any).cordova;
+
+  // 3. Protocol Check (Apps often run on capacitor://, ionic://, or file://)
+  const isAppProtocol = ['capacitor:', 'http://localhost', 'file:', 'ionic:'].includes(window.location.protocol);
+
+  // 4. Custom User Agent (If you injected a unique string into your App's WebView)
+  // Most professional apps add something like "TZ99-APP" to the UA in native settings.
+  const isCustomUA = navigator.userAgent.includes("TZ99-APP");
+
+  return isCapacitor || isCordova || isAppProtocol || isCustomUA;
+};

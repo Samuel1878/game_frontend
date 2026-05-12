@@ -51,10 +51,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <SidebarProvider :default-open="true">
-    <div
+     <div
       class="flex min-h-dvh w-full bg-gray-950"
     >
+  <SidebarProvider :default-open="true">
+ 
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
         <DownloadNav />
@@ -69,10 +70,11 @@ onMounted(() => {
 
         <BottomNav class="md:hidden" />
       </SidebarInset>
-    </div>
+   
 
     <Toaster position="top-left" richColors />
   </SidebarProvider>
+   </div>
 </template>
 <!-- <div class="min-h-screen w-full bg-black flex justify-center gap-8 flex-col">
           <p class="text-2xl text-red-600">
