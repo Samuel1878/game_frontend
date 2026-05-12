@@ -53,9 +53,7 @@ onMounted(() => {
 <template>
   <SidebarProvider :default-open="true">
     <div
-      class="flex min-h-dvh w-full bg-gray-950
-             pt-[env(safe-area-inset-top)]
-             pb-[env(safe-area-inset-bottom)]"
+      class="flex min-h-dvh w-full bg-gray-950"
     >
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
