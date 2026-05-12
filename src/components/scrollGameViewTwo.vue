@@ -79,57 +79,59 @@ const total = computed(() => props.gameData?.length ?? 0);
     </div>
 <Swiper
     @swiper="onSwiper"
-    :speed="500"
+    :speed="300" 
     :space-between="8"
     :slides-per-view="3"
-    :touch-ratio="1"
+    :touch-ratio="1.2" 
     :resistance-ratio="0.85"
-    :watch-slides-progress="false"
-    :observer="false"
-    :observe-parents="false"
+    :watch-slides-progress="true"
     :breakpoints="{
       640: { slidesPerView: 4 },
       768: { slidesPerView: 5 },
       1024: { slidesPerView: 7 },
       1280: { slidesPerView: 9 },
     }"
-    class="pb-2!"
+    class="pb-2! select-none"
+    style="touch-action: pan-y;"
   >
-    <!-- Loop through the paired columns instead of individual games -->
     <SwiperSlide
       v-for="(gamePair, index) in chunkedGames"
       :key="index"
       class="h-auto!"
     >
-      <!-- Stack the two games vertically with a gap -->
       <div class="flex flex-col gap-2">
         <div
           v-for="game in gamePair"
           :key="game.id"
           @click="handler?.(game)"
           class="relative flex flex-col group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
+          style="transform: translateZ(0);" 
         >
           <!-- Image Wrapper -->
           <div class="relative aspect-3/4 overflow-hidden rounded-lg">
             <div
               class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/10 to-gray-950"
             />
+            
+            <!-- Optimized Image -->
             <img
               :src="locale === 'cn' ? game.cn_icon_url : game.icon_url"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 will-change-transform"
               :alt="game.name"
+              loading="lazy"
+              draggable="false"
             />
 
             <!-- Overlay Gradients -->
             <div
-              class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60"
+              class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none"
             />
             <div
               class="pointer-events-none absolute inset-0 rounded-md border-shine"
             />
             
             <!-- Badges -->
-            <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
+            <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5 pointer-events-none">
               <div
                 v-if="stats[game.id]"
                 class="flex items-center gap-2 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
@@ -152,7 +154,7 @@ const total = computed(() => props.gameData?.length ?? 0);
             </div>
 
             <!-- Title Overlay -->
-            <div class="absolute bottom-2 left-0 right-0 px-2">
+            <div class="absolute bottom-2 left-0 right-0 px-2 pointer-events-none">
               <p class="text-[10px] font-bold text-white text-center truncate drop-shadow-md">
                 {{ locale === "cn" ? game.cn_name : game.name }}
               </p>
