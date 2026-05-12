@@ -12,7 +12,7 @@ const APP_STORAGE_KEY = "hide-app-download-banner";
 onMounted(() => {
   const hidden = sessionStorage.getItem(APP_STORAGE_KEY);
   const app = isApp();
-  if (!hidden || !app) {
+  if (!hidden && !app) {
     setTimeout(() => {
       showBanner.value = true;
     }, 500);
