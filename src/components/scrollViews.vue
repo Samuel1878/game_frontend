@@ -4,7 +4,6 @@ import "swiper/css";
 import "swiper/css/free-mode"; // Added missing CSS for FreeMode
 import type { gameType } from "@/utils/types";
 import { ChevronLeft, ChevronRight, Users, Percent } from "lucide-vue-next";
-import { FreeMode } from "swiper/modules";
 import { computed, onMounted, ref, nextTick } from "vue";
 import { useI18n } from "vue-i18n";
 import { useCasinoLiveStats } from "@/lib/gamStatHook";
