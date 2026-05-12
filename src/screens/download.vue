@@ -11,14 +11,14 @@ const supabaseURL = "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/
 // const loading = ref(false);
 const androidUrl = `${supabaseURL}/tz99.apk`;
 
-const iosUrl = `${supabaseURL}/storage/v1/object/public/app-release/ios/install.html`;
+const iosUrl = `https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/app/tz99.mobileconfig`;
 const { t, locale } = useI18n();
 
-// const downloadIOS = () => {
-//   loading.value = true;
-//   window.location.href = iosUrl;
-//   loading.value = false;
-// };
+const downloadIOS = () => {
+
+  window.location.href = iosUrl;
+
+};
 
 const downloadAndroid = () => {
   window.location.href = androidUrl;
@@ -123,7 +123,7 @@ const downloadAndroid = () => {
           <p class="text-white/80 text-xs">{{ t("scan_qr") }}</p>
           <p class="text-blue-500 text-xs">{{ t("ios_lite_app") }}</p>
           <button
-           
+           @click="downloadIOS"
             class="gold-bg h-10 px-6 flex items-center rounded-full"
           >
             <p class="text-glow font-semibold text-sm">{{ t("download") }}</p>
