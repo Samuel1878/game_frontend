@@ -30,10 +30,8 @@ const goHome = () => {
   router.replace("/");
 };
 </script>
-<template>
+<!-- <template>
   <div class="fixed inset-0 bg-black overflow-hidden flex flex-col">
-
-    <!-- TOP BAR -->
     <div
       class="bg-gray-900/50 backdrop-blur pt-[env(safe-area-inset-top)]"
     >
@@ -47,6 +45,32 @@ const goHome = () => {
         </div>
       </div>
     </div>
+    <div class="flex-1 min-h-0">
+      <iframe
+        v-if="gameStore.launchUrl"
+        :src="gameStore.launchUrl"
+        class="w-full h-full border-0"
+        allowfullscreen
+      />
+    </div>
+
+  </div>
+</template> -->
+<template>
+  <div class="min-h-dvh bg-black flex flex-col w-full">
+
+    <!-- TOP BAR -->
+    <div class="bg-gray-900/50 backdrop-blur pt-[env(safe-area-inset-top)]">
+      <div class="h-10 flex justify-between items-center px-4">
+        <div @click="goBack">
+          <ChevronLeft class="text-gray-100 w-7 h-7" />
+        </div>
+
+        <div @click="goHome">
+          <img src="/logo.png" class="h-8" />
+        </div>
+      </div>
+    </div>
 
     <!-- GAME -->
     <div class="flex-1 min-h-0">
@@ -54,7 +78,6 @@ const goHome = () => {
         v-if="gameStore.launchUrl"
         :src="gameStore.launchUrl"
         class="w-full h-full border-0"
-        allowfullscreen
       />
     </div>
 
