@@ -4,9 +4,10 @@ import "swiper/css";
 
 import type { gameType } from "@/utils/types";
 import { ChevronLeft, ChevronRight, Diamond, Users2 } from "lucide-vue-next";
-import { computed, nextTick, onMounted, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
-import { useGameStat } from "@/lib/gameStat";
+
+import { useFakeGameStatsWithId } from "@/lib/fakeGameStatHook";
 
 
 const swiperRef = ref<any>(null);
@@ -20,12 +21,20 @@ const props = defineProps<{
   icon: string;
 }>();
 
-const { stats, startLive } = useGameStat();
+const { stats, registerKeys } = useFakeGameStatsWithId();
 
-onMounted(async () => {
-  await nextTick();
-  startLive(props.gameData || []);
-});
+watch(
+  () => props.gameData, // Use a getter function here
+  (list) => {
+    // TypeScript now knows 'list' matches the type of props.gameData
+    if (!list || list.length === 0) return;
+
+    const keys = list.map((g) => `${g.provider_id}-${g.game_id}`);
+    registerKeys(keys);
+  },
+  { immediate: true }
+);
+const key = (game: any) => `${game.provider_id}-${game.game_id}`;
 
 const onSwiper = (swiper: any) => {
   swiperRef.value = swiper;
@@ -79,82 +88,81 @@ const total = computed(() => props.gameData?.length ?? 0);
     </div>
 <Swiper
     @swiper="onSwiper"
-    :speed="300" 
+    :speed="500"
     :space-between="8"
     :slides-per-view="3"
-    :touch-ratio="1.2" 
+    :touch-ratio="1"
     :resistance-ratio="0.85"
-    :watch-slides-progress="true"
+    :watch-slides-progress="false"
+    :observer="false"
+    :observe-parents="false"
     :breakpoints="{
       640: { slidesPerView: 4 },
       768: { slidesPerView: 5 },
       1024: { slidesPerView: 7 },
       1280: { slidesPerView: 9 },
     }"
-    class="pb-2! select-none"
-    style="touch-action: pan-y;"
+    class="pb-2!"
   >
+    <!-- Loop through the paired columns instead of individual games -->
     <SwiperSlide
       v-for="(gamePair, index) in chunkedGames"
       :key="index"
       class="h-auto!"
     >
+      <!-- Stack the two games vertically with a gap -->
       <div class="flex flex-col gap-2">
         <div
           v-for="game in gamePair"
           :key="game.id"
           @click="handler?.(game)"
           class="relative flex flex-col group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
-          style="transform: translateZ(0);" 
         >
           <!-- Image Wrapper -->
           <div class="relative aspect-3/4 overflow-hidden rounded-lg">
             <div
               class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/10 to-gray-950"
             />
-            
-            <!-- Optimized Image -->
             <img
               :src="locale === 'cn' ? game.cn_icon_url : game.icon_url"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 will-change-transform"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               :alt="game.name"
-              loading="lazy"
-              draggable="false"
+              
             />
 
             <!-- Overlay Gradients -->
             <div
-              class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none"
+              class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60"
             />
             <div
               class="pointer-events-none absolute inset-0 rounded-md border-shine"
             />
             
             <!-- Badges -->
-            <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5 pointer-events-none">
+            <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
               <div
-                v-if="stats[game.id]"
+                 v-if="stats[key(game)]"
                 class="flex items-center gap-2 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
               >
                 <Diamond class="w-2 h-2 text-blue-500" />
                 <span class="text-[8px] text-white font-bold">
-                  {{ stats[game.id]?.rtp }}
+                  {{ stats[`${game.provider_id}-${game.game_id}`]?.rtp }}
                 </span>
               </div>
 
               <div
-                v-if="stats[game.id]"
+               v-if="stats[key(game)]"
                 class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
               >
                 <Users2 class="w-2 h-2 text-green-500" />
                 <span class="text-[8px] text-white font-bold">
-                  {{ stats[game.id]?.users }}
+                 {{ stats[`${game.provider_id}-${game.game_id}`]?.users }}
                 </span>
               </div>
             </div>
 
             <!-- Title Overlay -->
-            <div class="absolute bottom-2 left-0 right-0 px-2 pointer-events-none">
+            <div class="absolute bottom-2 left-0 right-0 px-2">
               <p class="text-[10px] font-bold text-white text-center truncate drop-shadow-md">
                 {{ locale === "cn" ? game.cn_name : game.name }}
               </p>
@@ -168,5 +176,15 @@ const total = computed(() => props.gameData?.length ?? 0);
 </template>
 
 <style scoped>
+.two-row-swiper .swiper-wrapper {
+  /* This tells the browser to prioritize movement over paint */
+  will-change: transform; 
+}
 
+/* Optional: disable the hover effect on mobile while swiping */
+@media (hover: none) {
+  .group:active {
+    transform: none !important;
+  }
+}
 </style>
