@@ -66,11 +66,11 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <Sidebar collapsible="offcanvas" class="border-r border-white/5 bg-[#0a0f1a]">
+  <Sidebar collapsible="offcanvas" class="border-r border-white/5 bg-[#0a0f1a] h-dvh">
+     <div class="flex flex-col h-full pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
     <SidebarHeader
       class="p-4 border-b border-white/10 flex flex-col gap-3 bg-gray-800"
     >
-      <!-- Logo -->
       <div
         class="font-black text-yellow-400 flex gap-2 items-center justify-between tracking-widest text-center"
       >
@@ -81,12 +81,8 @@ const { t } = useI18n();
             class="w-7 h-7 rounded-full overflow-hidden"
           />
         </div>
-        <!-- <p class="text-2xl ">TZ99</p> -->
       </div>
-
-      <!-- Logged In State -->
       <div v-if="authStore.user" class="flex flex-col gap-3">
-        <!-- Balance Display -->
         <div
           class="bg-white/5 rounded-xl p-3 flex flex-col items-center border border-white/5 shadow-inner"
         >
@@ -104,8 +100,6 @@ const { t } = useI18n();
             >
           </div>
         </div>
-
-        <!-- Action Buttons -->
         <div class="flex gap-2">
           <button
             @click="router.push('/deposit')"
@@ -264,14 +258,8 @@ const { t } = useI18n();
           </div>
         </SidebarMenu>
       </div>
-      <!-- Bottom Section: User / Settings -->
     </SidebarContent>
-
-    <!-- FOOTER: Logout -->
-    <!-- <SidebarFooter class="p-4 border-0 bg-gray-800">
-      <div class="w-full text-center">
-        <p class="text-gray-400 font-mono">Version {{ versionNo }}</p>
-      </div>
-    </SidebarFooter> -->
+    </div>
   </Sidebar>
+  
 </template>
