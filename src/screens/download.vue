@@ -9,7 +9,7 @@ import { useI18n } from "vue-i18n";
 import QrcodeVue from "qrcode.vue";
 const supabaseURL = "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/app"; // Replace with actual URL
 // const loading = ref(false);
-const androidUrl = `${supabaseURL}/app-release.apk`;
+const androidUrl = `${supabaseURL}/tz99.apk`;
 
 const iosUrl = `${supabaseURL}/storage/v1/object/public/app-release/ios/install.html`;
 const { t, locale } = useI18n();

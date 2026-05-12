@@ -15,11 +15,22 @@ const {
 /**
  * Mobile only
  */
-const isMobile =
-  /Android|iPhone|iPad|iPod/i.test(
-    navigator.userAgent
-  );
+const isApp = () => {
+  // 1. Check for Capacitor (most common in modern Vue/Ionic apps)
+  const isCapacitor = (window as any).Capacitor?.isNative;
 
+  // 2. Check for Cordova/PhoneGap
+  const isCordova = !!(window as any).cordova;
+
+  // 3. Protocol Check (Apps often run on capacitor://, ionic://, or file://)
+  const isAppProtocol = ['capacitor:', 'http://localhost', 'file:', 'ionic:'].includes(window.location.protocol);
+
+  // 4. Custom User Agent (If you injected a unique string into your App's WebView)
+  // Most professional apps add something like "TZ99-APP" to the UA in native settings.
+  const isCustomUA = navigator.userAgent.includes("TZ99-APP");
+
+  return isCapacitor || isCordova || isAppProtocol || isCustomUA;
+};
 /**
  * Current language
  */
@@ -65,7 +76,7 @@ watch(showUpdate, (val) => {
   <Teleport to="body">
     <Transition name="fade">
       <div
-       v-if="showUpdate && isMobile" 
+       v-if="showUpdate && isApp()" 
         class="fixed inset-0 z-9999 flex items-center justify-center bg-black/80 backdrop-blur-xl px-5"
       >
         <!-- Card -->
