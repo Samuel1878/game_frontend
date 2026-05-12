@@ -7,7 +7,6 @@ export const initSocket = () => {
   if (socket) return socket;
   const auth = useAuthStore();
   if (!auth.accessToken) return;
-  // socket = io("https://api.96betx.com", 
    socket = io(BASE_API_URL, 
     {
       withCredentials: true, 
@@ -35,18 +34,14 @@ export const initSocket = () => {
   });
   socket.on("disconnect", () => {
     console.log("Socket disconnected");
-    // wallet.resetWallet();
   });
   return socket;
 };
-
 export const getSocket = () => socket;
-
 export const reconnectSocket = () => {
   disconnectSocket();
   initSocket();
 };
-
 export const disconnectSocket = () => {
   if (socket) {
     socket.disconnect();

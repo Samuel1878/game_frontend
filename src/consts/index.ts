@@ -1,7 +1,5 @@
 import { 
-    
      slot, buffalo, fish, casino, chess, home, 
-  
      wallet_icon,
      in_icon,
      bank_ico,
@@ -10,13 +8,10 @@ import {
      withdrawHistoryIcon,
      transaction,
      share,
-  
      helpCenter,
-
      services,
      openChat,
 } from "@/utils";
-
 import type { Game } from "@/utils/types";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
@@ -31,15 +26,13 @@ export const footer_images = [
     '/providers/KA-WHITE.png',
     '/partners/bank_transfer.svg',
     "/providers/FC-WHITE.png",
-   "/providers/advant_play.png",
-   "/providers/va-white.webp",
-   "/providers/sbo.png",
-   "/providers/568.png",
-   "/providers/advant_play.png",
-   "/partners/softswiss.svg",
+    "/providers/advant_play.png",
+    "/providers/va-white.webp",
+    "/providers/sbo.png",
+    "/providers/568.png",
+    "/providers/advant_play.png",
+    "/partners/softswiss.svg",
     "/partners/paysafe.svg",
-
-
 ]
 export interface paymentTypes {
     id:number,
@@ -63,14 +56,12 @@ export const amounts = [
     500000,
     1000000,
 ];
-
 export const paymentMethod:paymentTypes[] = [
     {
         id:1,
         label:"KBZ Pay",
         value:"kbzPay",
         icon:"/payments/kbzpay.svg"
-
     },
     {
         id:2,
@@ -96,46 +87,37 @@ export const paymentMethod:paymentTypes[] = [
         value:"usdt",
         icon:'/payments/USDT.png'
     },
-
-
 ];
 export const paymentMethodOption = [
     {
         id:1,
         label:"all",
-        value:"all",
-        
+        value:"all", 
     },
     {
         id:2,
         label:"KBZ Pay",
         value:"kbzPay",
-    
-
     },
     {
         id:3,
         label:"Wave Pay",
         value:"wavePay",
-   
     },
     {
         id:4,
         label:"AYA Pay",
         value:"ayaPay",
-   
     },
     {
         id:5,
         label:"USDT",
         value:"usdt",
-    
     },
     {
         id:6,
         label:"KBZ Bank",
         value:"kbzBank",
-    
     }
 ];
 export const paymentMethodDeposit:paymentTypes[] = [
@@ -144,7 +126,6 @@ export const paymentMethodDeposit:paymentTypes[] = [
         label:"KBZ Pay",
         value:"kbzPay",
         icon:"/payments/kbzpay.svg"
-
     },
     {
         id:2,
@@ -164,11 +145,8 @@ export const paymentMethodDeposit:paymentTypes[] = [
         value:"usdt",
         icon:'/payments/USDT.png'
     },
-
-
 ];
 export const homeSlide = [
-
     {   id:1,
         image:"/images/slider_1.jpg",
         cn_image:"/images/slider_1_cn.jpg",
@@ -250,23 +228,18 @@ export const slotGameProviders = [
         name: "Pragmatic Play",
         GpId:3,
         icon:"/providers/PP-WHITE.png",
-        
-        
     },
     {
         id:2,
         name: "PG Soft",
         GpId:35,
-        icon:"/providers/PG-WHITE.png",
-        
-        
+        icon:"/providers/PG-WHITE.png", 
     },
         {
         id:3,
         name: "JILI",
         GpId:1020,
         icon:"/providers/JL-WHITE.png",
-        
     },
 
         {
@@ -274,8 +247,6 @@ export const slotGameProviders = [
         name: "FaChoi",
         GpId:1046,
         icon:  "/providers/FC-WHITE.png",
-        
-        
     } ,
     {
         id:5,

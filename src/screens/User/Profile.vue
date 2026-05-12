@@ -80,8 +80,8 @@ const uiStore = useUIStore();
             @click="uiStore.openAuthModal()"
           >
             <div>
-              <h2 class="text-xl md:text-2xl font-black text-white tracking-tight group-hover/btn:text-yellow-400 transition-colors">
-                {{ t("guest_player") }}
+              <h2 class="text-xl capitalize md:text-2xl font-black text-white tracking-tight group-hover/btn:text-yellow-400 transition-colors">
+                {{ t("welcome") }}
               </h2>
               <p class="text-sm text-yellow-500/80 font-medium mt-0.5 flex items-center gap-1">
                 {{ t("login_to_your_account") }} 

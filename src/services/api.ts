@@ -96,7 +96,7 @@ api.interceptors.response.use(
         return api(originalRequest);
       } catch (err) {
         processQueue(null);
-        auth.logout();
+        triggerLogout()
         return Promise.reject(err);
       } finally {
         isRefreshing = false;

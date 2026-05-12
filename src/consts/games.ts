@@ -48,8 +48,9 @@ export const topSlotGames: gameType[] = [
     name: "Wild Bounty Showdown",
     icon_url:
       "https://khpic.cdn568.net/images/games/PGSoft/WildBountyShowdown.jpg",
-    cn_icon_url:
-      "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_134_WildBountyShowdown_CN.png",
+    // cn_icon_url:
+    //   "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_134_WildBountyShowdown_CN.png",
+    cn_icon_url:"/game_icons/35_134_WildBountyShowdown_CN.png"
   },
     {
     id: 1,
@@ -73,8 +74,9 @@ export const topSlotGames: gameType[] = [
     name: "Mahjong Ways 2",
     icon_url:
       "https://khpic.cdn568.net/images/games/PGSoft/35_74_MahjongWays2.png",
-    cn_icon_url:
-      "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_74_MahjongWaysTwo_CN.png",
+    cn_icon_url:"/game_icons/35_74_MahjongWaysTwo_CN.png"
+    // cn_icon_url:
+    //   "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_74_MahjongWaysTwo_CN.png",
   },
  
 
@@ -148,8 +150,9 @@ export const hotGames: gameType[] = [
     game_rank: 34,
     name: "Fortune Rabbit",
     icon_url: "https://khpic.cdn568.net/images/games/PGSoft/FortuneRabbit.png",
-    cn_icon_url:
-      "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_141_FortuneRabbit_CN.png",
+    cn_icon_url:"/game_icons/35_141_FortuneRabbit_CN.png"
+    // cn_icon_url:
+    //   "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_141_FortuneRabbit_CN.png",
   },
    {
     id: 9,
@@ -189,8 +192,8 @@ export const hotGames: gameType[] = [
     name: "Mahjong Ways",
     icon_url:
       "https://khpic.cdn568.net/images/games/PGSoft/35_65_MahjongWays.jpg",
-    cn_icon_url:
-      "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_65_MahjongWays_CN.png",
+    cn_icon_url:"/game_icons/35_65_MahjongWays_CN.png",
+      // "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_65_MahjongWays_CN.png",
     is_hot_rtp: true,
   },
   {
@@ -896,7 +899,8 @@ export const topBuffaloGames: gameType[] = [
     "name": "Black Bull",
     "icon_url": "https://khpic.cdn568.net/PragmaticPlay/302/3_302_BlackBull.png",
     cn_name:"黑公牛",
-    cn_icon_url:"https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/3_302_BlackBull.png"
+    // cn_icon_url:"https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/c"
+    cn_icon_url:"/game_icons/3_302_BlackBull.png"
 },
 {
     id: 3,

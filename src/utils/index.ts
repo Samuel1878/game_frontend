@@ -3,14 +3,10 @@ import en from "@/assets/localization/en.json";
 import mm from "@/assets/localization/mm.json";
 import cn from "@/assets/localization/cn.json";
 import menu from "@/assets/icon/menu.svg";
-import drops_wins from "@/assets/icon/drops_wins.svg";
 import hot from "@/assets/icon/hot.svg";
-
-import new_svg from "@/assets/icon/new.svg";
 import hot_icon from "@/assets/icon/hot_icon.svg";
 import hot_rtp_icon from "@/assets/icon/hot_rtp_icon.svg";
 import top_icon from "@/assets/icon/top_icon.svg";
-import hot_rtp from "@/assets/icon/hot_rtp.svg";
 import type { Game } from "./types";
 import cn_flag from "@/assets/flags/cn.png";
 import en_flag from "@/assets/flags/eng.png";
@@ -30,17 +26,13 @@ import accountCenter from "@/assets/icon/account-center.png"
 import depositHistoryIcon from "@/assets/icon/deposit-yellow.png";
 import withdrawHistoryIcon from "@/assets/icon/withdraw-yellow.png";
 import helpCenter  from "@/assets/icon/help-center.svg"
-import download from "@/assets/icon/download.png";
 import transaction from "@/assets/icon/money-statement.png";
 import share from "@/assets/icon/invite-code.png";
-import logout from "@/assets/icon/logout.svg"
 import services from "@/assets/icon/24-7.png";
 import moment from "moment-timezone"
 export {
-  logout,
   helpCenter,
   share,
-  download,
   transaction,
   accountCenter,
   depositHistoryIcon,
@@ -49,7 +41,7 @@ export {
   casino,
   chess,
   slot,
-services,
+  services,
   buffalo,
   home,
   cn_flag,
@@ -62,17 +54,10 @@ services,
   in_icon
 }
 export {
-
-  hot_rtp,
   hot_icon,
   hot_rtp_icon,
   top_icon,
-
-  drops_wins,
-
   hot,
-  new_svg,
-
     en,
     mm,
     cn,
@@ -117,7 +102,7 @@ export const bankThemes: Record<string, string> = {
     kbzBanking: "from-white/50 via-blue-400 to-gray-400/30",
 };
 export const openViber = () => {
-  // remove spaces or symbols
+
   const phone = "09690960382"
   const cleanPhone = phone.replace(/\D/g, "");
 

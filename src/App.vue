@@ -19,7 +19,6 @@ const referralStore = useReferralStore();
 const route = useRoute();
 
 
-
 const { locale } = useI18n();
 
 watch(
@@ -53,22 +52,27 @@ onMounted(() => {
 
 <template>
   <SidebarProvider :default-open="true">
-    <div class="flex min-h-screen w-full bg-gray-950">
-  
+    <div
+      class="flex min-h-dvh w-full bg-gray-950
+             pt-[env(safe-area-inset-top)]
+             pb-[env(safe-area-inset-bottom)]"
+    >
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
-      
-        <DownloadNav/>
+        <DownloadNav />
         <TopNavBar />
         <div class="relative flex-1 flex flex-col items-center w-full">
           <router-view />
-              <UpdatePopup />
+
+          <UpdatePopup />
           <AuthModal />
           <GameDrawer />
         </div>
+
         <BottomNav class="md:hidden" />
       </SidebarInset>
     </div>
+
     <Toaster position="top-left" richColors />
   </SidebarProvider>
 </template>
