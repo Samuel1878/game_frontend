@@ -359,7 +359,7 @@ const submit = async () => {
     </div>
 
     <!-- spacer for center alignment -->
-    <div class="w-[40px]"></div>
+    <div class="w-10"></div>
 
   </div>
 </div>

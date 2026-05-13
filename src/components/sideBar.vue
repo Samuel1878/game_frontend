@@ -67,7 +67,7 @@ const { t } = useI18n();
 
 <template>
   <Sidebar collapsible="offcanvas" class="border-r border-white/5 bg-[#0a0f1a] h-dvh">
-     <div class="flex flex-col h-full pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
+     <div class="flex flex-col h-full pt-[env(safe-area-inset-top)] bg-gray-800">
     <SidebarHeader
       class="p-4 border-b border-white/10 flex flex-col gap-3 bg-gray-800"
     >

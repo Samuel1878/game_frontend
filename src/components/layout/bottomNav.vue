@@ -31,7 +31,7 @@ const indicatorStyle = computed(() => {
 </script>
 
 <template>
-  <nav class="fixed pb-[env(safe-area-inset-bottom)] bg-[#020617]/60 backdrop-blur-2xl bottom-0 left-0 right-0 z-50 md:hidden flex justify-center" v-if="!route.meta.hideNavbar">
+  <nav class="fixed bottom-0 left-0 right-0 z-50 md:hidden flex justify-center" v-if="!route.meta.hideNavbar">
     <div
       class="relative max-w-md w-full
             ring-1
