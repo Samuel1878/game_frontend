@@ -3,7 +3,6 @@ import AuthModal from "@/components/Auth.vue";
 import { Toaster } from "./components/ui/sonner";
 import "vue-sonner/style.css";
 import BottomNav from "./components/layout/bottomNav.vue";
-import { onMounted } from "vue";
 import TopNavBar from "./components/layout/topNavBar.vue";
 import GameDrawer from "./components/gameDrawer.vue";
 import { watch } from "vue";
