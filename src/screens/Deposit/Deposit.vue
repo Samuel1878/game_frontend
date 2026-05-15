@@ -28,7 +28,7 @@ const choosePayment = (value: string) => {
 }
 
 const goToPayment = () => {
-  if(!authStore.user || !authStore.accessToken)return ui.openAuthModal();
+  if(!authStore.user)return ui.openAuthModal();
   if (chosePayment.value === 'usdt') {
     if (amount.value && amount.value >= 10 && amount.value <= 40000) {
       router.push(`/deposit/${chosePayment.value}?amount=${amount.value}`);

@@ -67,7 +67,7 @@ const amountNum = Number(amount.value);
     }
   }
 
-  if (!authStore.accessToken || !authStore.user) return toast.error(t("unauthorized"));
+  if (!authStore.user) return toast.error(t("unauthorized"));
   if (!amount || !withdrawForm.value.name || !withdrawForm.value.number) {
     toast.error(t("choose_account"));
     return;

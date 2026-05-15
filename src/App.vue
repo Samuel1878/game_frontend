@@ -15,8 +15,9 @@ import SidebarProvider from "./components/ui/sidebar/SidebarProvider.vue";
 import SidebarInset from "./components/ui/sidebar/SidebarInset.vue";
 import DownloadNav from "./components/layout/downloadNav.vue";
 import UpdatePopup from "./components/updatePopup.vue";
-const referralStore = useReferralStore();
 const route = useRoute();
+const referralStore = useReferralStore();
+
 
 
 const { locale } = useI18n();
@@ -40,14 +41,22 @@ watch(
   },
   { immediate: true }
 );
-onMounted(() => {
-  const refFromUrl = route.query.rid as string;
-  console.log(refFromUrl);
-  if (refFromUrl && /^[A-Z][0-9]{3}$/.test(refFromUrl)) {
-    referralStore.setReferral(refFromUrl);
-    console.log("[REFERRAL CAPTURED]:", refFromUrl);
-  }
-});
+watch(
+  () => route.query.rid,
+  (rid) => {
+    if (typeof rid !== "string") return;
+
+    console.log("RID from URL:", rid);
+
+    if (/^[A-Z][0-9]{3}$/.test(rid)) {
+      referralStore.setReferral(rid);
+
+      console.log("[REFERRAL CAPTURED]:", rid);
+    }
+  },
+  { immediate: true }
+);
+
 </script>
 
 <template>

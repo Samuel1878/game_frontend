@@ -54,7 +54,7 @@ const uiStore = useUIStore();
           </div>
 
           <!-- User Details (Logged In) -->
-          <div v-if="authStore.user && authStore.accessToken" class="flex flex-col justify-center">
+          <div v-if="authStore.user" class="flex flex-col justify-center">
             <h2 class="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-linear-to-r from-white via-gray-200 to-gray-400 tracking-tight">
               {{ authStore.user?.name }}
             </h2>

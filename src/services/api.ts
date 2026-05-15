@@ -1,9 +1,9 @@
 
 import axios from "axios";
 import { useAuthStore } from "@/stores/auth";
-import { refreshAPI } from "@/services/authAPI";
 import { BASE_API_URL } from "@/utils";
 import router from "@/router";
+import { refreshAPI } from "@/lib/axios";
 
 const api = axios.create({
   baseURL: `${BASE_API_URL}/api/v1`,
@@ -33,13 +33,10 @@ const processQueue = (token: string | null) => {
 function triggerLogout() {
   if (isLoggingOut) return;
   isLoggingOut = true;
-
   const auth = useAuthStore();
-
   auth.logout();
   router.push('/')
 }
-
 // 🔹 Response interceptor
 api.interceptors.response.use(
   (res) => res,

@@ -39,7 +39,7 @@ export const useGameStore = defineStore("game", () => {
    const prepareGame = async (game: gameType) => {
     if (!game) return;
 
-    if (!authStore.accessToken || !authStore.user) {
+    if (!authStore.user) {
       toast.warning("Please login to enter the game");
       ui.openAuthModal("/");
       return;
