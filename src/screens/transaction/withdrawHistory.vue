@@ -21,6 +21,7 @@ const loading = ref(true);
 const currentPage = ref(1);
 const perPage = 5;
 const from = ref();
+const status = ref<string>("pending");
 const to = ref();
 const showDialog = ref(false);
 const selectedWithdrawal = ref<withdrawalInfo | null>(null);
@@ -28,25 +29,51 @@ const totalPages = ref(0);
 const total = ref(0);
 const fetchData = async () => {
   if (!authStore.user?.id) return;
+
+  loading.value = true;
+
   const response = await getWithdrawalsById({
     page: currentPage.value,
     user_id: authStore.user.id,
     from: from.value,
     to: to.value,
-    limit: perPage
+    status: status.value, // ✅ ADDED
+    limit: perPage,
   });
+
   if (response) {
-    withdrawals.value = response.data
+    withdrawals.value = response.data;
     totalPages.value = response.pagination.totalPages;
     total.value = response.pagination.total;
   }
+
   loading.value = false;
 };
+// const fetchData = async () => {
+//   if (!authStore.user?.id) return;
+//   const response = await getWithdrawalsById({
+//     page: currentPage.value,
+//     user_id: authStore.user.id,
+//     from: from.value,
+//     to: to.value,
+//     limit: perPage
+//   });
+//   if (response) {
+//     withdrawals.value = response.data
+//     totalPages.value = response.pagination.totalPages;
+//     total.value = response.pagination.total;
+//   }
+//   loading.value = false;
+// };
 onMounted(fetchData);
 
-watch([currentPage, from, to], () => {
-  fetchData();
-});
+watch(
+  [from, to, status],
+  () => {
+    currentPage.value = 1; // ✅ IMPORTANT
+    fetchData();
+  }
+);
 const goPrev = () => {
   if (currentPage.value > 1) {
     currentPage.value--;
@@ -85,9 +112,36 @@ const formatAmount = (a: number) =>
         <DatePicker v-model="from" :placeholder="t('start_date')" />
         <DatePicker v-model="to" :placeholder="t('end_date')" />
       </div>
-      <!-- <button class="mt-3 w-full bg-yellow-500 py-2 rounded-lg text-sm" @click="fetchData">
-          {{ t('search') }}
-        </button> -->
+     <div class="flex gap-2 flex-wrap mt-2 border-t border-white/5 pt-2">
+        <button
+          @click="status = 'pending'"
+          class="filter-btn"
+          :class="status === 'pending' && 'active-filter'"
+        >
+          {{ t("pending") }}
+        </button>
+        <button
+          @click="status = 'approved'"
+          class="filter-btn"
+          :class="
+            status === 'approved' &&
+            'bg-green-500/20 text-green-400 border-green-500/30 active-filter'
+          "
+        >
+          {{ t("approved") }}
+        </button>
+        <button
+          @click="status = 'rejected'"
+          class="filter-btn"
+          :class="
+            status === 'rejected' &&
+            'bg-red-500/20 text-red-400 border-red-500/30 active-filter'
+          "
+        >
+          {{ t("rejected") }}
+      </button>
+      </div>
+
     </div>
    <div v-if="loading" class="p-4 space-y-3">
   <div v-for="i in 6" :key="i" class="animate-pulse flex justify-between p-4 bg-[#0f172a] rounded-xl">

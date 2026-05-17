@@ -30,12 +30,12 @@ const processQueue = (token: string | null) => {
   queue.forEach((cb) => cb(token));
   queue = [];
 };
-function triggerLogout() {
+async function triggerLogout() {
   if (isLoggingOut) return;
   isLoggingOut = true;
   const auth = useAuthStore();
-  auth.logout();
-  router.push('/')
+  await auth.logout();
+  router.push("/")
 }
 // 🔹 Response interceptor
 api.interceptors.response.use(

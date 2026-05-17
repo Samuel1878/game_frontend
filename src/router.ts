@@ -25,6 +25,7 @@ import WithdrawHistory from "./screens/transaction/withdrawHistory.vue";
 import GameView from "./gameView.vue";
 import Faq from "./screens/faq.vue";
 import BetList from "./screens/betList.vue";
+import Store from "./screens/Withdrawal/store.vue";
 
 const routes = [
   {
@@ -87,6 +88,11 @@ const routes = [
     path: "/withdraw",
     meta: { requiresAuth: true, hideTopNav:false, hideNavbar:false },
     component: Withdraw,
+  },
+    {
+    path: "/withdraw/store",
+    meta: { requiresAuth: false, hideTopNav:true, hideNavbar:true },
+    component: Store,
   },
   {
     path: "/user/profile",

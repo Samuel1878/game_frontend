@@ -317,6 +317,7 @@ const submit = async () => {
             class="w-full" 
             :disabled="fromRid" 
             v-model="referralCode"  
+            
             :placeholder="t('referral_placeholder')" />
           <InputGroupAddon align="inline-end">
             <InputGroupText class="text-gray-100"></InputGroupText>

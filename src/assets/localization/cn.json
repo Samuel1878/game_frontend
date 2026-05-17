@@ -350,7 +350,16 @@
   "instruction_qr": "扫描二维码获取下载链接。",
   "instruction_android": "安卓用户：如果弹出权限请求，请点击“允许”以继续安装。",
   "instruction_ios": "iOS 用户：下载后请前往“设置”，找到“已下载描述文件”，点击并确认安装。",
-  "instruction_enjoy": "一切就绪！立即创建账号，开启游戏之旅。"
+  "instruction_enjoy": "一切就绪！立即创建账号，开启游戏之旅。",
+  "withdraw_request": "提款申请",
+  "scan_qr_or_enter_phone_number_manually": "扫描二维码或手动输入电话号码",
+  "withdraw_amount": "提款金额",
+  "note_optional": "备注（可选）",
+  "enter_amount": "请输入金额",
+  "store": "商店",
+  "scan_qr_code": "扫描二维码",
+  "or": "或者",
+  "reseller_not_found": "未找到代理商"
   
     
 

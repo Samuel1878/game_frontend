@@ -355,6 +355,19 @@
   "instruction_qr": "Scan the QR code to get the download link.",
   "instruction_android": "For Android users, you may be asked for a permission request; tap 'Allow' to install.",
   "instruction_ios": "For iOS users, after downloading, go to Settings. You will see 'Profile Downloaded'; click to install the app.",
-  "instruction_enjoy": "You are all set. Create a new account and enjoy the games!"
+  "instruction_enjoy": "You are all set. Create a new account and enjoy the games!",
+  "withdraw_request":"Withdrawal Request",
+  "scan_qr_or_enter_phone_number_manually":"Scan QR or enter phone number manually",
+  "withdraw_amount":"Withdraw amount",
+  "note_optional":"Note (optional)",
+  "enter_amount":"Enter amount",
+  "store":"Store",
+  "scan_qr_code":"Scan QR code",
+  "or":"OR",
+  "reseller_not_found":"Reseller Not found"
+
+
+
+
 }
   

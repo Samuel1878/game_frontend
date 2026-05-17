@@ -62,7 +62,7 @@ export const getDepositById = async (param:{ user_id:number, page:number, limit 
    
 
 };
-export const getWithdrawalsById = async (param:{ user_id:number, page:number, limit :number, from?:string, to?:string})=>{
+export const getWithdrawalsById = async (param:{ user_id:number, page:number, limit :number, from?:string, to?:string, status:string})=>{
         try {
          const response = await api.get("/user/get_withdrawals", {
         params:param

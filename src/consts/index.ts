@@ -15,7 +15,7 @@ import {
 import type { Game } from "@/utils/types";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
-import { CircleQuestionMark, Handshake, HatGlasses, HeartHandshake, MonitorDown, Share2, ShieldAlert, Spade, SquareArrowRight, type LucideIcon } from "lucide-vue-next";
+import { CircleQuestionMark, Handshake, HatGlasses, MonitorDown, Share2, ShieldAlert, Spade, SquareArrowRight, Store, type LucideIcon } from "lucide-vue-next";
 import type { Component } from "vue";
 export const usdtRateToMMK = 4000;
 export const footer_images = [
@@ -373,10 +373,9 @@ export const MembershipCenter:MembershipType[] = [
         id:6,
         label:"partnership",
         action:()=>{
-            openChat()
+           router.push("/withdraw/store")
         },
-        isComingSoon:true,
-        icon:HeartHandshake
+        icon:Store
     },
     
     {

@@ -150,6 +150,7 @@ export const useAuthStore = defineStore("auth", {
       } 
     },
     async logout() {
+     localStorage.removeItem("access_token");
       try {
         await api.post("/auth/logout");
       } catch {
