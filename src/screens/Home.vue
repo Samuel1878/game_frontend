@@ -43,14 +43,16 @@ useReturnRefresh(async() => {
           <BellRingIcon :size="16" class="text-gray-100 mx-2" />
           <div class="w-full overflow-hidden">
             <div class="flex w-max animate-marquee gap-10 text-xs text-yellow-400 font-medium">
-              <span>🎉 {{ t("description_one") }}</span>
-              <span>💰 {{ t("description_two") }}</span>
-              <span>🎁 {{ t("description_three") }}</span>
+              <span>👨‍💻 {{ t("description_one") }}</span>
+              <span>🎁{{ t("description_two") }}</span>
+              <span>💰 {{ t("description_three") }}</span>
+              <span>🎮 {{ t("description_four") }}</span>
               
 
-            <span>🎉 {{ t("description_one") }}</span>
-              <span>💰 {{ t("description_two") }}</span>
-              <span>🔥 {{ t("description_three") }}</span>
+            <span>👨‍💻 {{ t("description_one") }}</span>
+              <span>🎁 {{ t("description_two") }}</span>
+              <span>💰 {{ t("description_three") }}</span>
+              <span>🎮 {{ t("description_four") }}</span>
         
             </div>
           </div>

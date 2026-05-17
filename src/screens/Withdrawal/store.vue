@@ -33,27 +33,44 @@ const searched = ref(false);
 
 const reseller = ref<{ phone: string; username: string ,id:string} | null>(null);
 
-const fetchReseller = async (result: string | null) => {
-  if (!phone.value) {
-    return toast.warning(t("enter_phone_number"));
-  }
-  if (!result) {
-    return toast.warning(t("enter_phone_number_or_scan"));
+const fetchReseller = async (
+  result: string | null
+) => {
+  const phoneNumber =
+    result || phone.value;
+
+  if (!phoneNumber) {
+    return toast.warning(
+      t("enter_phone_number")
+    );
   }
 
   try {
     loading.value = true;
+
     searched.value = true;
-    const response = await api.get("/user/reseller/" + result);
+
+    const response = await api.get(
+      "/user/reseller/" + phoneNumber
+    );
+
     if (response.status === 200) {
-      console.log(response)
       reseller.value = response.data;
       return;
     }
+
     reseller.value = null;
+
   } catch (error: any) {
     reseller.value = null;
-    toast.error(t(error?.response?.data?.message || "something_went_wrong"));
+
+    toast.error(
+      t(
+        error?.response?.data?.message ||
+        "something_went_wrong"
+      )
+    );
+
   } finally {
     loading.value = false;
   }

@@ -75,14 +75,21 @@
     "account_name":"အကောင့်အမည်"  ,
     "new":"အသစ်ထွက်ရှိမှု",
     "title_one":"ကြိုဆိုဆုကြေးငွေ",
-    "description_one":"အသုံးပြုသူအသစ်များအတွက် 50% cashback ရယူလိုက်ပါ။",
-    "button_one":"ယခုငွေသွင်းမည်",
-    "title_two":"အသင်းဝင်ကြေးငွေပြန်အမ်းခြင်း",
-    "description_two":"အပ်ငွေအပေါ် ၁၀% ပြန်အမ်းငွေ ရယူလိုက်ပါ။",
-    "button_two":"ယခုကစားပါ",
-    "title_three":"အခြားဘောနပ်စ်များ",
-    "description_three":"ဆုလက်ဆောင်များနှင့် အခြားပရိုမိုးရှင်းများရယူရန် telegram အဖွဲ့များကို join ပါ",
-    "button_three":"ယခုပဲ ဝင်ရောက်ပါ",
+    "description_one":"Tianzi Entertainment၊ သင့်အတွက် ၂၄/၇ အွန်လိုင်းဝန်ဆောင်မှု",
+
+    "button_one":"Deposit Now",
+
+    "title_two":"Member Cashback",
+
+    "description_two":"အခုပဲကစား၊ အခုပဲအနိုင်ရ",
+
+    "title_three":"Activities and Rewards",
+
+    "description_three":"လွယ်ကူမြန်ဆန်သော ငွေထုတ်ယူမှုများ",
+
+    "button_three":"Join Us",
+
+    "description_four":"ယုံကြည်မှုရှိရှိ ကစားပါ",
     "invalid":"မမှန်ကန်ပါ",
     "success":"အောင်မြင်မှု",
     "email":"အီးမေးလ်",
@@ -287,8 +294,8 @@
 
   "faq_q7": "Customer support ကို ဘယ်လိုဆက်သွယ်ရမလဲ?",
   "faq_a7": "Live chat သို့မဟုတ် Viber / Telegram မှတဆင့် ဆက်သွယ်နိုင်ပါသည်။",
-  "marketing":"၂၀၂၆ ခုနှစ်အတွက် အကောင်းဆုံး အွန်လိုင်းကာစီနိုတစ်ခုကို ခံစားလိုက်ပါ။ Slots, Sports, Live Casino, PVP, Fishing စတဲ့ဂိမ်းမျိုးစုံကို နိုင်ငံတကာစံနှုန်းအတိုင်း ကစားနိုင်ပါသည်။",
-"brand_name": "TZ99 ကာစီနို",
+  "marketing":"၂၀၂၆ ခုနှစ်အတွက် အကောင်းဆုံး အွန်လိုင်းကာစီနိုတစ်ခုကို ခံစားလိုက်ပါ။ Slots, Live Casino, PVP, Fishing စတဲ့ဂိမ်းမျိုးစုံကို နိုင်ငံတကာစံနှုန်းအတိုင်း ကစားနိုင်ပါသည်။",
+"brand_name": "TZ99 ဖျော်ဖြေရေး",
   "all_rights_reserved": "မူပိုင်ခွင့်အားလုံး ကာကွယ်ထားပါသည်။",
   "responsible_warning": "လောင်းကစားသည် အလေ့အထဖြစ်စေနိုင်ပါသည်။ တာဝန်ယူကစားပါ။",
   "mobile_coming_soon":"မိုဘိုင်းဗားရှင်းမကြာမီလာမည်",

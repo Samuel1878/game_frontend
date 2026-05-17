@@ -2,18 +2,20 @@ import type { gameType } from "@/utils/types";
 
 export const topSlotGames: gameType[] = [
   {
-    id: 1,
+    id: 10,
     provider_id: 3,
-    game_id: 170,
-    rtp: "0.97000",
-    game_rank: 4,
-    name: "Gates of Olympus",
-    cn_name: "奥林匹斯之门",
+    game_id: 438,
+    rtp: "0.96500",
+    game_rank: 1,
+    cn_name: "奥林匹斯之门 1000™",
+    name: "Gates of Olympus 1000™",
     icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/170/3_170_GatesofOlympus.png",
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_438_GatesofOlympus1000.png",
     cn_icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/170/3_170_GatesofOlympus_CN.png",
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_438_GatesofOlympus1000_CN.png",
+    is_hot_rtp: true,
   },
+  
   {
     "id": 2,
     "provider_id": 3,
@@ -154,20 +156,68 @@ export const hotGames: gameType[] = [
     // cn_icon_url:
     //   "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_141_FortuneRabbit_CN.png",
   },
+
    {
-    id: 9,
+    id: 7,
     provider_id: 3,
-    game_id: 652,
-    rtp: "0.96500",
-    game_rank: 14,
-    cn_name: "甜心糖果大富翁",
-    name: "Sweet Rush Bonanza",
+    game_id: 494,
+    rtp: "0.96530",
+    cn_name: "甜入心扉 1000",
+    game_rank: 7,
+    name: "Sweet Bonanza 1000",
     icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/652/3_652_SweetRushBonanza.png",
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_494_SweetBonanza1000.png",
     cn_icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/652/3_652_SweetRushBonanza_CN.png",
-    is_hot_rtp: true,
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_494_SweetBonanza1000_CN.png",
   },
+   {
+    id: 6,
+    provider_id: 3,
+    game_id:388,
+    cn_name: "星光公主™ 1000",
+    rtp: "0.96500",
+    game_rank: 5,
+    name: "Starlight Princess™ 1000",
+    icon_url:
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_388_StarlightPrincess1000.png?v=1",
+    cn_icon_url:
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_388_StarlightPrincess1000_CN.png?v=1",
+  },
+   {
+    id: 8,
+    provider_id: 3,
+    game_id: 199,
+    rtp: "0.96000",
+    cn_name: "5金狮 Megaway",
+    game_rank: 8,
+    name: "5 Lions Megaways",
+    icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways_CN.png",
+  },
+  {
+    "id": 19,
+    "provider_id": 3,
+    "game_id": 213,
+    "rtp": "0.96000",
+    "game_rank": 16,
+    "name": "Pyramid Bonanza",
+    "icon_url": "https://khpic.cdn568.net/PragmaticPlay/213/3_213_PyramidBonanza.png",
+    "cn_icon_url":"https://khpic.cdn568.net/PragmaticPlay/213/3_213_PyramidBonanza_CN.png",
+    "cn_name":"疯狂金字塔"
+},
+{
+    "id": 20,
+    "provider_id": 3,
+    "game_id": 473,
+    "rtp": "0.96530",
+    "game_rank": 6,
+    "cn_name": "极速糖果1000",
+    "cn_icon_url": "https://khpic.cdn568.net/images/games/PragmaticPlay/3_473_SugarRush1000_CN.png",
+    "icon_url":"https://khpic.cdn568.net/images/games/PragmaticPlay/3_473_SugarRush1000.png",
+    "name":"Sugar Rush 1000"
+},
   {
     id: 10,
     game_id: 467,
@@ -238,6 +288,19 @@ export const hotGames: gameType[] = [
     is_hot_rtp: true,
   },
   {
+    id: 1,
+    provider_id: 3,
+    game_id: 170,
+    rtp: "0.97000",
+    game_rank: 4,
+    name: "Gates of Olympus",
+    cn_name: "奥林匹斯之门",
+    icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/170/3_170_GatesofOlympus.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/170/3_170_GatesofOlympus_CN.png",
+  },
+  {
     "id": 18,
     "provider_id": 1034,
     "game_id": 74,
@@ -249,19 +312,7 @@ export const hotGames: gameType[] = [
     cn_name:"LABUBU: 春天野在家"
 },
 
-  {
-    id: 6,
-    provider_id: 3,
-    game_id:388,
-    cn_name: "星光公主™ 1000",
-    rtp: "0.96500",
-    game_rank: 5,
-    name: "Starlight Princess™ 1000",
-    icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_388_StarlightPrincess1000.png?v=1",
-    cn_icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_388_StarlightPrincess1000_CN.png?v=1",
-  },
+ 
   {
     id: 7,
     provider_id: 1020,
@@ -276,33 +327,22 @@ export const hotGames: gameType[] = [
       "https://khpic.cdn568.net/JiLiGaming/116/1020_116_FortuneGems2_CN.png",
   },
 
+    {
+    id: 9,
+    provider_id: 3,
+    game_id: 652,
+    rtp: "0.96500",
+    game_rank: 14,
+    cn_name: "甜心糖果大富翁",
+    name: "Sweet Rush Bonanza",
+    icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/652/3_652_SweetRushBonanza.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/652/3_652_SweetRushBonanza_CN.png",
+    is_hot_rtp: true,
+  },
  
-  {
-    id: 7,
-    provider_id: 3,
-    game_id: 494,
-    rtp: "0.96530",
-    cn_name: "甜入心扉 1000",
-    game_rank: 7,
-    name: "Sweet Bonanza 1000",
-    icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_494_SweetBonanza1000.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_494_SweetBonanza1000_CN.png",
-  },
-  {
-    id: 8,
-    provider_id: 3,
-    game_id: 199,
-    rtp: "0.96000",
-    cn_name: "5金狮 Megaway",
-    game_rank: 8,
-    name: "5 Lions Megaways",
-    icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways_CN.png",
-  },
+ 
   {
     id: 9,
     provider_id: 14,
@@ -316,20 +356,7 @@ export const hotGames: gameType[] = [
     cn_icon_url:
       "https://img-3-2.cdn568.net/images/games/CreativeGaming/DuoFuDuoCai88Fortune.png",
   },
-  {
-    id: 10,
-    provider_id: 3,
-    game_id: 438,
-    rtp: "0.96500",
-    game_rank: 1,
-    cn_name: "奥林匹斯之门 1000™",
-    name: "Gates of Olympus 1000™",
-    icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_438_GatesofOlympus1000.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_438_GatesofOlympus1000_CN.png",
-    is_hot_rtp: true,
-  },
+  
   {
     id: 11,
     provider_id: 1085,
@@ -877,6 +904,43 @@ export const topCasinoGames: gameType[] = [
   },
 ];
 export const topBuffaloGames: gameType[] = [
+   {
+    id: 2,
+    provider_id: 1020,
+    game_id: 140,
+    rtp: "0.97000",
+    cn_name: "衝鋒野牛 Ascent",
+    game_rank: 22,
+    name: "Charge Buffalo Ascent",
+    icon_url:
+      "https://khpic.cdn568.net/JiLiGaming/140/1020_140_ChargeBuffaloAscent.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/JiLiGaming/140/1020_140_ChargeBuffaloAscent_CN.png",
+  },
+   {
+    id: 5,
+    provider_id: 1020,
+    game_id: 30,
+    rtp: "0.97000",
+    game_rank: 14,
+    cn_name: "衝鋒野牛",
+    name: "Charge Buffalo",
+    icon_url: "https://khpic.cdn568.net/JiLiGaming/30/GameID_47_EN.png",
+    cn_icon_url: "https://khpic.cdn568.net/JiLiGaming/30/GameID_47_CN.png",
+  },
+   {
+    id: 12,
+    provider_id: 1020,
+    game_id: 183,
+    rtp: "0.97000",
+    game_rank: 42,
+    cn_name: "3 冲锋野牛",
+    name: "3 Charge Buffalo",
+    icon_url:
+      "https://khpic.cdn568.net/JiLiGaming/183/1020_183_3ChargeBuffalo.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/JiLiGaming/183/1020_183_3ChargeBuffalo_CN.png",
+  },
   {
     id: 1,
     provider_id: 3,
@@ -915,19 +979,7 @@ export const topBuffaloGames: gameType[] = [
     cn_icon_url:
       "https://khpic.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png?v=1",
   },
-  {
-    id: 2,
-    provider_id: 1020,
-    game_id: 140,
-    rtp: "0.97000",
-    cn_name: "衝鋒野牛 Ascent",
-    game_rank: 22,
-    name: "Charge Buffalo Ascent",
-    icon_url:
-      "https://khpic.cdn568.net/JiLiGaming/140/1020_140_ChargeBuffaloAscent.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/JiLiGaming/140/1020_140_ChargeBuffaloAscent_CN.png",
-  },
+ 
 
   
   {
@@ -942,17 +994,7 @@ export const topBuffaloGames: gameType[] = [
     cn_icon_url:
       "https://khpic.cdn568.net/FaChai/57/1046_57_BUFFALOWAYS_CN.jpg",
   },
-  {
-    id: 5,
-    provider_id: 1020,
-    game_id: 30,
-    rtp: "0.97000",
-    game_rank: 14,
-    cn_name: "衝鋒野牛",
-    name: "Charge Buffalo",
-    icon_url: "https://khpic.cdn568.net/JiLiGaming/30/GameID_47_EN.png",
-    cn_icon_url: "https://khpic.cdn568.net/JiLiGaming/30/GameID_47_CN.png",
-  },
+ 
   {
     id: 6,
     provider_id: 1046,
@@ -1029,19 +1071,7 @@ export const topBuffaloGames: gameType[] = [
     cn_icon_url:
       "https://khpic.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png?v=1",
   },
-  {
-    id: 12,
-    provider_id: 1020,
-    game_id: 183,
-    rtp: "0.97000",
-    game_rank: 42,
-    cn_name: "3 冲锋野牛",
-    name: "3 Charge Buffalo",
-    icon_url:
-      "https://khpic.cdn568.net/JiLiGaming/183/1020_183_3ChargeBuffalo.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/JiLiGaming/183/1020_183_3ChargeBuffalo_CN.png",
-  },
+ 
 
   {
     id: 13,

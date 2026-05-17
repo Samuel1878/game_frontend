@@ -76,14 +76,21 @@
     "account_name":"Account Name"  ,
     "new":"New Launch",
     "title_one":"WELCOME BONUS",
-    "description_one":"Deposit and get 50% cash back for new users",
+    "description_one":"Tianzi Entertainment, 24/7 online service for you",
+
     "button_one":"Deposit Now",
-    "title_two":"MEMBERSHIP CASH BACK",
-    "description_two":"10% cash back on deposit. Get on it!",
-    "button_two":"Play Now",
-    "title_three":"EVENTS AND REWARDS",
-    "description_three":"Join our communities and enjoy rewards and other promotions",
+
+    "title_two":"Member Cashback",
+
+    "description_two":"Play Now, Win Now",
+
+    "title_three":"Activities and Rewards",
+
+    "description_three":"Instant Withdrawals",
+
     "button_three":"Join Us",
+
+    "description_four":"Play with Confidence",
 
     "invalid":"Invalid",
     "success":"Success",
@@ -169,7 +176,6 @@
       "joined":"Joined",
       "no_record":"No Record",
       "start_game":"Start Game",
-
       "agent_center":"Agent Center",
       "my_team":"My Team",
       "my_performance":"My Performance",
@@ -298,7 +304,7 @@
   "faq_a7": "You can contact our support team via live chat or messaging apps such as Viber or Telegram.",
 
   "marketing":"The most impressive casino. The best online casino sites in 2026 that provide Slots, Sports, Live, PVP, Fishing etc., so that players can get a better experience in the international standard of casino games (Game Casino).",
-  "brand_name": "TZ99 Casino",
+  "brand_name": "TZ99 Entertainment",
   "all_rights_reserved": "All rights reserved.",
   "responsible_warning": "Gambling can be addictive. Please play responsibly.",
   "mobile_coming_soon":"Mobile version coming soon",
