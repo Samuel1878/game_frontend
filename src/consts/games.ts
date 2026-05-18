@@ -2,7 +2,7 @@ import type { gameType } from "@/utils/types";
 
 export const topSlotGames: gameType[] = [
   {
-    id: 10,
+    id: 1,
     provider_id: 3,
     game_id: 438,
     rtp: "0.96500",
@@ -28,7 +28,7 @@ export const topSlotGames: gameType[] = [
     cn_name:"麻将大胜超级进财"
 },
  {
-    id: 6,
+    id: 3,
     provider_id: 35,
     cn_name: "麻将胡了",
     game_id: 65,
@@ -57,7 +57,7 @@ export const topSlotGames: gameType[] = [
     cn_icon_url:"/game_icons/35_134_WildBountyShowdown_CN.png"
   },
     {
-    id: 1,
+    id: 5,
     provider_id: 3,
     game_id:649,
     rtp: "0.96500",
@@ -69,7 +69,7 @@ export const topSlotGames: gameType[] = [
   },
   
   {
-    id: 2,
+    id: 6,
     provider_id: 35,
     cn_name: "麻将胡了2",
     game_id: 74,
@@ -86,7 +86,7 @@ export const topSlotGames: gameType[] = [
 
   
   {
-    id: 8,
+    id:7,
     provider_id: 1046,
     game_id: 48,
     rtp: "0.96500",
@@ -99,7 +99,7 @@ export const topSlotGames: gameType[] = [
   },
 
  {
-    "id":12,
+    "id":8,
     "provider_id": 35,
     "game_id": 157,
     "rtp": "0.96760",
@@ -109,36 +109,9 @@ export const topSlotGames: gameType[] = [
     "cn_icon_url":"/game_icons/35_157_MafiaMayhem_CN.png",
     "cn_name":"黑帮风云"
 },
+
 {
-    id: 8,
-    provider_id: 3,
-    game_id: 199,
-    rtp: "0.96000",
-    cn_name: "5金狮 Megaway",
-    game_rank: 8,
-    name: "5 Lions Megaways",
-    icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways_CN.png",
-  },
- 
-  
-  
-  {
-    id: 16,
-    "provider_id": 3,
-    "game_id": 337,
-    "rtp": "0.96000",
-    "game_rank": 531,
-    "name": "Wild Wild Bananas™",
-    "icon_url": "https://khpic.cdn568.net/images/games/PragmaticPlay/3_Wild%20Wild%20Bananas.png",
-    cn_icon_url:"https://khpic.cdn568.net/images/games/PragmaticPlay/3_Wild%20Wild%20Bananas_cn.png",
-    cn_name:"狂野美味香蕉™"
-    
-  } ,
-{
-    id: 3,
+    id: 9,
     provider_id: 3,
     game_id: 397,
     cn_name: "麻将大胜™",
@@ -152,7 +125,7 @@ export const topSlotGames: gameType[] = [
     is_hot_rtp: true,
   },
      {
-    id: 15,
+    id: 10,
     provider_id: 3,
     game_id:437,
     rtp: "0.96080",
@@ -171,7 +144,7 @@ export const hotGames: gameType[] = [
  
    
   {
-    id: 5,
+    id: 1,
     provider_id: 35,
     game_id: 141,
     rtp: "0.96750",
@@ -185,7 +158,7 @@ export const hotGames: gameType[] = [
   },
 
    {
-    id: 7,
+    id: 2,
     provider_id: 3,
     game_id: 494,
     rtp: "0.96530",
@@ -198,7 +171,7 @@ export const hotGames: gameType[] = [
       "https://khpic.cdn568.net/images/games/PragmaticPlay/3_494_SweetBonanza1000_CN.png",
   },
    {
-    id: 6,
+    id: 3,
     provider_id: 3,
     game_id:388,
     cn_name: "星光公主™ 1000",
@@ -212,7 +185,7 @@ export const hotGames: gameType[] = [
   },
    
   {
-    "id": 19,
+    "id": 4,
     "provider_id": 3,
     "game_id": 213,
     "rtp": "0.96000",
@@ -223,7 +196,7 @@ export const hotGames: gameType[] = [
     "cn_name":"疯狂金字塔"
 },
 {
-    "id": 20,
+    "id": 5,
     "provider_id": 3,
     "game_id": 473,
     "rtp": "0.96530",
@@ -234,7 +207,7 @@ export const hotGames: gameType[] = [
     "name":"Sugar Rush 1000"
 },
   {
-    id: 10,
+    id: 6,
     game_id: 467,
     game_rank: 17,
     icon_url:
@@ -247,9 +220,36 @@ export const hotGames: gameType[] = [
     rtp: "0.96500",
   },
 
+  {
+    id: 7,
+    provider_id: 3,
+    game_id: 199,
+    rtp: "0.96000",
+    cn_name: "5金狮 Megaway",
+    game_rank: 8,
+    name: "5 Lions Megaways",
+    icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways_CN.png",
+  },
+ 
+  
   
   {
-    id: 3,
+    id: 8,
+    "provider_id": 3,
+    "game_id": 337,
+    "rtp": "0.96000",
+    "game_rank": 531,
+    "name": "Wild Wild Bananas™",
+    "icon_url": "https://khpic.cdn568.net/images/games/PragmaticPlay/3_Wild%20Wild%20Bananas.png",
+    cn_icon_url:"https://khpic.cdn568.net/images/games/PragmaticPlay/3_Wild%20Wild%20Bananas_cn.png",
+    cn_name:"狂野美味香蕉™"
+    
+  } ,
+  {
+    id: 9,
     provider_id: 1020,
     game_id: 97,
     rtp: "0.97000",
@@ -261,7 +261,7 @@ export const hotGames: gameType[] = [
     cn_name: "招財貓",
   },
   {
-    id: 2,
+    id: 10,
     provider_id: 1034,
     cn_name: "龙腾麻将",
     game_id: 75,
@@ -275,7 +275,7 @@ export const hotGames: gameType[] = [
   },
   
 {
-    id: 4,
+    id: 11,
     provider_id: 1046,
     game_id: 52,
     rtp: "0.96500",
@@ -289,7 +289,7 @@ export const hotGames: gameType[] = [
     is_hot_rtp: true,
   },
   {
-    id: 5,
+    id:12,
     provider_id: 3,
     game_id: 596,
     rtp: "0.96500",
@@ -303,7 +303,7 @@ export const hotGames: gameType[] = [
     is_hot_rtp: true,
   },
   {
-    id: 1,
+    id: 13,
     provider_id: 3,
     game_id: 170,
     rtp: "0.97000",
@@ -316,7 +316,7 @@ export const hotGames: gameType[] = [
       "https://khpic.cdn568.net/PragmaticPlay/170/3_170_GatesofOlympus_CN.png",
   },
   {
-    "id": 18,
+    "id": 14,
     "provider_id": 1034,
     "game_id": 74,
     "rtp": "0.97480",
@@ -329,7 +329,7 @@ export const hotGames: gameType[] = [
 
  
   {
-    id: 7,
+    id: 15,
     provider_id: 1020,
     game_id: 116,
     cn_name: "迦羅寶石2",
@@ -343,7 +343,7 @@ export const hotGames: gameType[] = [
   },
 
     {
-    id: 9,
+    id: 16,
     provider_id: 3,
     game_id: 652,
     rtp: "0.96500",
@@ -359,7 +359,7 @@ export const hotGames: gameType[] = [
  
  
   {
-    id: 9,
+    id: 17,
     provider_id: 14,
     game_id: 9,
     rtp: "0.95000",
@@ -373,7 +373,7 @@ export const hotGames: gameType[] = [
   },
   
   {
-    id: 11,
+    id: 18,
     provider_id: 1085,
     game_id: 6,
     rtp: "0.96000",
@@ -386,7 +386,7 @@ export const hotGames: gameType[] = [
     is_hot_rtp: true,
   },
   {
-    id: 12,
+    id: 19,
     provider_id: 1029,
     game_id: 50,
     rtp: "0.97280",
@@ -398,7 +398,7 @@ export const hotGames: gameType[] = [
   },
   {
     cn_name: "祥龙极气",
-    id: 13,
+    id: 20,
     provider_id: 1034,
     game_id: 46,
     rtp: "0.97080",
@@ -412,7 +412,7 @@ export const hotGames: gameType[] = [
     is_hot_rtp: true,
   },
   {
-    id: 14,
+    id: 21,
     cn_name: "草原王者",
     provider_id: 1079,
     game_id: 16,
@@ -544,7 +544,7 @@ export const topFishGames: gameType[] = [
   },
  
   {
-    id: 7,
+    id: 6,
     provider_id: 1020,
     cn_name: "王者捕魚",
     game_id: 6,
@@ -555,7 +555,7 @@ export const topFishGames: gameType[] = [
     cn_icon_url: "https://khpic.cdn568.net/JiLiGaming/6/GameID_74_CN.png",
   },
   {
-    id: 8,
+    id: 7,
     provider_id: 1050,
     cn_name: "捕鱼大满贯",
     game_id: 27,
@@ -568,7 +568,7 @@ export const topFishGames: gameType[] = [
       "https://khpic.cdn568.net/bolegaming/27/1050_27_JackpotFishing_CN.png",
   },
   {
-    id: 9,
+    id: 8,
     provider_id: 1020,
     game_id: 3,
     rtp: "0.97000",
@@ -579,7 +579,7 @@ export const topFishGames: gameType[] = [
     cn_icon_url: "https://khpic.cdn568.net/JiLiGaming/3/GameID_42_CN.jpg",
   },
   {
-    id: 10,
+    id: 9,
     provider_id: 1042,
     game_id: 593,
     rtp: "0.96000",
@@ -592,7 +592,7 @@ export const topFishGames: gameType[] = [
       "https://khpic.cdn568.net/KAGaming/593/1042_593_ShenronHunter_CN.png",
   },
   {
-    id: 11,
+    id: 10,
     provider_id: 1042,
     cn_name: "福运之战",
     game_id: 695,
@@ -604,7 +604,7 @@ export const topFishGames: gameType[] = [
       "https://khpic.cdn568.net/KAGaming/695/1042_695_BattleofLuck_CN.jpg",
   },
   {
-    id: 12,
+    id: 11,
     provider_id: 1020,
     game_id: 2,
     cn_name: "炸魚來了",
@@ -615,7 +615,7 @@ export const topFishGames: gameType[] = [
     cn_icon_url: "https://khpic.cdn568.net/JiLiGaming/2/GameID_20_CN.jpg",
   },
   {
-    id: 13,
+    id: 12,
     cn_name: "财神到",
     provider_id: 1042,
     game_id: 553,
@@ -627,7 +627,7 @@ export const topFishGames: gameType[] = [
     icon_url: "https://khpic.cdn568.net/KAGaming/553/1042_553_CaiShenDao.png",
   },
   {
-    id: 14,
+    id: 13,
     provider_id: 1042,
     game_id: 582,
     rtp: "0.96000",
@@ -640,7 +640,7 @@ export const topFishGames: gameType[] = [
       "https://khpic.cdn568.net/KAGaming/582/1042_582_GoldenFishHunter.png",
   },
   {
-    id: 15,
+    id: 14,
     provider_id: 1042,
     game_id: 540,
     rtp: "0.96000",
@@ -652,7 +652,7 @@ export const topFishGames: gameType[] = [
     icon_url: "https://khpic.cdn568.net/KAGaming/540/1042_540_KingOctopus.png",
   },
   {
-    id: 16,
+    id: 15,
     provider_id: 1042,
     game_id: 556,
     rtp: "0.96000",
@@ -665,7 +665,7 @@ export const topFishGames: gameType[] = [
       "https://khpic.cdn568.net/KAGaming/556/1042_556_LegendofErlang_CN.png",
   },
   {
-    id: 17,
+    id: 16,
     provider_id: 1046,
     cn_name: "大圣捕鱼",
     game_id: 7,
@@ -677,7 +677,7 @@ export const topFishGames: gameType[] = [
       "https://khpic.cdn568.net/Fachai/7/1046_7_MONKEYKINGFISHING_CN.jpg",
   },
   {
-    id: 18,
+    id: 17,
     provider_id: 1042,
     cn_name: "金鲨对银鲨",
     game_id: 592,
@@ -909,7 +909,7 @@ export const topCasinoGames: gameType[] = [
 ];
 export const topBuffaloGames: gameType[] = [
    {
-    id: 2,
+    id: 1,
     provider_id: 1020,
     game_id: 140,
     rtp: "0.97000",
@@ -922,7 +922,7 @@ export const topBuffaloGames: gameType[] = [
       "https://khpic.cdn568.net/JiLiGaming/140/1020_140_ChargeBuffaloAscent_CN.png",
   },
    {
-    id: 5,
+    id: 2,
     provider_id: 1020,
     game_id: 30,
     rtp: "0.97000",
@@ -933,7 +933,7 @@ export const topBuffaloGames: gameType[] = [
     cn_icon_url: "https://khpic.cdn568.net/JiLiGaming/30/GameID_47_CN.png",
   },
    {
-    id: 12,
+    id: 3,
     provider_id: 1020,
     game_id: 183,
     rtp: "0.97000",
@@ -946,7 +946,7 @@ export const topBuffaloGames: gameType[] = [
       "https://khpic.cdn568.net/JiLiGaming/183/1020_183_3ChargeBuffalo_CN.png",
   },
   {
-    id: 1,
+    id:4,
     provider_id: 3,
     game_id: 190,
     rtp: "0.96000",
@@ -959,7 +959,7 @@ export const topBuffaloGames: gameType[] = [
       "https://khpic.cdn568.net/PragmaticPlay/190/3_190_BuffaloKingMegaways_CN.png",
   },
   {
-    "id": 2,
+    "id": 5,
     "provider_id": 3,
     "game_id": 302,
     "rtp": "0.97000",
@@ -971,7 +971,7 @@ export const topBuffaloGames: gameType[] = [
     cn_icon_url:"/game_icons/3_302_BlackBull.png"
 },
 {
-    id: 3,
+    id: 6,
     provider_id: 1094,
     cn_name: "African Buffalo(50)",
     game_id: 1,
@@ -987,7 +987,7 @@ export const topBuffaloGames: gameType[] = [
 
   
   {
-    id: 4,
+    id: 7,
     provider_id: 1046,
     game_id: 57,
     cn_name: "多牛多财",
@@ -1000,7 +1000,7 @@ export const topBuffaloGames: gameType[] = [
   },
  
   {
-    id: 6,
+    id: 8,
     provider_id: 1046,
     cn_name: "疯狂野牛",
     game_id: 36,
@@ -1013,7 +1013,7 @@ export const topBuffaloGames: gameType[] = [
   },
 
   {
-    id: 7,
+    id: 9,
     provider_id: 3,
     cn_name: "热火暴走狂潮",
     game_id: 701,
@@ -1026,7 +1026,7 @@ export const topBuffaloGames: gameType[] = [
       "https://khpic.cdn568.net/PragmaticPlay/701/3_701_FireStampedeUltimate_CN.png",
   },
   {
-    id: 8,
+    id: 10,
     provider_id: 1042,
     game_id: 3,
     rtp: "0.96000",
@@ -1037,7 +1037,7 @@ export const topBuffaloGames: gameType[] = [
     cn_icon_url: "https://khpic.cdn568.net/KAGaming/3/1042_3_GoldenBull_CN.png",
   },
   {
-    id: 9,
+    id: 11,
     provider_id: 1094,
     game_id: 2,
     rtp: "0.95000",
@@ -1050,7 +1050,7 @@ export const topBuffaloGames: gameType[] = [
       "https://khpic.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png?v=1",
   },
   {
-    id: 10,
+    id: 12,
     provider_id: 1094,
     game_id: 3,
     rtp: "0.95000",
@@ -1063,7 +1063,7 @@ export const topBuffaloGames: gameType[] = [
       "https://khpic.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png?v=1",
   },
   {
-    id: 11,
+    id: 13,
     provider_id: 1094,
     game_id: 4,
     rtp: "0.95000",
@@ -1078,7 +1078,7 @@ export const topBuffaloGames: gameType[] = [
  
 
   {
-    id: 13,
+    id: 14,
     provider_id: 1020,
     game_id: 217,
     cn_name: "三币金牛",
@@ -1092,7 +1092,7 @@ export const topBuffaloGames: gameType[] = [
   },
   
     {
-        "id":14,
+        "id":15,
         "provider_id": 35,
         "game_id": 98,
         "rtp": "0.96750",
