@@ -42,6 +42,7 @@ const fetchData = async () => {
   });
 
   if (response) {
+    console.log(response)
     withdrawals.value = response.data;
     totalPages.value = response.pagination.totalPages;
     total.value = response.pagination.total;

@@ -107,12 +107,12 @@ const copyTxn = () => {
         </div>
         <div class="flex justify-between items-center text-sm">
           <label class="text-gray-400 text-sm">{{ t("account_name") }}</label>
-          <p class="text-white font-semibold">{{ localDeposit?.account_name }}</p>
+          <p class="text-white font-semibold">{{ localDeposit?.payment_account }}</p>
         </div>
 
         <div class="flex justify-between items-center text-sm">
           <label class="text-gray-400 text-sm">{{ t("account_number") }}</label>
-          <p class="text-white font-semibold">{{ localDeposit?.account_no }}</p>
+          <p class="text-white font-semibold">{{ localDeposit?.payment_number }}</p>
         </div>
         <div class="flex justify-between items-center text-sm">
           <label class="text-gray-400 text-sm">{{ t("status") }}</label>

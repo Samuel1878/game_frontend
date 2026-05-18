@@ -48,7 +48,7 @@ api.interceptors.response.use(
     const code = error.response?.data?.code;
 
     if (originalRequest.url?.includes("/auth/refresh")) {
-      triggerLogout()
+      // triggerLogout()
       return Promise.reject(error);
     }
     if (status === 401 && code !== "TOKEN_EXPIRED") {

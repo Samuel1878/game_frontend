@@ -3,8 +3,9 @@ import api from "@/services/api";
 import { initSocket, disconnectSocket } from "@/socket";
 import type { userInfo } from "@/utils/types";
 import router from "@/router";
-import { refreshAPI } from "@/lib/axios";
+
 import { useWallet } from "./wallet";
+import { refreshAPI } from "@/services/authAPI";
 interface walletType{
   balance:number;
   currency:string;
@@ -58,6 +59,7 @@ export const useAuthStore = defineStore("auth", {
         return true
       } catch (error) {
         console.log("fetchUser failed", error);
+        this.logout();
         return false
       }
     },
