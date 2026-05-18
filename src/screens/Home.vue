@@ -88,7 +88,7 @@ useReturnRefresh(async() => {
       <GameOptions current_page="lobby" />
        <div class=" bg-gray-900">
         <section class="w-full h-full px-2 ">
-          <ScrollGameViewTwo v-if="topSlotGames" :game-data="topSlotGames" :header="t('top_picks')" :icon="hot_icon"
+          <ScrollGameViewTwo v-if="topSlotGames" :game-data="topSlotGames" :header="t('hot_games')" :icon="hot_icon"
             :handler="prepareGame" :action="()=>router.push('/slots')" />
              <ScrollViews :game-data="hotGames" :header="t('slots')" :icon="slot"
             :handler="prepareGame" :action="()=>router.push('/slots')" />
