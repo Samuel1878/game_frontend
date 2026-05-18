@@ -27,19 +27,21 @@ export const topSlotGames: gameType[] = [
     cn_icon_url:"https://khpic.cdn568.net/PragmaticPlay/617/3_617_MahjongWinsSuperScatter.png",
     cn_name:"麻将大胜超级进财"
 },
-  {
-    id: 2,
-    provider_id: 1034,
-    cn_name: "龙腾麻将",
-    game_id: 75,
-    rtp: "0.96000",
+ {
+    id: 6,
+    provider_id: 35,
+    cn_name: "麻将胡了",
+    game_id: 65,
+    rtp: "0.96920",
     game_rank: 1,
-    name: "Mahjong Roar",
-    icon_url: "https://khpic.cdn568.net/AdvantPlay/75/1034_75_MahjongRoar.jpg",
-    cn_icon_url:
-      "https://khpic.cdn568.net/AdvantPlay/75/1034_75_MahjongRoar_CN.jpg",
+    name: "Mahjong Ways",
+    icon_url:
+      "/game_icons/35_65_MahjongWays.png",
+    cn_icon_url:"/game_icons/35_65_MahjongWays_CN.png",
+      // "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_65_MahjongWays_CN.png",
     is_hot_rtp: true,
   },
+  
  {
     id: 4,
     provider_id: 35,
@@ -49,7 +51,7 @@ export const topSlotGames: gameType[] = [
     game_rank: 3,
     name: "Wild Bounty Showdown",
     icon_url:
-      "https://khpic.cdn568.net/images/games/PGSoft/WildBountyShowdown.jpg",
+      "/game_icons/35_134_WildBountyShowdown.jpg",
     // cn_icon_url:
     //   "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_134_WildBountyShowdown_CN.png",
     cn_icon_url:"/game_icons/35_134_WildBountyShowdown_CN.png"
@@ -75,7 +77,7 @@ export const topSlotGames: gameType[] = [
     game_rank: 2,
     name: "Mahjong Ways 2",
     icon_url:
-      "https://khpic.cdn568.net/images/games/PGSoft/35_74_MahjongWays2.png",
+      "/game_icons/35_74_MahjongWaysTwo.png",
     cn_icon_url:"/game_icons/35_74_MahjongWaysTwo_CN.png"
     // cn_icon_url:
     //   "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_74_MahjongWaysTwo_CN.png",
@@ -96,7 +98,30 @@ export const topSlotGames: gameType[] = [
       "https://khpic.cdn568.net/FaChai/48/1046_48_QUEENOFINCA_CN.jpg",
   },
 
- 
+ {
+    "id":12,
+    "provider_id": 35,
+    "game_id": 157,
+    "rtp": "0.96760",
+    "game_rank": 31,
+    "name": "Mafia Mayhem",
+    "icon_url": "/game_icons/35_157_MafiaMayhem.png",
+    "cn_icon_url":"/game_icons/35_157_MafiaMayhem_CN.png",
+    "cn_name":"黑帮风云"
+},
+{
+    id: 8,
+    provider_id: 3,
+    game_id: 199,
+    rtp: "0.96000",
+    cn_name: "5金狮 Megaway",
+    game_rank: 8,
+    name: "5 Lions Megaways",
+    icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways_CN.png",
+  },
  
   
   
@@ -138,6 +163,8 @@ export const topSlotGames: gameType[] = [
     cn_icon_url:
       "https://khpic.cdn568.net/images/games/PragmaticPlay/3_437_CandyJarCluster_CN.png",
   },
+  
+
 
 ];
 export const hotGames: gameType[] = [
@@ -151,7 +178,7 @@ export const hotGames: gameType[] = [
     cn_name: "金钱兔",
     game_rank: 34,
     name: "Fortune Rabbit",
-    icon_url: "https://khpic.cdn568.net/images/games/PGSoft/FortuneRabbit.png",
+    icon_url: "/game_icons/35_141_FortuneRabbit.jpg",
     cn_icon_url:"/game_icons/35_141_FortuneRabbit_CN.png"
     // cn_icon_url:
     //   "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_141_FortuneRabbit_CN.png",
@@ -183,19 +210,7 @@ export const hotGames: gameType[] = [
     cn_icon_url:
       "https://khpic.cdn568.net/images/games/PragmaticPlay/3_388_StarlightPrincess1000_CN.png?v=1",
   },
-   {
-    id: 8,
-    provider_id: 3,
-    game_id: 199,
-    rtp: "0.96000",
-    cn_name: "5金狮 Megaway",
-    game_rank: 8,
-    name: "5 Lions Megaways",
-    icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways_CN.png",
-  },
+   
   {
     "id": 19,
     "provider_id": 3,
@@ -232,20 +247,7 @@ export const hotGames: gameType[] = [
     rtp: "0.96500",
   },
 
-   {
-    id: 6,
-    provider_id: 35,
-    cn_name: "麻将胡了",
-    game_id: 65,
-    rtp: "0.96920",
-    game_rank: 1,
-    name: "Mahjong Ways",
-    icon_url:
-      "https://khpic.cdn568.net/images/games/PGSoft/35_65_MahjongWays.jpg",
-    cn_icon_url:"/game_icons/35_65_MahjongWays_CN.png",
-      // "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_65_MahjongWays_CN.png",
-    is_hot_rtp: true,
-  },
+  
   {
     id: 3,
     provider_id: 1020,
@@ -257,6 +259,19 @@ export const hotGames: gameType[] = [
     cn_icon_url: "https://khpic.cdn568.net/JiLiGaming/97/cn.png",
     is_hot_rtp: true,
     cn_name: "招財貓",
+  },
+  {
+    id: 2,
+    provider_id: 1034,
+    cn_name: "龙腾麻将",
+    game_id: 75,
+    rtp: "0.96000",
+    game_rank: 1,
+    name: "Mahjong Roar",
+    icon_url: "https://khpic.cdn568.net/AdvantPlay/75/1034_75_MahjongRoar.jpg",
+    cn_icon_url:
+      "https://khpic.cdn568.net/AdvantPlay/75/1034_75_MahjongRoar_CN.jpg",
+    is_hot_rtp: true,
   },
   
 {
@@ -477,6 +492,7 @@ export const topFishGames: gameType[] = [
     cn_icon_url: "https://khpic.cdn568.net/JiLiGaming/4/GameID_32_CN.jpg",
     is_hot_rtp: true,
   },
+  
   {
     id: 2,
     cn_name: "海王彩金",
@@ -526,19 +542,7 @@ export const topFishGames: gameType[] = [
     cn_icon_url:
       "https://khpic.cdn568.net/KAGaming/541/1042_541_GoldenDragon_CN.png",
   },
-  {
-    id: 6,
-    provider_id: 1020,
-    game_id: 169,
-    rtp: "0.97000",
-    cn_name: "財神彩金",
-    game_rank: 10,
-    name: "Fortune King Jackpot",
-    cn_icon_url:
-      "https://khpic.cdn568.net/JiLiGaming/169/1020_169_FortuneKingJackpot_CN.png",
-    icon_url:
-      "https://khpic.cdn568.net/JiLiGaming/169/1020_169_FortuneKingJackpot.png",
-  },
+ 
   {
     id: 7,
     provider_id: 1020,

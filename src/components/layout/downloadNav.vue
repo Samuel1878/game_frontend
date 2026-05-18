@@ -2,11 +2,13 @@
 import router from "@/router";
 import { isApp, isPWA } from "@/utils/help";
 import { Download } from "lucide-vue-next";
-import { ref, onMounted } from "vue";
+import { onMounted } from "vue";
 import { useI18n } from "vue-i18n";
+import { useDownloadBannerStore } from "@/stores/downloadBannerStore";
+import { storeToRefs } from "pinia";
 
-const showBanner = ref(false);
-
+const ui = useDownloadBannerStore();
+const {showAppBanner} = storeToRefs(ui)
 const APP_STORAGE_KEY = "hide-app-download-banner";
 
 onMounted(() => {
@@ -17,20 +19,55 @@ onMounted(() => {
 
   if (!hidden && !pwa && !mobile) {
     setTimeout(() => {
-      showBanner.value = true;
+      ui.showBanner();
     }, 500);
+  } else {
+    ui.permanentlyHideBanner();
   }
 });
+
 const { t } = useI18n();
+
 const closeBanner = () => {
-  showBanner.value = false;
+  ui.permanentlyHideBanner();
   sessionStorage.setItem(APP_STORAGE_KEY, "true");
 };
 
 const downloadApp = () => {
-    router.push("/download")
-//   window.open("https://your-domain.com/download", "_blank");
+  router.push("/download");
 };
+// import router from "@/router";
+// import { isApp, isPWA } from "@/utils/help";
+// import { Download } from "lucide-vue-next";
+// import { ref, onMounted } from "vue";
+// import { useI18n } from "vue-i18n";
+
+// const showBanner = ref(false);
+
+// const APP_STORAGE_KEY = "hide-app-download-banner";
+
+// onMounted(() => {
+//   const hidden = sessionStorage.getItem(APP_STORAGE_KEY);
+
+//   const pwa = isPWA();
+//   const mobile = isApp();
+
+//   if (!hidden && !pwa && !mobile) {
+//     setTimeout(() => {
+//       showBanner.value = true;
+//     }, 500);
+//   }
+// });
+// const { t } = useI18n();
+// const closeBanner = () => {
+//   showBanner.value = false;
+//   sessionStorage.setItem(APP_STORAGE_KEY, "true");
+// };
+
+// const downloadApp = () => {
+//     router.push("/download")
+// //   window.open("https://your-domain.com/download", "_blank");
+// };
 </script>
 
 <template>
@@ -43,7 +80,7 @@ const downloadApp = () => {
     leave-to-class="-translate-y-full opacity-0"
   >
     <div
-      v-if="showBanner"
+      v-if="showAppBanner"
       class="z-40 glass-bg shadow-lg"
    
     >

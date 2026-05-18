@@ -5,13 +5,15 @@ import { onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "./stores/auth";
 import { hideTawk, showTawk } from "./utils";
+import { useDownloadBannerStore } from "./stores/downloadBannerStore";
 
 const gameStore = useGameStore();
 const authStore = useAuthStore();
 const router = useRouter();
+const ui = useDownloadBannerStore();
 
-// safety: if no URL, go back
 onMounted(() => {
+  ui.hideBanner()
   hideTawk();
   if (!gameStore.launchUrl) {
     router.replace("/");
@@ -19,6 +21,7 @@ onMounted(() => {
 });
 onUnmounted(async () => {
   // await authStore.init()
+  ui.showBanner()
   showTawk();
 });
 const goBack = () => {
@@ -30,32 +33,7 @@ const goHome = () => {
   router.replace("/");
 };
 </script>
-<!-- <template>
-  <div class="fixed inset-0 bg-black overflow-hidden flex flex-col">
-    <div
-      class="bg-gray-900/50 backdrop-blur pt-[env(safe-area-inset-top)]"
-    >
-      <div class="h-10 flex justify-between items-center px-4">
-        <div class="cursor-pointer px-2" @click="goBack">
-          <ChevronLeft class="text-gray-100 w-7 h-7" />
-        </div>
 
-        <div class="cursor-pointer flex items-center" @click="goHome">
-          <img src="/logo.png" class="h-8" />
-        </div>
-      </div>
-    </div>
-    <div class="flex-1 min-h-0">
-      <iframe
-        v-if="gameStore.launchUrl"
-        :src="gameStore.launchUrl"
-        class="w-full h-full border-0"
-        allowfullscreen
-      />
-    </div>
-
-  </div>
-</template> -->
 <template>
   <div class="min-h-dvh bg-black flex flex-col w-full">
 
