@@ -123,7 +123,7 @@ export const formatRandomRange = (value: number) => {
 };
 
 export const baseURL =  "https://tz99x.com";
-export const versionNo = "1.0.2"
+export const versionNo = "1.0.5"
 export const BASE_API_URL = "https://api.96betx.com"; ////PROD
 // export const BASE_API_URL = "http://localhost:3000"; ////DEV
 // export const BASE_API_URL = "https://uat-api.tz99x.com" ////UAT

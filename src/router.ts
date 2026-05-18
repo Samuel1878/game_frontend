@@ -91,7 +91,7 @@ const routes = [
   },
     {
     path: "/withdraw/store",
-    meta: { requiresAuth: false, hideTopNav:true, hideNavbar:true },
+    meta: { requiresAuth: true, hideTopNav:true, hideNavbar:true },
     component: Store,
   },
   {

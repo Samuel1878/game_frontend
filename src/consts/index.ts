@@ -31,7 +31,6 @@ export const footer_images = [
     "/providers/sbo.png",
     "/providers/568.png",
     "/providers/advant_play.png",
-    "/partners/softswiss.svg",
     "/partners/paysafe.svg",
 ]
 export interface paymentTypes {
