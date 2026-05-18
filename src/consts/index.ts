@@ -30,7 +30,6 @@ export const footer_images = [
     "/providers/va-white.webp",
     "/providers/sbo.png",
     "/providers/568.png",
-    "/providers/advant_play.png",
     "/partners/paysafe.svg",
 ]
 export interface paymentTypes {

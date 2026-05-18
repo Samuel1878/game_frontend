@@ -36,7 +36,19 @@ const { authModalOpen, redirectAfterAuth, isLogin} = storeToRefs(ui);
 // const isLogin = ref(true);
 const errorMessage = ref("");
 const regex = /^[A-Za-z0-9_]{6,40}$/;
-// const referral_regex = /^[A-Z][0-9]{3}$/;
+const mmRegex = /^09\d{7,13}$/; // Myanmar
+const thRegex = /^(0|\+66)\d{8,9}$/; // Thailand
+const cnRegex = /^(1[3-9]\d{9}|\+861[3-9]\d{9})$/; // China
+
+const validatePhone = (phone: string) => {
+  const normalized = phone.replace(/\s+/g, "");
+
+  return (
+    mmRegex.test(normalized) ||
+    thRegex.test(normalized) ||
+    cnRegex.test(normalized)
+  );
+};
 const form = ref({
   username: "",
   phone: "",
@@ -80,8 +92,8 @@ const validateForm = () => {
 
   if (!form.value.phone) return "required_phone";
 
-  if (!/^09\d{7,13}$/.test(form.value.phone)) {
-    return "invalid_phone";
+  if (!validatePhone(form.value.phone)) {
+  return "invalid_phone";
   }
 
   if (!form.value.password) return "required_password";
@@ -134,7 +146,7 @@ const submit = async () => {
       response = await auth.login({
         name: loginName.value,
         password: form.value.password,
-        isPhoneNumber: loginName.value.startsWith("09"),
+        isPhoneNumber:validatePhone(loginName.value),
       });
     } else {
       response = await auth.register({
