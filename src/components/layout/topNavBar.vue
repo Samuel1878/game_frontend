@@ -49,7 +49,7 @@ const openMenu = () => {
           <Menu class="w-6 h-6 text-white" />
         </button>
         <div @click="router.push('/')" class="cursor-pointer lg:hidden block">
-          <img src="/logo.png" alt="Logo" class="h-9" />
+          <img src="/logo.webp" alt="Logo" class="h-9" />
         </div>
       </div>
 

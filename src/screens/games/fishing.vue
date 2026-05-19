@@ -2,10 +2,10 @@
 import Footer from '@/components/footer.vue';
 import GameOptions from '@/components/layout/gameOptions.vue';
 import {  getGamesByProviderAPI } from '@/services/gameAPI';
-import { useAuthStore } from '@/stores/auth';
+// import { useAuthStore } from '@/stores/auth';
 import {  fish, hot, hot_rtp_icon, top_icon } from '@/utils';
 import type { gameType } from '@/utils/types';
-import { useReturnRefresh } from '@/utils/useReturn';
+// import { useReturnRefresh } from '@/utils/useReturn';
 import { onMounted, ref} from 'vue';
 import { useI18n } from 'vue-i18n';
 import GameViews from '@/components/gameViews.vue';
@@ -18,7 +18,7 @@ const hasMore = ref(true);
 const isLoadingMore = ref(false);
 const sortBy = ref("rank");
 const topOnly = ref(false);
-const authStore = useAuthStore()
+// const authStore = useAuthStore()
 const fetchGames = async (reset = false) => {
     if (reset) {
         offset.value = 0;
@@ -63,9 +63,9 @@ const btnClass = (active: boolean) =>
   active
     ? "animate-pulse-scale"
     : "";
-useReturnRefresh(async() => {
-    authStore.init();
-})
+// useReturnRefresh(async() => {
+//     authStore.init();
+// })
 </script>
 <template>
     <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">

@@ -1,8 +1,8 @@
 import { 
      slot, buffalo, fish, casino, chess, home, 
-     wallet_icon,
-     in_icon,
-     bank_ico,
+    //  wallet_icon,
+    //  in_icon,
+    //  bank_ico,
      accountCenter,
      depositHistoryIcon,
      withdrawHistoryIcon,
@@ -15,22 +15,21 @@ import {
 import type { Game } from "@/utils/types";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
-import { CircleQuestionMark, Handshake, HatGlasses, MonitorDown, Share2, ShieldAlert, Spade, SquareArrowRight, Store, type LucideIcon } from "lucide-vue-next";
+import { BanknoteArrowDown, CircleQuestionMark, Handshake, HatGlasses, Landmark, MonitorDown, Share2, ShieldAlert, Spade, SquareArrowRight, Store, Wallet, type LucideIcon } from "lucide-vue-next";
 import type { Component } from "vue";
 export const usdtRateToMMK = 4000;
 export const footer_images = [
-    '/providers/PG-WHITE.png',
-    '/providers/PP-WHITE.png',
-    '/providers/JL-WHITE.png',
-    '/providers/fast_spin.png',
-    '/providers/KA-WHITE.png',
-    '/partners/bank_transfer.svg',
-    "/providers/FC-WHITE.png",
-    "/providers/advant_play.png",
+
+    '/providers/PP-WHITE.webp',
+        '/providers/PG-WHITE.png',
+    '/providers/JL-WHITE.webp',
+    '/providers/fast_spin.webp',
+    '/providers/KA-WHITE.webp',
+    "/providers/FC-WHITE.webp",
+    "/providers/advant_play.webp",
     "/providers/va-white.webp",
-    "/providers/sbo.png",
-    "/providers/568.png",
-    "/partners/paysafe.svg",
+    "/providers/sbo.webp",
+    "/providers/568.webp"
 ]
 export interface paymentTypes {
     id:number,
@@ -59,31 +58,31 @@ export const paymentMethod:paymentTypes[] = [
         id:1,
         label:"KBZ Pay",
         value:"kbzPay",
-        icon:"/payments/kbzpay.svg"
+        icon:"/payments/kbzpay.webp"
     },
     {
         id:2,
         label:"Wave Pay",
         value:"wavePay",
-        icon:"/payments/wavepay.jpeg"
+        icon:"/payments/wavepay.webp"
     },
     {
         id:3,
         label:"AYA Pay",
         value:"ayaPay",
-        icon:"/payments/ayabanking.png"
+        icon:"/payments/ayabanking.webp"
     },
             {
         id:4,
         label:"KBZ Bank",
         value:"kbzBank",
-        icon:"/payments/kbzbanking-new.png"
+        icon:"/payments/kbzbanking-new.webp"
     },
     {
         id:5,
         label:"USDT",
         value:"usdt",
-        icon:'/payments/USDT.png'
+        icon:'/payments/USDT.webp'
     },
 ];
 export const paymentMethodOption = [
@@ -123,31 +122,31 @@ export const paymentMethodDeposit:paymentTypes[] = [
         id:1,
         label:"KBZ Pay",
         value:"kbzPay",
-        icon:"/payments/kbzpay.svg"
+        icon:"/payments/kbzpay.webp"
     },
     {
         id:2,
         label:"Wave Pay",
         value:"wavePay",
-        icon:"/payments/wavepay.jpeg"
+        icon:"/payments/wavepay.webp"
     },
     {
         id:3,
         label:"AYA Pay",
         value:"ayaPay",
-        icon:"/payments/ayabanking.png"
+        icon:"/payments/ayabanking.webp"
     },
     {
         id:4,
         label:"USDT",
         value:"usdt",
-        icon:'/payments/USDT.png'
+        icon:'/payments/USDT.webp'
     },
 ];
 export const homeSlide = [
     {   id:1,
-        image:"/images/slider_1.jpg",
-        cn_image:"/images/slider_1_cn.jpg",
+        image:"/images/slider_1.webp",
+        cn_image:"/images/slider_1_cn.webp",
         title:"title_one",
         description:"description_one",
         button:"button_one",
@@ -155,8 +154,8 @@ export const homeSlide = [
     },
     {
         id:2,
-        image:"/images/slider_2.jpg",
-        cn_image:"/images/slider_2_cn.jpg",
+        image:"/images/slider_2.webp",
+        cn_image:"/images/slider_2_cn.webp",
         title:"title_two",
         description:"description_two",
         button:"button_two",
@@ -164,16 +163,16 @@ export const homeSlide = [
     }
     ,    {
         id:3,
-        image:"/images/slider_3.jpg",
-        cn_image:"/images/slider_3_cn.jpg",
+        image:"/images/slider_3.webp",
+        cn_image:"/images/slider_3_cn.webp",
         title:"title_three",
         description:"description_three",
         button:"button_three",
         action:""
     },
      {   id:4,
-        image:"/images/slider_4.jpg",
-        cn_image:"/images/slider_4_cn.jpg",
+        image:"/images/slider_4.webp",
+        cn_image:"/images/slider_4_cn.webp",
         title:"title_one",
         description:"description_one",
         button:"button_one",
@@ -225,7 +224,7 @@ export const slotGameProviders = [
         id:1,
         name: "Pragmatic Play",
         GpId:3,
-        icon:"/providers/PP-WHITE.png",
+        icon:"/providers/PP-WHITE.webp",
     },
     {
         id:2,
@@ -237,20 +236,20 @@ export const slotGameProviders = [
         id:3,
         name: "JILI",
         GpId:1020,
-        icon:"/providers/JL-WHITE.png",
+        icon:"/providers/JL-WHITE.webp",
     },
 
         {
         id:4,
         name: "FaChoi",
         GpId:1046,
-        icon:  "/providers/FC-WHITE.png",
+        icon:  "/providers/FC-WHITE.webp",
     } ,
     {
         id:5,
         name: "Fastspin",
         GpId:1079,
-        icon:"/providers/fast_spin.png",
+        icon:"/providers/fast_spin.webp",
         
         
     },
@@ -259,7 +258,7 @@ export const slotGameProviders = [
         id:6,
         name: "KA Gaming",
         GpId:1042,
-        icon:"/providers/KA-WHITE.png",
+        icon:"/providers/KA-WHITE.webp",
         
         
     }  ,
@@ -267,7 +266,7 @@ export const slotGameProviders = [
         id:7,
         name: "Advantplay",
         GpId:1034,
-        icon:"/providers/advant_play.png",
+        icon:"/providers/advant_play.webp",
         
         
     },
@@ -282,13 +281,13 @@ export const slotGameProviders = [
         id:10,
         name:"SBO games",
         GpId:14,
-        icon:"/providers/sbo.png",
+        icon:"/providers/sbo.webp",
     },
     {
         id:11,
         name:"568Win Games",
         GpId:1029,
-        icon:"/providers/568.png",
+        icon:"/providers/568.webp",
     }
 ];
 export const UserAction = [
@@ -296,19 +295,19 @@ export const UserAction = [
         id:1,
         label:"deposit",
         path:"/deposit",
-        image:wallet_icon
+        image:Wallet
     },
         {
             id:2,
         label:"withdraw",
         path:"/withdraw",
-        image:in_icon
+        image:BanknoteArrowDown
     },
      {
         id:3,
         label:"bank",
         path:"/user/bank-accounts",
-        image:bank_ico
+        image:Landmark
     },
 
 ]

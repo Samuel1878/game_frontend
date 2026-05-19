@@ -27,13 +27,13 @@ getters: {
       this.loading = true;
       try {
         this.accounts = await getUserBankAccountAPI();
-        console.log(this.accounts)
+        // console.log(this.accounts)
       } finally {
         this.loading = false;
       }
     },
   setFilter(value: string) {
-    console.log(value)
+    // console.log(value)
     this.selectedPayment = value
   },
     async addAccount(data:BankAccountPros ) {

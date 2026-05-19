@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { amounts, paymentMethodOption, usdtRateToMMK } from "@/consts";
+import { amounts, paymentMethod, paymentMethodOption, usdtRateToMMK } from "@/consts";
 import { onMounted, ref } from "vue";
 import {
   InputGroup,
@@ -39,6 +39,9 @@ const { t } = useI18n();
 const setAmount = (a: number) => {
   amount.value = a;
 };
+const getPaymentIcon = (accountName: string) => {
+  return paymentMethod.find(e => e.value === accountName)
+}
 const showDialog = ref(false);
 const choosen = ref<boolean>(false);
 const bankStore = useBankStore();
@@ -133,7 +136,7 @@ const openAdd = () => {
 //     showDialog.value = true
 // }
 const saveAccount = async () => {
-  console.log(form);
+  // console.log(form);
   if (isEdit.value && selectedId.value) {
     await bankStore.updateAccount(selectedId.value, form.value);
   } else {
@@ -198,9 +201,9 @@ const saveAccount = async () => {
                 'p-3 min-w-70 rounded-2xl shine-auto active-button shadow-xl bg-linear-to-bl text-white relative overflow-hidden transition hover:scale-[1.02]',
                 bankThemes[acc.value] ||
                   'from-gray-600 via-white/10 to-gray-800',
-                acc.is_available
-                  ? 'shadow-green-500/10 shadow-lg'
-                  : 'shadow-red-500/10 shadow-inner',
+                // acc.is_available
+                //   ? 'shadow-green-500/5 shadow-xs'
+                //   : 'shadow-red-500/10 shadow-inner',
                 acc.value === withdrawForm.method
                   ? 'animate-pulse border-yellow-400 border-2'
                   : 'animate-none border-0',
@@ -230,15 +233,16 @@ const saveAccount = async () => {
                 </div>
               </div>
 
-              <div class="absolute top-3 right-3">
-                <span
+              <div class="absolute top-3 right-3 overflow-hidden rounded-lg p-2 bg-white/10 backdrop-blur-2xl">
+                <img class="w-8 h-8 rounded-sm" :src="getPaymentIcon(acc.value)?.icon"/>
+                <!-- <span
                   class="text-xs px-2 py-1 rounded-full font-semibold"
                   :class="
                     acc.is_available ? 'bg-green-500/80' : 'bg-red-500/80'
                   "
                 >
                   {{ acc.is_available ? t("active") : t("closed") }}
-                </span>
+                </span> -->
               </div>
             </div>
             <div

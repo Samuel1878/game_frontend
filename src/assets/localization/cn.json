@@ -99,8 +99,8 @@
      "edit":"编辑",
      "delete":"删除",
        "choose_withdraw_account":"选择提现账户",
-       "referral_id":"推荐码",
-       "referral_placeholder": "推荐码（可选）",
+       "referral_id":"邀请码",
+       "referral_placeholder": "邀请码（可选）",
          "optional":"选修的",
 
      "phone_verification":"电话验证",
@@ -360,7 +360,11 @@
   "store": "商店",
   "scan_qr_code": "扫描二维码",
   "or": "或者",
-  "reseller_not_found": "未找到代理商"
+  "reseller_not_found": "未找到代理商",
+   "enter_name_phone": "请输入用户名或手机号",
+    "enter_password": "请输入密码",
+    "enter_name": "请输入姓名",
+    "enter_referral_code_optional": "请输入邀请码（可选）"
   
     
 

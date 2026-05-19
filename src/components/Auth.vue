@@ -17,10 +17,19 @@ import {
   InputGroupAddon,
   InputGroupInput,
   InputGroupText,
-
-} from '@/components/ui/input-group'
+} from "@/components/ui/input-group";
 import { useReferralStore } from "@/stores/referralStore";
-import { EyeIcon, EyeOff, LockIcon, PhoneIcon, Share2Icon, User, X } from "lucide-vue-next";
+import {
+  Eye,
+  EyeClosed,
+
+  LockIcon,
+ 
+  PhoneIcon,
+  Share2Icon,
+  User,
+  X,
+} from "lucide-vue-next";
 import { Checkbox } from "./ui/checkbox";
 import { Spinner } from "./ui/spinner";
 import { useI18n } from "vue-i18n";
@@ -32,7 +41,7 @@ const ui = useUIStore();
 const router = useRouter();
 const checked = ref(true);
 const loadingButton = ref(false);
-const { authModalOpen, redirectAfterAuth, isLogin} = storeToRefs(ui);
+const { authModalOpen, redirectAfterAuth, isLogin } = storeToRefs(ui);
 // const isLogin = ref(true);
 const errorMessage = ref("");
 const regex = /^[A-Za-z0-9_]{6,40}$/;
@@ -59,84 +68,65 @@ const loginName = ref("");
 const { t } = useI18n();
 const showPassword = ref(false);
 const referralStore = useReferralStore();
-const { referralCode , fromRid} = storeToRefs(referralStore);
+const { referralCode, fromRid } = storeToRefs(referralStore);
 onMounted(() => {
   if (auth.accessToken) {
     ui.closeAuthModal();
   }
 });
 const validateForm = () => {
-  // LOGIN
   if (isLogin.value) {
     if (!loginName.value) return "required_name_phone";
-
     if (!regex.test(loginName.value)) {
       return "invalid_username_format";
     }
-
     if (!form.value.password) return "required_password";
-
     if (form.value.password.length < 6) {
       return "password_too_short";
     }
-
     return null;
   }
-
-  // REGISTER
   if (!form.value.username) return "required_username";
-
   if (!regex.test(form.value.username)) {
     return "invalid_username_format";
   }
-
   if (!form.value.phone) return "required_phone";
-
   if (!validatePhone(form.value.phone)) {
-  return "invalid_phone";
+    return "invalid_phone";
   }
-
   if (!form.value.password) return "required_password";
-
   if (form.value.password.length < 6) {
     return "password_too_short";
   }
-
   if (form.value.password !== form.value.conPassword) {
     return "password_not_match";
   }
-
   if (!checked.value) return "must_accept_terms";
-
   // if (
   //   referralCode.value &&
   //   !referral_regex.test(referralCode.value)
   // ) {
   //   return "invalid_referral_code";
   // }
-
   return null;
 };
 const submit = async () => {
-   console.log(referralCode.value)
+  // console.log(referralCode.value);
   errorMessage.value = "";
- 
   const validationError = validateForm();
-
   if (validationError) {
     errorMessage.value = validationError;
-
     // ✅ translated log
-    console.warn("[VALIDATION ERROR]:", {
-      key: validationError,
-      message: t(validationError),
-      form: {
-        loginName: loginName.value,
-        username: form.value.username,
-        phone: form.value.phone,
-      },
-    });
-    toast.error(t(validationError));
+    // console.warn("[VALIDATION ERROR]:", {
+    //   key: validationError,
+    //   message: t(validationError),
+    //   form: {
+    //     loginName: loginName.value,
+    //     username: form.value.username,
+    //     phone: form.value.phone,
+    //   },
+    // });
+    toast.warning(t(validationError));
     return;
   }
   loadingButton.value = true;
@@ -146,7 +136,7 @@ const submit = async () => {
       response = await auth.login({
         name: loginName.value,
         password: form.value.password,
-        isPhoneNumber:validatePhone(loginName.value),
+        isPhoneNumber: validatePhone(loginName.value),
       });
     } else {
       response = await auth.register({
@@ -156,7 +146,6 @@ const submit = async () => {
         referral_code: referralCode.value,
       });
     }
-    console.log("[AUTH RESPONSE]:", response);
     if (response?.status === 200) {
       toast.success(t(response.message));
       ui.closeAuthModal();
@@ -164,190 +153,243 @@ const submit = async () => {
         router.push(redirectAfterAuth.value);
       }
     } else {
-      errorMessage.value =
-        response?.message || "invalid_username_password";
-      console.warn("[AUTH FAILED]:", {
-        message: t(errorMessage.value),
-        raw: response,
-      });
+      errorMessage.value = response?.message || "invalid_username_password";
+      // console.warn("[AUTH FAILED]:", {
+      //   message: t(errorMessage.value),
+      //   raw: response,
+      // });
+      toast.error(t(errorMessage.value));
     }
   } catch (err: any) {
     errorMessage.value = err?.message || "something_went_wrong";
-    console.error("[AUTH ERROR]:", {
-      message: t(errorMessage.value),
-      error: err,
-    });
+    // console.error("[AUTH ERROR]:", {
+    //   message: t(errorMessage.value),
+    //   error: err,
+    // });
+    toast.error(t(errorMessage.value));
   } finally {
     loadingButton.value = false;
   }
 };
-
 </script>
 
 <template>
   <Dialog v-model:open="authModalOpen">
-    <DialogContent :dismissible="false" @interact-outside.prevent :show-close-button="false" class="bg-gray-900 
-        bg-linear-to-br from-white/15 via-white/10 to-white/10
-        backdrop-blur-2xl border-2 border-gray-700/60 
-        shadow-[0_10px_40px_rgba(0,0,0,2)] text-gray-100 rounded-2xl p-0.5 pb-4 w-full">
-
-      <DialogHeader class="relative mb-2 rounded-t-2xl border border-gray-600/10 p-4 overflow-hidden
-         bg-linear-to-br from-gray-900 via-gray-800 to-black shadow-[0_5px_40px_rgba(0,0,0,1)]
-         ">
-
+    <DialogContent
+      :dismissible="false"
+      @interact-outside.prevent
+      :show-close-button="false"
+      class="bg-gray-900 bg-linear-to-br from-white/15 via-white/10 to-white/10 backdrop-blur-2xl border-2 border-gray-700/60 shadow-[0_10px_40px_rgba(0,0,0,2)] text-gray-100 rounded-2xl p-0.5 pb-4 w-full"
+    >
+      <DialogHeader
+        class="relative mb-2 rounded-t-xl border border-gray-600/10 p-4 overflow-hidden bg-linear-to-br from-gray-900 via-gray-800 to-black shadow-[0_5px_40px_rgba(0,0,0,1)]"
+      >
         <div class="glass absolute inset-0"></div>
 
         <div class="shine absolute inset-0"></div>
         <div class="absolute inset-0 bg-black/10 rounded-lg"></div>
         <div class="flex gap-4 items-center">
-          <div class="animate-pulse relative p-0.5 rounded-2xl bg-linear-to-br from-yellow-400/60 via-yellow-200/70 to-yellow-500/70
-            shadow-[0_0_15px_rgba(255,215,0,.4)]">
-            <div class="bg-black/70 rounded-2xl p-1">
-              <img src="/favicon.png" class="w-20 h-20" />
-            </div>
-          </div>
+          <!-- <div
+            class="animate-pulse relative p-0.5 rounded-3xl bg-linear-to-br from-yellow-400/60 via-yellow-200/70 to-yellow-500/70 shadow-[0_0_15px_rgba(255,215,0,.4)]"
+          >
+            <div class="bg-black/70 rounded-3xl p-1"> -->
+          <img src="/favicon.webp" class="w-14 h-14" />
+          <!-- </div>
+          </div> -->
 
           <div class="h-full gap-2 flex flex-col justify-center">
-            <DialogTitle class="text-linear-gold font-bold text-start text-2xl tracking-wide">
+            <DialogTitle
+              class="text-linear-gold font-bold text-start text-xl tracking-wide"
+            >
               {{ isLogin ? t("login") : t("register") }}
             </DialogTitle>
 
-            <DialogDescription class="text-start text-gray-400 text-sm">
-              {{ isLogin ? t("login_to_your_account") : t("register_new_account") }}
+            <DialogDescription class="text-start text-gray-400 text-xs">
+              {{
+                isLogin ? t("login_to_your_account") : t("register_new_account")
+              }}
             </DialogDescription>
           </div>
-
         </div>
 
-        <button class="absolute right-5 top-5 cursor-pointer" @click="ui.closeAuthModal()">
+        <button
+          class="absolute right-5 top-5 cursor-pointer"
+          @click="ui.closeAuthModal()"
+        >
           <X />
         </button>
       </DialogHeader>
-      <form :class="{ 'error-shake': errorMessage }" @submit.prevent="submit" class="space-y-4 px-4">
+      <form
+        :class="{ 'error-shake': errorMessage }"
+        @submit.prevent="submit"
+        class="space-y-2 px-4"
+      >
+        <div class="space-y-1 form-item" v-if="isLogin">
+          <Label class="text-xs text-gray-400 pl-1">
+            {{ t("name_phone") }}
+          </Label>
 
-        <InputGroup v-if="isLogin"
-          class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-amber-400 ring-0 glass-bg">
-          <InputGroupAddon>
-            <User />
-          </InputGroupAddon>
-          <InputGroupInput 
-            class="w-full" 
-            v-model="loginName" 
-            type="text" 
-            name="username"
-            autocomplete="username"
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false"
-            :placeholder="t('name_phone')" />
-          <InputGroupAddon align="inline-end">
-            <InputGroupText class="text-gray-100"></InputGroupText>
-          </InputGroupAddon>
-        </InputGroup>
-        <InputGroup v-else
-          class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-amber-400 ring-0 glass-bg">
-          <InputGroupAddon>
-            <User />
-          </InputGroupAddon>
-          <InputGroupInput 
-            class="w-full" 
-            v-model="form.username" 
-            type="text" 
-            name="username"
-            :placeholder="t('name')"
-            autocomplete="username"
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false"
-             />
-          <InputGroupAddon align="inline-end">
-            <InputGroupText class="text-gray-100"></InputGroupText>
-          </InputGroupAddon>
-        </InputGroup>
+          <InputGroup
+            class="h-12 w-full rounded-lg font-medium glass-bg transition focus-within:border-yellow-400 focus-within:ring-2 focus-within:ring-yellow-400/30"
+          >
+            <InputGroupAddon>
+              <User class="text-gray-400" />
+            </InputGroupAddon>
 
-        <InputGroup class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-amber-400 ring-0 glass-bg"
-          v-show="!isLogin">
-          <InputGroupAddon>
-            <PhoneIcon />
-          </InputGroupAddon>
-          <InputGroupInput 
-            class="w-full" 
-            v-model="form.phone" 
-            type="text" 
-            name="phone"
-            autocomplete="tel"
-            inputmode="numeric"
-            :placeholder="t('phone_number')" />
-          <InputGroupAddon align="inline-end">
-            <InputGroupText class="text-gray-100"></InputGroupText>
-          </InputGroupAddon>
-        </InputGroup>
+            <InputGroupInput
+              v-model="loginName"
+              class="w-full bg-transparent outline-none text-white placeholder:text-sm"
+              type="text"
+              autocomplete="username"
+              :placeholder="t('enter_name_phone')"
+            />
+          </InputGroup>
+        </div>
+        <div v-else class="space-y-1 form-item">
+          <Label class="text-xs text-gray-400 pl-1">
+            {{ t("name") }}
+          </Label>
+          <InputGroup
+            class="h-12 w-full rounded-lg font-medium glass-bg transition focus-within:border-yellow-400 focus-within:ring-2 focus-within:ring-yellow-400/30"
+          >
+            <InputGroupAddon>
+              <User />
+            </InputGroupAddon>
+            <InputGroupInput
+              class="w-full bg-transparent outline-none text-white placeholder:text-sm"
+              v-model="form.username"
+              type="text"
+              name="username"
+              :placeholder="t('enter_name')"
+              autocomplete="username"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+            />
+            <InputGroupAddon align="inline-end">
+              <InputGroupText class="text-gray-100"></InputGroupText>
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
 
+        <div class="space-y-1 form-item" v-show="!isLogin">
+          <Label class="text-xs text-gray-400 pl-1">
+            {{ t("phone_number") }}
+          </Label>
+          <InputGroup
+            class="h-12 w-full rounded-lg font-medium glass-bg transition focus-within:border-yellow-400 focus-within:ring-2 focus-within:ring-yellow-400/30"
+          >
+            <InputGroupAddon>
+              <PhoneIcon />
+            </InputGroupAddon>
+            <InputGroupInput
+              class="w-full bg-transparent outline-none text-white placeholder:text-sm"
+              v-model="form.phone"
+              type="text"
+              name="phone"
+              autocomplete="tel"
+              inputmode="numeric"
+              :placeholder="t('enter_phone_number')"
+            />
+            <InputGroupAddon align="inline-end">
+              <InputGroupText class="text-gray-100"></InputGroupText>
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
+        <div class="space-y-1 form-item">
+          <Label class="text-xs text-gray-400 pl-1">
+            {{ t("password") }}
+          </Label>
+          <InputGroup
+            class="h-12 w-full rounded-lg font-medium glass-bg transition focus-within:border-yellow-400 focus-within:ring-2 focus-within:ring-yellow-400/30"
+          >
+            <InputGroupAddon>
+              <LockIcon />
+            </InputGroupAddon>
+            <InputGroupInput
+              class="w-full bg-transparent outline-none text-white placeholder:text-sm"
+              v-model="form.password"
+              name="password"
+              :autocomplete="isLogin ? 'current-password' : 'new-password'"
+              :type="showPassword ? 'text' : 'password'"
+              :placeholder="t('enter_password')"
+            />
+            <InputGroupAddon align="inline-end">
+              <button type="button" @click="showPassword = !showPassword">
+                <EyeClosed v-if="showPassword" />
+                <Eye v-else />
+              </button>
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
 
-        <InputGroup class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-yellow-400 ring-0 glass-bg">
-          <InputGroupAddon>
-            <LockIcon />
-          </InputGroupAddon>
-          <InputGroupInput 
-            class="w-full" 
-            v-model="form.password"
-            name="password"
-            :autocomplete="isLogin ? 'current-password' : 'new-password'"
-            :type="showPassword ? 'text' : 'password'"
-            :placeholder="t('password')" />
-          <InputGroupAddon align="inline-end">
-            <button type="button" @click="showPassword = !showPassword">
-              <EyeOff v-if="showPassword" />
-              <EyeIcon v-else />
-            </button>
-          </InputGroupAddon>
-        </InputGroup>
+        <div class="space-y-1 form-item" v-show="!isLogin">
+          <Label class="text-xs text-gray-400 pl-1">
+            {{ t("confirm_password") }}
+          </Label>
+          <InputGroup
+            class="h-12 w-full rounded-lg font-medium glass-bg transition focus-within:border-yellow-400 focus-within:ring-2 focus-within:ring-yellow-400/30"
+          >
+            <InputGroupAddon>
+              <LockIcon />
+            </InputGroupAddon>
+            <InputGroupInput
+              class="w-full bg-transparent outline-none text-white placeholder:text-sm"
+              v-model="form.conPassword"
+              :type="showPassword ? 'text' : 'password'"
+              name="confirm-password"
+              autocomplete="new-password"
+              :placeholder="t('confirm_password')"
+            />
+            <InputGroupAddon align="inline-end">
+              <button type="button" @click="showPassword = !showPassword">
+                <EyeClosed v-if="showPassword" />
+                <Eye v-else />
+              </button>
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
+        <div class="space-y-1 form-item" v-show="!isLogin">
+          <Label class="text-xs text-gray-400 pl-1">
+            {{ t("referral_placeholder") }}
+          </Label>
 
-        <InputGroup v-show="!isLogin"
-          class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-yellow-400 ring-0 glass-bg">
-          <InputGroupAddon>
-            <LockIcon />
-          </InputGroupAddon>
-          <InputGroupInput 
-            class="w-full"
-            v-model="form.conPassword" 
-            :type="showPassword ? 'text' : 'password'"
-            name="confirm-password"
-            autocomplete="new-password"
-            :placeholder="t('confirm_password')" />
-          <InputGroupAddon align="inline-end">
-            <InputGroupText class="text-gray-100"></InputGroupText>
-          </InputGroupAddon>
-        </InputGroup>
+          <InputGroup
+            class="h-12 w-full rounded-lg font-medium glass-bg transition focus-within:border-yellow-400 focus-within:ring-2 focus-within:ring-yellow-400/30"
+          >
+            <InputGroupAddon>
+              <Share2Icon />
+            </InputGroupAddon>
+            <InputGroupInput
+              class="w-full bg-transparent outline-none text-white placeholder:text-sm"
+              :disabled="fromRid"
+              v-model="referralCode"
+              :placeholder="t('enter_referral_code_optional')"
+            />
+          </InputGroup>
+        </div>
 
-        <InputGroup v-show="!isLogin"
-          class="h-12 rounded-lg w-full font-medium border border-gray-700 ring-sky-400 ring-0 glass-bg">
-          <InputGroupAddon>
-            <Share2Icon />
-          </InputGroupAddon>
-          <InputGroupInput 
-            class="w-full" 
-            :disabled="fromRid" 
-            v-model="referralCode"  
-            
-            :placeholder="t('referral_placeholder')" />
-          <InputGroupAddon align="inline-end">
-            <InputGroupText class="text-gray-100"></InputGroupText>
-          </InputGroupAddon>
-        </InputGroup>
-        <div class=" mt-8">
-          <div class="h-8">
+        <div class="mt-8">
+          <!-- <div class="h-8">
             <p v-if="errorMessage" class="text-red-500 text-sm px-1">
               {{ t(errorMessage) }}
             </p>
+          </div> -->
+          <div class="flex items-center text-xs gap-2 mb-2 px-1">
+            <Checkbox
+             
+              id="terms"
+              :model-value="checked"
+              v-on:update:model-value="checked = !checked"
+            />
+            <Label for="terms" class="text-gray-400 underline text-xs">{{
+              t("accept_terms")
+            }}</Label>
           </div>
-          <div class="flex items-center text-xs text-gray-400 gap-2 mb-2 px-1">
-            <Checkbox class="text-sm" id="terms" :model-value="checked" v-on:update:model-value="checked = !checked" />
-            <Label for="terms" class="text-gray-400 underline">{{ t("accept_terms") }}</Label>
-
-          </div>
-          <Button :disabled="loadingButton" class="w-full h-12 rounded-lg flex items-center justify-center gap-2
-         gold-bg active-button disabled:opacity-50 disabled:cursor-not-allowed">
+          <Button
+            :disabled="loadingButton"
+            class="w-full h-12 rounded-lg flex items-center justify-center gap-2 gold-bg active-button disabled:opacity-50 disabled:cursor-not-allowed"
+          >
             <Spinner v-if="loadingButton" />
             <span class="text-glow">
               {{ isLogin ? t("login") : t("register") }}
@@ -355,35 +397,30 @@ const submit = async () => {
           </Button>
         </div>
       </form>
-     <div class="w-full px-4 pt-2 border-t border-gray-600">
-  <div class="flex items-center justify-between gap-2">
-    
-    <LanguageBtn />
+      <div class="w-full px-4 border-t border-gray-600">
+        <div class="flex items-center justify-between gap-2">
+          <LanguageBtn />
 
-    <div class="text-center text-sm text-gray-400 flex-1">
-      {{ isLogin ? t("do_not_have") : t("already_have_one") }}
+          <div class="text-center text-sm text-gray-400 flex-1">
+            {{ isLogin ? t("do_not_have") : t("already_have_one") }}
 
-      <button
-        class="ml-1 text-yellow-400 text-shadow-2xs font-bold cursor-pointer underline"
-        @click="isLogin = !isLogin"
-      >
-        {{ isLogin ? t("register") : t("login") }}
-      </button>
-    </div>
+            <button
+              class="ml-1 text-yellow-400 text-shadow-2xs font-bold cursor-pointer underline"
+              @click="isLogin = !isLogin"
+            >
+              {{ isLogin ? t("register") : t("login") }}
+            </button>
+          </div>
 
-    <!-- spacer for center alignment -->
-    <div class="w-10"></div>
-
-  </div>
-</div>
-
-
+          <!-- spacer for center alignment -->
+          <div class="w-10"></div>
+        </div>
+      </div>
     </DialogContent>
   </Dialog>
 </template>
 <style>
 @keyframes shake {
-
   0%,
   100% {
     transform: translateX(0);

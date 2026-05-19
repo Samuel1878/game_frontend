@@ -370,7 +370,12 @@
   "store":"Store",
   "scan_qr_code":"Scan QR code",
   "or":"OR",
-  "reseller_not_found":"Reseller Not found"
+  "reseller_not_found":"Reseller Not found",
+
+  "enter_name_phone":"Enter name or phone number",
+  "enter_password":"Enter Password",
+  "enter_name":"Enter name",
+  "enter_referral_code_optional":"Enter referral code (optional)"
 
 
 

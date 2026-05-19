@@ -8,7 +8,7 @@ import { watch } from "vue";
 const props = defineProps<{
   gameData: gameType[]
 }>();
-console.log("gameView Mounting")
+// console.log("gameView Mounting")
 const gameStore = useGameStore()
 const onClickGame = (game: gameType) => {
   gameStore.prepareGame(game);

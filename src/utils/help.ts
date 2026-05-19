@@ -20,7 +20,7 @@ type Summary = {
 };
 
 export const getSummary = (data: ReportItem[] | null | undefined): Summary => {
-    console.log("getSummary", data)
+    // console.log("getSummary", data)
     if (!data) {
         return {
             betCount: { bonus: 0, draw: 0, lose: 0, won: 0 },

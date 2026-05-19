@@ -1,41 +1,38 @@
-import { onMounted, onUnmounted } from "vue";
 
-export function useReturnRefresh(callback?: () => void) {
-  const handleReturn = () => {
-    console.log("User returned to app");
+// import { onMounted, onUnmounted } from "vue";
 
-    if (callback) {
-      callback(); // re-fetch data instead of full reload
-    } else {
-      window.location.reload(); // fallback
-    }
-  };
+// export function useReturnRefresh(callback?: () => void, cooldown = 5000) {
+//   let lastCall = 0;
 
-  const onPageShow = (event: PageTransitionEvent) => {
-    if (event.persisted) {
-      handleReturn();
-    }
-  };
+//   const safeCall = () => {
+//     const now = Date.now();
+//     if (now - lastCall < cooldown) return;
 
-  const onVisibilityChange = () => {
-    if (document.visibilityState === "visible") {
-      handleReturn();
-    }
-  };
+//     lastCall = now;
 
-  const onFocus = () => {
-    handleReturn();
-  };
+//     if (callback) callback();
+//     else window.location.reload();
+//   };
 
-  onMounted(() => {
-    window.addEventListener("pageshow", onPageShow);
-    document.addEventListener("visibilitychange", onVisibilityChange);
-    window.addEventListener("focus", onFocus);
-  });
+//   const onVisibilityChange = () => {
+//     if (document.visibilityState === "visible") {
+//       safeCall();
+//     }
+//   };
 
-  onUnmounted(() => {
-    window.removeEventListener("pageshow", onPageShow);
-    document.removeEventListener("visibilitychange", onVisibilityChange);
-    window.removeEventListener("focus", onFocus);
-  });
-}
+//   const onPageShow = (event: PageTransitionEvent) => {
+//     if (event.persisted) {
+//       safeCall();
+//     }
+//   };
+
+//   onMounted(() => {
+//     document.addEventListener("visibilitychange", onVisibilityChange);
+//     window.addEventListener("pageshow", onPageShow);
+//   });
+
+//   onUnmounted(() => {
+//     document.removeEventListener("visibilitychange", onVisibilityChange);
+//     window.removeEventListener("pageshow", onPageShow);
+//   });
+// }

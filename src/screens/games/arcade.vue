@@ -3,22 +3,18 @@ import Footer from '@/components/footer.vue';
 import GameViews from '@/components/gameViews.vue';
 import GameOptions from '@/components/layout/gameOptions.vue';
 import { getGamesByProviderAPI } from '@/services/gameAPI';
-import { useAuthStore } from '@/stores/auth';
 import {   chess } from '@/utils';
 import type { gameType } from '@/utils/types';
-import { useReturnRefresh } from '@/utils/useReturn';
 import { onMounted, ref } from 'vue';
 
 import { useI18n } from 'vue-i18n';
 const { t ,locale} = useI18n();
 const loading = ref(false);
 const games = ref<gameType[] | null>(null);
-// const providerId = ref<number>(0);
 const limit = 18;
 const offset = ref(0);
 const hasMore = ref(true);
 const isLoadingMore = ref(false);
-const authStore = useAuthStore();
 const fetchGames = async (reset = false) => {
 
     if (reset) {
@@ -36,7 +32,6 @@ const fetchGames = async (reset = false) => {
             limit: limit,
             offset: offset.value,
             lang: lang,
-            //   search: debouncedSearch.value, // 🔥 add this backend support
         });
 
         const data = res.data;
@@ -66,9 +61,6 @@ const loadMore = async () => {
     offset.value += limit;
     await fetchGames(false);
 };
-useReturnRefresh(async() => {
-    await authStore.init();
-})
 </script>
 <template>
     <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">

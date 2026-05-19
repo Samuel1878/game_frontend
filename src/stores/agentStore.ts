@@ -17,7 +17,7 @@ export const useAgentStore = defineStore('agent', () => {
     loading.value = true
   try {
         const res = await getAgentDataByIdAPI( authStore.user.agent_id);
-        console.log("Agent Data", res)
+        // console.log("Agent Data", res)
         if (res) {
             agentData.value = res
         }

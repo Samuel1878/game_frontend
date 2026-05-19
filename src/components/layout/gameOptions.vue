@@ -5,7 +5,7 @@ import { useI18n } from 'vue-i18n';
 const {t} = useI18n();
 const props = defineProps<{current_page:string}>();
 const gotoPath = (path:string) => {
-    console.log(path)
+    // console.log(path)
     router.push(path)
 }
 </script>

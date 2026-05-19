@@ -21,16 +21,16 @@ import {
 
 import HomeSlider from "@/components/homeSlider.vue";
 import { useGameStore } from "@/stores/game";
-import { useReturnRefresh } from "@/utils/useReturn";
+// import { useReturnRefresh } from "@/utils/useReturn";
 import ScrollGameViewTwo from "@/components/scrollGameViewTwo.vue";
 const authStore = useAuthStore();
 const loading = ref(false);
 const { t } = useI18n();
 
 const {prepareGame} = useGameStore()
-useReturnRefresh(async() => {
-    await authStore.init();
-})
+// useReturnRefresh(async() => {
+//     await authStore.fetchUser();
+// })
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex flex-col min-h-screen">

@@ -6,10 +6,10 @@ import InputGroup from "@/components/ui/input-group/InputGroup.vue";
 import InputGroupAddon from "@/components/ui/input-group/InputGroupAddon.vue";
 import InputGroupInput from "@/components/ui/input-group/InputGroupInput.vue";
 import { getGamesByProviderAPI } from "@/services/gameAPI";
-import { useAuthStore } from "@/stores/auth";
+// import { useAuthStore } from "@/stores/auth";
 import { casino, hot, hot_rtp_icon, top_icon } from "@/utils";
 import type { gameType } from "@/utils/types";
-import { useReturnRefresh } from "@/utils/useReturn";
+// import { useReturnRefresh } from "@/utils/useReturn";
 import { refDebounced } from "@vueuse/core";
 import { SearchIcon } from "lucide-vue-next";
 import { onMounted, ref, watch } from "vue";
@@ -26,10 +26,10 @@ const hasMore = ref(true);
 const isLoadingMore = ref(false);
 const searchQuery = ref("");
 const debouncedSearch = refDebounced(searchQuery, 300);
-const authStore = useAuthStore();
+// const authStore = useAuthStore();
 const btnClass = (active: boolean) => (active ? "animate-pulse-scale" : "");
 const fetchGames = async (reset = false) => {
-  console.log("fetching game");
+  // console.log("fetching game");
 
   if (reset) {
     offset.value = 0;
@@ -80,9 +80,9 @@ watch(debouncedSearch, () => {
   fetchGames(true); // reset on search
 });
 onMounted(() => fetchGames(true));
-useReturnRefresh(async () => {
-  await authStore.init();
-});
+// useReturnRefresh(async () => {
+//   await authStore.init();
+// });
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">

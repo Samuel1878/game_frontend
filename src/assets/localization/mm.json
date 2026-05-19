@@ -360,7 +360,11 @@
   "store": "ဆိုင်",
   "scan_qr_code": "QR Code စကင်ဖတ်ပါ",
   "or": "သို့မဟုတ်",
-  "reseller_not_found": "Reseller မတွေ့ပါ"
+  "reseller_not_found": "Reseller မတွေ့ပါ",
+      "enter_name_phone": "အသုံးပြုသူအမည် သို့မဟုတ် ဖုန်းနံပါတ် ထည့်ပါ",
+    "enter_password": "စကားဝှက် ထည့်ပါ",
+    "enter_name": "အမည် ထည့်ပါ",
+    "enter_referral_code_optional": "ညွှန်းကုဒ် ထည့်ပါ (မဖြစ်မနေ မဟုတ်ပါ)"
 
 
 }

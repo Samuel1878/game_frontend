@@ -44,7 +44,7 @@ const isApp = () => {
   let controller: AbortController | null = null;
   const checkUpdate = async () => {
     if (!isApp()) {
-      console.log("[UPDATE] Running on Web - skipping app version check.");
+      // console.log("[UPDATE] Running on Web - skipping app version check.");
       return;
     }
     try {
@@ -58,19 +58,19 @@ const isApp = () => {
         cache: "no-store",
         signal: controller.signal,
       });
-          console.log("RES", res);
+          // console.log("RES", res);
 
       const text = await res.text();
         const data = JSON.parse(text);
-      console.log("RAW RESPONSE:", text);
+      // console.log("RAW RESPONSE:", text);
 
   
       if (!res.ok) {
         throw new Error(`HTTP ${res.status}`);
       }
   
-      console.log("[UPDATE] current:", versionNo);
-      console.log("[UPDATE] latest:", data.version);
+      // console.log("[UPDATE] current:", versionNo);
+      // console.log("[UPDATE] latest:", data.version);
       updateData.value = data;
       if (
         data.force_update &&

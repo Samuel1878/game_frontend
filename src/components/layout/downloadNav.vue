@@ -87,7 +87,7 @@ const downloadApp = () => {
       <div class="flex items-center gap-3 px-3 h-12">
         <!-- App Icon -->
         <img
-          src="/favicon.png"
+          src="/favicon.webp"
           alt="App"
           class="w-10 h-10 shadow-md"
         />

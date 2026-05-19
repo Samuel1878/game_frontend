@@ -12,7 +12,7 @@ const supabaseURL = "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/
 const androidUrl = `${supabaseURL}/tz99.apk`;
 
 const iosUrl = `https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/app/tz99.mobileconfig`;
-const { t, locale } = useI18n();
+const { t } = useI18n();
 
 const downloadIOS = () => {
 
@@ -47,7 +47,7 @@ const downloadAndroid = () => {
       class="w-full max-w-6xl bg-gray-900/60 border border-white/10 rounded-2xl my-4 p-6 md:p-10 space-y-2"
     >
       <div class="flex gap-2 items-center">
-        <img src="/favicon.png" class="w-12 h-12" alt="App Logo" />
+        <img src="/favicon.webp" class="w-12 h-12" alt="App Logo" />
         <div class="flex-1 min-w-0">
           <div class="flex items-center gap-2">
             <h3 class="text-white font-bold text-lg text-linear-gold truncate">
@@ -56,7 +56,7 @@ const downloadAndroid = () => {
             <div
               class="bg-white/20 px-1.5 py-0.5 rounded text-xs text-gray-300"
             >
-              4.9 {{ t("rating") }}
+              5.0 {{ t("rating") }}
             </div>
           </div>
           <div class="flex items-center gap-1 text-white/90 text-sm">
@@ -115,7 +115,7 @@ const downloadAndroid = () => {
                 <div
                   class="absolute left-1/2 top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black shadow-lg"
                 >
-                  <img src="/favicon.png" class="h-4 w-4" alt="logo" />
+                  <img src="/favicon.webp" class="h-4 w-4" alt="logo" />
                 </div>
               </div>
             </div>
@@ -153,7 +153,7 @@ const downloadAndroid = () => {
                 <div
                   class="absolute left-1/2 top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black shadow-lg"
                 >
-                  <img src="/favicon.png" class="h-4 w-4" alt="logo" />
+                  <img src="/favicon.webp" class="h-4 w-4" alt="logo" />
                 </div>
               </div>
             </div>
@@ -171,7 +171,7 @@ const downloadAndroid = () => {
         </div>
       </div>
       <div class="w-full flex flex-col items-center">
-        <img :src="locale==='cn'?'/images/phone_cn.png':'/images/phone.png'" class="w-2/3"/>
+        <img src="/images/phone.webp" class="w-3/4"/>
       </div>
     </section>
   </main>

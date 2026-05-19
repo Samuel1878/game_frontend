@@ -9,10 +9,10 @@ import InputGroupAddon from "@/components/ui/input-group/InputGroupAddon.vue";
 import InputGroupInput from "@/components/ui/input-group/InputGroupInput.vue";
 import { slotGameProviders } from "@/consts";
 import { getGamesByProviderAPI } from "@/services/gameAPI";
-import { useAuthStore } from "@/stores/auth";
+// import { useAuthStore } from "@/stores/auth";
 import { hot, hot_rtp_icon, slot, top_icon } from "@/utils";
 import type { gameType } from "@/utils/types";
-import { useReturnRefresh } from "@/utils/useReturn";
+// import { useReturnRefresh } from "@/utils/useReturn";
 import { refDebounced } from "@vueuse/core";
 import {
   ChevronLeft,
@@ -37,7 +37,7 @@ const isLoadingMore = ref(false);
 const sortBy = ref("rank");
 const topOnly = ref(false);
 const debouncedSearch = refDebounced(searchQuery, 300);
-const authStore = useAuthStore();
+// const authStore = useAuthStore();
 const setProvider = (name: string | any, GpId: number | any) => {
   selectedProvider.value.name = name;
   selectedProvider.value.GpId = GpId;
@@ -76,7 +76,7 @@ const fetchGames = async (reset = false) => {
     });
 
     const data = res.data;
-    console.log(data);
+    // console.log(data);
     if (reset) {
       games.value = data;
     } else {
@@ -112,9 +112,9 @@ watch(
   },
 );
 const btnClass = (active: boolean) => (active ? "animate-pulse-scale" : "");
-useReturnRefresh(async () => {
-  await authStore.fetchUser();
-});
+// useReturnRefresh(async () => {
+//   await authStore.fetchUser();
+// });
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">

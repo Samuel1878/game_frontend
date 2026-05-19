@@ -2,33 +2,28 @@
 import en from "@/assets/localization/en.json";
 import mm from "@/assets/localization/mm.json";
 import cn from "@/assets/localization/cn.json";
-import menu from "@/assets/icon/menu.svg";
+import menu from "@/assets/icon/menu.webp";
 import hot from "@/assets/icon/hot.svg";
 import hot_icon from "@/assets/icon/hot_icon.svg";
-import hot_rtp_icon from "@/assets/icon/hot_rtp_icon.svg";
-import top_icon from "@/assets/icon/top_icon.svg";
+import hot_rtp_icon from "@/assets/icon/hot_rtp_icon.webp";
+import top_icon from "@/assets/icon/top_icon.webp";
 import type { Game } from "./types";
-import cn_flag from "@/assets/flags/cn.png";
-import en_flag from "@/assets/flags/eng.png";
-import mm_flag from "@/assets/flags/mm.png";
-import bank_ico from "@/assets/icon/ico-bank.svg";
-import clipboard_ico from "@/assets/icon/ico-clipboard.svg";
-import receipt_icon from "@/assets/icon/ico-receipt.svg";
-import wallet_icon from "@/assets/icon/ico-wallet.svg";
-import in_icon from "@/assets/icon/icon-in.svg"
-import home from "@/assets/icon/home.png";
-import buffalo from "@/assets/icon/buffalo.png";
-import slot from "@/assets/icon/slot.png";
-import fish from "@/assets/icon/fish.png";
-import casino from "@/assets/icon/livecasino.png";
-import chess from "@/assets/icon/chess.png";
-import accountCenter from "@/assets/icon/account-center.png"
-import depositHistoryIcon from "@/assets/icon/deposit-yellow.png";
-import withdrawHistoryIcon from "@/assets/icon/withdraw-yellow.png";
+import cn_flag from "@/assets/flags/cn.webp";
+import en_flag from "@/assets/flags/eng.webp";
+import mm_flag from "@/assets/flags/mm.webp";
+import home from "@/assets/icon/home.webp";
+import buffalo from "@/assets/icon/buffalo.webp";
+import slot from "@/assets/icon/slot.webp";
+import fish from "@/assets/icon/fish.webp";
+import casino from "@/assets/icon/livecasino.webp";
+import chess from "@/assets/icon/chess.webp";
+import accountCenter from "@/assets/icon/account-center.webp"
+import depositHistoryIcon from "@/assets/icon/deposit-yellow.webp";
+import withdrawHistoryIcon from "@/assets/icon/withdraw-yellow.webp";
 import helpCenter  from "@/assets/icon/help-center.svg"
-import transaction from "@/assets/icon/money-statement.png";
-import share from "@/assets/icon/invite-code.png";
-import services from "@/assets/icon/24-7.png";
+import transaction from "@/assets/icon/money-statement.webp";
+import share from "@/assets/icon/invite-code.webp";
+import services from "@/assets/icon/24-7.webp";
 import moment from "moment-timezone"
 export {
   helpCenter,
@@ -47,11 +42,6 @@ export {
   cn_flag,
   en_flag,
   mm_flag, 
-  bank_ico,
-  clipboard_ico,
-  receipt_icon,
-  wallet_icon,
-  in_icon
 }
 export {
   hot_icon,
@@ -124,9 +114,9 @@ export const formatRandomRange = (value: number) => {
 
 export const baseURL =  "https://tz99x.com";
 export const versionNo = "1.0.5"
-export const BASE_API_URL = "https://api.96betx.com"; ////PROD
+// export const BASE_API_URL = "https://api.96betx.com"; ////PROD
 // export const BASE_API_URL = "http://localhost:3000"; ////DEV
-// export const BASE_API_URL = "https://uat-api.tz99x.com" ////UAT
+export const BASE_API_URL = "https://uat-api.tz99x.com" ////UAT
 export const SUPABASE_URL = ""
 export const hideTawk = () => {
   if (

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Home, User, GiftIcon, Wallet, BanknoteArrowUp } from "lucide-vue-next";
+import { Home, User, GiftIcon, Wallet, BanknoteArrowDown } from "lucide-vue-next";
 import { useRoute, useRouter } from "vue-router";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
@@ -13,7 +13,7 @@ const navItems = [
   { name: "promotion", icon: GiftIcon, path: "/promotions" },
   { name: "deposit", icon: Wallet, path: "/deposit" },
   { name: "home", icon: Home, path: "/" , center:true},
-  { name: "withdraw", icon: BanknoteArrowUp, path: "/withdraw" },
+  { name: "withdraw", icon: BanknoteArrowDown, path: "/withdraw" },
   { name: "profile", icon: User, path: "/user/profile" },
 ];
 const go = (path: string) => {

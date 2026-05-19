@@ -3,16 +3,13 @@ import Footer from "@/components/footer.vue";
 import GameOptions from "@/components/layout/gameOptions.vue";
 import { topBuffaloGames } from "@/consts/games";
 import { useGameStat } from "@/lib/gameStat";
-import { useAuthStore } from "@/stores/auth";
 import { useGameStore } from "@/stores/game";
 import { buffalo, slot } from "@/utils";
-import { useReturnRefresh } from "@/utils/useReturn";
 import { Diamond , Users} from "lucide-vue-next";
 import { nextTick, onMounted } from "vue";
 
 import { useI18n } from "vue-i18n";
 const { t, locale } = useI18n();
-const authStore = useAuthStore();
 const { prepareGame } = useGameStore();
 
 const { stats: gameStats, startLive } = useGameStat();
@@ -20,9 +17,6 @@ const { stats: gameStats, startLive } = useGameStat();
 onMounted(async () => {
   await nextTick();
   startLive(topBuffaloGames || []);
-});
-useReturnRefresh(async () => {
-  await authStore.init();
 });
 </script>
 <template>

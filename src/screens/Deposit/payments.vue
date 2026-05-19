@@ -13,6 +13,7 @@ import { useClipboard } from "@vueuse/core";
 import {
   ChartNoAxesColumnDecreasing,
   CopyIcon,
+  FileClock,
   Headset,
   RefreshCcw,
 } from "lucide-vue-next";
@@ -25,7 +26,7 @@ import {
 import router from "@/router";
 import { useI18n } from "vue-i18n";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
-import { openChat, receipt_icon } from "@/utils";
+import { openChat } from "@/utils";
 import HelpBox from "@/components/layout/helpBox.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
 const { t } = useI18n();
@@ -150,7 +151,7 @@ const submitHandler = async () => {
       user_id: auth.user?.id || null,
       uuid: auth.user?.uid || null,
     };
-    console.log("payload", data);
+    // console.log("payload", data);
     const response = await depositHandlerAPI(data, param);
 
     if (response) {
@@ -177,7 +178,7 @@ const copyHandler = (value:any) => {
   <CustomNavBar title="transfer" backTo="/deposit">
     <template #right>
       <button>
-        <img class="w-7 h-7" :src="receipt_icon" />
+        <FileClock class="w-7 h-7"  />
       </button>
       <button @click="openChat">
         <Headset class="w-6 h-6 text-yellow-400" />

@@ -16,19 +16,19 @@ const open = ref(false);
 const image = [
     {
         id: 1,
-        url: "/images/vip_bonus.jpg"
+        url: "/images/vip_bonus.webp"
     },
     {
         id: 2,
-        url: "/images/welcome_bonus.jpg"
+        url: "/images/welcome_bonus.webp"
     },
     {
         id:3,
-        url:"/images/deposit_bonus.jpg"
+        url:"/images/deposit_bonus.webp"
     },
     {
         id:4,
-        url:"/images/lost_cashback.jpg"
+        url:"/images/lost_cashback.webp"
     }
 ]
 const openDialog = (id: number) => {

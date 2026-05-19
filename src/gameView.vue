@@ -45,7 +45,7 @@ const goHome = () => {
         </div>
 
         <div @click="goHome">
-          <img src="/logo.png" class="h-8" />
+          <img src="/logo.webp" class="h-8" />
         </div>
       </div>
     </div>

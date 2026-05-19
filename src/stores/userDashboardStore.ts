@@ -36,7 +36,7 @@ export const useUserDashboardStore = defineStore("userDashboardStore", () => {
         endDate:endDate.value? toISOStringSafe(endDate.value) : undefined,
         portfolio: portfolio.value,
       });
-      console.log("ERERE", res?.betReport);
+      // console.log("ERERE", res?.betReport);
       if (res) {
         betReport.value = getSummary(res?.betReport);
         transactionReport.value = res?.transactionReport;

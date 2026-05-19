@@ -22,7 +22,7 @@ const startDate = ref();
 const { t } = useI18n();
 const endDate = ref();
 const fetchTransaction = async () => {
-  console.log("fetching local db transactions");
+  // console.log("fetching local db transactions");
   loading.value = true;
 
   const res = await getAllTransactionsByUserId({
@@ -33,7 +33,7 @@ const fetchTransaction = async () => {
     endDate: endDate.value,
     user_id: authStore.user?.id,
   });
-  console.log("res", res.data);
+  // console.log("res", res.data);
   transactions_local.value = res?.data;
   totalPages.value = res.totalPages;
   loading.value = false;

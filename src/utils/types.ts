@@ -67,20 +67,6 @@ export interface userInfoResponse {
   token:string;
   url:string | null;
 }   
-// export interface supabaseUserRes {
-//   name?:string;
-//   phone?:string | null;
-//   email?:string | null;
-//   password?:string;
-//   status:boolean;
-//   id:number;
-//   token?:string| null;
-//   balance?:number;
-//   role?:string | null;
-//   level?:number ;
-//   created_at:string;
-//   uid:string
-// }
 export interface depositFormData {    
   id?:number;
   inv_id?:string;

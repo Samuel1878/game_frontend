@@ -31,26 +31,26 @@ const supportLinks = [
 ];
 
 const payments = [
-  { name: "KBZ pay", src: "/payments/kbzpay.svg" },
-  { name: "Wave Money", src: "/payments/wavepay.jpeg" },
-  { name: "AYA pay", src: "/payments/ayabanking.png" },
-  { name: "KBZ Banking", src: "/payments/kbzbanking-new.png" },
-  { name: "USDT", src: "/payments/USDT.png" }
+  { name: "KBZ pay", src: "/payments/kbzpay.webp" },
+  { name: "Wave Money", src: "/payments/wavepay.webp" },
+  { name: "AYA pay", src: "/payments/ayabanking.webp" },
+  { name: "KBZ Banking", src: "/payments/kbzbanking-new.webp" },
+  { name: "USDT", src: "/payments/USDT.webp" }
 ];
 
 const socials = [
   { icon: "/socials/facebook_black.svg", action: goFacebook },
   { icon: "/socials/telegram_black.svg", action: openTelegram },
-  { icon: "/socials/viber_black.svg", action: openViber },
-  { icon: "/socials/discord_black.svg", action: openDiscord }
+  { icon: "/socials/viber_black.webp", action: openViber },
+  { icon: "/socials/discord_black.webp", action: openDiscord }
 ];
 
 const certification = [
-  "/partners/gamcare.svg",
+  "/partners/gamcare.webp",
   "/partners/ga.svg",
-  "/partners/trust.svg",
-  "/partners/gambling_therapy.svg",
-  "/partners/askgamblers.svg",
+  "/partners/trust.webp",
+  "/partners/gambling_therapy.webp",
+  "/partners/askgamblers.webp",
 ];
 </script>
 
@@ -60,7 +60,7 @@ const certification = [
       
       <!-- Brand Section -->
       <div class="flex flex-col items-center mb-10">
-        <img src="/logo.png" class="h-24 md:h-30 mb-4 object-contain" alt="Logo"/>
+        <img src="/logo.webp" class="h-24 md:h-30 mb-4 object-contain" alt="Logo"/>
         <p class="text-gray-400 font-medium leading-relaxed text-xs text-center max-w-2xl">
           {{ t('marketing') }}
         </p>
@@ -117,8 +117,8 @@ const certification = [
       <!-- Socials & Security Bar -->
       <div class="border-y border-gray-800 w-full flex  md:flex-row justify-between items-center py-6 gap-6">
         <div class="flex gap-6 items-center opacity-70">
-          <img src="/partners/18plus.svg" class="h-8"/>
-          <img src="/partners/ssl_icon.svg" class="h-8"/>
+          <img src="/partners/18plus.webp" class="h-8"/>
+          <img src="/partners/ssl_icon.webp" class="h-8"/>
         </div>
         <div class="flex gap-4">
           <div 
@@ -139,7 +139,7 @@ const certification = [
           </div>
         </div>
         <div class="cursor-pointer hover:opacity-80 transition" @click="router.push('/download')">
-          <img src="/partners/download_white.svg" class="h-10"/>
+          <img src="/partners/download_white.webp" class="h-10"/>
         </div>
       </div>
     </div>

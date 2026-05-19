@@ -138,14 +138,14 @@ const uiStore = useUIStore();
           class="cursor-pointer h-12 w-full flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
         >
           <div class="h-6 w-6 flex justify-center items-center">
-            <img :src="value.image" class="w-8 h-8" />
+            <component :is="value.image" class="w-8 h-8 text-white" />
           </div>
           <p class="text-gray-300 text-sm">{{ t(value.label) }}</p>
         </div>
       </section>
       <section class="w-full">
         <div class="flex w-full items-center justify-between gap-2">
-          <p class="p-2 rounded-full text-nowrap bg-yellow-400/40 text-xs text-glow">
+          <p class="p-2 rounded-full text-nowrap border border-yellow-500 text-xs text-yellow-400">
             {{ t("membership_center") }}
           </p>
           <div class="h-0.5 w-full bg-amber-500/30" />

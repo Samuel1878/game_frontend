@@ -196,30 +196,18 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach(async (to) => {
+router.beforeEach(async (to,from) => {
   const auth = useAuthStore();
   const ui = useUIStore()
-
-  // if (!auth.initialized) {
-  //   await auth.init(); // IMPORTANT
-  // }
-
   if (to.meta.requiresAuth && !auth.accessToken) {
     ui.openAuthModal(to.fullPath);
     return { path: "/" };
   }
-  // if (to.meta.isProtected && auth.user?.agent_id===0) {
-  //   return { path: "/" };
-  // }
+  if (from.name === "game") {
+    auth.fetchUser();
+  }
 
   return true;
 });
-// router.beforeEach((to, from) => {
-//   console.log("➡️ navigating:", from.fullPath, "→", to.fullPath);
-//   return true;
-// });
 
-// router.afterEach((to) => {
-//   console.log("✅ arrived at:", to.fullPath);
-// });
 export default router;

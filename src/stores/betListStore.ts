@@ -60,7 +60,7 @@ export const useBetlistStore = defineStore(
             endDate:
              endDate.value ? toISOStringSafe(endDate.value) : undefined,
           });
-          console.log(response)
+          // console.log(response)
             rawBetRecords.value = response?.result;
 
       } catch (error) {
