@@ -1,23 +1,19 @@
-<script setup lang="ts">
-import { Spinner } from './ui/spinner'
+<!-- <script setup lang="ts">
+import { useLoaderStore } from "@/stores/loaderStore";
+import { storeToRefs } from "pinia";
 
-const props = defineProps<{
-  show: boolean
-  message?: string
-}>()
+const ui = useLoaderStore();
+// const { loading } = storeToRefs(ui);
 </script>
 
 <template>
   <div
-    v-show="props.show"
-    class="z-50 fixed inset-0 bg-slate-700/50 backdrop-blur-md flex justify-center items-center"
+    v-if="loading"
+    class="fixed inset-0 z-9999 flex items-center justify-center bg-black/10 backdrop-blur-sm"
   >
-    <div class="flex flex-col items-center gap-3">
-      <Spinner class="text-sky-400 w-12 h-12 animate-spin" />
-      <p class="text-sky-500 text-lg font-mono">
-        {{ props.message || 'Loading . . .' }}
-      </p>
-      <slot />
+    <div class="p-6 rounded-lg bg-gray-800">
+      <div class="h-10 w-10 animate-spin rounded-full border-2 border-white/30 border-t-yellow-500" />
     </div>
+  
   </div>
-</template>
+</template> -->

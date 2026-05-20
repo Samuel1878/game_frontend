@@ -2,7 +2,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useAuthStore } from "./stores/auth";
 import { useUIStore } from "./stores/ui";
-// import HomeView from "@/screens/Home.vue";
+import { useLoaderStore } from "./stores/loaderStore";
+
 const HomeView = ()=> import("@/screens/Home.vue")
 const Payments = () => import("./screens/Deposit/payments.vue");
 const Profile = () => import("./screens/User/Profile.vue");
@@ -193,26 +194,33 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+    scrollBehavior() {
+    return { top: 0 };
+  },
  
 });
-router.afterEach(() => {
-  requestAnimationFrame(() => {
-    window.scrollTo(0, 0);
-  });
-});
+
 
 router.beforeEach(async (to) => {
   const auth = useAuthStore();
+    const loader = useLoaderStore();
   const ui = useUIStore()
   if (to.meta.requiresAuth && !auth.accessToken) {
     ui.openAuthModal(to.fullPath);
     return { path: "/" };
   }
-  // if (from.name === "game") {
-  //   auth.fetchUser();
-  // }
-
+   loader.start();
   return true;
 });
+router.afterEach(() => {
+  // requestAnimationFrame(() => {
+  //   window.scrollTo(0, 0);
+  //   useLoaderStore().endTransition();
+  // });
+   const loader = useLoaderStore();
 
+  requestAnimationFrame(() => {
+    loader.finish();
+  });
+});
 export default router;

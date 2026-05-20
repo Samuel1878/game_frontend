@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"))
-const GameOptions = defineAsyncComponent(()=>import('@/components/layout/gameOptions.vue'))
+import GameOptions from "@/components/layout/gameOptions.vue";
 const GameViews = defineAsyncComponent(()=>import('@/components/gameViews.vue'))
 import {Card,CardContent } from "@/components/ui/card";
 import {InputGroup,InputGroupAddon,InputGroupInput} from "@/components/ui/input-group";

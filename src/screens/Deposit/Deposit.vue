@@ -14,6 +14,7 @@ import { useI18n } from "vue-i18n";
 import HelpBox from "@/components/layout/helpBox.vue";
 import { useAuthStore } from "@/stores/auth";
 import { useUIStore } from "@/stores/ui";
+import { Button } from "@/components/ui/button";
 const ui = useUIStore()
 const amount = ref<number>();
 const { t } = useI18n();
@@ -124,11 +125,11 @@ const goToPayment = () => {
               {{ formatPrice(a) }}
             </button>
           </div>
-          <button :disabled="!amount || !chosePayment" @click="goToPayment" 
+          <Button :disabled="!amount || !chosePayment" @click="goToPayment" 
           :class="!amount || !chosePayment ? 'gold-bg' : ' gold-bg '"
       class="w-full disabled:opacity-50 font-bold text-glow active-button rounded-lg h-12 flex items-center justify-center">
         {{ t('next') }}
-      </button>
+      </Button>
       </div>
   <HelpBox container-style=""/>
       

@@ -170,7 +170,7 @@ const downloadAndroid = () => {
         </div>
       </div>
       <div class="w-full flex flex-col items-center">
-        <img src="/images/phone.webp" class="w-3/4"/>
+        <img src="/images/phone.webp" class="w-3/4" loading="lazy" fetchpriority="low"/>
       </div>
     </section>
   </main>

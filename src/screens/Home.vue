@@ -17,26 +17,15 @@ const ScrollViews = defineAsyncComponent(()=>import("@/components/scrollViews.vu
 const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"))
 import { useGameStore } from "@/stores/game";
 import ScrollGameViewTwo from "@/components/scrollGameViewTwo.vue";
-import { defineAsyncComponent, onMounted, ref } from "vue";
-import HeroSkeleton from "@/components/heroSkeleton.vue";
+import { defineAsyncComponent, ref } from "vue";
 const isReadyToHydrate = ref(false)
 const HeroSlider = defineAsyncComponent({
   loader: () => import("@/components/homeSlider.vue"),
-  loadingComponent: HeroSkeleton
 })
 
 const authStore = useAuthStore();
 const { t } = useI18n();
 const {prepareGame} = useGameStore()
-onMounted(() => {
-  // Use requestIdleCallback or a micro-timeout to defer initialization 
-  // until the browser handles core rendering tasks
-  const deferTimer = window.requestIdleCallback || ((cb) => setTimeout(cb, 200));
-  
-  deferTimer(() => {
-    isReadyToHydrate.value = true
-  })
-})
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex flex-col min-h-screen">
