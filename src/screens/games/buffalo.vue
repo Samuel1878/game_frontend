@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import Footer from "@/components/footer.vue";
-import GameOptions from "@/components/layout/gameOptions.vue";
+const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"))
+const GameOptions = defineAsyncComponent(()=>import('@/components/layout/gameOptions.vue'))
 import { topBuffaloGames } from "@/consts/games";
 import { useGameStat } from "@/lib/gameStat";
 import { useGameStore } from "@/stores/game";
-import { buffalo, slot } from "@/utils";
+import { buffalo, slot } from "@/utils/assets";
 import { Diamond , Users} from "lucide-vue-next";
-import { nextTick, onMounted } from "vue";
+import { defineAsyncComponent, nextTick, onMounted } from "vue";
 
 import { useI18n } from "vue-i18n";
 const { t, locale } = useI18n();

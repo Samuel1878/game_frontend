@@ -5,7 +5,7 @@
 :root {
   line-height: 1.5;
   font-weight: 400;
-  --font-main: "Roboto", sans-serif;
+  --font-main: "Ma Shan Zheng", sans-serif;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   font-synthesis: none;
@@ -210,17 +210,7 @@ body {
   padding: 0;
   font-family: var(--font-main);
 }
-/* html.lang-en {
-  --app-font: 'Roboto', sans-serif;
-}
 
-html.lang-my {
-  --app-font: "Padauk", sans-serif;
-}
-
-html.lang-zh {
-  --app-font: "Ma Shan Zheng", cursive;
-} */
 
 @keyframes shine {
   0% {
@@ -419,38 +409,45 @@ html.lang-zh {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-/* @layer components { */
-.filter-btn {
+
+/* ==========================================================================
+   TAILWIND V4 UTILITIES
+   ========================================================================== */
+@utility filter-btn {
   @apply px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#111827] text-gray-300 transition;
 }
 
-.active-filter {
+@utility active-filter {
   @apply bg-amber-400/20 text-amber-300 border-amber-400/30;
 }
 
-.pagination-btn {
+@utility pagination-btn {
   @apply px-4 py-1.5 rounded-lg bg-[#111827] border border-white/10 hover:bg-white/5 transition;
 }
 
-.active {
-  @apply text-black/90 text-shadow-lg bg-yellow-400 bg-linear-to-br from-yellow-300/80 via-yellow-400/80 to-yellow-600/90 backdrop-blur-2xl border-yellow-300 shadow-xl;
+@utility active {
+  @apply text-black/90 drop-shadow-lg bg-yellow-400 bg-linear-to-br from-yellow-300/80 via-yellow-400/80 to-yellow-600/90 backdrop-blur-2xl border-yellow-300 shadow-xl;
 }
-.glass-bg {
+
+@utility glass-bg {
   @apply bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border-white/10 shadow-xl;
 }
 
-.gold-bg {
+@utility gold-bg {
   @apply bg-yellow-400 bg-linear-to-br from-yellow-300/80 via-yellow-400/80 to-yellow-600/90 backdrop-blur-2xl border-yellow-300 shadow-xl;
 }
 
-.text-glow {
-  @apply text-black/90 text-shadow-lg;
+@utility text-glow {
+  @apply text-black/90 drop-shadow-lg;
 }
 
-.active-button {
-  @apply active:scale-95 transition
+@utility active-button {
+  @apply active:scale-95 transition;
 }
 
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
 @layer base {
   * {
     @apply border-border outline-ring/50;

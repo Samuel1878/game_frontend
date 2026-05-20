@@ -3,7 +3,7 @@ import { Home, User, GiftIcon, Wallet, BanknoteArrowDown } from "lucide-vue-next
 import { useRoute, useRouter } from "vue-router";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-import { menu } from "@/utils";
+import { menu } from "@/utils/assets";
 
 
 const route = useRoute();

@@ -2,7 +2,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useAuthStore } from "./stores/auth";
 import { useUIStore } from "./stores/ui";
-import HomeView from "@/screens/Home.vue";
+// import HomeView from "@/screens/Home.vue";
+const HomeView = ()=> import("@/screens/Home.vue")
 const Payments = () => import("./screens/Deposit/payments.vue");
 const Profile = () => import("./screens/User/Profile.vue");
 const Help = () => import("./screens/help.vue");
@@ -75,7 +76,7 @@ const routes = [
   {
     path: "/deposit",
     meta: { hideNavbar:false,hideTopNav:false, requiresAuth:false },
-    component: import("@/screens/Deposit/Deposit.vue"),
+    component: ()=>import("@/screens/Deposit/Deposit.vue"),
   },
   {
     path: "/deposit/:payment_method",
@@ -200,16 +201,16 @@ router.afterEach(() => {
   });
 });
 
-router.beforeEach(async (to,from) => {
+router.beforeEach(async (to) => {
   const auth = useAuthStore();
   const ui = useUIStore()
   if (to.meta.requiresAuth && !auth.accessToken) {
     ui.openAuthModal(to.fullPath);
     return { path: "/" };
   }
-  if (from.name === "game") {
-    auth.fetchUser();
-  }
+  // if (from.name === "game") {
+  //   auth.fetchUser();
+  // }
 
   return true;
 });

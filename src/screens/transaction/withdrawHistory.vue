@@ -2,16 +2,16 @@
 import { getWithdrawalsById } from "@/services/transactionAPI";
 import { useAuthStore } from "@/stores/auth";
 import type { withdrawalInfo } from "@/utils/types";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, defineAsyncComponent } from "vue";
 import moment from "moment";
-import WithdrawDetail from "@/components/withdrawDetail.vue";
 import { useI18n } from "vue-i18n";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { ChevronLeft, ChevronRight, CoinsIcon, Headset } from "lucide-vue-next";
 import { openChat } from "@/utils";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { watch } from "vue";
-import DatePicker from "@/components/CalenderView.vue";
+const DatePicker = defineAsyncComponent(()=>import("@/components/CalenderView.vue"));
+const WithdrawDetail =  defineAsyncComponent(()=>import("@/components/withdrawDetail.vue"))
 const { t } = useI18n();
 const authStore = useAuthStore();
 

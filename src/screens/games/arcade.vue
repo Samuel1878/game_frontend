@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Footer from '@/components/footer.vue';
-import GameViews from '@/components/gameViews.vue';
-import GameOptions from '@/components/layout/gameOptions.vue';
+const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"))
+const GameOptions = defineAsyncComponent(()=>import('@/components/layout/gameOptions.vue'))
+const GameViews = defineAsyncComponent(()=>import('@/components/gameViews.vue'))
 import { getGamesByProviderAPI } from '@/services/gameAPI';
-import {   chess } from '@/utils';
+import {   chess } from '@/utils/assets';
 import type { gameType } from '@/utils/types';
-import { onMounted, ref } from 'vue';
+import { defineAsyncComponent, onMounted, ref } from 'vue';
 
 import { useI18n } from 'vue-i18n';
 const { t ,locale} = useI18n();

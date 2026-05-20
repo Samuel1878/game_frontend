@@ -1,8 +1,5 @@
 import { 
      slot, buffalo, fish, casino, chess, home, 
-    //  wallet_icon,
-    //  in_icon,
-    //  bank_ico,
      accountCenter,
      depositHistoryIcon,
      withdrawHistoryIcon,
@@ -10,8 +7,9 @@ import {
      share,
      helpCenter,
      services,
-     openChat,
-} from "@/utils";
+   
+} from "@/utils/assets";
+import {  openChat,} from "@/utils"
 import type { Game } from "@/utils/types";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
@@ -21,7 +19,7 @@ export const usdtRateToMMK = 4000;
 export const footer_images = [
 
     '/providers/PP-WHITE.webp',
-        '/providers/PG-WHITE.png',
+    '/providers/PG-WHITE.webp',
     '/providers/JL-WHITE.webp',
     '/providers/fast_spin.webp',
     '/providers/KA-WHITE.webp',
@@ -230,7 +228,7 @@ export const slotGameProviders = [
         id:2,
         name: "PG Soft",
         GpId:35,
-        icon:"/providers/PG-WHITE.png", 
+        icon:"/providers/PG-WHITE.webp", 
     },
         {
         id:3,

@@ -14,7 +14,7 @@ import { BrowserMultiFormatReader, NotFoundException } from "@zxing/library";
 import api from "@/services/api";
 import { useAuthStore } from "@/stores/auth";
 import router from "@/router";
-
+// const {BrowserMultiFormatReader, NotFoundException,  } = defineAsyncComponent(()=>import("@zxing/library"))
 const scannerOpen = ref(false);
 const videoRef = ref<HTMLVideoElement | null>(null);
 

@@ -1,19 +1,14 @@
 <script setup lang="ts">
 import Footer from "@/components/footer.vue";
-import GameViews from "@/components/gameViews.vue";
-import GameOptions from "@/components/layout/gameOptions.vue";
-import InputGroup from "@/components/ui/input-group/InputGroup.vue";
-import InputGroupAddon from "@/components/ui/input-group/InputGroupAddon.vue";
-import InputGroupInput from "@/components/ui/input-group/InputGroupInput.vue";
+const GameOptions = defineAsyncComponent(()=>import('@/components/layout/gameOptions.vue'))
+const GameViews = defineAsyncComponent(()=>import('@/components/gameViews.vue'))
+import {InputGroup,InputGroupAddon,InputGroupInput} from "@/components/ui/input-group";
 import { getGamesByProviderAPI } from "@/services/gameAPI";
-// import { useAuthStore } from "@/stores/auth";
-import { casino, hot, hot_rtp_icon, top_icon } from "@/utils";
+import { casino, hot, hot_rtp_icon, top_icon } from "@/utils/assets";
 import type { gameType } from "@/utils/types";
-// import { useReturnRefresh } from "@/utils/useReturn";
 import { refDebounced } from "@vueuse/core";
 import { SearchIcon } from "lucide-vue-next";
-import { onMounted, ref, watch } from "vue";
-
+import { defineAsyncComponent, onMounted, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 const sortBy = ref("rank");
 const topOnly = ref(false);
@@ -26,10 +21,8 @@ const hasMore = ref(true);
 const isLoadingMore = ref(false);
 const searchQuery = ref("");
 const debouncedSearch = refDebounced(searchQuery, 300);
-// const authStore = useAuthStore();
 const btnClass = (active: boolean) => (active ? "animate-pulse-scale" : "");
 const fetchGames = async (reset = false) => {
-  // console.log("fetching game");
 
   if (reset) {
     offset.value = 0;

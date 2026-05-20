@@ -20,7 +20,7 @@ const { locale } = useI18n();
       :observer="false"
       :observe-parents="false"
       :observe-slide-children="false"
-      :watch-slides-progress="true"
+      :watch-slides-progress="false"
       :autoplay="{ delay: 3000, disableOnInteraction: false }"
       :pagination="{ clickable: true }"
       :space-between="10"
@@ -39,7 +39,7 @@ const { locale } = useI18n();
           <img
             :src="locale === 'cn' ? slide.cn_image : slide.image"
             class="w-full h-full object-cover "
-            :fetchpriority="index === 0 ? 'high' : 'auto'"
+            fetchpriority="high"
              :loading="index === 0 ? 'eager' : 'lazy'"
             decoding="async"
             alt="Hero"

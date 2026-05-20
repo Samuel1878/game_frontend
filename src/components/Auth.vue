@@ -34,7 +34,7 @@ import { Checkbox } from "./ui/checkbox";
 import { Spinner } from "./ui/spinner";
 import { useI18n } from "vue-i18n";
 import { toast } from "vue-sonner";
-import DialogDescription from "./ui/dialog/DialogDescription.vue";
+import {DialogDescription} from "./ui/dialog";
 import LanguageBtn from "./languageBtn.vue";
 const auth = useAuthStore();
 const ui = useUIStore();

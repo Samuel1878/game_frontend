@@ -1,8 +1,9 @@
-import { io, Socket } from "socket.io-client";
+const { io }= await import("socket.io-client");
+import type { Socket } from "socket.io-client";
 import { useAuthStore } from "@/stores/auth";
 import { useWallet } from "./stores/wallet";
 import { BASE_API_URL } from "./utils";
-let socket: Socket | null = null;
+let socket:Socket  | null = null;
 export const initSocket = () => {
   if (socket) return socket;
   const auth = useAuthStore();

@@ -3,11 +3,9 @@ import router from '@/router';
 import { SpadeIcon } from 'lucide-vue-next';
 
 import { useI18n } from "vue-i18n";
-import Popover from './ui/popover/Popover.vue';
-import PopoverTrigger from './ui/popover/PopoverTrigger.vue';
-import PopoverContent from './ui/popover/PopoverContent.vue';
+import {Popover,PopoverTrigger,PopoverContent} from "./ui/popover"
 import { useAuthStore } from '@/stores/auth';
-import { depositHistoryIcon, transaction, withdrawHistoryIcon } from '@/utils';
+import { depositHistoryIcon, transaction, withdrawHistoryIcon } from '@/utils/assets';
 
 const {t} = useI18n();
 

@@ -1,25 +1,20 @@
 <script setup lang="ts">
-import Footer from "@/components/footer.vue";
-import GameViews from "@/components/gameViews.vue";
-import GameOptions from "@/components/layout/gameOptions.vue";
-import Card from "@/components/ui/card/Card.vue";
-import CardContent from "@/components/ui/card/CardContent.vue";
-import InputGroup from "@/components/ui/input-group/InputGroup.vue";
-import InputGroupAddon from "@/components/ui/input-group/InputGroupAddon.vue";
-import InputGroupInput from "@/components/ui/input-group/InputGroupInput.vue";
+const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"))
+const GameOptions = defineAsyncComponent(()=>import('@/components/layout/gameOptions.vue'))
+const GameViews = defineAsyncComponent(()=>import('@/components/gameViews.vue'))
+import {Card,CardContent } from "@/components/ui/card";
+import {InputGroup,InputGroupAddon,InputGroupInput} from "@/components/ui/input-group";
 import { slotGameProviders } from "@/consts";
 import { getGamesByProviderAPI } from "@/services/gameAPI";
-// import { useAuthStore } from "@/stores/auth";
-import { hot, hot_rtp_icon, slot, top_icon } from "@/utils";
+import { hot, hot_rtp_icon, slot, top_icon } from "@/utils/assets";
 import type { gameType } from "@/utils/types";
-// import { useReturnRefresh } from "@/utils/useReturn";
 import { refDebounced } from "@vueuse/core";
 import {
   ChevronLeft,
   ChevronRight,
   SearchIcon,
 } from "lucide-vue-next";
-import { onMounted, ref, watch } from "vue";
+import { defineAsyncComponent, onMounted, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 const { t, locale } = useI18n();
 const searchQuery = ref("");
@@ -161,7 +156,7 @@ const btnClass = (active: boolean) => (active ? "animate-pulse-scale" : "");
               class="p-1 hover:bg-gray-700 transition rounded-md bg-gray-800/10 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
             >
               <CardContent class="flex items-center justify-center">
-                <img :src="option?.icon" class="w-20" />
+                <img :src="option?.icon" class="w-20" fetchpriority="auto"/>
               </CardContent>
             </Card>
           </button>

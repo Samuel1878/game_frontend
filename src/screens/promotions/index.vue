@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import Footer from '@/components/footer.vue';
-import Dialog from '@/components/ui/dialog/Dialog.vue';
-import DialogContent from '@/components/ui/dialog/DialogContent.vue';
+const Footer = defineAsyncComponent(()=>import('@/components/footer.vue'));
+import {Dialog,DialogContent} from '@/components/ui/dialog';
 import { homeSlide } from '@/consts';
-import { ref } from 'vue';
+import { defineAsyncComponent, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from "vue";
 

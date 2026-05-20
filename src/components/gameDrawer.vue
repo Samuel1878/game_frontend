@@ -2,8 +2,7 @@
 import { useGameStore } from "@/stores/game";
 import { useI18n } from "vue-i18n";
 import { storeToRefs } from "pinia";
-import Drawer from "./ui/drawer/Drawer.vue";
-import DrawerContent from "./ui/drawer/DrawerContent.vue";
+import {DrawerContent, Drawer} from "./ui/drawer"
 import { computed } from "vue";
 import { slotGameProviders } from "@/consts";
 

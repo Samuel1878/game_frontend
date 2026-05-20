@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import AuthModal from "@/components/Auth.vue";
 import { Toaster } from "./components/ui/sonner";
 import "vue-sonner/style.css";
 import BottomNav from "./components/layout/bottomNav.vue";
 import TopNavBar from "./components/layout/topNavBar.vue";
-import GameDrawer from "./components/gameDrawer.vue";
-import { watch } from "vue";
+import { defineAsyncComponent, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useReferralStore } from "./stores/referralStore";
 import { useRoute } from "vue-router";
-import SideBar from "./components/sideBar.vue";
-import SidebarProvider from "./components/ui/sidebar/SidebarProvider.vue";
-import SidebarInset from "./components/ui/sidebar/SidebarInset.vue";
-import DownloadNav from "./components/layout/downloadNav.vue";
-import UpdatePopup from "./components/updatePopup.vue";
+import {SidebarProvider,SidebarInset } from "./components/ui/sidebar";
+const DownloadNav = defineAsyncComponent(()=>import("./components/layout/downloadNav.vue"))
+const SideBar = defineAsyncComponent(()=>import("@/components/sideBar.vue"))
+const UpdatePopup = defineAsyncComponent(()=>import("./components/updatePopup.vue"));
+const GameDrawer = defineAsyncComponent(()=>import("./components/gameDrawer.vue"));
+const AuthModal = defineAsyncComponent(()=>import("@/components/Auth.vue"))
 const route = useRoute();
 const referralStore = useReferralStore();
 const { locale } = useI18n();

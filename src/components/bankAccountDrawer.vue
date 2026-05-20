@@ -8,15 +8,8 @@ import {
   DrawerTitle,
   DrawerFooter,
 } from "@/components/ui/drawer";
-
-
-
-import InputGroup from "@/components/ui/input-group/InputGroup.vue";
-import InputGroupAddon from "@/components/ui/input-group/InputGroupAddon.vue";
-import InputGroupInput from "@/components/ui/input-group/InputGroupInput.vue";
-
-import Button from "@/components/ui/button/Button.vue";
-
+import {InputGroup,InputGroupAddon,InputGroupInput} from "@/components/ui/input-group";
+import {Button} from "@/components/ui/button";
 import { CreditCard, UserLockIcon } from "lucide-vue-next";
 import { paymentMethod, type paymentTypes } from "@/consts";
 import { useI18n } from "vue-i18n";

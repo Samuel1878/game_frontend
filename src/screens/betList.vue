@@ -2,12 +2,13 @@
 import LanguageBtn from "@/components/languageBtn.vue";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { useBetlistStore } from "@/stores/betListStore";
-import { formatMyanmarTime, formatPrice, openChat } from "@/utils";
+import {  formatPrice, openChat } from "@/utils";
 import { ClipboardX, Headset } from "lucide-vue-next";
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import DatePicker from "@/components/CalenderView.vue";
+import { formatMyanmarTime } from "@/utils/date";
 
 const store = useBetlistStore();
 const { mode, startDate, endDate,loading ,paginatedBetRecords, betPage, betTotal, betTotalPages} = storeToRefs(store);

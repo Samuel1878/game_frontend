@@ -8,8 +8,6 @@ import { computed, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 
 import { useFakeGameStatsWithId } from "@/lib/fakeGameStatHook";
-
-
 const swiperRef = ref<any>(null);
 const { t, locale } = useI18n();
 
@@ -86,10 +84,11 @@ const total = computed(() => props.gameData?.length ?? 0);
         </div>
       </div>
     </div>
-<Swiper
+  <Swiper
     @swiper="onSwiper"
     :speed="300"
     :space-between="8"
+    :css-mode="true"
     :slides-per-view="3"
     :touch-ratio="1"
     :resistance-ratio="0.85"

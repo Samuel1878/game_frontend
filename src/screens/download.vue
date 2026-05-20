@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import Footer from "@/components/footer.vue";
+const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"))
 import LanguageBtn from "@/components/languageBtn.vue";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat } from "@/utils";
 import { Asterisk, Headset } from "lucide-vue-next";
 import { useI18n } from "vue-i18n";
-// import { ref } from "vue";
 import QrcodeVue from "qrcode.vue";
+import { defineAsyncComponent } from "vue";
 const supabaseURL = "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/app"; // Replace with actual URL
-// const loading = ref(false);
 const androidUrl = `${supabaseURL}/tz99.apk`;
 
 const iosUrl = `https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/app/tz99.mobileconfig`;

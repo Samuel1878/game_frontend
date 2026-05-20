@@ -12,7 +12,6 @@ import router from "@/router";
 import {formatPrice } from "@/utils";
 import { useI18n } from "vue-i18n";
 import HelpBox from "@/components/layout/helpBox.vue";
-
 import { useAuthStore } from "@/stores/auth";
 import { useUIStore } from "@/stores/ui";
 const ui = useUIStore()

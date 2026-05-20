@@ -2,7 +2,7 @@
 import { useGameStore } from "@/stores/game";
 import { ChevronLeft } from "lucide-vue-next";
 import { onMounted, onUnmounted } from "vue";
-import { useRouter } from "vue-router";
+import { onBeforeRouteLeave, useRouter } from "vue-router";
 import { useAuthStore } from "./stores/auth";
 import { hideTawk, showTawk } from "./utils";
 import { useDownloadBannerStore } from "./stores/downloadBannerStore";
@@ -32,6 +32,10 @@ const goHome = () => {
   authStore.init();
   router.replace("/");
 };
+onBeforeRouteLeave(() => {
+  const auth = useAuthStore();
+  auth.fetchUser();
+});
 </script>
 
 <template>

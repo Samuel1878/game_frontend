@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { amounts, paymentMethod, paymentMethodOption, usdtRateToMMK } from "@/consts";
-import { onMounted, ref } from "vue";
+import { defineAsyncComponent, onMounted, ref } from "vue";
 import {
   InputGroup,
   InputGroupAddon,
@@ -25,7 +25,8 @@ import { useAuthStore } from "@/stores/auth";
 import { toast } from "vue-sonner";
 import { withdrawalHandlerAPI } from "@/services/transactionAPI";
 import { useWallet } from "@/stores/wallet";
-import BankAccountDrawer from "@/components/bankAccountDrawer.vue";
+// import BankAccountDrawer from "@/components/bankAccountDrawer.vue";
+const BankAccountDrawer= defineAsyncComponent(()=>import("@/components/bankAccountDrawer.vue"))
 const amount = ref<number>();
 
 const withdrawForm = ref<{ number: string; name: string; method: string }>({

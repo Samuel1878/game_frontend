@@ -2,17 +2,15 @@
 import { getDepositById } from "@/services/transactionAPI";
 import { useAuthStore } from "@/stores/auth";
 import type { depositFormData } from "@/utils/types";
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, defineAsyncComponent } from "vue";
 import moment from "moment";
-import DepositDetail from "@/components/depositDetail.vue";
 import { useI18n } from "vue-i18n";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat } from "@/utils";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { ChevronLeft, ChevronRight, Headset, Wallet2Icon } from "lucide-vue-next";
-import DatePicker from "@/components/CalenderView.vue";
-// const DepositDetail = async()=>await import("@/components/depositDetail.vue")
-// const DatePicker = async()=> await import("@/components/CalenderView.vue")
+const DatePicker = defineAsyncComponent(()=>import("@/components/CalenderView.vue"));
+const DepositDetail = defineAsyncComponent(()=>import("@/components/depositDetail.vue"))
 const { t } = useI18n();
 const authStore = useAuthStore();
 

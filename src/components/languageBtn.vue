@@ -5,7 +5,7 @@ import {
   SelectItem,
   SelectTrigger,
 } from '@/components/ui/select'
-import { cn_flag, en_flag, mm_flag } from '@/utils';
+import { cn_flag, en_flag, mm_flag } from '@/utils/assets';
 
 import { useI18n } from "vue-i18n";
 

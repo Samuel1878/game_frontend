@@ -6,12 +6,11 @@ import { formatPrice } from "@/utils";
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
 import LanguageBtn from "../languageBtn.vue";
-
-import UserTopActions from "../userTopActions.vue";
-
+const UserTopActions = defineAsyncComponent(()=>import("@/components/userTopActions.vue"))
 import { Menu } from "lucide-vue-next";
 import router from "@/router";
 import { useSidebar } from "../ui/sidebar";
+import { defineAsyncComponent } from "vue";
 const route = useRoute();
 const wallet = useWallet();
 const uiStore = useUIStore();

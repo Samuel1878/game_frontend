@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
-import InputGroup from "@/components/ui/input-group/InputGroup.vue";
-import InputGroupAddon from "@/components/ui/input-group/InputGroupAddon.vue";
-import InputGroupInput from "@/components/ui/input-group/InputGroupInput.vue";
-import Label from "@/components/ui/label/Label.vue";
-import Button from "@/components/ui/button/Button.vue";
+import {InputGroup, InputGroupAddon,InputGroupInput} from "@/components/ui/input-group";
+import {Label} from "@/components/ui/label";
+import {Button} from "@/components/ui/button";
 import { Headset, LockIcon } from "lucide-vue-next";
 import { toast } from "vue-sonner";
 import CustomNavBar from "@/components/layout/customNavBar.vue";

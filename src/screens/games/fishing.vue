@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import Footer from '@/components/footer.vue';
-import GameOptions from '@/components/layout/gameOptions.vue';
+const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"))
 import {  getGamesByProviderAPI } from '@/services/gameAPI';
-// import { useAuthStore } from '@/stores/auth';
-import {  fish, hot, hot_rtp_icon, top_icon } from '@/utils';
+import {  fish, hot, hot_rtp_icon, top_icon } from '@/utils/assets';
 import type { gameType } from '@/utils/types';
-// import { useReturnRefresh } from '@/utils/useReturn';
-import { onMounted, ref} from 'vue';
+import { defineAsyncComponent, onMounted, ref} from 'vue';
 import { useI18n } from 'vue-i18n';
-import GameViews from '@/components/gameViews.vue';
+const GameOptions = defineAsyncComponent(()=>import('@/components/layout/gameOptions.vue'))
+const GameViews = defineAsyncComponent(()=>import('@/components/gameViews.vue'))
 const { t ,locale} = useI18n();
 const loading = ref(false);
 const games = ref<gameType[] | null>(null);

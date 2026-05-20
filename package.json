@@ -1,5 +1,5 @@
 {
-  "name": "96betx",
+  "name": "tz99",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -19,7 +19,6 @@
     "axios": "^1.13.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "dotenv": "^17.2.3",
     "file-saver": "^2.0.5",
     "lucide-vue-next": "^0.563.0",
     "moment": "^2.30.1",

@@ -3,11 +3,8 @@ import { useAuthStore } from "@/stores/auth";
 import { footer_images } from "@/consts";
 import { hotGames, topBuffaloGames, topCasinoGames, topFishGames, topSlotGames} from "@/consts/games"
 import {  BellRingIcon, Download  } from "lucide-vue-next";
-import ScrollViews from "@/components/scrollViews.vue";
-import Footer from "@/components/footer.vue";
 import router from "@/router";
 import { useI18n } from "vue-i18n";
-
 import GameOptions from "@/components/layout/gameOptions.vue";
 import {
   buffalo,
@@ -15,20 +12,31 @@ import {
   fish,
   hot_icon,
   slot,
-} from "@/utils";
-
-import HomeSlider from "@/components/homeSlider.vue";
-
+} from "@/utils/assets";
+const ScrollViews = defineAsyncComponent(()=>import("@/components/scrollViews.vue"))
+const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"))
 import { useGameStore } from "@/stores/game";
-// import { useReturnRefresh } from "@/utils/useReturn";
 import ScrollGameViewTwo from "@/components/scrollGameViewTwo.vue";
+import { defineAsyncComponent, onMounted, ref } from "vue";
+import HeroSkeleton from "@/components/heroSkeleton.vue";
+const isReadyToHydrate = ref(false)
+const HeroSlider = defineAsyncComponent({
+  loader: () => import("@/components/homeSlider.vue"),
+  loadingComponent: HeroSkeleton
+})
+
 const authStore = useAuthStore();
 const { t } = useI18n();
-
 const {prepareGame} = useGameStore()
-// useReturnRefresh(async() => {
-//     await authStore.fetchUser();
-// })
+onMounted(() => {
+  // Use requestIdleCallback or a micro-timeout to defer initialization 
+  // until the browser handles core rendering tasks
+  const deferTimer = window.requestIdleCallback || ((cb) => setTimeout(cb, 200));
+  
+  deferTimer(() => {
+    isReadyToHydrate.value = true
+  })
+})
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex flex-col min-h-screen">
@@ -60,13 +68,14 @@ const {prepareGame} = useGameStore()
             </button>
           </div>
         </div>
-        <HomeSlider/>
+        <HeroSlider v-if="isReadyToHydrate"/>
+        <HeroSlider v-else/>
       </div>
       <div class="w-full space-y-2 px-2" v-show="authStore.user">
         <div class="flex justify-between gap-4 pb-2">
           <button
             @click="router.push('/deposit')"
-            class="w-full h-8 gold-bg shine-auto overflow-hidden relative cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+            class="w-full h-8 gold-bg overflow-hidden relative cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
 
             <span class="font-bold text-glow">
               {{ t("deposit") }}
@@ -74,7 +83,7 @@ const {prepareGame} = useGameStore()
           </button>
           <button
             @click="router.push('/withdraw')"
-            class="w-full h-8 text-linear-gold  shine-auto overflow-hidden cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+            class="w-full h-8 text-linear-gold overflow-hidden cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
 
             <span class="font-bold">
               {{ t("withdraw") }}
@@ -102,7 +111,7 @@ const {prepareGame} = useGameStore()
       <div class="gap-5 flex flex-col items-center w-full">
         <h2 class="text-lg font-extrabold text-white text-center text-linear-gold ">{{ t('footer_header') }}</h2>
         <div class="flex gap-1 flex-wrap items-center justify-center">
-          <img :key="value" v-for="value in footer_images" :src="value" class="h-10 md:h-15 lg:-18 my-2" />
+          <img :key="value" v-for="value in footer_images" :src="value" fetchpriority="low" class="h-10 w-20 my-2" />
         </div>
       </div>
     </div>
