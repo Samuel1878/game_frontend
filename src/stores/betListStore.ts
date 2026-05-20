@@ -12,7 +12,7 @@ import type {
 } from "@/utils/types";
 import { useAuthStore } from "./auth";
 import { getBetListAPI } from "@/services/transactionAPI";
-import { toISOStringSafe } from "@/utils";
+import { toISOStringSafe } from "@/utils/date";
 
 export const useBetlistStore = defineStore(
   "betListStore",
