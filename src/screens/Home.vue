@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import {  ref } from "vue";
 import { useAuthStore } from "@/stores/auth";
 import { footer_images } from "@/consts";
 import { hotGames, topBuffaloGames, topCasinoGames, topFishGames, topSlotGames} from "@/consts/games"
@@ -7,7 +6,6 @@ import {  BellRingIcon, Download  } from "lucide-vue-next";
 import ScrollViews from "@/components/scrollViews.vue";
 import Footer from "@/components/footer.vue";
 import router from "@/router";
-import Loading from "@/components/loading.vue";
 import { useI18n } from "vue-i18n";
 
 import GameOptions from "@/components/layout/gameOptions.vue";
@@ -20,11 +18,11 @@ import {
 } from "@/utils";
 
 import HomeSlider from "@/components/homeSlider.vue";
+
 import { useGameStore } from "@/stores/game";
 // import { useReturnRefresh } from "@/utils/useReturn";
 import ScrollGameViewTwo from "@/components/scrollGameViewTwo.vue";
 const authStore = useAuthStore();
-const loading = ref(false);
 const { t } = useI18n();
 
 const {prepareGame} = useGameStore()
@@ -34,7 +32,6 @@ const {prepareGame} = useGameStore()
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex flex-col min-h-screen">
-    <Loading :show="loading" :message="'loading...'" />
     <div>
       <div class="w-full mb-2 bg-gray-900 border-gray-800 border-0 px-2">
 
@@ -105,7 +102,7 @@ const {prepareGame} = useGameStore()
       <div class="gap-5 flex flex-col items-center w-full">
         <h2 class="text-lg font-extrabold text-white text-center text-linear-gold ">{{ t('footer_header') }}</h2>
         <div class="flex gap-1 flex-wrap items-center justify-center">
-          <img :key="value" v-for="value in footer_images" :src="value" class="h-7 md:h-15 lg:-18 my-2" />
+          <img :key="value" v-for="value in footer_images" :src="value" class="h-10 md:h-15 lg:-18 my-2" />
         </div>
       </div>
     </div>

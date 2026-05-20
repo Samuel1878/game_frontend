@@ -1,32 +1,30 @@
-import HomeView from "@/screens/Home.vue";
-import { createRouter, createWebHistory } from "vue-router";
-import Withdraw from "@/screens/Withdrawal/index.vue";
-import Deposit from "@/screens/Deposit/Deposit.vue";
-import { useAuthStore } from "./stores/auth";
-import Payments from "./screens/Deposit/payments.vue";
-import Profile from "./screens/User/Profile.vue";
-import Help from "./screens/help.vue";
-import Terms from "./screens/terms.vue";
-import Policy from "./screens/policy.vue";
-import Responsible from "./screens/responsible.vue";
-import Transactions from "./screens/transaction/transactions.vue";
-import BankAccount from "./screens/User/bankAccount.vue";
-import Slots from "./screens/games/slots.vue";
-import Buffalo from "./screens/games/buffalo.vue";
-import Download from "./screens/download.vue";
-import Fishing from "./screens/games/fishing.vue";
-import Casino from "./screens/games/casino.vue";
-import Arcade from "./screens/games/arcade.vue";
-import Promotions from "@/screens/promotions/index.vue";
-import { useUIStore } from "./stores/ui";
-import UpdatePassword from "./screens/User/updatePassword.vue";
-import DepositHistory from "./screens/transaction/depositHistory.vue";
-import WithdrawHistory from "./screens/transaction/withdrawHistory.vue";
-import GameView from "./gameView.vue";
-import Faq from "./screens/faq.vue";
-import BetList from "./screens/betList.vue";
-import Store from "./screens/Withdrawal/store.vue";
 
+import { createRouter, createWebHistory } from "vue-router";
+import { useAuthStore } from "./stores/auth";
+import { useUIStore } from "./stores/ui";
+import HomeView from "@/screens/Home.vue";
+const Payments = () => import("./screens/Deposit/payments.vue");
+const Profile = () => import("./screens/User/Profile.vue");
+const Help = () => import("./screens/help.vue");
+const Terms = () => import("./screens/terms.vue");
+const Policy = () => import("./screens/policy.vue");
+const Responsible = () => import("./screens/responsible.vue");
+const Transactions = () => import("./screens/transaction/transactions.vue");
+const BankAccount = () => import("./screens/User/bankAccount.vue");
+const Slots = () => import("./screens/games/slots.vue");
+const Buffalo = () => import("./screens/games/buffalo.vue");
+const Download = () => import("./screens/download.vue");
+const Fishing = () => import("./screens/games/fishing.vue");
+const Casino = () => import("./screens/games/casino.vue");
+const Arcade = () => import("./screens/games/arcade.vue");
+const Promotions = () => import("@/screens/promotions/index.vue");
+const UpdatePassword = () => import("./screens/User/updatePassword.vue");
+const DepositHistory = () => import("./screens/transaction/depositHistory.vue");
+const WithdrawHistory = () => import("./screens/transaction/withdrawHistory.vue");
+const GameView = () => import("./gameView.vue");
+const Faq = () => import("./screens/faq.vue");
+const BetList = () => import("./screens/betList.vue");
+const Store = () => import("./screens/Withdrawal/store.vue");
 const routes = [
   {
     path:"/game",
@@ -77,7 +75,7 @@ const routes = [
   {
     path: "/deposit",
     meta: { hideNavbar:false,hideTopNav:false, requiresAuth:false },
-    component: Deposit,
+    component: import("@/screens/Deposit/Deposit.vue"),
   },
   {
     path: "/deposit/:payment_method",
@@ -87,7 +85,7 @@ const routes = [
   {
     path: "/withdraw",
     meta: { requiresAuth: true, hideTopNav:false, hideNavbar:false },
-    component: Withdraw,
+    component: () => import("@/screens/Withdrawal/index.vue"),
   },
     {
     path: "/withdraw/store",
@@ -194,6 +192,12 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+ 
+});
+router.afterEach(() => {
+  requestAnimationFrame(() => {
+    window.scrollTo(0, 0);
+  });
 });
 
 router.beforeEach(async (to,from) => {

@@ -141,6 +141,9 @@ const total = computed(() => props.gameData?.length ?? 0);
               :src="locale === 'cn' ? game.cn_icon_url : game.icon_url"
               class="w-full aspect-3/4 sm:aspect-4/5 md:aspect-square object-cover rounded-lg"
               :alt="game.name"
+                fetchpriority="auto"
+                decoding="async"
+                loading="lazy"
             />
           </div>
         </div>

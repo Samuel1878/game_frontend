@@ -102,12 +102,6 @@ const validateForm = () => {
     return "password_not_match";
   }
   if (!checked.value) return "must_accept_terms";
-  // if (
-  //   referralCode.value &&
-  //   !referral_regex.test(referralCode.value)
-  // ) {
-  //   return "invalid_referral_code";
-  // }
   return null;
 };
 const submit = async () => {
@@ -116,16 +110,6 @@ const submit = async () => {
   const validationError = validateForm();
   if (validationError) {
     errorMessage.value = validationError;
-    // ✅ translated log
-    // console.warn("[VALIDATION ERROR]:", {
-    //   key: validationError,
-    //   message: t(validationError),
-    //   form: {
-    //     loginName: loginName.value,
-    //     username: form.value.username,
-    //     phone: form.value.phone,
-    //   },
-    // });
     toast.warning(t(validationError));
     return;
   }

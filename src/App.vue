@@ -16,11 +16,7 @@ import DownloadNav from "./components/layout/downloadNav.vue";
 import UpdatePopup from "./components/updatePopup.vue";
 const route = useRoute();
 const referralStore = useReferralStore();
-
-
-
 const { locale } = useI18n();
-
 watch(
   locale,
   (lang) => {
@@ -44,13 +40,8 @@ watch(
   () => route.query.rid,
   (rid) => {
     if (typeof rid !== "string") return;
-
-    console.log("RID from URL:", rid);
-
     if (/^[A-Z][0-9]{3}$/.test(rid)) {
       referralStore.setReferral(rid);
-
-      console.log("[REFERRAL CAPTURED]:", rid);
     }
   },
   { immediate: true }

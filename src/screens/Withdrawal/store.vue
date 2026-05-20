@@ -9,6 +9,8 @@ import { useI18n } from "vue-i18n";
 import Dialog from "@/components/ui/dialog/Dialog.vue";
 import DialogContent from "@/components/ui/dialog/DialogContent.vue";
 import { BrowserMultiFormatReader, NotFoundException } from "@zxing/library";
+//  const { BrowserMultiFormatReader } = await import("@zxing/library");
+// const {BrowserMultiFormatReader} = await import("@zxing/library")
 import api from "@/services/api";
 import { useAuthStore } from "@/stores/auth";
 import router from "@/router";
@@ -100,6 +102,7 @@ const confirmWithdraw = async() => {
 };
 
 const startScanner = async () => {
+// const { BrowserMultiFormatReader, NotFoundException } = await import("@zxing/library");
   scannerOpen.value = true;
 
   await nextTick();

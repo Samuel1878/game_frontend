@@ -78,7 +78,7 @@ export const topSlotGames: gameType[] = [
     name: "Mahjong Ways 2",
     icon_url:
       "/game_icons/35_74_MahjongWaysTwo.webp",
-    cn_icon_url:"/game_icons/35_74_MahjongWaysTwo_CN.webp"
+    cn_icon_url:"/game_icons/35_74_MahjongWaysTwo_CN.png"
     // cn_icon_url:
     //   "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_74_MahjongWaysTwo_CN.png",
   },

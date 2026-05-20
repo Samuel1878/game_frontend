@@ -88,43 +88,12 @@ export const useAuthStore = defineStore("auth", {
         }
         initSocket();
       } catch (err) {
-        console.log("Auth init failed:", err);
+        // console.log("Auth init failed:", err);
         this.clearAuth();
       } finally {
         this.initialized = true;
       }
     },
-    // async init() {
-    //   try {
-    //     const localToken = localStorage.getItem("access_token");
-    //     if (localToken) {
-    //     this.setToken(localToken);
-    //       try {
-    //         await this.fetchUser();
-    //         initSocket();
-    //         return;
-    //       } catch {
-    //         console.log("FETCHING FROM LOCAL STORAGE HAS FAILED")
-    //       }
-    //     }
-    //     console.log("RESFRESH API CALLED ")
-    //     const resData = await refreshAPI();
-    //     if (!resData?.accessToken) {
-    //       throw new Error("No refresh token");
-    //     }
-    //     this.setToken(resData.accessToken);
-    //     const ok = await this.fetchUser();
-    //     if (!ok) {
-    //       throw new Error("User fetch failed");
-    //     }
-    //   initSocket();
-    //   } catch (err) {
-    //     console.log("Auth init failed:", err);
-    //     this.clearAuth();
-    //   } finally {
-    //     this.initialized = true;
-    //   }
-    // },
     async register(payload: { name?: string | null; password: string ; referral_code:string|null; phone:string}) {
       try {
         const response = await api.post("/auth/register", payload);

@@ -43,14 +43,6 @@ watch(form, (val) => {
   emit("update:modelValue", val);
 }, { deep: true });
 
-// watch(
-//   () => props.open,
-//   (open) => {
-//     if (open) {
-//       form.value = { ...props.modelValue };
-//     }
-//   }
-// );
 const choosePayment = (data:paymentTypes) => {
     form.value.value = data.value;
     form.value.label = data.label
@@ -79,32 +71,6 @@ const handleSave = () => {
 
       <!-- Body -->
       <div class="p-4 space-y-3 max-h-[70vh] overflow-y-auto">
-
-        <!-- Payment -->
-        <!-- <Select v-model="form.value">
-          <SelectTrigger class="w-full h-12 rounded-lg border border-gray-700 bg-gray-700/50">
-            <SelectValue :placeholder="t('choose_payment_method')" />
-            <ChevronDown />
-          </SelectTrigger>
-
-          <SelectContent class="bg-gray-700">
-            <SelectGroup>
-              <SelectLabel>{{ t('payment_method') }}</SelectLabel>
-
-              <SelectItem
-                v-for="item in paymentMethod"
-                :key="item.id"
-                :value="item.value"
-              >
-                <div class="flex items-center gap-2 py-2">
-                  <img :src="item.icon" class="w-8 h-8 rounded-full" />
-                  <span>{{ item.label }}</span>
-                </div>
-              </SelectItem>
-
-            </SelectGroup>
-          </SelectContent>
-        </Select> -->
         <div>
             <p>{{  }}</p>
         </div>

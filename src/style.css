@@ -5,7 +5,7 @@
 :root {
   line-height: 1.5;
   font-weight: 400;
-  --app-font: 'Roboto', sans-serif;
+  --font-main: "Roboto", sans-serif;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   font-synthesis: none;
@@ -116,8 +116,101 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
+/* =========================
+   ROBOTO
+========================= */
 
-html.lang-en {
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/en/Roboto-Light.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/en/Roboto-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/en/Roboto-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/en/Roboto-ExtraBold.woff2")
+    format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+
+/* =========================
+   CHINESE
+========================= */
+
+@font-face {
+  font-family: "Ma Shan Zheng";
+  src: url("/fonts/cn/MaShanZheng-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+4E00-9FFF;
+}
+
+/* =========================
+   MYANMAR
+========================= */
+
+@font-face {
+  font-family: "Padauk";
+  src: url("/fonts/mm/Padauk-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+1000-109F;
+}
+
+@font-face {
+  font-family: "Padauk";
+  src: url("/fonts/mm/Padauk-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+1000-109F;
+}
+
+/* =========================
+   FONT SWITCHING
+========================= */
+
+html:lang(my) {
+  --font-main:
+    "Padauk",
+    "Roboto",
+    sans-serif;
+}
+
+html:lang(zh) {
+  --font-main:
+    "Ma Shan Zheng",
+    "Roboto",
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+}
+/* html.lang-en {
   --app-font: 'Roboto', sans-serif;
 }
 
@@ -127,13 +220,7 @@ html.lang-my {
 
 html.lang-zh {
   --app-font: "Ma Shan Zheng", cursive;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--app-font);
-}
+} */
 
 @keyframes shine {
   0% {
@@ -292,8 +379,6 @@ body {
   font-size: 14px;
 }
 
-
-
 @keyframes borderShine {
   0% {
     transform: translateX(-120%);
@@ -374,6 +459,3 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
-
-

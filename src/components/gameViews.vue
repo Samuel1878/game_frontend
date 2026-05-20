@@ -72,6 +72,7 @@ const key = (game: any) => `${game.provider_id}-${game.game_id}`;
                 :src="game.icon_url"
                 class="w-full aspect-3/4 rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
+                decoding="async"
                 />
                 <div
                 class="absolute bottom-0 left-0 right-0 p-1.5 z-20 bg-linear-to-t from-black/80 to-transparent"

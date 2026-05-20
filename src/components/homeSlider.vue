@@ -5,17 +5,22 @@ import { homeSlide } from "@/consts";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useI18n } from "vue-i18n";
-
 const { locale } = useI18n();
+
 </script>
 
 <template>
   <div class="w-full">
     <Swiper
-      v-if="homeSlide?.length"
       :modules="[Pagination, Autoplay]"
       :loop="true"
       :speed="800"
+      :init="true"
+      :preload-images="true"
+      :observer="false"
+      :observe-parents="false"
+      :observe-slide-children="false"
+      :watch-slides-progress="true"
       :autoplay="{ delay: 3000, disableOnInteraction: false }"
       :pagination="{ clickable: true }"
       :space-between="10"
@@ -26,7 +31,7 @@ const { locale } = useI18n();
       }"
     >
       <SwiperSlide
-        v-for="slide in homeSlide"
+        v-for="( slide, index) in homeSlide"
         :key="slide.id"
         class="relative w-full"
       >
@@ -34,6 +39,11 @@ const { locale } = useI18n();
           <img
             :src="locale === 'cn' ? slide.cn_image : slide.image"
             class="w-full h-full object-cover "
+            :fetchpriority="index === 0 ? 'high' : 'auto'"
+             :loading="index === 0 ? 'eager' : 'lazy'"
+            decoding="async"
+            alt="Hero"
+            
           />
         </div>
       </SwiperSlide>

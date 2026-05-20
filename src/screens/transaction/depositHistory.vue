@@ -11,6 +11,8 @@ import { openChat } from "@/utils";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { ChevronLeft, ChevronRight, Headset, Wallet2Icon } from "lucide-vue-next";
 import DatePicker from "@/components/CalenderView.vue";
+// const DepositDetail = async()=>await import("@/components/depositDetail.vue")
+// const DatePicker = async()=> await import("@/components/CalenderView.vue")
 const { t } = useI18n();
 const authStore = useAuthStore();
 
