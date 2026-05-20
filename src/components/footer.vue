@@ -60,7 +60,7 @@ const certification = [
       
       <!-- Brand Section -->
       <div class="flex flex-col items-center mb-10">
-        <img src="/logo.webp" class="h-24 md:h-30 mb-4 object-contain" alt="Logo"/>
+        <img src="/logo.webp" fetchpriority="low" class="h-24 md:h-30 mb-4 object-contain" alt="Logo"/>
         <p class="text-gray-400 font-medium leading-relaxed text-xs text-center max-w-2xl">
           {{ t('marketing') }}
         </p>

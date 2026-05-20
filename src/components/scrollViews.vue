@@ -46,7 +46,7 @@ const total = computed(() => props.gameData?.length ?? 0);
   <article class="w-full" id="TopGame">
    <div class="flex w-full items-center justify-between my-4">
       <div class="flex gap-2 items-center">
-        <img :src="icon" class="w-7 h-7 object-contain" alt="section-icon" />
+        <img :src="icon" class="w-7 h-7 object-contain" alt="section-icon" fetchpriority="low"/>
         <h2 class="font-bold text-gray-200 text-lg tracking-tight">
           {{ header }}
         </h2>
