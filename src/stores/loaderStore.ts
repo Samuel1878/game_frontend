@@ -2,19 +2,16 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useLoaderStore = defineStore("loader", () => {
-  const transitioning = ref(false);
-
-  function start() {
-    transitioning.value = true;
-  }
-
-  function finish() {
-    transitioning.value = false;
-  }
-
+  const loading = ref(false);
+    function startLoading (){
+        loading.value = true;
+    }
+    function stopLoading () {
+        loading.value = false
+    }
   return {
-    transitioning,
-    start,
-    finish,
+    loading,
+    startLoading,
+    stopLoading
   };
 });

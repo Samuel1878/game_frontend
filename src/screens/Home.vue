@@ -13,16 +13,32 @@ import {
   hot_icon,
   slot,
 } from "@/utils/assets";
-const ScrollViews = defineAsyncComponent(()=>import("@/components/scrollViews.vue"))
-const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"))
+// const ScrollGameViewTwo = defineAsyncComponent({
+//   loader: () => import("@/components/scrollGameViewTwo.vue"),
+//   loadingComponent: {
+//     template: `
+      
+//     `,
+//   },
+// })
+// const ScrollViews = defineAsyncComponent(()=>import("@/components/scrollViews.vue"))
+const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"));
+import HeroSlider from "@/components/homeSlider.vue";
 import { useGameStore } from "@/stores/game";
+import { defineAsyncComponent} from "vue";
 import ScrollGameViewTwo from "@/components/scrollGameViewTwo.vue";
-import { defineAsyncComponent, ref } from "vue";
-const isReadyToHydrate = ref(false)
-const HeroSlider = defineAsyncComponent({
-  loader: () => import("@/components/homeSlider.vue"),
-})
+import ScrollViews from "@/components/scrollViews.vue";
 
+// const HeroSlider = defineAsyncComponent({
+//   loader: () => import("@/components/homeSlider.vue"),
+//   delay: 0,
+//   loadingComponent: {
+//     template: `
+//       <div class="w-full h-[220px] rounded-xl bg-gray-800/80 animate-pulse">
+//       </div>
+//     `,
+//   },
+// })
 const authStore = useAuthStore();
 const { t } = useI18n();
 const {prepareGame} = useGameStore()
@@ -57,8 +73,7 @@ const {prepareGame} = useGameStore()
             </button>
           </div>
         </div>
-        <HeroSlider v-if="isReadyToHydrate"/>
-        <HeroSlider v-else/>
+        <HeroSlider />
       </div>
       <div class="w-full space-y-2 px-2" v-show="authStore.user">
         <div class="flex justify-between gap-4 pb-2">

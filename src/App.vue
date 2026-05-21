@@ -8,9 +8,7 @@ import { useI18n } from "vue-i18n";
 import { useReferralStore } from "./stores/referralStore";
 import { useRoute } from "vue-router";
 import { SidebarProvider, SidebarInset } from "./components/ui/sidebar";
-// import Loading from "./components/loading.vue";
-import { useLoaderStore } from "./stores/loaderStore";
-import { storeToRefs } from "pinia";
+import Loading from "./components/loading.vue";
 const DownloadNav = defineAsyncComponent(
   () => import("./components/layout/downloadNav.vue"),
 );
@@ -25,9 +23,6 @@ const AuthModal = defineAsyncComponent(() => import("@/components/Auth.vue"));
 const route = useRoute();
 const referralStore = useReferralStore();
 const { locale } = useI18n();
-
-const store = useLoaderStore();
-const { transitioning } = storeToRefs(store);
 watch(
   locale,
   (lang) => {
@@ -63,36 +58,8 @@ watch(
         <DownloadNav />
         <TopNavBar />
         <div class="relative flex-1 flex flex-col items-center w-full">
-          <div class="relative flex-1 overflow-hidden flex-col items-center w-full">
-            <router-view v-slot="{ Component, route }">
-              <transition
-                  enter-active-class="duration-100 transition-opacity"
-                  leave-active-class="duration-100 transition-opacity"
-                  enter-from-class="opacity-0"
-                  leave-to-class="opacity-0"
-                >
-                <div
-                  :key="route.fullPath"
-                  class="w-full min-h-dvh"
-                >
-                  <component :is="Component" />
-                </div>
-              </transition>
-            </router-view>
-
-              <div
-                v-if="transitioning"
-                class="absolute inset-0 z-9999 flex items-center justify-center bg-black/10"
-              >
-                <div
-                  class="w-10 h-10 rounded-full border-2 border-white/20 border-t-yellow-400 animate-spin"
-                />
-              </div>
-
-          </div>
-
-          <!-- <router-view /> -->
-
+          <router-view />
+          <Loading/>
           <UpdatePopup />
           <AuthModal />
           <GameDrawer />

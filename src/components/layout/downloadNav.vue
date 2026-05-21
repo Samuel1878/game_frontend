@@ -85,9 +85,9 @@ const downloadApp = () => {
         <!-- Download -->
         <button
              @click="downloadApp"
-          class="gold-bg px-4 py-1 rounded-full text-sm font-semibold animate-pulse active:scale-95 transition"
+          class=" px-4 py-1 rounded-full text-sm font-semibold active:scale-95 transition"
         >
-          <Download class="w-6 h-6"/>
+          <Download class="w-6 h-6 text-yellow-400"/>
         </button>
 
         <!-- Close -->

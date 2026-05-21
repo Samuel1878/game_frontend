@@ -2,39 +2,63 @@
 import { gameOptions } from "@/consts";
 import router from "@/router";
 import { useI18n } from "vue-i18n";
+import { ref, watch, nextTick } from "vue";
+
 const { t } = useI18n();
 const props = defineProps<{ current_page: string }>();
+
+const container = ref<HTMLElement | null>(null);
+
 const gotoPath = (path: string) => {
-  // console.log(path)
   router.push(path);
 };
+
+/**
+ * auto center active tab
+ */
+const scrollToActive = async () => {
+  await nextTick();
+
+  const el = container.value?.querySelector(
+    `[data-active="true"]`
+  ) as HTMLElement | null;
+
+  el?.scrollIntoView({
+    behavior: "smooth",
+    inline: "center",
+    block: "nearest",
+  });
+};
+
+watch(
+  () => props.current_page,
+  () => {
+    scrollToActive();
+  },
+  { immediate: true }
+);
 </script>
 <template>
-  <aside
-    class="mx-2 overflow-hidden rounded-full bg-gray-900/10 bg-linear-to-br from-white/5 via-white/5 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.1)]"
+  <aside class="mx-2 overflow-hidden rounded-full bg-gray-900/10 bg-linear-to-br from-white/5 via-white/5 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
+
+  <div
+    ref="container"
+    class="p-1.5 flex overflow-x-auto no-scrollbar scroll-smooth"
   >
     <div
-      class="p-1.5 relative flex justify-between overflow-x-auto no-scrollbar scroll-smooth"
+      v-for="option in gameOptions"
+      :key="option.id"
+      :data-active="props.current_page === option.label"
+      class="cursor-pointer px-2 gap-2 rounded-full flex items-center justify-center whitespace-nowrap shrink-0"
+      :class="props.current_page === option.label
+        ? 'bg-gray-500/20'
+        : ''"
+      @click="gotoPath(option.path)"
     >
-      <div
-        v-for="option in gameOptions"
-        class="cursor-pointer relative px-6 gap-2 rounded-full flex items-center justify-center flex-nowrap"
-        :class="
-          props.current_page === option.label ? 'bg-gray-500/20' : 'bg-none'
-        "
-        @click="gotoPath(option.path)"
-        :key="option.id"
-      >
-        <img
-          :src="option.image"
-          class="w-8 h-8 aspect-square"
-          fetchpriority="high"
-          loading="eager"
-          decoding="async"
-          alt="Navigator"
-        />
-        <p class="text-xs text-white text-nowrap">{{ t(option.label) }}</p>
-      </div>
+      <img :src="option.image" class="w-8 h-8" />
+      <p class="text-xs text-white">{{ t(option.label) }}</p>
     </div>
-  </aside>
+  </div>
+
+</aside>
 </template>

@@ -5,13 +5,26 @@ import { homeSlide } from "@/consts";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useI18n } from "vue-i18n";
+import { onMounted, ref } from "vue";
 const { locale } = useI18n();
-
+const isReady = ref(false);
+onMounted(() => {
+  // delay lets browser finish critical render first
+  requestAnimationFrame(() => {
+    isReady.value = true;
+  });
+});
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-full relative">
+    <div
+      v-if="!isReady"
+      class="w-full h-50
+             bg-white/10 animate-pulse rounded-xl"
+    />
     <Swiper
+        v-else
       :modules="[Pagination, Autoplay]"
       :loop="true"
       :speed="800"

@@ -2,8 +2,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useAuthStore } from "./stores/auth";
 import { useUIStore } from "./stores/ui";
-import { useLoaderStore } from "./stores/loaderStore";
-
 const HomeView = ()=> import("@/screens/Home.vue")
 const Payments = () => import("./screens/Deposit/payments.vue");
 const Profile = () => import("./screens/User/Profile.vue");
@@ -195,7 +193,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
     scrollBehavior() {
-    return { top: 0 };
+    return { top: 0, behavior:"smooth" };
   },
  
 });
@@ -203,24 +201,12 @@ const router = createRouter({
 
 router.beforeEach(async (to) => {
   const auth = useAuthStore();
-    const loader = useLoaderStore();
   const ui = useUIStore()
   if (to.meta.requiresAuth && !auth.accessToken) {
     ui.openAuthModal(to.fullPath);
     return { path: "/" };
   }
-   loader.start();
   return true;
 });
-router.afterEach(() => {
-  // requestAnimationFrame(() => {
-  //   window.scrollTo(0, 0);
-  //   useLoaderStore().endTransition();
-  // });
-   const loader = useLoaderStore();
 
-  requestAnimationFrame(() => {
-    loader.finish();
-  });
-});
 export default router;

@@ -50,6 +50,7 @@ const scroll = (direction: "left" | "right") => {
   });
 };
 const fetchGames = async (reset = false) => {
+ 
   if (reset) {
     offset.value = 0;
     hasMore.value = true;
@@ -130,7 +131,8 @@ const btnClass = (active: boolean) => (active ? "animate-pulse-scale" : "");
         </div>
       </div>
     </div>
-    <GameOptions current_page="slots" />
+    
+    <GameOptions current_page="slots"/>
     <aside class="space-y-2">
       <div class="relative w-full my-4 pl-2 pr-2 md:pl-10 flex">
         <!-- Left Arrow -->
@@ -221,7 +223,10 @@ const btnClass = (active: boolean) => (active ? "animate-pulse-scale" : "");
         </button>
       </div>
     </div>
-    <GameViews v-if="games" :game-data="games"/>
+    <div class="px-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 my-2" v-if="!games?.length">
+      <div class="h-40 grid-1 bg-white/10 animate-pulse rounded-xl" v-for="n in 18" :key="n"></div>
+    </div>
+    <GameViews v-else :game-data="games"/>
     <div class="flex justify-center my-4">
       <button
         v-if="hasMore"

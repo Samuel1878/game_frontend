@@ -1,9 +1,9 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import { useLoaderStore } from "@/stores/loaderStore";
 import { storeToRefs } from "pinia";
 
 const ui = useLoaderStore();
-// const { loading } = storeToRefs(ui);
+const { loading } = storeToRefs(ui);
 </script>
 
 <template>
@@ -16,4 +16,4 @@ const ui = useLoaderStore();
     </div>
   
   </div>
-</template> -->
+</template>

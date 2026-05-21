@@ -38,7 +38,13 @@ onMounted(async () => {
   await nextTick();
   startLive(props.gameData || []);
 });
-
+const isReady = ref(false);
+onMounted(() => {
+  // delay lets browser finish critical render first
+  requestAnimationFrame(() => {
+    isReady.value = true;
+  });
+});
 const total = computed(() => props.gameData?.length ?? 0);
 </script>
 
@@ -76,7 +82,16 @@ const total = computed(() => props.gameData?.length ?? 0);
         </div>
       </div>
     </div>
+    <div class="space-y-3" v-if="!isReady">
+        
+        <div class="flex gap-3">
+          <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
+          <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
+          <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
+        </div>
+    </div>
     <Swiper
+      v-else
       @swiper="onSwiper"
       :speed="500"
       :space-between="8"
