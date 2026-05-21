@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
-import "swiper/css/free-mode"; // Added missing CSS for FreeMode
 import type { gameType } from "@/utils/types";
 import { ChevronLeft, ChevronRight, Users, Diamond } from "lucide-vue-next";
 import { computed, onMounted, ref, watch } from "vue";

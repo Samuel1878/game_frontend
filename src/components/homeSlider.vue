@@ -2,8 +2,6 @@
 import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { homeSlide } from "@/consts";
-import "swiper/css";
-import "swiper/css/pagination";
 import { useI18n } from "vue-i18n";
 import { onMounted, ref } from "vue";
 const { locale } = useI18n();

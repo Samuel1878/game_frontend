@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
 import type { gameType } from "@/utils/types";
 import { ChevronLeft, ChevronRight, Diamond, Users2 } from "lucide-vue-next";
 import { computed, onMounted, ref, watch } from "vue";

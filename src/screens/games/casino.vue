@@ -121,7 +121,7 @@ onMounted(() => fetchGames(true));
             fetchGames(true);
           "
           :class="sortBy === 'rank' ? 'gold-bg animate-pulse' : 'bg-none'"
-          class="p-1 rounded-full border border-white"
+          class="p-1 rounded-full border border-white/70"
         >
           <Flame
             class="w-4 h-4"
@@ -135,7 +135,7 @@ onMounted(() => fetchGames(true));
             fetchGames(true);
           "
           :class="sortBy === 'rtp' ? 'gold-bg animate-pulse' : 'bg-none'"
-          class="p-1 rounded-full border border-white"
+          class="p-1 rounded-full border border-white/70"
         >
           <Percent
             class="w-4 h-4"
@@ -147,7 +147,7 @@ onMounted(() => fetchGames(true));
             topOnly = !topOnly;
           "
           :class="topOnly ? 'gold-bg animate-pulse' : 'bg-none'"
-          class="p-1 rounded-full border border-white"
+          class="p-1 rounded-full border border-white/70"
         >
           <Trophy
             class="w-4 h-4"

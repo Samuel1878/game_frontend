@@ -192,9 +192,8 @@ watch(
             fetchGames(true);
           "
           :class="sortBy === 'rank'?'gold-bg animate-pulse':'bg-none'"
-          class="p-1 rounded-full border border-white"
+          class="p-1 rounded-full border border-white/70"
         >
-          <!-- <img :src="hot" /> -->
            <Flame class="w-4 h-4" :class="sortBy === 'rank'?'text-black':'text-white'" />
         </button>
 
@@ -204,7 +203,7 @@ watch(
             fetchGames(true);
           "
           :class="sortBy === 'rtp'?'gold-bg animate-pulse':'bg-none'"
-          class="p-1 rounded-full border border-white"
+          class="p-1 rounded-full border border-white/70"
         >
           <Percent class="w-4 h-4 " :class="sortBy === 'rtp'?'text-black':'text-white'"/>
         </button>
@@ -214,7 +213,7 @@ watch(
             providerId = 0;
           "
           :class="topOnly?'gold-bg animate-pulse':'bg-none'"
-          class="p-1 rounded-full border border-white"
+          class="p-1 rounded-full border border-white/70"
         >
           <Trophy class="w-4 h-4 " :class="topOnly?'text-black':'text-white'"/>
         </button>

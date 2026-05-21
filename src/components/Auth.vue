@@ -102,12 +102,6 @@ const validateForm = () => {
   if (!checked.value) return "must_accept_terms";
   return null;
 };
- const closeAuthModal = ()=>{
-      ui.closeAuthModal();
-      if (redirectAfterAuth.value) {
-        router.push(redirectAfterAuth.value);
-      }
-  }
 const submit = async () => {
   // console.log(referralCode.value);
   errorMessage.value = "";
@@ -117,7 +111,6 @@ const submit = async () => {
     toast.warning(t(validationError));
     return;
   }
- 
   loadingButton.value = true;
   try {
     let response;
@@ -137,7 +130,10 @@ const submit = async () => {
     }
     if (response?.status === 200) {
       toast.success(t(response.message));
-      closeAuthModal()
+      ui.closeAuthModal();
+      if (redirectAfterAuth.value) {
+        router.push(redirectAfterAuth.value);
+      }
     } else {
       errorMessage.value = response?.message || "invalid_username_password";
       // console.warn("[AUTH FAILED]:", {
@@ -200,7 +196,7 @@ const submit = async () => {
 
         <button
           class="absolute right-5 top-5 cursor-pointer"
-          @click="closeAuthModal()"
+          @click="ui.closeAuthModal()"
         >
           <X />
         </button>
