@@ -78,4 +78,5 @@ onMounted(() => {
   /* Size of the dots (optional) */
   --swiper-pagination-bullet-size: 8px;
   --swiper-pagination-bullet-horizontal-gap: 4px;
-}</style>
+}
+</style>
