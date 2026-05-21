@@ -15,7 +15,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src')
     }
   },
-build: {
+  esbuild: {
+    pure: ['console.log'],
+  },
+  build: {
     cssCodeSplit: false,
     sourcemap: false,
     chunkSizeWarningLimit: 1000, 

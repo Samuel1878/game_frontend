@@ -58,7 +58,7 @@ const langNames: any = {
           class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-200 focus:bg-white/10 focus:text-white cursor-pointer rounded-md transition-colors"
         >
           <div class="flex items-center gap-5">
-            <img :src="flag" class="w-5 h-5 rounded-sm object-cover" />
+            <img :src="flag" class="w-5 h-5 rounded-sm object-cover" alt="flags"/>
             <span>{{ langNames[key] }}</span>
           </div>
         </SelectItem>

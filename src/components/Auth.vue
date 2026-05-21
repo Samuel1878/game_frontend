@@ -22,9 +22,7 @@ import { useReferralStore } from "@/stores/referralStore";
 import {
   Eye,
   EyeClosed,
-
   LockIcon,
- 
   PhoneIcon,
   Share2Icon,
   User,
@@ -104,6 +102,12 @@ const validateForm = () => {
   if (!checked.value) return "must_accept_terms";
   return null;
 };
+ const closeAuthModal = ()=>{
+      ui.closeAuthModal();
+      if (redirectAfterAuth.value) {
+        router.push(redirectAfterAuth.value);
+      }
+  }
 const submit = async () => {
   // console.log(referralCode.value);
   errorMessage.value = "";
@@ -113,6 +117,7 @@ const submit = async () => {
     toast.warning(t(validationError));
     return;
   }
+ 
   loadingButton.value = true;
   try {
     let response;
@@ -132,10 +137,7 @@ const submit = async () => {
     }
     if (response?.status === 200) {
       toast.success(t(response.message));
-      ui.closeAuthModal();
-      if (redirectAfterAuth.value) {
-        router.push(redirectAfterAuth.value);
-      }
+      closeAuthModal()
     } else {
       errorMessage.value = response?.message || "invalid_username_password";
       // console.warn("[AUTH FAILED]:", {
@@ -177,7 +179,7 @@ const submit = async () => {
             class="animate-pulse relative p-0.5 rounded-3xl bg-linear-to-br from-yellow-400/60 via-yellow-200/70 to-yellow-500/70 shadow-[0_0_15px_rgba(255,215,0,.4)]"
           >
             <div class="bg-black/70 rounded-3xl p-1"> -->
-          <img src="/favicon.webp" class="w-14 h-14" />
+          <img src="/favicon.webp" class="w-14 h-14" alt="Logo"/>
           <!-- </div>
           </div> -->
 
@@ -198,7 +200,7 @@ const submit = async () => {
 
         <button
           class="absolute right-5 top-5 cursor-pointer"
-          @click="ui.closeAuthModal()"
+          @click="closeAuthModal()"
         >
           <X />
         </button>

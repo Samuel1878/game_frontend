@@ -1,23 +1,16 @@
 import { 
-     slot, buffalo, fish, casino, chess, home, 
-     accountCenter,
-     depositHistoryIcon,
-     withdrawHistoryIcon,
-     transaction,
-     share,
-     helpCenter,
-     services,
+     slot, buffalo, fish, casino, chess, home
    
 } from "@/utils/assets";
 import {  openChat,} from "@/utils"
 import type { Game } from "@/utils/types";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
-import { BanknoteArrowDown, CircleQuestionMark, Handshake, HatGlasses, Landmark, MonitorDown, Share2, ShieldAlert, Spade, SquareArrowRight, Store, Wallet, type LucideIcon } from "lucide-vue-next";
+import { AtSign, BanknoteArrowDown, CalendarArrowDown, CalendarArrowUp, CircleQuestionMark, ClipboardClock, Handshake, HatGlasses, Headset, Landmark, MonitorDown, Share2, ShieldAlert, ShieldCheck, Spade, SquareArrowRight, Store, UserPlus, Wallet, type LucideIcon } from "lucide-vue-next";
 import type { Component } from "vue";
 export const usdtRateToMMK = 4000;
 export const footer_images = [
-
+    
     '/providers/PP-WHITE.webp',
     '/providers/PG-WHITE.webp',
     '/providers/JL-WHITE.webp',
@@ -328,7 +321,7 @@ export const MembershipCenter:MembershipType[] = [
         action:()=>{
             router.push("/user/update-password")
         },
-        image:accountCenter
+        icon:ShieldCheck
     },
     {
         id:2,
@@ -336,7 +329,7 @@ export const MembershipCenter:MembershipType[] = [
         action:()=>{
             router.push("/user/deposit-history")
         },
-        image:depositHistoryIcon
+        icon:CalendarArrowUp
     },
     {
         id:3,
@@ -344,7 +337,7 @@ export const MembershipCenter:MembershipType[] = [
                action:()=>{
                 router.push("/user/withdraw-history")
         },
-        image:withdrawHistoryIcon
+        icon:CalendarArrowDown
     },
 
     {
@@ -353,7 +346,7 @@ export const MembershipCenter:MembershipType[] = [
                action:()=>{
                 router.push("/user/transactions")
         },
-        image:transaction
+        icon:ClipboardClock
     },
     {
         id:5,
@@ -361,7 +354,7 @@ export const MembershipCenter:MembershipType[] = [
         action:()=>{
             router.push("/user/agent-center/overview")
         },
-        image:share
+        icon:UserPlus
     },
 
     {
@@ -388,7 +381,7 @@ export const MembershipCenter:MembershipType[] = [
                action:()=>{
                 openChat()
         },
-        image:services
+        icon:Headset
     },
          {
         id:9,
@@ -415,7 +408,7 @@ export const MembershipCenter:MembershipType[] = [
                action:()=>{
                 router.push("/help")
         },
-        image:helpCenter
+        icon:AtSign
     },
 
     {

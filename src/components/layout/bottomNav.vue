@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import {
-  Home,
   User,
   GiftIcon,
   Wallet,
   BanknoteArrowDown,
+  LayoutGrid,
 } from "lucide-vue-next";
 import { useRoute, useRouter } from "vue-router";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-import { menu } from "@/utils/assets";
+// import { menu } from "@/utils/assets";
 
 const route = useRoute();
 const router = useRouter();
@@ -17,7 +17,7 @@ const { t } = useI18n();
 const navItems = [
   { name: "promotion", icon: GiftIcon, path: "/promotions" },
   { name: "deposit", icon: Wallet, path: "/deposit" },
-  { name: "home", icon: Home, path: "/", center: true },
+  { name: "home",icon: LayoutGrid, path: "/" },
   { name: "withdraw", icon: BanknoteArrowDown, path: "/withdraw" },
   { name: "profile", icon: User, path: "/user/profile" },
 ];
@@ -50,20 +50,19 @@ const indicatorStyle = computed(() => {
         />
       </div>
 
-      <div class="grid grid-cols-5 h-14 items-center relative">
+      <div class="grid grid-cols-5 h-15 items-center relative">
         <template v-for="item in navItems" :key="item.name">
-          <div v-if="item.center" class="relative flex justify-center">
+          <!-- <div v-if="item.center" class="relative flex justify-center">
             <button
               @click="go(item.path)"
               class="absolute -top-8 w-16 h-16 rounded-full text-amber-400 flex flex-col items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 drop-shadow-[0_0_14px_#FACC15]"
             >
-              <img :src="menu" class="w-6 h-6" />
+              <img :src="menu" class="w-6 h-6" alt="Home"/>
             </button>
-          </div>
+          </div> -->
 
           <button
             @click="go(item.path)"
-            v-else
             class="flex flex-col items-center justify-center gap-1 text-xs transition"
             :class="
               route.path === item.path
@@ -72,7 +71,7 @@ const indicatorStyle = computed(() => {
             "
           >
             <component :is="item.icon || 'div'" class="w-6 h-6" />
-            <span class="font-medium">{{ t(item.name) }}</span>
+            <span class="font-bold text-xs">{{ t(item.name) }}</span>
           </button>
         </template>
       </div>

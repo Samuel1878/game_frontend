@@ -3,7 +3,7 @@ import { Toaster } from "./components/ui/sonner";
 import "vue-sonner/style.css";
 import BottomNav from "./components/layout/bottomNav.vue";
 import TopNavBar from "./components/layout/topNavBar.vue";
-import { defineAsyncComponent, watch } from "vue";
+import { defineAsyncComponent, onMounted, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useReferralStore } from "./stores/referralStore";
 import { useRoute } from "vue-router";
@@ -26,17 +26,29 @@ const { locale } = useI18n();
 watch(
   locale,
   (lang) => {
-    document.documentElement.classList.remove("lang-en", "lang-my", "lang-zh");
+    const html = document.documentElement;
 
-    if (lang === "mm") {
-      document.documentElement.classList.add("lang-my");
-    } else if (lang === "cn") {
-      document.documentElement.classList.add("lang-zh");
-    } else {
-      document.documentElement.classList.add("lang-en");
+    // remove previous classes
+    html.classList.remove("lang-en", "lang-my", "lang-zh");
+
+    switch (lang) {
+      case "mm":
+        html.lang = "my";
+        html.classList.add("lang-my");
+        break;
+
+      case "cn":
+        html.lang = "zh";
+        html.classList.add("lang-zh");
+        break;
+
+      default:
+        html.lang = "en";
+        html.classList.add("lang-en");
+        break;
     }
   },
-  { immediate: true },
+  { immediate: true }
 );
 watch(
   () => route.query.rid,
@@ -48,6 +60,35 @@ watch(
   },
   { immediate: true },
 );
+onMounted(() => {
+  if ((window as any).Tawk_API) return;
+
+  (window as any).Tawk_API = (window as any).Tawk_API || {};
+  (window as any).Tawk_LoadStart = new Date();
+
+  (window as any).Tawk_API.customStyle = {
+    visibility: {
+      desktop: {
+        position: "br",
+        xOffset: 10,
+        yOffset: 90,
+      },
+      mobile: {
+        position: "br",
+        xOffset: 10,
+        yOffset: 90,
+      },
+    },
+  };
+
+  const s1 = document.createElement("script");
+  s1.async = true;
+  s1.src = "https://embed.tawk.to/69d614b826e9591c36b0cf98/1jlm41sjh";
+  s1.charset = "UTF-8";
+  s1.setAttribute("crossorigin", "*");
+
+  document.head.appendChild(s1);
+});
 </script>
 
 <template>
@@ -64,22 +105,9 @@ watch(
           <AuthModal />
           <GameDrawer />
         </div>
-
         <BottomNav class="md:hidden" />
       </SidebarInset>
     </div>
-
     <Toaster position="top-left" richColors />
   </SidebarProvider>
 </template>
-<!-- <div class="min-h-screen w-full bg-black flex justify-center gap-8 flex-col">
-          <p class="text-2xl text-red-600">
-            Maintainance Alert!
-          </p>
-          <p class="text-md text-yellow-300">
-            We are updating the system for the better game play experience. It will be done by tonight 5 PM. 
-          </p>
-          <p class="text-lg text-yellow-50">
-            ပိုမိုကောင်းမွန် သော ဂိမ်းအတွေ့ကြုံနင့် နိုင်ပွဲများ အတွက် ဆာဗာ ပြင်ဆင်နေပါ သဖြင့် ယနေ့ည ၅ နာရီမှသာပြန်လည် ကစားနိုင် မည် ဖြစ်သည်
-          </p>
-        </div> -->

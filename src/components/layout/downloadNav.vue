@@ -50,17 +50,17 @@ const downloadApp = () => {
   >
     <div
       v-if="showAppBanner"
-      class="z-40 glass-bg shadow-lg"
+      class="z-40 glass-bg shadow-lg border-0 border-b ring-0 outline-0"
    
     >
-      <div class="flex items-center gap-3 px-3 h-12">
+      <div class="flex items-center gap-2 px-2 h-12">
         <!-- App Icon -->
         <img
           src="/favicon.webp"
           alt="App"
           class="w-10 h-10 shadow-md"
-        />
 
+        />
         <!-- Info -->
         <div class="flex-1 min-w-0">
           <div class="flex items-center gap-2">
@@ -69,13 +69,13 @@ const downloadApp = () => {
             </h3>
 
             <div
-              class="bg-white/20 px-1.5 py-0.5 rounded text-[8px] text-yellow-500"
+              class="bg-white/10 px-1.5 py-0.5 rounded text-[7px] text-yellow-500"
             >
               HOT
             </div>
           </div>
 
-          <div class="flex items-center gap-1 text-white/90 text-[8px]">
+          <div class="flex items-center gap-1 text-white/90 text-[10px]">
             <span>⭐ ⭐ ⭐ ⭐ ⭐</span>
             <span>•</span>
             <span class="">10K+ {{ t("download") }}</span>
@@ -84,7 +84,8 @@ const downloadApp = () => {
 
         <!-- Download -->
         <button
-             @click="downloadApp"
+          @click="downloadApp"
+          aria-label="download"
           class=" px-4 py-1 rounded-full text-sm font-semibold active:scale-95 transition"
         >
           <Download class="w-6 h-6 text-yellow-400"/>

@@ -4,7 +4,7 @@ import router from "@/router";
 import { useI18n } from "vue-i18n";
 import { ref, watch, nextTick } from "vue";
 
-const { t } = useI18n();
+const { t ,locale} = useI18n();
 const props = defineProps<{ current_page: string }>();
 
 const container = ref<HTMLElement | null>(null);
@@ -49,8 +49,8 @@ watch(
         : ''"
       @click="gotoPath(option.path)"
     >
-      <img :src="option.image" class="w-8 h-8" />
-      <p class="text-xs text-white">{{ t(option.label) }}</p>
+      <img :src="option.image" class="w-8 h-8" :alt="option.label" loading="eager" decoding="async" fetchpriority="high"/>
+      <p class="text-white" :class="locale==='cn'?'text-sm':'text-xs'">{{ t(option.label) }}</p>
     </div>
   </div>
 

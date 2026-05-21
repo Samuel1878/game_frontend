@@ -4,10 +4,10 @@ const GameOptions = defineAsyncComponent(()=>import('@/components/layout/gameOpt
 const GameViews = defineAsyncComponent(()=>import('@/components/gameViews.vue'))
 import {InputGroup,InputGroupAddon,InputGroupInput} from "@/components/ui/input-group";
 import { getGamesByProviderAPI } from "@/services/gameAPI";
-import { casino, hot, hot_rtp_icon, top_icon } from "@/utils/assets";
+import { casino} from "@/utils/assets";
 import type { gameType } from "@/utils/types";
 import { refDebounced } from "@vueuse/core";
-import { SearchIcon } from "lucide-vue-next";
+import { Flame, Percent, SearchIcon, Trophy } from "lucide-vue-next";
 import { defineAsyncComponent, onMounted, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 const sortBy = ref("rank");
@@ -21,7 +21,6 @@ const hasMore = ref(true);
 const isLoadingMore = ref(false);
 const searchQuery = ref("");
 const debouncedSearch = refDebounced(searchQuery, 300);
-const btnClass = (active: boolean) => (active ? "animate-pulse-scale" : "");
 const fetchGames = async (reset = false) => {
 
   if (reset) {
@@ -115,15 +114,19 @@ onMounted(() => fetchGames(true));
         <img :src="casino" class="w-8 h-8" />
         <p class="text-lg text-white font-bold">{{ t("casino") }}</p>
       </div>
-      <div class="flex gap-4">
+      <div class="flex gap-4 items-center">
         <button
           @click="
             sortBy = 'rank';
             fetchGames(true);
           "
-          :class="btnClass(sortBy === 'rank')"
+          :class="sortBy === 'rank' ? 'gold-bg animate-pulse' : 'bg-none'"
+          class="p-1 rounded-full border border-white"
         >
-          <img :src="hot" />
+          <Flame
+            class="w-4 h-4"
+            :class="sortBy === 'rank' ? 'text-black' : 'text-white'"
+          />
         </button>
 
         <button
@@ -131,13 +134,25 @@ onMounted(() => fetchGames(true));
             sortBy = 'rtp';
             fetchGames(true);
           "
-          :class="btnClass(sortBy === 'rtp')"
+          :class="sortBy === 'rtp' ? 'gold-bg animate-pulse' : 'bg-none'"
+          class="p-1 rounded-full border border-white"
         >
-          <img :src="hot_rtp_icon" />
+          <Percent
+            class="w-4 h-4"
+            :class="sortBy === 'rtp' ? 'text-black' : 'text-white'"
+          />
         </button>
-
-        <button @click="topOnly = !topOnly" :class="btnClass(topOnly)">
-          <img :src="top_icon" />
+        <button
+          @click="
+            topOnly = !topOnly;
+          "
+          :class="topOnly ? 'gold-bg animate-pulse' : 'bg-none'"
+          class="p-1 rounded-full border border-white"
+        >
+          <Trophy
+            class="w-4 h-4"
+            :class="topOnly ? 'text-black' : 'text-white'"
+          />
         </button>
       </div>
     </div>

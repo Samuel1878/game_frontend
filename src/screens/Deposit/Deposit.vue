@@ -65,7 +65,7 @@ const goToPayment = () => {
               class="group  w-[30%] p-2 rounded-2xl relative bg-linear-to-br from-white/5 to-white/10 border-2  hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-500/10 active:scale-[0.97] transition flex flex-col items-center gap-2"
               :class="chosePayment === payment.value ? 'border-yellow-400 animate-pulse' : 'border-white/10'">
               <div class="p-2 rounded-xl bg-black/40 backdrop-blur-2xl group-hover:scale-110 transition">
-                <img :src="payment.icon" class="w-10 h-10 object-cover rounded-lg" />
+                <img :src="payment.icon" class="w-10 h-10 object-cover rounded-lg" fetchpriority="high" decoding="async" :alt="payment.label"/>
               </div>
               <CircleCheck v-show="chosePayment === payment.value"
                 class="text-yellow-400 w-6 h-6 absolute right-2 top-2 font-bold" />

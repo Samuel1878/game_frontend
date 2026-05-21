@@ -74,11 +74,12 @@ const { t } = useI18n();
       <div
         class="font-black text-yellow-400 flex gap-2 items-center justify-between tracking-widest text-center"
       >
-        <img src="/logo.webp" class="w-19" />
+        <img src="/logo.webp" class="w-19" alt="Logo"/>
         <div v-if="authStore.user" @click="router.push('/user/profile')">
           <img
             src="/images/profile.png"
             class="w-7 h-7 rounded-full overflow-hidden"
+            alt="profile"
           />
         </div>
       </div>
@@ -150,7 +151,7 @@ const { t } = useI18n();
                     :to="game.path"
                     class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
                   >
-                    <img :src="game.image" class="w-8 h-8" />
+                    <img :src="game.image" class="w-8 h-8" :alt="game.label"/>
                     <span class="font-medium text-md">{{ t(game.label) }}</span>
                   </router-link>
                 </SidebarMenuButton>
@@ -220,16 +221,16 @@ const { t } = useI18n();
                 class="flex gap-2 justify-around items-center pb-2"
               >
                 <div @click="openChat" class="cursor-pointer">
-                  <HeadsetIcon class="w-7 h-7 text-yellow-400" />
+                  <HeadsetIcon class="w-7 h-7 text-yellow-400"/>
                 </div>
                 <div @click="openTelegram" class="cursor-pointer">
-                  <img src="/socials/telegram_black.svg" class="w-8 h-8" />
+                  <img src="/socials/telegram_black.svg" class="w-8 h-8" alt="telegram"/>
                 </div>
                 <div @click="openDiscord" class="cursor-pointer">
-                  <img src="/socials/discord_black.webp" class="w-8 h-8" />
+                  <img src="/socials/discord_black.webp" class="w-8 h-8"  alt="discord"/>
                 </div>
                 <div @click="openViber" class="cursor-pointer">
-                  <img src="/socials/viber_black.webp" class="w-8 h-8" />
+                  <img src="/socials/viber_black.webp" class="w-8 h-8" alt="viber"/>
                 </div>
               </SidebarMenuItem>
             </SidebarMenu>

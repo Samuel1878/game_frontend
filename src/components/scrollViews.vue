@@ -65,20 +65,24 @@ const total = computed(() => props.gameData?.length ?? 0);
       <div class="flex gap-2 items-center">
         <button
           @click="action"
-          class="text-xs px-3 h-8 rounded-md bg-gray-800/80 border border-white/5 text-gray-300 hover:text-white transition-colors"
+          aria-label="view more"
+          class=" px-3 h-8 rounded-md bg-gray-800/80 border border-white/5 flex gap-2 items-center"
         >
-          {{ t("view_more") }} <span class="opacity-50 ml-1">{{ total }}</span>
+        <p class=" text-gray-300 text-xs hover:text-white transition-colors">{{ t("view_more") }} </p>
+          <span class="text-gray-300 ml-1">{{ total }}</span>
         </button>
 
         <div class="flex gap-2 ml-1">
           <button
             @click="slideLeft"
+            aria-label="slider left"
             class="bg-gray-800 border border-white/5 p-1.5 rounded-md hover:bg-gray-700 transition"
           >
             <ChevronLeft class="w-4 h-4 text-gray-400" />
           </button>
           <button
             @click="slideRight"
+            aria-label="slide right"
             class="bg-gray-800 border border-white/5 p-1.5 rounded-md hover:bg-gray-700 transition"
           >
             <ChevronRight class="w-4 h-4 text-gray-400" />
@@ -129,11 +133,11 @@ const total = computed(() => props.gameData?.length ?? 0);
             <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
               <div
                 v-if="stats[key(game)]"
-                class="flex items-center gap-2 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
+                class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
               >
                 <Diamond class="w-2 h-2 text-blue-500" />
                 <span class="text-[8px] text-white font-bold">
-                   {{ stats[`${game.provider_id}-${game.game_id}`]?.rtp }}
+                   <span class="text-[8px] text-blue-500">RTP</span> {{ stats[`${game.provider_id}-${game.game_id}`]?.rtp }}
                 </span>
               </div>
               <div

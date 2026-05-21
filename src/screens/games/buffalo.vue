@@ -66,11 +66,11 @@ onMounted(async () => {
                 <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
                     <div
                     v-if="gameStats[game.id]"
-                    class="flex items-center gap-2 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
+                    class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
                     >
                         <Diamond class="w-2 h-2 text-blue-500" />
                         <span class="text-[8px] text-white font-bold">
-                            {{ gameStats[game.id]?.rtp }}
+                          <span class="text-[8px] text-blue-500">RTP</span> {{ gameStats[game.id]?.rtp }}
                         </span>
                     </div>
 
@@ -88,6 +88,7 @@ onMounted(async () => {
                     :src="locale === 'cn' ? game.cn_icon_url : game.icon_url"
                     class="w-full aspect-3/4 rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
+                    alt="game_icon"
                 />
                 <div
                 class="absolute bottom-0 left-0 right-0 p-1.5 z-20 bg-linear-to-t from-black/80 to-transparent"

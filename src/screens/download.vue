@@ -123,6 +123,7 @@ const downloadAndroid = () => {
           <p class="text-blue-500 text-xs">{{ t("ios_lite_app") }}</p>
           <button
            @click="downloadIOS"
+            aria-label="Download IOS APP"
             class="gold-bg h-10 px-6 flex items-center rounded-full"
           >
             <p class="text-glow font-semibold text-sm">{{ t("download") }}</p>
@@ -161,6 +162,7 @@ const downloadAndroid = () => {
           <p class="text-green-500 text-xs">{{ t("android_apk") }}</p>
           <button
             @click="downloadAndroid"
+            aria-label="Download Android APP"
             class="gold-bg h-10 px-6 flex items-center rounded-full"
           >
             <p class="text-glow font-semibold text-sm">
@@ -170,7 +172,7 @@ const downloadAndroid = () => {
         </div>
       </div>
       <div class="w-full flex flex-col items-center">
-        <img src="/images/phone.webp" class="w-3/4" loading="lazy" fetchpriority="low"/>
+        <img src="/images/phone.webp" class="w-3/4" loading="lazy" fetchpriority="low" alt="mobile_image"/>
       </div>
     </section>
   </main>

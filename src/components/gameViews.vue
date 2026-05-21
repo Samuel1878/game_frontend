@@ -50,11 +50,11 @@ const key = (game: any) => `${game.provider_id}-${game.game_id}`;
                 <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
                     <div
                         v-if="stats[key(game)]"
-                        class="flex items-center gap-2 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
+                        class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
                     >
                         <Diamond class="w-2 h-2 text-blue-500" />
                         <span class="text-[8px] text-white font-bold">
-                        {{ stats[`${game.provider_id}-${game.game_id}`]?.rtp }}
+                       <span class="text-[8px] text-blue-500">RTP</span>  {{ stats[`${game.provider_id}-${game.game_id}`]?.rtp }}
                         </span>
                     </div>
 
@@ -73,6 +73,7 @@ const key = (game: any) => `${game.provider_id}-${game.game_id}`;
                 class="w-full aspect-3/4 rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
                 decoding="async"
+                :alt="game.name"
                 />
                 <div
                 class="absolute bottom-0 left-0 right-0 p-1.5 z-20 bg-linear-to-t from-black/80 to-transparent"

@@ -71,7 +71,7 @@ const handleSave = () => {
             <div class="" v-for="item in paymentMethod" v-on:click="choosePayment(item)">
                 <div class="flex flex-col items-center gap-2 p-2 border-2 rounded-lg" 
                     :class="form.value===item.value?'border-yellow-400 text-yellow-400 animate-pulse':'border-gray-400/30 text-white'">
-                  <img :src="item.icon" class="w-8 h-8 rounded-md" />
+                  <img :src="item.icon" class="w-8 h-8 rounded-md" :alt="item.label"/>
                   <span>{{ item.label }}</span>
                 </div>
             </div>

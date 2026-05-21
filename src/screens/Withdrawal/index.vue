@@ -235,7 +235,7 @@ const saveAccount = async () => {
               </div>
 
               <div class="absolute top-3 right-3 overflow-hidden rounded-lg p-2 bg-white/10 backdrop-blur-2xl">
-                <img class="w-8 h-8 rounded-sm" :src="getPaymentIcon(acc.value)?.icon"/>
+                <img class="w-8 h-8 rounded-sm" :src="getPaymentIcon(acc.value)?.icon" :alt="acc.label"/>
                 <!-- <span
                   class="text-xs px-2 py-1 rounded-full font-semibold"
                   :class="

@@ -49,7 +49,7 @@ onBeforeRouteLeave(() => {
         </div>
 
         <div @click="goHome">
-          <img src="/logo.webp" class="h-8" />
+          <img src="/logo.webp" class="h-8" alt="Logo"/>
         </div>
       </div>
     </div>
@@ -60,6 +60,7 @@ onBeforeRouteLeave(() => {
         v-if="gameStore.launchUrl"
         :src="gameStore.launchUrl"
         class="w-full h-full border-0"
+        title="Game Play"
       />
     </div>
 

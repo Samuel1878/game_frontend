@@ -21,9 +21,9 @@ const props = defineProps<{containerStyle:string}>()
           </div>
 
           <!-- Socials -->
-          <img src="/socials/viber.webp" @click="openViber"  class="w-10 h-10 hover:scale-110 transition cursor-pointer" />
-          <img src="/socials/telegram.svg" @click="openTelegram" class="w-10 h-10 hover:scale-110 transition cursor-pointer" />
-          <img src="/socials/discord.webp" @click="openDiscord" class="w-10 h-10 hover:scale-110 transition cursor-pointer" />
+          <img src="/socials/viber.webp" @click="openViber"  class="w-10 h-10 hover:scale-110 transition cursor-pointer" alt="viber"/>
+          <img src="/socials/telegram.svg" @click="openTelegram" class="w-10 h-10 hover:scale-110 transition cursor-pointer" alt="telegram"/>
+          <img src="/socials/discord.webp" @click="openDiscord" class="w-10 h-10 hover:scale-110 transition cursor-pointer" alt="discord"/>
         </div>
       </section>
 </template>
