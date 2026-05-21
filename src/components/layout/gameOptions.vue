@@ -12,10 +12,6 @@ const container = ref<HTMLElement | null>(null);
 const gotoPath = (path: string) => {
   router.push(path);
 };
-
-/**
- * auto center active tab
- */
 const scrollToActive = async () => {
   await nextTick();
 
@@ -29,7 +25,6 @@ const scrollToActive = async () => {
     block: "nearest",
   });
 };
-
 watch(
   () => props.current_page,
   () => {
@@ -40,7 +35,6 @@ watch(
 </script>
 <template>
   <aside class="mx-2 overflow-hidden rounded-full bg-gray-900/10 bg-linear-to-br from-white/5 via-white/5 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
-
   <div
     ref="container"
     class="p-1.5 flex overflow-x-auto no-scrollbar scroll-smooth"

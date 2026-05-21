@@ -38,24 +38,20 @@ const setProvider = (name: string | any, GpId: number | any) => {
   selectedProvider.value.GpId = GpId;
 };
 const scrollEl = ref<HTMLElement | null>(null);
-
 const scroll = (direction: "left" | "right") => {
   if (!scrollEl.value) return;
-
   const scrollAmount = 200;
-
   scrollEl.value.scrollBy({
     left: direction === "left" ? -scrollAmount : scrollAmount,
     behavior: "smooth",
   });
 };
 const fetchGames = async (reset = false) => {
- 
+
   if (reset) {
     offset.value = 0;
     hasMore.value = true;
   }
-
   loading.value = reset;
   isLoadingMore.value = !reset;
   let lang = locale.value === "cn" ? "zh_cn" : "en";
@@ -70,7 +66,6 @@ const fetchGames = async (reset = false) => {
       sortBy: sortBy.value,
       top: topOnly.value,
     });
-
     const data = res.data;
     // console.log(data);
     if (reset) {
@@ -78,7 +73,6 @@ const fetchGames = async (reset = false) => {
     } else {
       games.value = [...(games.value || []), ...data];
     }
-
     // 🔥 detect end
     if (data.length < limit) {
       hasMore.value = false;
@@ -108,9 +102,6 @@ watch(
   },
 );
 const btnClass = (active: boolean) => (active ? "animate-pulse-scale" : "");
-// useReturnRefresh(async () => {
-//   await authStore.fetchUser();
-// });
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">
@@ -155,10 +146,10 @@ const btnClass = (active: boolean) => (active ? "animate-pulse-scale" : "");
             class="shrink-0 flex flex-col peer-last:mr-4 gap-2 justify-center items-center text-sm whitespace-nowrap"
           >
             <Card
-              class="p-1 hover:bg-gray-700 transition rounded-md bg-gray-800/10 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+              class="p-1 hover:bg-gray-700 transition rounded-md bg-gray-600/50 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
             >
               <CardContent class="flex items-center justify-center">
-                <img :src="option?.icon" class="w-20" fetchpriority="auto"/>
+                <img :src="option?.icon" class="h-10" fetchpriority="auto"/>
               </CardContent>
             </Card>
           </button>
@@ -174,7 +165,7 @@ const btnClass = (active: boolean) => (active ? "animate-pulse-scale" : "");
       </div>
       <div class="px-2">
         <InputGroup
-          class="border-gray-500/70 text-white bg-gray-800/80 ring-gray-400/70 ring-0 rounded-full h-12"
+          class="border-gray-500/70 text-white bg-gray-600/50 ring-gray-400/70 ring-0 rounded-full h-12"
         >
           <InputGroupInput
             v-model="searchQuery"

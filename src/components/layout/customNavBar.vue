@@ -21,7 +21,7 @@ const goBack = () => {
 <template>
   <nav
     class="pt-[env(safe-area-inset-top)] w-full border-b
-           bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5
+           bg-gray-900/20 
            sticky top-0 z-40
            backdrop-blur-2xl border-white/5
            shadow-[0_10px_40px_rgba(0,0,0,0.2)]"

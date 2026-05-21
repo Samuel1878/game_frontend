@@ -6,6 +6,7 @@ import {
   SelectTrigger,
 } from '@/components/ui/select'
 import { cn_flag, en_flag, mm_flag } from '@/utils/assets';
+import { Globe } from 'lucide-vue-next';
 
 import { useI18n } from "vue-i18n";
 
@@ -29,9 +30,9 @@ const flags:any = {
     @update:model-value="changeLang"
     class="border-0"
   >
-    <SelectTrigger class="border-0 text-lg px-0">
-      <img :src="flags[locale]" class="w-7 h-7" />
-      <!-- <Globe/> -->
+    <SelectTrigger class="border-0 text-lg px-1">
+      <!-- <img :src="flags[locale]" class="w-7 h-7" /> -->
+      <Globe class="w-7 h-7 text-white"/>
     </SelectTrigger>
 
     <SelectContent class="bg-gray-800 border border-gray-700 p-2">

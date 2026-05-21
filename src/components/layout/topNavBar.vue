@@ -37,7 +37,7 @@ const openMenu = () => {
 <template>
   <nav
     v-if="!route.meta.hideTopNav"
-    class="sticky top-0 pt-[env(safe-area-inset-top)] right-0 left-0 z-30 w-full border-b-2 bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
+    class="sticky top-0 pt-[env(safe-area-inset-top)] right-0 left-0 z-30 w-full border-b-2 bg-gray-900/10 backdrop-blur-2xl border-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
   >
     <div class="mx-auto flex max-w-7xl items-center justify-between px-3 h-14">
       <div class="flex items-center gap-2 relative">
@@ -70,7 +70,7 @@ const openMenu = () => {
         <div v-else class="flex gap-2">
           <button
             @click="goToLoginHandler(true)"
-            class="rounded-sm h-10 flex justify-center items-center text-linear-gold font-medium bg-transparent border border-white/20 active-button"
+            class="rounded-sm h-10 flex justify-center items-center text-linear-gold font-medium bg-transparent border border-yellow-400 active-button"
             :class="locale === 'mm' ? 'text-xs px-2' : 'text-sm px-4'"
           >
             {{ t("login") }}

@@ -3,16 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/free-mode"; // Added missing CSS for FreeMode
 import type { gameType } from "@/utils/types";
-import { ChevronLeft, ChevronRight, Users, Percent } from "lucide-vue-next";
-import { computed, onMounted, ref, nextTick } from "vue";
+import { ChevronLeft, ChevronRight, Users, Diamond } from "lucide-vue-next";
+import { computed, onMounted, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
-// import { useCasinoLiveStats } from "@/lib/gamStatHook";
-import { useGameStat } from "@/lib/gameStat";
-// import { useFakeGameStats } from "@/lib/gamStatHook";
-
+import { useFakeGameStatsWithId } from "@/lib/fakeGameStatHook";
+const { stats, registerKeys } = useFakeGameStatsWithId();
 const swiperRef = ref<any>(null); // This will hold the Swiper instance
 const { t, locale } = useI18n();
-
 const props = defineProps<{
   action?: () => void;
   header?: string;
@@ -20,27 +17,29 @@ const props = defineProps<{
   handler?: (gameData: gameType) => void;
   icon: string;
 }>();
+watch(
+  () => props.gameData, // Use a getter function here
+  (list) => {
+    if (!list || list.length === 0) return;
 
+    const keys = list.map((g) => `${g.provider_id}-${g.game_id}`);
+    registerKeys(keys);
+  },
+  { immediate: true },
+);
 const onSwiper = (swiper: any) => {
   swiperRef.value = swiper; // Correct assignment
 };
-
 const slideLeft = () => {
   if (swiperRef.value) swiperRef.value.slidePrev();
 };
-
 const slideRight = () => {
   if (swiperRef.value) swiperRef.value.slideNext();
 };
+const key = (game: any) => `${game.provider_id}-${game.game_id}`;
 
-const {startLive, stats} = useGameStat()
-onMounted(async () => {
-  await nextTick();
-  startLive(props.gameData || []);
-});
 const isReady = ref(false);
 onMounted(() => {
-  // delay lets browser finish critical render first
   requestAnimationFrame(() => {
     isReady.value = true;
   });
@@ -50,9 +49,14 @@ const total = computed(() => props.gameData?.length ?? 0);
 
 <template>
   <article class="w-full" id="TopGame">
-   <div class="flex w-full items-center justify-between my-4">
+    <div class="flex w-full items-center justify-between my-4">
       <div class="flex gap-2 items-center">
-        <img :src="icon" class="w-7 h-7 object-contain" alt="section-icon" fetchpriority="low"/>
+        <img
+          :src="icon"
+          class="w-7 h-7 object-contain"
+          alt="section-icon"
+          fetchpriority="low"
+        />
         <h2 class="font-bold text-gray-200 text-lg tracking-tight">
           {{ header }}
         </h2>
@@ -83,12 +87,11 @@ const total = computed(() => props.gameData?.length ?? 0);
       </div>
     </div>
     <div class="space-y-3" v-if="!isReady">
-        
-        <div class="flex gap-3">
-          <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
-          <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
-          <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
-        </div>
+      <div class="flex gap-3">
+        <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
+        <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
+        <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
+      </div>
     </div>
     <Swiper
       v-else
@@ -122,43 +125,39 @@ const total = computed(() => props.gameData?.length ?? 0);
             <div
               class="pointer-events-none absolute inset-0 rounded-md border-shine"
             />
-
             <!-- RTP + USERS -->
             <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
               <div
-                v-if="stats[game.id]"
+                v-if="stats[key(game)]"
                 class="flex items-center gap-2 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
               >
-                <Percent class="w-2 h-2 text-blue-500" />
+                <Diamond class="w-2 h-2 text-blue-500" />
                 <span class="text-[8px] text-white font-bold">
-                  {{ stats[game.id]?.rtp }}
+                   {{ stats[`${game.provider_id}-${game.game_id}`]?.rtp }}
                 </span>
               </div>
-
               <div
-                v-if="stats[game.id]"
+                v-if="stats[key(game)]"
                 class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
               >
                 <Users class="w-2 h-2 text-green-500" />
                 <span class="text-[8px] text-white font-bold">
-                  {{ stats[game.id]?.users }}
+                 {{ stats[`${game.provider_id}-${game.game_id}`]?.users }}
                 </span>
               </div>
             </div>
-
             <p
               class="absolute bottom-1 left-0 right-0 z-10 text-center text-[10px] font-black text-white truncate px-1"
             >
               {{ locale === "cn" ? game.cn_name : game.name }}
             </p>
-
             <img
               :src="locale === 'cn' ? game.cn_icon_url : game.icon_url"
               class="w-full aspect-3/4 sm:aspect-4/5 md:aspect-square object-cover rounded-lg"
               :alt="game.name"
-                fetchpriority="auto"
-                decoding="async"
-                loading="lazy"
+              fetchpriority="auto"
+              decoding="async"
+              loading="lazy"
             />
           </div>
         </div>
@@ -166,12 +165,3 @@ const total = computed(() => props.gameData?.length ?? 0);
     </Swiper>
   </article>
 </template>
-
- <!-- :modules="[FreeMode]"
-      :free-mode="{
-        enabled: true,
-        momentum: true,
-        momentumRatio: 0.35,
-        momentumVelocityRatio: 0.8,
-        sticky: false,
-      }" -->

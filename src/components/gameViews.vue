@@ -16,7 +16,7 @@ const onClickGame = (game: gameType) => {
 const { stats, registerKeys } = useFakeGameStatsWithId();
 
 watch(
-  props.gameData,
+  ()=>props.gameData,
   (list) => {
     if (!list?.length) return;
 
