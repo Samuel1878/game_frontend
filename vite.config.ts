@@ -18,6 +18,7 @@ export default defineConfig({
   },
 build: {
     cssCodeSplit: false,
+    sourcemap: false,
     chunkSizeWarningLimit: 1000, // Safe threshold limit for grouped frameworks
     rollupOptions: {
       output: {

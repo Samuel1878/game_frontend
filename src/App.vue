@@ -66,14 +66,11 @@ watch(
           <div class="relative flex-1 overflow-hidden flex-col items-center w-full">
             <router-view v-slot="{ Component, route }">
               <transition
-                mode="out-in"
-                enter-active-class="duration-200 ease-out transition-all"
-                enter-from-class="opacity-100 translate-y-1"
-                enter-to-class="opacity-100 translate-y-0"
-                leave-active-class="duration-150 ease-in transition-all"
-                leave-from-class="opacity-100"
-                leave-to-class="opacity-0"
-              >
+                  enter-active-class="duration-100 transition-opacity"
+                  leave-active-class="duration-100 transition-opacity"
+                  enter-from-class="opacity-0"
+                  leave-to-class="opacity-0"
+                >
                 <div
                   :key="route.fullPath"
                   class="w-full min-h-dvh"
