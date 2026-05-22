@@ -34,8 +34,7 @@ export default defineConfig({
   },
    
   build: {
-    minify: "terser",
-   
+    minify: "esbuild",
     cssCodeSplit: false,
     sourcemap: false,
     chunkSizeWarningLimit: 1000, 
