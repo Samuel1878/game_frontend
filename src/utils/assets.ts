@@ -9,8 +9,6 @@ import slot from "@/assets/icon/slot.webp";
 import fish from "@/assets/icon/fish.webp";
 import casino from "@/assets/icon/livecasino.webp";
 import chess from "@/assets/icon/chess.webp";
-
-
 export {
   fish,
   casino,

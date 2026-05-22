@@ -9,6 +9,8 @@ import { useReferralStore } from "./stores/referralStore";
 import { useRoute } from "vue-router";
 import { SidebarProvider, SidebarInset } from "./components/ui/sidebar";
 import Loading from "./components/loading.vue";
+import { SpeedInsights } from "@vercel/speed-insights/vue"
+import { Analytics } from "@vercel/analytics/vue"
 const DownloadNav = defineAsyncComponent(
   () => import("./components/layout/downloadNav.vue"),
 );
@@ -110,4 +112,6 @@ onMounted(() => {
     </div>
     <Toaster position="top-left" richColors />
   </SidebarProvider>
+  <SpeedInsights />
+  <Analytics/>
 </template>

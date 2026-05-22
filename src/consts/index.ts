@@ -10,7 +10,6 @@ import { AtSign, BanknoteArrowDown, CalendarArrowDown, CalendarArrowUp, CircleQu
 import type { Component } from "vue";
 export const usdtRateToMMK = 4000;
 export const footer_images = [
-    
     '/providers/PP-WHITE.webp',
     '/providers/PG-WHITE.webp',
     '/providers/JL-WHITE.webp',

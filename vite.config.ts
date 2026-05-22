@@ -1,12 +1,23 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
-import tailwindcss from "@tailwindcss/vite"
+import tailwindcss from "@tailwindcss/vite";
+import ogPlugin from "vite-plugin-open-graph";
+
 
 export default defineConfig({
   plugins: [
     vue(), 
-    tailwindcss()
+    tailwindcss(),
+    ogPlugin({
+      basic:{
+        url:"https://tz99x.com",
+        title:"TZ99",
+        type:"website",
+        image:"https://tz99x.com/favicon.webp",
+        description:"立即加入游戏，赢取奖励！"
+      }
+    })
   ],
   define: {
     __VUE_PROD_DEVTOOLS__: false,
@@ -18,8 +29,13 @@ export default defineConfig({
   },
   esbuild: {
     pure: ['console.log'],
+    drop: ["console", "debugger"],
+
   },
+   
   build: {
+    minify: "terser",
+   
     cssCodeSplit: false,
     sourcemap: false,
     chunkSizeWarningLimit: 1000, 
@@ -28,8 +44,6 @@ export default defineConfig({
         manualChunks(id) {
           if (id.includes('node_modules')) {
             const pathString = id.toString();
-            
-            // 1. Core Framework (Always needed, caches beautifully)
             if (
               pathString.includes('vue') || 
               pathString.includes('pinia') || 
@@ -38,22 +52,12 @@ export default defineConfig({
             ) {
               return 'vendor-core';
             }
-            
-            // 2. Swiper (We set this to defineAsyncComponent earlier, 
-            // so isolating it means it won't block the initial load!)
             if (pathString.includes('swiper')) {
               return 'vendor-swiper';
             }
-            
-            // 3. Sockets (Only isolate if it's heavy)
             if (pathString.includes('socket.io-client')) {
               return 'vendor-socket';
             }
-
-            // REMOVED: vendor-utils and vendor-others
-            // By omitting a return statement here, Vite will automatically slice up 
-            // all remaining libraries. If a library is only used on a lazy-loaded route, 
-            // Vite will bundle it with that route, completely removing it from the initial load!
           }
         },
         entryFileNames: 'assets/js/[name]-[hash].js',
