@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useAuthStore } from "@/stores/auth";
-// import {  slotGameProviders } from "@/consts";
 import { hotGames, topBuffaloGames, topCasinoGames, topFishGames, topSlotGames} from "@/consts/games"
 import {  BellRingIcon, Download  } from "lucide-vue-next";
 import router from "@/router";
@@ -13,32 +12,12 @@ import {
   hot_icon,
   slot,
 } from "@/utils/assets";
-// const ScrollGameViewTwo = defineAsyncComponent({
-//   loader: () => import("@/components/scrollGameViewTwo.vue"),
-//   loadingComponent: {
-//     template: `
-      
-//     `,
-//   },
-// })
-// const ScrollViews = defineAsyncComponent(()=>import("@/components/scrollViews.vue"))
 const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"));
 import HeroSlider from "@/components/homeSlider.vue";
 import { useGameStore } from "@/stores/game";
 import { defineAsyncComponent} from "vue";
 import ScrollGameViewTwo from "@/components/scrollGameViewTwo.vue";
 import ScrollViews from "@/components/scrollViews.vue";
-
-// const HeroSlider = defineAsyncComponent({
-//   loader: () => import("@/components/homeSlider.vue"),
-//   delay: 0,
-//   loadingComponent: {
-//     template: `
-//       <div class="w-full h-[220px] rounded-xl bg-gray-800/80 animate-pulse">
-//       </div>
-//     `,
-//   },
-// })
 const authStore = useAuthStore();
 const { t } = useI18n();
 const {prepareGame} = useGameStore()

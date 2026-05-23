@@ -2,23 +2,23 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useAuthStore } from "./stores/auth";
 import { useUIStore } from "./stores/ui";
-import Deposit from "@/screens/Deposit/Deposit.vue";
-// import HomeView from "@/screens/Home.vue";
+// import Deposit from "@/screens/Deposit/Deposit.vue";
+import HomeView from "@/screens/Home.vue";
 // import Payments from "./screens/Deposit/payments.vue";
-import Profile from "./screens/User/Profile.vue";
-import Withdraw from "@/screens/Withdrawal/index.vue";
+// import Profile from "./screens/User/Profile.vue";
+// import Withdraw from "@/screens/Withdrawal/index.vue";
 // import Help from "./screens/help.vue";
 // import Terms from "./screens/terms.vue";
 // import Policy from "./screens/policy.vue";
 // import Responsible from "./screens/responsible.vue";
 // import Transactions from "./screens/transaction/transactions.vue";
 // import BankAccount from "./screens/User/bankAccount.vue";
-import Slots from "./screens/games/slots.vue";
-import Buffalo from "./screens/games/buffalo.vue";
+// import Slots from "./screens/games/slots.vue";
+// import Buffalo from "./screens/games/buffalo.vue";
 // import Download from "./screens/download.vue";
-import Fishing from "./screens/games/fishing.vue";
-import Casino from "./screens/games/casino.vue";
-import Arcade from "./screens/games/arcade.vue";
+// import Fishing from "./screens/games/fishing.vue";
+// import Casino from "./screens/games/casino.vue";
+// import Arcade from "./screens/games/arcade.vue";
 // import Promotions from "@/screens/promotions/index.vue";
 // import UpdatePassword from "./screens/User/updatePassword.vue";
 // import DepositHistory from "./screens/transaction/depositHistory.vue";
@@ -27,23 +27,23 @@ import Arcade from "./screens/games/arcade.vue";
 // import Faq from "./screens/faq.vue";
 // import BetList from "./screens/betList.vue";
 // import Store from "./screens/Withdrawal/store.vue";
-const HomeView = ()=> import("@/screens/Home.vue")
-// const Deposit = ()=>import("@/screens/Deposit/Deposit.vue");
-// const Withdraw = ()=> import("@/screens/Withdrawal/index.vue")
+// const HomeView = ()=> import("@/screens/Home.vue")
+const Deposit = ()=>import("@/screens/Deposit/Deposit.vue");
+const Withdraw = ()=> import("@/screens/Withdrawal/index.vue")
 const Payments = () => import("./screens/Deposit/payments.vue");
-// const Profile = () => import("./screens/User/Profile.vue");
+const Profile = () => import("./screens/User/Profile.vue");
 const Help = () => import("./screens/help.vue");
 const Terms = () => import("./screens/terms.vue");
 const Policy = () => import("./screens/policy.vue");
 const Responsible = () => import("./screens/responsible.vue");
 const Transactions = () => import("./screens/transaction/transactions.vue");
 const BankAccount = () => import("./screens/User/bankAccount.vue");
-// const Buffalo = () => import("./screens/games/buffalo.vue");
+const Buffalo = () => import("./screens/games/buffalo.vue");
 const Download = () => import("./screens/download.vue");
-// const Slots = () => import("./screens/games/slots.vue");
-// const Fishing = () => import("./screens/games/fishing.vue");
-// const Casino = () => import("./screens/games/casino.vue");
-// const Arcade = () => import("./screens/games/arcade.vue");
+const Slots = () => import("./screens/games/slots.vue");
+const Fishing = () => import("./screens/games/fishing.vue");
+const Casino = () => import("./screens/games/casino.vue");
+const Arcade = () => import("./screens/games/arcade.vue");
 const Promotions = () => import("@/screens/promotions/index.vue");
 const UpdatePassword = () => import("./screens/User/updatePassword.vue");
 const DepositHistory = () => import("./screens/transaction/depositHistory.vue");
@@ -57,7 +57,6 @@ const routes = [
     path:"/game",
     component : GameView,
     meta: { hideNavbar:true,hideTopNav:true, requiresAuth:true },
-    
   },
   {
     path: "/",
@@ -68,11 +67,6 @@ const routes = [
     path: "/slots",
     component: Slots,
     meta: { requiresAuth: false },
-  },
-  {
-    path: "/download",
-    component: Download,
-    meta: { requiresAuth: false ,hideNavbar:true,hideTopNav:true},
   },
   {
     path: "/buffalo",
@@ -134,7 +128,7 @@ const routes = [
     component: DepositHistory,
     meta: { requiresAuth: true,hideTopNav:true, hideNavbar:true },
   },
-      {
+  {
     path: "/user/withdraw-history",
     component: WithdrawHistory,
     meta: { requiresAuth: true,hideTopNav:true, hideNavbar:true },
@@ -187,6 +181,11 @@ const routes = [
     ],
   },
   {
+    path: "/download",
+    component: Download,
+    meta: { requiresAuth: false ,hideNavbar:true,hideTopNav:true},
+  },
+  {
     path: "/help",
     component: Help,
     meta: { requiresAuth: false,hideTopNav:true,hideNavbar: true  },
@@ -212,28 +211,24 @@ const routes = [
     meta: { requiresAuth: false,hideTopNav:true,hideNavbar: true },
   },
   { path: '/:pathMatch(.*)*', redirect:"/" },
-
-
 ];
-
 const router = createRouter({
   history: createWebHistory(),
   routes,
     scrollBehavior() {
     return { top: 0, behavior:"smooth" };
   },
- 
 });
-
-
-router.beforeEach(async (to) => {
+router.beforeEach(async (to, from) => {
   const auth = useAuthStore();
-  const ui = useUIStore()
+  const ui = useUIStore();
   if (to.meta.requiresAuth && !auth.accessToken) {
-    ui.openAuthModal(to.fullPath);
-    return { path: "/" };
+    ui.openAuthModal(to.fullPath); // Save where they wanted to go
+    if (!from.name && from.path === '/') {
+       return { path: "/" };
+    }
+    return false; 
   }
   return true;
 });
-
 export default router;

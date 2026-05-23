@@ -2,9 +2,10 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import type { gameType } from "@/utils/types";
 import { ChevronLeft, ChevronRight, Users, Diamond } from "lucide-vue-next";
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useFakeGameStatsWithId } from "@/lib/fakeGameStatHook";
+import "swiper/css";
 const { stats, registerKeys } = useFakeGameStatsWithId();
 const swiperRef = ref<any>(null); // This will hold the Swiper instance
 const { t, locale } = useI18n();
@@ -35,14 +36,6 @@ const slideRight = () => {
   if (swiperRef.value) swiperRef.value.slideNext();
 };
 const key = (game: any) => `${game.provider_id}-${game.game_id}`;
-
-const isReady = ref(false);
-onMounted(async() => {
-    await import("swiper/css");
-  requestAnimationFrame(() => {
-    isReady.value = true;
-  });
-});
 const total = computed(() => props.gameData?.length ?? 0);
 </script>
 
@@ -89,15 +82,7 @@ const total = computed(() => props.gameData?.length ?? 0);
         </div>
       </div>
     </div>
-    <div class="space-y-3" v-if="!isReady">
-      <div class="flex gap-3">
-        <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
-        <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
-        <div class="h-40 w-2/3 bg-white/10 animate-pulse rounded-xl"></div>
-      </div>
-    </div>
     <Swiper
-      v-else
       @swiper="onSwiper"
       :speed="500"
       :space-between="8"
@@ -116,7 +101,7 @@ const total = computed(() => props.gameData?.length ?? 0);
       }"
       class="w-full"
     >
-      <SwiperSlide v-for="game in gameData || []" :key="game.id">
+      <!-- <SwiperSlide v-for="game in gameData || []" :key="game.id">
         <div
           class="relative rounded-lg cursor-pointer group hover:scale-105 hover:backdrop-blur-2xl hover:bg-gray-100/50 transition-all duration-300"
           @click="handler?.(game)"
@@ -128,7 +113,7 @@ const total = computed(() => props.gameData?.length ?? 0);
             <div
               class="pointer-events-none absolute inset-0 rounded-md border-shine"
             />
-            <!-- RTP + USERS -->
+
             <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
               <div
                 v-if="stats[key(game)]"
@@ -156,11 +141,59 @@ const total = computed(() => props.gameData?.length ?? 0);
             </p>
             <img
               :src="locale === 'cn' ? game.cn_icon_url : game.icon_url"
+              
               class="w-full aspect-3/4 sm:aspect-4/5 md:aspect-square object-cover rounded-lg"
               :alt="game.name"
               fetchpriority="auto"
               decoding="async"
               loading="lazy"
+            />
+          </div>
+        </div>
+      </SwiperSlide> -->
+      <SwiperSlide v-for="game in gameData || []" :key="game.id">
+        <div
+          class="relative rounded-lg cursor-pointer group hover:scale-105 hover:backdrop-blur-2xl hover:bg-gray-100/50 transition-all duration-300"
+          @click="handler?.(game)"
+        >
+          <!-- 3. Moved aspect-ratio classes to the wrapper div -->
+          <div class="relative overflow-hidden rounded-lg aspect-3/4 sm:aspect-4/5 md:aspect-square bg-white/5">
+            
+            <div class="pointer-events-none absolute inset-0 rounded-md bg-linear-to-b from-white/0 via-white/10 to-gray-950 z-10" />
+            <div class="pointer-events-none absolute inset-0 rounded-md border-shine z-10" />
+            
+            <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
+              <div v-if="stats[key(game)]" class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm">
+                <Diamond class="w-2 h-2 text-blue-500" />
+                <span class="text-[8px] text-white font-bold">
+                   <span class="text-blue-500">RTP</span> {{ stats[key(game)]?.rtp }}
+                </span>
+              </div>
+              <div v-if="stats[key(game)]" class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm">
+                <Users class="w-2 h-2 text-green-500" />
+                <span class="text-[8px] text-white font-bold">
+                 {{ stats[key(game)]?.users }}
+                </span>
+              </div>
+            </div>
+            
+            <p class="absolute bottom-1 left-0 right-0 z-20 text-center text-[10px] font-black text-white truncate px-1">
+              {{ locale === "cn" ? game.cn_name : game.name }}
+            </p>
+            
+            <!-- 4. Added srcset responsive logic back in -->
+            <img
+              :src="`${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=180&format=webp`"
+              :srcset="`
+                ${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=120&format=webp 120w,
+                ${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=180&format=webp 180w,
+                ${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=300&format=webp 300w
+              `"
+              sizes="(max-width: 640px) 33vw, (max-width: 1024px) 16vw, 180px"
+              class="w-full h-full object-cover rounded-lg"
+              :alt="locale === 'cn' ? game.cn_name : game.name"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

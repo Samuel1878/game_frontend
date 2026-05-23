@@ -39,7 +39,7 @@ const ui = useUIStore();
 const router = useRouter();
 const checked = ref(true);
 const loadingButton = ref(false);
-const { authModalOpen, redirectAfterAuth, isLogin } = storeToRefs(ui);
+const { authModalOpen, isLogin } = storeToRefs(ui);
 // const isLogin = ref(true);
 const errorMessage = ref("");
 const regex = /^[A-Za-z0-9_]{6,40}$/;
@@ -131,9 +131,11 @@ const submit = async () => {
     if (response?.status === 200) {
       toast.success(t(response.message));
       ui.closeAuthModal();
-      if (redirectAfterAuth.value) {
-        router.push(redirectAfterAuth.value);
-      }
+          if (ui.redirectAfterAuth) {
+          const path = ui.redirectAfterAuth;
+          ui.redirectAfterAuth = null; // Clear it after using it
+          router.push(path);
+        }
     } else {
       errorMessage.value = response?.message || "invalid_username_password";
       // console.warn("[AUTH FAILED]:", {
