@@ -88,11 +88,22 @@ const createQRImage = async (): Promise<Blob | null> => {
 const downloadQR = async () => {
   const blob = await createQRImage();
   if (!blob) return;
+    const file = new File([blob], "tz99-qr.png", {
+    type: "image/png",
+  });
 
-  const link = document.createElement("a");
-  link.download = "tz99-qr.png";
-  link.href = URL.createObjectURL(blob);
-  link.click();
+   if (navigator.canShare?.({ files: [file] })) {
+    await navigator.share({
+      title: "Website QR Code",
+      text: websiteURL.value,
+      files: [file],
+    });
+  } else{
+    const link = document.createElement("a");
+    link.download = "tz99-qr.png";
+    link.href = URL.createObjectURL(blob);
+    link.click();
+  }
 };
 // Rounded rectangle helper
 const roundRect = (
