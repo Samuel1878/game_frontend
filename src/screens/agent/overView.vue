@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import DatePicker from "@/components/CalenderView.vue";
 import { baseURL, formatPrice, openChat } from "@/utils";
@@ -25,7 +25,8 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { useRouter } from "vue-router";
 import { useAgentDashboardStore } from "@/stores/agentDashboardStore";
-
+import QrcodeVue from "qrcode.vue";
+import Button from "@/components/ui/button/Button.vue";
 const { t } = useI18n();
 const agentStore = useAgentStore();
 const agentData = storeToRefs(agentStore).agentData;
@@ -40,14 +41,132 @@ const {
   betReport,
 } = storeToRefs(store);
 const { copy } = useClipboard({ source: "" });
+const router = useRouter();
+const qrWrapper = ref<HTMLElement | null>(null);
+const websiteURL = computed(
+  () =>agentData.value? baseURL + `/?rid=${agentData.value?.referral_code}`:baseURL,
+);
+// Get canvas from qrcode.vue
+const getCanvas = (): HTMLCanvasElement | null => {
+  return qrWrapper.value?.querySelector("canvas") || null;
+};
+
+// Download QR
+const downloadQR = () => {
+  const canvas = getCanvas();
+
+  if (!canvas) return;
+
+  // Create new canvas
+  const exportCanvas = document.createElement("canvas");
+
+  const padding = 40;
+
+  exportCanvas.width = canvas.width + padding * 2;
+  exportCanvas.height = canvas.height + padding * 2;
+
+  const ctx = exportCanvas.getContext("2d");
+
+  if (!ctx) return;
+
+  // Background color
+  ctx.fillStyle = "#18181b"; // zinc-900
+  ctx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
+
+  // Optional rounded card effect
+  ctx.fillStyle = "#ffffff";
+
+  roundRect(
+    ctx,
+    padding / 2,
+    padding / 2,
+    canvas.width + padding,
+    canvas.height + padding,
+    24,
+  );
+
+  // Draw original QR
+  ctx.drawImage(canvas, padding, padding);
+
+  // Download
+  const link = document.createElement("a");
+
+  link.download = "website-qr.png";
+  link.href = exportCanvas.toDataURL("image/png");
+
+  link.click();
+};
+
+// Rounded rectangle helper
+const roundRect = (
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  radius: number,
+) => {
+  ctx.beginPath();
+
+  ctx.moveTo(x + radius, y);
+
+  ctx.lineTo(x + width - radius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+
+  ctx.lineTo(x + width, y + height - radius);
+  ctx.quadraticCurveTo(
+    x + width,
+    y + height,
+    x + width - radius,
+    y + height,
+  );
+
+  ctx.lineTo(x + radius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+
+  ctx.lineTo(x, y + radius);
+  ctx.quadraticCurveTo(x, y, x + radius, y);
+
+  ctx.closePath();
+
+  ctx.fill();
+};
+
+// Share QR
+const shareQR = async () => {
+  const canvas = getCanvas();
+
+  if (!canvas) return;
+
+  try {
+    const dataUrl = canvas.toDataURL("image/png");
+
+    const response = await fetch(dataUrl);
+    const blob = await response.blob();
+
+    const file = new File([blob], "website-qr.png", {
+      type: "image/png",
+    });
+
+    if (navigator.canShare?.({ files: [file] })) {
+      await navigator.share({
+        title: "Website QR Code",
+        text: websiteURL.value,
+        files: [file],
+      });
+    } else {
+      alert("Sharing is not supported on this device.");
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
 const copyHandler = (value: any) => {
   if (!value) return;
   copy(value);
 
   toast.success(`${t("copied")}: ${value}`);
 };
-const router = useRouter();
-
 onMounted(() => {
   store.fetchSummary();
 });
@@ -63,7 +182,7 @@ console.log(transactionReport);
       <LanguageBtn />
     </template>
   </CustomNavBar>
-  <div class="space-y-5 p-4">
+  <div class="space-y-5 p-4 w-full">
     <!-- HEADER -->
     <div class="flex items-center justify-between">
       <div>
@@ -126,29 +245,25 @@ console.log(transactionReport);
     </div>
 
     <!-- LOADING -->
-  <!-- SKELETON -->
-<div v-if="loading" class="grid grid-cols-2 gap-3">
+    <!-- SKELETON -->
+    <div v-if="loading" class="grid grid-cols-2 gap-3">
+      <div
+        v-for="i in 8"
+        :key="i"
+        class="rounded-2xl p-4 bg-[#0f172a] border border-white/5 animate-pulse"
+      >
+        <div class="flex items-center justify-between">
+          <!-- ICON SKELETON -->
+          <div class="w-10 h-10 rounded-xl bg-white/5"></div>
 
-  <div
-    v-for="i in 8"
-    :key="i"
-    class="rounded-2xl p-4 bg-[#0f172a] border border-white/5 animate-pulse"
-  >
-    <div class="flex items-center justify-between">
-
-      <!-- ICON SKELETON -->
-      <div class="w-10 h-10 rounded-xl bg-white/5"></div>
-
-      <!-- TEXT SKELETON -->
-      <div class="flex flex-col items-end gap-2">
-        <div class="h-3 w-16 bg-white/5 rounded"></div>
-        <div class="h-5 w-10 bg-white/10 rounded"></div>
+          <!-- TEXT SKELETON -->
+          <div class="flex flex-col items-end gap-2">
+            <div class="h-3 w-16 bg-white/5 rounded"></div>
+            <div class="h-5 w-10 bg-white/10 rounded"></div>
+          </div>
+        </div>
       </div>
-
     </div>
-  </div>
-
-</div>
 
     <!-- CARDS -->
     <div v-else class="grid grid-cols-2 gap-3">
@@ -216,7 +331,7 @@ console.log(transactionReport);
       <div class="card">
         <div class="flex items-center gap-3">
           <div class="icon-box bg-blue-500/15 text-blue-400">
-          <BarChart3 class="w-5 h-5" />
+            <BarChart3 class="w-5 h-5" />
           </div>
 
           <div class="flex flex-col">
@@ -225,7 +340,14 @@ console.log(transactionReport);
             </span>
 
             <b class="value text-blue-400">
-              {{ formatPrice((betReport?.turnover?.won||0) + (betReport?.turnover?.bonus||0) + (betReport?.turnover?.lose ||0) + (betReport?.turnover?.draw ||0) || 0) }}
+              {{
+                formatPrice(
+                  (betReport?.turnover?.won || 0) +
+                    (betReport?.turnover?.bonus || 0) +
+                    (betReport?.turnover?.lose || 0) +
+                    (betReport?.turnover?.draw || 0) || 0,
+                )
+              }}
             </b>
           </div>
         </div>
@@ -244,7 +366,12 @@ console.log(transactionReport);
             </span>
 
             <b class="value text-orange-400">
-              {{ formatPrice((transactionReport?.deposits||0) - (transactionReport?.withdraws  || 0))||0 }}
+              {{
+                formatPrice(
+                  (transactionReport?.deposits || 0) -
+                    (transactionReport?.withdraws || 0),
+                ) || 0
+              }}
             </b>
           </div>
         </div>
@@ -252,7 +379,7 @@ console.log(transactionReport);
       <div class="card">
         <div class="flex items-center gap-3">
           <div class="icon-box bg-yellow-500/15 text-yellow-400">
-          <Trophy class="w-5 h-5" />
+            <Trophy class="w-5 h-5" />
           </div>
 
           <div class="flex flex-col">
@@ -362,12 +489,42 @@ console.log(transactionReport);
     </div>
     <div
       class="glass-bg active-button w-full flex justify-around items-center h-12 rounded-full"
-      @click="copyHandler(baseURL + `/?rid=${agentData?.referral_code}`)"
+      @click="copyHandler(websiteURL)"
     >
       <p class="text-green-400 font-bold text-lg">
         {{ t("share_link") }}
       </p>
       <Share2Icon class="w-5 h-5 text-green-400" />
+    </div>
+    <div class="p-2 flex flex-col gap-2 items-center w-full">
+     <!-- QR Wrapper -->
+        <div
+          ref="qrWrapper"
+          class="bg-white rounded-2xl p-5 flex justify-center mb-6 w-fit"
+        >
+          <qrcode-vue
+            :value="websiteURL"
+            :size="200"
+            level="H"
+            render-as="canvas"
+          />
+        </div>
+      <!-- Buttons -->
+      <div class="flex gap-2 items-center justify-between">
+        <Button
+          @click="downloadQR"
+          class="bg-yellow-500 w-1/2 hover:bg-yellow-400 text-black font-semibold py-3 rounded-xl"
+        >
+         {{ t('download') }}
+        </Button>
+
+        <Button
+          @click="shareQR"
+          class="bg-zinc-800 w-1/2 hover:bg-zinc-700 border border-zinc-700 py-3 rounded-xl"
+        >
+          {{ t("share") }}
+        </Button>
+      </div>
     </div>
   </div>
 </template>
