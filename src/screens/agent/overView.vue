@@ -50,53 +50,50 @@ const websiteURL = computed(
 const getCanvas = (): HTMLCanvasElement | null => {
   return qrWrapper.value?.querySelector("canvas") || null;
 };
-
-// Download QR
-const downloadQR = () => {
+const createQRImage = async (): Promise<Blob | null> => {
   const canvas = getCanvas();
+  if (!canvas) return null;
 
-  if (!canvas) return;
+  const padding = 50;
 
-  // Create new canvas
   const exportCanvas = document.createElement("canvas");
-
-  const padding = 40;
-
   exportCanvas.width = canvas.width + padding * 2;
   exportCanvas.height = canvas.height + padding * 2;
 
   const ctx = exportCanvas.getContext("2d");
+  if (!ctx) return null;
 
-  if (!ctx) return;
-
-  // Background color
-  ctx.fillStyle = "#18181b"; // zinc-900
+  // ✅ WHITE BACKGROUND (important for iPhone preview)
+  ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
 
-  // Optional rounded card effect
-  ctx.fillStyle = "#ffffff";
-
+  // Optional soft border/card feel
+  ctx.fillStyle = "#f5f5f5";
   roundRect(
     ctx,
-    padding / 2,
-    padding / 2,
-    canvas.width + padding,
-    canvas.height + padding,
-    24,
+    10,
+    10,
+    exportCanvas.width - 20,
+    exportCanvas.height - 20,
+    20
   );
 
-  // Draw original QR
+  // Draw QR centered with padding
   ctx.drawImage(canvas, padding, padding);
 
-  // Download
+  return await new Promise((resolve) =>
+    exportCanvas.toBlob((blob) => resolve(blob), "image/png")
+  );
+};
+const downloadQR = async () => {
+  const blob = await createQRImage();
+  if (!blob) return;
+
   const link = document.createElement("a");
-
   link.download = "website-qr.png";
-  link.href = exportCanvas.toDataURL("image/png");
-
+  link.href = URL.createObjectURL(blob);
   link.click();
 };
-
 // Rounded rectangle helper
 const roundRect = (
   ctx: CanvasRenderingContext2D,
@@ -134,31 +131,25 @@ const roundRect = (
 
 // Share QR
 const shareQR = async () => {
-  const canvas = getCanvas();
+  const blob = await createQRImage();
+  if (!blob) return;
 
-  if (!canvas) return;
+  const file = new File([blob], "website-qr.png", {
+    type: "image/png",
+  });
 
-  try {
-    const dataUrl = canvas.toDataURL("image/png");
-
-    const response = await fetch(dataUrl);
-    const blob = await response.blob();
-
-    const file = new File([blob], "website-qr.png", {
-      type: "image/png",
+  if (navigator.canShare?.({ files: [file] })) {
+    await navigator.share({
+      title: "Website QR Code",
+      text: websiteURL.value,
+      files: [file],
     });
-
-    if (navigator.canShare?.({ files: [file] })) {
-      await navigator.share({
-        title: "Website QR Code",
-        text: websiteURL.value,
-        files: [file],
-      });
-    } else {
-      alert("Sharing is not supported on this device.");
-    }
-  } catch (err) {
-    console.error(err);
+  } else {
+    // fallback download
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "website-qr.png";
+    link.click();
   }
 };
 const copyHandler = (value: any) => {
@@ -513,14 +504,15 @@ console.log(transactionReport);
       <div class="flex gap-2 items-center justify-between">
         <Button
           @click="downloadQR"
-          class="bg-yellow-500 w-1/2 hover:bg-yellow-400 text-black font-semibold py-3 rounded-xl"
+           class="bg-zinc-800 w-1/2 hover:bg-zinc-700 border border-zinc-700 py-3 rounded-xl"
         >
          {{ t('download') }}
         </Button>
 
         <Button
           @click="shareQR"
-          class="bg-zinc-800 w-1/2 hover:bg-zinc-700 border border-zinc-700 py-3 rounded-xl"
+                    class="bg-yellow-500 w-1/2 hover:bg-yellow-400 text-black font-semibold py-3 rounded-xl"
+        
         >
           {{ t("share") }}
         </Button>
