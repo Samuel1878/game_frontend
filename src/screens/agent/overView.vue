@@ -90,7 +90,7 @@ const downloadQR = async () => {
   if (!blob) return;
 
   const link = document.createElement("a");
-  link.download = "website-qr.png";
+  link.download = "tz99-qr.png";
   link.href = URL.createObjectURL(blob);
   link.click();
 };
@@ -134,7 +134,7 @@ const shareQR = async () => {
   const blob = await createQRImage();
   if (!blob) return;
 
-  const file = new File([blob], "website-qr.png", {
+  const file = new File([blob], "tz99-qr.png", {
     type: "image/png",
   });
 
@@ -148,7 +148,7 @@ const shareQR = async () => {
     // fallback download
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "website-qr.png";
+    link.download = "tz99-qr.png";
     link.click();
   }
 };
