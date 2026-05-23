@@ -1,7 +1,5 @@
 import { createApp } from 'vue';
 import './style.css';
-import "swiper/css";
-import "swiper/css/pagination";
 import App from './App.vue';
 import { createPinia } from 'pinia';
 import router from './router'; 

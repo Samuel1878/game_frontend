@@ -75,15 +75,15 @@ const openMenu = () => {
         <div v-else class="flex gap-2">
           <button
             @click="goToLoginHandler(true)"
-            class="rounded-sm h-10 flex justify-center text-xs items-center text-linear-gold font-medium bg-transparent border border-yellow-400 active-button"
-            :class="locale === 'mm' ? 'px-2' : 'px-4'"
+            class="rounded-sm h-10 flex justify-center items-center text-linear-gold font-medium bg-transparent border border-yellow-400 active-button"
+            :class="locale === 'mm' ? 'px-2 text-xs' : 'px-4 text-sm'"
           >
             {{ t("login") }}
           </button>
           <button
             @click="goToLoginHandler(false)"
-            :class="locale === 'mm' ? 'px-2' : 'px-4'"
-            class="rounded-sm h-10 relative text-xs flex justify-center items-center text-glow font-medium gold-bg active-button"
+            :class="locale === 'mm' ? 'px-2 text-xs' : 'px-4 text-sm'"
+            class="rounded-sm h-10 relative flex justify-center items-center text-glow font-medium gold-bg active-button"
           >
             {{ t("register") }}
             <div

@@ -6,7 +6,7 @@ import { useUIStore } from "@/stores/ui";
 import { Phone, ChevronRight, Crown, CalendarDays } from "lucide-vue-next";
 import moment from "moment";
 import { useI18n } from "vue-i18n";
-const { t } = useI18n();
+const { t ,locale} = useI18n();
 const authStore = useAuthStore();
 const uiStore = useUIStore();
 
@@ -117,7 +117,7 @@ const uiStore = useUIStore();
           <div class="h-6 w-6 flex justify-center items-center">
             <component :is="value.image" class="w-8 h-8 text-white" />
           </div>
-          <p class="text-gray-300 text-sm">{{ t(value.label) }}</p>
+          <p class="text-gray-300" :class="locale==='mm'?'text-xs':'text-sm'">{{ t(value.label) }}</p>
         </div>
       </section>
       <section class="w-full">

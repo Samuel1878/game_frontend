@@ -39,12 +39,13 @@ const chunkedGames = computed(() => {
   return result;
 });
 const isReady = ref(false);
-onMounted(() => {
-  // delay lets browser finish critical render first
+onMounted(async() => {
+    await import("swiper/css");
   requestAnimationFrame(() => {
     isReady.value = true;
   });
 });
+
 const total = computed(() => props.gameData?.length ?? 0);
 </script>
 
@@ -139,11 +140,11 @@ const total = computed(() => props.gameData?.length ?? 0);
               <div
                 class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/10 to-gray-950"
               />
-              <img
+             <img
                 :src="locale === 'cn' ? game.cn_icon_url : game.icon_url"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 :alt="game.name"
-                fetchpriority="high"
+                loading="lazy"
                 decoding="async"
               />
               <!-- Overlay Gradients -->
@@ -179,8 +180,7 @@ const total = computed(() => props.gameData?.length ?? 0);
               <!-- Title Overlay -->
               <div class="absolute bottom-2 left-0 right-0 px-2">
                 <p
-                  :class="locale==='cn'?'text-[12px]':'text-[10px]'"
-                  class=" font-bold text-white text-center truncate drop-shadow-md"
+                  class=" font-bold text-white text-[10px] text-center truncate drop-shadow-md"
                 >
                   {{ locale === "cn" ? game.cn_name : game.name }}
                 </p>
@@ -206,3 +206,11 @@ const total = computed(() => props.gameData?.length ?? 0);
   }
 }
 </style>
+
+  <!-- :src="`${locale==='cn'? game.cn_icon_url:game.icon_url}?width=180&format=webp`"
+                :srcset="`
+                  ${locale==='cn'? game.cn_icon_url:game.icon_url}?width=120&format=webp 120w,
+                  ${locale==='cn'? game.cn_icon_url:game.icon_url}?width=180&format=webp 180w,
+                  ${locale==='cn'? game.cn_icon_url:game.icon_url}?width=300&format=webp 300w
+                `"
+                sizes="(max-width: 768px) 33vw, 180px" -->

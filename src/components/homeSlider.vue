@@ -6,9 +6,11 @@ import { useI18n } from "vue-i18n";
 import { onMounted, ref } from "vue";
 const { locale } = useI18n();
 const isReady = ref(false);
-onMounted(() => {
-  // delay lets browser finish critical render first
-  requestAnimationFrame(() => {
+
+onMounted(async () => {
+  await import("swiper/css");
+  await import("swiper/css/pagination");
+   requestAnimationFrame(() => {
     isReady.value = true;
   });
 });
@@ -50,8 +52,8 @@ onMounted(() => {
           <img
             :src="locale === 'cn' ? slide.cn_image : slide.image"
             class="w-full h-full object-cover "
-            fetchpriority="high"
-             :loading="index === 0 ? 'eager' : 'lazy'"
+            :fetchpriority="index===0?'high':'auto'"
+            :loading="index === 0 ? 'eager' : 'lazy'"
             decoding="async"
             alt="Hero"
             

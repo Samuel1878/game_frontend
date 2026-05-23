@@ -37,7 +37,8 @@ const slideRight = () => {
 const key = (game: any) => `${game.provider_id}-${game.game_id}`;
 
 const isReady = ref(false);
-onMounted(() => {
+onMounted(async() => {
+    await import("swiper/css");
   requestAnimationFrame(() => {
     isReady.value = true;
   });
