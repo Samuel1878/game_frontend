@@ -219,13 +219,7 @@ img {
   max-width: 100%;
   display: block;
 }
-/* button,
-a,
-input,
-textarea,
-select {
-  font: inherit;
-} */
+#nprogress .bar { background: #f6c43b !important}
 * {
   box-sizing: border-box;
 }

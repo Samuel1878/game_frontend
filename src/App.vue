@@ -101,7 +101,23 @@ onMounted(() => {
         <DownloadNav />
         <TopNavBar />
         <div class="relative flex-1 flex flex-col items-center w-full">
-          <router-view />
+          <router-view v-slot="{ Component }">
+          <keep-alive>
+            <Suspense>
+              <!-- The loaded page -->
+              <template #default>
+                <component :is="Component" />
+              </template>
+
+              <!-- What shows while the JS chunk is downloading -->
+              <template #fallback>
+                <div class="flex items-center justify-center h-screen w-full">
+                  <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500"></div>
+                </div>
+              </template>
+            </Suspense>
+          </keep-alive>
+        </router-view>
           <Loading/>
           <UpdatePopup />
           <AuthModal />
