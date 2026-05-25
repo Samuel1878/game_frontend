@@ -162,21 +162,17 @@ const submit = async () => {
 onMounted(() => {
   const savedUsername =
     localStorage.getItem("remember_username");
-
   const savedPassword =
     localStorage.getItem("remember_password");
-
   if (savedUsername) {
     loginName.value = savedUsername;
   }
-
   if (savedPassword) {
     form.value.password =
       decryptPassword(savedPassword);
   }
 });
 </script>
-
 <template>
   <Dialog v-model:open="authModalOpen">
     <DialogContent
@@ -189,25 +185,16 @@ onMounted(() => {
         class="relative mb-2 rounded-t-xl border border-gray-600/10 p-4 overflow-hidden bg-linear-to-br from-gray-900 via-gray-800 to-black shadow-[0_5px_40px_rgba(0,0,0,1)]"
       >
         <div class="glass absolute inset-0"></div>
-
         <div class="shine absolute inset-0"></div>
         <div class="absolute inset-0 bg-black/10 rounded-lg"></div>
         <div class="flex gap-4 items-center">
-          <!-- <div
-            class="animate-pulse relative p-0.5 rounded-3xl bg-linear-to-br from-yellow-400/60 via-yellow-200/70 to-yellow-500/70 shadow-[0_0_15px_rgba(255,215,0,.4)]"
-          >
-            <div class="bg-black/70 rounded-3xl p-1"> -->
           <img src="/favicon.webp" class="w-14 h-14" alt="Logo"/>
-          <!-- </div>
-          </div> -->
-
           <div class="h-full gap-2 flex flex-col justify-center">
             <DialogTitle
               class="text-linear-gold font-bold text-start text-xl tracking-wide"
             >
               {{ isLogin ? t("login") : t("register") }}
             </DialogTitle>
-
             <DialogDescription class="text-start text-gray-400 text-xs">
               {{
                 isLogin ? t("login_to_your_account") : t("register_new_account")
@@ -215,7 +202,6 @@ onMounted(() => {
             </DialogDescription>
           </div>
         </div>
-
         <button
           class="absolute right-5 top-5 cursor-pointer"
           @click="ui.closeAuthModal()"
@@ -374,11 +360,7 @@ onMounted(() => {
         </div>
 
         <div class="mt-8">
-          <!-- <div class="h-8">
-            <p v-if="errorMessage" class="text-red-500 text-sm px-1">
-              {{ t(errorMessage) }}
-            </p>
-          </div> -->
+          
           <div class="flex items-center text-xs gap-2 mb-2 px-1">
             <Checkbox
               id="terms"

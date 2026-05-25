@@ -216,7 +216,19 @@ router.beforeEach(async (to, from) => {
 router.afterEach(() => {
   NProgress.done();
 });
-router.onError(() => {
+router.onError((error) => {
   NProgress.done();
+  const targetErrors = [
+    "Failed to fetch dynamically imported module",
+    "Loading chunk",
+    "Dynamic import failed"
+  ];
+  const isChunkError = targetErrors.some(msg => error.message?.includes(msg));
+  if (!isChunkError) return;
+  const reloaded = sessionStorage.getItem("chunk-reload");
+  if (!reloaded) {
+    sessionStorage.setItem("chunk-reload", "true");
+    window.location.reload();
+  }
 });
 export default router;

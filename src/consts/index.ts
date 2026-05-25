@@ -274,7 +274,6 @@ interface MembershipType {
   id: number;
   label: string;
   action: () => void;
-
   image?: string;        // image URL or asset path
   icon?: LucideIcon | Component; // Lucide icon component
 
