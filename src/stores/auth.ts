@@ -6,6 +6,7 @@ import router from "@/router";
 
 import { useWallet } from "./wallet";
 import { refreshAPI } from "@/services/authAPI";
+// import { useFavoritesStore } from "./userFavoriteStore";
 interface walletType{
   balance:number;
   currency:string;
@@ -56,7 +57,9 @@ export const useAuthStore = defineStore("auth", {
       try {
         const res = await api.get("/user/profile");
         this.setUser(res.data);
-        console.log("FETCHING USER PROFILE", res.data)
+        console.log("FETCHING USER PROFILE")
+        // const favStore = useFavoritesStore();
+        // favStore.syncFavorites();
         return true
       } catch (error) {
         console.log("fetchUser failed", error);
@@ -131,6 +134,8 @@ export const useAuthStore = defineStore("auth", {
       const walletStore = useWallet();
       walletStore.resetWallet();
       this.clearAuth();
+      // const favStore = useFavoritesStore();
+      // favStore.favoriteKeys = new Set();
       router.replace("/");
     },
   },

@@ -22,19 +22,19 @@ const authStore = useAuthStore()
             </div>
             <div class="space-y-4 pl-10 py-4" >
                 <div class="h-10 flex items-center gap-4" @click="router.push('/user/betlist')">
-                    <SpadeIcon class="w-7 h-7 text-orange-300/50"/>
+                    <SpadeIcon class="w-7 h-7 text-yellow-400"/>
                     <p class="text-shadow-lg font-bold text-gray-200">{{ t('bet_list') }}</p>
                 </div>
                <div class="h-10 flex items-center gap-2" @click="router.push('/user/transactions')">
-                     <ClipboardClock class="w-7 h-7 text-orange-300/50"/>
+                     <ClipboardClock class="w-7 h-7 text-yellow-400"/>
                     <p class="text-shadow-lg font-bold text-gray-200" >{{ t('transaction') }}</p>
                 </div>
                <div class="h-10 flex items-center gap-2"  @click="router.push('/user/deposit-history')">
-                     <CalendarArrowUp class="w-7 h-7 text-orange-300/50"/>
+                     <CalendarArrowUp class="w-7 h-7 text-yellow-400"/>
                     <p class="text-shadow-lg font-bold text-gray-200">{{ t('deposit_history') }}</p>
                 </div>
                 <div class="h-10 flex items-center gap-2"  @click="router.push('/user/withdraw-history')">
-                    <CalendarArrowDown class="w-7 h-7 text-orange-300/50"/>
+                    <CalendarArrowDown class="w-7 h-7 text-yellow-400"/>
                     <p class="text-shadow-lg font-bold text-gray-200">{{ t('withdraw_history') }}</p>
                 </div>
             </div>

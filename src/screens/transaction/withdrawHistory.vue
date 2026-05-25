@@ -10,7 +10,7 @@ import { ChevronLeft, ChevronRight, CoinsIcon, Headset } from "lucide-vue-next";
 import { openChat } from "@/utils";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { watch } from "vue";
-const DatePicker = defineAsyncComponent(()=>import("@/components/CalenderView.vue"));
+import DatePicker from "@/components/CalenderView.vue"
 const WithdrawDetail =  defineAsyncComponent(()=>import("@/components/withdrawDetail.vue"))
 const { t } = useI18n();
 const authStore = useAuthStore();

@@ -4,11 +4,9 @@ import "vue-sonner/style.css";
 import BottomNav from "./components/layout/bottomNav.vue";
 import TopNavBar from "./components/layout/topNavBar.vue";
 import { defineAsyncComponent, onMounted, watch } from "vue";
-import { useI18n } from "vue-i18n";
 import { useReferralStore } from "./stores/referralStore";
 import { useRoute } from "vue-router";
 import { SidebarProvider, SidebarInset } from "./components/ui/sidebar";
-import Loading from "./components/loading.vue";
 import { SpeedInsights } from "@vercel/speed-insights/vue"
 import { Analytics } from "@vercel/analytics/vue"
 const DownloadNav = defineAsyncComponent(
@@ -24,34 +22,6 @@ const GameDrawer = defineAsyncComponent(
 const AuthModal = defineAsyncComponent(() => import("@/components/Auth.vue"));
 const route = useRoute();
 const referralStore = useReferralStore();
-const { locale } = useI18n();
-watch(
-  locale,
-  (lang) => {
-    const html = document.documentElement;
-
-    // remove previous classes
-    html.classList.remove("lang-en", "lang-my", "lang-zh");
-
-    switch (lang) {
-      case "mm":
-        html.lang = "my";
-        html.classList.add("lang-my");
-        break;
-
-      case "cn":
-        html.lang = "zh";
-        html.classList.add("lang-zh");
-        break;
-
-      default:
-        html.lang = "en";
-        html.classList.add("lang-en");
-        break;
-    }
-  },
-  { immediate: true }
-);
 watch(
   () => route.query.rid,
   (rid) => {
@@ -62,12 +32,11 @@ watch(
   },
   { immediate: true },
 );
+
 onMounted(() => {
   if ((window as any).Tawk_API) return;
-
   (window as any).Tawk_API = (window as any).Tawk_API || {};
   (window as any).Tawk_LoadStart = new Date();
-
   (window as any).Tawk_API.customStyle = {
     visibility: {
       desktop: {
@@ -82,13 +51,11 @@ onMounted(() => {
       },
     },
   };
-
   const s1 = document.createElement("script");
   s1.async = true;
   s1.src = "https://embed.tawk.to/69d614b826e9591c36b0cf98/1jlm41sjh";
   s1.charset = "UTF-8";
   s1.setAttribute("crossorigin", "*");
-
   document.head.appendChild(s1);
 });
 </script>
@@ -118,7 +85,6 @@ onMounted(() => {
             </Suspense>
           </keep-alive>
         </router-view>
-          <Loading/>
           <UpdatePopup />
           <AuthModal />
           <GameDrawer />

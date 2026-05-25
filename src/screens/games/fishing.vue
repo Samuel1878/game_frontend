@@ -6,9 +6,10 @@ import type { gameType } from "@/utils/types";
 import { Flame, Percent, Trophy } from "lucide-vue-next";
 import { defineAsyncComponent, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
-const GameOptions = defineAsyncComponent(
-  () => import("@/components/layout/gameOptions.vue"),
-);
+// const GameOptions = defineAsyncComponent(
+//   () => import("@/components/layout/gameOptions.vue"),
+// );
+import GameOptions from "@/components/layout/gameOptions.vue";
 const GameViews = defineAsyncComponent(
   () => import("@/components/gameViews.vue"),
 );

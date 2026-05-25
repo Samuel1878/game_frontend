@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.0.2",
   "force_update": false,
 
   "android_url": "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/app/tz99.apk",
@@ -7,7 +7,7 @@
 
   "description_en": "A new version is available. Please update the app to continue using all features securely and smoothly.",
 
-  "description_cn": "发现新版本。请更新应用程序，以继续安全稳定地使用所有功能。",
+  "description_cn": "发现新版本。请更新应用程序，以继续安全稳定地使用所有功能。如果应用没有自动更新，请卸载并重新安装应用。",
 
   "description_mm": "ဗားရှင်းအသစ် ရရှိနိုင်ပါပြီ။ လုံခြုံစိတ်ချစွာနှင့် အဆင်ပြေပြေ အသုံးပြုနိုင်ရန် App ကို Update လုပ်ပါ။",
 
@@ -23,5 +23,5 @@
   "notice_cn": "必须更新后才能继续使用应用程序。",
   "notice_mm": "Application ကို ဆက်လက်အသုံးပြုရန် Update လိုအပ်ပါသည်။",
 
-  "release_date": "2026-05-12T08:00:00Z"
+  "release_date": "2026-05-25T08:00:00Z"
 }

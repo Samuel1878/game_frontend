@@ -107,7 +107,6 @@ onMounted(() => {
   </CustomNavBar>
 
   <div class="p-4 space-y-5">
-
     <!-- HEADER -->
     <div
       class="rounded-3xl p-5 bg-linear-to-br from-[#111827] to-[#1e293b] border border-white/5 shadow-xl"
@@ -132,20 +131,12 @@ onMounted(() => {
     </div>
 
     <!-- FILTER -->
-    <div
-      class="rounded-3xl bg-[#0f172a] border border-white/5 p-4 space-y-4"
-    >
+    <div class="rounded-3xl bg-[#0f172a] border border-white/5 p-4 space-y-4">
       <!-- DATE -->
-      <div class="flex justify-between gap-2 ">
-        <DatePicker
-          v-model="startDate"
-          :placeholder="t('start_date')"
-        />
+      <div class="flex justify-between gap-2">
+        <DatePicker v-model="startDate" :placeholder="t('start_date')" />
 
-        <DatePicker
-          v-model="endDate"
-          :placeholder="t('end_date')"
-        />
+        <DatePicker v-model="endDate" :placeholder="t('end_date')" />
       </div>
 
       <!-- SEARCH -->
@@ -172,8 +163,8 @@ onMounted(() => {
           @click="transactionType = 'deposit'"
           class="filter-btn"
           :class="
-            transactionType === 'deposit'
-              && 'bg-green-500/15 border-green-500/30 text-green-400'
+            transactionType === 'deposit' &&
+            'bg-green-500/15 border-green-500/30 text-green-400'
           "
         >
           {{ t("deposit") }}
@@ -183,23 +174,24 @@ onMounted(() => {
           @click="transactionType = 'withdraw'"
           class="filter-btn"
           :class="
-            transactionType === 'withdraw'
-              && 'bg-red-500/15 border-red-500/30 text-red-400'
+            transactionType === 'withdraw' &&
+            'bg-red-500/15 border-red-500/30 text-red-400'
           "
         >
           {{ t("withdraw") }}
         </button>
-
       </div>
     </div>
 
     <!-- LIST -->
-    <div
-      class="rounded-3xl overflow-hidden border border-white/5 bg-[#0f172a]"
-    >
+    <div class="rounded-3xl overflow-hidden border border-white/5 bg-[#0f172a]">
       <!-- LOADING -->
       <div v-if="loading" class="p-4 space-y-3">
-        <div v-for="i in 6" :key="i" class="animate-pulse flex justify-between p-4 bg-[#0f172a] rounded-xl">
+        <div
+          v-for="i in 6"
+          :key="i"
+          class="animate-pulse flex justify-between p-4 bg-[#0f172a] rounded-xl"
+        >
           <div class="space-y-2">
             <div class="h-3 w-24 bg-white/10 rounded"></div>
             <div class="h-2 w-16 bg-white/10 rounded"></div>
@@ -217,12 +209,13 @@ onMounted(() => {
         v-else-if="!transactions?.length"
         class="flex flex-col items-center justify-center py-16 text-gray-500"
       >
-      <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4">
-              <ClipboardX class="w-8 h-8 opacity-50" />
-            </div>
-        <p class="text-sm">{{ t('no_record') }}</p>
+        <div
+          class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4"
+        >
+          <ClipboardX class="w-8 h-8 opacity-50" />
+        </div>
+        <p class="text-sm">{{ t("no_record") }}</p>
       </div>
-
 
       <div
         v-else
@@ -235,21 +228,30 @@ onMounted(() => {
           <div
             class="w-12 h-12 rounded-2xl flex items-center justify-center"
             :class="
-              tx.type === 'deposit' || tx.type ==='refund'
-                ? 'bg-green-500/15 text-green-400' :tx.type==='adjustment'?'bg-gray-500/15 text-gray-300'
+              tx.type === 'deposit' ||
+              tx.type === 'refund' ||
+              tx.type === 'bonus' ||
+              tx.type === 'rebate' ||
+              tx.type === 'dividend'
+                ? 'bg-green-500/15 text-green-400'
+                : tx.type === 'adjustment'
+                ? 'bg-gray-500/15 text-gray-300'
                 : 'bg-red-500/15 text-red-400'
             "
           >
             <ArrowDownCircle
-              v-if="tx.type === 'deposit' || tx.type === 'refund'"
+              v-if="
+                tx.type === 'deposit' ||
+                tx.type === 'refund' ||
+                tx.type === 'bonus' ||
+                tx.type === 'rebate' ||
+                tx.type === 'dividend'
+              "
               class="w-5 h-5"
             />
-            <MinusCircle v-else-if="tx.type==='adjustment'"  class="w-5 h-5"/>
+            <MinusCircle v-else-if="tx.type === 'adjustment'" class="w-5 h-5" />
 
-            <ArrowUpCircle
-              v-else
-              class="w-5 h-5"
-            />
+            <ArrowUpCircle v-else class="w-5 h-5" />
           </div>
 
           <div class="flex flex-col">
@@ -272,12 +274,26 @@ onMounted(() => {
           <div
             class="text-lg font-bold"
             :class="
-              tx.type === 'deposit' || tx.type === 'refund'
-                ? 'text-green-400' : tx.type === 'adjustment'?'text-gray-300'
+              tx.type === 'deposit' ||
+              tx.type === 'refund' ||
+              tx.type === 'bonus' ||
+              tx.type === 'rebate' ||
+              tx.type === 'dividend'
+                ? 'text-green-400'
+                : tx.type === 'adjustment'
+                ? 'text-gray-300'
                 : 'text-red-400'
             "
           >
-            {{ tx.type === "deposit" || tx.type ==='refund' ? "+" : "-" }}
+            {{
+              tx.type === "deposit" ||
+              tx.type === "refund" ||
+              tx.type === "bonus" ||
+              tx.type === "rebate" ||
+              tx.type === "dividend"
+                ? "+"
+                : "-"
+            }}
             {{ formatPrice(tx.amount) }}
           </div>
         </div>
@@ -296,11 +312,7 @@ onMounted(() => {
       </div>
 
       <div class="flex items-center gap-2">
-        <button
-          @click="prevPage"
-          :disabled="page === 1"
-          class="pagination-btn"
-        >
+        <button @click="prevPage" :disabled="page === 1" class="pagination-btn">
           <ChevronLeft class="w-4 h-4" />
         </button>
 
@@ -321,7 +333,7 @@ onMounted(() => {
   padding: 10px 16px;
   border-radius: 14px;
   background: #111827;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   color: #d1d5db;
   font-size: 14px;
   transition: 0.2s;
@@ -329,20 +341,19 @@ onMounted(() => {
 }
 
 .filter-btn:hover {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .active-filter {
-  background: rgba(250,204,21,0.12);
-  border-color: rgba(250,204,21,0.25);
+  background: rgba(250, 204, 21, 0.12);
+  border-color: rgba(250, 204, 21, 0.25);
   color: #facc15;
 }
 
 .pagination-btn {
-
   border-radius: 12px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -350,7 +361,7 @@ onMounted(() => {
 }
 
 .pagination-btn:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .pagination-btn:disabled {

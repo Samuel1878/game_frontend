@@ -1,5 +1,10 @@
 import { 
-     slot, buffalo, fish, casino, chess, home
+     slot, buffalo, fish, casino, chess, home,
+     kbzPay,
+     wavePay,
+     ayaPay,
+     kbzBank,
+     usdt
    
 } from "@/utils/assets";
 import {  openChat,} from "@/utils"
@@ -9,18 +14,6 @@ import { useAuthStore } from "@/stores/auth";
 import { AtSign, BanknoteArrowDown, CalendarArrowDown, CalendarArrowUp, CircleQuestionMark, ClipboardClock, Handshake, HatGlasses, Headset, Landmark, MonitorDown, Share2, ShieldAlert, ShieldCheck, Spade, SquareArrowRight, Store, UserPlus, Wallet, type LucideIcon } from "lucide-vue-next";
 import type { Component } from "vue";
 export const usdtRateToMMK = 4000;
-export const footer_images = [
-    '/providers/PP-WHITE.webp',
-    '/providers/PG-WHITE.webp',
-    '/providers/JL-WHITE.webp',
-    '/providers/fast_spin.webp',
-    '/providers/KA-WHITE.webp',
-    "/providers/FC-WHITE.webp",
-    "/providers/advant_play.webp",
-    "/providers/va-white.webp",
-    "/providers/sbo.webp",
-    "/providers/568.webp"
-]
 export interface paymentTypes {
     id:number,
     label:string,
@@ -48,31 +41,31 @@ export const paymentMethod:paymentTypes[] = [
         id:1,
         label:"KBZ Pay",
         value:"kbzPay",
-        icon:"/payments/kbzpay.webp"
+        icon:kbzPay
     },
     {
         id:2,
         label:"Wave Pay",
         value:"wavePay",
-        icon:"/payments/wavepay.webp"
+        icon:wavePay
     },
     {
         id:3,
         label:"AYA Pay",
         value:"ayaPay",
-        icon:"/payments/ayabanking.webp"
+        icon:ayaPay
     },
             {
         id:4,
         label:"KBZ Bank",
         value:"kbzBank",
-        icon:"/payments/kbzbanking-new.webp"
+        icon:kbzBank
     },
     {
         id:5,
         label:"USDT",
         value:"usdt",
-        icon:'/payments/USDT.webp'
+        icon:usdt
     },
 ];
 export const paymentMethodOption = [
@@ -106,32 +99,6 @@ export const paymentMethodOption = [
         label:"KBZ Bank",
         value:"kbzBank",
     }
-];
-export const paymentMethodDeposit:paymentTypes[] = [
-    {
-        id:1,
-        label:"KBZ Pay",
-        value:"kbzPay",
-        icon:"/payments/kbzpay.webp"
-    },
-    {
-        id:2,
-        label:"Wave Pay",
-        value:"wavePay",
-        icon:"/payments/wavepay.webp"
-    },
-    {
-        id:3,
-        label:"AYA Pay",
-        value:"ayaPay",
-        icon:"/payments/ayabanking.webp"
-    },
-    {
-        id:4,
-        label:"USDT",
-        value:"usdt",
-        icon:'/payments/USDT.webp'
-    },
 ];
 export const homeSlide = [
     {   id:1,
@@ -176,6 +143,7 @@ export const gameOptions = [
         label:"lobby",
         image:home
     },
+     
       {
         id:2,
         path:"/slots",
@@ -200,13 +168,13 @@ export const gameOptions = [
         label:"casino",
         image:casino
     },
-        {
+    {
             id:6,
         path:"/arcade-games",
         label:"arcade_games",
         image:chess
     },
-  
+   
 ];
 
 export const slotGameProviders = [

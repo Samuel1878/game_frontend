@@ -9,7 +9,7 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat } from "@/utils";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { ChevronLeft, ChevronRight, Headset, Wallet2Icon } from "lucide-vue-next";
-const DatePicker = defineAsyncComponent(()=>import("@/components/CalenderView.vue"));
+import DatePicker from "@/components/CalenderView.vue"
 const DepositDetail = defineAsyncComponent(()=>import("@/components/depositDetail.vue"))
 const { t } = useI18n();
 const authStore = useAuthStore();

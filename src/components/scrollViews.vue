@@ -101,57 +101,7 @@ const total = computed(() => props.gameData?.length ?? 0);
       }"
       class="w-full"
     >
-      <!-- <SwiperSlide v-for="game in gameData || []" :key="game.id">
-        <div
-          class="relative rounded-lg cursor-pointer group hover:scale-105 hover:backdrop-blur-2xl hover:bg-gray-100/50 transition-all duration-300"
-          @click="handler?.(game)"
-        >
-          <div class="relative overflow-hidden rounded-lg">
-            <div
-              class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/10 to-gray-950"
-            />
-            <div
-              class="pointer-events-none absolute inset-0 rounded-md border-shine"
-            />
-
-            <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
-              <div
-                v-if="stats[key(game)]"
-                class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
-              >
-                <Diamond class="w-2 h-2 text-blue-500" />
-                <span class="text-[8px] text-white font-bold">
-                   <span class="text-[8px] text-blue-500">RTP</span> {{ stats[`${game.provider_id}-${game.game_id}`]?.rtp }}
-                </span>
-              </div>
-              <div
-                v-if="stats[key(game)]"
-                class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
-              >
-                <Users class="w-2 h-2 text-green-500" />
-                <span class="text-[8px] text-white font-bold">
-                 {{ stats[`${game.provider_id}-${game.game_id}`]?.users }}
-                </span>
-              </div>
-            </div>
-            <p
-              class="absolute bottom-1 left-0 right-0 z-10 text-center text-[10px] font-black text-white truncate px-1"
-            >
-              {{ locale === "cn" ? game.cn_name : game.name }}
-            </p>
-            <img
-              :src="locale === 'cn' ? game.cn_icon_url : game.icon_url"
-              
-              class="w-full aspect-3/4 sm:aspect-4/5 md:aspect-square object-cover rounded-lg"
-              :alt="game.name"
-              fetchpriority="auto"
-              decoding="async"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </SwiperSlide> -->
-      <SwiperSlide v-for="game in gameData || []" :key="game.id">
+      <SwiperSlide v-for="(game,index) in gameData || []" :key="game.id">
         <div
           class="relative rounded-lg cursor-pointer group hover:scale-105 hover:backdrop-blur-2xl hover:bg-gray-100/50 transition-all duration-300"
           @click="handler?.(game)"
@@ -176,11 +126,9 @@ const total = computed(() => props.gameData?.length ?? 0);
                 </span>
               </div>
             </div>
-            
             <p class="absolute bottom-1 left-0 right-0 z-20 text-center text-[10px] font-black text-white truncate px-1">
               {{ locale === "cn" ? game.cn_name : game.name }}
             </p>
-            
             <!-- 4. Added srcset responsive logic back in -->
             <img
               :src="`${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=180&format=webp`"
@@ -192,7 +140,8 @@ const total = computed(() => props.gameData?.length ?? 0);
               sizes="(max-width: 640px) 33vw, (max-width: 1024px) 16vw, 180px"
               class="w-full h-full object-cover rounded-lg"
               :alt="locale === 'cn' ? game.cn_name : game.name"
-              loading="lazy"
+              :loading="index> 2 ?'lazy':'eager'"
+              :fetchpriority="index>5?'auto':'high'"
               decoding="async"
             />
           </div>

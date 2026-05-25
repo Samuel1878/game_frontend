@@ -45,7 +45,7 @@ const getProviderImage = computed(() =>
         </div>
         <div class="flex flex-col">
            <div>
-              <img :src="getProviderImage?.icon" class="h-10" alt="game_icon"/>
+              <img v-if="getProviderImage?.icon" :src="getProviderImage?.icon" class="h-10" alt="game_icon"/>
           </div>
           <span class="text-white text-2xl font-extrabold leading-loose">
             {{

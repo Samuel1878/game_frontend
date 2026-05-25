@@ -42,7 +42,7 @@ const {prepareGame} = useGameStore()
             </div>
           </div>
           <div class="px-2">
-            <button class="gold-bg rounded-full p-1 animate-pulse-scale" @click="router.push('/download')">
+            <button class="gold-bg rounded-full p-1" @click="router.push('/download')">
               <Download :size="13" class="text-gray-900" aria-label="go to download page"/>
             </button>
           </div>
@@ -83,14 +83,6 @@ const {prepareGame} = useGameStore()
         </section>
       </div>
     </div>
-    <!-- <div class="max-w-7xl flex flex-col items-center p-6 mt-8 w-full">
-      <div class="gap-5 flex flex-col items-center w-full">
-        <h2 class="text-lg font-extrabold text-white text-center text-linear-gold ">{{ t('footer_header') }}</h2>
-        <div class="flex gap-1 flex-wrap items-center justify-center">
-          <img :key="value.id" v-for="value in slotGameProviders" :alt="value.name" :src="value.icon" fetchpriority="low" class="my-2 h-10" />
-        </div>
-      </div>
-    </div> -->
     <Footer />
   </main>
   

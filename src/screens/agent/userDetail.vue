@@ -53,13 +53,8 @@ const totalItems = ref(0);
 
 const store = useUserDashboardStore();
 
-const {
-  endDate,
-  startDate,
-  mode,
-  transactionReport,
-  betReport,
-} = storeToRefs(store);
+const { endDate, startDate, mode, transactionReport, betReport } =
+  storeToRefs(store);
 
 const fetchTransaction = async () => {
   try {
@@ -117,7 +112,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <CustomNavBar title="user_detail" backTo="/user/agent-center/users">
+  <CustomNavBar :title="t('user_detail')" backTo="/user/agent-center/users">
     <template #right>
       <button v-on:click="openChat">
         <Headset class="w-6 h-6" />
@@ -148,27 +143,24 @@ onMounted(() => {
             <div
               class="px-2 py-1 rounded-full text-xs border"
               :class="
-               is_oneline? 
-                  'bg-green-500/15 border-green-500/30 text-green-400'
+                is_oneline
+                  ? 'bg-green-500/15 border-green-500/30 text-green-400'
                   : 'bg-red-500/15 border-red-500/30 text-red-400'
               "
             >
-               {{ is_oneline? t("online"):  t("offline")}}
+              {{ is_oneline ? t("online") : t("offline") }}
             </div>
           </div>
 
           <div class="mt-2 flex flex-wrap gap-2 text-xs text-gray-400">
-            <div class="glass-chip">
-              {{ t("level") }} : {{ level }}
-            </div>
+            <div class="glass-chip">{{ t("level") }} : {{ level }}</div>
 
             <div class="glass-chip">
               {{ t("joined") }} :
               {{ moment(String(created_at)).format("DD MMM YYYY") }}
             </div>
-             <div class="glass-chip">
-             {{ status }}
-             
+            <div class="glass-chip">
+              {{ status }}
             </div>
           </div>
         </div>
@@ -255,17 +247,23 @@ onMounted(() => {
 
       <div class="dashboard-card">
         <div class="icon blue">
-         
           <BarChart3 class="w-5 h-5" />
         </div>
-          <div class="flex flex-col gap-2">
-        <span class="dashboard-label">
-          {{ t("turnover") }}
-        </span>
+        <div class="flex flex-col gap-2">
+          <span class="dashboard-label">
+            {{ t("turnover") }}
+          </span>
 
-        <b class="dashboard-value text-blue-400">
-          {{ formatPrice((betReport?.turnover?.won || 0)+ (betReport?.turnover?.bonus||0)+ (betReport?.turnover?.draw || 0) + (betReport?.turnover?.lose||0) ||0) }}
-        </b>
+          <b class="dashboard-value text-blue-400">
+            {{
+              formatPrice(
+                (betReport?.turnover?.won || 0) +
+                  (betReport?.turnover?.bonus || 0) +
+                  (betReport?.turnover?.draw || 0) +
+                  (betReport?.turnover?.lose || 0) || 0,
+              )
+            }}
+          </b>
         </div>
       </div>
 
@@ -279,20 +277,22 @@ onMounted(() => {
           </span>
 
           <b class="dashboard-value text-orange-400">
-            {{ formatPrice((transactionReport?.deposits || 0)-(transactionReport?.withdraws||0) || 0) }}
+            {{
+              formatPrice(
+                (transactionReport?.deposits || 0) -
+                  (transactionReport?.withdraws || 0) || 0,
+              )
+            }}
           </b>
         </div>
       </div>
       <div class="dashboard-card">
-       
         <div class="icon yellow">
           <Trophy class="w-5 h-5" />
         </div>
-          
+
         <div class="flex flex-col gap-2">
-          <span class="dashboard-label">
-            GGR
-          </span>
+          <span class="dashboard-label"> GGR </span>
 
           <b class="dashboard-value text-yellow-400">
             {{ formatPrice(betReport?.winlose || 0) }}
@@ -305,31 +305,29 @@ onMounted(() => {
           <Gift class="w-5 h-5" />
         </div>
         <div class="flex flex-col gap-2">
-        <span class="dashboard-label">
-          {{ t("total_rebate") }}
-        </span>
+          <span class="dashboard-label">
+            {{ t("total_rebate") }}
+          </span>
 
-        <b class="dashboard-value text-purple-400">
-          {{ formatPrice(transactionReport?.rebate|| 0) }}
-        </b>
+          <b class="dashboard-value text-purple-400">
+            {{ formatPrice(transactionReport?.rebate || 0) }}
+          </b>
         </div>
       </div>
-       <div class="dashboard-card">
+      <div class="dashboard-card">
         <div class="icon purple">
           <Gift class="w-5 h-5" />
         </div>
         <div class="flex flex-col gap-2">
-        <span class="dashboard-label">
-          {{ t("bonus") }}
-        </span>
+          <span class="dashboard-label">
+            {{ t("bonus") }}
+          </span>
 
-        <b class="dashboard-value text-purple-400">
-          {{ formatPrice(transactionReport?.bonus|| 0) }}
-        </b>
+          <b class="dashboard-value text-purple-400">
+            {{ formatPrice(transactionReport?.bonus || 0) }}
+          </b>
         </div>
       </div>
-
-      
     </div>
 
     <!-- TRANSACTION HEADER -->
@@ -344,13 +342,8 @@ onMounted(() => {
     </div>
 
     <!-- TRANSACTION LIST -->
-    <div
-      class="rounded-3xl overflow-hidden border border-white/5 bg-[#0f172a]"
-    >
-      <div
-        v-if="loading"
-        class="py-10 text-center text-sm text-gray-400"
-      >
+    <div class="rounded-3xl overflow-hidden border border-white/5 bg-[#0f172a]">
+      <div v-if="loading" class="py-10 text-center text-sm text-gray-400">
         {{ t("loading") }}...
       </div>
 
@@ -358,43 +351,51 @@ onMounted(() => {
         v-else-if="!transactions.length"
         class="py-10 text-center text-sm text-gray-400"
       >
-        No transactions found
+        {{ t("no_record") }}
       </div>
 
       <div
         v-else
-        v-for="t in transactions"
-        :key="t.id"
+        v-for="tx in transactions"
+        :key="tx.id"
         class="flex items-center justify-between border-b border-white/5 px-4 py-4 last:border-none hover:bg-white/5 transition"
       >
         <div class="flex items-center gap-3">
           <div
             class="w-11 h-11 rounded-2xl flex items-center justify-center"
-           :class="
-              t.type === 'deposit' || t.type ==='refund'
-                ? 'bg-green-500/15 text-green-400' :t.type==='adjustment'?'bg-gray-500/15 text-gray-300'
+            :class="
+              tx.type === 'deposit' ||
+              tx.type === 'refund' ||
+              tx.type === 'bonus' ||
+              tx.type === 'rebate' ||
+              tx.type === 'dividend'
+                ? 'bg-green-500/15 text-green-400'
+                : tx.type === 'adjustment'
+                ? 'bg-gray-500/15 text-gray-300'
                 : 'bg-red-500/15 text-red-400'
             "
           >
             <ArrowDownCircle
-              v-if="t.type === 'deposit'"
+              v-if="
+                tx.type === 'deposit' ||
+                tx.type === 'bonus' ||
+                tx.type === 'rebate' ||
+                tx.type === 'dividend'
+              "
               class="w-5 h-5"
             />
-                <MinusCircle v-else-if="t.type==='adjustment'"  class="w-5 h-5"/>
+            <MinusCircle v-else-if="tx.type === 'adjustment'" class="w-5 h-5" />
 
-            <ArrowUpCircle
-              v-else
-              class="w-5 h-5"
-            />
+            <ArrowUpCircle v-else class="w-5 h-5" />
           </div>
 
           <div class="flex flex-col">
             <span class="capitalize text-sm font-medium">
-              {{ t.type }}
+              {{ t(tx.type) }}
             </span>
 
             <span class="text-xs text-gray-400">
-              {{ moment(t.created_at).format("DD MMM YYYY HH:mm") }}
+              {{ moment(tx.created_at).format("DD MMM YYYY HH:mm") }}
             </span>
           </div>
         </div>
@@ -403,13 +404,26 @@ onMounted(() => {
           <div
             class="font-semibold"
             :class="
-              t.type === 'deposit' || t.type === 'refund'
-                ? 'text-green-400' : t.type === 'adjustment'?'text-gray-300'
+              tx.type === 'deposit' ||
+              tx.type === 'refund' ||
+              tx.type === 'bonus' ||
+              tx.type === 'rebate' ||
+              tx.type === 'dividend'
+                ? 'text-green-400'
+                : tx.type === 'adjustment'
+                ? 'text-gray-300'
                 : 'text-red-400'
             "
           >
-            {{ t.type === "deposit" ? "+" : "-" }}
-            {{ formatPrice(t.amount) }}
+            {{
+              tx.type === "deposit" ||
+              tx.type === "bonus" ||
+              tx.type === "rebate" ||
+              tx.type === "dividend"
+                ? "+"
+                : "-"
+            }}
+            {{ formatPrice(tx.amount) }}
           </div>
         </div>
       </div>
@@ -424,11 +438,7 @@ onMounted(() => {
       </div>
 
       <div class="flex items-center gap-2">
-        <button
-          @click="prevPage"
-          :disabled="page === 1"
-          class="pagination-btn"
-        >
+        <button @click="prevPage" :disabled="page === 1" class="pagination-btn">
           <ChevronLeft class="w-4 h-4" />
         </button>
 
@@ -531,7 +541,6 @@ onMounted(() => {
 }
 
 .pagination-btn {
-
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.05);

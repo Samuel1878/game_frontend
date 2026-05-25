@@ -9,6 +9,11 @@ import slot from "@/assets/icon/slot.webp";
 import fish from "@/assets/icon/fish.webp";
 import casino from "@/assets/icon/livecasino.webp";
 import chess from "@/assets/icon/chess.webp";
+import kbzPay from "@/assets/payments/kbzpay.webp";
+import kbzBank from "@/assets/payments/kbzbanking-new.webp";
+import wavePay from "@/assets/payments/wavepay.webp";
+import ayaPay from "@/assets/payments/ayabanking.webp";
+import usdt from "@/assets/payments/USDT.webp";
 export {
   fish,
   casino,
@@ -19,5 +24,10 @@ export {
   cn_flag,
   en_flag,
   mm_flag, 
-   hot_icon,
+  hot_icon,
+  kbzBank,
+  kbzPay,
+  wavePay,
+  ayaPay,
+  usdt
 }

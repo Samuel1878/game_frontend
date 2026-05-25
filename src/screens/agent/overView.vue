@@ -431,27 +431,6 @@ console.log(transactionReport);
           </div>
         </div>
       </div>
-
-      <!-- BONUS COUNT -->
-      <!-- <div class="card">
-        <div class="flex items-center gap-3">
-          <div class="icon-box bg-green-500/15 text-green-400">
-            <Gift class="w-5 h-5" />
-          </div>
-
-          <div class="flex flex-col">
-            <span class="label">
-              {{ t("bonus_count") }}
-            </span>
-
-            <b class="value text-green-400">
-              {{ formatPrice(betReport?.betCount.bonus ?? 0) }}
-            </b>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- WON COUNT -->
       <div class="card">
         <div class="flex items-center gap-3">
           <div class="icon-box bg-gray-500/15 text-gray-300">

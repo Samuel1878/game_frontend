@@ -1,25 +1,24 @@
 <script setup lang="ts">
-import Footer from '@/components/footer.vue';
-import LanguageBtn from '@/components/languageBtn.vue';
-import CustomNavBar from '@/components/layout/customNavBar.vue';
-import HelpBox from '@/components/layout/helpBox.vue';
-import { openChat } from '@/utils';
-import { Headset } from 'lucide-vue-next';
-import { useI18n } from 'vue-i18n';
-const {t} = useI18n()
+import Footer from "@/components/footer.vue";
+import LanguageBtn from "@/components/languageBtn.vue";
+import CustomNavBar from "@/components/layout/customNavBar.vue";
+import HelpBox from "@/components/layout/helpBox.vue";
+import { openChat } from "@/utils";
+import { Headset } from "lucide-vue-next";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 </script>
 
 <template>
-    <CustomNavBar title="help_center" backTo="/">
+  <CustomNavBar title="help_center" backTo="/">
     <template #right>
-
       <button @click="openChat">
         <Headset class="w-6 h-6" />
       </button>
       <LanguageBtn />
     </template>
   </CustomNavBar>
-  <div class=" bg-slate-950 text-gray-300 px-6 py-6">
+  <div class="bg-slate-950 text-gray-300 px-6 py-6">
     <div class="max-w-4xl mx-auto space-y-10">
       <h1 class="text-4xl font-bold text-white">
         {{ t("help_center") }}
@@ -52,9 +51,8 @@ const {t} = useI18n()
         </p>
       </section>
 
-      <HelpBox container-style="w-full"/>
+      <HelpBox container-style="w-full" />
     </div>
-
   </div>
-  <Footer/>
+  <Footer />
 </template>

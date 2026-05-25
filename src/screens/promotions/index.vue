@@ -36,12 +36,6 @@ const openDialog = (id: number) => {
 }
 
 import { X } from 'lucide-vue-next';
-
-// onMounted(() => {
-//   setTimeout(() => {
-//     openDialog(1);
-//   }, 500);
-// });
 </script>
 
 <template>
@@ -81,7 +75,7 @@ import { X } from 'lucide-vue-next';
             </button>
 
             <!-- image -->
-            <img :src="currentImage" class="w-full max-h-[80vh] object-contain" />
+            <img :src="currentImage" class="w-full max-h-[80vh] object-contain" alt="Promotion Images"/>
         </DialogContent>
     </Dialog>
 </template>

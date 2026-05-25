@@ -267,3 +267,8 @@ export interface BetListRecord {
   topDownline: string | null;
   newGameType: number;
 }
+
+export interface FavoriteGames {
+  provider_id : number;
+  game_id:number;
+}

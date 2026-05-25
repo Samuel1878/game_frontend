@@ -6,6 +6,10 @@ import HomeView from "@/screens/Home.vue";
 import Profile from "@/screens/User/Profile.vue";
 import Deposit from "@/screens/Deposit/Deposit.vue";
 import Promotions from "@/screens/promotions/index.vue";
+import Slots from "./screens/games/slots.vue";
+import Buffalo from "./screens/games/buffalo.vue";
+import Fishing from "./screens/games/fishing.vue";
+import Casino from "./screens/games/casino.vue";
 const Withdraw = ()=> import("@/screens/Withdrawal/index.vue")
 const Payments = () => import("./screens/Deposit/payments.vue");
 const Help = () => import("./screens/help.vue");
@@ -14,11 +18,7 @@ const Policy = () => import("./screens/policy.vue");
 const Responsible = () => import("./screens/responsible.vue");
 const Transactions = () => import("./screens/transaction/transactions.vue");
 const BankAccount = () => import("./screens/User/bankAccount.vue");
-const Buffalo = () => import("./screens/games/buffalo.vue");
 const Download = () => import("./screens/download.vue");
-const Slots = () => import("./screens/games/slots.vue");
-const Fishing = () => import("./screens/games/fishing.vue");
-const Casino = () => import("./screens/games/casino.vue");
 const Arcade = () => import("./screens/games/arcade.vue");
 const UpdatePassword = () => import("./screens/User/updatePassword.vue");
 const DepositHistory = () => import("./screens/transaction/depositHistory.vue");
@@ -216,10 +216,7 @@ router.beforeEach(async (to, from) => {
 router.afterEach(() => {
   NProgress.done();
 });
-
-// 3. Handle errors (e.g., if their internet drops while fetching the chunk)
 router.onError(() => {
   NProgress.done();
-  // Optional: Show a toast notification "Failed to load page. Please check your connection."
 });
 export default router;

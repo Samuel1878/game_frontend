@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Footer from "@/components/footer.vue";
-const GameOptions = defineAsyncComponent(()=>import('@/components/layout/gameOptions.vue'))
+import GameOptions from "@/components/layout/gameOptions.vue";
 const GameViews = defineAsyncComponent(()=>import('@/components/gameViews.vue'))
 import {InputGroup,InputGroupAddon,InputGroupInput} from "@/components/ui/input-group";
 import { getGamesByProviderAPI } from "@/services/gameAPI";
@@ -72,9 +72,7 @@ watch(debouncedSearch, () => {
   fetchGames(true); // reset on search
 });
 onMounted(() => fetchGames(true));
-// useReturnRefresh(async () => {
-//   await authStore.init();
-// });
+
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">
@@ -156,7 +154,7 @@ onMounted(() => fetchGames(true));
         </button>
       </div>
     </div>
-     <div class="px-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 my-2" v-if="!games?.length">
+    <div class="px-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 my-2" v-if="!games?.length">
       <div class="h-40 grid-1 bg-white/10 animate-pulse rounded-xl" v-for="n in 18" :key="n"></div>
     </div>
     <GameViews v-else :game-data="games" />

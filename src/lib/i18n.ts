@@ -1,9 +1,4 @@
 import { createI18n } from "vue-i18n";
-// export async function loadLocaleMessages(locale: string) {
-//   const messages = await import(`@/assets/localization/${locale}.json`);
-//   return messages.default;
-// }
-// import { en, mm,cn } from "@/utils";
 import en from "@/assets/localization/en.json";
 import mm from "@/assets/localization/mm.json";
 import cn from "@/assets/localization/cn.json";
@@ -25,11 +20,3 @@ export const i18n = createI18n({
   fallbackLocale: "cn",
   messages,
 });
-// import { createI18n } from "vue-i18n";
-
-// export const i18n = createI18n({
-//   legacy: false,
-//   locale: "en",
-//   fallbackLocale: "en",
-//   messages: {}, // always empty
-// });

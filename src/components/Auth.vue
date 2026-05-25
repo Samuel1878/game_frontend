@@ -34,10 +34,11 @@ import { useI18n } from "vue-i18n";
 import { toast } from "vue-sonner";
 import {DialogDescription} from "./ui/dialog";
 import LanguageBtn from "./languageBtn.vue";
+import { decryptPassword, encryptPassword } from "@/utils/help";
 const auth = useAuthStore();
 const ui = useUIStore();
 const router = useRouter();
-const checked = ref(true);
+const checked = ref(false);
 const loadingButton = ref(false);
 const { authModalOpen, isLogin } = storeToRefs(ui);
 // const isLogin = ref(true);
@@ -99,8 +100,6 @@ const validateForm = () => {
   if (form.value.password !== form.value.conPassword) {
     return "password_not_match";
   }
-  if (!checked.value) return "must_accept_terms";
-  return null;
 };
 const submit = async () => {
   // console.log(referralCode.value);
@@ -131,11 +130,16 @@ const submit = async () => {
     if (response?.status === 200) {
       toast.success(t(response.message));
       ui.closeAuthModal();
-          if (ui.redirectAfterAuth) {
-          const path = ui.redirectAfterAuth;
-          ui.redirectAfterAuth = null; // Clear it after using it
-          router.push(path);
-        }
+      if (ui.redirectAfterAuth) {
+        const path = ui.redirectAfterAuth;
+        ui.redirectAfterAuth = null; // Clear it after using it
+        router.push(path);
+      }
+      if (checked.value){
+        localStorage.setItem("remember_username", loginName.value);
+        localStorage.setItem("remember_password", encryptPassword(form.value.password))
+      }
+
     } else {
       errorMessage.value = response?.message || "invalid_username_password";
       // console.warn("[AUTH FAILED]:", {
@@ -155,6 +159,22 @@ const submit = async () => {
     loadingButton.value = false;
   }
 };
+onMounted(() => {
+  const savedUsername =
+    localStorage.getItem("remember_username");
+
+  const savedPassword =
+    localStorage.getItem("remember_password");
+
+  if (savedUsername) {
+    loginName.value = savedUsername;
+  }
+
+  if (savedPassword) {
+    form.value.password =
+      decryptPassword(savedPassword);
+  }
+});
 </script>
 
 <template>
@@ -361,13 +381,12 @@ const submit = async () => {
           </div> -->
           <div class="flex items-center text-xs gap-2 mb-2 px-1">
             <Checkbox
-             
               id="terms"
               :model-value="checked"
               v-on:update:model-value="checked = !checked"
             />
             <Label for="terms" class="text-gray-400 underline text-xs">{{
-              t("accept_terms")
+              t("remember_me")
             }}</Label>
           </div>
           <Button

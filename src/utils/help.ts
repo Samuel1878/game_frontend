@@ -1,5 +1,5 @@
 import type { ReportItem } from "./types";
-
+import CryptoJs from "crypto-js";
 type Summary = {
   betCount: {
     bonus: number;
@@ -80,4 +80,29 @@ export const isApp = () => {
   const isCustomUA = navigator.userAgent.includes("TZ99-APP");
 
   return isCapacitor || isCordova || isAppProtocol || isCustomUA;
+};
+
+export const encryptPassword = (password:string) => {
+  return CryptoJs.AES.encrypt(
+    password,
+    "AaMM01-SE9vd8v9daw3h3f9vaml3uva98w34rjv2@F9Cw@KA$!:*c",
+  ).toString();
+};
+
+/**
+ * Decrypt password
+ */
+export const decryptPassword = (encrypted:string) => {
+  try {
+    const bytes = CryptoJs.AES.decrypt(
+      encrypted,
+      "AaMM01-SE9vd8v9daw3h3f9vaml3uva98w34rjv2@F9Cw@KA$!:*c",
+    );
+
+    return bytes.toString(
+      CryptoJs.enc.Utf8,
+    );
+  } catch {
+    return "";
+  }
 };

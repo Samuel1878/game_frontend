@@ -25,7 +25,6 @@ import { useAuthStore } from "@/stores/auth";
 import { toast } from "vue-sonner";
 import { withdrawalHandlerAPI } from "@/services/transactionAPI";
 import { useWallet } from "@/stores/wallet";
-// import BankAccountDrawer from "@/components/bankAccountDrawer.vue";
 const BankAccountDrawer= defineAsyncComponent(()=>import("@/components/bankAccountDrawer.vue"))
 const amount = ref<number>();
 
@@ -129,13 +128,6 @@ const openAdd = () => {
     is_available: true,
   };
 };
-
-// const openEdit = (acc: any) => {
-//     isEdit.value = true
-//     selectedId.value = acc.id
-//     form.value = { ...acc }
-//     showDialog.value = true
-// }
 const saveAccount = async () => {
   // console.log(form);
   if (isEdit.value && selectedId.value) {
@@ -236,14 +228,7 @@ const saveAccount = async () => {
 
               <div class="absolute top-3 right-3 overflow-hidden rounded-lg p-2 bg-white/10 backdrop-blur-2xl">
                 <img class="w-8 h-8 rounded-sm" :src="getPaymentIcon(acc.value)?.icon" :alt="acc.label"/>
-                <!-- <span
-                  class="text-xs px-2 py-1 rounded-full font-semibold"
-                  :class="
-                    acc.is_available ? 'bg-green-500/80' : 'bg-red-500/80'
-                  "
-                >
-                  {{ acc.is_available ? t("active") : t("closed") }}
-                </span> -->
+                
               </div>
             </div>
             <div

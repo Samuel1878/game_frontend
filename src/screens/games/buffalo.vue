@@ -1,23 +1,13 @@
 <script setup lang="ts">
-const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"))
-const GameOptions = defineAsyncComponent(()=>import('@/components/layout/gameOptions.vue'))
+const Footer = defineAsyncComponent(() => import("@/components/footer.vue"));
+import GameOptions from "@/components/layout/gameOptions.vue";
+import GameViews from "@/components/gameViews.vue";
 import { topBuffaloGames } from "@/consts/games";
-import { useGameStat } from "@/lib/gameStat";
-import { useGameStore } from "@/stores/game";
-import { buffalo, slot } from "@/utils/assets";
-import { Diamond , Users} from "lucide-vue-next";
-import { defineAsyncComponent, nextTick, onMounted } from "vue";
+import { buffalo } from "@/utils/assets";
+import { defineAsyncComponent } from "vue";
 
 import { useI18n } from "vue-i18n";
-const { t, locale } = useI18n();
-const { prepareGame } = useGameStore();
-
-const { stats: gameStats, startLive } = useGameStat();
-
-onMounted(async () => {
-  await nextTick();
-  startLive(topBuffaloGames || []);
-});
+const { t } = useI18n();
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">
@@ -40,78 +30,13 @@ onMounted(async () => {
     </div>
     <GameOptions current_page="buffalo" />
     <div class="flex gap-1 items-center my-2">
-        <img :src="slot" class="w-8 h-8" />
-        <p class="text-white text-lg font-bold">{{ t("buffalo") }}</p>
-     </div>
-    <article class="px-2">
-      <div
-        class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 my-2"
-      >
-        <button
-          v-if="topBuffaloGames"
-          v-for="(game, index) in topBuffaloGames"
-          :key="game?.id ?? index"
-           class="relative overflow-hidden rounded-lg hover:border-white/30 group transition-all duration-300 bg-gray-900"
-          @click="prepareGame(game)"
-        >
-            <div class="absolute inset-0 bg-black/20 z-0 group-hover:bg-black/0 transition-colors"/>
-            <div class="relative overflow-hidden rounded-lg">
-                <div
-                class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/10 to-gray-950"
-                />
-                <div
-                class="pointer-events-none absolute inset-0 rounded-md border-shine"
-                />
-          <!-- RTP + USERS -->
-                <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
-                    <div
-                    v-if="gameStats[game.id]"
-                    class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
-                    >
-                        <Diamond class="w-2 h-2 text-blue-500" />
-                        <span class="text-[8px] text-white font-bold">
-                          <span class="text-[8px] text-blue-500">RTP</span> {{ gameStats[game.id]?.rtp }}
-                        </span>
-                    </div>
-
-                    <div
-                    v-if="gameStats[game.id]"
-                    class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
-                    >
-                        <Users class="w-2 h-2 text-green-500" />
-                        <span class="text-[8px] text-white font-bold">
-                            {{ gameStats[game.id]?.users }}
-                        </span>
-                    </div>
-                </div>
-                <img
-                    :src="locale === 'cn' ? game.cn_icon_url : game.icon_url"
-                    class="w-full aspect-3/4 rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                    alt="game_icon"
-                />
-                <div
-                class="absolute bottom-0 left-0 right-0 p-1.5 z-20 bg-linear-to-t from-black/80 to-transparent"
-                >
-                    <p
-                        class="text-[10px] md:text-xs text-white font-medium truncate text-center"
-                    >
-                    {{ locale === "cn" ? game.cn_name : game.name }}
-                    </p>
-                </div>
-            </div>
-        </button>
-      </div>
-    </article>
-
+      <img :src="buffalo" class="w-8 h-8" />
+      <p class="text-white text-lg font-bold">{{ t("buffalo") }}</p>
+    </div>
+    <div class="px-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 my-2" v-if="!topBuffaloGames?.length">
+      <div class="h-40 grid-1 bg-white/10 animate-pulse rounded-xl" v-for="n in 18" :key="n"></div>
+    </div>
+    <GameViews v-else :game-data="topBuffaloGames" />
     <Footer />
   </main>
 </template>
-<style scoped>
-@supports not (aspect-ratio: 3/4) {
-  img {
-    height: 150px;
-  }
-}
-</style>
-

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
-import { defineAsyncComponent, onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { getAllTransactionsByUserId } from "../../services/transactionAPI";
 import type { Transaction } from "@/utils/types";
 import moment from "moment";
@@ -8,7 +8,7 @@ import { useI18n } from "vue-i18n";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { formatPrice, openChat } from "@/utils";
 import LanguageBtn from "@/components/languageBtn.vue";
-const DatePicker = defineAsyncComponent(()=>import("@/components/CalenderView.vue"));
+import DatePicker from "@/components/CalenderView.vue"
 import Button from "@/components/ui/button/Button.vue";
 import { ArrowDownCircle, ArrowUpCircle, ChevronLeft, ChevronRight, ClipboardX, Headset, MinusCircle, SearchIcon } from "lucide-vue-next";
 const authStore = useAuthStore();

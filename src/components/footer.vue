@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { paymentMethod } from '@/consts';
 import router from '@/router';
 import { goFacebook, openDiscord, openTelegram, openViber } from '@/utils';
 import { useI18n } from 'vue-i18n';
@@ -24,13 +25,6 @@ const supportLinks = [
   { name: 'policy_and_privacy', path: "/privacy" },
   { name: 'responsible_gaming', path: "/responsible" },
   { name: 'faq', path: "/faq" },
-];
-const payments = [
-  { name: "KBZ pay", src: "/payments/kbzpay.webp" },
-  { name: "Wave Money", src: "/payments/wavepay.webp" },
-  { name: "AYA pay", src: "/payments/ayabanking.webp" },
-  { name: "KBZ Banking", src: "/payments/kbzbanking-new.webp" },
-  { name: "USDT", src: "/payments/USDT.webp" }
 ];
 const socials = [
   { icon: "/socials/facebook_black.svg", action: goFacebook , alt:"facebook"},
@@ -89,12 +83,12 @@ const certification = [
         <div class="border-t border-gray-700/50 pt-6">
           <h3 class="text-yellow-400 font-bold mb-5 text-sm uppercase tracking-wide">{{ t('payment_method') }}</h3>
           <div class="grid grid-cols-3 gap-3">
-            <div v-for="link in payments" :key="link.name" class="flex flex-col items-center gap-1 group">
+            <div v-for="link in paymentMethod" :key="link.id" class="flex flex-col items-center gap-1 group">
               <div class="w-10 h-10 md:w-12 md:h-12 bg-gray-800 rounded-lg flex items-center justify-center p-1 border border-transparent group-hover:border-gray-600 transition-all">
-                <img :src="link.src" class="w-full h-full object-contain rounded-md" :alt="link.name"/>
+                <img :src="link.icon" class="w-full h-full object-contain rounded-md" :alt="link.label"/>
               </div>
               <p class="text-[10px] text-gray-300 text-center truncate w-full">
-                {{ link.name }}
+                {{ link.label }}
               </p>
             </div>
           </div>

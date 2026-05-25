@@ -133,7 +133,7 @@ onMounted(() => {
         v-else-if="!players.length"
         class="py-10 text-center text-sm text-gray-400"
       >
-        No users found
+       {{t('no_record')}}
       </div>
 
       <!-- List -->

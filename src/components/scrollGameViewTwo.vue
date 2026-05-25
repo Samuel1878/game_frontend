@@ -114,7 +114,7 @@ const total = computed(() => props.gameData?.length ?? 0);
       >
         <div class="flex flex-col gap-2">
           <div
-            v-for="game in gamePair"
+            v-for="(game,index) in gamePair"
             :key="game.id"
             @click="handler?.(game)"
             class="relative flex flex-col group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
@@ -133,8 +133,9 @@ const total = computed(() => props.gameData?.length ?? 0);
                 sizes="(max-width: 768px) 33vw, 180px"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 :alt="locale === 'cn' ? game.cn_name : game.name"
-                loading="lazy"
+                :loading="index>5 ?'lazy':'eager'"
                 decoding="async"
+                :fetchpriority="index>5?'auto':'high'"
               />
               
               <div class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60 z-10" />
@@ -155,7 +156,6 @@ const total = computed(() => props.gameData?.length ?? 0);
                   </span>
                 </div>
               </div>
-
               <div class="absolute bottom-2 left-0 right-0 px-2 z-20">
                 <p class="font-bold text-white text-[10px] text-center truncate drop-shadow-md">
                   {{ locale === "cn" ? game.cn_name : game.name }}
