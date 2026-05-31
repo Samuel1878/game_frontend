@@ -27,6 +27,11 @@ export const useAuthStore = defineStore("auth", {
       this.user = user;
       walletStore.setWallet(wallet.balance, wallet.currency)
     },
+    setFundPinStatus(status:boolean){
+      if (this.user) {
+        this.user.set_pin = status;
+      }
+    },
     clearAuth() {
       this.accessToken = null;
       this.user = null;
@@ -45,11 +50,11 @@ export const useAuthStore = defineStore("auth", {
         };
       } catch (err: any) {
         console.error("Login error:", err);
-        this.logout();
+        this.clearAuth();
         return {
           status: err?.response?.status || 500,
           message:
-            err?.response?.data?.message || "Invalid username or password",
+            err?.response?.data?.message || "something_went_wrong",
         };
       }
     },
@@ -57,13 +62,12 @@ export const useAuthStore = defineStore("auth", {
       try {
         const res = await api.get("/user/profile");
         this.setUser(res.data);
-        console.log("FETCHING USER PROFILE")
+        console.log("FETCHING USER PROFILE", res.data);
         // const favStore = useFavoritesStore();
         // favStore.syncFavorites();
         return true
       } catch (error) {
         console.log("fetchUser failed", error);
-        this.logout();
         return false
       }
     },
@@ -109,18 +113,19 @@ export const useAuthStore = defineStore("auth", {
             status: 200,
             message: "Successfully logged in",
           };
-        } else if (response.status === 203) {
+        } else {      
+          this.clearAuth();    
           return {
-            status: 203,
-            message: response.data?.message || "User already exit",
+            status: response.status,
+            message: response.data?.message || "something_went_wrong",
           };
         }
-        this.logout();
+  
       } catch (error) {
-        this.logout();
+        this.clearAuth();
         return {
           status:500,
-          message:"Something went wrong"
+          message:"Something_went_wrong"
         }
       } 
     },

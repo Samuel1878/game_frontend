@@ -2,13 +2,11 @@
 import { MembershipCenter, UserAction } from "@/consts";
 import router from "@/router";
 import { useAuthStore } from "@/stores/auth";
-import { useUIStore } from "@/stores/ui";
 import { Phone, ChevronRight, Crown, CalendarDays } from "lucide-vue-next";
 import moment from "moment";
 import { useI18n } from "vue-i18n";
 const { t, locale } = useI18n();
 const authStore = useAuthStore();
-const uiStore = useUIStore();
 </script>
 
 <template>
@@ -77,7 +75,7 @@ const uiStore = useUIStore();
               <div
                 v-else
                 class="flex items-center gap-3 cursor-pointer group/btn"
-                @click="uiStore.openAuthModal('/user/profile')"
+                @click="router.push({ path: '/auth', query: { mode: 'login' } })"
               >
                 <div>
                   <h2

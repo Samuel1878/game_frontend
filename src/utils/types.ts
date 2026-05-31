@@ -59,6 +59,8 @@ export interface userInfo {
   agent_id?: number | null;
   is_oneline?: boolean;
   last_seen?: string;
+  set_pin?:boolean;
+ 
 }
 export interface userInfoResponse {
   user: userInfo;

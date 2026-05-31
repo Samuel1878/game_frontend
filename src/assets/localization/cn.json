@@ -334,6 +334,43 @@
   "enter_password": "请输入密码",
   "enter_name": "请输入姓名",
   "enter_referral_code_optional": "请输入邀请码（可选）",
+
+
   "records": "记录",
-    "remember_me":"记住下次登录吗？"
+    "remember_me":"记住下次登录吗？",
+    "security_center":"Security Center",
+  "change_fund_pin":"Change Fund Pin",
+  "set_fund_pin":"Set Fund Pin",
+  "enter_current_fund_pin":"Enter current fund pin",
+  "enter_new_fund_pin":"Enter new fund pin",
+  "confirm_new_fund_pin":"Confirm new fund pin",
+  "fund_pin_must_be_6_digits":"Fund pin must be 6 digits",
+  "fund_pin_changed_successfully":"Fund pin changed successfully",
+  "fund_pin_incorrect":"Fund pin is incorrect",
+  "fund_pin_set_successfully":"Fund pin set successfully",
+  
+  "fund_pin_change_warning":"Changing your fund pin will require you to enter your new pin in future transactions. Please remember your new fund pin to avoid any inconvenience.",
+  "fund_pin_change_warning_desc":"If you forget your fund pin, you may need to contact customer support to reset it, which could take some time. We recommend setting a fund pin that you can easily remember but is not easily guessable by others.",
+  "switch_to_percentage":"Switch to percentage",
+  "switch_to_manual":"Switch to manual",
+  "enter_your_fund_pin":"Enter your fund pin",
+  "confirm_withdraw":"Confirm Withdraw",
+  "welcome":"WELCOME",
+  "fund_pin":"Fund Pin",
+  "not_configured":"Not Configured",
+  "withdrawal_protection":"Withdrawal Protection",
+  "wallet_transfer_protection":"Wallet Transfer Protection",
+  "security_verification":"Security Verification",
+
+    "fundPin": {
+    "title": "需要资金 PIN",
+    "subtitle": "安全提款验证",
+    "message": "在进行提款和敏感钱包操作之前，您需要设置资金 PIN。",
+    "warning": "资金 PIN 可保护您的账户免受未经授权的提款操作。如果未设置，将限制交易访问权限。",
+    "cta": "设置资金 PIN"
+  },
+  "verify_fund_pin":"Verify Fund PIN",
+  "fund_pin_alert_title":"Credential Alert",
+  "fund_pin_alert_description":"This is your new Fund PIN. Please keep it secure and do not share it with anyone. You will need this PIN for future withdrawals and sensitive wallet actions.",
+  "fund_pin_alert_button":"I Understand"
 }

@@ -38,12 +38,10 @@ import {
 } from "@/utils";
 import LanguageLongBtn from "./languageLongBtn.vue";
 import { watch } from "vue";
-import { useUIStore } from "@/stores/ui";
 
 const authStore = useAuthStore();
 const router = useRouter();
 const wallet = useWallet();
-const ui = useUIStore();
 const handleLogout = async() => {
   await authStore.logout();
   setOpenMobile(false);
@@ -54,7 +52,7 @@ const route = useRoute();
 const { setOpenMobile } = useSidebar();
 const handleLogin = (v: boolean) => {
   setOpenMobile(false);
-  ui.openAuthModal("/", v);
+  router.push({ path: '/auth', query: { mode: v ? 'login' : 'register' } });
 };
 watch(
   () => route.path,

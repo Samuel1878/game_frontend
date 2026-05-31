@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
-import {InputGroup, InputGroupAddon,InputGroupInput} from "@/components/ui/input-group";
-import {Label} from "@/components/ui/label";
-import {Button} from "@/components/ui/button";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { Headset, LockIcon } from "lucide-vue-next";
 import { toast } from "vue-sonner";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
@@ -55,34 +59,31 @@ const submit = async () => {
 </script>
 
 <template>
-    <CustomNavBar title="change_password" backTo="/user/profile">
-            <template #right>
-
-                <button @click="openChat">
-                    <Headset class="w-6 h-6" />
-                </button>
-                <LanguageBtn/>
-            </template>
-    </CustomNavBar>
-  <main class="p-4 min-h-screen w-full bg-gray-950 text-white">
-    
-    
-
+  <CustomNavBar title="change_password" backTo="/user/security-center">
+    <template #right>
+      <button @click="openChat">
+        <Headset class="w-6 h-6" />
+      </button>
+      <LanguageBtn />
+    </template>
+  </CustomNavBar>
+  <main class="p-4 min-h-screen w-full bg-gray-900 text-white">
     <section
-      class="mt-4 p-4 w-full flex flex-col gap-4 rounded-2xl
-      bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5
-      backdrop-blur-2xl border border-white/10
-      shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+      class="mt-4 p-4 w-full flex flex-col gap-4 rounded-2xl bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
     >
       <!-- Icon -->
-      <div class="flex justify-center items-center flex-col h-20 border border-sky-400/10 rounded-2xl">
-        <LockIcon :size="40" />
+      <div
+        class="flex justify-center items-center shadow-xs flex-col h-20 border border-yellow-400/10 rounded-2xl"
+      >
+        <LockIcon :size="40" class="text-yellow-400" />
       </div>
 
       <!-- Old password -->
       <div class="space-y-2">
         <Label>{{ t("old_password") }}</Label>
-        <InputGroup class="h-12 rounded-lg w-full border border-gray-700 bg-gray-700/50">
+        <InputGroup
+          class="h-12 rounded-lg w-full border border-gray-700 bg-gray-700/50"
+        >
           <InputGroupAddon>
             <LockIcon class="w-4 h-4" />
           </InputGroupAddon>
@@ -98,7 +99,9 @@ const submit = async () => {
       <!-- New password -->
       <div class="space-y-2">
         <Label>{{ t("new_password") }}</Label>
-        <InputGroup class="h-12 rounded-lg w-full border border-gray-700 bg-gray-700/50">
+        <InputGroup
+          class="h-12 rounded-lg w-full border border-gray-700 bg-gray-700/50"
+        >
           <InputGroupAddon>
             <LockIcon class="w-4 h-4" />
           </InputGroupAddon>
@@ -114,7 +117,9 @@ const submit = async () => {
       <!-- Confirm password -->
       <div class="space-y-2">
         <Label>{{ t("confirm_password") }}</Label>
-        <InputGroup class="h-12 rounded-lg w-full border border-gray-700 bg-gray-700/50">
+        <InputGroup
+          class="h-12 rounded-lg w-full border border-gray-700 bg-gray-700/50"
+        >
           <InputGroupAddon>
             <LockIcon class="w-4 h-4" />
           </InputGroupAddon>
@@ -133,13 +138,10 @@ const submit = async () => {
       <Button
         @click="submit"
         :disabled="loading"
-        class="w-full h-12 rounded-xl
-        gold-bg text-glow
-        active:scale-[0.98] transition"
+        class="w-full h-12 rounded-xl gold-bg text-glow active:scale-[0.98] transition"
       >
         {{ loading ? t("loading") : t("change_password") }}
       </Button>
     </div>
-
   </main>
 </template>

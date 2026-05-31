@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
-import { useUIStore } from "@/stores/ui";
 import { useWallet } from "@/stores/wallet";
 import { formatPrice } from "@/utils";
 import { useI18n } from "vue-i18n";
@@ -13,13 +12,9 @@ import { useSidebar } from "../ui/sidebar";
 import { defineAsyncComponent, ref } from "vue";
 const route = useRoute();
 const wallet = useWallet();
-const uiStore = useUIStore();
 const authStore = useAuthStore();
 const loading = ref(false);
 const { t, locale } = useI18n();
-const goToLoginHandler = (v: boolean) => {
-  uiStore.openAuthModal("/", v);
-};
 const refresh = async()=> {
   if (loading.value)return;
   loading.value = true;
@@ -74,14 +69,14 @@ const openMenu = () => {
         </div>
         <div v-else class="flex gap-2">
           <button
-            @click="goToLoginHandler(true)"
+            @click="router.push({ path: '/auth', query: { mode: 'login' } })"
             class="rounded-sm h-10 flex justify-center items-center text-linear-gold font-medium bg-transparent border border-yellow-400 active-button"
             :class="locale === 'mm' ? 'px-2 text-xs' : 'px-4 text-sm'"
           >
             {{ t("login") }}
           </button>
           <button
-            @click="goToLoginHandler(false)"
+            @click="router.push({ path: '/auth', query: { mode: 'register' } })"
             :class="locale === 'mm' ? 'px-2 text-xs' : 'px-4 text-sm'"
             class="rounded-sm h-10 relative flex justify-center items-center text-glow font-medium gold-bg active-button"
           >

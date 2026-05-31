@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "@/stores/auth";
 import { useUIStore } from "@/stores/ui";
@@ -397,7 +397,7 @@ onMounted(() => {
             </button>
           </div>
 
-          <!-- spacer for center alignment -->
+        
           <div class="w-10"></div>
         </div>
       </div>
@@ -456,4 +456,4 @@ onMounted(() => {
     transform: translateY(0);
   }
 }
-</style>
+</style> -->

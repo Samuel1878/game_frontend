@@ -64,13 +64,11 @@ const handleSave = () => {
 
       <!-- Body -->
       <div class="p-4 space-y-3 max-h-[70vh] overflow-y-auto">
-        <div>
-            <p>{{  }}</p>
-        </div>
+       
         <div class="grid grid-cols-3 gap-2 mb-4">
             <div class="" v-for="item in paymentMethod" v-on:click="choosePayment(item)">
-                <div class="flex flex-col items-center gap-2 p-2 border-2 rounded-lg" 
-                    :class="form.value===item.value?'border-yellow-400 text-yellow-400 animate-pulse':'border-gray-400/30 text-white'">
+                <div class="flex flex-col items-center gap-2 border-gray-600 p-2 border rounded-lg" 
+                    :class="form.value===item.value?'border-yellow-400 text-yellow-400 bg-yellow-500/5 animate-pulse':'border-gray-400/30 text-white'">
                   <img :src="item.icon" class="w-8 h-8 rounded-md" :alt="item.label"/>
                   <span>{{ item.label }}</span>
                 </div>
@@ -79,7 +77,7 @@ const handleSave = () => {
    
 
         <!-- Account Name -->
-        <InputGroup class="h-12 rounded-lg border border-gray-700 bg-gray-700/50">
+        <InputGroup class="h-12 rounded-lg border border-gray-600 bg-gray-700/50">
           <InputGroupAddon>
             <UserLockIcon />
           </InputGroupAddon>
@@ -89,7 +87,7 @@ const handleSave = () => {
           />
         </InputGroup>
      <!-- Account Number -->
-        <InputGroup class="h-12 rounded-lg border border-gray-700 bg-gray-700/50">
+        <InputGroup class="h-12 rounded-lg border border-gray-600 bg-gray-700/50">
           <InputGroupAddon>
             <CreditCard />
           </InputGroupAddon>
@@ -124,7 +122,7 @@ const handleSave = () => {
             {{ t("cancel") }}
           </button>
           <Button
-            class="flex-1 gold-bg h-12 rounded-lg font-bold"
+            class="flex-1 gold-bg h-12 rounded-lg font-bold text-gray-900 active-button"
             @click="handleSave"
           >
             {{ t("save") }}

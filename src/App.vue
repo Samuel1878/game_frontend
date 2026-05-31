@@ -19,7 +19,6 @@ const UpdatePopup = defineAsyncComponent(
 const GameDrawer = defineAsyncComponent(
   () => import("./components/gameDrawer.vue"),
 );
-const AuthModal = defineAsyncComponent(() => import("@/components/Auth.vue"));
 const route = useRoute();
 const referralStore = useReferralStore();
 watch(
@@ -71,12 +70,9 @@ onMounted(() => {
           <router-view v-slot="{ Component }">
           <keep-alive>
             <Suspense>
-              <!-- The loaded page -->
               <template #default>
                 <component :is="Component" />
               </template>
-
-              <!-- What shows while the JS chunk is downloading -->
               <template #fallback>
                 <div class="flex items-center justify-center h-screen w-full">
                   <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500"></div>
@@ -86,7 +82,6 @@ onMounted(() => {
           </keep-alive>
         </router-view>
           <UpdatePopup />
-          <AuthModal />
           <GameDrawer />
         </div>
         <BottomNav class="md:hidden" />

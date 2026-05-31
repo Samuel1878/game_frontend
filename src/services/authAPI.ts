@@ -7,7 +7,7 @@ export interface AuthPayload {
   password: string
   referral_code?:string | null;
 }
-export interface AuthResponse {
+export interface ProfileResponse {
     id: number
     name: string
     email: string | null
@@ -17,18 +17,23 @@ export interface AuthResponse {
     level: number
     created_at: string
     uid: string
-  
 } 
-export const login = async (data: AuthPayload):Promise<AuthResponse> => {
-  const res = await api.post('/auth/login', data)
-  return res.data 
+export interface AuthResponse {
+  success?: number;
+  message: string;
+  accessToken?: string;
 }
 
-export const register = async (data: AuthPayload):Promise<AuthResponse> => {
-  const res = await api.post('/auth/register', data)
-  console.log("register response", res)
-  return res.data
-}
+// export const login = async (data: AuthPayload):Promise<AuthResponse> => {
+//   const res = await api.post('/auth/login', data)
+//   return res.data 
+// }
+
+// export const register = async (data: AuthPayload):Promise<AuthResponse> => {
+//   const res = await api.post('/auth/register', data)
+//   console.log("register response", res)
+//   return res.data
+// }
 export const refreshAPI = async ():Promise<null | any> => {
   try {
     const res = await api.post("/auth/refresh");
@@ -37,7 +42,7 @@ export const refreshAPI = async ():Promise<null | any> => {
     return null
   }
 }
-export const getProfile = async ():Promise<AuthResponse | null >=> {
+export const getProfile = async ():Promise<ProfileResponse | null >=> {
   try {
     const res = await api.get("/user/profile", { withCredentials: true });
     if (res.status === 200) return res.data;

@@ -13,9 +13,7 @@ import {formatPrice } from "@/utils";
 import { useI18n } from "vue-i18n";
 import HelpBox from "@/components/layout/helpBox.vue";
 import { useAuthStore } from "@/stores/auth";
-import { useUIStore } from "@/stores/ui";
 import { Button } from "@/components/ui/button";
-const ui = useUIStore()
 const amount = ref<number>();
 const { t } = useI18n();
 const chosePayment = ref("");
@@ -28,7 +26,7 @@ const choosePayment = (value: string) => {
 }
 
 const goToPayment = () => {
-  if(!authStore.user)return ui.openAuthModal();
+  if(!authStore.user)return router.push({ path: '/auth', query: { mode: 'login' } });
   if (chosePayment.value === 'usdt') {
     if (amount.value && amount.value >= 10 && amount.value <= 40000) {
       router.push(`/deposit/${chosePayment.value}?amount=${amount.value}`);
@@ -52,9 +50,9 @@ const goToPayment = () => {
 
     <div class="flex flex-col p-2 w-full max-w-3xl">
         <section
-          class="p-4 space-y-4 relative rounded-2xl bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+          class="p-4 space-y-4 relative rounded-2xl glass-bg">
           <div class="flex gap-2 w-full">
-             <div class="rounded-full bg-yellow-400 p-1.5 h-1.5 mt-1.5 animate-pulse"/>
+             <div class="rounded-full bg-yellow-400/20 border border-yellow-500 shadow-innter p-1.5 h-1.5 mt-0.5"/>
           <h1 class="text-sm font-bold">
 
             {{ t("choose_payment_method") }}
@@ -80,7 +78,7 @@ const goToPayment = () => {
         </section>
         <div class="p-4 mt-2 space-y-4 relative rounded-2xl glass-bg">
           <div class="flex gap-2 w-full mb-4">
-             <div class="rounded-full bg-yellow-400 p-1.5 h-1.5 mt-1.5 animate-pulse"/>
+             <div class="rounded-full bg-yellow-400/20 border border-yellow-500 shadow-innter p-1.5 h-1.5 mt-0.5"/>
             <h1 class="text-sm font-bold tracking-wide">
               {{ t("set_deposit_amount") }}
             </h1>

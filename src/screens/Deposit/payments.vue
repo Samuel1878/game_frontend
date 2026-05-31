@@ -11,11 +11,12 @@ import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useClipboard } from "@vueuse/core";
 import {
-  ChartNoAxesColumnDecreasing,
+  
   CopyIcon,
   FileClock,
   Headset,
   RefreshCcw,
+  ScrollText,
 } from "lucide-vue-next";
 import type { depositFormData, PaymentMethod } from "@/utils/types";
 import { useAuthStore } from "@/stores/auth";
@@ -29,6 +30,7 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat } from "@/utils";
 import HelpBox from "@/components/layout/helpBox.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
+import Label from "@/components/ui/label/Label.vue";
 const { t } = useI18n();
 const route = useRoute();
 const auth = useAuthStore();
@@ -178,7 +180,7 @@ const copyHandler = (value:any) => {
   <CustomNavBar title="transfer" backTo="/deposit">
     <template #right>
       <button>
-        <FileClock class="w-7 h-7"  />
+        <FileClock class="w-6 h-6 text-yellow-400"  />
       </button>
       <button @click="openChat">
         <Headset class="w-6 h-6 text-yellow-400" />
@@ -188,18 +190,19 @@ const copyHandler = (value:any) => {
   </CustomNavBar>
     <section class="px-2 max-w-3xl h-full w-full space-y-2">
       <form class="w-full  space-y-2" @submit.prevent="submitHandler">
-        <div class="flex justify-between w-full px-3 p-2 items-center rounded-lg glass-bg border">
+       
+        <div
+          class="flex flex-col w-full p-4 gap-6 h-full info-bg border rounded-2xl">
+           <div class="flex justify-between w-full p-2 items-center rounded-xl bg-gray-700/20">
           <div class="rounded-lg overflow-hidden bg-black/40 backdrop-blur-2xl">
             <img :src="payment?.icon" class="w-12 h-12" />
           </div>
           <p class="font-bold text-white">{{ payment?.label }}</p>
           <button type="button" @click="changePriority"
-            class="active:scale-95 transition text-sky-400 font-bold text-lg px-2 py-1">
+            class="active:scale-95 transition text-yellow-400 font-bold text-lg px-2 py-1">
               <RefreshCcw :class="switching ? 'animate-spin' : ''" />
           </button>
         </div>
-        <div
-          class="flex flex-col w-full p-4 gap-6 h-full bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0)] rounded-lg">
           <div class="w-full flex justify-between items-center">
             <p class="text-xs text-gray-300">{{ t('name') }}</p>
             <p class="text-lg text-yellow-500 font-bold">{{ chosenAccount?.account_name }}</p>
@@ -228,22 +231,30 @@ const copyHandler = (value:any) => {
           </div>
         </div>
         <div
-          class="flex flex-col w-full flex-1 p-4 h-full bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-b-0 border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0)] rounded-lg">
+          class="flex flex-col w-full flex-1 p-4 h-full glass-bg border rounded-2xl">
+     
           <div class="space-y-2">
-            <label for="account_name" class="text-gray-400 font-semibold:">{{ t("last_5_digit_of_transaction") }}
-            </label>
-            <InputGroup class="h-12 mt-2 rounded-lg text-white font-bold border border-gray-700 ring-yellow-500 ring-0 bg-gray-900">
+            <Label class="text-gray-400 font-semibold">
+              {{ t("last_5_digit_of_transaction") }}
+            </Label>
+            <InputGroup class="h-12 mt-2 rounded-xl overflow-hidden border border-gray-700 bg-gray-900 focus-within:border-yellow-500 focus-within:ring-2 focus-within:ring-yellow-500/20">
               <InputGroupAddon>
-                <ChartNoAxesColumnDecreasing />
+             <ScrollText />
               </InputGroupAddon>
-              <InputGroupInput type="text" maxlength="6" name="last5Digit" v-model="form.last5Digit" />
+              <InputGroupInput 
+                class="text-white font-bold" 
+                type="text" maxlength="5" 
+                name="last5Digit" v-model="form.last5Digit" 
+                placeholder="*****" />
+                />
               <InputGroupAddon align="inline-end">
                 <InputGroupText class="text-gray-100"></InputGroupText>
               </InputGroupAddon>
             </InputGroup>
           </div>  
         </div>
-       <div class="w-full z-30  fixed bottom-0 right-0 left-0 p-4 glass-bg border-t">
+        
+       <div class="w-full z-30  fixed bottom-0 right-0 left-0 p-4 bg-gray-800/20 backdrop-blur-2xl border-t border-gray-700/50">
           <button :disabled="submitting" type="submit"
             class="gold-bg active-button h-12 font-bold text-gray-900 w-full rounded-lg flex justify-center items-center gap-2 disabled:opacity-50">
             <RefreshCcw v-if="submitting" class="animate-spin" />
@@ -252,7 +263,7 @@ const copyHandler = (value:any) => {
     
     </div>
       </form>
-      <div class="glass-bg border rounded-2xl p-4 mt-8 space-y-6">
+      <div class="info-bg border rounded-2xl p-4 mt-8 space-y-6">
         <h1 class="text-red-500 font-bold text-xl">
           {{ t("note") }}
         </h1>

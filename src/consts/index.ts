@@ -283,9 +283,9 @@ interface MembershipType {
 export const MembershipCenter:MembershipType[] = [
     {
         id:1,
-        label:"update_password",
+        label:"security_center",
         action:()=>{
-            router.push("/user/update-password")
+            router.push("/user/security-center")
         },
         icon:ShieldCheck
     },

@@ -2,7 +2,6 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { enterGameAPI } from "@/services/gameAPI"; // adjust path
 import { useAuthStore } from "@/stores/auth";
-import { useUIStore } from "@/stores/ui";
 import { toast } from "vue-sonner"; // or your toast lib
 import router from "@/router";
 import type { gameType } from "@/utils/types";
@@ -15,7 +14,6 @@ export const useGameStore = defineStore("game", () => {
   const selectedGame = ref<gameType|null>(null);
     const closeTimer = ref<ReturnType<typeof setTimeout> | null>(null);
   const authStore = useAuthStore();
-  const ui = useUIStore();
   const wallet = useWallet()
   const preLaunchData = ref<any>(null); 
   const openDrawer = () => {
@@ -41,7 +39,7 @@ export const useGameStore = defineStore("game", () => {
 
     if (!authStore.user) {
       toast.warning("Please login to enter the game");
-      ui.openAuthModal("/");
+      router.push({ path: '/auth', query: { mode: 'login' } });
       return;
     }
     if (authStore.user.level===1 && wallet.balance===0){
