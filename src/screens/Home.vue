@@ -60,7 +60,7 @@ const {prepareGame} = useGameStore()
           </button>
           <button
             @click="router.push('/withdraw')"
-            class="w-full h-8 text-linear-gold overflow-hidden cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+            class="w-full h-8 text-linear-gold overflow-hidden cursor-pointer flex justify-center items-center gap-2 rounded-full bg-gray-800/20 border border-yellow-400/50">
             <span class="font-bold">
               {{ t("withdraw") }}
             </span>

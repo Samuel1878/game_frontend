@@ -24,7 +24,7 @@ const { t } = useI18n();
     @update:open="emit('update:open', $event)"
   >
     <DialogContent
-      class="bg-gray-900 info-bg border-t border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.6)] text-white rounded-2xl p-6"
+      class="bg-gray-900 info-bg text-white rounded-lg p-6 w-full max-w-sm"
     >
       <h2 class="text-xl font-bold mb-4">
         {{ t(props.title) }}

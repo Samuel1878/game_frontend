@@ -9,6 +9,7 @@ import {
 // } from "@/api/transactionAPI";
 import type {
     BetListRecord,
+    ReportSummaryType,
 } from "@/utils/types";
 import { useAuthStore } from "./auth";
 import { getBetListAPI } from "@/services/transactionAPI";
@@ -27,6 +28,15 @@ export const useBetlistStore = defineStore(
     const startDate = ref();
     const endDate = ref();
     const rawBetRecords = ref<BetListRecord[]>([]);
+    const transactionReport = ref({
+      deposits:0,
+      withdraws:0,
+      refund:0,
+      bonus:0,
+      rebate:0,
+      adjustment:0
+    });
+    const BetReportRecord = ref<ReportSummaryType | null>(null);
     const betPage = ref(1);
     const betLimit = ref(20);
       const authStore = useAuthStore();
@@ -54,17 +64,33 @@ export const useBetlistStore = defineStore(
             mode:mode.value,
             portfolio:
               portfolio.value,
-
             startDate:
              startDate.value ? toISOStringSafe(startDate.value) : undefined,
             endDate:
              endDate.value ? toISOStringSafe(endDate.value) : undefined,
           });
-          // console.log(response)
-            rawBetRecords.value = response?.result;
-
+            rawBetRecords.value = response?.betlist?.result || [];
+            BetReportRecord.value = response?.report[0] || null;
+            transactionReport.value = {
+              deposits: Number(response?.transaction?.deposits) || 0,
+              withdraws: Number(response?.transaction?.withdraws) || 0,
+              refund: Number(response?.transaction?.refund) || 0,
+              bonus: Number(response?.transaction?.bonus) || 0,
+              adjustment: Number(response?.transaction?.adjustment) || 0,
+              rebate: Number(response?.transaction?.rebate) || 0,
+            };
+            console.log(response);
       } catch (error) {
-
+        rawBetRecords.value = [];
+        BetReportRecord.value = null;
+        transactionReport.value = {
+          deposits:0,
+          withdraws:0,
+          refund:0,
+          bonus:0,
+          rebate:0,
+          adjustment:0
+        };  
         console.error(error);
 
       } finally {
@@ -75,7 +101,8 @@ export const useBetlistStore = defineStore(
     };
     const paginatedBetRecords =
       computed(() => {
-         rawBetRecords
+        if (!rawBetRecords.value.length) return [];
+         
       const start =
         (betPage.value - 1)
         *
@@ -110,6 +137,7 @@ export const useBetlistStore = defineStore(
       betPage.value = page;
     };
     return {
+      BetReportRecord,
       loading,
       portfolio,
       mode,
@@ -118,6 +146,7 @@ export const useBetlistStore = defineStore(
       rawBetRecords,
       paginatedBetRecords,
       fetchBetList,
+      transactionReport,
       betPage,
       betLimit,
       betTotal,

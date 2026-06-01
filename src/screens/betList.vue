@@ -3,16 +3,19 @@ import LanguageBtn from "@/components/languageBtn.vue";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { useBetlistStore } from "@/stores/betListStore";
 import {  formatPrice, openChat } from "@/utils";
-import { ClipboardX, Headset } from "lucide-vue-next";
+import {  ClipboardX, Headset } from "lucide-vue-next";
 import { storeToRefs } from "pinia";
-import { onMounted } from "vue";
+import { computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import DatePicker from "@/components/CalenderView.vue";
 import { formatMyanmarTime } from "@/utils/date";
 
 const store = useBetlistStore();
-const { mode, startDate, endDate,loading ,paginatedBetRecords, betPage, betTotal, betTotalPages} = storeToRefs(store);
+const { mode, startDate, endDate,loading ,transactionReport,paginatedBetRecords, betPage, betTotal, betTotalPages, BetReportRecord } = storeToRefs(store);
 const { t } = useI18n();
+const getWinLoss = computed(()=>formatPrice(((transactionReport.value?.deposits|| 0)-
+(transactionReport.value?.adjustment|| 0))-((transactionReport.value?.withdraws|| 0) - 
+(transactionReport.value?.refund|| 0))))
 onMounted(() => {
   store.fetchBetList();
 });
@@ -75,6 +78,66 @@ onMounted(() => {
       </button>
     </div>
   </div>
+   <div class="grid grid-rows-1 grid-cols-3 items-center gap-2 py-2">
+      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+          <p class="text-sm text-gray-400 text-center">
+              {{ t("turnover") }}
+              <p class="dashboard-value text-white">
+            {{ formatPrice((BetReportRecord?.turnover?.bonus||0) + 
+            (BetReportRecord?.turnover?.draw || 0) + (BetReportRecord?.turnover?.won || 0)
+            +(BetReportRecord?.turnover?.lose || 0)) }} 
+          </p>
+        </p>
+      </div>
+      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+          <p class="text-sm text-gray-400 text-center">
+              {{ t("GGR") }}
+              <p class="dashboard-value"
+              :class="(BetReportRecord?.winlose|| 0) >= 0 ? 'text-green-400' : 'text-red-400'">
+            {{ formatPrice((BetReportRecord?.winlose|| 0)) }} 
+          </p>
+
+          </p>
+      </div>
+      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+          <p class="text-sm text-gray-400 text-center">
+              {{ t("bonus") }}
+              <p class="dashboard-value text-white">
+            {{ formatPrice((transactionReport?.bonus|| 0)+(transactionReport?.rebate|| 0)) }} 
+          </p>
+
+          </p>
+      </div>
+      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+          <p class="text-sm text-gray-400 text-center">
+              {{ t("win_loss") }}
+              <p class="dashboard-value" :class="(Number(getWinLoss) || 0) >= 0 ? 'text-green-400' : 'text-red-400'">
+            {{ getWinLoss }} 
+          </p>
+
+          </p>
+      </div>
+      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+          <p class="text-sm text-gray-400 text-center">
+              {{ t("deposit") }}
+              <p class="dashboard-value text-white">
+            {{ formatPrice((transactionReport?.deposits|| 0)-(transactionReport?.adjustment|| 0)) }} 
+          </p>
+
+          </p>
+      </div>
+      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+          <p class="text-sm text-gray-400 text-center">
+              {{ t("withdraw") }}
+              <p class="dashboard-value text-white">
+            {{ formatPrice((transactionReport?.withdraws|| 0) - (transactionReport?.refund|| 0)) }} 
+          </p>
+
+          </p>
+      </div>
+      
+       
+    </div>
    <!-- LOADING -->
 <div v-if="loading" class="p-4 space-y-3">
   <div v-for="i in 6" :key="i" class="animate-pulse flex justify-between p-4 bg-[#0f172a] rounded-xl">

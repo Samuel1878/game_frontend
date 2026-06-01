@@ -105,6 +105,7 @@ export interface withdrawalInfo {
   remark?: string;
   txn_id?: string;
   is_completed?: boolean;
+  fund_pin?: string;
 }
 export interface withdrawParamType {
   user_id: number;

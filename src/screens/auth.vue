@@ -125,6 +125,7 @@ const submit = async () => {
         password: form.value.password,
         isPhoneNumber: validatePhone(loginName.value),
       });
+      
     } else {
       response = await auth.register({
         name: form.value.username,
@@ -133,7 +134,6 @@ const submit = async () => {
         referral_code: referralCode.value,
       });
     }
-    console.debug("auth response", response);
     if (response?.status === 200) {
       toast.success(t(response.message));
       router.push("/");

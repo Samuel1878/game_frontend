@@ -13,7 +13,7 @@ const authStore = useAuthStore();
   <main class="min-h-screen bg-gray-900 w-full px-4 py-4">
     <div class="max-w-md mx-auto space-y-4">
       <section
-        class="relative overflow-hidden rounded-3xl bg-[#0a0f1a] bg-linear-to-br from-gray-900/5 via-yellow-400/15 to-yellow-500/10 border border-white/10 shadow-2xl group transition-all duration-500 hover:shadow-[0_0_50px_rgba(234,179,8,0.15)]"
+        class="relative overflow-hidden rounded-3xl bg-gray-800/40 bg-linear-to-b from-gray-800/40 to-transparent border border-gray-900/80 shadow-xl group transition-all duration-500 hover:shadow-[0_0_50px_rgba(234,179,8,0.15)]"
       >
         <div class="relative z-10 p-6 md:p-8 overflow-hidden">
           <div class="flex items-center justify-between">
@@ -156,7 +156,7 @@ const authStore = useAuthStore();
         <div
           @click="router.push(value.path)"
           v-for="value in UserAction"
-          class="cursor-pointer h-12 w-full flex justify-center items-center gap-2 rounded-full bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+          class="cursor-pointer h-12 w-full flex justify-center items-center gap-2 rounded-full bg-gray-800/20 border border-gray-500/20 text-gray-300 hover:bg-gray-700/50 transition"
         >
           <div class="h-6 w-6 flex justify-center items-center">
             <component :is="value.image" class="w-8 h-8 text-white" />
@@ -183,13 +183,13 @@ const authStore = useAuthStore();
             @click="value.action"
           >
             <div
-              class="h-14 w-14 flex flex-col rounded-full justify-center items-center bg-yellow-400/10 bg-linear-to-br from-yellow-400/5 via-yellow-500/10 to-yellow-600/20 backdrop-blur-2xl border border-amber-500/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+              class="h-14 w-14 flex flex-col rounded-full justify-center items-center bg-yellow-400/5 bg-linear-to-br from-yellow-400/5 via-yellow-500/10 to-yellow-600/5 backdrop-blur-2xl border border-amber-500/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
             >
               <img v-if="value.image" :src="value.image" class="w-10 h-10" />
               <component
                 v-else
                 :is="value?.icon"
-                class="w-8 h-8 text-yellow-500"
+                class="w-8 h-8 text-yellow-400"
               />
             </div>
             <p class="text-gray-300 text-xs text-wrap text-center">

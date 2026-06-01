@@ -46,11 +46,11 @@ const goToPayment = () => {
 };
 </script>
 <template>
-  <main class="text-gray-100 flex justify-center bg-linear-to-b from-gray-900 to-gray-800 w-full">
+  <main class="text-gray-100 flex justify-center bg-gray-900 w-full">
 
     <div class="flex flex-col p-2 w-full max-w-3xl">
         <section
-          class="p-4 space-y-4 relative rounded-2xl glass-bg">
+          class="p-4 space-y-4 relative rounded-2xl bg-gray-800/20 border border-gray-500/20 backdrop-blur-md shadow-2xl">
           <div class="flex gap-2 w-full">
              <div class="rounded-full bg-yellow-400/20 border border-yellow-500 shadow-innter p-1.5 h-1.5 mt-0.5"/>
           <h1 class="text-sm font-bold">
@@ -60,7 +60,7 @@ const goToPayment = () => {
           </div>
           <div class="flex flex-wrap justify-center gap-2">
             <div v-for="payment in paymentMethod" :key="payment.id" @click="choosePayment(payment.value)"
-              class="group  w-[30%] p-2 rounded-2xl relative bg-linear-to-br from-white/5 to-white/10 border-2  hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-500/10 active:scale-[0.97] transition flex flex-col items-center gap-2"
+              class="group  w-[30%] p-2 rounded-2xl relative bg-linear-to-br from-gray-800/5 to-gray-500/10 border-2  hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-500/10 active:scale-[0.97] transition flex flex-col items-center gap-2"
               :class="chosePayment === payment.value ? 'border-yellow-400 animate-pulse' : 'border-white/10'">
               <div class="p-2 rounded-xl bg-black/40 backdrop-blur-2xl group-hover:scale-110 transition">
                 <img :src="payment.icon" class="w-10 h-10 object-cover rounded-lg" fetchpriority="high" decoding="async" :alt="payment.label"/>
@@ -76,7 +76,7 @@ const goToPayment = () => {
             {{ t('deposit_payment_description') }}
           </p>
         </section>
-        <div class="p-4 mt-2 space-y-4 relative rounded-2xl glass-bg">
+        <div class="p-4 mt-2 space-y-4 relative rounded-2xl bg-gray-800/20 border border-gray-500/20 backdrop-blur-md shadow-2xl">
           <div class="flex gap-2 w-full mb-4">
              <div class="rounded-full bg-yellow-400/20 border border-yellow-500 shadow-innter p-1.5 h-1.5 mt-0.5"/>
             <h1 class="text-sm font-bold tracking-wide">
@@ -117,7 +117,7 @@ const goToPayment = () => {
             <button v-for="a in amounts" :key="a" @click="setAmount(a)" :class="[
               'py-2 rounded-lg text-sm font-semibold active-button',
               amount === a
-                ? 'gold-bg text-gray-900 shadow-lg shadow-yellow-400/30 animate-pulse'
+                ? 'bg-yellow-500/20 animate-pulse text-white border border-yellow-400 shadow-lg shadow-yellow-500/10'
                 : 'bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300',
             ]">
               {{ formatPrice(a) }}
@@ -125,10 +125,10 @@ const goToPayment = () => {
           </div>
           <Button :disabled="!amount || !chosePayment" @click="goToPayment" 
           :class="!amount || !chosePayment ? 'gold-bg' : ' gold-bg '"
-      class="w-full disabled:opacity-50 font-bold text-glow active-button rounded-lg h-12 flex items-center justify-center">
-        {{ t('next') }}
-      </Button>
-      </div>
+          class="w-full disabled:opacity-50 font-bold text-glow active-button rounded-lg h-12 flex items-center justify-center">
+            {{ t('next') }}
+          </Button>
+          </div>
   <HelpBox container-style=""/>
       
     </div>

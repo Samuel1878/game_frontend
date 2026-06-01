@@ -110,7 +110,7 @@ watch(
   <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">
     <div class="p-2">
       <div
-        class="w-full flex gap-2 h-28 items-center justify-between rounded-2xl bg-gray-800/10 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+        class="w-full flex gap-2 h-28 items-center justify-between rounded-2xl bg-gray-800/20 border border-gray-500/20 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
       >
         <div class="px-4">
           <img :src="slot" class="w-18 h-18" />
@@ -168,7 +168,7 @@ watch(
       </div>
       <div class="px-2">
         <InputGroup
-          class="border-gray-500/70 text-white bg-gray-600/50 ring-gray-400/70 ring-0 rounded-full h-12"
+          class="border-gray-500/20 text-white bg-gray-800/20 ring-gray-500/20 ring-0 rounded-full h-12"
         >
           <InputGroupInput
             v-model="searchQuery"

@@ -33,7 +33,6 @@ import { useWallet } from "@/stores/wallet";
 import FundPinDrawer from "@/components/fundPinDrawer.vue";
 import Slider from "@/components/ui/slider/Slider.vue";
 import Button from "@/components/ui/button/Button.vue";
-import { useUIStore } from "@/stores/ui";
 import FundPinAlert from "@/components/fundPinAlert.vue";
 import { useFundPinStore } from "@/stores/fundPinStore";
 const BankAccountDrawer = defineAsyncComponent(
@@ -101,14 +100,23 @@ const { selectedPayment, filteredAccounts } = storeToRefs(bankStore);
 onMounted(() => {
   bankStore.fetchAccounts();
 });
+
 const chooseAccount = (data: BankAccount) => {
-  amount.value = 0;
+  const isSelected =
+    choosen.value && withdrawForm.value.number === data.account_number;
+
+  if (isSelected) {
+    withdrawForm.value.name = "";
+    withdrawForm.value.number = "";
+    withdrawForm.value.method = "";
+    choosen.value = false;
+    return;
+  }
   withdrawForm.value.name = data.account_name;
   withdrawForm.value.number = data.account_number;
   withdrawForm.value.method = data.value;
   choosen.value = true;
 };
-
 const submit = async (params: any) => {
   console.log(params);
   if (!params) {
@@ -146,20 +154,21 @@ const submit = async (params: any) => {
     withdraw_no: withdrawForm.value.number,
     amount: amount.value,
     payment_method: withdrawForm.value.method,
+    fund_pin: params,
   };
   const param: withdrawParamType = {
     user_id: authStore.user.id,
     uuid: authStore.user.uid,
   };
   const response = await withdrawalHandlerAPI(data, param);
-  if (response) {
-    toast.success(t("success"));
-    router.push("/user/withdraw-history");
+  if (response && response.data) {
+    toast.success(t(response?.message || "success"));
+    openDrawer.value = false;
+    router.back();
     return;
   }
   openDrawer.value = false;
-  toast.error(t("something_went_wrong"));
-  router.back();
+  toast.error(t(response?.message) || t("something_went_wrong"));
 };
 
 const isEdit = ref(false);
@@ -175,7 +184,8 @@ const form = ref<BankAccountPros>({
 });
 const fundPinStore = useFundPinStore();
 
-onMounted(async () => {// if you have hydration / session restore
+onMounted(async () => {
+  // if you have hydration / session restore
   bankStore.fetchAccounts();
 });
 watch(
@@ -187,7 +197,7 @@ watch(
       fundPinStore.openFundPin();
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 const openAdd = () => {
   isEdit.value = false;
@@ -248,72 +258,82 @@ watch([percentage, byPercentage], () => {
               class="text-gray-500 text-xs font-semibold"
               v-show="walletStore.balance"
             >
-              {{ formatPrice(walletStore.balance) }} ~ {{amount ?formatPrice(walletStore.balance - amount!) :formatPrice(walletStore.balance)}} MMK
+              {{ formatPrice(walletStore.balance) }} ~
+              {{
+                amount
+                  ? formatPrice(walletStore.balance - amount)
+                  : formatPrice(walletStore.balance)
+              }}
+              MMK
             </span>
           </div>
         </div>
 
-        <!-- EXPANDABLE AREA -->
-        <Transition
-          enter-active-class="transition-all duration-300 ease-out"
-          enter-from-class="max-h-0 opacity-0 translate-y-2"
-          enter-to-class="max-h-40 opacity-100 translate-y-0"
-          leave-active-class="transition-all duration-200 ease-in"
-          leave-from-class="max-h-40 opacity-100 translate-y-0"
-          leave-to-class="max-h-0 opacity-0 translate-y-2"
+        <!-- CSS GRID HEIGHT ANIMATION WRAPPER -->
+        <div
+          class="overflow-hidden transition-all duration-500"
+          :style="{
+            height: withdrawForm?.name ? '100px' : '40px',
+          }"
         >
-          <div
-            v-if="withdrawForm?.name"
-            class="border-t pt-2 border-yellow-500/20 border-dashed overflow-hidden"
-          >
-            <div class="flex justify-between items-center">
-              <p class="text-gray-300 font-medium text-xs">
-                {{ t("name") }}
-              </p>
-              <p class="text-gray-100 font-normal text-md">
-                {{ withdrawForm.name }}
-              </p>
-            </div>
+          <div class="overflow-hidden">
+            <Transition
+              mode="out-in"
+              enter-active-class="transition-opacity duration-200 delay-100"
+              enter-from-class="opacity-0"
+              enter-to-class="opacity-100"
+              leave-active-class="transition-opacity duration-150"
+              leave-from-class="opacity-100"
+              leave-to-class="opacity-0"
+            >
+              <!-- STATE A: EXPANDABLE DETAILS -->
+              <div
+                v-if="withdrawForm?.name"
+                key="details"
+                class="border-t pt-2 border-yellow-500/20 border-dashed space-y-1"
+              >
+                <div class="flex justify-between items-center">
+                  <p class="text-gray-300 font-medium text-xs">
+                    {{ t("name") }}
+                  </p>
+                  <p class="text-gray-100 font-normal text-md">
+                    {{ withdrawForm.name }}
+                  </p>
+                </div>
 
-            <div class="flex justify-between items-center">
-              <p class="text-gray-300 font-medium text-xs">
-                {{ t("account_number") }}
-              </p>
-              <p class="text-gray-100 font-bold text-lg">
-                {{ withdrawForm.number }}
-              </p>
-            </div>
+                <div class="flex justify-between items-center">
+                  <p class="text-gray-300 font-medium text-xs">
+                    {{ t("account_number") }}
+                  </p>
+                  <p class="text-gray-100 font-bold text-lg">
+                    {{ withdrawForm.number }}
+                  </p>
+                </div>
 
-            <div class="flex justify-between items-center">
-              <p class="text-gray-300 font-medium text-xs">
-                {{ t("payment_method") }}
-              </p>
-              <p class="text-gray-100 font-normal text-lg">
-                {{ withdrawForm.method }}
-              </p>
-            </div>
+                <div class="flex justify-between items-center">
+                  <p class="text-gray-300 font-medium text-xs">
+                    {{ t("payment_method") }}
+                  </p>
+                  <p class="text-gray-100 font-normal text-lg">
+                    {{ withdrawForm.method }}
+                  </p>
+                </div>
+              </div>
+
+              <!-- STATE B: EMPTY STATE ALERT -->
+              <div
+                v-else
+                key="empty"
+                class="flex justify-center items-center gap-2 pt-2 border-t border-dashed border-gray-800"
+              >
+                <p class="text-gray-300 font-medium text-xs">
+                  {{ t("choose_payment_method") }}
+                </p>
+                <ArrowDown class="w-4 h-4 text-green-400 animate-bounce" />
+              </div>
+            </Transition>
           </div>
-        </Transition>
-
-        <!-- EMPTY STATE -->
-        <Transition
-          enter-active-class="transition-all duration-300"
-          enter-from-class="opacity-0 translate-y-2"
-          enter-to-class="opacity-100 translate-y-0"
-          leave-active-class="transition-all duration-200"
-          leave-from-class="opacity-100"
-          leave-to-class="opacity-0"
-        >
-          <div
-            v-if="!withdrawForm?.name"
-            class="flex justify-center items-center gap-2"
-          >
-            <p class="text-gray-300 font-medium text-xs">
-              {{ t("choose_payment_method") }}
-            </p>
-            <ArrowDown class="w-4 h-4 text-green-400 animate-bounce" />
-          </div>
-        </Transition>
+        </div>
       </div>
       <section class="w-full">
         <div class="w-full space-y-4">
@@ -427,7 +447,7 @@ watch([percentage, byPercentage], () => {
           </div>
         </div>
       </section>
-      <div class="px-4 py-2 mt-2 space-y-4 relative rounded-2xl glass-bg">
+      <div class="px-4 py-2 mt-2 space-y-4 relative bg-gray-800/20 border-gray-500/20 backdrop-blur-md shadow-2xl border rounded-2xl">
         <div class="flex gap-2 w-full mb-4 justify-between items-center">
           <h1 class="text-md font-bold tracking-wide leading-loose">
             {{ t("set_withdraw_amount") }}
@@ -494,114 +514,116 @@ watch([percentage, byPercentage], () => {
           </div>
 
           <div v-else>
-             <Transition
-          enter-active-class="transition-all duration-300 ease-out"
-          enter-from-class="opacity-0 max-h-0 translate-y-2"
-          enter-to-class="opacity-100 max-h-40 translate-y-0"
-          leave-active-class="transition-all duration-200 ease-in"
-          leave-from-class="opacity-100 max-h-40 translate-y-0"
-          leave-to-class="opacity-0 max-h-0 translate-y-2"
-        >
-            <div v-if="byPercentage" class="mt-4">
-              <Slider
-                v-model="percentage"
-                :min="0"
-                :max="100"
-                :step="1"
-                class="relative flex w-full touch-none select-none items-center"
-                data-slot="slider"
-                :class="[
-                  // Track
-                  '**:data-[slot=slider-track]:relative',
-                  '**:data-[slot=slider-track]:h-2',
-                  '**:data-[slot=slider-track]:w-full',
-                  '**:data-[slot=slider-track]:grow',
-                  '**:data-[slot=slider-track]:overflow-hidden',
-                  '**:data-[slot=slider-track]:rounded-full',
-                  '**:data-[slot=slider-track]:bg-white/10',
-
-                  // Range (filled part)
-                  '**:data-[slot=slider-range]:absolute',
-                  '**:data-[slot=slider-range]:h-full',
-                  '**:data-[slot=slider-range]:bg-linear-to-r',
-                  '**:data-[slot=slider-range]:from-yellow-400',
-                  '**:data-[slot=slider-range]:to-yellow-500',
-                  '**:data-[slot=slider-range]:shadow-[0_0_10px_rgba(250,204,21,0.4)]',
-
-                  // Thumb
-                  '**:data-[slot=slider-thumb]:block',
-                  '**:data-[slot=slider-thumb]:h-5',
-                  '**:data-[slot=slider-thumb]:w-5',
-                  '**:data-[slot=slider-thumb]:rounded-full',
-                  '**:data-[slot=slider-thumb]:border-2',
-                  '**:data-[slot=slider-thumb]:border-black/40',
-                  '**:data-[slot=slider-thumb]:bg-yellow-400',
-                  '**:data-[slot=slider-thumb]:shadow-[0_0_0_4px_rgba(250,204,21,0.25)]',
-                  '**:data-[slot=slider-thumb]:transition-transform',
-                  '**:data-[slot=slider-thumb]:duration-200',
-                  '**:data-[slot=slider-thumb]:hover:scale-110',
-                  '**:data-[slot=slider-thumb]:active:scale-95',
-                ]"
-              />
-              <div class="grid grid-cols-4 gap-2 mt-4">
-                <Button
-                  class="rounded-lg text-sm font-semibold active-button bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300"
-                  @click="percentage = [25]"
-                >
-                  25%
-                </Button>
-
-                <Button
-                  class="rounded-lg text-sm font-semibold active-button bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300"
-                  @click="percentage = [50]"
-                >
-                  50%
-                </Button>
-
-                <Button
-                  class="rounded-lg text-sm font-semibold active-button bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300"
-                  @click="percentage = [75]"
-                >
-                  75%
-                </Button>
-
-                <Button class="gold-bg text-black" @click="percentage = [100]">
-                  MAX
-                </Button>
-              </div>
-            </div>
-            <div v-else>
-              <div class="grid grid-cols-4 gap-2 mt-4">
-                <button
-                  v-for="a in amounts"
-                  :key="a"
-                  :disabled="byPercentage"
-                  @click="setAmount(a)"
+            <Transition
+              enter-active-class="transition-all duration-300 ease-out"
+              enter-from-class="opacity-0 max-h-0 translate-y-2"
+              enter-to-class="opacity-100 max-h-40 translate-y-0"
+              leave-active-class="transition-all duration-200 ease-in"
+              leave-from-class="opacity-100 max-h-40 translate-y-0"
+              leave-to-class="opacity-0 max-h-0 translate-y-2"
+            >
+              <div v-if="byPercentage" class="mt-4">
+                <Slider
+                  v-model="percentage"
+                  :min="0"
+                  :max="100"
+                  :step="1"
+                  class="relative flex w-full touch-none select-none items-center"
+                  data-slot="slider"
                   :class="[
-                    'py-2 rounded-lg text-sm font-semibold active-button',
-                    amount === a
-                      ? 'bg-yellow-500/20 animate-pulse text-white border border-yellow-400 shadow-lg shadow-yellow-500/10'
-                      : 'bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300',
+                    // Track
+                    '**:data-[slot=slider-track]:relative',
+                    '**:data-[slot=slider-track]:h-2',
+                    '**:data-[slot=slider-track]:w-full',
+                    '**:data-[slot=slider-track]:grow',
+                    '**:data-[slot=slider-track]:overflow-hidden',
+                    '**:data-[slot=slider-track]:rounded-full',
+                    '**:data-[slot=slider-track]:bg-white/10',
+
+                    // Range (filled part)
+                    '**:data-[slot=slider-range]:absolute',
+                    '**:data-[slot=slider-range]:h-full',
+                    '**:data-[slot=slider-range]:bg-linear-to-r',
+                    '**:data-[slot=slider-range]:from-yellow-400',
+                    '**:data-[slot=slider-range]:to-yellow-500',
+                    '**:data-[slot=slider-range]:shadow-[0_0_10px_rgba(250,204,21,0.4)]',
+
+                    // Thumb
+                    '**:data-[slot=slider-thumb]:block',
+                    '**:data-[slot=slider-thumb]:h-5',
+                    '**:data-[slot=slider-thumb]:w-5',
+                    '**:data-[slot=slider-thumb]:rounded-full',
+                    '**:data-[slot=slider-thumb]:border-2',
+                    '**:data-[slot=slider-thumb]:border-black/40',
+                    '**:data-[slot=slider-thumb]:bg-yellow-400',
+                    '**:data-[slot=slider-thumb]:shadow-[0_0_0_4px_rgba(250,204,21,0.25)]',
+                    '**:data-[slot=slider-thumb]:transition-transform',
+                    '**:data-[slot=slider-thumb]:duration-200',
+                    '**:data-[slot=slider-thumb]:hover:scale-110',
+                    '**:data-[slot=slider-thumb]:active:scale-95',
                   ]"
-                >
-                  {{ formatPrice(a) }}
-                </button>
+                />
+                <div class="grid grid-cols-4 gap-2 mt-4">
+                  <Button
+                    class="rounded-lg text-sm font-semibold active-button bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300"
+                    @click="percentage = [25]"
+                  >
+                    25%
+                  </Button>
+
+                  <Button
+                    class="rounded-lg text-sm font-semibold active-button bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300"
+                    @click="percentage = [50]"
+                  >
+                    50%
+                  </Button>
+
+                  <Button
+                    class="rounded-lg text-sm font-semibold active-button bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300"
+                    @click="percentage = [75]"
+                  >
+                    75%
+                  </Button>
+
+                  <Button
+                    class="gold-bg text-black"
+                    @click="percentage = [100]"
+                  >
+                    MAX
+                  </Button>
+                </div>
               </div>
-            </div>
+              <div v-else>
+                <div class="grid grid-cols-4 gap-2 mt-4">
+                  <button
+                    v-for="a in amounts"
+                    :key="a"
+                    :disabled="byPercentage"
+                    @click="setAmount(a)"
+                    :class="[
+                      'py-2 rounded-lg text-sm font-semibold active-button',
+                      amount === a
+                        ? 'bg-yellow-500/20 animate-pulse text-white border border-yellow-400 shadow-lg shadow-yellow-500/10'
+                        : 'bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300',
+                    ]"
+                  >
+                    {{ formatPrice(a) }}
+                  </button>
+                </div>
+              </div>
             </Transition>
           </div>
         </Transition>
         <button
-        @click="openPinDrawer"
-        :disabled="!amount || !choosen"
-        :class="!amount || !choosen ? 'opacity-50 ' : 'opacity-100'"
-        class="w-full disabled:opacity-50 mb-2 gold-bg mt-4 font-bold text-black active-button rounded-lg h-12 flex items-center justify-center"
-      >
-        {{ t("next") }}
-      </button>
+          @click="openPinDrawer"
+          :disabled="!amount || !choosen"
+          :class="!amount || !choosen ? 'opacity-50 ' : 'opacity-100'"
+          class="w-full disabled:opacity-50 mb-2 gold-bg mt-4 font-bold text-black active-button rounded-lg h-12 flex items-center justify-center"
+        >
+          {{ t("next") }}
+        </button>
       </div>
 
-      
       <HelpBox container-style="" />
     </div>
   </main>
@@ -609,7 +631,6 @@ watch([percentage, byPercentage], () => {
     v-model:open="openDrawer"
     :amount="amount || 0"
     @confirm="submit"
-    
   />
   <BankAccountDrawer
     v-model:open="showDialog"
@@ -617,5 +638,5 @@ watch([percentage, byPercentage], () => {
     :isEdit="isEdit"
     @save="saveAccount"
   />
-  <FundPinAlert/>
+  <FundPinAlert />
 </template>

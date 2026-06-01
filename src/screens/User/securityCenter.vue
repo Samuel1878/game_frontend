@@ -20,7 +20,7 @@ const { t } = useI18n();
         <section class="max-w-md mx-auto space-y-4 py-6 px-4">
             <router-link
                 to="/user/security-center/update-password"
-                class="cursor-pointer relative overflow-hidden px-4 flex justify-between items-center text-white border-b-2 h-16 glass-bg rounded-xl">
+                class="cursor-pointer relative overflow-hidden px-4 flex justify-between items-center text-white border border-gray-500/20 h-16 bg-gray-800/20 rounded-xl">
                 <div class="flex items-center gap-3">
                     <UserLock class="w-5 h-5 text-yellow-400" />
                    <p class="text-lg font-medium">{{ t("update_password") }}</p> 
@@ -29,7 +29,7 @@ const { t } = useI18n();
             </router-link>
             <router-link
                 to="/user/security-center/fund-pin"
-                class="cursor-pointer relative overflow-hidden px-4 flex justify-between items-center text-white border-b-2 h-16 glass-bg rounded-xl">
+                class="cursor-pointer relative overflow-hidden px-4 flex justify-between items-center text-white border border-gray-500/20 h-16 bg-gray-800/20 rounded-xl">
                 <div class="flex items-center gap-3">
                     <KeyRoundIcon class="w-5 h-5 text-yellow-400" />
                    <p class="text-lg font-medium">{{ t("change_fund_pin") }}</p> 

@@ -8,8 +8,12 @@ import {
   DrawerTitle,
   DrawerFooter,
 } from "@/components/ui/drawer";
-import {InputGroup,InputGroupAddon,InputGroupInput} from "@/components/ui/input-group";
-import {Button} from "@/components/ui/button";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group";
+import { Button } from "@/components/ui/button";
 import { CreditCard, UserLockIcon } from "lucide-vue-next";
 import { paymentMethod, type paymentTypes } from "@/consts";
 import { useI18n } from "vue-i18n";
@@ -24,22 +28,22 @@ const props = defineProps<{
 }>();
 
 /* ---------------- emits ---------------- */
-const emit = defineEmits([
-  "update:open",
-  "update:modelValue",
-  "save",
-]);
+const emit = defineEmits(["update:open", "update:modelValue", "save"]);
 
 /* ---------------- local state ---------------- */
 const form = ref({ ...props.modelValue });
-watch(form, (val) => {
-  emit("update:modelValue", val);
-}, { deep: true });
+watch(
+  form,
+  (val) => {
+    emit("update:modelValue", val);
+  },
+  { deep: true },
+);
 
-const choosePayment = (data:paymentTypes) => {
-    form.value.value = data.value;
-    form.value.label = data.label
-}
+const choosePayment = (data: paymentTypes) => {
+  form.value.value = data.value;
+  form.value.label = data.label;
+};
 
 const handleSave = () => {
   emit("save", form.value);
@@ -49,35 +53,45 @@ const handleSave = () => {
 <template>
   <Drawer :open="open" @update:open="(v) => emit('update:open', v)">
     <DrawerContent
-      class="bg-gray-900
-      bg-linear-to-br from-white/5 via-white/10 to-white/5
-      backdrop-blur-2xl border-t border-white/10
-      shadow-[0_-10px_40px_rgba(0,0,0,0.6)]
-      text-white rounded-t-4xl pb-10"
+      class="bg-gray-900 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border-t border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.6)] text-white rounded-t-4xl pb-10"
     >
       <!-- Header -->
       <DrawerHeader>
         <DrawerTitle class="text-center text-gray-100">
-          {{ isEdit ? t('edit_bank_account') : t('add_bank_account') }}
+          {{ isEdit ? t("edit_bank_account") : t("add_bank_account") }}
         </DrawerTitle>
       </DrawerHeader>
 
       <!-- Body -->
       <div class="p-4 space-y-3 max-h-[70vh] overflow-y-auto">
-       
         <div class="grid grid-cols-3 gap-2 mb-4">
-            <div class="" v-for="item in paymentMethod" v-on:click="choosePayment(item)">
-                <div class="flex flex-col items-center gap-2 border-gray-600 p-2 border rounded-lg" 
-                    :class="form.value===item.value?'border-yellow-400 text-yellow-400 bg-yellow-500/5 animate-pulse':'border-gray-400/30 text-white'">
-                  <img :src="item.icon" class="w-8 h-8 rounded-md" :alt="item.label"/>
-                  <span>{{ item.label }}</span>
-                </div>
+          <div
+            class=""
+            v-for="item in paymentMethod"
+            v-on:click="choosePayment(item)"
+          >
+            <div
+              class="flex flex-col items-center gap-2 border-gray-600 p-2 border rounded-lg"
+              :class="
+                form.value === item.value
+                  ? 'border-yellow-400 text-yellow-400 bg-yellow-500/5 animate-pulse'
+                  : 'border-gray-400/30 text-white'
+              "
+            >
+              <img
+                :src="item.icon"
+                class="w-8 h-8 rounded-md"
+                :alt="item.label"
+              />
+              <span>{{ item.label }}</span>
             </div>
+          </div>
         </div>
-   
 
         <!-- Account Name -->
-        <InputGroup class="h-12 rounded-lg border border-gray-600 bg-gray-700/50">
+        <InputGroup
+          class="h-12 rounded-lg border border-gray-500/40 bg-gray-800/20"
+        >
           <InputGroupAddon>
             <UserLockIcon />
           </InputGroupAddon>
@@ -86,8 +100,10 @@ const handleSave = () => {
             :placeholder="t('account_name')"
           />
         </InputGroup>
-     <!-- Account Number -->
-        <InputGroup class="h-12 rounded-lg border border-gray-600 bg-gray-700/50">
+        <!-- Account Number -->
+        <InputGroup
+          class="h-12 rounded-lg border border-gray-500/40 bg-gray-800/20"
+        >
           <InputGroupAddon>
             <CreditCard />
           </InputGroupAddon>
@@ -118,7 +134,11 @@ const handleSave = () => {
       <!-- Footer -->
       <DrawerFooter class="p-4">
         <div class="flex gap-2">
-          <button class="flex-1 h-12 border-gray-400 border rounded-lg" ant="outline" @click="emit('update:open', false)">
+          <button
+            class="flex-1 h-12 border-gray-400 border rounded-lg"
+            ant="outline"
+            @click="emit('update:open', false)"
+          >
             {{ t("cancel") }}
           </button>
           <Button

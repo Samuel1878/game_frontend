@@ -34,7 +34,7 @@ watch(
 );
 </script>
 <template>
-  <aside class="mx-2 overflow-hidden rounded-full bg-gray-900/10 bg-linear-to-br from-white/5 via-white/5 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
+  <aside class="mx-2 overflow-hidden rounded-full bg-gray-800/20  backdrop-blur-2xl border border-gray-500/20 shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
   <div
     ref="container"
     class="p-1.5 flex overflow-x-auto no-scrollbar scroll-smooth"

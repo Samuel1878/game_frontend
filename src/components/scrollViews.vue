@@ -58,7 +58,7 @@ const total = computed(() => props.gameData?.length ?? 0);
         <button
           @click="action"
           aria-label="view more"
-          class=" px-3 h-8 rounded-md bg-gray-800/80 border border-white/5 flex gap-2 items-center"
+          class=" px-3 h-8 rounded-md bg-gray-800/20 border border-gray-500/20 flex gap-2 items-center"
         >
         <p class=" text-gray-300 text-xs hover:text-white transition-colors">{{ t("view_more") }} </p>
           <span class="text-gray-300 ml-1">{{ total }}</span>
@@ -68,14 +68,14 @@ const total = computed(() => props.gameData?.length ?? 0);
           <button
             @click="slideLeft"
             aria-label="slider left"
-            class="bg-gray-800 border border-white/5 p-1.5 rounded-md hover:bg-gray-700 transition"
+            class="bg-gray-800/20 border border-gray-500/20 p-1.5 rounded-md hover:bg-gray-700 transition"
           >
             <ChevronLeft class="w-4 h-4 text-gray-400" />
           </button>
           <button
             @click="slideRight"
             aria-label="slide right"
-            class="bg-gray-800 border border-white/5 p-1.5 rounded-md hover:bg-gray-700 transition"
+            class="bg-gray-800/20 border border-gray-500/20 p-1.5 rounded-md hover:bg-gray-700 transition"
           >
             <ChevronRight class="w-4 h-4 text-gray-400" />
           </button>

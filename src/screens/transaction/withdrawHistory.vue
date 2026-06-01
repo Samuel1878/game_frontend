@@ -1,80 +1,107 @@
 <script setup lang="ts">
+import { ref, onMounted, watch } from "vue";
+import { useI18n } from "vue-i18n";
+import router from "@/router";
+import moment from "moment-timezone";
+import {
+  CalendarDays,
+  ChevronLeft,
+  ChevronRight,
+  CoinsIcon,
+  Headset,
+  Search,
+  SlidersHorizontal,
+} from "lucide-vue-next";
+
 import { getWithdrawalsById } from "@/services/transactionAPI";
 import { useAuthStore } from "@/stores/auth";
 import type { withdrawalInfo } from "@/utils/types";
-import { ref, onMounted, defineAsyncComponent } from "vue";
-import moment from "moment";
-import { useI18n } from "vue-i18n";
-import CustomNavBar from "@/components/layout/customNavBar.vue";
-import { ChevronLeft, ChevronRight, CoinsIcon, Headset } from "lucide-vue-next";
 import { openChat } from "@/utils";
+
+import CustomNavBar from "@/components/layout/customNavBar.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
-import { watch } from "vue";
-import DatePicker from "@/components/CalenderView.vue"
-const WithdrawDetail =  defineAsyncComponent(()=>import("@/components/withdrawDetail.vue"))
+import DatePicker from "@/components/CalenderView.vue";
+
 const { t } = useI18n();
 const authStore = useAuthStore();
 
+// Core Component State
 const withdrawals = ref<withdrawalInfo[]>([]);
 const loading = ref(true);
 
+// Pagination & Filtering Config
 const currentPage = ref(1);
 const perPage = 5;
-const from = ref();
-const status = ref<string>("pending");
-const to = ref();
-const showDialog = ref(false);
-const selectedWithdrawal = ref<withdrawalInfo | null>(null);
 const totalPages = ref(0);
 const total = ref(0);
+const activeDatePreset = ref<"today" | "this_month" | "custom">("this_month");
+const selectedStatus = ref<string>("all"); // all, pending, approved, rejected
+const searchKeyword = ref("");
+const from = ref();
+const to = ref();
+
+// Computed helper status states
+const statuses = ["all", "pending", "approved", "rejected"];
+
+// ⏳ Process Date Presets seamlessly
+const applyDatePreset = (preset: "today" | "this_month" | "custom") => {
+  activeDatePreset.value = preset;
+  currentPage.value = 1; // Reset pagination whenever filters pivot
+
+if (preset === "today") {
+  from.value = moment().startOf("day").utc().format("YYYY-MM-DD HH:mm:ss");
+  to.value = moment().endOf("day").utc().format("YYYY-MM-DD HH:mm:ss");
+}
+
+else if (preset === "this_month") {
+  from.value = moment().startOf("month").utc().format("YYYY-MM-DD HH:mm:ss");
+  to.value = moment().endOf("month").utc().format("YYYY-MM-DD HH:mm:ss");
+} else {
+    // Custom filter clears dates out to let user specify boundaries manually
+    from.value = "";
+    to.value = "";
+  }
+};
+// API Integration Engine
 const fetchData = async () => {
   if (!authStore.user?.id) return;
 
   loading.value = true;
+  try {
+    const response = await getWithdrawalsById({
+      page: currentPage.value,
+      from: from.value,
+      to: to.value,
+      status: selectedStatus.value === "all" ? undefined : selectedStatus.value,
+      limit: perPage,
+    });
 
-  const response = await getWithdrawalsById({
-    page: currentPage.value,
-    user_id: authStore.user.id,
-    from: from.value,
-    to: to.value,
-    status: status.value, // ✅ ADDED
-    limit: perPage,
-  });
-
-  if (response) {
-    // console.log(response)
-    withdrawals.value = response.data;
-    totalPages.value = response.pagination.totalPages;
-    total.value = response.pagination.total;
+    if (response) {
+      withdrawals.value = response.data;
+      totalPages.value = response.pagination.totalPages;
+      total.value = response.pagination.total;
+    }
+  } catch (error) {
+    console.error("Failed to fetch withdrawal list:", error);
+  } finally {
+    loading.value = false;
   }
-
-  loading.value = false;
 };
-// const fetchData = async () => {
-//   if (!authStore.user?.id) return;
-//   const response = await getWithdrawalsById({
-//     page: currentPage.value,
-//     user_id: authStore.user.id,
-//     from: from.value,
-//     to: to.value,
-//     limit: perPage
-//   });
-//   if (response) {
-//     withdrawals.value = response.data
-//     totalPages.value = response.pagination.totalPages;
-//     total.value = response.pagination.total;
-//   }
-//   loading.value = false;
-// };
+
 onMounted(fetchData);
 
-watch(
-  [from, to, status],
-  () => {
-    currentPage.value = 1; // ✅ IMPORTANT
-    fetchData();
-  }
-);
+// 🔄 Reset page to index 1 whenever active filter parameters change
+watch([from, to, selectedStatus], () => {
+  currentPage.value = 1;
+  fetchData();
+});
+
+// 🔢 Watch pagination changes independently to avoid redundant double-fetching cycles
+watch(currentPage, () => {
+  fetchData();
+});
+
+// Pagination Navigation Triggers
 const goPrev = () => {
   if (currentPage.value > 1) {
     currentPage.value--;
@@ -86,147 +113,245 @@ const goNext = () => {
     currentPage.value++;
   }
 };
+const selectStatus = (status: string) => {
+  selectedStatus.value = status;
+  currentPage.value = 1;
+};
+// Route Parameter Handlers
 const viewWithdrawal = (w: withdrawalInfo) => {
-  selectedWithdrawal.value = w;
-  showDialog.value = true;
+  router.push(`/user/withdraw-history/detail/${w.txn_id}`);
 };
 
-const formatAmount = (a: number) =>
-  a.toLocaleString() + " MMK";
+const formatAmount = (a: number) => a.toLocaleString() + " MMK";
 </script>
 
 <template>
   <CustomNavBar title="withdraw_history" backTo="/user/profile">
     <template #right>
-
-      <button @click="openChat">
+      <button
+        @click="openChat"
+        class="hover:opacity-80 active:scale-95 transition-all"
+      >
         <Headset class="w-6 h-6" />
       </button>
       <LanguageBtn />
     </template>
   </CustomNavBar>
-  <main class="min-h-screen bg-gray-900 p-4 text-white w-full">
 
-
-    <div class="glass-bg p-4 rounded-2xl mb-4">
-      <div class="flex justify-center items-center gap-2">
-        <DatePicker v-model="from" :placeholder="t('start_date')" />
-        <DatePicker v-model="to" :placeholder="t('end_date')" />
-      </div>
-     <div class="flex gap-2 flex-wrap mt-2 border-t border-white/5 pt-2">
-        <button
-          @click="status = 'pending'"
-          class="filter-btn"
-          :class="status === 'pending' && 'active-filter'"
+  <main class="min-h-screen bg-gray-900 text-white w-full pb-20">
+    <!-- Filter Bar Card -->
+    <div
+      class="bg-gray-800/20 border-b border-gray-500/20 rounded-b-4xl p-3.5 space-y-4 backdrop-blur-md"
+    >
+      <!-- Segment 1: Range Filter Pills -->
+      <div class="space-y-1.5">
+        <div
+          class="flex items-center gap-1.5 text-gray-500 text-xs font-semibold uppercase tracking-wider pl-1"
         >
-          {{ t("pending") }}
-        </button>
-        <button
-          @click="status = 'approved'"
-          class="filter-btn"
-          :class="
-            status === 'approved' &&
-            'bg-green-500/20 text-green-400 border-green-500/30 active-filter'
-          "
+          <SlidersHorizontal class="w-3.5 h-3.5" />
+          <span>{{ t("date") || "Date Range" }}</span>
+        </div>
+        <div
+          class="grid grid-cols-3 gap-1.5 bg-gray-900 p-1 rounded-xl border border-gray-800"
         >
-          {{ t("approved") }}
-        </button>
-        <button
-          @click="status = 'rejected'"
-          class="filter-btn"
-          :class="
-            status === 'rejected' &&
-            'bg-red-500/20 text-red-400 border-red-500/30 active-filter'
-          "
+          <button
+            v-for="preset in ['today', 'this_month', 'custom'] as const"
+            :key="preset"
+            @click="applyDatePreset(preset)"
+            class="py-2 text-xs font-semibold rounded-lg capitalize transition-all duration-200"
+            :class="
+              activeDatePreset === preset
+                ? 'bg-linear-to-r from-yellow-400 to-amber-500 text-gray-950 shadow-md shadow-amber-500/5 font-bold'
+                : 'text-gray-400 hover:text-white hover:bg-white/5'
+            "
+          >
+            {{ t(preset) }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Segment 2: Status Filter Selection Carousel row -->
+      <div class="space-y-1.5">
+        <div
+          class="flex items-center gap-1.5 text-gray-500 text-xs font-semibold uppercase tracking-wider pl-1"
         >
-          {{ t("rejected") }}
-      </button>
+          <div
+            class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"
+          ></div>
+          <span>{{ t("status") || "Status" }}</span>
+        </div>
+        <div class="flex gap-1.5 overflow-x-auto no-scrollbar pb-1">
+          <button
+            v-for="status in statuses"
+            :key="status"
+            @click="selectStatus(status)"
+            class="px-4 py-1.5 text-xs font-medium rounded-full border shrink-0 transition-all capitalize"
+            :class="
+              selectedStatus === status
+                ? 'bg-white text-gray-950 border-white font-bold'
+                : 'bg-gray-800/40 text-gray-400 border-gray-900 hover:border-gray-800'
+            "
+          >
+            {{ t(status) }}
+          </button>
+        </div>
       </div>
 
-    </div>
-   <div v-if="loading" class="p-4 space-y-3">
-  <div v-for="i in 6" :key="i" class="animate-pulse flex justify-between p-4 bg-[#0f172a] rounded-xl">
-    <div class="space-y-2">
-      <div class="h-3 w-24 bg-white/10 rounded"></div>
-      <div class="h-2 w-16 bg-white/10 rounded"></div>
-    </div>
-
-    <div class="space-y-2 text-right">
-      <div class="h-3 w-20 bg-white/10 rounded"></div>
-      <div class="h-2 w-12 bg-white/10 rounded"></div>
-    </div>
-  </div>
-</div>
-    <div v-else-if="!withdrawals.length" class="flex flex-col items-center justify-center mt-20 text-gray-400">
-      <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4">
-        <CoinsIcon class="w-8 h-8 opacity-50" />
-      </div>
-      <p class="text-lg font-semibold">
-        {{ t("no_record") }}
-      </p>
-      <!-- <p class="text-sm opacity-60">
-        {{ t("no_data_description") }}
-      </p> -->
-    </div>
-    <div v-else class="space-y-3">
-      <div v-for="txn in withdrawals" :key="txn.id" @click="viewWithdrawal(txn)"
-        class="bg-gray-900 p-4 space-y-2 cursor-pointer bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_5px_rgba(0,0,0,0.5)] transition rounded-2xl">
-        <div class="flex justify-between">
-          <span class="text-gray-400 text-sm">{{ t('id') }}</span>
-          <span class="text-white text-sm">{{ txn.txn_id }}</span>
-        </div>
-
-        <div class="flex justify-between">
-          <span class="text-gray-400 text-sm">{{ t("amount") }}</span>
-          <span>
-            {{ formatAmount(Number(txn.amount)) }}
-          </span>
-        </div>
-
-        <div class="flex justify-between">
-          <span class="text-gray-400 text-sm">{{ t('status') }}</span>
-          <span class="px-2 py-1 text-xs rounded-full capitalize" :class="{
-            'bg-emerald-600 text-white': txn.status === 'approved',
-            'bg-yellow-500 text-black': txn.status === 'pending',
-            'bg-red-600 text-white': txn.status === 'rejected',
-          }">
-            {{ t(txn.status||"") }}
-          </span>
-        </div>
-
-        <div class="flex justify-between">
-          <span class="text-gray-400 text-sm">{{ t('date') }}</span>
-          <span class="text-gray-400 text-sm">{{
-            moment(txn?.created_at).format("DD-MM-YYYY hh:mm a")
-          }}</span>
+      <!-- Segment 3: Animating Smooth Grid Drawer Layer (Appears ONLY on Custom Select Mode) -->
+      <div
+        class="grid transition-all duration-300 ease-out"
+        :class="
+          activeDatePreset === 'custom'
+            ? 'grid-template-rows-[1fr] opacity-100 mt-2'
+            : 'grid-template-rows-[0fr] opacity-0 pointer-events-none'
+        "
+      >
+        <div class="overflow-hidden space-y-3">
+          <!-- Modern Dynamic Search Bar -->
+          <div class="relative flex items-center">
+            <Search class="absolute left-3 w-4 h-4 text-gray-500" />
+            <input
+              v-model="searchKeyword"
+              type="text"
+              :placeholder="t('search') || 'Search Txn ID, Invoice...'"
+              class="w-full bg-gray-900/20 pl-9 pr-4 py-2.5 rounded-xl text-sm border border-gray-500/20 placeholder:text-gray-600 focus:outline-none focus:border-yellow-500/40 focus:ring-1 focus:ring-amber-500/20 transition-all font-mono"
+            />
+          </div>
+          <!-- Dual Calendar Dynamic Picker Layout Rows -->
+          <div class="flex gap-2 justify-center px-1">
+            <DatePicker v-model="from" :placeholder="t('start_date')" />
+            <DatePicker v-model="to" :placeholder="t('end_date')" />
+          </div>
         </div>
       </div>
     </div>
+    <div class="mt-4 space-y-2.5 px-4">
+      <!-- Loading Skeleton Frames -->
+      <div v-if="loading" class="space-y-3">
+        <div
+          v-for="i in 5"
+          :key="i"
+          class="animate-pulse flex justify-between p-4 bg-gray-900/40 border border-white/5 rounded-2xl"
+        >
+          <div class="space-y-2">
+            <div class="h-4 w-24 bg-white/5 rounded-lg"></div>
+            <div class="h-3 w-16 bg-white/5 rounded-lg"></div>
+          </div>
+          <div class="space-y-2 text-right">
+            <div class="h-4 w-20 bg-white/5 rounded-lg"></div>
+            <div class="h-3 w-12 bg-white/5 rounded-lg"></div>
+          </div>
+        </div>
+      </div>
 
-    <div v-if="totalPages > 1" class="flex justify-between px-4 gap-2 mt-6 items-center">
-      <button :disabled="currentPage === 1" @click="goPrev" :class="[
-        'h-8 px-3 rounded border border-white/10 flex items-center',
-        currentPage === 1
-          ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-          : 'bg-gray-800/70  hover:bg-gray-700'
-      ]">
-      <ChevronLeft class="w-4 h-4 text-gray-400"/>
+      <!-- Empty State Graphic -->
+      <div
+        v-else-if="!withdrawals.length"
+        class="flex flex-col items-center justify-center mt-20 text-gray-400 animate-in fade-in duration-200"
+      >
+        <div
+          class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4 border border-white/5"
+        >
+          <CoinsIcon class="w-8 h-8 opacity-40 text-emerald-400" />
+        </div>
+        <p class="text-sm font-semibold opacity-80">
+          {{ t("no_record") }}
+        </p>
+      </div>
+
+      <!-- History List Render Window -->
+      <div v-else class="space-y-3 animate-in fade-in-50 duration-200">
+        <div
+          v-for="txn in withdrawals"
+          :key="txn.id"
+          @click="viewWithdrawal(txn)"
+          class="p-4 bg-gray-800/30 border border-gray-800/20 hover:border-gray-800/80 hover:bg-gray-900/50 active:scale-[0.99] transition-all duration-200 rounded-2xl flex items-center justify-between shadow-sm cursor-pointer group"
+        >
+          <!-- Left metadata details column layout info -->
+          <div class="space-y-1">
+            <p
+              class="text-xs font-mono font-bold text-gray-400 group-hover:text-amber-400/90 transition-colors"
+            >
+              {{ txn.txn_id }}
+            </p>
+            <div class="flex items-center gap-1.5 text-xs text-gray-500">
+              <CalendarDays class="w-3.5 h-3.5 stroke-[1.5]" />
+              <span>{{
+                moment(txn?.created_at).format("DD-MM-YYYY, hh:mm A")
+              }}</span>
+            </div>
+          </div>
+
+          <!-- Right financials status structure block -->
+          <div class="text-right space-y-1.5 flex flex-col items-end">
+            <span
+              class="font-black text-sm tracking-tight text-transparent bg-clip-text bg-linear-to-r from-gray-100 to-gray-300"
+            >
+              {{ formatAmount(Number(txn.amount)) }}
+            </span>
+            <span
+              class="px-2.5 py-0.5 text-[10px] font-extrabold rounded-full uppercase tracking-wider border shadow-sm"
+              :class="{
+                'bg-emerald-500/10 border-emerald-500/20 text-emerald-400':
+                  txn.status === 'approved',
+                'bg-amber-500/10 border-amber-500/20 text-amber-400':
+                  txn.status === 'pending',
+                'bg-rose-500/10 border-rose-500/20 text-rose-400':
+                  txn.status === 'rejected',
+              }"
+            >
+              {{ t(txn?.status || "pending") }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Pagination Control Tray -->
+    <div
+      v-if="totalPages > 1"
+      class="flex justify-between px-2 gap-2 mt-6 items-center"
+    >
+      <button
+        :disabled="currentPage === 1"
+        @click="goPrev"
+        class="h-9 px-4 rounded-xl border border-white/5 flex items-center gap-1.5 text-xs font-bold transition-all disabled:opacity-40 disabled:pointer-events-none bg-gray-900/60 hover:bg-gray-900"
+      >
+        <ChevronLeft class="w-4 h-4 text-gray-400" />
         {{ t("prev") }}
       </button>
-      <span class="text-sm text-gray-300">
+
+      <span
+        class="text-xs font-mono font-bold text-gray-400 bg-gray-900/40 px-3 py-1.5 rounded-lg border border-white/5"
+      >
         {{ currentPage }} / {{ totalPages }}
       </span>
-      <button :disabled="currentPage === totalPages" @click="goNext" :class="[
-        'h-8 px-3 rounded border flex items-center gap-1 border-white/10',
-        currentPage === totalPages
-          ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-          : 'bg-gray-800/70  hover:bg-gray-700'
-      ]">
+
+      <button
+        :disabled="currentPage === totalPages"
+        @click="goNext"
+        class="h-9 px-4 rounded-xl border border-white/5 flex items-center gap-1.5 text-xs font-bold transition-all disabled:opacity-40 disabled:pointer-events-none bg-gray-900/60 hover:bg-gray-900"
+      >
         <span>{{ t("next") }}</span>
         <ChevronRight class="w-4 h-4 text-gray-400" />
       </button>
     </div>
-
-    <WithdrawDetail :open="showDialog" :withdrawal="selectedWithdrawal" @update:open="(v: boolean) => showDialog = v" />
   </main>
 </template>
+<style scoped>
+/* Clean scrollbar suppression modifier mixins */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom CSS Grid Expansion Variable Transitions values */
+.grid-template-rows-\[0fr\] {
+  grid-template-rows: 0fr;
+}
+.grid-template-rows-\[1fr\] {
+  grid-template-rows: 1fr;
+}
+</style>

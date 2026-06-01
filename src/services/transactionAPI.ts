@@ -21,11 +21,16 @@ export const withdrawalHandlerAPI = async (data:withdrawalInfo, param:withdrawPa
         const response = await api.post("/user/transaction/withdraw", data, {
             params:param
         });
-        if (response.status===200)return response.data;
-        return null
-    } catch (error) {
-        console.log(error);
-        return null
+        if (response.status===200)return {data:response.data, message:"success"};
+        return {
+            data:null,
+            message:response.data?.message
+        }
+    } catch (error:any) {
+        return {
+            data:null,
+            message: error?.response?.data?.message || "something_went_wrong"
+        }
     }
 }
 
@@ -49,7 +54,7 @@ return null
 
 } ;
 
-export const getDepositById = async (param:{ user_id:number, page:number, limit :number, from?:string, to?:string}) => {
+export const getDepositById = async (param:{  page:number, limit :number, search?:string, from?:string, to?:string, status?:string}) => {
     try {
          const response = await api.get("/user/get_deposits", {
         params:param
@@ -62,7 +67,25 @@ export const getDepositById = async (param:{ user_id:number, page:number, limit 
    
 
 };
-export const getWithdrawalsById = async (param:{ user_id:number, page:number, limit :number, from?:string, to?:string, status:string})=>{
+export const getDepositByInvAPI = async (param:{ inv_id:string }) => {
+    try {
+         const response = await api.get(`/user/get_deposit_by_id/${param.inv_id}`);
+    if (response.status===200)return response.data;
+    return null
+    } catch (error) {
+        return null
+    }
+};
+export const getWithdrawalByInvAPI = async (param:{ inv_id:string }) => {
+    try {
+         const response = await api.get(`/user/get_withdrawal_by_id/${param.inv_id}`);
+    if (response.status===200)return response.data;
+    return null
+    } catch (error) {
+        return null
+    }
+};
+export const getWithdrawalsById = async (param:{  page:number, limit :number, from?:string, to?:string, status?:string})=>{
         try {
          const response = await api.get("/user/get_withdrawals", {
         params:param

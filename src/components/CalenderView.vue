@@ -39,7 +39,7 @@ const defaultPlaceholder = today(getLocalTimeZone())
     <PopoverTrigger as-child>
       <Button
         variant="outline"
-        :class="cn('w-1/2 glass-bg hover:text-gray-50 text-gray-50 hover:bg-gray-700 justify-start text-left font-normal', !date && 'text-muted-foreground')"
+        :class="cn('w-1/2 bg-gray-800/20 border-gray-500/20 hover:text-gray-50 text-gray-50 hover:bg-gray-700 justify-start text-left font-normal', !date && 'text-muted-foreground')"
       >
         <CalendarIcon class="mr-2 h-4 w-4" />
 

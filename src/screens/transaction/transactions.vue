@@ -8,9 +8,18 @@ import { useI18n } from "vue-i18n";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { formatPrice, openChat } from "@/utils";
 import LanguageBtn from "@/components/languageBtn.vue";
-import DatePicker from "@/components/CalenderView.vue"
+import DatePicker from "@/components/CalenderView.vue";
 import Button from "@/components/ui/button/Button.vue";
-import { ArrowDownCircle, ArrowUpCircle, ChevronLeft, ChevronRight, ClipboardX, Headset, MinusCircle, SearchIcon } from "lucide-vue-next";
+import {
+  ArrowDownCircle,
+  ArrowUpCircle,
+  ChevronLeft,
+  ChevronRight,
+  ClipboardX,
+  Headset,
+  MinusCircle,
+  SearchIcon,
+} from "lucide-vue-next";
 const authStore = useAuthStore();
 const transactions_local = ref<Transaction[]>([]);
 const loading = ref(true);
@@ -61,30 +70,26 @@ watch([page, transactionType], fetchTransaction);
       <LanguageBtn />
     </template>
   </CustomNavBar>
-  <div class="space-y-4 p-4 w-full min-h-screen">
+  <div class="space-y-4 p-2 w-full min-h-screen bg-gray-900">
     <!-- Header -->
-    <div class="flex items-center justify-between">
-      <h1 class="text-xl font-semibold tracking-wide text-gray-100">
-        {{ t("transactions") }}
-      </h1>
-
-      <span class="text-sm text-gray-400">
-        {{ t("page") }} {{ page }} / {{ totalPages }}
-      </span>
-    </div>
 
     <!-- Filters -->
     <div
-      class="bg-[#0f172a] border glass-bg border-white/5 rounded-2xl p-4 space-y-3"
+      class="bg-linear-to-b gap-2 from-gray-800/20 to-transparent border border-gray-500/20 rounded-3xl flex flex-col items-center text-center shadow-xl p-4"
     >
       <!-- Date Range -->
-      <div class="flex gap-2 justify-center">
+      <div class="flex gap-2 justify-center w-full">
         <DatePicker v-model="startDate" :placeholder="t('start_date')" />
         <DatePicker v-model="endDate" :placeholder="t('end_date')" />
       </div>
       <Button
         :disabled="!startDate || !endDate"
-        @click="()=>{startDate && endDate && fetchTransaction();page=1}"
+        @click="
+          () => {
+            startDate && endDate && fetchTransaction();
+            page = 1;
+          }
+        "
         class="w-full flex items-center justify-center h-8 rounded-lg text-lg gold-bg active-button text-gray-900 hover:bg-amber-400"
       >
         <SearchIcon />
@@ -175,32 +180,38 @@ watch([page, transactionType], fetchTransaction);
 
     <!-- Transaction List -->
     <div
-      class="bg-[#0f172a] glass-bg border border-white/5 rounded-2xl overflow-hidden"
+      class="bg-gray-800/20 border border-gray-500/20 rounded-2xl overflow-hidden"
     >
       <div v-if="loading" class="p-4 space-y-3">
-  <div v-for="i in 6" :key="i" class="animate-pulse flex justify-between p-4 bg-[#0f172a] rounded-xl">
-    <div class="space-y-2">
-      <div class="h-3 w-24 bg-white/10 rounded"></div>
-      <div class="h-2 w-16 bg-white/10 rounded"></div>
-    </div>
+        <div
+          v-for="i in 6"
+          :key="i"
+          class="animate-pulse flex justify-between p-4 bg-gray-800/20rounded-xl"
+        >
+          <div class="space-y-2">
+            <div class="h-3 w-24 bg-white/10 rounded"></div>
+            <div class="h-2 w-16 bg-white/10 rounded"></div>
+          </div>
 
-    <div class="space-y-2 text-right">
-      <div class="h-3 w-20 bg-white/10 rounded"></div>
-      <div class="h-2 w-12 bg-white/10 rounded"></div>
-    </div>
-  </div>
-</div>
-
-<!-- EMPTY STATE -->
-<div
-  v-else-if="!transactions_local?.length"
-  class="flex flex-col items-center justify-center py-16 text-gray-500"
->
- <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4">
-        <ClipboardX class="w-8 h-8 opacity-50" />
+          <div class="space-y-2 text-right">
+            <div class="h-3 w-20 bg-white/10 rounded"></div>
+            <div class="h-2 w-12 bg-white/10 rounded"></div>
+          </div>
+        </div>
       </div>
-  <p class="text-sm">{{ t('no_record') }}</p>
-</div>
+
+      <!-- EMPTY STATE -->
+      <div
+        v-else-if="!transactions_local?.length"
+        class="flex flex-col items-center justify-center py-16 text-gray-500"
+      >
+        <div
+          class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4"
+        >
+          <ClipboardX class="w-8 h-8 opacity-50" />
+        </div>
+        <p class="text-sm">{{ t("no_record") }}</p>
+      </div>
       <div
         v-else
         v-for="tx in transactions_local"
@@ -212,8 +223,10 @@ watch([page, transactionType], fetchTransaction);
           <div
             class="w-12 h-12 rounded-2xl flex items-center justify-center"
             :class="
-              tx.type === 'deposit' || tx.type ==='refund'
-                ? 'bg-green-500/15 text-green-400' :tx.type==='adjustment'?'bg-gray-500/15 text-gray-300'
+              tx.type === 'deposit' || tx.type === 'refund'
+                ? 'bg-green-500/15 text-green-400'
+                : tx.type === 'adjustment'
+                ? 'bg-gray-500/15 text-gray-300'
                 : 'bg-red-500/15 text-red-400'
             "
           >
@@ -221,12 +234,9 @@ watch([page, transactionType], fetchTransaction);
               v-if="tx.type === 'deposit' || tx.type === 'refund'"
               class="w-5 h-5"
             />
-            <MinusCircle v-else-if="tx.type==='adjustment'"  class="w-5 h-5"/>
+            <MinusCircle v-else-if="tx.type === 'adjustment'" class="w-5 h-5" />
 
-            <ArrowUpCircle
-              v-else
-              class="w-5 h-5"
-            />
+            <ArrowUpCircle v-else class="w-5 h-5" />
           </div>
 
           <div class="flex flex-col text-gray-100">
@@ -250,11 +260,13 @@ watch([page, transactionType], fetchTransaction);
             class="text-lg font-bold"
             :class="
               tx.type === 'deposit' || tx.type === 'refund'
-                ? 'text-green-400' : tx.type === 'adjustment'?'text-gray-300'
+                ? 'text-green-400'
+                : tx.type === 'adjustment'
+                ? 'text-gray-300'
                 : 'text-red-400'
             "
           >
-            {{ tx.type === "deposit" || tx.type ==='refund' ? "+" : "-" }}
+            {{ tx.type === "deposit" || tx.type === "refund" ? "+" : "-" }}
             {{ formatPrice(tx.amount) }}
           </div>
         </div>
@@ -262,7 +274,7 @@ watch([page, transactionType], fetchTransaction);
     </div>
 
     <!-- Pagination -->
-   <div
+    <div
       class="rounded-2xl border border-white/5 bg-[#0f172a] px-4 py-3 flex items-center justify-between"
     >
       <div class="text-sm text-gray-400">
@@ -273,12 +285,8 @@ watch([page, transactionType], fetchTransaction);
       </div>
 
       <div class="flex items-center gap-2">
-        <button
-          @click="prevPage"
-          :disabled="page === 1"
-          class="pagination-btn"
-        >
-          <ChevronLeft class="w-4 h-4" />
+        <button @click="prevPage" :disabled="page === 1" class="pagination-btn">
+          <ChevronLeft class="w-4 h-4 text-gray-400" />
         </button>
 
         <button
@@ -286,7 +294,7 @@ watch([page, transactionType], fetchTransaction);
           :disabled="page === totalPages"
           class="pagination-btn"
         >
-          <ChevronRight class="w-4 h-4" />
+          <ChevronRight class="w-4 h-4 text-gray-400" />
         </button>
       </div>
     </div>
@@ -294,10 +302,9 @@ watch([page, transactionType], fetchTransaction);
 </template>
 <style lang="css" scoped>
 .pagination-btn {
-
   border-radius: 12px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -305,10 +312,11 @@ watch([page, transactionType], fetchTransaction);
 }
 
 .pagination-btn:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .pagination-btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
-}</style>
+}
+</style>
