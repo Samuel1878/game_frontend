@@ -12,7 +12,7 @@ const {showAppBanner} = storeToRefs(ui)
 const APP_STORAGE_KEY = "hide-app-download-banner";
 
 onMounted(() => {
-  const hidden = sessionStorage.getItem(APP_STORAGE_KEY);
+  const hidden = localStorage.getItem(APP_STORAGE_KEY);
 
   const pwa = isPWA();
   const mobile = isApp();
@@ -30,7 +30,7 @@ const { t } = useI18n();
 
 const closeBanner = () => {
   ui.permanentlyHideBanner();
-  sessionStorage.setItem(APP_STORAGE_KEY, "true");
+  localStorage.setItem(APP_STORAGE_KEY, "true");
 };
 
 const downloadApp = () => {

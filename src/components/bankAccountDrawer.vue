@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
 import type { BankAccountPros } from "@/utils/types";
 import {
   Drawer,
@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { CreditCard, UserLockIcon } from "lucide-vue-next";
 import { paymentMethod, type paymentTypes } from "@/consts";
 import { useI18n } from "vue-i18n";
+import { hideTawk, showTawk } from "@/utils";
 
 const { t } = useI18n();
 
@@ -29,7 +30,12 @@ const props = defineProps<{
 
 /* ---------------- emits ---------------- */
 const emit = defineEmits(["update:open", "update:modelValue", "save"]);
-
+onMounted(()=>{
+  hideTawk();
+});
+onUnmounted(()=>{
+  showTawk();
+})
 /* ---------------- local state ---------------- */
 const form = ref({ ...props.modelValue });
 watch(
@@ -41,6 +47,7 @@ watch(
 );
 
 const choosePayment = (data: paymentTypes) => {
+  if (props.isEdit) return;
   form.value.value = data.value;
   form.value.label = data.label;
 };

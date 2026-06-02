@@ -180,8 +180,8 @@ const copyHandler = (value: any) => {
   <main class="bg-gray-900 w-full gap-2 flex items-center flex-col">
     <CustomNavBar title="transfer" backTo="/deposit">
       <template #right>
-        <button>
-          <FileClock class="w-6 h-6 text-yellow-400" />
+        <button @click="router.push('/user/deposit-history')">
+          <FileClock class="w-6 h-6 text-gray-400" />
         </button>
         <button @click="openChat">
           <Headset class="w-6 h-6 text-yellow-400" />

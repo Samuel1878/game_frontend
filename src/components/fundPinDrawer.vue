@@ -69,12 +69,12 @@ const submit = () => {
             class="flex items-center justify-center gap-2 text-yellow-400 text-center"
           >
             <ShieldCheck class="w-5 h-5 text-yellow-400" />
-            {{ t(title || t("confirm_withdraw")) }}
+            {{ title || t("confirm_withdraw")}}
           </DrawerTitle>
           <DrawerDescription class="text-center text-sm text-gray-400">
             {{ description || t("enter_your_fund_pin") }}
           </DrawerDescription>
-        </DrawerHeader>
+        </DrawerHeader> 
         <div class="p-4 space-y-6">
           <!-- SUMMARY -->
           <div class="rounded-2xl bg-gray-700/50 shadow-inner p-4 space-y-2">

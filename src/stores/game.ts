@@ -6,6 +6,7 @@ import { toast } from "vue-sonner"; // or your toast lib
 import router from "@/router";
 import type { gameType } from "@/utils/types";
 import { useWallet } from "./wallet";
+import { useI18n } from "vue-i18n";
 
 export const useGameStore = defineStore("game", () => {
   const loading = ref(false);
@@ -14,6 +15,7 @@ export const useGameStore = defineStore("game", () => {
   const selectedGame = ref<gameType|null>(null);
     const closeTimer = ref<ReturnType<typeof setTimeout> | null>(null);
   const authStore = useAuthStore();
+  const {locale} = useI18n();
   const wallet = useWallet()
   const preLaunchData = ref<any>(null); 
   const openDrawer = () => {
@@ -86,14 +88,13 @@ export const useGameStore = defineStore("game", () => {
       }
 
       launchUrl.value =
-        `${data.url}` +
-        `&gpid=${game.provider_id}` +
-        `&gameid=${game.game_id}` +
-        `&lang=en&device=m&betCode=`;
+        `${data.url}&gpid=${game.provider_id}&gameid=${game.game_id}&lang=${locale.value==='cn'?'zh-cn':locale.value==='mm'?'my-mm': 'en'}
+        &device=m&betCode=`;
 
      closeDrawer()
 
-      router.push("/game");
+      router.push(`/game?` + `gpid=${game.provider_id}&gameid=${game.game_id}&lang=${locale.value==='cn'?'zh-cn':locale.value==='mm'?'my-mm': 'en'}
+        &device=m&betCode=`);
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong");

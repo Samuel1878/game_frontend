@@ -88,10 +88,7 @@ const fetchData = async () => {
 };
 
 // Initialize filter parameters on mount
-onMounted(() => {
-  applyDatePreset('this_month'); // Default application initialization state
-  fetchData();
-});
+onMounted(fetchData);
 
 // Reactivity pipeline watching reactive elements automatically triggering fresh sync updates
 watch([currentPage, from, to, selectedStatus, searchKeyword], () => {

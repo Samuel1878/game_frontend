@@ -39,7 +39,7 @@ onBeforeRouteLeave(() => {
 </script>
 
 <template>
-  <div class="min-h-dvh bg-[#111827] flex flex-col w-full">
+  <div class="min-h-dvh bg-[#111827] flex flex-col w-full scrollbar-none overscroll-none">
 
     <!-- TOP BAR -->
     <div class="bg-gray-900/50 backdrop-blur pt-[env(safe-area-inset-top)]">
