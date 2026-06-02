@@ -395,5 +395,14 @@
 
 "fund_pin_alert_description":"这是您的新基金密码。请妥善保管，切勿与任何人分享。您将来提现和进行其他敏感的钱包操作时需要用到此密码。",
 
-"fund_pin_alert_button":"我已了解"
+"fund_pin_alert_button":"我已了解",
+
+  "current_fund_pin_verified": "当前资金PIN已验证。请输入新的资金PIN。",
+  "incorrect_fund_pin": "资金PIN错误。请重试。",
+  "password_alert_title": "凭证提醒",
+  "password_alert_description": "您的密码已成功更改。请在今后的登录和交易中使用新密码。如果您未发起此更改，请立即联系客服。",
+  "password_alert_button": "我已知晓",
+  "something_went_wrong:": "出了点问题。请重试。",
+  "statement_exported": "您的交易明细已成功导出。请检查下载文件夹。"
+
 }

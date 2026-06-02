@@ -185,20 +185,23 @@ const form = ref<BankAccountPros>({
 const fundPinStore = useFundPinStore();
 
 onMounted(async () => {
+  if (authStore.user?.set_pin === false) {
+      fundPinStore.openFundPin();
+    }
   // if you have hydration / session restore
   bankStore.fetchAccounts();
 });
-watch(
-  () => authStore.user,
-  (user) => {
-    if (!user) return;
+// watch(
+//   () => authStore.user,
+//   (user) => {
+//     if (!user) return;
 
-    if (user.set_pin === false) {
-      fundPinStore.openFundPin();
-    }
-  },
-  { immediate: true },
-);
+//     if (user.set_pin === false) {
+//       fundPinStore.openFundPin();
+//     }
+//   },
+//   { immediate: true },
+// );
 const openAdd = () => {
   isEdit.value = false;
   showDialog.value = true;
