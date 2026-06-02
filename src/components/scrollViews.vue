@@ -163,7 +163,7 @@ const total = computed(() => props.gameData?.length ?? 0);
                   v-if="stats[key(game)]"
                   class="flex items-center w-fit gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
                 >
-                  <Users2
+                  <Users
                     class="w-2 h-2 text-green-400 fill-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.8)]"
                   />
                   <span
