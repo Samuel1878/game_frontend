@@ -138,7 +138,7 @@ const total = computed(() => props.gameData?.length ?? 0);
               />
 
             <div
-              class="pointer-events-none absolute bottom-0 transform-gpu backface-hidden inset-x-0 h-1/4 backdrop-saturate-200 z-10"
+              class="pointer-events-none absolute bottom-0 transform-gpu backface-hidden inset-x-0 h-full backdrop-saturate-140 z-10"
             />
             <div class="absolute top-1 left-1 z-20 flex flex-col gap-1">
               <div

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useAuthStore } from "@/stores/auth";
-import { hotGames, topBuffaloGames, topCasinoGames, topFishGames, topSlotGames} from "@/consts/games"
+import { hotGames, popularGames, topBuffaloGames, topCasinoGames, topFishGames, topSlotGames} from "@/consts/games"
 import {  BellRingIcon, Download  } from "lucide-vue-next";
 import router from "@/router";
 import { useI18n } from "vue-i18n";
@@ -11,6 +11,7 @@ import {
   fish,
   hot_icon,
   slot,
+  star,
 } from "@/utils/assets";
 const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"));
 import HeroSlider from "@/components/homeSlider.vue";
@@ -80,6 +81,8 @@ const {prepareGame} = useGameStore()
             :handler="prepareGame" :action="()=>router.push('/fishing')" />
          <ScrollViews :game-data="topCasinoGames" :header="t('casino')" :icon="casino"
             :handler="prepareGame" :action="()=>router.push('/casino')"/>
+            <ScrollViews :game-data="popularGames" :header="t('top_picks')" :icon="star"
+            :handler="prepareGame" :action="()=>router.push('/slots')"/>
         </section>
       </div>
     </div>

@@ -14,10 +14,12 @@ import kbzBank from "@/assets/payments/kbzbanking-new.webp";
 import wavePay from "@/assets/payments/wavepay.webp";
 import ayaPay from "@/assets/payments/ayabanking.webp";
 import usdt from "@/assets/payments/USDT.webp";
+import star from "@/assets/icon/star.webp"
 export {
   fish,
   casino,
   chess,
+  star,
   slot,
   buffalo,
   home,

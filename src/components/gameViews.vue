@@ -39,7 +39,7 @@ const key = (game: any) => `${game.provider_id}-${game.game_id}`;
         <div
           class="absolute inset-0 z-0 group-hover:bg-black/0 transition-colors"
         />
-        <div class="relative overflow-hidden rounded-lg">
+        <div class="relative overflow-hidden rounded-lg  aspect-3/3.5 ">
           <div
             class="pointer-events-none absolute bottom-0 inset-x-0 h-1/2 bg-linear-to-t from-white/20 via-white/10 to-transparent z-10"
           />
@@ -76,13 +76,13 @@ const key = (game: any) => `${game.provider_id}-${game.game_id}`;
                   </span>
                 </div>
               </div>
-          <img
-            :src="game.icon_url"
-            class="w-full aspect-3/3.5 rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
-            loading="lazy"
-            decoding="async"
-            :alt="game.name"
-          />
+            <img
+              :src="game.icon_url"
+              class="w-full h-full rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+              decoding="async"
+              :alt="game.name"
+            />
             <div
                 class="absolute bottom-1 left-0 right-0 px-3 z-20 transition-transform duration-300 group-hover:-translate-y-1"
               >
