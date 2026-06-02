@@ -11,6 +11,7 @@ import Slots from "./screens/games/slots.vue";
 import Buffalo from "./screens/games/buffalo.vue";
 import Fishing from "./screens/games/fishing.vue";
 import Casino from "./screens/games/casino.vue";
+import GameView from "./gameView.vue";
 
 const Withdraw = () => import("@/screens/Withdrawal/index.vue");
 const Payments = () => import("./screens/Deposit/payments.vue");
@@ -23,8 +24,9 @@ const BankAccount = () => import("./screens/User/bankAccount.vue");
 const Download = () => import("./screens/download.vue");
 const Arcade = () => import("./screens/games/arcade.vue");
 const DepositHistory = () => import("./screens/transaction/depositHistory.vue");
-const WithdrawHistory = () => import("./screens/transaction/withdrawHistory.vue");
-const GameView = () => import("./gameView.vue");
+const WithdrawHistory = () =>
+  import("./screens/transaction/withdrawHistory.vue");
+// const GameView = () => import("./gameView.vue");
 const Faq = () => import("./screens/faq.vue");
 const BetList = () => import("./screens/betList.vue");
 const Store = () => import("./screens/Withdrawal/store.vue");
@@ -37,10 +39,10 @@ const routes = [
     meta: { hideNavbar: true, hideTopNav: true, requiresAuth: true },
   },
   {
-  path: "/auth",
-  name: "auth",
-  component: () => import("@/screens/auth.vue"),
-  meta: { hideNavbar: true, hideTopNav: true, requiresAuth: false },
+    path: "/auth",
+    name: "auth",
+    component: () => import("@/screens/auth.vue"),
+    meta: { hideNavbar: true, hideTopNav: true, requiresAuth: false },
   },
   {
     path: "/",
@@ -123,11 +125,11 @@ const routes = [
     meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
   },
   {
-  path: "/user/withdraw-history/detail/:id",
-  component: () => import("@/screens/transaction/withdrawHisDetail.vue"),
+    path: "/user/withdraw-history/detail/:id",
+    component: () => import("@/screens/transaction/withdrawHisDetail.vue"),
     meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
-},
-  
+  },
+
   {
     path: "/user/security-center",
     component: () => import("@/screens/User/securityCenter.vue"),

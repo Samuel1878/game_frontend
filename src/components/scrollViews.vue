@@ -58,9 +58,11 @@ const total = computed(() => props.gameData?.length ?? 0);
         <button
           @click="action"
           aria-label="view more"
-          class=" px-3 h-8 rounded-md bg-gray-800/20 border border-gray-500/20 flex gap-2 items-center"
+          class="px-3 h-8 rounded-md bg-gray-800/20 border border-gray-500/20 flex gap-2 items-center"
         >
-        <p class=" text-gray-300 text-xs hover:text-white transition-colors">{{ t("view_more") }} </p>
+          <p class="text-gray-300 text-xs hover:text-white transition-colors">
+            {{ t("view_more") }}
+          </p>
           <span class="text-gray-300 ml-1">{{ total }}</span>
         </button>
 
@@ -101,22 +103,47 @@ const total = computed(() => props.gameData?.length ?? 0);
       }"
       class="w-full"
     >
-      <SwiperSlide v-for="(game,index) in gameData || []" :key="game.id">
+      <SwiperSlide v-for="(game, index) in gameData || []" :key="game.id">
         <div
           class="relative rounded-lg cursor-pointer group hover:scale-105 hover:backdrop-blur-2xl hover:bg-gray-100/50 transition-all duration-300"
           @click="handler?.(game)"
         >
           <!-- 3. Moved aspect-ratio classes to the wrapper div -->
-          <div class="relative overflow-hidden rounded-lg aspect-3/3.5 sm:aspect-4/5 md:aspect-square bg-white/5">
-            
+                      <div
+              class="relative aspect-3/3.5 overflow-hidden rounded-lg transition-all duration-300 group-hover:ring-white/20 group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.6)]"
+            >
+              <img
+                :src="`${
+                  locale === 'cn' ? game.cn_icon_url : game.icon_url
+                }?width=180&format=webp`"
+                :srcset="`
+                    ${
+                      locale === 'cn' ? game.cn_icon_url : game.icon_url
+                    }?width=120&format=webp 120w,
+                    ${
+                      locale === 'cn' ? game.cn_icon_url : game.icon_url
+                    }?width=180&format=webp 180w,
+                    ${
+                      locale === 'cn' ? game.cn_icon_url : game.icon_url
+                    }?width=300&format=webp 300w
+                  `"
+                sizes="(max-width: 768px) 33vw, 180px"
+                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                :alt="locale === 'cn' ? game.cn_name : game.name"
+                :loading="index > 5 ? 'lazy' : 'eager'"
+                decoding="async"
+                :fetchpriority="index > 5 ? 'auto' : 'high'"
+              />
               <!-- 1. Ultra-Light Contrast Scrim (Just enough to protect white text, letting color shine) -->
               <div
                 class="pointer-events-none absolute bottom-0 inset-x-0 h-1/2 bg-linear-to-t from-white/20 via-white/10 to-transparent z-10"
               />
+
+              <!-- 2. The Vibrant Progressive Blur (Boosts and melts the actual background colors) -->
               <div
                 class="pointer-events-none absolute bottom-0 inset-x-0 h-1/4 backdrop-blur-xl backdrop-saturate-200 mask-[linear-gradient(to_top,white_30%,transparent_100%)] z-10"
               />
-                         <div class="absolute top-1 left-1 z-20 flex flex-col gap-1">
+              <div class="absolute top-1 left-1 z-20 flex flex-col gap-1">
                 <div
                   v-if="stats[key(game)]"
                   class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
@@ -136,7 +163,7 @@ const total = computed(() => props.gameData?.length ?? 0);
                   v-if="stats[key(game)]"
                   class="flex items-center w-fit gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
                 >
-                  <Users
+                  <Users2
                     class="w-2 h-2 text-green-400 fill-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.8)]"
                   />
                   <span
@@ -146,31 +173,17 @@ const total = computed(() => props.gameData?.length ?? 0);
                   </span>
                 </div>
               </div>
-            <div
+
+              <div
                 class="absolute bottom-1 left-0 right-0 px-3 z-20 transition-transform duration-300 group-hover:-translate-y-1"
               >
                 <p
                   class="font-extrabold text-white text-[10px] text-center truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide"
                 >
-              {{ locale === "cn" ? game.cn_name : game.name }}
-            </p>
+                  {{ locale === "cn" ? game.cn_name : game.name }}
+                </p>
+              </div>
             </div>
-            <!-- 4. Added srcset responsive logic back in -->
-            <img
-              :src="`${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=180&format=webp`"
-              :srcset="`
-                ${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=120&format=webp 120w,
-                ${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=180&format=webp 180w,
-                ${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=300&format=webp 300w
-              `"
-              sizes="(max-width: 640px) 33vw, (max-width: 1024px) 16vw, 180px"
-              class="w-full h-full object-cover rounded-lg"
-              :alt="locale === 'cn' ? game.cn_name : game.name"
-              :loading="index> 2 ?'lazy':'eager'"
-              :fetchpriority="index>5?'auto':'high'"
-              decoding="async"
-            />
-          </div>
         </div>
       </SwiperSlide>
     </Swiper>
