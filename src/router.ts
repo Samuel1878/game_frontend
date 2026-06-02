@@ -12,6 +12,7 @@ import Buffalo from "./screens/games/buffalo.vue";
 import Fishing from "./screens/games/fishing.vue";
 import Casino from "./screens/games/casino.vue";
 import GameView from "./gameView.vue";
+import Auth from "./screens/auth.vue";
 
 const Withdraw = () => import("@/screens/Withdrawal/index.vue");
 const Payments = () => import("./screens/Deposit/payments.vue");
@@ -41,7 +42,7 @@ const routes = [
   {
     path: "/auth",
     name: "auth",
-    component: () => import("@/screens/auth.vue"),
+    component: Auth,
     meta: { hideNavbar: true, hideTopNav: true, requiresAuth: false },
   },
   {
