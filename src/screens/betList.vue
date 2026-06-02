@@ -30,9 +30,7 @@ onMounted(() => {
     </template>
   </CustomNavBar>
   <div class="w-full bg-gray-900 p-2">
-
-
-  <div class="w-full glass-bg p-2 rounded-lg">
+  <div class="w-full bg-gray-800/20 border border-gray-500/20 shadow-2xl p-2 rounded-lg">
     <div class="flex gap-2 overflow-auto no-scrollbar">
       <button
         class="filter-btn"
@@ -62,7 +60,7 @@ onMounted(() => {
     <!-- CUSTOM DATE -->
     <div
       v-if="mode === 'custom'"
-      class="rounded-2xl border border-white/5 bg-[#0f172a] p-4 mt-2"
+      class="rounded-2xl border border-gray-500/20 bg-gray-800/20 p-4 mt-2"
     >
       <div class="flex gap-2">
         <DatePicker v-model="startDate" placeholder="From Date" />
@@ -79,7 +77,7 @@ onMounted(() => {
     </div>
   </div>
    <div class="grid grid-rows-1 grid-cols-3 items-center gap-2 py-2">
-      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+      <div class="p-2 rounded-lg bg-gray-800/20 border border-gray-500/20 flex items-center gap-2 justify-center">
           <p class="text-sm text-gray-400 text-center">
               {{ t("turnover") }}
               <p class="dashboard-value text-white">
@@ -89,9 +87,9 @@ onMounted(() => {
           </p>
         </p>
       </div>
-      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+      <div class="p-2 rounded-lg bg-gray-800/20 border border-gray-500/20 flex items-center gap-2 justify-center">
           <p class="text-sm text-gray-400 text-center">
-              {{ t("GGR") }}
+              GGR
               <p class="dashboard-value"
               :class="(BetReportRecord?.winlose|| 0) >= 0 ? 'text-green-400' : 'text-red-400'">
             {{ formatPrice((BetReportRecord?.winlose|| 0)) }} 
@@ -99,7 +97,7 @@ onMounted(() => {
 
           </p>
       </div>
-      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+      <div class="p-2 rounded-lg bg-gray-800/20 border border-gray-500/20 flex items-center gap-2 justify-center">
           <p class="text-sm text-gray-400 text-center">
               {{ t("bonus") }}
               <p class="dashboard-value text-white">
@@ -108,7 +106,7 @@ onMounted(() => {
 
           </p>
       </div>
-      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+      <div class="p-2 rounded-lg bg-gray-800/20 border border-gray-500/20 flex items-center gap-2 justify-center">
           <p class="text-sm text-gray-400 text-center">
               {{ t("win_loss") }}
               <p class="dashboard-value" :class="(Number(getWinLoss) || 0) >= 0 ? 'text-green-400' : 'text-red-400'">
@@ -117,7 +115,7 @@ onMounted(() => {
 
           </p>
       </div>
-      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+      <div class="p-2 rounded-lg bg-gray-800/20 border border-gray-500/20 flex items-center gap-2 justify-center">
           <p class="text-sm text-gray-400 text-center">
               {{ t("deposit") }}
               <p class="dashboard-value text-white">
@@ -126,7 +124,7 @@ onMounted(() => {
 
           </p>
       </div>
-      <div class="p-2 rounded-lg glass-bg flex items-center gap-2 justify-center">
+      <div class="p-2 rounded-lg bg-gray-800/20 border border-gray-500/20 flex items-center gap-2 justify-center">
           <p class="text-sm text-gray-400 text-center">
               {{ t("withdraw") }}
               <p class="dashboard-value text-white">

@@ -33,54 +33,62 @@ const key = (game: any) => `${game.provider_id}-${game.game_id}`;
       <button
         v-for="(game, index) in props.gameData"
         :key="game?.id ?? index"
-        class="relative overflow-hidden rounded-lg hover:border-white/30 group transition-all duration-300 bg-gray-900"
+        class="relative overflow-hidden rounded-lg hover:border-white/30 group transition-all duration-300 "
         @click="onClickGame(game)"
       >
         <div
-          class="absolute inset-0 bg-black/20 z-0 group-hover:bg-black/0 transition-colors"
+          class="absolute inset-0 z-0 group-hover:bg-black/0 transition-colors"
         />
         <div class="relative overflow-hidden rounded-lg">
           <div
-            class="pointer-events-none absolute inset-0 rounded-md bg-white/5 bg-linear-to-b from-white/0 via-white/10 to-gray-950"
+            class="pointer-events-none absolute bottom-0 inset-x-0 h-1/2 bg-linear-to-t from-white/20 via-white/10 to-transparent z-10"
           />
           <div
-            class="pointer-events-none absolute inset-0 rounded-md border-shine"
+            class="pointer-events-none absolute bottom-0 inset-x-0 h-1/4 backdrop-blur-xl backdrop-saturate-200 mask-[linear-gradient(to_top,white_30%,transparent_100%)] z-10"
           />
-          <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
-            <div
-              v-if="stats[key(game)]"
-              class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
-            >
-              <Diamond class="w-2 h-2 text-blue-500" />
-              <span class="text-[8px] text-white font-bold">
-                <span class="text-[8px] text-blue-500">RTP</span>
-                {{ stats[`${game.provider_id}-${game.game_id}`]?.rtp }}
-              </span>
-            </div>
+          <div class="absolute top-1 left-1 z-20 flex flex-col gap-1">
+                <div
+                  v-if="stats[key(game)]"
+                  class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+                >
+                  <Diamond
+                    class="w-2 h-2 text-blue-400 fill-blue-400 drop-shadow-[0_0_5px_rgba(59,130,246,0.8)]"
+                  />
+                  <span
+                    class="text-[7px] text-white/95 font-bold tracking-wide"
+                  >
+                    <span class="text-blue-400 font-extrabold">RTP</span>
+                    {{ stats[key(game)]?.rtp }}
+                  </span>
+                </div>
 
-            <div
-              v-if="stats[key(game)]"
-              class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm"
-            >
-              <Users class="w-2 h-2 text-green-500" />
-              <span class="text-[8px] text-white font-bold">
-                {{ stats[`${game.provider_id}-${game.game_id}`]?.users }}
-              </span>
-            </div>
-          </div>
+                <div
+                  v-if="stats[key(game)]"
+                  class="flex items-center w-fit gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+                >
+                  <Users
+                    class="w-2 h-2 text-green-400 fill-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.8)]"
+                  />
+                  <span
+                    class="text-[7px] text-white/95 font-bold tracking-wide"
+                  >
+                    {{ stats[key(game)]?.users }}
+                  </span>
+                </div>
+              </div>
           <img
             :src="game.icon_url"
-            class="w-full aspect-3/4 rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
+            class="w-full aspect-3/3.5 rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
             loading="lazy"
             decoding="async"
             :alt="game.name"
           />
-          <div
-            class="absolute bottom-0 left-0 right-0 p-1.5 z-20 bg-linear-to-t from-black/80 to-transparent"
-          >
-            <p
-              class="text-[10px] md:text-xs text-white font-medium truncate text-center"
-            >
+            <div
+                class="absolute bottom-1 left-0 right-0 px-3 z-20 transition-transform duration-300 group-hover:-translate-y-1"
+              >
+                <p
+                  class="font-extrabold text-white text-[10px] text-center truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide"
+                >
               {{ game.name }}
             </p>
           </div>

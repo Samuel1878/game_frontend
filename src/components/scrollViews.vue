@@ -107,28 +107,54 @@ const total = computed(() => props.gameData?.length ?? 0);
           @click="handler?.(game)"
         >
           <!-- 3. Moved aspect-ratio classes to the wrapper div -->
-          <div class="relative overflow-hidden rounded-lg aspect-3/4 sm:aspect-4/5 md:aspect-square bg-white/5">
+          <div class="relative overflow-hidden rounded-lg aspect-3/3.5 sm:aspect-4/5 md:aspect-square bg-white/5">
             
-            <div class="pointer-events-none absolute inset-0 rounded-md bg-linear-to-b from-white/0 via-white/10 to-gray-950 z-10" />
-            <div class="pointer-events-none absolute inset-0 rounded-md border-shine z-10" />
-            
-            <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
-              <div v-if="stats[key(game)]" class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm">
-                <Diamond class="w-2 h-2 text-blue-500" />
-                <span class="text-[8px] text-white font-bold">
-                   <span class="text-blue-500">RTP</span> {{ stats[key(game)]?.rtp }}
-                </span>
+              <!-- 1. Ultra-Light Contrast Scrim (Just enough to protect white text, letting color shine) -->
+              <div
+                class="pointer-events-none absolute bottom-0 inset-x-0 h-1/2 bg-linear-to-t from-white/20 via-white/10 to-transparent z-10"
+              />
+              <div
+                class="pointer-events-none absolute bottom-0 inset-x-0 h-1/4 backdrop-blur-xl backdrop-saturate-200 mask-[linear-gradient(to_top,white_30%,transparent_100%)] z-10"
+              />
+                         <div class="absolute top-1 left-1 z-20 flex flex-col gap-1">
+                <div
+                  v-if="stats[key(game)]"
+                  class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+                >
+                  <Diamond
+                    class="w-2 h-2 text-blue-400 fill-blue-400 drop-shadow-[0_0_5px_rgba(59,130,246,0.8)]"
+                  />
+                  <span
+                    class="text-[7px] text-white/95 font-bold tracking-wide"
+                  >
+                    <span class="text-blue-400 font-extrabold">RTP</span>
+                    {{ stats[key(game)]?.rtp }}
+                  </span>
+                </div>
+
+                <div
+                  v-if="stats[key(game)]"
+                  class="flex items-center w-fit gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+                >
+                  <Users
+                    class="w-2 h-2 text-green-400 fill-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.8)]"
+                  />
+                  <span
+                    class="text-[7px] text-white/95 font-bold tracking-wide"
+                  >
+                    {{ stats[key(game)]?.users }}
+                  </span>
+                </div>
               </div>
-              <div v-if="stats[key(game)]" class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm">
-                <Users class="w-2 h-2 text-green-500" />
-                <span class="text-[8px] text-white font-bold">
-                 {{ stats[key(game)]?.users }}
-                </span>
-              </div>
-            </div>
-            <p class="absolute bottom-1 left-0 right-0 z-20 text-center text-[10px] font-black text-white truncate px-1">
+            <div
+                class="absolute bottom-1 left-0 right-0 px-3 z-20 transition-transform duration-300 group-hover:-translate-y-1"
+              >
+                <p
+                  class="font-extrabold text-white text-[10px] text-center truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide"
+                >
               {{ locale === "cn" ? game.cn_name : game.name }}
             </p>
+            </div>
             <!-- 4. Added srcset responsive logic back in -->
             <img
               :src="`${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=180&format=webp`"

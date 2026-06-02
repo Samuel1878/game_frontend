@@ -378,7 +378,10 @@
   "password_alert_description":"Your password has been changed successfully. Please use your new password for future logins and transactions. If you did not initiate this change, please contact customer support immediately.",
   "password_alert_button":"I Understand",
   "something_went_wrong:":"Something went wrong. Please try again.",
-  "statement_exported":"Your transaction statement has been exported successfully. Please check your downloads folder."
+  "statement_exported":"Your transaction statement has been exported successfully. Please check your downloads folder.",
+  "please_login":"Please login to enter the game",
+  "failed_to_prepare_game":"Failed to prepare game",
+  "view_details":"View Details"
 
 
 

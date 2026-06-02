@@ -149,7 +149,10 @@ watch(
             class="shrink-0 flex flex-col peer-last:mr-4 gap-2 justify-center items-center text-sm whitespace-nowrap"
           >
             <Card
-              class="p-1 hover:bg-gray-700 transition rounded-md bg-gray-600/50 bg-linear-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+              :class="option?.GpId === selectedProvider.GpId
+                ? 'gold-bg animate-pulse border-yellow-400'
+                : 'bg-gray-800/20 border-white/10'"
+              class="p-1 hover:bg-gray-700 transition rounded-md bg-gray-800/20 border border-white/10"
             >
               <CardContent class="flex items-center justify-center">
                 <img :src="option?.icon" class="h-10" fetchpriority="auto"/>

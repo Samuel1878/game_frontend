@@ -403,6 +403,11 @@
   "password_alert_description": "您的密码已成功更改。请在今后的登录和交易中使用新密码。如果您未发起此更改，请立即联系客服。",
   "password_alert_button": "我已知晓",
   "something_went_wrong:": "出了点问题。请重试。",
-  "statement_exported": "您的交易明细已成功导出。请检查下载文件夹。"
+  "statement_exported": "您的交易明细已成功导出。请检查下载文件夹。",
+  
+  "please_login": "请登录后进入游戏",
+  "failed_to_prepare_game": "游戏准备失败",
+      "view_details":"查看详情"
+
 
 }

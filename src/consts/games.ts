@@ -27,21 +27,21 @@ export const topSlotGames: gameType[] = [
     cn_icon_url:"https://khpic.cdn568.net/PragmaticPlay/617/3_617_MahjongWinsSuperScatter.png",
     cn_name:"麻将大胜超级进财"
 },
- {
-    id: 3,
-    provider_id: 35,
-    cn_name: "麻将胡了",
-    game_id: 65,
-    rtp: "0.96920",
-    game_rank: 1,
-    name: "Mahjong Ways",
+{
+    id: 9,
+    provider_id: 3,
+    game_id: 397,
+    cn_name: "麻将大胜™",
+    rtp: "0.98000",
+    game_rank: 10,
+    name: "Mahjong Wins™",
     icon_url:
-      "/game_icons/35_65_MahjongWays.webp",
-    cn_icon_url:"/game_icons/35_65_MahjongWays_CN.webp",
-      // "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_65_MahjongWays_CN.png",
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_397_MahjongWins.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_397_MahjongWins_CN.png",
     is_hot_rtp: true,
   },
-  
+
  {
     id: 4,
     provider_id: 35,
@@ -78,7 +78,7 @@ export const topSlotGames: gameType[] = [
     name: "Mahjong Ways 2",
     icon_url:
       "/game_icons/35_74_MahjongWaysTwo.webp",
-    cn_icon_url:"/game_icons/35_74_MahjongWaysTwo_CN.png"
+    cn_icon_url:"/game_icons/35_74_MahjongWaysTwo_CN.webp"
     // cn_icon_url:
     //   "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_74_MahjongWaysTwo_CN.png",
   },
@@ -110,20 +110,7 @@ export const topSlotGames: gameType[] = [
     "cn_name":"黑帮风云"
 },
 
-{
-    id: 9,
-    provider_id: 3,
-    game_id: 397,
-    cn_name: "麻将大胜™",
-    rtp: "0.98000",
-    game_rank: 10,
-    name: "Mahjong Wins™",
-    icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_397_MahjongWins.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_397_MahjongWins_CN.png",
-    is_hot_rtp: true,
-  },
+
      {
     id: 10,
     provider_id: 3,
@@ -136,6 +123,21 @@ export const topSlotGames: gameType[] = [
     cn_icon_url:
       "https://khpic.cdn568.net/images/games/PragmaticPlay/3_437_CandyJarCluster_CN.png",
   },
+   {
+    id: 3,
+    provider_id: 35,
+    cn_name: "麻将胡了",
+    game_id: 65,
+    rtp: "0.96920",
+    game_rank: 1,
+    name: "Mahjong Ways",
+    icon_url:
+      "/game_icons/35_65_MahjongWays.webp",
+    cn_icon_url:"/game_icons/35_65_MahjongWays_CN.webp",
+      // "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_65_MahjongWays_CN.png",
+    is_hot_rtp: true,
+  },
+  
   
 
 

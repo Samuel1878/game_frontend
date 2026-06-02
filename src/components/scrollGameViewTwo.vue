@@ -47,7 +47,7 @@ const total = computed(() => props.gameData?.length ?? 0);
     <!-- Header Section -->
     <div class="flex w-full items-center justify-between my-4">
       <div class="flex gap-2 items-center">
-       <img
+        <img
           :src="icon"
           class="w-7 h-7 object-contain"
           alt="game-options"
@@ -63,9 +63,11 @@ const total = computed(() => props.gameData?.length ?? 0);
         <button
           @click="action"
           aria-label="view more"
-          class=" px-3 h-8 rounded-md bg-gray-800/20 border border-gray-500/20 flex gap-2 items-center"
+          class="px-3 h-8 rounded-md bg-gray-800/20 border border-gray-500/20 flex gap-2 items-center"
         >
-        <p class=" text-gray-300 text-xs hover:text-white transition-colors">{{ t("view_more") }} </p>
+          <p class="text-gray-300 text-xs hover:text-white transition-colors">
+            {{ t("view_more") }}
+          </p>
           <span class="text-gray-300 ml-1">{{ total }}</span>
         </button>
 
@@ -114,50 +116,82 @@ const total = computed(() => props.gameData?.length ?? 0);
       >
         <div class="flex flex-col gap-2">
           <div
-            v-for="(game,index) in gamePair"
+            v-for="(game, index) in gamePair"
             :key="game.id"
             @click="handler?.(game)"
-            class="relative flex flex-col group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
+            class="group relative flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
           >
-            <div class="relative aspect-3/4 overflow-hidden rounded-lg bg-white/5">
-              <div class="pointer-events-none absolute inset-0 rounded-md bg-linear-to-b from-white/0 via-white/10 to-gray-950 z-10" />
-              
-              <!-- 2. Integrated your responsive image logic here -->
+            <div
+              class="relative aspect-3/3.5 overflow-hidden rounded-lg transition-all duration-300 group-hover:ring-white/20 group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.6)]"
+            >
               <img
-                :src="`${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=180&format=webp`"
+                :src="`${
+                  locale === 'cn' ? game.cn_icon_url : game.icon_url
+                }?width=180&format=webp`"
                 :srcset="`
-                  ${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=120&format=webp 120w,
-                  ${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=180&format=webp 180w,
-                  ${locale === 'cn' ? game.cn_icon_url : game.icon_url}?width=300&format=webp 300w
-                `"
+                    ${
+                      locale === 'cn' ? game.cn_icon_url : game.icon_url
+                    }?width=120&format=webp 120w,
+                    ${
+                      locale === 'cn' ? game.cn_icon_url : game.icon_url
+                    }?width=180&format=webp 180w,
+                    ${
+                      locale === 'cn' ? game.cn_icon_url : game.icon_url
+                    }?width=300&format=webp 300w
+                  `"
                 sizes="(max-width: 768px) 33vw, 180px"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 :alt="locale === 'cn' ? game.cn_name : game.name"
-                :loading="index>5 ?'lazy':'eager'"
+                :loading="index > 5 ? 'lazy' : 'eager'"
                 decoding="async"
-                :fetchpriority="index>5?'auto':'high'"
+                :fetchpriority="index > 5 ? 'auto' : 'high'"
               />
-              
-              <div class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60 z-10" />
-              
-              <div class="absolute top-1 left-1 z-20 flex flex-col gap-0.5">
-                <!-- 3. Cleaned up stats lookup using key(game) -->
-                <div v-if="stats[key(game)]" class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-black/60 backdrop-blur-sm">
-                  <Diamond class="w-2 h-2 text-blue-500" />
-                  <span class="text-[8px] text-white font-bold">
-                    <span class="text-blue-500">RTP</span> {{ stats[key(game)]?.rtp }}
+              <!-- 1. Ultra-Light Contrast Scrim (Just enough to protect white text, letting color shine) -->
+              <div
+                class="pointer-events-none absolute bottom-0 inset-x-0 h-1/2 bg-linear-to-t from-white/20 via-white/10 to-transparent z-10"
+              />
+
+              <!-- 2. The Vibrant Progressive Blur (Boosts and melts the actual background colors) -->
+              <div
+                class="pointer-events-none absolute bottom-0 inset-x-0 h-1/4 backdrop-blur-xl backdrop-saturate-200 mask-[linear-gradient(to_top,white_30%,transparent_100%)] z-10"
+              />
+              <div class="absolute top-1 left-1 z-20 flex flex-col gap-1">
+                <div
+                  v-if="stats[key(game)]"
+                  class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+                >
+                  <Diamond
+                    class="w-2 h-2 text-blue-400 fill-blue-400 drop-shadow-[0_0_5px_rgba(59,130,246,0.8)]"
+                  />
+                  <span
+                    class="text-[7px] text-white/95 font-bold tracking-wide"
+                  >
+                    <span class="text-blue-400 font-extrabold">RTP</span>
+                    {{ stats[key(game)]?.rtp }}
                   </span>
                 </div>
 
-                <div v-if="stats[key(game)]" class="flex items-center w-fit gap-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm">
-                  <Users2 class="w-2 h-2 text-green-500" />
-                  <span class="text-[8px] text-white font-bold">
+                <div
+                  v-if="stats[key(game)]"
+                  class="flex items-center w-fit gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+                >
+                  <Users2
+                    class="w-2 h-2 text-green-400 fill-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.8)]"
+                  />
+                  <span
+                    class="text-[7px] text-white/95 font-bold tracking-wide"
+                  >
                     {{ stats[key(game)]?.users }}
                   </span>
                 </div>
               </div>
-              <div class="absolute bottom-2 left-0 right-0 px-2 z-20">
-                <p class="font-bold text-white text-[10px] text-center truncate drop-shadow-md">
+
+              <div
+                class="absolute bottom-1 left-0 right-0 px-3 z-20 transition-transform duration-300 group-hover:-translate-y-1"
+              >
+                <p
+                  class="font-extrabold text-white text-[10px] text-center truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide"
+                >
                   {{ locale === "cn" ? game.cn_name : game.name }}
                 </p>
               </div>
@@ -182,11 +216,3 @@ const total = computed(() => props.gameData?.length ?? 0);
   }
 }
 </style>
-
-  <!-- :src="`${locale==='cn'? game.cn_icon_url:game.icon_url}?width=180&format=webp`"
-                :srcset="`
-                  ${locale==='cn'? game.cn_icon_url:game.icon_url}?width=120&format=webp 120w,
-                  ${locale==='cn'? game.cn_icon_url:game.icon_url}?width=180&format=webp 180w,
-                  ${locale==='cn'? game.cn_icon_url:game.icon_url}?width=300&format=webp 300w
-                `"
-                sizes="(max-width: 768px) 33vw, 180px" -->

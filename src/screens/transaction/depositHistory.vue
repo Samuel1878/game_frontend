@@ -19,9 +19,11 @@ import {
 } from "lucide-vue-next";
 import DatePicker from "@/components/CalenderView.vue";
 import router from "@/router";
+import { useDepositStore } from "@/stores/depositDetailStore";
 
 const { t } = useI18n();
 const authStore = useAuthStore();
+const depositStore = useDepositStore();
 
 // Core Data States
 const deposits = ref<depositFormData[]>([]);
@@ -96,6 +98,7 @@ watch([currentPage, from, to, selectedStatus, searchKeyword], () => {
 });
 
 const viewDeposit = (d: depositFormData) => {
+  depositStore.setDeposit(d);
   router.push(`/user/deposit-history/detail/${d.inv_id}`);
 };
 

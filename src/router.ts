@@ -115,7 +115,6 @@ const routes = [
   {
     path: "/user/deposit-history/detail/:id",
     component: () => import("@/screens/transaction/depoHisDetail.vue"),
-    props: true, // Crucial: This auto-injects the :id into your component properties
     meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
   },
   {
@@ -127,7 +126,6 @@ const routes = [
   path: "/user/withdraw-history/detail/:id",
   component: () => import("@/screens/transaction/withdrawHisDetail.vue"),
     meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
-  props: true, // Auto-binds the :id parameter straight to component props
 },
   
   {

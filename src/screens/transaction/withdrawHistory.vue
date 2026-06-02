@@ -21,15 +21,14 @@ import { openChat } from "@/utils";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
 import DatePicker from "@/components/CalenderView.vue";
+import { useWithdrawStore } from "@/stores/withdrawDetailStore";
 
 const { t } = useI18n();
 const authStore = useAuthStore();
-
+const withdrawStore = useWithdrawStore();
 // Core Component State
 const withdrawals = ref<withdrawalInfo[]>([]);
 const loading = ref(true);
-
-// Pagination & Filtering Config
 const currentPage = ref(1);
 const perPage = 5;
 const totalPages = ref(0);
@@ -119,6 +118,7 @@ const selectStatus = (status: string) => {
 };
 // Route Parameter Handlers
 const viewWithdrawal = (w: withdrawalInfo) => {
+  withdrawStore.setWithdrawal(w);
   router.push(`/user/withdraw-history/detail/${w.txn_id}`);
 };
 

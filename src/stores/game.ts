@@ -15,7 +15,7 @@ export const useGameStore = defineStore("game", () => {
   const selectedGame = ref<gameType|null>(null);
     const closeTimer = ref<ReturnType<typeof setTimeout> | null>(null);
   const authStore = useAuthStore();
-  const {locale} = useI18n();
+  const {locale, t} = useI18n();
   const wallet = useWallet()
   const preLaunchData = ref<any>(null); 
   const openDrawer = () => {
@@ -40,12 +40,12 @@ export const useGameStore = defineStore("game", () => {
     if (!game) return;
 
     if (!authStore.user) {
-      toast.warning("Please login to enter the game");
+      toast.warning(t("please_login"));
       router.push({ path: '/auth', query: { mode: 'login' } });
       return;
     }
     if (authStore.user.level===1 && wallet.balance===0){
-      toast.warning("insufficient_balance");
+      toast.warning(t("insufficient_balance"));
       router.push("/deposit");
       return
     }
@@ -66,7 +66,7 @@ export const useGameStore = defineStore("game", () => {
     } catch (error) {
       console.error(error);
       closeDrawer()
-      toast.error("Failed to prepare game");
+      toast.error(t("failed_to_prepare_game"));
     } finally {
       loading.value = false;
     }
