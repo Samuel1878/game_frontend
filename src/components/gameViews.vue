@@ -36,9 +36,7 @@ const key = (game: any) => `${game.provider_id}-${game.game_id}`;
         class="relative overflow-hidden rounded-lg hover:border-white/30 group transition-all duration-300 "
         @click="onClickGame(game)"
       >
-        <div
-          class="absolute inset-0 z-0 group-hover:bg-black/0 transition-colors"
-        />
+        
         <div class="relative overflow-hidden rounded-lg  aspect-3/3.5 ">
           <div
             class="pointer-events-none absolute bottom-0 inset-x-0 h-1/2 bg-linear-to-t from-white/20 via-white/10 to-transparent z-10"

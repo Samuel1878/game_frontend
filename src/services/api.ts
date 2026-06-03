@@ -11,16 +11,24 @@ const api = axios.create({
 });
 
 // 🔹 Attach access token
-api.interceptors.request.use((config) => {
-  const auth = useAuthStore();
+// api.interceptors.request.use((config) => {
+//   const auth = useAuthStore();
 
-  if (auth.accessToken) {
-    config.headers.Authorization = `Bearer ${auth.accessToken}`;
+//   if (auth.accessToken) {
+//     config.headers.Authorization = `Bearer ${auth.accessToken}`;
+//   }
+
+//   return config;
+// });
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("access_token");
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
   }
 
   return config;
 });
-
 
 let isLoggingOut = false;
 let isRefreshing = false;

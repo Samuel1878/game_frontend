@@ -3,7 +3,6 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import tailwindcss from "@tailwindcss/vite";
 import ogPlugin from "vite-plugin-open-graph";
-
 export default defineConfig({
   plugins: [
     vue(), 
@@ -18,6 +17,12 @@ export default defineConfig({
       }
     })
   ],
+  // server: {
+  //   host: '0.0.0.0', // allow access from other devices
+  //   port: 5173,
+  //  // enable HTTPS for secure local development
+  // },
+  
   define: {
     __VUE_PROD_DEVTOOLS__: false,
   },
@@ -31,7 +36,6 @@ export default defineConfig({
     drop: ["console", "debugger"],
 
   },
-   
   build: {
     minify: "esbuild",
     cssCodeSplit: false,

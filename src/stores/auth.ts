@@ -13,10 +13,14 @@ interface walletType{
 };
 export const useAuthStore = defineStore("auth", {
   state: () => ({
-    accessToken: null as string | null,
+    accessToken: localStorage.getItem("access_token"),
     user: null as userInfo | null,
     initialized: false,
   }),
+  // getters: {
+  //   isLoggedIn: (state) => !!state.user,
+  //   hasFundPin: (state) => !!state.user?.set_pin,
+  // },
   actions: {
     setToken(token: string) {
       localStorage.setItem("access_token", token);

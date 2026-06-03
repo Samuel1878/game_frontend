@@ -50,7 +50,7 @@ const downloadApp = () => {
   >
     <div
       v-if="showAppBanner"
-      class="z-40 glass-bg shadow-lg border-0 border-b ring-0 outline-0"
+      class="z-40 bg-gray-800/20 border-b border-gray-500/20 shadow-lg"
    
     >
       <div class="flex items-center gap-2 px-2 h-12">

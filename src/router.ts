@@ -232,8 +232,10 @@ router.beforeEach(async (to, from) => {
     NProgress.start();
   }
   const auth = useAuthStore();
-  // Guard Clause: Redirect unauthenticated requests to login
-  if (to.meta.requiresAuth && !auth.accessToken) {
+  //  if (!auth.initialized) {
+  //   await auth.init();
+  // }
+  if (to.meta.requiresAuth && !auth.user) {
     NProgress.done();
     return {
       path: "/auth",

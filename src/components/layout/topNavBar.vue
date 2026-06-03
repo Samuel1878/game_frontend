@@ -37,7 +37,7 @@ const openMenu = () => {
 <template>
   <nav
     v-if="!route.meta.hideTopNav"
-    class="sticky top-0 pt-[env(safe-area-inset-top)] right-0 left-0 z-30 w-full border-b-2 bg-gray-900/10 backdrop-blur-2xl border-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
+    class="sticky top-0 pt-[env(safe-area-inset-top)] right-0 left-0 z-30 w-full border-b-2 bg-gray-900 border-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
   >
     <div class="mx-auto flex max-w-7xl items-center justify-between px-2 h-14">
       <div class="flex items-center gap-2 relative">
