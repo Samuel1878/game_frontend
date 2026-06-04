@@ -25,12 +25,11 @@ const BankAccount = () => import("./screens/User/bankAccount.vue");
 const Download = () => import("./screens/download.vue");
 const Arcade = () => import("./screens/games/arcade.vue");
 const DepositHistory = () => import("./screens/transaction/depositHistory.vue");
-const WithdrawHistory = () =>
-  import("./screens/transaction/withdrawHistory.vue");
-// const GameView = () => import("./gameView.vue");
+const WithdrawHistory = () =>import("./screens/transaction/withdrawHistory.vue");
 const Faq = () => import("./screens/faq.vue");
 const BetList = () => import("./screens/betList.vue");
 const Store = () => import("./screens/Withdrawal/store.vue");
+const TransactionDetail = () => import("@/screens/transaction/transactionDetail.vue")
 
 NProgress.configure({ showSpinner: false });
 const routes = [
@@ -108,6 +107,11 @@ const routes = [
   {
     path: "/user/transactions",
     component: Transactions,
+    meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
+  },
+    {
+    path: "/user/transactions/detail",
+    component: TransactionDetail,
     meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
   },
   {
@@ -232,9 +236,9 @@ router.beforeEach(async (to, from) => {
     NProgress.start();
   }
   const auth = useAuthStore();
-  //  if (!auth.initialized) {
-  //   await auth.init();
-  // }
+   if (!auth.initialized) {
+    await auth.init();
+  }
   if (to.meta.requiresAuth && !auth.user) {
     NProgress.done();
     return {

@@ -57,16 +57,17 @@ export const topSlotGames: gameType[] = [
     cn_icon_url:"/game_icons/35_134_WildBountyShowdown_CN.webp"
   },
     {
-    id: 5,
-    provider_id: 3,
-    game_id:649,
-    rtp: "0.96500",
-    game_rank: 64,
-    name: "Fortune Ace Super Scatter",
-    icon_url: "https://khpic.cdn568.net/PragmaticPlay/649/3_649_FortuneAceSuperScatter.png?v=1",
-    cn_icon_url: "https://khpic.cdn568.net/PragmaticPlay/649/3_649_FortuneAceSuperScatter_CN.png",
-    cn_name: "財富高手超级闪耀",
-  },
+    "id": 4,
+    "provider_id": 3,
+    "game_id": 213,
+    "rtp": "0.96000",
+    "game_rank": 16,
+    "name": "Pyramid Bonanza",
+    "icon_url": "https://khpic.cdn568.net/PragmaticPlay/213/3_213_PyramidBonanza.png",
+    "cn_icon_url":"https://khpic.cdn568.net/PragmaticPlay/213/3_213_PyramidBonanza_CN.png",
+    "cn_name":"疯狂金字塔"
+},
+    
   
   {
     id: 6,
@@ -144,7 +145,17 @@ export const topSlotGames: gameType[] = [
 ];
 export const hotGames: gameType[] = [
  
-   
+   {
+    id: 5,
+    provider_id: 3,
+    game_id:649,
+    rtp: "0.96500",
+    game_rank: 64,
+    name: "Fortune Ace Super Scatter",
+    icon_url: "https://khpic.cdn568.net/PragmaticPlay/649/3_649_FortuneAceSuperScatter.png?v=1",
+    cn_icon_url: "https://khpic.cdn568.net/PragmaticPlay/649/3_649_FortuneAceSuperScatter_CN.png",
+    cn_name: "財富高手超级闪耀",
+  },
   {
     id: 1,
     provider_id: 35,
@@ -158,6 +169,7 @@ export const hotGames: gameType[] = [
     // cn_icon_url:
     //   "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_141_FortuneRabbit_CN.png",
   },
+
  {
     id: 3,
     provider_id: 3,
@@ -187,17 +199,7 @@ export const hotGames: gameType[] = [
   },
    
    
-  {
-    "id": 4,
-    "provider_id": 3,
-    "game_id": 213,
-    "rtp": "0.96000",
-    "game_rank": 16,
-    "name": "Pyramid Bonanza",
-    "icon_url": "https://khpic.cdn568.net/PragmaticPlay/213/3_213_PyramidBonanza.png",
-    "cn_icon_url":"https://khpic.cdn568.net/PragmaticPlay/213/3_213_PyramidBonanza_CN.png",
-    "cn_name":"疯狂金字塔"
-},
+  
 {
     "id": 5,
     "provider_id": 3,
@@ -657,20 +659,32 @@ export const topBuffaloGames: gameType[] = [
     // cn_icon_url:"https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/c"
     cn_icon_url:"/game_icons/3_302_BlackBull.webp"
 },
-{
-    id: 6,
-    provider_id: 1094,
-    cn_name: "African Buffalo(50)",
-    game_id: 1,
-    rtp: "0.95000",
-    game_rank: 1,
-    name: "African Buffalo(50)",
-    icon_url:
-      "https://khpic.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png?v=1",
+  {
+    id: 14,
+    provider_id: 1020,
+    game_id: 217,
+    cn_name: "三币金牛",
+    rtp: "0.97000",
+    game_rank: 26,
+    name: "3 Coin Golden OX",
     cn_icon_url:
-      "https://khpic.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png?v=1",
+      "https://khpic.cdn568.net/JiLiGaming/217/1020_217_3CoinGoldenOX_CN.png",
+    icon_url:
+      "https://khpic.cdn568.net/JiLiGaming/217/1020_217_3CoinGoldenOX.png?v=1",
   },
- 
+  
+    {
+        "id":15,
+        "provider_id": 35,
+        "game_id": 98,
+        "rtp": "0.96750",
+        "game_rank": 43,
+        "name": "Fortune Ox",
+        "icon_url": "https://khpic.cdn568.net/PGSoft/98/35_98_FortuneOx.png",
+        cn_icon_url:"https://khpic.cdn568.net/PGSoft/98/35_98_FortuneOx.png",
+        cn_name:"十倍金牛"
+    },
+
 
   
   {
@@ -699,19 +713,19 @@ export const topBuffaloGames: gameType[] = [
       "https://khpic.cdn568.net/Fachai/36/1046_36_CRAZYBUFFALO_CN.jpg",
   },
 
-  // {
-  //   id: 9,
-  //   provider_id: 3,
-  //   cn_name: "热火暴走狂潮",
-  //   game_id: 701,
-  //   rtp: "0.96450",
-  //   game_rank: 24,
-  //   name: "Fire Stampede Ultimate",
-  //   icon_url:
-  //     "https://khpic.cdn568.net/PragmaticPlay/701/3_701_FireStampedeUltimate.png",
-  //   cn_icon_url:
-  //     "https://khpic.cdn568.net/PragmaticPlay/701/3_701_FireStampedeUltimate_CN.png",
-  // },
+  {
+    id: 9,
+    provider_id: 3,
+    cn_name: "热火暴走狂潮",
+    game_id: 701,
+    rtp: "0.96450",
+    game_rank: 24,
+    name: "Fire Stampede Ultimate",
+    icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/701/3_701_FireStampedeUltimate.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/701/3_701_FireStampedeUltimate_CN.png",
+  },
   {
     id: 10,
     provider_id: 1042,
@@ -723,6 +737,20 @@ export const topBuffaloGames: gameType[] = [
     icon_url: "https://khpic.cdn568.net/KAGaming/3/1042_3_GoldenBull.png",
     cn_icon_url: "https://khpic.cdn568.net/KAGaming/3/1042_3_GoldenBull_CN.png",
   },
+  {
+    id: 6,
+    provider_id: 1094,
+    cn_name: "African Buffalo(50)",
+    game_id: 1,
+    rtp: "0.95000",
+    game_rank: 1,
+    name: "African Buffalo(50)",
+    icon_url:
+      "https://khpic.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png?v=1",
+    cn_icon_url:
+      "https://khpic.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png?v=1",
+  },
+ 
   {
     id: 11,
     provider_id: 1094,
@@ -764,31 +792,7 @@ export const topBuffaloGames: gameType[] = [
   },
  
 
-  {
-    id: 14,
-    provider_id: 1020,
-    game_id: 217,
-    cn_name: "三币金牛",
-    rtp: "0.97000",
-    game_rank: 26,
-    name: "3 Coin Golden OX",
-    cn_icon_url:
-      "https://khpic.cdn568.net/JiLiGaming/217/1020_217_3CoinGoldenOX_CN.png",
-    icon_url:
-      "https://khpic.cdn568.net/JiLiGaming/217/1020_217_3CoinGoldenOX.png?v=1",
-  },
-  
-    {
-        "id":15,
-        "provider_id": 35,
-        "game_id": 98,
-        "rtp": "0.96750",
-        "game_rank": 43,
-        "name": "Fortune Ox",
-        "icon_url": "https://khpic.cdn568.net/PGSoft/98/35_98_FortuneOx.png",
-        cn_icon_url:"https://khpic.cdn568.net/PGSoft/98/35_98_FortuneOx.png",
-        cn_name:"十倍金牛"
-    }
+
 
 ];
 
@@ -833,6 +837,45 @@ export const popularGames: gameType[] = [
     cn_icon_url:
       "https://khpic.cdn568.net/PragmaticPlay/199/3_199_5LionsMegaways_CN.png",
   },
+   {
+    id: 15,
+    provider_id: 1020,
+    game_id: 116,
+    cn_name: "迦羅寶石2",
+    rtp: "0.97000",
+    game_rank: 1,
+    name: "Fortune Gems 2",
+    icon_url:
+      "https://khpic.cdn568.net/JiLiGaming/116/1020_116_FortuneGems2.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/JiLiGaming/116/1020_116_FortuneGems2_CN.png",
+  },
+
+    {
+    id: 16,
+    provider_id: 3,
+    game_id: 652,
+    rtp: "0.96500",
+    game_rank: 14,
+    cn_name: "甜心糖果大富翁",
+    name: "Sweet Rush Bonanza",
+    icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/652/3_652_SweetRushBonanza.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/PragmaticPlay/652/3_652_SweetRushBonanza_CN.png",
+    is_hot_rtp: true,
+  },
+    {
+    "id": 14,
+    "provider_id": 1034,
+    "game_id": 74,
+    "rtp": "0.97480",
+    "game_rank": 6,
+    "name": "LABUBU: Fall In Wild",
+    "icon_url": "https://khpic.cdn568.net/AdvantPlay/74/1034_74_LABUBUFallInWild.jpg",
+    cn_icon_url:"https://khpic.cdn568.net/AdvantPlay/74/1034_74_LABUBUFallInWild_CN.jpg",
+    cn_name:"LABUBU: 春天野在家"
+},
   {
     id: 12,
     cn_name: "财神到",
@@ -895,45 +938,8 @@ export const popularGames: gameType[] = [
     cn_icon_url:
       "https://khpic.cdn568.net/Fachai/7/1046_7_MONKEYKINGFISHING_CN.jpg",
   },
-  {
-    "id": 14,
-    "provider_id": 1034,
-    "game_id": 74,
-    "rtp": "0.97480",
-    "game_rank": 6,
-    "name": "LABUBU: Fall In Wild",
-    "icon_url": "https://khpic.cdn568.net/AdvantPlay/74/1034_74_LABUBUFallInWild.jpg",
-    cn_icon_url:"https://khpic.cdn568.net/AdvantPlay/74/1034_74_LABUBUFallInWild_CN.jpg",
-    cn_name:"LABUBU: 春天野在家"
-},
+
 
  
-  {
-    id: 15,
-    provider_id: 1020,
-    game_id: 116,
-    cn_name: "迦羅寶石2",
-    rtp: "0.97000",
-    game_rank: 1,
-    name: "Fortune Gems 2",
-    icon_url:
-      "https://khpic.cdn568.net/JiLiGaming/116/1020_116_FortuneGems2.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/JiLiGaming/116/1020_116_FortuneGems2_CN.png",
-  },
-
-    {
-    id: 16,
-    provider_id: 3,
-    game_id: 652,
-    rtp: "0.96500",
-    game_rank: 14,
-    cn_name: "甜心糖果大富翁",
-    name: "Sweet Rush Bonanza",
-    icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/652/3_652_SweetRushBonanza.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/PragmaticPlay/652/3_652_SweetRushBonanza_CN.png",
-    is_hot_rtp: true,
-  },
+ 
 ]

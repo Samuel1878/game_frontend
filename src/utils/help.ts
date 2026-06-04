@@ -20,17 +20,16 @@ type Summary = {
 };
 
 export const getSummary = (data: ReportItem[] | null | undefined): Summary => {
-    // console.log("getSummary", data)
-    if (!data) {
-        return {
-            betCount: { bonus: 0, draw: 0, lose: 0, won: 0 },
-            turnover: { bonus: 0, draw: 0, lose: 0, won: 0 },
-            winlose: 0,
-            commission: 0,
-            totalDeposit: 0,
-            totalWithdrawal: 0,
-        };
-    }
+  if (!data) {
+    return {
+      betCount: { bonus: 0, draw: 0, lose: 0, won: 0 },
+      turnover: { bonus: 0, draw: 0, lose: 0, won: 0 },
+      winlose: 0,
+      commission: 0,
+      totalDeposit: 0,
+      totalWithdrawal: 0,
+    };
+  }
   return data.reduce(
     (acc, item) => {
       acc.betCount.bonus += item?.betCount?.bonus || 0;
@@ -57,51 +56,41 @@ export const getSummary = (data: ReportItem[] | null | undefined): Summary => {
       commission: 0,
       totalDeposit: 0,
       totalWithdrawal: 0,
-    }
+    },
   );
 };
 
-
-export const isPWA = () => window.matchMedia("(display-mode: standalone)").matches ||
+export const isPWA = () =>
+  window.matchMedia("(display-mode: standalone)").matches ||
   (window.navigator as any).standalone === true;
 
 export const isApp = () => {
-  // 1. Check for Capacitor (most common in modern Vue/Ionic apps)
   const isCapacitor = (window as any).Capacitor?.isNative;
-
-  // 2. Check for Cordova/PhoneGap
   const isCordova = !!(window as any).cordova;
-
-  // 3. Protocol Check (Apps often run on capacitor://, ionic://, or file://)
-  const isAppProtocol = ['capacitor:', 'http://localhost', 'file:', 'ionic:'].includes(window.location.protocol);
-
-  // 4. Custom User Agent (If you injected a unique string into your App's WebView)
-  // Most professional apps add something like "TZ99-APP" to the UA in native settings.
+  const isAppProtocol = [
+    "capacitor:",
+    "http://localhost",
+    "file:",
+    "ionic:",
+  ].includes(window.location.protocol);
   const isCustomUA = navigator.userAgent.includes("TZ99-APP");
-
   return isCapacitor || isCordova || isAppProtocol || isCustomUA;
 };
 
-export const encryptPassword = (password:string) => {
+export const encryptPassword = (password: string) => {
   return CryptoJs.AES.encrypt(
     password,
     "AaMM01-SE9vd8v9daw3h3f9vaml3uva98w34rjv2@F9Cw@KA$!:*c",
   ).toString();
 };
-
-/**
- * Decrypt password
- */
-export const decryptPassword = (encrypted:string) => {
+export const decryptPassword = (encrypted: string) => {
   try {
     const bytes = CryptoJs.AES.decrypt(
       encrypted,
       "AaMM01-SE9vd8v9daw3h3f9vaml3uva98w34rjv2@F9Cw@KA$!:*c",
     );
 
-    return bytes.toString(
-      CryptoJs.enc.Utf8,
-    );
+    return bytes.toString(CryptoJs.enc.Utf8);
   } catch {
     return "";
   }

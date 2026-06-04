@@ -12,7 +12,7 @@ import {
   InputGroupInput,
   InputGroupText,
 } from "@/components/ui/input-group";
-import { ArrowDown, Lock, PlusIcon, Store } from "lucide-vue-next";
+import { ArrowDown, Lock, PlusIcon, Store, Wallet } from "lucide-vue-next";
 import router from "@/router";
 import { bankThemes, formatPrice } from "@/utils";
 import { useI18n } from "vue-i18n";
@@ -188,20 +188,8 @@ onMounted(async () => {
   if (authStore.user?.set_pin === false) {
       fundPinStore.openFundPin();
     }
-  // if you have hydration / session restore
   bankStore.fetchAccounts();
 });
-// watch(
-//   () => authStore.user,
-//   (user) => {
-//     if (!user) return;
-
-//     if (user.set_pin === false) {
-//       fundPinStore.openFundPin();
-//     }
-//   },
-//   { immediate: true },
-// );
 const openAdd = () => {
   isEdit.value = false;
   showDialog.value = true;
@@ -274,10 +262,8 @@ watch([percentage, byPercentage], () => {
 
         <!-- CSS GRID HEIGHT ANIMATION WRAPPER -->
         <div
-          class="overflow-hidden transition-all duration-500"
-          :style="{
-            height: withdrawForm?.name ? '100px' : '40px',
-          }"
+          class="overflow-hidden transition-all duration-500 h-fit"
+          
         >
           <div class="overflow-hidden">
             <Transition
@@ -308,7 +294,7 @@ watch([percentage, byPercentage], () => {
                   <p class="text-gray-300 font-medium text-xs">
                     {{ t("account_number") }}
                   </p>
-                  <p class="text-gray-100 font-bold text-lg">
+                  <p class="text-gray-100 font-bold text-md">
                     {{ withdrawForm.number }}
                   </p>
                 </div>
@@ -317,7 +303,7 @@ watch([percentage, byPercentage], () => {
                   <p class="text-gray-300 font-medium text-xs">
                     {{ t("payment_method") }}
                   </p>
-                  <p class="text-gray-100 font-normal text-lg">
+                  <p class="text-gray-100 font-normal text-md">
                     {{ withdrawForm.method }}
                   </p>
                 </div>
@@ -405,11 +391,11 @@ watch([percentage, byPercentage], () => {
                 "
               ></div>
 
-              <div class="relative z-10 space-y-3">
+              <div class="relative z-10 space-y-4">
                 <p class="text-xs opacity-70 uppercase tracking-widest">
                   {{ acc.label }}
                 </p>
-                <p class="text-xl tracking-widest font-semibold">
+                <p class="tracking-widest font-semibold" :class="acc.value==='usdt'?'text-sm':'text-xl'">
                   {{ acc.account_number }}
                 </p>
                 <div class="flex justify-between items-end">
@@ -470,7 +456,7 @@ watch([percentage, byPercentage], () => {
           class="h-14 rounded-xl bg-gray-900/50 border border-white/10 focus-within:ring-2 focus-within:ring-yellow-400 transition"
         >
           <InputGroupAddon>
-            <InputGroupText class="text-gray-400 font-bold">K</InputGroupText>
+            <Wallet class="text-yellow-400 w-6 h-6"/>
           </InputGroupAddon>
           <InputGroupInput
             v-model="amount"
@@ -494,27 +480,46 @@ watch([percentage, byPercentage], () => {
           leave-from-class="opacity-100 max-h-40 translate-y-0"
           leave-to-class="opacity-0 max-h-0 translate-y-2"
         >
-          <div
-            v-if="withdrawForm.method === 'usdt'"
-            class="p-2 bg-gray-700/20 rounded-lg space-y-2 overflow-hidden"
-          >
-            <p class="text-md text-yellow-400 font-normal">USDT</p>
-
-            <p class="text-gray-100">
-              {{ t("exchange_rate") }}
-            </p>
-
-            <p class="text-gray-500 text-sm font-semibold">
-              1 USD ~ {{ usdtRateToMMK }} MMK
-            </p>
-
-            <p class="text-gray-200 text-sm" v-show="amount">
-              {{ t("you_will_receive_about") }}:
-              <span class="text-yellow-400 text-md font-bold">
-                {{ Number(amount) / Number(usdtRateToMMK) }} USDT
-              </span>
+        <div
+          v-if=" withdrawForm.method === 'usdt'"
+          class="p-4 info-bg rounded-xl space-y-3"
+        >
+          <!-- Header Title -->
+          <div class="flex items-center gap-2 pb-2 border-b border-gray-700/40">
+            <div class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></div>
+            <p
+              class="text-sm font-semibold text-yellow-400 uppercase tracking-wider"
+            >
+              USDT {{ t("payment_method") }}
             </p>
           </div>
+
+          <!-- Exchange Rate Row -->
+          <div class="flex justify-between items-center text-sm">
+            <span class="text-gray-400 font-medium">
+              {{ t("exchange_rate") }}
+            </span>
+            <span
+              class="text-gray-200 font-mono font-semibold bg-gray-800/60 px-2 py-0.5 rounded border border-gray-700/30"
+            >
+              1 USD ≈ {{ usdtRateToMMK }} MMK
+            </span>
+          </div>
+
+          <!-- Expected Return Row -->
+          <div
+            v-show="amount"
+            class="flex justify-between items-center pt-1 text-sm"
+          >
+            <span class="text-gray-400 font-medium">
+              {{ t("you_will_receive_about") }}
+            </span>
+            <span class="text-base font-bold text-yellow-400 font-mono">
+              {{ (Number(amount) / Number(usdtRateToMMK)).toLocaleString() }}
+              MMK
+            </span>
+          </div>
+        </div>
 
           <div v-else>
             <Transition
@@ -592,7 +597,7 @@ watch([percentage, byPercentage], () => {
                     class="gold-bg text-black"
                     @click="percentage = [100]"
                   >
-                    MAX
+                {{ t('max') }}
                   </Button>
                 </div>
               </div>

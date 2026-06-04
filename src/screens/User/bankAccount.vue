@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref } from "vue";
 import { useBankStore } from "@/stores/bank";
 import { storeToRefs } from "pinia";
 import Button from "@/components/ui/button/Button.vue";
@@ -88,15 +88,6 @@ const deleteAccount = async (id: number) => {
   if (!confirm("Are you sure you want to delete this account?")) return;
   await bankStore.deleteAccount(id);
 };
-watch(
-  () => form.value.value,
-  (val) => {
-    const found = paymentMethod.find((p) => p.value === val);
-    if (found) {
-      form.value.label = found.label;
-    }
-  },
-);
 </script>
 
 <template>
@@ -212,89 +203,22 @@ watch(
             @click="openAdd"
             class="border-2 border-gray-500/20 h-40 cursor-pointer w-full flex flex-col justify-center items-center rounded-2xl shadow-inner text-white relative overflow-hidden bg-gray-800/20"
           >
-           
             <PlusIcon class="w-16 h-16" />
              <p class="text-lg text-gray-300 font-semibold">{{ t("add_bank_account") }}</p>
           </div>
         </div>
       </template>
     </section>
+    <div class="fixed bottom-0 right-0 left-0 bg-gray-900/20 backdrop-blur-2xl p-4">
+      <button class="gold-bg w-full">
+
+      </button>
+    </div>
     <BankAccountDrawer
       v-model:open="showDialog"
       v-model:modelValue="form"
       :isEdit="isEdit"
       @save="saveAccount"
     />
-    <!-- Dialog -->
-    <!-- <Dialog v-model:open="showDialog">
-            <DialogContent class="p-6 glass-bg text-white rounded-3xl w-full max-w-sm">
-                <DialogHeader>
-                    <DialogTitle>
-                        {{ isEdit ? t('edit_bank_account') : t('add_bank_account') }}
-                    </DialogTitle>
-                </DialogHeader>
-
-                <div class="space-y-3 mt-4">
-                    <Select v-model="form.value">
-                        <SelectTrigger
-                            class="w-full h-12 text-md py-6 rounded-lg font-bold border border-gray-700 ring-yellow-400 ring-0 bg-gray-700/50">
-                            <SelectValue :placeholder="t('choose_payment_method')" />
-                            <ChevronDown />
-                        </SelectTrigger>
-                        <SelectContent class="glass-bg">
-                            <SelectGroup>
-                                <SelectLabel>{{ t('payment_method') }}</SelectLabel>
-                                <SelectItem v-for="item in paymentMethod" :key="item.id" :value="item.value" class="" >
-                                    <div class="flex items-center gap-2 py-2">
-                                        <img :src="item.icon" alt="logo" class="w-8 h-8 object-cover rounded-full" />
-                                        <span class="text-yellow-400 font-bold">{{ item.label }}</span>
-                                    </div>
-                                </SelectItem>
-
-                            </SelectGroup>
-                        </SelectContent>
-                    </Select>
-
-                    <InputGroup
-                        class="h-12 rounded-lg w-full font-bold border border-gray-700 ring-yellow-400 ring-0 bg-gray-700/50">
-                        <InputGroupAddon>
-                            <CreditCard class="text-gray-300" />
-                        </InputGroupAddon>
-                        <InputGroupInput class="w-full" v-model="form.account_number" type="text"
-                            :placeholder="t('account_number')" />
-                        <InputGroupAddon align="inline-end">
-                            <InputGroupText class="text-gray-100"></InputGroupText>
-                        </InputGroupAddon>
-                    </InputGroup>
-                    <InputGroup
-                        class="h-12 rounded-lg w-full font-bold border border-gray-700 ring-yellow-400 ring-0 bg-gray-700/50">
-                        <InputGroupAddon>
-                            <UserLockIcon class="text-gray-300" />
-                        </InputGroupAddon>
-                        <InputGroupInput class="w-full" v-model="form.account_name" type="text"
-                            :placeholder="t('account_name')" />
-                        <InputGroupAddon align="inline-end">
-                            <InputGroupText class="text-gray-100"></InputGroupText>
-                        </InputGroupAddon>
-                    </InputGroup>
-                    <div class="flex items-center justify-between mt-2">
-                        <span class="text-sm text-gray-300">
-                            {{ t('status') }}
-                        </span>
-
-                        <button type="button" @click="form.is_available = !form.is_available"
-                            class="w-12 h-6 rounded-full transition relative"
-                            :class="form.is_available ? 'bg-green-500' : 'bg-gray-600'">
-                            <span class="absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition"
-                                :class="form.is_available ? 'translate-x-6' : ''" />
-                        </button>
-                    </div>
-                </div>
-                <DialogFooter class="mt-4">
-                    <Button class="bg-none h-12 text-white" @click="showDialog = false">{{ t("cancel") }}</Button>
-                    <Button class="gold-bg h-12 rounded-lg font-bold" @click="saveAccount">{{ t('save') }}</Button>
-                </DialogFooter>
-            </DialogContent>
-        </Dialog> -->
   </main>
 </template>

@@ -179,7 +179,7 @@ const clearData = ()=>{
 </script>
 <template>
   <main class="w-full bg-gray-950 min-h-screen text-white overflow-x-hidden">
-    <CustomNavBar title="store" backTo="/withdraw">
+    <CustomNavBar title="store">
       <template #right>
         <button @click="openChat">
           <Headset class="w-6 h-6" />

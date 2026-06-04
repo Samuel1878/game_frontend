@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const Footer = defineAsyncComponent(()=>import("@/components/footer.vue"))
+const Footer = defineAsyncComponent(() => import("@/components/footer.vue"));
 import LanguageBtn from "@/components/languageBtn.vue";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat } from "@/utils";
@@ -7,16 +7,15 @@ import { Asterisk, Headset } from "lucide-vue-next";
 import { useI18n } from "vue-i18n";
 import QrcodeVue from "qrcode.vue";
 import { defineAsyncComponent } from "vue";
-const supabaseURL = "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/app"; // Replace with actual URL
+const supabaseURL =
+  "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/app"; // Replace with actual URL
 const androidUrl = `${supabaseURL}/tz99.apk`;
 
 const iosUrl = `https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/app/tz99.mobileconfig`;
 const { t } = useI18n();
 
 const downloadIOS = () => {
-
   window.location.href = iosUrl;
-
 };
 
 const downloadAndroid = () => {
@@ -69,22 +68,29 @@ const downloadAndroid = () => {
       <!-- Instructional List -->
       <div class="space-y-2 my-6">
         <div class="flex gap-2 items-center">
-             <Asterisk class="w-4 h-4 text-yellow-500" />
-            <p class="text-xs text-gray-400 leading-loose "> {{ t("instruction_qr") }}</p>
+          <Asterisk class="w-4 h-4 text-yellow-500" />
+          <p class="text-xs text-gray-400 leading-loose">
+            {{ t("instruction_qr") }}
+          </p>
         </div>
-         <div class="flex gap-2 items-center">
-             <Asterisk class="w-4 h-4 text-yellow-500" />
-            <p class="text-xs text-gray-400 leading-loose "> {{ t("instruction_android") }}</p>
+        <div class="flex gap-2 items-center">
+          <Asterisk class="w-4 h-4 text-yellow-500" />
+          <p class="text-xs text-gray-400 leading-loose">
+            {{ t("instruction_android") }}
+          </p>
         </div>
-         <div class="flex gap-2 items-center">
-             <Asterisk class="w-4 h-4 text-yellow-500" />
-            <p class="text-xs text-gray-400 leading-loose ">{{ t("instruction_ios") }}</p>
+        <div class="flex gap-2 items-center">
+          <Asterisk class="w-4 h-4 text-yellow-500" />
+          <p class="text-xs text-gray-400 leading-loose">
+            {{ t("instruction_ios") }}
+          </p>
         </div>
-         <div class="flex gap-2 items-center">
-             <Asterisk class="w-4 h-4 text-yellow-500" />
-            <p class="text-xs text-gray-400 leading-loose ">{{ t("instruction_enjoy") }}</p>
+        <div class="flex gap-2 items-center">
+          <Asterisk class="w-4 h-4 text-yellow-500" />
+          <p class="text-xs text-gray-400 leading-loose">
+            {{ t("instruction_enjoy") }}
+          </p>
         </div>
-  
       </div>
 
       <div class="flex justify-around">
@@ -122,7 +128,7 @@ const downloadAndroid = () => {
           <p class="text-white/80 text-xs">{{ t("scan_qr") }}</p>
           <p class="text-blue-500 text-xs">{{ t("ios_lite_app") }}</p>
           <button
-           @click="downloadIOS"
+            @click="downloadIOS"
             aria-label="Download IOS APP"
             class="gold-bg h-10 px-6 flex items-center rounded-full"
           >
@@ -172,7 +178,13 @@ const downloadAndroid = () => {
         </div>
       </div>
       <div class="w-full flex flex-col items-center">
-        <img src="/images/phone.webp" class="w-3/4" loading="lazy" fetchpriority="low" alt="mobile_image"/>
+        <img
+          src="/images/phone.webp"
+          class="w-3/4"
+          loading="lazy"
+          fetchpriority="low"
+          alt="mobile_image"
+        />
       </div>
     </section>
   </main>

@@ -20,21 +20,12 @@ const goBack = () => {
 </script>
 <template>
   <nav
-    class="pt-[env(safe-area-inset-top)] w-full border-b
-           bg-gray-900/20 
-           sticky top-0 z-40
-           backdrop-blur-2xl border-white/5
-           shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
+    class="pt-[env(safe-area-inset-top)] w-full border-b bg-gray-900/20 sticky top-0 z-40 backdrop-blur-2xl border-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
   >
     <div class="relative flex items-center h-14 px-3 text-white">
-
       <!-- LEFT -->
       <div>
-        <button
-          v-if="backTo !== undefined"
-          @click="goBack"
-          class="p-2 flex gap-2 items-center"
-        >
+        <button @click="goBack" class="p-2 flex gap-2 items-center">
           <chevron-left class="w-6 h-6" />
           <p>{{ t("back") }}</p>
         </button>
@@ -49,7 +40,6 @@ const goBack = () => {
       <div class="flex items-center gap-2">
         <slot name="right" />
       </div>
-
     </div>
   </nav>
 </template>

@@ -155,7 +155,8 @@
   "something_went_wrong": "出了点问题",
   "password_changed_successfully": "密码修改成功",
   "amount_must_be_between_45000_10000000": "金额必须在 45,000 到 10,000,000 之间",
-  "amount_must_be_between_5000_1000000": "金额必须在 5,000 到 1,000,000 之间",
+  "amount_must_be_between_10000_1000000": "金额必须在 10,000 到 1,000,000 之间",
+  "amount_must_be_between_100000_50000000": "金额必须在 100,000 到 50,000,000 之间",
   "unauthorized": "未经授权",
   "all": "全部",
   "available_amount": "可用数量",
@@ -334,69 +335,41 @@
   "enter_password": "请输入密码",
   "enter_name": "请输入姓名",
   "enter_referral_code_optional": "请输入邀请码（可选）",
-
-
   "records": "记录",
-    "remember_me":"记住下次登录吗？",
-"security_center":"安全中心",
-
-"change_fund_pin":"更改资金密码",
-
-"set_fund_pin":"设置资金密码",
-
-"enter_current_fund_pin":"输入当前资金密码",
-
-"enter_new_fund_pin":"输入新的资金密码",
-
-"confirm_new_fund_pin":"确认新的资金密码",
-
-"fund_pin_must_be_6_digits":"资金密码必须为6位数字",
-
-"fund_pin_changed_successfully":"资金密码已成功更改",
-
-"fund_pin_incorrect":"资金密码错误",
-
-"fund_pin_set_successfully":"资金密码已成功设置",
-
-"fund_pin_change_warning":"更改资金密码后，您需要在以后的交易中输入新的密码。请记住您的新资金密码，以免造成不便。",
-
-"fund_pin_change_warning_desc":"如果您忘记了资金密码，您可能需要如需联系客服重置密码，可能需要一些时间。我们建议您设置一个容易记住但不易被他人猜到的资金密码。",
-
-"switch_to_percentage":"切换到百分比支付方式。",
-
-"switch_to_manual":"切换到手动支付方式。",
-
-"enter_your_fund_pin" : "输入您的资金密码。",
-
-"confirm_withdraw":"确认提现。",
-
-"welcome":"欢迎。",  
-
-"fund_pin":"资金密码。",
-
-"not_configured":"未配置。",
-
-"withdrawal_protection":"提现保护。",
-
-"wallet_transfer_protection":"钱包转账保护。",
-
-"security_verification":"安全验证。",
-
-    "fundPin": {
+  "remember_me": "记住下次登录吗？",
+  "security_center": "安全中心",
+  "change_fund_pin": "更改资金密码",
+  "set_fund_pin": "设置资金密码",
+  "enter_current_fund_pin": "输入当前资金密码",
+  "enter_new_fund_pin": "输入新的资金密码",
+  "confirm_new_fund_pin": "确认新的资金密码",
+  "fund_pin_must_be_6_digits": "资金密码必须为6位数字",
+  "fund_pin_changed_successfully": "资金密码已成功更改",
+  "fund_pin_incorrect": "资金密码错误",
+  "fund_pin_set_successfully": "资金密码已成功设置",
+  "fund_pin_change_warning": "更改资金密码后，您需要在以后的交易中输入新的密码。请记住您的新资金密码，以免造成不便。",
+  "fund_pin_change_warning_desc": "如果您忘记了资金密码，您可能需要如需联系客服重置密码，可能需要一些时间。我们建议您设置一个容易记住但不易被他人猜到的资金密码。",
+  "switch_to_percentage": "切换到百分比支付方式。",
+  "switch_to_manual": "切换到手动支付方式。",
+  "enter_your_fund_pin": "输入您的资金密码。",
+  "confirm_withdraw": "确认提现。",
+  "welcome": "欢迎。",
+  "fund_pin": "资金密码。",
+  "not_configured": "未配置。",
+  "withdrawal_protection": "提现保护。",
+  "wallet_transfer_protection": "钱包转账保护。",
+  "security_verification": "安全验证。",
+  "fundPin": {
     "title": "需要资金 PIN",
     "subtitle": "安全提款验证",
     "message": "在进行提款和敏感钱包操作之前，您需要设置资金 PIN。",
     "warning": "资金 PIN 可保护您的账户免受未经授权的提款操作。如果未设置，将限制交易访问权限。",
     "cta": "设置资金 PIN"
   },
-"verify_fund_pin":"验证基金密码",
-
-"fund_pin_alert_title":"凭证提醒",
-
-"fund_pin_alert_description":"这是您的新基金密码。请妥善保管，切勿与任何人分享。您将来提现和进行其他敏感的钱包操作时需要用到此密码。",
-
-"fund_pin_alert_button":"我已了解",
-
+  "verify_fund_pin": "验证基金密码",
+  "fund_pin_alert_title": "凭证提醒",
+  "fund_pin_alert_description": "这是您的新基金密码。请妥善保管，切勿与任何人分享。您将来提现和进行其他敏感的钱包操作时需要用到此密码。",
+  "fund_pin_alert_button": "我已了解",
   "current_fund_pin_verified": "当前资金PIN已验证。请输入新的资金PIN。",
   "incorrect_fund_pin": "资金PIN错误。请重试。",
   "password_alert_title": "凭证提醒",
@@ -404,10 +377,12 @@
   "password_alert_button": "我已知晓",
   "something_went_wrong:": "出了点问题。请重试。",
   "statement_exported": "您的交易明细已成功导出。请检查下载文件夹。",
-  
   "please_login": "请登录后进入游戏",
   "failed_to_prepare_game": "游戏准备失败",
-      "view_details":"查看详情"
-
-
+  "view_details": "查看详情",
+  "account_info": "账户信息",
+  "max": "最大",
+  "welcome_bonus": "欢迎奖金",
+  "deposit_bonus": "存款奖金",
+  "other": "其他"
 }

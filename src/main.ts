@@ -14,6 +14,6 @@ app.use(router);
 router.isReady().then(() => {
   app.mount('#app');
 });;
-
 const auth = useAuthStore();
 auth.init();
+

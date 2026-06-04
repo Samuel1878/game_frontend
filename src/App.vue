@@ -41,12 +41,12 @@ onMounted(() => {
       desktop: {
         position: "br",
         xOffset: 10,
-        yOffset: 90,
+        yOffset: 80,
       },
       mobile: {
         position: "br",
         xOffset: 10,
-        yOffset: 90,
+        yOffset: 80,
       },
     },
   };

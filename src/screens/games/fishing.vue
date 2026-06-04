@@ -1,14 +1,11 @@
 <script setup lang="ts">
 const Footer = defineAsyncComponent(() => import("@/components/footer.vue"));
 import { getGamesByProviderAPI } from "@/services/gameAPI";
-import { fish} from "@/utils/assets";
+import { fish } from "@/utils/assets";
 import type { gameType } from "@/utils/types";
 import { Flame, Percent, Trophy } from "lucide-vue-next";
 import { defineAsyncComponent, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
-// const GameOptions = defineAsyncComponent(
-//   () => import("@/components/layout/gameOptions.vue"),
-// );
 import GameOptions from "@/components/layout/gameOptions.vue";
 const GameViews = defineAsyncComponent(
   () => import("@/components/gameViews.vue"),
@@ -63,13 +60,12 @@ const loadMore = async () => {
   offset.value += limit;
   await fetchGames(false);
 };
-
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">
     <div class="p-2">
       <div
-              class="w-full flex gap-2 h-28 items-center justify-between rounded-2xl bg-gray-800/20 border border-gray-500/20 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+        class="w-full flex gap-2 h-28 items-center justify-between rounded-2xl bg-gray-800/20 border border-gray-500/20 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
       >
         <div class="px-4">
           <img :src="fish" class="w-18 h-18" />
@@ -119,9 +115,7 @@ const loadMore = async () => {
           />
         </button>
         <button
-          @click="
-            topOnly = !topOnly;
-          "
+          @click="topOnly = !topOnly"
           :class="topOnly ? 'gold-bg animate-pulse' : 'bg-none'"
           class="p-1 rounded-full border border-white/70"
         >

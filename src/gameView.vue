@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useGameStore } from "@/stores/game";
 import { ChevronLeft } from "lucide-vue-next";
-import { onMounted, onUnmounted } from "vue";
+import { onMounted } from "vue";
 import { onBeforeRouteLeave, useRouter } from "vue-router";
 import { useAuthStore } from "./stores/auth";
 import { hideTawk, showTawk } from "./utils";
@@ -19,11 +19,6 @@ onMounted(() => {
     router.replace("/");
   }
 });
-onUnmounted(async () => {
-  // await authStore.init()
-  ui.showBanner()
-  showTawk();
-});
 const goBack = () => {
   router.back();
 };
@@ -31,6 +26,8 @@ const goHome = () => {
   router.replace("/");
 };
 onBeforeRouteLeave(() => {
+   ui.showBanner()
+  showTawk();
   authStore.fetchUser();
 });
 </script>

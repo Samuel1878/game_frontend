@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Loader2, ShieldCheck, Delete, X } from "lucide-vue-next";
 import { useI18n } from "vue-i18n";
+import { hideTawk, showTawk } from "@/utils";
 
 const props = defineProps<{
   open: boolean;
@@ -64,6 +65,18 @@ const submit = () => {
   if (fundPin.value.length !== 6) return;
   emit("confirm", fundPin.value);
 };
+watch(
+  () => props.open,
+  (isOpen) => {
+    console.log(isOpen)
+    if (isOpen) {
+      hideTawk();
+    } else {
+      showTawk();
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
@@ -71,7 +84,6 @@ const submit = () => {
     <!-- FIX 1: Enforced max height and flex layouts on the wrapper elements -->
     <DrawerContent class="rounded-t-4xl bg-gray-800 max-h-[92vh] flex flex-col">
       <div class="mx-auto w-full max-w-md bg-gray-800 flex flex-col overflow-hidden max-h-full">
-        
         <DrawerHeader class="shrink-0">
           <DrawerTitle class="flex items-center justify-center gap-2 text-yellow-400 text-center">
             <ShieldCheck class="w-5 h-5 text-yellow-400" />
@@ -82,21 +94,8 @@ const submit = () => {
           </DrawerDescription>
         </DrawerHeader> 
 
-        <!-- FIX 2: Added overflow-y-auto and a smaller dynamic gap on the keypad for tight screens -->
         <div class="p-4 overflow-y-auto space-y-4 md:space-y-6 custom-scrollbar">
-          <!-- SUMMARY -->
-          <!-- <div v-if="amount !== undefined" class="rounded-2xl bg-gray-700/50 shadow-inner p-4">
-            <div class="flex items-center justify-between text-sm">
-              <span class="text-gray-400">
-                {{ t("amount") }}
-              </span>
-              <span class="font-bold text-yellow-400">
-                {{ formatPrice(amount) }}
-              </span>
-            </div>
-          </div> -->
 
-          <!-- PIN DISPLAY -->
           <div class="flex items-center justify-center gap-2 sm:gap-3">
             <div
               v-for="(_, index) in 6"
@@ -106,9 +105,6 @@ const submit = () => {
               {{ fundPin[index] ? "•" : "" }}
             </div>
           </div>
-
-          <!-- NUMBER PAD -->
-          <!-- Scaled key heights down slightly on ultra-small heights (h-14 to h-16) -->
           <div class="grid grid-cols-3 gap-2 sm:gap-3">
             <button
               v-for="key in keypad"
@@ -123,8 +119,6 @@ const submit = () => {
             </button>
           </div>
         </div>
-
-        <!-- FIX 3: Forced the footer to stay locked to the absolute bottom of the container -->
         <DrawerFooter class="p-4 pb-6 shrink-0 border-t border-gray-700/30 bg-gray-800">
           <Button
             :disabled="loading || fundPin.length !== 6"
@@ -132,7 +126,7 @@ const submit = () => {
             @click="submit"
           >
             <Loader2 v-if="loading" class="w-4 h-4 mr-2 animate-spin" />
-            {{ t(buttonText || "confirm") }}
+            {{ buttonText || t("confirm") }}
           </Button>
         </DrawerFooter>
       </div>

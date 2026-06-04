@@ -1,6 +1,6 @@
 {
-  "version": "2.0.5",
-  "force_update": true,
+  "version": "2.0.6",
+  "force_update": false,
 
   "android_url": "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/app/tz99.apk",
   "ios_url": "https://your-domain.com/download/ios",

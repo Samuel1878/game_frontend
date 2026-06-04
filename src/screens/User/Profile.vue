@@ -156,7 +156,7 @@ const authStore = useAuthStore();
         <div
           @click="router.push(value.path)"
           v-for="value in UserAction"
-          class="cursor-pointer h-12 w-full flex justify-center items-center gap-2 rounded-full bg-gray-800/20 border border-gray-500/20 text-gray-300 hover:bg-gray-700/50 transition"
+          class="cursor-pointer h-12 w-full flex justify-center items-center gap-2 shadow-[0_10px_40px_rgba(0,0,0,0.6)] rounded-full bg-gray-800/20 border border-gray-500/20 text-gray-300 hover:bg-gray-700/50 transition"
         >
           <div class="h-6 w-6 flex justify-center items-center">
             <component :is="value.image" class="w-8 h-8 text-white" />
@@ -171,10 +171,10 @@ const authStore = useAuthStore();
       </section>
       <section class="w-full">
         <div class="flex w-full items-center justify-between gap-2">
-          <p class="p-2 rounded-full text-nowrap text-sm text-yellow-500">
+          <p class="p-2 rounded-full text-nowrap text-sm text-gray-400">
             {{ t("membership_center") }}
           </p>
-          <div class="h-0.5 w-full bg-yellow-500" />
+          <div class="h-0.5 w-full bg-gray-500" />
         </div>
         <div class="grid grid-cols-4 p-2 my-2 mb-20 gap-4">
           <div
@@ -183,13 +183,13 @@ const authStore = useAuthStore();
             @click="value.action"
           >
             <div
-              class="h-14 w-14 flex flex-col rounded-full justify-center items-center bg-yellow-400/5 bg-linear-to-br from-yellow-400/5 via-yellow-500/10 to-yellow-600/5 backdrop-blur-2xl border border-amber-500/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+              class="h-14 w-14 flex flex-col rounded-full justify-center items-center bg-yellow-400/10 border border-gray-500/20"
             >
               <img v-if="value.image" :src="value.image" class="w-10 h-10" />
               <component
                 v-else
                 :is="value?.icon"
-                class="w-8 h-8 text-yellow-400"
+                class="w-7 h-7 text-yellow-400"
               />
             </div>
             <p class="text-gray-300 text-xs text-wrap text-center">

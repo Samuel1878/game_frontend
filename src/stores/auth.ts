@@ -7,15 +7,16 @@ import router from "@/router";
 import { useWallet } from "./wallet";
 import { refreshAPI } from "@/services/authAPI";
 // import { useFavoritesStore } from "./userFavoriteStore";
-interface walletType{
-  balance:number;
-  currency:string;
-};
+interface walletType {
+  balance: number;
+  currency: string;
+}
 export const useAuthStore = defineStore("auth", {
   state: () => ({
     accessToken: localStorage.getItem("access_token"),
     user: null as userInfo | null,
     initialized: false,
+    initializing: null as Promise<void> | null,
   }),
   // getters: {
   //   isLoggedIn: (state) => !!state.user,
@@ -26,12 +27,12 @@ export const useAuthStore = defineStore("auth", {
       localStorage.setItem("access_token", token);
       this.accessToken = token;
     },
-    setUser({user, wallet}: {user:userInfo,wallet:walletType}) {
+    setUser({ user, wallet }: { user: userInfo; wallet: walletType }) {
       const walletStore = useWallet();
       this.user = user;
-      walletStore.setWallet(wallet.balance, wallet.currency)
+      walletStore.setWallet(wallet.balance, wallet.currency);
     },
-    setFundPinStatus(status:boolean){
+    setFundPinStatus(status: boolean) {
       if (this.user) {
         this.user.set_pin = status;
       }
@@ -42,7 +43,11 @@ export const useAuthStore = defineStore("auth", {
       localStorage.removeItem("access_token");
       disconnectSocket();
     },
-    async login(payload: { name: string; password: string, isPhoneNumber:boolean }) {
+    async login(payload: {
+      name: string;
+      password: string;
+      isPhoneNumber: boolean;
+    }) {
       try {
         const res = await api.post("/auth/login", payload);
         this.setToken(res.data.accessToken);
@@ -57,8 +62,7 @@ export const useAuthStore = defineStore("auth", {
         this.clearAuth();
         return {
           status: err?.response?.status || 500,
-          message:
-            err?.response?.data?.message || "something_went_wrong",
+          message: err?.response?.data?.message || "something_went_wrong",
         };
       }
     },
@@ -69,72 +73,83 @@ export const useAuthStore = defineStore("auth", {
         console.log("FETCHING USER PROFILE", res.data);
         // const favStore = useFavoritesStore();
         // favStore.syncFavorites();
-        return true
+        return true;
       } catch (error) {
         console.log("fetchUser failed", error);
-        return false
+        return false;
       }
     },
     async init() {
-      try {
-        const localToken = localStorage.getItem("access_token");
-
-        if (localToken) {
-          this.setToken(localToken);
-          const ok = await this.fetchUser();
-          if (ok) {
-            initSocket();
-            return;
-          }
-        }
-        console.log("REFRESH API CALLED");
-        const resData = await refreshAPI();
-        if (!resData?.accessToken) {
-          throw new Error("No refresh token");
-        }
-        this.setToken(resData.accessToken);
-        const ok = await this.fetchUser();
-        if (!ok) {
-          throw new Error("User fetch failed");
-        }
-        initSocket();
-      } catch (err) {
-        // console.log("Auth init failed:", err);
-        this.clearAuth();
-      } finally {
-        this.initialized = true;
+      if (this.initialized) return;
+      if (this.initializing) {
+        return this.initializing;
       }
+      this.initializing = (async () => {
+        try {
+          const localToken = localStorage.getItem("access_token");
+
+          if (localToken) {
+            this.setToken(localToken);
+            const ok = await this.fetchUser();
+            if (ok) {
+              initSocket();
+              return;
+            }
+          }
+          console.log("REFRESH API CALLED");
+          const resData = await refreshAPI();
+          if (!resData?.accessToken) {
+            throw new Error("No refresh token");
+          }
+          this.setToken(resData.accessToken);
+          const ok = await this.fetchUser();
+          if (!ok) {
+            throw new Error("User fetch failed");
+          }
+          initSocket();
+        } catch (err) {
+          this.clearAuth();
+        } finally {
+          this.initialized = true;
+          this.initializing = null;
+        }
+      })();
+      return this.initializing;
     },
-    async register(payload: { name?: string | null; password: string ; referral_code:string|null; phone:string}) {
+    async register(payload: {
+      name?: string | null;
+      password: string;
+      referral_code: string | null;
+      phone: string;
+    }) {
       try {
         const response = await api.post("/auth/register", payload);
         if (response.status === 200 || response.status === 201) {
           this.user = response.data;
-        this.setToken(response.data.accessToken);
-        await this.fetchUser();
-        initSocket();
+          this.setToken(response.data.accessToken);
+          await this.fetchUser();
+          initSocket();
           return {
             status: 200,
             message: "Successfully logged in",
           };
-        } else {      
-          this.clearAuth();    
+        } else {
+          this.clearAuth();
           return {
             status: response.status,
             message: response.data?.message || "something_went_wrong",
           };
         }
-  
       } catch (error) {
         this.clearAuth();
         return {
-          status:500,
-          message:"Something_went_wrong"
-        }
-      } 
+          status: 500,
+          message: "Something_went_wrong",
+        };
+      }
     },
     async logout() {
-     localStorage.removeItem("access_token");
+      localStorage.removeItem("access_token");
       try {
         await api.post("/auth/logout");
       } catch {

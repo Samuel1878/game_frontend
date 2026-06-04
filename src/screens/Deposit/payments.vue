@@ -170,9 +170,7 @@ const submitHandler = async () => {
 };
 const copyHandler = (value: any) => {
   if (!chosenAccount.value?.account_number) return;
-
   copy(value);
-
   toast.success(`${t("copied")}: ${value}`);
 };
 </script>

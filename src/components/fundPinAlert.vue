@@ -12,7 +12,6 @@ const { t } = useI18n();
 
 const goToSetup = () => {
   store.closeFundPin();
-
    router.push("/user/security-center/fund-pin");
 };
 const closeModal = () => {

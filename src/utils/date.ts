@@ -1,8 +1,5 @@
-import moment from "moment-timezone"
-export const toISOStringSafe = (
-  value?: string | Date
-) => {
-
+import moment from "moment-timezone";
+export const toISOStringSafe = (value?: string | Date) => {
   if (!value) return "";
 
   const date = new Date(value);
@@ -14,10 +11,11 @@ export const toISOStringSafe = (
   return date.toISOString();
 };
 
-export const formatMyanmarTime =(date?: string) => {
+export const formatMyanmarTime = (date?: string) => {
   if (!date) return "-";
 
-  return moment.tz(date, "America/New_York")
+  return moment
+    .tz(date, "America/New_York")
     .tz("Asia/Yangon")
     .format("YYYY-MM-DD HH:mm:ss");
 };

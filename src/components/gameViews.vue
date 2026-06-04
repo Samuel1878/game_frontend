@@ -33,72 +33,67 @@ const key = (game: any) => `${game.provider_id}-${game.game_id}`;
       <button
         v-for="(game, index) in props.gameData"
         :key="game?.id ?? index"
-        class="relative overflow-hidden rounded-lg hover:border-white/30 group transition-all duration-300 "
+        class="relative overflow-hidden visible rounded-lg hover:border-white/30 group transition-all duration-300 aspect-3/3.5"
         @click="onClickGame(game)"
       >
-        
-        <div class="relative overflow-hidden rounded-lg  aspect-3/3.5 ">
-          <div
-            class="pointer-events-none absolute bottom-0 inset-x-0 h-1/2 bg-linear-to-t from-white/20 via-white/10 to-transparent z-10"
-          />
-          <div
-            class="pointer-events-none absolute bottom-0 inset-x-0 h-1/4 backdrop-blur-xl backdrop-saturate-200 mask-[linear-gradient(to_top,white_30%,transparent_100%)] z-10"
-          />
-          <div class="absolute top-1 left-1 z-20 flex flex-col gap-1">
-                <div
-                  v-if="stats[key(game)]"
-                  class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
-                >
-                  <Diamond
-                    class="w-2 h-2 text-blue-400 fill-blue-400 drop-shadow-[0_0_5px_rgba(59,130,246,0.8)]"
-                  />
-                  <span
-                    class="text-[7px] text-white/95 font-bold tracking-wide"
-                  >
-                    <span class="text-blue-400 font-extrabold">RTP</span>
-                    {{ stats[key(game)]?.rtp }}
-                  </span>
-                </div>
-
-                <div
-                  v-if="stats[key(game)]"
-                  class="flex items-center w-fit gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
-                >
-                  <Users
-                    class="w-2 h-2 text-green-400 fill-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.8)]"
-                  />
-                  <span
-                    class="text-[7px] text-white/95 font-bold tracking-wide"
-                  >
-                    {{ stats[key(game)]?.users }}
-                  </span>
-                </div>
-              </div>
-            <img
-              :src="game.icon_url"
-              class="w-full h-full rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
-              loading="lazy"
-              decoding="async"
-              :alt="game.name"
-            />
             <div
-                class="absolute bottom-1 left-0 right-0 px-3 z-20 transition-transform duration-300 group-hover:-translate-y-1"
-              >
-                <p
-                  class="font-extrabold text-white text-[10px] text-center truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide"
-                >
-              {{ game.name }}
-            </p>
+                class="pointer-events-none absolute bottom-0 inset-x-0 h-1/4 bg-linear-to-t from-black/60 via-white/10 to-transparent z-10"
+              />
+
+            <div
+              class="pointer-events-none absolute bottom-0 transform-gpu backface-hidden inset-x-0 h-full backdrop-saturate-100 z-10"
+            />
+        <div class="absolute top-1 left-1 z-20 flex flex-col gap-1">
+          <div
+            v-if="stats[key(game)]"
+            class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+          >
+            <Diamond
+              class="w-2 h-2 text-blue-400 fill-blue-400 drop-shadow-[0_0_5px_rgba(59,130,246,0.8)]"
+            />
+            <span class="text-[7px] text-white/95 font-bold tracking-wide">
+              <span class="text-blue-400 font-extrabold">RTP</span>
+              {{ stats[key(game)]?.rtp }}
+            </span>
+          </div>
+
+          <div
+            v-if="stats[key(game)]"
+            class="flex items-center w-fit gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+          >
+            <Users
+              class="w-2 h-2 text-green-400 fill-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.8)]"
+            />
+            <span class="text-[7px] text-white/95 font-bold tracking-wide">
+              {{ stats[key(game)]?.users }}
+            </span>
           </div>
         </div>
+        <img
+          :src="game.icon_url"
+          class="w-full h-full rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
+          decoding="async"
+          :alt="game.name"
+        />
+        <div
+          class="absolute bottom-0 left-0 right-0 px-3 z-20 transition-transform duration-300 group-hover:-translate-y-1"
+        >
+          <p
+            class="font-extrabold text-white text-[8px] text-center truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide"
+          >
+            {{ game.name }}
+          </p>
+        </div>
+        <!-- </div> -->
       </button>
     </div>
   </article>
 </template>
-<style scoped>
+<!-- <style scoped>
 @supports not (aspect-ratio: 3/4) {
   img {
     height: 150px;
   }
 }
-</style>
+</style> -->

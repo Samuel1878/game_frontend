@@ -20,6 +20,8 @@ import {
   MinusCircle,
   SearchIcon,
 } from "lucide-vue-next";
+import { useTransactionDetail } from "@/stores/transactionDetailStore";
+import router from "@/router";
 const authStore = useAuthStore();
 const transactions_local = ref<Transaction[]>([]);
 const loading = ref(true);
@@ -30,6 +32,7 @@ const transactionType = ref("all");
 const startDate = ref();
 const { t } = useI18n();
 const endDate = ref();
+const store = useTransactionDetail();
 const fetchTransaction = async () => {
   // console.log("fetching local db transactions");
   loading.value = true;
@@ -47,6 +50,10 @@ const fetchTransaction = async () => {
   totalPages.value = res.totalPages;
   loading.value = false;
 };
+const goToDetail = (tx:Transaction)=>{
+  store.setTransaction(tx);
+  router.push("/user/transactions/detail")
+}
 onMounted(() => {
   fetchTransaction();
 });
@@ -216,6 +223,7 @@ watch([page, transactionType], fetchTransaction);
         v-else
         v-for="tx in transactions_local"
         :key="tx.id"
+        @click="goToDetail(tx)"
         class="flex items-center justify-between px-4 py-4 border-b border-white/5 last:border-none hover:bg-white/5 transition"
       >
         <!-- Left -->

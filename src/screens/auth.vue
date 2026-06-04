@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import LanguageBtn from "@/components/languageBtn.vue";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
-import { hideTawk, openChat, showTawk } from "@/utils";
+import {  openChat } from "@/utils";
 import { Headset } from "lucide-vue-next";
-import { computed, onUnmounted } from "vue";
+import { computed } from "vue";
 import { useRoute } from "vue-router";
 
 import { storeToRefs } from "pinia";
@@ -55,7 +55,7 @@ const referralStore = useReferralStore();
 const { referralCode, fromRid } = storeToRefs(referralStore);
 const isLogin = computed(() => route.query.mode !== "register");
 onMounted(() => {
-    hideTawk();
+    // hideTawk();
   if (auth.user) {
     router.push("/");
   }
@@ -68,9 +68,9 @@ const switchMode = () => {
     },
   });
 };
-onUnmounted(() => {
-    showTawk();
-});
+// onUnmounted(() => {
+//     showTawk();
+// });
 
 const validatePhone = (phone: string) => {
   const normalized = phone.replace(/\s+/g, "");

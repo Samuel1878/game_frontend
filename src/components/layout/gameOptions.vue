@@ -6,32 +6,36 @@ import { ref, watch, nextTick } from "vue";
 
 const { t ,locale} = useI18n();
 const props = defineProps<{ current_page: string }>();
-
 const container = ref<HTMLElement | null>(null);
-
 const gotoPath = (path: string) => {
   router.push(path);
 };
-const scrollToActive = async () => {
-  await nextTick();
-
-  const el = container.value?.querySelector(
-    `[data-active="true"]`
-  ) as HTMLElement | null;
-
-  el?.scrollIntoView({
-    behavior: "smooth",
-    inline: "center",
-    block: "nearest",
-  });
-};
 watch(
   () => props.current_page,
-  () => {
-    scrollToActive();
+  async () => {
+      await nextTick();
+    requestAnimationFrame(scrollToActive);
   },
   { immediate: true }
 );
+const scrollToActive = async () => {
+  const el = container.value?.querySelector(
+    `[data-active="true"]`
+  ) as HTMLElement | null;
+ el?.scrollIntoView({
+  behavior: "auto", // important
+  inline: "center",
+  block: "nearest",
+});
+requestAnimationFrame(() => {
+  el?.scrollIntoView({
+    behavior: "auto",
+    inline: "center",
+    block: "nearest",
+  });
+});
+};
+
 </script>
 <template>
   <aside class="mx-2 overflow-hidden rounded-full bg-gray-800/20  backdrop-blur-2xl border border-gray-500/20 shadow-[0_10px_40px_rgba(0,0,0,0.1)]">

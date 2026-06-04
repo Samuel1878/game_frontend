@@ -87,7 +87,7 @@ onMounted(fetchTransaction);
 
     <!-- Filters -->
     <div
-      class="bg-[#0f172a] border glass-bg border-white/5 rounded-2xl p-4 space-y-3"
+      class="bg-gray-800/20 border-gray-500/20 border rounded-2xl p-4 space-y-3"
     >
       <!-- Date Range -->
       <div class="flex gap-2 justify-center">
@@ -107,7 +107,7 @@ onMounted(fetchTransaction);
 
     <!-- Transaction List -->
     <div
-      class="bg-[#0f172a] glass-bg border border-white/5 rounded-2xl overflow-hidden"
+      class="bg-gray-800/20 border border-gray-500/20 rounded-2xl overflow-hidden"
     >
     <div v-if="loading" class="p-4 space-y-3">
         <div v-for="i in 6" :key="i" class="animate-pulse flex justify-between p-4 bg-[#0f172a] rounded-xl">
