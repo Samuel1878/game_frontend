@@ -61,26 +61,26 @@ onMounted(() => {
 
 <template>
   <SidebarProvider :default-open="true">
-    <div class="flex min-h-dvh w-full bg-gray-950">
+    <div class="flex min-h-screen w-full bg-gray-950">
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
         <DownloadNav />
         <TopNavBar />
         <div class="relative flex-1 flex flex-col items-center w-full">
           <router-view v-slot="{ Component }">
-          <keep-alive>
-            <Suspense>
-              <template #default>
-                <component :is="Component" />
-              </template>
-              <template #fallback>
-                <div class="flex items-center justify-center h-screen w-full">
-                  <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500"></div>
-                </div>
-              </template>
-            </Suspense>
-          </keep-alive>
-        </router-view>
+            <!-- <keep-alive>
+              <Suspense> -->
+                <!-- <template #default> -->
+                  <component :is="Component" />
+                <!-- </template> -->
+                <!-- <template #fallback>
+                  <div class="flex items-center justify-center h-screen w-full">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500"></div>
+                  </div>
+                </template> -->
+              <!-- </Suspense>
+            </keep-alive> -->
+          </router-view>
           <UpdatePopup />
           <GameDrawer />
         </div>

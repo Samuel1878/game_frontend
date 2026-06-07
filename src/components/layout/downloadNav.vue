@@ -40,14 +40,14 @@ const downloadApp = () => {
 </script>
 
 <template>
-  <Transition
+  <!-- <Transition
     enter-active-class="transition duration-300 ease-out"
     enter-from-class="-translate-y-full opacity-0"
     enter-to-class="translate-y-0 opacity-100"
     leave-active-class="transition duration-200 ease-in"
     leave-from-class="translate-y-0 opacity-100"
     leave-to-class="-translate-y-full opacity-0"
-  >
+  > -->
     <div
       v-if="showAppBanner"
       class="z-40 bg-gray-800/20 border-b border-gray-500/20 shadow-lg"
@@ -100,5 +100,5 @@ const downloadApp = () => {
         </button>
       </div>
     </div>
-  </Transition>
+  <!-- </Transition> -->
 </template>

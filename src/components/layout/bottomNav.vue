@@ -38,10 +38,16 @@ const indicatorStyle = computed(() => {
 <template>
   <nav
     class="fixed bottom-0 left-0 right-0 z-50 md:hidden flex justify-center"
+    style="
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+  "
+
     v-if="!route.meta.hideNavbar"
   >
     <div
-      class="relative max-w-md w-full overflow-hidden bg-gray-900/40 backdrop-blur-2xl border-t-2 border-t-gray-700/20 shadow-lg"
+      class="relative max-w-md w-full overflow-hidden bg-gray-900/90 border-t-2 border-t-gray-700/20 shadow-lg"
     >
       <div class="absolute bottom-0 left-0 h-1 w-full">
         <div

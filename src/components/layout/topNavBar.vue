@@ -37,7 +37,16 @@ const openMenu = () => {
 <template>
   <nav
     v-if="!route.meta.hideTopNav"
-    class="sticky top-0 pt-[env(safe-area-inset-top)] right-0 left-0 z-30 w-full border-b-2 bg-gray-900/20 backdrop-blur-2xl border-gray-700/20 shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
+    class="sticky top-0 pt-[env(safe-area-inset-top)] right-0 left-0 z-30 w-full border-b-2 border-gray-700/20 shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
+    style="
+    background: rgba(17,24,39,0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  "
   >
     <div class="mx-auto flex max-w-7xl items-center justify-between px-2 h-14">
       <div class="flex items-center gap-2 relative">
@@ -93,6 +102,9 @@ const openMenu = () => {
     </div>
   </nav>
 </template>
+
+￼
+￼
 
 <style scoped>
 .gift-scale {
