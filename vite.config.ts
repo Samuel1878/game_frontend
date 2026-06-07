@@ -22,20 +22,20 @@ export default defineConfig({
   //   port: 5173,
   //  // enable HTTPS for secure local development
   // },
-  
-  define: {
-    __VUE_PROD_DEVTOOLS__: false,
-  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
   },
-  esbuild: {
-    pure: ['console.log'],
-    drop: ["console", "debugger"],
+  // define: {
+  //   __VUE_PROD_DEVTOOLS__: false,
+  // },
 
-  },
+  // esbuild: {
+  //   pure: ['console.log'],
+  //   drop: ["console", "debugger"],
+
+  // },
   build: {
     minify: "esbuild",
     cssCodeSplit: false,

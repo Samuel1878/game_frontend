@@ -148,6 +148,30 @@ export const useAuthStore = defineStore("auth", {
         };
       }
     },
+    async revalidate() {
+      if (this.initializing) {
+        return this.initializing;
+      }
+      try {
+        const token = localStorage.getItem("access_token");
+        if (!token) {
+          return;
+        }
+        await this.fetchUser();
+        initSocket();
+      } catch {
+        try {
+          const res = await refreshAPI();
+          if (res?.accessToken) {
+            this.setToken(res.accessToken);
+            await this.fetchUser();
+            initSocket();
+          }
+        } catch {
+          await this.logout();
+        }
+      }
+    },
     async logout() {
       localStorage.removeItem("access_token");
       try {

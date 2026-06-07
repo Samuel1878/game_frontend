@@ -209,11 +209,11 @@ const deleteAccount = async (id: number) => {
         </div>
       </template>
     </section>
-    <div class="fixed bottom-0 right-0 left-0 bg-gray-900/20 backdrop-blur-2xl p-4">
+    <!-- <div class="fixed bottom-0 right-0 left-0 bg-gray-900/20 backdrop-blur-2xl p-4">
       <button class="gold-bg w-full">
 
       </button>
-    </div>
+    </div> -->
     <BankAccountDrawer
       v-model:open="showDialog"
       v-model:modelValue="form"
