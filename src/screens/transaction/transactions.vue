@@ -231,7 +231,7 @@ watch([page, transactionType], fetchTransaction);
           <div
             class="w-12 h-12 rounded-2xl flex items-center justify-center"
             :class="
-              tx.type === 'deposit' || tx.type === 'refund'
+              tx.type === 'deposit' || tx.type === 'refund'|| tx.type==='bonus' || tx.type==='rebate' ||tx.type==='dividend'
                 ? 'bg-green-500/15 text-green-400'
                 : tx.type === 'adjustment'
                 ? 'bg-gray-500/15 text-gray-300'
@@ -239,7 +239,7 @@ watch([page, transactionType], fetchTransaction);
             "
           >
             <ArrowDownCircle
-              v-if="tx.type === 'deposit' || tx.type === 'refund'"
+              v-if="tx.type === 'deposit' || tx.type === 'refund'|| tx.type==='bonus' || tx.type==='rebate' ||tx.type==='dividend'"
               class="w-5 h-5"
             />
             <MinusCircle v-else-if="tx.type === 'adjustment'" class="w-5 h-5" />
@@ -267,14 +267,14 @@ watch([page, transactionType], fetchTransaction);
           <div
             class="text-lg font-bold"
             :class="
-              tx.type === 'deposit' || tx.type === 'refund'
+              tx.type === 'deposit' || tx.type === 'refund'|| tx.type==='bonus' || tx.type==='rebate' ||tx.type==='dividend'
                 ? 'text-green-400'
                 : tx.type === 'adjustment'
                 ? 'text-gray-300'
                 : 'text-red-400'
             "
           >
-            {{ tx.type === "deposit" || tx.type === "refund" ? "+" : "-" }}
+            {{ tx.type === "deposit" || tx.type === "refund" || tx.type==="bonus" || tx.type==="rebate" ||tx.type==="dividend" ? "+" : "-" }}
             {{ formatPrice(tx.amount) }}
           </div>
         </div>

@@ -1,7 +1,6 @@
 import {
   getAgentTransactionSummaryUidAPI,
 } from "@/services/agentAPI";
-import { toISOStringSafe } from "@/utils/date";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import type { ReportSummaryType } from "@/utils/types";
@@ -32,8 +31,8 @@ export const useUserDashboardStore = defineStore("userDashboardStore", () => {
     try {
       const res = await getAgentTransactionSummaryUidAPI(user_id, {
         mode: mode.value,
-        startDate: startDate.value? toISOStringSafe(startDate.value) : undefined,
-        endDate:endDate.value? toISOStringSafe(endDate.value) : undefined,
+        startDate: startDate.value? startDate.value : undefined,
+        endDate:endDate.value? endDate.value : undefined,
         portfolio: portfolio.value,
       });
       // console.log("ERERE", res?.betReport);

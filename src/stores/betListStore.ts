@@ -6,8 +6,6 @@ import { ref, computed } from "vue";
 import type { BetListRecord, ReportSummaryType } from "@/utils/types";
 import { useAuthStore } from "./auth";
 import { getBetListAPI } from "@/services/transactionAPI";
-import { toISOStringSafe } from "@/utils/date";
-
 export const useBetlistStore = defineStore("betListStore", () => {
   const loading = ref(false);
   const portfolio = ref("SeamlessGame");
@@ -44,9 +42,9 @@ export const useBetlistStore = defineStore("betListStore", () => {
         mode: mode.value,
         portfolio: portfolio.value,
         startDate: startDate.value
-          ? toISOStringSafe(startDate.value)
+          ? startDate.value
           : undefined,
-        endDate: endDate.value ? toISOStringSafe(endDate.value) : undefined,
+        endDate: endDate.value ? endDate.value : undefined,
       });
       rawBetRecords.value = response?.betlist?.result || [];
       BetReportRecord.value = response?.report[0] || null;

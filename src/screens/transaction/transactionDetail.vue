@@ -168,7 +168,7 @@ const handleCopy = async (text: string | undefined, field: string) => {
             <div class="flex items-center gap-2">
 
               <span class="text-gray-100 font-semibold text-sm capitalize">{{
-                selectedTransaction.type
+                t(selectedTransaction.type.toLowerCase())
               }}</span>
             </div>
           </div>
