@@ -24,7 +24,7 @@ const { t } = useI18n();
 const { prepareGame } = useGameStore();
 </script>
 <template>
-  <main class="bg-gray-900 max-w-6xl w-full flex flex-col min-h-screen">
+  <main class="bg-gray-900 max-w-6xl w-full flex flex-col min-h-screen ios-layer-isolate">
     <div>
       <div class="w-full mb-2 bg-gray-900 border-gray-800 border-0 px-2">
         <div

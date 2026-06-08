@@ -37,17 +37,11 @@ const indicatorStyle = computed(() => {
 
 <template>
   <nav
-    class="fixed bottom-0 left-0 right-0 z-50 md:hidden flex justify-center"
-    style="
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    will-change: transform;
-  "
-
+    class="fixed bottom-0 left-0 right-0 z-50 md:hidden flex justify-center outline-none ring-0"
     v-if="!route.meta.hideNavbar"
   >
     <div
-      class="relative max-w-md w-full overflow-hidden bg-gray-900/90 border-t-2 border-t-gray-700/20 shadow-lg"
+      class="relative max-w-md w-full overflow-hidden bg-gray-900 border-t-2 border-t-gray-500/20 shadow-lg"
     >
       <div class="absolute bottom-0 left-0 h-1 w-full">
         <div
@@ -55,18 +49,8 @@ const indicatorStyle = computed(() => {
           :style="indicatorStyle"
         />
       </div>
-
       <div class="grid grid-cols-5 h-15 items-center relative">
         <template v-for="item in navItems" :key="item.name">
-          <!-- <div v-if="item.center" class="relative flex justify-center">
-            <button
-              @click="go(item.path)"
-              class="absolute -top-8 w-16 h-16 rounded-full text-amber-400 flex flex-col items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 drop-shadow-[0_0_14px_#FACC15]"
-            >
-              <img :src="menu" class="w-6 h-6" alt="Home"/>
-            </button>
-          </div> -->
-
           <button
             @click="go(item.path)"
             class="flex flex-col items-center justify-center gap-1 text-xs transition"

@@ -140,11 +140,12 @@ export const useAuthStore = defineStore("auth", {
             message: response.data?.message || "something_went_wrong",
           };
         }
-      } catch (error) {
+      } catch (error:any) {
+        console.log(error)
         this.clearAuth();
         return {
           status: 500,
-          message: "Something_went_wrong",
+          message: error?.response?.data?.message || "something_went_wrong",
         };
       }
     },

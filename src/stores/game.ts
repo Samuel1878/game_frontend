@@ -55,7 +55,7 @@ export const useGameStore = defineStore("game", () => {
       selectedGame.value = game;
 
       const data = await enterGameAPI({
-        userName: authStore.user?.name ?? "",
+        lang :locale.value==='cn'?'zh-cn':locale.value==='mm'?'my-mm': 'en',
         gameId: game.game_id,
         gpId: game.provider_id,
       });

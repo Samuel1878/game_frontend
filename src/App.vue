@@ -61,34 +61,48 @@ onMounted(() => {
 
 <template>
   <SidebarProvider :default-open="true">
-    <div class="flex min-h-screen w-full bg-gray-950">
+   <div class="flex min-h-screen w-full bg-gray-950 ios-scroll-fix">
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
         <DownloadNav />
         <TopNavBar />
         <div class="relative flex-1 flex flex-col items-center w-full">
           <router-view v-slot="{ Component }">
-            <!-- <keep-alive>
-              <Suspense> -->
-                <!-- <template #default> -->
+            <keep-alive>
+              <Suspense>
+                <template #default>
                   <component :is="Component" />
-                <!-- </template> -->
-                <!-- <template #fallback>
-                  <div class="flex items-center justify-center h-screen w-full">
+                </template>
+                <template #fallback>
+                  <div class="flex items-center justify-center h-screen w-full" style="transform: translateZ(0);">
                     <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500"></div>
                   </div>
-                </template> -->
-              <!-- </Suspense>
-            </keep-alive> -->
+                </template>
+              </Suspense>
+            </keep-alive>
           </router-view>
           <UpdatePopup />
           <GameDrawer />
         </div>
-        <BottomNav class="md:hidden" />
+ 
       </SidebarInset>
     </div>
     <Toaster position="top-left" richColors />
+    <BottomNav class="md:hidden" />
   </SidebarProvider>
   <SpeedInsights />
   <Analytics/>
 </template>
+<style scoped>
+.ios-scroll-fix {
+  /* Forces the layout container to use hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+/* Force iOS WebKit to maintain momentum and paint buffers */
+.min-h-screen {
+  -webkit-overflow-scrolling: touch;
+}
+</style>

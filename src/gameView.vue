@@ -59,7 +59,7 @@ onBeforeRouteLeave(() => {
 
 <template>
   <!-- Full Screen Immersive Wrapper with Hardware Acceleration Locking -->
-  <div class="fixed inset-0 bg-[#111827] flex flex-col w-full h-full overflow-hidden select-none overscroll-none touch-none">
+  <div class="fixed inset-0 bg-gray-900 flex flex-col w-full h-full overflow-hidden select-none overscroll-none touch-none">
 
     <!-- CASINO PREMIUM TOP CONTROL BAR -->
     <div class="w-full bg-gray-900/50 backdrop-blur-md border-b border-white/5 pt-[env(safe-area-inset-top)] z-50 shadow-[0_4px_20px_rgba(0,0,0,0.4)]">

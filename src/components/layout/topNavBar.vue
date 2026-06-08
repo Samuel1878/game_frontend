@@ -37,16 +37,7 @@ const openMenu = () => {
 <template>
   <nav
     v-if="!route.meta.hideTopNav"
-    class="sticky top-0 pt-[env(safe-area-inset-top)] right-0 left-0 z-30 w-full border-b-2 border-gray-700/20 shadow-[0_10px_40px_rgba(0,0,0,0.2)]"
-    style="
-    background: rgba(17,24,39,0.8);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  "
+    class="sticky top-0 pt-[env(safe-area-inset-top)] right-0 left-0 z-30 w-full border-b-2 bg-gray-900 border-gray-500/20 shadow-lg"
   >
     <div class="mx-auto flex max-w-7xl items-center justify-between px-2 h-14">
       <div class="flex items-center gap-2 relative">
@@ -58,7 +49,7 @@ const openMenu = () => {
           <Menu class="w-6 h-6 text-white" />
         </button>
         <div @click="router.push('/')" class="cursor-pointer lg:hidden block">
-          <img src="/logo.webp" alt="Logo" fetchpriority="high" class="h-8"  decoding="async"/>
+          <img src="/logo.webp" alt="Logo" fetchpriority="high" class="h-8" />
         </div>
       </div>
       <div class="flex items-center gap-2 justify-end">
@@ -66,7 +57,7 @@ const openMenu = () => {
           <div
             @click="refresh"
             v-show="authStore.user"
-            class="flex items-center px-2 h-8 gap-2 bg-gray-800/40 rounded-full border border-white/20 shadow-inner hover:shadow-lg transition-shadow duration-300"
+            class="flex items-center px-2 h-8 gap-2 bg-gray-800/40 rounded-full border border-white/20 shadow-inner duration-300"
           >
             <RefreshCw :class="loading ? 'animate-spin' : ''" class="w-4 h-4 text-yellow-400"/>
             <p class="font-bold text-xs text-white">

@@ -62,7 +62,7 @@ const loadMore = async () => {
 };
 </script>
 <template>
-  <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col">
+  <main class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col ios-layer-isolate">
     <div class="p-2">
       <div
         class="w-full flex gap-2 h-28 items-center justify-between rounded-2xl bg-gray-800/20 border border-gray-500/20 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"

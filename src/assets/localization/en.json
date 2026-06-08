@@ -383,5 +383,8 @@
   "max": "MAX",
   "welcome_bonus": "Welcome bonus",
   "deposit_bonus": "Deposit bonus",
-  "other": "Other"
+  "other": "Other",
+  "username_already_exists":"Username already exists",
+  "phone_already_exists":"Phone number already exists"
+  
 }

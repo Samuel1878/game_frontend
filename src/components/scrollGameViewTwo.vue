@@ -119,10 +119,10 @@ const total = computed(() => props.gameData?.length ?? 0);
             v-for="(game, index) in gamePair"
             :key="game.id"
             @click="handler?.(game)"
-            class="group relative flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+            class="relative flex flex-col cursor-pointer"
           >
             <div
-              class="relative aspect-3/3.5 overflow-hidden rounded-lg transition-all duration-300 group-hover:ring-white/20 group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.6)]"
+              class="relative aspect-3/3.5 overflow-hidden rounded-lg"
             >
               <img
                 :src="`${
@@ -140,7 +140,7 @@ const total = computed(() => props.gameData?.length ?? 0);
                     }?width=300&format=webp 300w
                   `"
                 sizes="(max-width: 768px) 33vw, 180px"
-                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                class="w-full h-full object-cover"
                 :alt="locale === 'cn' ? game.cn_name : game.name"
                 :loading="index > 5 ? 'lazy' : 'eager'"
                 decoding="async"
@@ -158,7 +158,7 @@ const total = computed(() => props.gameData?.length ?? 0);
               <div class="absolute top-1 left-1 z-20 flex flex-col gap-1">
                 <div
                   v-if="stats[key(game)]"
-                  class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+                  class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-gray-800/70 border border-gray-500/20 shadow-lg"
                 >
                   <Diamond
                     class="w-2 h-2 text-blue-400 fill-blue-400 drop-shadow-[0_0_5px_rgba(59,130,246,0.8)]"
@@ -173,7 +173,7 @@ const total = computed(() => props.gameData?.length ?? 0);
 
                 <div
                   v-if="stats[key(game)]"
-                  class="flex items-center w-fit gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+                  class="flex items-center w-fit gap-1 px-1 py-0.5 rounded-full bg-gray-800/70 border border-gray-500/20 shadow-lg"
                 >
                   <Users2
                     class="w-2 h-2 text-green-400 fill-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.8)]"
@@ -187,7 +187,7 @@ const total = computed(() => props.gameData?.length ?? 0);
               </div>
 
               <div
-                class="absolute bottom-1 left-0 right-0 px-3 z-20 transition-transform duration-300 group-hover:-translate-y-1"
+                class="absolute bottom-1 left-0 right-0 px-3 z-20"
               >
                 <p
                   class="font-extrabold text-white text-[10px] text-center truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide"

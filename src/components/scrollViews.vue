@@ -60,7 +60,7 @@ const total = computed(() => props.gameData?.length ?? 0);
           aria-label="view more"
           class="px-3 h-8 rounded-md bg-gray-800/20 border border-gray-500/20 flex gap-2 items-center"
         >
-          <p class="text-gray-300 text-xs hover:text-white transition-colors">
+          <p class="text-gray-300 text-xs hover:text-white">
             {{ t("view_more") }}
           </p>
           <span class="text-gray-300 ml-1">{{ total }}</span>
@@ -70,14 +70,14 @@ const total = computed(() => props.gameData?.length ?? 0);
           <button
             @click="slideLeft"
             aria-label="slider left"
-            class="bg-gray-800/20 border border-gray-500/20 p-1.5 rounded-md hover:bg-gray-700 transition"
+            class="bg-gray-800/20 border border-gray-500/20 p-1.5 rounded-md hover:bg-gray-700"
           >
             <ChevronLeft class="w-4 h-4 text-gray-400" />
           </button>
           <button
             @click="slideRight"
             aria-label="slide right"
-            class="bg-gray-800/20 border border-gray-500/20 p-1.5 rounded-md hover:bg-gray-700 transition"
+            class="bg-gray-800/20 border border-gray-500/20 p-1.5 rounded-md hover:bg-gray-700"
           >
             <ChevronRight class="w-4 h-4 text-gray-400" />
           </button>
@@ -105,11 +105,11 @@ const total = computed(() => props.gameData?.length ?? 0);
     >
       <SwiperSlide v-for="(game, index) in gameData || []" :key="game.id">
         <div
-          class="relative rounded-lg cursor-pointer group hover:scale-105 hover:backdrop-blur-2xl hover:bg-gray-100/50 transition-all duration-300"
+          class="relative rounded-lg cursor-pointer"
           @click="handler?.(game)"
         >
           <div
-            class="relative aspect-3/3.5 overflow-hidden rounded-lg transition-all duration-300 group-hover:ring-white/20 group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.6)]"
+            class="relative aspect-3/3.5 overflow-hidden rounded-lg "
           >
             <img
               :src="`${
@@ -127,7 +127,7 @@ const total = computed(() => props.gameData?.length ?? 0);
                     }?width=300&format=webp 300w
                   `"
               sizes="(max-width: 768px) 33vw, 180px"
-              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              class="w-full h-full object-cover"
               :alt="locale === 'cn' ? game.cn_name : game.name"
               :loading="index > 5 ? 'lazy' : 'eager'"
               decoding="async"
@@ -143,7 +143,7 @@ const total = computed(() => props.gameData?.length ?? 0);
             <div class="absolute top-1 left-1 z-20 flex flex-col gap-1">
               <div
                 v-if="stats[key(game)]"
-                class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+                class="flex items-center gap-1 px-1 py-0.5 rounded-full bg-gray-800/70 border border-gray-500/20 shadow-lg"
               >
                 <Diamond
                   class="w-2 h-2 text-blue-400 fill-blue-400 drop-shadow-[0_0_5px_rgba(59,130,246,0.8)]"
@@ -156,7 +156,7 @@ const total = computed(() => props.gameData?.length ?? 0);
 
               <div
                 v-if="stats[key(game)]"
-                class="flex items-center w-fit gap-1 px-1 py-0.5 rounded-full bg-gray-800/20 backdrop-blur-md border border-white/10 shadow-lg"
+                class="flex items-center w-fit gap-1 px-1 py-0.5 rounded-full bg-gray-800/70 border border-gray-500/20 shadow-lg"
               >
                 <Users
                   class="w-2 h-2 text-green-400 fill-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.8)]"
@@ -167,7 +167,7 @@ const total = computed(() => props.gameData?.length ?? 0);
               </div>
             </div>
             <div
-              class="absolute bottom-0 left-0 right-0 px-3 z-20 transition-transform duration-300 group-hover:-translate-y-1"
+              class="absolute bottom-0 left-0 right-0 px-3 z-20"
             >
               <p
                 class="font-extrabold text-white text-[8px] shadow-xl text-center truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide"

@@ -23,7 +23,7 @@ export async function getGameByGpId(gpid: number) {
   }
 }
 export const enterGameAPI = async (data: {
-  userName: string;
+  lang: string;
   gpId: number;
   gameId: number;
 }) => {

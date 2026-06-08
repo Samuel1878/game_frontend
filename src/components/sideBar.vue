@@ -42,17 +42,17 @@ import { watch } from "vue";
 const authStore = useAuthStore();
 const router = useRouter();
 const wallet = useWallet();
-const handleLogout = async() => {
+const handleLogout = async () => {
   await authStore.logout();
   setOpenMobile(false);
-  router.push("/")
+  router.push("/");
 };
 
 const route = useRoute();
 const { setOpenMobile } = useSidebar();
 const handleLogin = (v: boolean) => {
   setOpenMobile(false);
-  router.push({ path: '/auth', query: { mode: v ? 'login' : 'register' } });
+  router.push({ path: "/auth", query: { mode: v ? "login" : "register" } });
 };
 watch(
   () => route.path,
@@ -64,201 +64,223 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <Sidebar collapsible="offcanvas" class="border-r border-white/5 bg-[#0a0f1a] h-dvh">
-     <div class="flex flex-col h-full pt-[env(safe-area-inset-top)] bg-gray-800">
-    <SidebarHeader
-      class="p-4 border-b border-white/10 flex flex-col gap-3 bg-gray-800"
-    >
-      <div
-        class="font-black text-yellow-400 flex gap-2 items-center justify-between tracking-widest text-center"
+  <Sidebar
+    collapsible="offcanvas"
+    class="border-r border-white/5 bg-gray-900 h-dvh"
+  >
+    <div class="flex flex-col h-full pt-[env(safe-area-inset-top)] bg-gray-900">
+      <SidebarHeader
+        class="p-4 border-b border-white/10 flex flex-col gap-3 bg-gray-900"
       >
-        <img src="/logo.webp" class="w-19" alt="Logo"/>
-        <div v-if="authStore.user" @click="router.push('/user/profile')">
-          <img
-            src="/images/profile.png"
-            class="w-7 h-7 rounded-full overflow-hidden"
-            alt="profile"
-          />
-        </div>
-      </div>
-      <div v-if="authStore.user" class="flex flex-col gap-3">
         <div
-          class="bg-white/5 rounded-xl p-3 flex flex-col items-center border border-white/5 shadow-inner"
+          class="font-black text-yellow-400 flex gap-2 items-center justify-between tracking-widest text-center"
         >
-          <span
-            class="text-[10px] text-gray-400 uppercase tracking-wider font-bold mb-1"
-            >{{ t('balance') }}</span
-          >
+          <img src="/logo.webp" class="w-19" alt="Logo" />
+          <div v-if="authStore.user" @click="router.push('/user/profile')">
+            <img
+              src="/images/profile.png"
+              class="w-7 h-7 rounded-full overflow-hidden"
+              alt="profile"
+            />
+          </div>
+        </div>
+        <div v-if="authStore.user" class="flex flex-col gap-3">
           <div
-            class="flex items-center gap-1.5 text-yellow-400 font-black text-lg"
+            class="bg-gray-800/20 rounded-xl p-3 flex flex-col items-center border border-gray-500/20 shadow-inner"
           >
-            <Wallet2 class="w-5 h-5" />
             <span
-              >{{ formatPrice(wallet?.balance || 0)
-              }}<span class="text-white"> Ks</span></span
+              class="text-[10px] text-gray-400 uppercase tracking-wider font-bold mb-1"
+              >{{ t("balance") }}</span
             >
+            <div
+              class="flex items-center gap-1.5 text-yellow-400 font-black text-lg"
+            >
+              <Wallet2 class="w-5 h-5" />
+              <span
+                >{{ formatPrice(wallet?.balance || 0)
+                }}<span class="text-white"> Ks</span></span
+              >
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <button
+              @click="router.push('/deposit')"
+              class="flex-1 bg-linear-to-r gold-bg hover:from-yellow-400 hover:to-yellow-500 text-black text-xs font-bold py-2.5 rounded-lg flex items-center justify-center gap-1.5 transition-all shadow-[0_0_15px_rgba(234,179,8,0.2)]"
+            >
+              <PlusCircle class="w-3.5 h-3.5" /> {{ t("deposit") }}
+            </button>
+            <button
+              @click="router.push('/withdraw')"
+              class="flex-1 border border-yellow-400 hover:bg-white/20 text-yellow-400 text-xs font-bold py-2.5 rounded-lg flex items-center justify-center gap-1.5 transition-all"
+            >
+              <ArrowDownToLine class="w-3.5 h-3.5" /> {{ t("withdraw") }}
+            </button>
           </div>
         </div>
-        <div class="flex gap-2">
+        <div v-else class="flex flex-col gap-2 mt-2">
           <button
-            @click="router.push('/deposit')"
-            class="flex-1 bg-linear-to-r gold-bg hover:from-yellow-400 hover:to-yellow-500 text-black text-xs font-bold py-2.5 rounded-lg flex items-center justify-center gap-1.5 transition-all shadow-[0_0_15px_rgba(234,179,8,0.2)]"
+            @click="handleLogin(false)"
+            class="w-full bg-linear-to-r gold-bg hover:from-yellow-400 hover:to-yellow-500 text-black text-sm font-bold py-2.5 rounded-lg flex items-center justify-center gap-2 transition-all"
           >
-            <PlusCircle class="w-3.5 h-3.5" /> {{ t("deposit") }}
+            <UserPlus class="w-4 h-4" /> {{ t("register") }}
           </button>
           <button
-            @click="router.push('/withdraw')"
-            class="flex-1 bg-white/10 hover:bg-white/20 text-white text-xs font-bold py-2.5 rounded-lg flex items-center justify-center gap-1.5 transition-all"
+            @click="handleLogin(true)"
+            class="w-full bg-transparent border border-white/20 hover:bg-white/5 text-white text-sm font-bold py-2.5 rounded-lg flex items-center justify-center gap-2 transition-all"
           >
-            <ArrowDownToLine class="w-3.5 h-3.5" /> {{ t("withdraw") }}
+            <LogIn class="w-4 h-4" />{{ t("login") }}
           </button>
         </div>
-      </div>
-      <div v-else class="flex flex-col gap-2 mt-2">
-        <button
-          @click="handleLogin(false)"
-          class="w-full bg-linear-to-r gold-bg hover:from-yellow-400 hover:to-yellow-500 text-black text-sm font-bold py-2.5 rounded-lg flex items-center justify-center gap-2 transition-all"
-        >
-          <UserPlus class="w-4 h-4" /> {{ t("register") }}
-        </button>
-        <button
-          @click="handleLogin(true)"
-          class="w-full bg-transparent border border-white/20 hover:bg-white/5 text-white text-sm font-bold py-2.5 rounded-lg flex items-center justify-center gap-2 transition-all"
-        >
-          <LogIn class="w-4 h-4" />{{ t("login") }}
-        </button>
-      </div>
-    </SidebarHeader>
-    <SidebarContent class="p-2 flex flex-col justify-between bg-gray-800">
-      <div>
-        <SidebarGroup class="bg-gray-700/20 rounded-lg">
-          <SidebarGroupLabel
-            class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2 px-2"
-          >
-            {{ t("games") }}
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu class="space-y-4">
-              <SidebarMenuItem
-                class=""
-                v-for="game in gameOptions"
-                :key="game.id"
-              >
-                <SidebarMenuButton as-child>
-                  <router-link
-                    :to="game.path"
-                    class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
-                  >
-                    <img :src="game.image" class="w-8 h-8" :alt="game.label"/>
-                    <span class="font-medium text-md">{{ t(game.label) }}</span>
-                  </router-link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      </div>
-      <div>
-        <SidebarGroup class="bg-gray-700/20 rounded-lg">
-          <SidebarGroupLabel
-            class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2 px-2"
-          >
-            {{ t("services") }}
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu class="space-y-4">
-              <SidebarMenuItem class="">
-                <SidebarMenuButton as-child>
-                  <router-link
-                    to="/download"
-                    class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
-                  >
-                    <Download class="w-8 h-8" />
-                    <span class="font-medium text-md">{{ t("download") }}</span>
-                  </router-link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem class="">
-                <SidebarMenuButton as-child>
-                  <router-link
-                    to="/promotions"
-                    class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
-                  >
-                    <Gift class="w-8 h-8" />
-                    <span class="font-medium text-md">{{
-                      t("promotions")
-                    }}</span>
-                  </router-link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem class="">
-                <SidebarMenuButton as-child>
-                  <router-link
-                    to="/faq"
-                    class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
-                  >
-                    <CircleAlertIcon class="w-8 h-8" />
-                    <span class="font-medium text-md">{{ t("faq") }}</span>
-                  </router-link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      </div>
-      <div>
-        <SidebarGroup class="bg-gray-700/20 rounded-lg">
-          <SidebarGroupLabel
-            class="text-xs text-gray-500 flex justify-center items-center font-semibold text-center uppercase tracking-wider mb-2 p-2"
-          >
-            {{ t("need_help") }}
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem
-                class="flex gap-2 justify-around items-center pb-2"
-              >
-                <div @click="openChat" class="cursor-pointer">
-                  <HeadsetIcon class="w-7 h-7 text-yellow-400"/>
-                </div>
-                <div @click="openTelegram" class="cursor-pointer">
-                  <img src="/socials/telegram_black.svg" class="w-8 h-8" alt="telegram"/>
-                </div>
-                <div @click="openDiscord" class="cursor-pointer">
-                  <img src="/socials/discord_black.webp" class="w-8 h-8"  alt="discord"/>
-                </div>
-                <div @click="openViber" class="cursor-pointer">
-                  <img src="/socials/viber_black.webp" class="w-8 h-8" alt="viber"/>
-                </div>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      </div>
-      <div>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <LanguageLongBtn />
-          </SidebarMenuItem>
-          <SidebarMenuItem class="my-4">
-            <SidebarMenuButton as-child>
-              <button
-                v-if="authStore.user"
-                @click="handleLogout"
-                class="w-full flex bg-red-400/30 items-center justify-center gap-2 text-red-500 hover:text-red-300 hover:bg-red-400/10 py-2.5 rounded-lg transition-colors font-semibold text-sm"
-              >
-                <LogOut class="w-4 h-4" />
-                {{ t("logout") }}
-              </button>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <div class="w-full text-center">
-            <p class="text-gray-400 font-mono">Version {{ versionNo }}</p>
-          </div>
-        </SidebarMenu>
-      </div>
-    </SidebarContent>
+      </SidebarHeader>
+      <SidebarContent class="p-2 flex flex-col justify-between bg-gray-900">
+        <div>
+          <SidebarGroup class="bg-gray-800/50 rounded-lg">
+            <SidebarGroupLabel
+              class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2 px-2"
+            >
+              {{ t("games") }}
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu class="space-y-4">
+                <SidebarMenuItem
+                  class=""
+                  v-for="game in gameOptions"
+                  :key="game.id"
+                >
+                  <SidebarMenuButton as-child>
+                    <router-link
+                      :to="game.path"
+                      class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
+                    >
+                      <img
+                        :src="game.image"
+                        class="w-8 h-8"
+                        :alt="game.label"
+                      />
+                      <span class="font-medium text-md">{{
+                        t(game.label)
+                      }}</span>
+                    </router-link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </div>
+        <div>
+          <SidebarGroup class="bg-gray-800/50 rounded-lg">
+            <SidebarGroupLabel
+              class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2 px-2"
+            >
+              {{ t("services") }}
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu class="space-y-4">
+                <SidebarMenuItem class="">
+                  <SidebarMenuButton as-child>
+                    <router-link
+                      to="/download"
+                      class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
+                    >
+                      <Download class="w-8 h-8" />
+                      <span class="font-medium text-md">{{
+                        t("download")
+                      }}</span>
+                    </router-link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem class="">
+                  <SidebarMenuButton as-child>
+                    <router-link
+                      to="/promotions"
+                      class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
+                    >
+                      <Gift class="w-8 h-8" />
+                      <span class="font-medium text-md">{{
+                        t("promotions")
+                      }}</span>
+                    </router-link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem class="">
+                  <SidebarMenuButton as-child>
+                    <router-link
+                      to="/faq"
+                      class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
+                    >
+                      <CircleAlertIcon class="w-8 h-8" />
+                      <span class="font-medium text-md">{{ t("faq") }}</span>
+                    </router-link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </div>
+        <div>
+          <SidebarGroup class="bg-gray-800/50 rounded-lg">
+            <SidebarGroupLabel
+              class="text-xs text-gray-500 flex justify-center items-center font-semibold text-center uppercase tracking-wider mb-2 p-2"
+            >
+              {{ t("need_help") }}
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem
+                  class="flex gap-2 justify-around items-center pb-2"
+                >
+                  <div @click="openChat" class="cursor-pointer bg-black w-8 h-8 flex justify-center items-center rounded-full">
+                    <HeadsetIcon class="w-6 h-6 text-white" />
+                  </div>
+                  <div @click="openTelegram" class="cursor-pointer">
+                    <img
+                      src="/socials/telegram_black.svg"
+                      class="w-8 h-8"
+                      alt="telegram"
+                    />
+                  </div>
+                  <div @click="openDiscord" class="cursor-pointer">
+                    <img
+                      src="/socials/discord_black.webp"
+                      class="w-8 h-8"
+                      alt="discord"
+                    />
+                  </div>
+                  <div @click="openViber" class="cursor-pointer">
+                    <img
+                      src="/socials/viber_black.webp"
+                      class="w-8 h-8"
+                      alt="viber"
+                    />
+                  </div>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </div>
+        <div>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <LanguageLongBtn />
+            </SidebarMenuItem>
+            <SidebarMenuItem class="my-4">
+              <SidebarMenuButton as-child>
+                <button
+                  v-if="authStore.user"
+                  @click="handleLogout"
+                  class="w-full flex bg-red-400/30 items-center justify-center gap-2 text-red-500 hover:text-red-300 hover:bg-red-400/10 py-2.5 rounded-lg transition-colors font-semibold text-sm"
+                >
+                  <LogOut class="w-4 h-4" />
+                  {{ t("logout") }}
+                </button>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <div class="w-full text-center">
+              <p class="text-gray-400 font-mono">Version {{ versionNo }}</p>
+            </div>
+          </SidebarMenu>
+        </div>
+      </SidebarContent>
     </div>
   </Sidebar>
-  
 </template>
