@@ -11,6 +11,7 @@ import { openChat } from "@/utils";
 import LanguageBtn from "@/components/languageBtn.vue";
 import Button from "@/components/ui/button/Button.vue";
 import { ClipboardX, Headset, SearchIcon, Trophy } from "lucide-vue-next";
+import AgentOptions from "@/components/layout/agentOptions.vue";
 
 const authStore = useAuthStore();
 const { t } = useI18n();
@@ -73,6 +74,7 @@ onMounted(fetchTransaction);
       <LanguageBtn />
     </template>
   </CustomNavBar>
+   <AgentOptions current_page="rewards"/>
   <div class="space-y-4 p-4 w-full min-h-screen">
     <!-- Header -->
     <div class="flex items-center justify-between">

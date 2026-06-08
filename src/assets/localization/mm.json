@@ -382,5 +382,7 @@
   "max": "MAX",
   "welcome_bonus": "ကြိုဆိုဆုကြေး",
   "deposit_bonus": "အပ်ငွေဆုကြေး",
-  "other": "အခြား"
+  "other": "အခြား",
+  "username_already_exists":"အသုံးပြုသူအမည် ရှိပြီးသား",
+"phone_already_exists": "ဖုန်းနံပါတ် ရှိပြီးသား"
 }

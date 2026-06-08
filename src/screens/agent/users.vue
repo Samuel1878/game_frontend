@@ -10,6 +10,7 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat } from "@/utils";
 import { Headset } from "lucide-vue-next";
 import LanguageBtn from "@/components/languageBtn.vue";
+import AgentOptions from "@/components/layout/agentOptions.vue";
 
 const loadingUsers = ref(false);
 
@@ -85,7 +86,7 @@ onMounted(() => {
       <LanguageBtn />
     </template>
   </CustomNavBar>
-
+ <AgentOptions current_page="players"/>
   <div class="space-y-4 p-4">
     <!-- Header -->
     <div class="flex items-center justify-between">

@@ -1,5 +1,4 @@
 import { getAgentTransactionSummaryAPI } from "@/services/agentAPI";
-import { toISOStringSafe } from "@/utils/date";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { useAuthStore } from "./auth";
@@ -37,9 +36,9 @@ export const useAgentDashboardStore = defineStore("dashboardStore", () => {
       const res = await getAgentTransactionSummaryAPI(authStore.user.agent_id, {
         mode: mode.value,
         startDate: startDate.value
-          ? toISOStringSafe(startDate.value)
+          ? startDate.value
           : undefined,
-        endDate: endDate.value ? toISOStringSafe(endDate.value) : undefined,
+        endDate: endDate.value ?endDate.value : undefined,
         portfolio: portfolio.value,
       });
 

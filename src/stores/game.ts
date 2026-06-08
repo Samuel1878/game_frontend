@@ -60,7 +60,7 @@ export const useGameStore = defineStore("game", () => {
         gpId: game.provider_id,
       });
 
-      preLaunchData.value = data; // ✅ STORE API RESULT
+      preLaunchData.value = data; 
 
       // drawerOpen.value = true; // open AFTER API success
     } catch (error) {
@@ -116,5 +116,6 @@ export const useGameStore = defineStore("game", () => {
     prepareGame,
     enterGame,
     resetGame,
+    closeDrawer
   };
 });

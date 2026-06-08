@@ -97,6 +97,8 @@ ${[
 };
 </script>
 <template>
+
+  <main class="min-h-screen w-full bg-gray-900 text-white flex flex-col antialiased selection:bg-amber-500/30">
       <CustomNavBar title="detail" backTo="/user/deposit-history" @back="handleBack">
     <template #right>
 
@@ -106,8 +108,7 @@ ${[
       <LanguageBtn />
     </template>
   </CustomNavBar>
-  <main class="min-h-screen w-full bg-gray-900 text-white flex flex-col antialiased selection:bg-amber-500/30">
-    <div class="flex-1 overflow-y-auto p-4 max-w-md w-full mx-auto space-y-4 pb-24">
+    <div class="flex-1 overflow-y-auto p-4 max-w-md w-full mx-auto space-y-4">
       <div v-if="selectedDeposit" class="space-y-4">
         
         <div class="p-6 bg-linear-to-b from-gray-800/40 to-transparent border border-gray-900 rounded-3xl flex flex-col items-center text-center shadow-xl">
@@ -223,7 +224,7 @@ ${[
       </div>
     </div>
 
-    <footer class="w-full z-30  fixed bottom-0 right-0 left-0 p-4 bg-gray-800/20 backdrop-blur-2xl border-t border-gray-700/50">
+    <footer class="w-full z-30 p-4 bg-gray-800/20 backdrop-blur-2xl border-t border-gray-700/50">
       <div class="max-w-md mx-auto">
         <Button
           @click="exportDeposit"

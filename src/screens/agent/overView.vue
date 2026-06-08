@@ -27,6 +27,7 @@ import { useRouter } from "vue-router";
 import { useAgentDashboardStore } from "@/stores/agentDashboardStore";
 import QrcodeVue from "qrcode.vue";
 import Button from "@/components/ui/button/Button.vue";
+import AgentOptions from "@/components/layout/agentOptions.vue";
 const { t } = useI18n();
 const agentStore = useAgentStore();
 const agentData = storeToRefs(agentStore).agentData;
@@ -184,6 +185,7 @@ console.log(transactionReport);
       <LanguageBtn />
     </template>
   </CustomNavBar>
+  <AgentOptions current_page="overview"/>
   <div class="space-y-5 p-4 w-full">
     <!-- HEADER -->
     <div class="flex items-center justify-between">

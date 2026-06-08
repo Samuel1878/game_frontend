@@ -87,7 +87,11 @@ const handleCopy = async (text: string | undefined, field: string) => {
 };
 </script>
 <template>
-  <CustomNavBar title="detail" backTo="/user/transactions" @back="handleBack">
+
+  <main
+    class="min-h-screen relative w-full bg-gray-900 text-white flex flex-col antialiased selection:bg-amber-500/30"
+  >
+    <CustomNavBar title="detail" backTo="/user/transactions" @back="handleBack">
     <template #right>
       <button @click="openChat">
         <Headset class="w-6 h-6" />
@@ -95,9 +99,6 @@ const handleCopy = async (text: string | undefined, field: string) => {
       <LanguageBtn />
     </template>
   </CustomNavBar>
-  <main
-    class="min-h-screen w-full bg-gray-900 text-white flex flex-col antialiased selection:bg-amber-500/30"
-  >
     <div
       class="flex-1 overflow-y-auto p-4 max-w-md w-full mx-auto space-y-4 pb-24"
     >
@@ -203,7 +204,7 @@ const handleCopy = async (text: string | undefined, field: string) => {
     </div>
 
     <footer
-      class="w-full z-30 fixed bottom-0 right-0 left-0 p-4 bg-gray-800/20 backdrop-blur-2xl border-t border-gray-700/50"
+      class="w-full z-30 p-4 bg-gray-800/20 backdrop-blur-2xl border-t border-gray-700/50"
     >
       <div class="max-w-md mx-auto">
         <Button

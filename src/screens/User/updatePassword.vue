@@ -64,7 +64,9 @@ const submit = async () => {
 </script>
 
 <template>
-  <CustomNavBar title="change_password" backTo="/user/security-center">
+
+  <main class=" min-h-screen w-full bg-gray-900 text-white">
+      <CustomNavBar title="change_password" backTo="/user/security-center">
     <template #right>
       <button @click="openChat">
         <Headset class="w-6 h-6" />
@@ -72,9 +74,8 @@ const submit = async () => {
       <LanguageBtn />
     </template>
   </CustomNavBar>
-  <main class="p-4 min-h-screen w-full bg-gray-900 text-white">
     <section
-      class="mt-4 p-4 w-full flex flex-col gap-4 rounded-2xl bg-gray-800/20 backdrop-blur-2xl border border-gray-500/20 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+      class="m-4 p-4 flex flex-col gap-4 rounded-2xl bg-gray-800/20 backdrop-blur-2xl border border-gray-500/20 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
     >
       <!-- Icon -->
       <div

@@ -22,6 +22,7 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat, formatPrice } from "@/utils";
 import LanguageBtn from "@/components/languageBtn.vue";
 import type { Transaction } from "@/utils/types";
+import AgentOptions from "@/components/layout/agentOptions.vue";
 
 const startDate = ref();
 const endDate = ref();
@@ -105,7 +106,7 @@ onMounted(() => {
       <LanguageBtn />
     </template>
   </CustomNavBar>
-
+ <AgentOptions current_page="tx"/>
   <div class="p-4 space-y-5">
     <!-- HEADER -->
     <div

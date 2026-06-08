@@ -77,6 +77,9 @@ const exportData = () => {
 </script>
 
 <template>
+    
+  
+  <main class="min-h-screen bg-gray-900 w-full text-white flex flex-col antialiased selection:bg-emerald-500/30">
      <CustomNavBar title="detail" backTo="/user/withdraw-history">
     <template #right>
       <button @click="openChat" class="p-1 rounded-lg hover:bg-white/5 active:scale-95 transition-all">
@@ -85,8 +88,6 @@ const exportData = () => {
       <LanguageBtn />
     </template>
   </CustomNavBar>
-  
-  <main class="min-h-screen bg-gray-900 w-full text-white flex flex-col antialiased selection:bg-emerald-500/30">
     <!-- CONTENT DISPLAY CONTAINER SCROLL VIEW LAYER -->
     <div class="flex-1 overflow-y-auto p-4 max-w-md w-full mx-auto space-y-4 pb-28">
 

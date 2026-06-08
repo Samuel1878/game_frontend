@@ -40,8 +40,9 @@ const types: Types[] = [
 const image: imageTypes[] = [
   {
     id: 1,
-    image: "/images/agent_bonus.webp",
-    cn_image: "/images/agent_bonus.webp",
+    image: "/images/agent_promo.webp",
+    cn_image: "/images/agent_promo_cn.webp",
+    detail_url:"/images/agent_bonus.webp",
     type: "other",
   },
   {
@@ -78,7 +79,6 @@ const filteredImages = computed(() => {
   return image.filter((item) => item.type === choseType.value);
 });
 const togglePromo = (id: number) => {
-  if (id === 1) return;
   view.value = view.value === id ? 0 : id;
 };
 </script>
@@ -96,13 +96,13 @@ const togglePromo = (id: number) => {
         <div class="flex gap-2">
           <div
             @click="openChat"
-            class="flex justify-center items-center h-10 w-10 border bg-gray-800/20 rounded-full border-gray-500/20"
+            class="flex justify-center items-center h-10 w-10 border bg-black rounded-full border-gray-500/20"
           >
-            <Headset class="text-yellow-400 w-6 h-6" />
+            <Headset class="text-white w-6 h-6" />
           </div>
           <div
             @click="openTelegram"
-            class="flex justify-center items-center h-10 w-10 border bg-gray-800/20 rounded-full border-gray-500/20"
+            class="flex justify-center items-center h-10 w-10 border rounded-full border-gray-500/20"
           >
             <img src="/socials/telegram_black.svg" classw="w-6 h-6" />
           </div>

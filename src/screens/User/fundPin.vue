@@ -92,7 +92,9 @@ watch(
 </script>
 
 <template>
-  <CustomNavBar title="change_fund_pin" backTo="/user/security-center">
+
+  <main class=" min-h-screen w-full bg-gray-900 text-white">
+      <CustomNavBar title="change_fund_pin" backTo="/user/security-center">
     <template #right>
       <button @click="openChat">
         <Headset class="w-6 h-6" />
@@ -100,9 +102,8 @@ watch(
       <LanguageBtn />
     </template>
   </CustomNavBar>
-  <main class="p-4 min-h-screen w-full bg-gray-900 text-white">
     <section
-      class="rounded-3xl p-5 bg-linear-to-br from-yellow-500/10 via-white/5 to-yellow-500/5 border border-yellow-500/20"
+      class="rounded-3xl p-5 m-4 bg-linear-to-br from-yellow-500/10 via-white/5 to-yellow-500/5 border border-yellow-500/20"
     >
       <div class="flex items-center gap-4">
         <div

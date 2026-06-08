@@ -41,7 +41,7 @@ const indicatorStyle = computed(() => {
     v-if="!route.meta.hideNavbar"
   >
     <div
-      class="relative max-w-md w-full overflow-hidden bg-gray-900 border-t-2 border-t-gray-500/20 shadow-lg"
+      class="relative max-w-md w-full overflow-hidden bg-gray-900/20 backdrop-blur-2xl border-t-2 border-t-gray-500/20 shadow-lg"
     >
       <div class="absolute bottom-0 left-0 h-1 w-full">
         <div

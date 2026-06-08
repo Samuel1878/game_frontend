@@ -3,23 +3,14 @@ import { useGameStore } from "@/stores/game";
 import { useI18n } from "vue-i18n";
 import { storeToRefs } from "pinia";
 import {DrawerContent, Drawer} from "./ui/drawer"
-// import { computed } from "vue";
-// import { slotGameProviders } from "@/consts";
-
 const gameStore = useGameStore();
 const { drawerOpen, loading, selectedGame } = storeToRefs(gameStore);
 const { t, locale } = useI18n();
-
 const closeDrawer = () => {
-  gameStore.drawerOpen = false;
+  gameStore.closeDrawer();
+  gameStore.resetGame();
 };
-// const getProviderImage = computed(() =>
-//   slotGameProviders.find(
-//     (e) => e.GpId === selectedGame.value?.provider_id
-//   )
-// );
 </script>
-
 <template>
   <Drawer :open="drawerOpen" @update:open="drawerOpen = $event">
     <DrawerContent
@@ -36,6 +27,7 @@ const closeDrawer = () => {
                 : selectedGame?.icon_url
             "
             alt="game"
+            loading="eager"
             class="aspect-square rounded-lg object-cover"
           />
           <div class="glass absolute inset-0"></div>
