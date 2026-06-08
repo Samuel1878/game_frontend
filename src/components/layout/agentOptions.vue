@@ -3,7 +3,6 @@ import router from "@/router";
 import {
   AlignEndHorizontal,
   FileChartColumn,
-  House,
   Trophy,
   Users,
 } from "lucide-vue-next";

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useGameStore } from "@/stores/game";
 import { ChevronLeft } from "lucide-vue-next";
-import { onMounted } from "vue";
+import { onActivated } from "vue";
 import { onBeforeRouteLeave, useRouter } from "vue-router";
 import { useAuthStore } from "./stores/auth";
 import { hideTawk, showTawk } from "./utils";
@@ -11,14 +11,21 @@ const gameStore = useGameStore();
 const authStore = useAuthStore();
 const router = useRouter();
 const ui = useDownloadBannerStore();
-
-onMounted(() => {
-  ui.hideBanner()
+onActivated(() => {
+  ui.hideBanner();
   hideTawk();
+
   if (!gameStore.launchUrl) {
     router.replace("/");
   }
 });
+// onMounted(() => {
+//   ui.hideBanner()
+//   hideTawk();
+//   if (!gameStore.launchUrl) {
+//     router.replace("/");
+//   }
+// });
 const goBack = () => {
   router.back();
 };
@@ -31,32 +38,6 @@ onBeforeRouteLeave(() => {
   authStore.fetchUser();
 });
 </script>
-
-<!-- <template>
-  <div class="min-h-dvh bg-[#111827] flex flex-col w-full scrollbar-none overscroll-none">
-    <div class="bg-gray-900/50 backdrop-blur pt-[env(safe-area-inset-top)]">
-      <div class="h-10 flex justify-between items-center px-4">
-        <div @click="goBack">
-          <ChevronLeft class="text-gray-100 w-7 h-7" />
-        </div>
-
-        <div @click="goHome">
-          <img src="/logo.webp" class="h-8" alt="Logo"/>
-        </div>
-      </div>
-    </div>
-    <div class="flex-1 min-h-0">
-      <iframe
-        v-if="gameStore.launchUrl"
-        :src="gameStore.launchUrl"
-        class="w-full h-full border-0"
-        title="Game Play"
-      />
-    </div>
-
-  </div>
-</template> -->
-
 <template>
   <!-- Full Screen Immersive Wrapper with Hardware Acceleration Locking -->
   <div class="fixed inset-0 bg-gray-900 flex flex-col w-full h-full overflow-hidden select-none overscroll-none touch-none">
