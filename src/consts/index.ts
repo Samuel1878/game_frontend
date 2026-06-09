@@ -196,19 +196,19 @@ export const gameOptions = [
     image: chess,
   },
 ];
-export const providerNames = {
-  3:"PP",
-  35:"PG",
-  1020:"JILI",
-  1046:"FC",
-  1079:"Fastspin",
-  1042:"KA",
-  1034:"AP",
-  1085:"VA",
-  14:"SBO",
-  1029:"568win",
-  1094:"AFB"
-}
+export const providerNames: Record<number, string> = {
+  3: "PP",
+  35: "PG",
+  1020: "JILI",
+  1046: "FC",
+  1079: "Fastspin",
+  1042: "KA",
+  1034: "AP",
+  1085: "VA",
+  14: "SBO",
+  1029: "568win",
+  1094: "AFB",
+};
 export const slotGameProviders = [
   {
     id: 1,
