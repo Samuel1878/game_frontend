@@ -61,7 +61,7 @@ onMounted(() => {
 
 <template>
   <SidebarProvider :default-open="true">
-    <div class="flex min-h-screen w-full bg-gray-950 ios-scroll-fix">
+    <div class="flex min-h-dvh w-full bg-gray-950 ios-scroll-fix">
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
         <DownloadNav />
@@ -106,7 +106,7 @@ onMounted(() => {
 }
 
 /* Force iOS WebKit to maintain momentum and paint buffers */
-.min-h-screen {
+.min-h-dvh {
   -webkit-overflow-scrolling: touch;
 }
 </style>
