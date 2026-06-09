@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import LanguageBtn from "@/components/languageBtn.vue";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
-import {  openChat } from "@/utils";
+import {  hideTawk, openChat, showTawk } from "@/utils";
 import { Headset } from "lucide-vue-next";
-import { computed } from "vue";
+import { computed, onActivated, onDeactivated } from "vue";
 import { useRoute } from "vue-router";
 
 import { storeToRefs } from "pinia";
@@ -11,7 +11,7 @@ import { useAuthStore } from "@/stores/auth";
 import { useRouter } from "vue-router";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { onMounted, ref } from "vue";
+import {  ref } from "vue";
 import {
   InputGroup,
   InputGroupAddon,
@@ -54,12 +54,15 @@ const isError = ref(false);
 const referralStore = useReferralStore();
 const { referralCode, fromRid } = storeToRefs(referralStore);
 const isLogin = computed(() => route.query.mode !== "register");
-onMounted(() => {
-    // hideTawk();
+onActivated(() => {
+    hideTawk();
   if (auth.user) {
     router.push("/");
   }
 });
+onDeactivated(()=>{
+  showTawk();
+})
 const switchMode = () => {
   router.replace({
     path: "/auth",
@@ -68,10 +71,6 @@ const switchMode = () => {
     },
   });
 };
-// onUnmounted(() => {
-//     showTawk();
-// });
-
 const validatePhone = (phone: string) => {
   const normalized = phone.replace(/\s+/g, "");
   return (
@@ -155,7 +154,7 @@ const submit = async () => {
     loadingButton.value = false;
   }
 };
-onMounted(() => {
+onActivated(() => {
   const savedUsername = localStorage.getItem("remember_username");
   const savedPassword = localStorage.getItem("remember_password");
   if (savedUsername) {

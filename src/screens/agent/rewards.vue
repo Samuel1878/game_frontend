@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
-import { onMounted, ref, watch } from "vue";
+import { onActivated, ref, watch } from "vue";
 import { getAllTransactionsByUserId } from "../../services/transactionAPI";
 import DatePicker from "@/components/CalenderView.vue";
 import type { Transaction } from "@/utils/types";
@@ -63,7 +63,7 @@ const prevPage = () => {
 
 watch([page, transactionType], fetchTransaction);
 
-onMounted(fetchTransaction);
+onActivated(fetchTransaction);
 </script>
 <template>
   <CustomNavBar title="reward_center" backTo="/user/profile">

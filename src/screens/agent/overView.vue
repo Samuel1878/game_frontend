@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { computed, onActivated, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import DatePicker from "@/components/CalenderView.vue";
 import { baseURL, formatPrice, openChat } from "@/utils";
@@ -170,7 +170,7 @@ const copyHandler = (value: any) => {
 
   toast.success(`${t("copied")}: ${value}`);
 };
-onMounted(() => {
+onActivated(() => {
   store.fetchSummary();
 });
 console.log(transactionReport);

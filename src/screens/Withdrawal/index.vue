@@ -5,7 +5,7 @@ import {
   paymentMethodOption,
   usdtRateToMMK,
 } from "@/consts";
-import { computed, defineAsyncComponent, onMounted, ref, watch } from "vue";
+import { computed, defineAsyncComponent, onActivated, ref, watch } from "vue";
 import {
   InputGroup,
   InputGroupAddon,
@@ -97,9 +97,6 @@ const choosen = ref<boolean>(false);
 const bankStore = useBankStore();
 const openDrawer = ref(false);
 const { selectedPayment, filteredAccounts } = storeToRefs(bankStore);
-onMounted(() => {
-  bankStore.fetchAccounts();
-});
 
 const chooseAccount = (data: BankAccount) => {
   const isSelected =
@@ -184,12 +181,13 @@ const form = ref<BankAccountPros>({
 });
 const fundPinStore = useFundPinStore();
 
-onMounted(async () => {
+onActivated(async () => {
   if (authStore.user?.set_pin === false) {
       fundPinStore.openFundPin();
     }
   bankStore.fetchAccounts();
 });
+
 const openAdd = () => {
   isEdit.value = false;
   showDialog.value = true;

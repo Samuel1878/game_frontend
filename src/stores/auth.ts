@@ -141,7 +141,6 @@ export const useAuthStore = defineStore("auth", {
           };
         }
       } catch (error:any) {
-        console.log(error)
         this.clearAuth();
         return {
           status: 500,

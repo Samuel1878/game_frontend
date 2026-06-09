@@ -5,7 +5,7 @@ import { useBetlistStore } from "@/stores/betListStore";
 import { formatPrice, openChat } from "@/utils";
 import { ClipboardX, Headset } from "lucide-vue-next";
 import { storeToRefs } from "pinia";
-import { computed, onMounted } from "vue";
+import { computed, onActivated } from "vue";
 import { useI18n } from "vue-i18n";
 import DatePicker from "@/components/CalenderView.vue";
 import { formatMyanmarTime } from "@/utils/date";
@@ -32,7 +32,7 @@ const getWinLoss = computed(() =>
         (transactionReport.value?.refund || 0)),
   ),
 );
-onMounted(() => {
+onActivated(() => {
   store.fetchBetList();
 });
 </script>

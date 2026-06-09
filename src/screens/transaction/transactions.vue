@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
-import { onMounted, ref, watch } from "vue";
+import {  onActivated, ref, watch } from "vue";
 import { getAllTransactionsByUserId } from "../../services/transactionAPI";
 import type { Transaction } from "@/utils/types";
 import moment from "moment";
@@ -54,7 +54,7 @@ const goToDetail = (tx:Transaction)=>{
   store.setTransaction(tx);
   router.push("/user/transactions/detail")
 }
-onMounted(() => {
+onActivated(() => {
   fetchTransaction();
 });
 const nextPage = () => {

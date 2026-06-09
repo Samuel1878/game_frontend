@@ -33,11 +33,11 @@ const key = (game: any) => `${game.provider_id}-${game.game_id}`;
       <button
         v-for="(game, index) in props.gameData"
         :key="game?.id ?? index"
-        class="relative overflow-hidden rounded-lg aspect-3/3.5"
+        class="relative overflow-hidden rounded-lg aspect-square"
         @click="onClickGame(game)"
       >
         <div
-          class="pointer-events-none absolute bottom-0 inset-x-0 h-1/4 bg-linear-to-t from-black/60 via-white/10 to-transparent z-10"
+          class="pointer-events-none absolute bottom-0 inset-x-0 h-1/4 bg-linear-to-t from-black/60 via-black/10 to-transparent z-10"
         />
         <div
           class="pointer-events-none absolute bottom-0 transform-gpu backface-hidden inset-x-0 h-full backdrop-saturate-100 z-10"
@@ -79,7 +79,7 @@ const key = (game: any) => `${game.provider_id}-${game.game_id}`;
           class="absolute bottom-0 left-0 right-0 px-3 z-20"
         >
           <p
-            class="font-extrabold text-white text-[8px] text-center truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide"
+            class="font-extrabold text-white text-[10px] text-center truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide"
           >
             {{ game.name }}
           </p>

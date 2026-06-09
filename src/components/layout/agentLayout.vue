@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
 import { useAgentStore } from "@/stores/agentStore";
-import { onMounted } from "vue";
+import { onActivated } from "vue";
 const agentStore = useAgentStore();
 
-onMounted(() => {
+onActivated(() => {
   agentStore.fetchAgentData();
 });
 </script>

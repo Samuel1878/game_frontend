@@ -25,140 +25,227 @@ const BankAccount = () => import("./screens/User/bankAccount.vue");
 const Download = () => import("./screens/download.vue");
 const Arcade = () => import("./screens/games/arcade.vue");
 const DepositHistory = () => import("./screens/transaction/depositHistory.vue");
-const WithdrawHistory = () =>import("./screens/transaction/withdrawHistory.vue");
+const WithdrawHistory = () =>
+  import("./screens/transaction/withdrawHistory.vue");
 const Faq = () => import("./screens/faq.vue");
 const BetList = () => import("./screens/betList.vue");
 const Store = () => import("./screens/Withdrawal/store.vue");
-const TransactionDetail = () => import("@/screens/transaction/transactionDetail.vue")
+const TransactionDetail = () =>
+  import("@/screens/transaction/transactionDetail.vue");
 
 NProgress.configure({ showSpinner: false });
 const routes = [
   {
     path: "/game",
     component: GameView,
-    meta: { hideNavbar: true, hideTopNav: true, requiresAuth: true },
+    meta: {
+      hideNavbar: true,
+      hideTopNav: true,
+      requiresAuth: true,
+      keepAlive: false,
+    },
   },
   {
     path: "/auth",
     name: "auth",
     component: Auth,
-    meta: { hideNavbar: true, hideTopNav: true, requiresAuth: false },
+    meta: {
+      hideNavbar: true,
+      hideTopNav: true,
+      requiresAuth: false,
+      keepAlive: false,
+    },
   },
   {
     path: "/",
     component: HomeView,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false, keepAlive: true },
   },
   {
     path: "/slots",
     component: Slots,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false, keepAlive: true },
   },
   {
     path: "/buffalo",
     component: Buffalo,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false, keepAlive: true },
   },
   {
     path: "/fishing",
     component: Fishing,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false, keepAlive: true },
   },
   {
     path: "/casino",
     component: Casino,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false, keepAlive: true },
   },
   {
     path: "/arcade-games",
     component: Arcade,
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false, keepAlive: true },
   },
   {
     path: "/promotions",
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false, keepAlive: true },
     component: Promotions,
   },
   {
     path: "/deposit",
-    meta: { hideNavbar: false, hideTopNav: false, requiresAuth: false },
+    meta: {
+      hideNavbar: false,
+      hideTopNav: false,
+      requiresAuth: false,
+      keepAlive: false,
+    },
     component: Deposit,
   },
   {
     path: "/deposit/:payment_method",
     component: Payments,
-    meta: { hideNavbar: true, hideTopNav: true, requiresAuth: true },
+    meta: {
+      hideNavbar: true,
+      hideTopNav: true,
+      requiresAuth: true,
+      keepAlive: false,
+    },
   },
   {
     path: "/withdraw",
-    meta: { requiresAuth: true, hideTopNav: false, hideNavbar: false },
+    meta: {
+      requiresAuth: true,
+      hideTopNav: false,
+      hideNavbar: false,
+      keepAlive: false,
+    },
     component: Withdraw,
   },
   {
     path: "/withdraw/store",
-    meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: true,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: true,
+    },
     component: Store,
   },
   {
     path: "/user/profile",
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: false, keepAlive: true },
     component: Profile,
   },
   {
     path: "/user/transactions",
     component: Transactions,
-    meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: true,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: false,
+    },
   },
-    {
+  {
     path: "/user/transactions/detail",
     component: TransactionDetail,
-    meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: true,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: false,
+    },
   },
   {
     path: "/user/deposit-history",
     component: DepositHistory,
-    meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: true,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: false,
+    },
   },
   {
     path: "/user/deposit-history/detail/:id",
     component: () => import("@/screens/transaction/depoHisDetail.vue"),
-    meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: true,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: false,
+    },
   },
   {
     path: "/user/withdraw-history",
     component: WithdrawHistory,
-    meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: true,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: false,
+    },
   },
   {
     path: "/user/withdraw-history/detail/:id",
     component: () => import("@/screens/transaction/withdrawHisDetail.vue"),
-    meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: true,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: false,
+    },
   },
 
   {
     path: "/user/security-center",
     component: () => import("@/screens/User/securityCenter.vue"),
-    meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: true,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: true,
+    },
   },
   {
     path: "/user/security-center/update-password",
     component: () => import("@/screens/User/updatePassword.vue"),
-    meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: true,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: false,
+    },
   },
   {
     path: "/user/security-center/fund-pin",
     component: () => import("@/screens/User/fundPin.vue"),
-    meta: { requiresAuth: true, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: true,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: false,
+    },
   },
   {
     path: "/user/bank-accounts",
     component: BankAccount,
-    meta: { hideNavbar: true, hideTopNav: true, requiresAuth: true },
+    meta: {
+      hideNavbar: true,
+      hideTopNav: true,
+      requiresAuth: true,
+      keepAlive: false,
+    },
   },
   {
     path: "/user/betlist",
     component: BetList,
-    meta: { hideNavbar: true, hideTopNav: true, requiresAuth: true },
+    meta: {
+      hideNavbar: true,
+      hideTopNav: true,
+      requiresAuth: true,
+      keepAlive: false,
+    },
   },
   {
     path: "/user/agent-center",
@@ -167,6 +254,7 @@ const routes = [
       requiresAuth: true,
       hideTopNav: true,
       hideNavbar: true,
+      keepAlive: false,
       // isProtected: true,
     },
     children: [
@@ -195,32 +283,62 @@ const routes = [
   {
     path: "/download",
     component: Download,
-    meta: { requiresAuth: false, hideNavbar: true, hideTopNav: true },
+    meta: {
+      requiresAuth: false,
+      hideNavbar: true,
+      hideTopNav: true,
+      keepAlive: true,
+    },
   },
   {
     path: "/help",
     component: Help,
-    meta: { requiresAuth: false, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: false,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: true,
+    },
   },
   {
     path: "/terms",
     component: Terms,
-    meta: { requiresAuth: false, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: false,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: true,
+    },
   },
   {
     path: "/privacy",
     component: Policy,
-    meta: { requiresAuth: false, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: false,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: true,
+    },
   },
   {
     path: "/responsible",
     component: Responsible,
-    meta: { requiresAuth: false, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: false,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: true,
+    },
   },
   {
     path: "/faq",
     component: Faq,
-    meta: { requiresAuth: false, hideTopNav: true, hideNavbar: true },
+    meta: {
+      requiresAuth: false,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: true,
+    },
   },
   { path: "/:pathMatch(.*)*", redirect: "/" },
 ];
@@ -236,7 +354,7 @@ router.beforeEach(async (to, from) => {
     NProgress.start();
   }
   const auth = useAuthStore();
-   if (!auth.initialized) {
+  if (!auth.initialized) {
     await auth.init();
   }
   if (to.meta.requiresAuth && !auth.user) {

@@ -12,20 +12,12 @@ const authStore = useAuthStore();
 const router = useRouter();
 const ui = useDownloadBannerStore();
 onActivated(() => {
-  ui.hideBanner();
+  ui.hideBanner()
   hideTawk();
-
   if (!gameStore.launchUrl) {
     router.replace("/");
   }
 });
-// onMounted(() => {
-//   ui.hideBanner()
-//   hideTawk();
-//   if (!gameStore.launchUrl) {
-//     router.replace("/");
-//   }
-// });
 const goBack = () => {
   router.back();
 };

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
+import { ref, watch, onActivated } from "vue";
 import { useI18n } from "vue-i18n";
 import router from "@/router";
 import moment from "moment-timezone";
@@ -87,7 +87,7 @@ const fetchData = async () => {
   }
 };
 
-onMounted(fetchData);
+onActivated(fetchData);
 
 // 🔄 Reset page to index 1 whenever active filter parameters change
 watch([from, to, selectedStatus], () => {

@@ -6,7 +6,7 @@ import mm_flag from "@/assets/flags/mm.webp";
 import home from "@/assets/icon/home_new.webp";
 import buffalo from "@/assets/icon/buffalo_new.webp";
 import slot from "@/assets/icon/slot_new.webp";
-import fish from "@/assets/icon/fish_new.webp";
+import fish from "@/assets/icon/fishing_new.webp";
 import casino from "@/assets/icon/casino_new.webp";
 import chess from "@/assets/icon/arcade_new.webp";
 import kbzPay from "@/assets/payments/kbzpay.webp";

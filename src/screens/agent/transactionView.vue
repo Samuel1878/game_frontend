@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, onMounted } from "vue";
+import { ref, watch, onActivated } from "vue";
 import DatePicker from "@/components/CalenderView.vue";
 import { useI18n } from "vue-i18n";
 import { getAllTransactionsAPI } from "@/services/agentAPI";
@@ -91,7 +91,7 @@ const prevPage = () => {
   page.value--;
 };
 
-onMounted(() => {
+onActivated(() => {
   fetchTransaction();
 });
 </script>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onActivated, ref } from "vue";
 import { useBankStore } from "@/stores/bank";
 import { storeToRefs } from "pinia";
 import Button from "@/components/ui/button/Button.vue";
@@ -37,7 +37,7 @@ const form = ref<BankAccountPros>({
   is_available: true,
 });
 
-onMounted(() => {
+onActivated(() => {
   bankStore.fetchAccounts();
 });
 

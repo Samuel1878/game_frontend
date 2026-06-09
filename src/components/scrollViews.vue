@@ -109,7 +109,7 @@ const total = computed(() => props.gameData?.length ?? 0);
           @click="handler?.(game)"
         >
           <div
-            class="relative aspect-3/3.5 overflow-hidden rounded-lg "
+            class="relative aspect-square overflow-hidden rounded-lg "
           >
             <img
               :src="`${
@@ -134,7 +134,7 @@ const total = computed(() => props.gameData?.length ?? 0);
               :fetchpriority="index > 5 ? 'auto' : 'high'"
             />
             <div
-                class="pointer-events-none absolute bottom-0 inset-x-0 h-1/4 bg-linear-to-t from-black/60 via-white/10 to-transparent z-10"
+                class="pointer-events-none absolute bottom-0 inset-x-0 h-1/4 bg-linear-to-t from-black/60 via-black/10 to-transparent z-10"
               />
 
             <div

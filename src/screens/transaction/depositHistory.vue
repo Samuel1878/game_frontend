@@ -2,7 +2,7 @@
 import { getDepositById } from "@/services/transactionAPI";
 import { useAuthStore } from "@/stores/auth";
 import type { depositFormData } from "@/utils/types";
-import { ref, onMounted, watch } from "vue";
+import { ref, watch, onActivated } from "vue";
 import moment from "moment-timezone";
 import { useI18n } from "vue-i18n";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
@@ -90,7 +90,7 @@ const fetchData = async () => {
 };
 
 // Initialize filter parameters on mount
-onMounted(fetchData);
+onActivated(fetchData);
 
 // Reactivity pipeline watching reactive elements automatically triggering fresh sync updates
 watch([currentPage, from, to, selectedStatus, searchKeyword], () => {

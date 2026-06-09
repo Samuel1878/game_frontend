@@ -7,7 +7,7 @@ import {
   InputGroupText,
 } from "@/components/ui/input-group";
 import { toast } from "vue-sonner";
-import { computed, onMounted, ref } from "vue";
+import { computed, onActivated, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useClipboard } from "@vueuse/core";
 import {
@@ -97,7 +97,7 @@ const { copy } = useClipboard({ source: "" });
 const payment = computed(
   () => paymentMethod.filter((e) => e.value === route.params.payment_method)[0],
 );
-onMounted(() => {
+onActivated(() => {
   getPaymentMethods();
 });
 const getPaymentMethods = async () => {

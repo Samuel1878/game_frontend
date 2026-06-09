@@ -49,11 +49,11 @@ const gotoPath = (path: string) => {
       @click="gotoPath(option.path)"
     >
       <div 
-        class="p-2 bg-gray-800 rounded-full "
+        class="p-2 bg-gray-800 rounded-full shadow-lg"
         :class="props.current_page === option.label
         ? 'border-yellow-400 outline-4 outline-gray-500/20 border-2'
         : 'border-0 outline-0'">
-         <img :src="option.image" class="w-8 h-8" :alt="option.label" loading="eager" fetchpriority="high"/>
+         <img :src="option.image" class="h-8 w-8" :alt="option.label" loading="eager" fetchpriority="high"/>
       </div>
     </div>
   </div>

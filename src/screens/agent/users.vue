@@ -4,7 +4,7 @@ import { getUserByAgentAPI } from "@/services/agentAPI";
 import { useAuthStore } from "@/stores/auth";
 import type { userInfo } from "@/utils/types";
 import moment from "moment";
-import { onMounted, ref } from "vue";
+import { onActivated, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat } from "@/utils";
@@ -69,7 +69,7 @@ const prevPage = async () => {
   }
 };
 
-onMounted(() => {
+onActivated(() => {
   if (authStore.user?.agent_id) {
     fetchPlayers(authStore.user.agent_id);
   }

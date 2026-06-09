@@ -7,8 +7,8 @@ import { defineAsyncComponent, onMounted, watch } from "vue";
 import { useReferralStore } from "./stores/referralStore";
 import { useRoute } from "vue-router";
 import { SidebarProvider, SidebarInset } from "./components/ui/sidebar";
-import { SpeedInsights } from "@vercel/speed-insights/vue"
-import { Analytics } from "@vercel/analytics/vue"
+import { SpeedInsights } from "@vercel/speed-insights/vue";
+import { Analytics } from "@vercel/analytics/vue";
 const DownloadNav = defineAsyncComponent(
   () => import("./components/layout/downloadNav.vue"),
 );
@@ -61,37 +61,41 @@ onMounted(() => {
 
 <template>
   <SidebarProvider :default-open="true">
-   <div class="flex min-h-screen w-full bg-gray-950 ios-scroll-fix">
+    <div class="flex min-h-screen w-full bg-gray-950 ios-scroll-fix">
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
         <DownloadNav />
         <TopNavBar />
         <div class="relative flex-1 flex flex-col items-center w-full">
           <router-view v-slot="{ Component }">
-            <keep-alive>
-              <Suspense>
-                <template #default>
-                  <component :is="Component" />
-                </template>
-                <template #fallback>
-                  <div class="flex items-center justify-center h-screen w-full" style="transform: translateZ(0);">
-                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500"></div>
-                  </div>
-                </template>
-              </Suspense>
-            </keep-alive>
+            <Suspense>
+              <template #default>
+                <keep-alive>
+                  <component :is="Component" :key="route.fullPath" />
+                </keep-alive>
+              </template>
+              <template #fallback>
+                <div
+                  class="flex items-center justify-center h-screen w-full"
+                  style="transform: translateZ(0)"
+                >
+                  <div
+                    class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500"
+                  ></div>
+                </div>
+              </template>
+            </Suspense>
           </router-view>
           <UpdatePopup />
           <GameDrawer />
         </div>
- 
       </SidebarInset>
     </div>
     <Toaster position="top-left" richColors />
     <BottomNav class="md:hidden" />
   </SidebarProvider>
   <SpeedInsights />
-  <Analytics/>
+  <Analytics />
 </template>
 <style scoped>
 .ios-scroll-fix {
