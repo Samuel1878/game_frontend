@@ -3,7 +3,6 @@ import { ref, computed} from "vue";
 import {  useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { toast } from "vue-sonner";
-import { saveAs } from "file-saver";
 import moment from "moment";
 import { 
   CopyIcon, 
@@ -21,6 +20,8 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { storeToRefs } from 'pinia';
 import { useDepositStore } from '@/stores/depositDetailStore';
+import { captureElement } from "@/utils/shareHandler";
+const receiptRef = ref<HTMLElement | null>(null);
 const depositStore = useDepositStore();
 const { selectedDeposit } = storeToRefs(depositStore);
 const router = useRouter();
@@ -70,31 +71,12 @@ const handleCopy = async (text: string | undefined, field: string) => {
     toast.error("Failed to copy");
   }
 };
-const exportDeposit = () => {
-  if (!selectedDeposit.value) return;
-
-  const csvData = `
-ID,Invoice,User ID,Payment,Request Amount,Actual Amount,Status,Remark,Account No,Account Name,TID,Created At
-${[
-    selectedDeposit.value.id,
-    selectedDeposit.value.inv_id,
-    selectedDeposit.value.user_id,
-    selectedDeposit.value.payment,
-    selectedDeposit.value.request_amount,
-    selectedDeposit.value.actual_amount,
-    selectedDeposit.value.status,
-    selectedDeposit.value.remark || '',
-    selectedDeposit.value.account_no || selectedDeposit.value.payment_number,
-    selectedDeposit.value.account_name || selectedDeposit.value.payment_account,
-    selectedDeposit.value.tid,
-    selectedDeposit.value.created_at,
-  ].join(",")}
-  `.trim();
-
-  const blob = new Blob([csvData], { type: "text/csv;charset=utf-8;" });
-  saveAs(blob, `statement_${selectedDeposit.value.tid || selectedDeposit.value.inv_id}.csv`);
-  toast.success(t("statement_exported"));
-};
+async function captureAndShare() {
+  await captureElement(
+    receiptRef,
+    `receipt-${selectedDeposit.value?.inv_id}.png`
+  );
+}
 </script>
 <template>
 
@@ -108,8 +90,8 @@ ${[
       <LanguageBtn />
     </template>
   </CustomNavBar>
-    <div class="flex-1 overflow-y-auto p-4 max-w-md w-full mx-auto space-y-4">
-      <div v-if="selectedDeposit" class="space-y-4">
+    <div class="flex-1 overflow-y-auto p-4 max-w-md w-full mx-auto space-y-4 bg-gray-900" ref="receiptRef">
+      <div v-if="selectedDeposit" class="space-y-4" >
         
         <div class="p-6 bg-linear-to-b from-gray-800/40 to-transparent border border-gray-900 rounded-3xl flex flex-col items-center text-center shadow-xl">
           <div class="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-3">
@@ -227,7 +209,7 @@ ${[
     <footer class="w-full z-30 p-4 bg-gray-800/20 backdrop-blur-2xl border-t border-gray-700/50">
       <div class="max-w-md mx-auto">
         <Button
-          @click="exportDeposit"
+          @click="captureAndShare"
           :disabled="!selectedDeposit"
           class="w-full h-12 gold-bg hover:opacity-95 active:scale-[0.99] disabled:opacity-40 text-gray-950 font-bold rounded-2xl flex items-center justify-center gap-2 shadow-xl shadow-amber-500/5 transition-all"
         >

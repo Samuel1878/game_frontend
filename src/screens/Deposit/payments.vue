@@ -14,7 +14,7 @@ import {
   CopyIcon,
   FileClock,
   Headset,
-  RefreshCcw,
+  RefreshCwIcon,
   ScrollText,
 } from "lucide-vue-next";
 import type { depositFormData, PaymentMethod } from "@/utils/types";
@@ -37,69 +37,55 @@ const priority = ref(1);
 const switching = ref(false);
 const submitting = ref(false);
 const accountIndex = ref(0);
-const changePriority = async () => {
-  if (!payments.value?.length) return;
-
-  switching.value = true;
-
-  const samePriority = payments.value.filter(
-    (e) => Number(e.priority) === priority.value,
-  );
-
-  // ✅ if multiple in same priority → rotate inside group
-  if (samePriority.length > 1) {
-    accountIndex.value = (accountIndex.value + 1) % samePriority.length;
-  } else {
-    // 🔁 fallback → change priority
-    const priorities = [
-      ...new Set(payments.value.map((e) => Number(e.priority))),
-    ].sort((a, b) => a - b);
-
-    const currentIndex = priorities.indexOf(priority.value);
-
-    const nextIndex =
-      currentIndex === -1 || currentIndex === priorities.length - 1
-        ? 0
-        : currentIndex + 1;
-
-    priority.value = priorities[nextIndex] || 1;
-
-    accountIndex.value = 0; // reset index
-  }
-
-  setTimeout(() => {
-    switching.value = false;
-  }, 300);
-};
-const chosenAccount = computed(() => {
-  if (!payments.value?.length) return null;
-
-  const samePriority = payments.value.filter(
-    (e) => Number(e.priority) === priority.value,
-  );
-
-  if (!samePriority.length) return null;
-
-  return samePriority[accountIndex.value % samePriority.length];
-});
-const payments = ref<PaymentMethod[] | null>(null);
-// const { amount } = route.query;
-const amount = computed(() => {
-  const num = parseFloat(route.query.amount as string);
-  return isNaN(num) ? null : num;
-});
 const form = ref({
   account_name: "",
   last5Digit: "",
   account_no: "",
 });
 const { copy } = useClipboard({ source: "" });
+const payments = ref<PaymentMethod[] | null>(null);
+const chosenAccount = computed(() => {
+  if (!payments.value?.length) return null;
+  const samePriority = payments.value.filter(
+    (e) => Number(e.priority) === priority.value,
+  );
+  if (!samePriority.length) return null;
+  return samePriority[accountIndex.value % samePriority.length];
+});
+
+const changePriority = async () => {
+  if (!payments.value?.length) return;
+  switching.value = true;
+  const samePriority = payments.value.filter(
+    (e) => Number(e.priority) === priority.value,
+  );
+  if (samePriority.length > 1) {
+    accountIndex.value = (accountIndex.value + 1) % samePriority.length;
+  } else {
+    const priorities = [
+      ...new Set(payments.value.map((e) => Number(e.priority))),
+    ].sort((a, b) => a - b);
+    const currentIndex = priorities.indexOf(priority.value);
+    const nextIndex =
+      currentIndex === -1 || currentIndex === priorities.length - 1
+        ? 0
+        : currentIndex + 1;
+    priority.value = priorities[nextIndex] || 1;
+    accountIndex.value = 0; // reset index
+  }
+  setTimeout(() => {
+    switching.value = false;
+  }, 300);
+};
+
+const amount = computed(() => {
+  const num = parseFloat(route.query.amount as string);
+  return isNaN(num) ? null : num;
+});
+
 const payment = computed(
   () => paymentMethod.filter((e) => e.value === route.params.payment_method)[0],
 );
-onActivated(() => {
-  getPaymentMethods();
-});
 const getPaymentMethods = async () => {
   try {
     const response = await getPaymentMethodsByType(
@@ -128,9 +114,7 @@ const submitHandler = async () => {
       toast.error(t("try_again"));
       return;
     } else if (
-      // !form.value.account_name ||
       !form.value.last5Digit
-      // !form.value.account_no
     ) {
       toast.error(t("last_5_digit_must_be_filed"));
       return;
@@ -173,6 +157,9 @@ const copyHandler = (value: any) => {
   copy(value);
   toast.success(`${t("copied")}: ${value}`);
 };
+onActivated(() => {
+  getPaymentMethods();
+});
 </script>
 <template>
   <main class="bg-gray-900 w-full gap-2 flex items-center flex-col">
@@ -182,7 +169,7 @@ const copyHandler = (value: any) => {
           <FileClock class="w-6 h-6 text-gray-400" />
         </button>
         <button @click="openChat">
-          <Headset class="w-6 h-6 text-yellow-400" />
+          <Headset class="w-6 h-6 text-gray-400" />
         </button>
         <LanguageBtn />
       </template>
@@ -198,7 +185,7 @@ const copyHandler = (value: any) => {
             <div
               class="rounded-lg overflow-hidden bg-gray-700/40 backdrop-blur-2xl"
             >
-              <img :src="payment?.icon" class="w-12 h-12" />
+              <img :src="payment?.icon" class="w-12 h-12" alt="payment_icon"/>
             </div>
             <p class="font-bold text-white">{{ payment?.label }}</p>
             <button
@@ -206,7 +193,7 @@ const copyHandler = (value: any) => {
               @click="changePriority"
               class="active:scale-95 transition text-yellow-400 font-bold text-lg px-2 py-1"
             >
-              <RefreshCcw :class="switching ? 'animate-spin' : ''" />
+              <RefreshCwIcon :class="switching ? 'animate-spin' : ''" />
             </button>
           </div>
           <div class="w-full flex justify-between items-center">
@@ -252,7 +239,7 @@ const copyHandler = (value: any) => {
           </div>
         </div>
         <div
-          class="flex flex-col w-full flex-1 p-4 h-full bg-gray-800/20 border-gray-500/20 backdrop-blur-md shadow-2xl border rounded-2xl"
+          class="flex flex-col w-full flex-1 gap-4 p-4 h-full bg-gray-800/20 border-gray-500/20 backdrop-blur-md shadow-2xl border rounded-2xl"
         >
           <div class="space-y-2">
             <Label class="text-gray-400 font-semibold">
@@ -272,23 +259,17 @@ const copyHandler = (value: any) => {
                 v-model="form.last5Digit"
                 placeholder="*****"
               />
-
               <InputGroupAddon align="inline-end">
                 <InputGroupText class="text-gray-100"></InputGroupText>
               </InputGroupAddon>
             </InputGroup>
           </div>
-        </div>
-
-        <div
-          class="w-full z-30 fixed bottom-0 right-0 left-0 p-4 bg-gray-800/20 backdrop-blur-2xl border-t border-gray-700/50"
-        >
           <button
-            :disabled="submitting"
+            :disabled="submitting || !form.last5Digit"
             type="submit"
             class="gold-bg active-button h-12 font-bold text-gray-900 w-full rounded-lg flex justify-center items-center gap-2 disabled:opacity-50"
           >
-            <RefreshCcw v-if="submitting" class="animate-spin" />
+            <RefreshCwIcon v-if="submitting" class="animate-spin" />
             {{ t("submit") }}
           </button>
         </div>

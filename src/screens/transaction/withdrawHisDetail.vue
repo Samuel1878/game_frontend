@@ -19,7 +19,9 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { useWithdrawStore } from "@/stores/withdrawDetailStore";
 import { storeToRefs } from "pinia";
+import { captureElement } from "@/utils/shareHandler";
 const { t } = useI18n();
+const receiptRef = ref<HTMLElement | null>(null);
 const withdrawStore = useWithdrawStore();
 const { selectedWithdrawal } = storeToRefs(withdrawStore);
 const copiedField = ref<string | null>(null);
@@ -62,23 +64,15 @@ const handleCopy = async (text: string | undefined, fieldName: string) => {
   }
 };
 
-// Data export context action handler
-const exportData = () => {
-  if (!selectedWithdrawal.value) return;
-  const dataStr =
-    "data:text/json;charset=utf-8," +
-    encodeURIComponent(JSON.stringify(selectedWithdrawal.value, null, 2));
-  const link = document.createElement("a");
-  link.href = dataStr;
-  link.download = `withdrawal-${selectedWithdrawal.value.txn_id || "record"}.json`;
-  link.click();
-  toast.success(t("statement_exported") || "JSON manifest generated!");
-};
+async function captureAndShare() {
+  await captureElement(
+    receiptRef,
+    `receipt-${selectedWithdrawal.value?.txn_id}.png`
+  );
+}
 </script>
 
 <template>
-    
-  
   <main class="min-h-screen bg-gray-900 w-full text-white flex flex-col antialiased selection:bg-emerald-500/30">
      <CustomNavBar title="detail" backTo="/user/withdraw-history">
     <template #right>
@@ -89,7 +83,7 @@ const exportData = () => {
     </template>
   </CustomNavBar>
     <!-- CONTENT DISPLAY CONTAINER SCROLL VIEW LAYER -->
-    <div class="flex-1 overflow-y-auto p-4 max-w-md w-full mx-auto space-y-4 pb-28">
+    <div class="flex-1 overflow-y-auto p-4 max-w-md w-full mx-auto space-y-4 pb-28 bg-gray-900" ref="receiptRef">
 
       <div v-if="selectedWithdrawal" class="space-y-4 animate-in fade-in-50 duration-200">
         
@@ -188,7 +182,7 @@ const exportData = () => {
     <footer class="fixed bottom-0 left-0 right-0 p-4 bg-gray-900/80 backdrop-blur-lg border-t border-gray-900/80">
       <div class="max-w-md mx-auto">
         <Button
-          @click="exportData"
+          @click="captureAndShare"
           :disabled="!selectedWithdrawal"
           class="w-full h-12 bg-linear-to-r from-emerald-500 to-teal-600 hover:opacity-95 active:scale-[0.99] disabled:opacity-40 text-white font-bold rounded-2xl flex items-center justify-center gap-2 shadow-xl shadow-emerald-500/5 border border-emerald-400/20 transition-all"
         >

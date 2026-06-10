@@ -22,6 +22,7 @@ import ScrollViews from "@/components/scrollViews.vue";
 const authStore = useAuthStore();
 const { t } = useI18n();
 const { prepareGame } = useGameStore();
+
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex flex-col min-h-screen ios-layer-isolate">

@@ -3,7 +3,7 @@ import { Toaster } from "./components/ui/sonner";
 import "vue-sonner/style.css";
 import BottomNav from "./components/layout/bottomNav.vue";
 import TopNavBar from "./components/layout/topNavBar.vue";
-import { defineAsyncComponent, onMounted, watch } from "vue";
+import { defineAsyncComponent, onMounted, ref, watch } from "vue";
 import { useReferralStore } from "./stores/referralStore";
 import { useRoute } from "vue-router";
 import { SidebarProvider, SidebarInset } from "./components/ui/sidebar";
@@ -19,6 +19,7 @@ const UpdatePopup = defineAsyncComponent(
 const GameDrawer = defineAsyncComponent(
   () => import("./components/gameDrawer.vue"),
 );
+const isDesktop = ref(false);
 const route = useRoute();
 const referralStore = useReferralStore();
 watch(
@@ -33,6 +34,7 @@ watch(
 );
 
 onMounted(() => {
+  isDesktop.value = window.innerWidth >= 1280
   if ((window as any).Tawk_API) return;
   (window as any).Tawk_API = (window as any).Tawk_API || {};
   (window as any).Tawk_LoadStart = new Date();
@@ -58,9 +60,8 @@ onMounted(() => {
   document.head.appendChild(s1);
 });
 </script>
-
 <template>
-  <SidebarProvider :default-open="true">
+  <SidebarProvider :default-open="isDesktop" :key="isDesktop.toString()">
     <div class="flex min-h-dvh w-full bg-gray-950 ios-scroll-fix">
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">

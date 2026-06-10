@@ -27,15 +27,13 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src')
     }
   },
-  // define: {
-  //   __VUE_PROD_DEVTOOLS__: false,
-  // },
-
-  // esbuild: {
-  //   pure: ['console.log'],
-  //   drop: ["console", "debugger"],
-
-  // },
+  define: {
+    __VUE_PROD_DEVTOOLS__: false,
+  },
+  esbuild: {
+    pure: ['console.log'],
+    drop: ["console", "debugger"],
+  },
   build: {
     minify: "esbuild",
     cssCodeSplit: false,

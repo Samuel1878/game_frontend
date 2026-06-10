@@ -52,6 +52,17 @@ export const topSlotGames: gameType[] = [
     cn_icon_url: "/game_icons/35_134_WildBountyShowdown_CN.webp",
   },
   {
+    id: 6,
+    provider_id: 35,
+    cn_name: "麻将胡了2",
+    game_id: 74,
+    rtp: "0.96950",
+    game_rank: 2,
+    name: "Mahjong Ways 2",
+    icon_url: "/game_icons/35_74_MahjongWaysTwo.webp",
+    cn_icon_url: "/game_icons/35_74_MahjongWaysTwo_CN.webp",
+  },
+  {
     id: 4,
     provider_id: 3,
     game_id: 213,
@@ -65,18 +76,20 @@ export const topSlotGames: gameType[] = [
     cn_name: "疯狂金字塔",
   },
 
-  {
-    id: 6,
-    provider_id: 35,
-    cn_name: "麻将胡了2",
-    game_id: 74,
-    rtp: "0.96950",
-    game_rank: 2,
-    name: "Mahjong Ways 2",
-    icon_url: "/game_icons/35_74_MahjongWaysTwo.webp",
-    cn_icon_url: "/game_icons/35_74_MahjongWaysTwo_CN.webp",
+  
+{
+    id: 9,
+    provider_id: 3,
+    game_id: 397,
+    cn_name: "麻将大胜™",
+    rtp: "0.98000",
+    game_rank: 10,
+    name: "Mahjong Wins™",
+    icon_url:
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_397_MahjongWins.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_397_MahjongWins_CN.png",
   },
-
   {
     id: 7,
     provider_id: 1046,
@@ -115,23 +128,22 @@ export const topSlotGames: gameType[] = [
     cn_icon_url:
       "https://khpic.cdn568.net/images/games/PragmaticPlay/3_437_CandyJarCluster_CN.png",
   },
-  {
-    id: 9,
-    provider_id: 3,
-    game_id: 397,
-    cn_name: "麻将大胜™",
-    rtp: "0.98000",
-    game_rank: 10,
-    name: "Mahjong Wins™",
-    icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_397_MahjongWins.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_397_MahjongWins_CN.png",
-  },
+  
 ];
 export const hotGames: gameType[] = [
   {
-    id: 5,
+    "id": 1,
+    "provider_id": 1020,
+    "game_id": 276,
+    "rtp": "0.97000",
+    "game_rank": 276,
+    "name": "Fortune Garuda 500",
+    "cn_icon_url":"https://khpic.cdn568.net/JiLiGaming/276/1020_276_FortuneGaruda500_cn.png",
+    cn_name:"迦羅戰神 500",
+    "icon_url": "https://khpic.cdn568.net/JiLiGaming/276/1020_276_FortuneGaruda500.png"
+},
+  {
+    id: 2,
     provider_id: 3,
     game_id: 649,
     rtp: "0.96500",
@@ -144,7 +156,7 @@ export const hotGames: gameType[] = [
     cn_name: "財富高手超级闪耀",
   },
   {
-    id: 1,
+    id: 3,
     provider_id: 35,
     game_id: 141,
     rtp: "0.96750",
@@ -153,12 +165,10 @@ export const hotGames: gameType[] = [
     name: "Fortune Rabbit",
     icon_url: "/game_icons/35_141_FortuneRabbit.webp",
     cn_icon_url: "/game_icons/35_141_FortuneRabbit_CN.webp",
-    // cn_icon_url:
-    //   "https://vptocypywfkpepmggrym.supabase.co/storage/v1/object/public/game_icons/35_141_FortuneRabbit_CN.png",
   },
 
   {
-    id: 3,
+    id: 4,
     provider_id: 3,
     game_id: 388,
     cn_name: "星光公主™ 1000",
@@ -172,7 +182,7 @@ export const hotGames: gameType[] = [
   },
 
   {
-    id: 2,
+    id: 5,
     provider_id: 3,
     game_id: 494,
     rtp: "0.96530",
@@ -186,7 +196,7 @@ export const hotGames: gameType[] = [
   },
 
   {
-    id: 5,
+    id:6,
     provider_id: 3,
     game_id: 473,
     rtp: "0.96530",
@@ -199,7 +209,7 @@ export const hotGames: gameType[] = [
     name: "Sugar Rush 1000",
   },
   {
-    id: 6,
+    id:7,
     game_id: 467,
     game_rank: 17,
     icon_url:
@@ -212,19 +222,7 @@ export const hotGames: gameType[] = [
     rtp: "0.96500",
   },
 
-  {
-    id: 8,
-    provider_id: 3,
-    game_id: 337,
-    rtp: "0.96000",
-    game_rank: 531,
-    name: "Wild Wild Bananas™",
-    icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_Wild%20Wild%20Bananas.png",
-    cn_icon_url:
-      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_Wild%20Wild%20Bananas_cn.png",
-    cn_name: "狂野美味香蕉™",
-  },
+ 
   {
     id: 9,
     provider_id: 1020,
@@ -265,7 +263,7 @@ export const hotGames: gameType[] = [
 ];
 export const topFishGames: gameType[] = [
   {
-    id: 18,
+    id: 1,
     provider_id: 1020,
     game_id: 169,
     game_rank: 10,
@@ -279,7 +277,7 @@ export const topFishGames: gameType[] = [
   },
 
   {
-    id: 1,
+    id:2,
     provider_id: 1020,
     game_id: 4,
     rtp: "0.97000",
@@ -291,7 +289,7 @@ export const topFishGames: gameType[] = [
   },
 
   {
-    id: 2,
+    id: 3,
     cn_name: "海王彩金",
     provider_id: 1020,
     game_id: 127,
@@ -304,7 +302,7 @@ export const topFishGames: gameType[] = [
       "https://khpic.cdn568.net/JiLiGaming/127/1020_127_OceanKingJackpot_CN.png",
   },
   {
-    id: 3,
+    id: 4,
     cn_name: "爽爽捕鱼",
     provider_id: 1042,
     game_id: 543,
@@ -316,7 +314,7 @@ export const topFishGames: gameType[] = [
     icon_url: "https://khpic.cdn568.net/KAGaming/543/1042_543_KAFishHunter.png",
   },
   {
-    id: 4,
+    id: 5,
     provider_id: 1020,
     game_id: 8,
     cn_name: "開心捕魚",
@@ -327,7 +325,7 @@ export const topFishGames: gameType[] = [
     icon_url: "https://khpic.cdn568.net/JiLiGaming/8/GameID_82_EN.png",
   },
   {
-    id: 5,
+    id: 6,
     provider_id: 1042,
     game_id: 541,
     rtp: "0.96000",
@@ -340,7 +338,7 @@ export const topFishGames: gameType[] = [
   },
 
   {
-    id: 6,
+    id:7,
     provider_id: 1020,
     cn_name: "王者捕魚",
     game_id: 6,
@@ -351,7 +349,7 @@ export const topFishGames: gameType[] = [
     cn_icon_url: "https://khpic.cdn568.net/JiLiGaming/6/GameID_74_CN.png",
   },
   {
-    id: 7,
+    id: 8,
     provider_id: 1050,
     cn_name: "捕鱼大满贯",
     game_id: 27,
@@ -364,7 +362,7 @@ export const topFishGames: gameType[] = [
       "https://khpic.cdn568.net/bolegaming/27/1050_27_JackpotFishing_CN.png",
   },
   {
-    id: 8,
+    id:9,
     provider_id: 1020,
     game_id: 3,
     rtp: "0.97000",
@@ -375,7 +373,7 @@ export const topFishGames: gameType[] = [
     cn_icon_url: "https://khpic.cdn568.net/JiLiGaming/3/GameID_42_CN.jpg",
   },
   {
-    id: 9,
+    id: 10,
     provider_id: 1042,
     game_id: 593,
     rtp: "0.96000",
@@ -388,7 +386,7 @@ export const topFishGames: gameType[] = [
       "https://khpic.cdn568.net/KAGaming/593/1042_593_ShenronHunter_CN.png",
   },
   {
-    id: 10,
+    id: 11,
     provider_id: 1042,
     cn_name: "福运之战",
     game_id: 695,
@@ -400,7 +398,7 @@ export const topFishGames: gameType[] = [
       "https://khpic.cdn568.net/KAGaming/695/1042_695_BattleofLuck_CN.jpg",
   },
   {
-    id: 11,
+    id: 12,
     provider_id: 1020,
     game_id: 2,
     cn_name: "炸魚來了",
@@ -412,7 +410,7 @@ export const topFishGames: gameType[] = [
   },
 
   {
-    id: 17,
+    id: 13,
     provider_id: 1042,
     cn_name: "金鲨对银鲨",
     game_id: 592,
@@ -645,7 +643,7 @@ export const topBuffaloGames: gameType[] = [
     cn_icon_url: "/game_icons/3_302_BlackBull.webp",
   },
   {
-    id: 14,
+    id: 6,
     provider_id: 1020,
     game_id: 217,
     cn_name: "三币金牛",
@@ -659,7 +657,7 @@ export const topBuffaloGames: gameType[] = [
   },
 
   {
-    id: 15,
+    id: 7,
     provider_id: 35,
     game_id: 98,
     rtp: "0.96750",
@@ -671,7 +669,7 @@ export const topBuffaloGames: gameType[] = [
   },
 
   {
-    id: 7,
+    id:8,
     provider_id: 1046,
     game_id: 57,
     cn_name: "多牛多财",
@@ -684,7 +682,7 @@ export const topBuffaloGames: gameType[] = [
   },
 
   {
-    id: 8,
+    id: 9,
     provider_id: 1046,
     cn_name: "疯狂野牛",
     game_id: 36,
@@ -697,7 +695,7 @@ export const topBuffaloGames: gameType[] = [
   },
 
   {
-    id: 9,
+    id: 10,
     provider_id: 3,
     cn_name: "热火暴走狂潮",
     game_id: 701,
@@ -710,7 +708,7 @@ export const topBuffaloGames: gameType[] = [
       "https://khpic.cdn568.net/PragmaticPlay/701/3_701_FireStampedeUltimate_CN.png",
   },
   {
-    id: 10,
+    id: 11,
     provider_id: 1042,
     game_id: 3,
     rtp: "0.96000",
@@ -721,7 +719,7 @@ export const topBuffaloGames: gameType[] = [
     cn_icon_url: "https://khpic.cdn568.net/KAGaming/3/1042_3_GoldenBull_CN.png",
   },
   {
-    id: 6,
+    id:12,
     provider_id: 1094,
     cn_name: "African Buffalo(50)",
     game_id: 1,
@@ -735,7 +733,7 @@ export const topBuffaloGames: gameType[] = [
   },
 
   {
-    id: 11,
+    id: 13,
     provider_id: 1094,
     game_id: 2,
     rtp: "0.95000",
@@ -748,7 +746,7 @@ export const topBuffaloGames: gameType[] = [
       "https://khpic.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png?v=1",
   },
   {
-    id: 12,
+    id: 14,
     provider_id: 1094,
     game_id: 3,
     rtp: "0.95000",
@@ -761,7 +759,7 @@ export const topBuffaloGames: gameType[] = [
       "https://khpic.cdn568.net/AfricanBuffalo/1/1094_1_AfricanBuffalo.png?v=1",
   },
   {
-    id: 13,
+    id: 15,
     provider_id: 1094,
     game_id: 4,
     rtp: "0.95000",
@@ -840,7 +838,7 @@ export const popularGames: gameType[] = [
       "https://khpic.cdn568.net/JiLiGaming/116/1020_116_FortuneGems2_CN.png",
   },
   {
-    id: 8,
+    id: 6,
     provider_id: 1020,
     game_id: 35,
     rtp: "0.97000",
@@ -851,7 +849,7 @@ export const popularGames: gameType[] = [
     cn_name: "拳王",
   },
   {
-    id: 10,
+    id: 7,
     provider_id: 1020,
     game_id: 210,
     rtp: "0.97000",
@@ -864,7 +862,7 @@ export const popularGames: gameType[] = [
       "https://khpic.cdn568.net/JiLiGaming/210/1020_210_FortuneCoins2_CN.png",
   },
   {
-    id: 9,
+    id: 8,
     provider_id: 1020,
     game_id: 31,
     rtp: "0.97000",
@@ -875,9 +873,35 @@ export const popularGames: gameType[] = [
       "https://khpic.cdn568.net/JiLiGaming/31/1020_31_SuperAce_CN.png",
     icon_url: "https://khpic.cdn568.net/JiLiGaming/31/1020_31_SuperAce.png",
   },
+   {
+    id:9,
+    provider_id: 3,
+    game_id: 337,
+    rtp: "0.96000",
+    game_rank: 531,
+    name: "Wild Wild Bananas™",
+    icon_url:
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_Wild%20Wild%20Bananas.png",
+    cn_icon_url:
+      "https://khpic.cdn568.net/images/games/PragmaticPlay/3_Wild%20Wild%20Bananas_cn.png",
+    cn_name: "狂野美味香蕉™",
+  },
+  {
+    id:11,
+    provider_id: 1034,
+    game_id: 74,
+    rtp: "0.97480",
+    game_rank: 6,
+    name: "LABUBU: Fall In Wild",
+    icon_url:
+      "https://khpic.cdn568.net/AdvantPlay/74/1034_74_LABUBUFallInWild.jpg",
+    cn_icon_url:
+      "https://khpic.cdn568.net/AdvantPlay/74/1034_74_LABUBUFallInWild_CN.jpg",
+    cn_name: "LABUBU: 春天野在家",
+  },
 
   {
-    id: 6,
+    id: 12,
     provider_id: 3,
     game_id: 652,
     rtp: "0.96500",
@@ -889,17 +913,5 @@ export const popularGames: gameType[] = [
     cn_icon_url:
       "https://khpic.cdn568.net/PragmaticPlay/652/3_652_SweetRushBonanza_CN.png",
   },
-  {
-    id: 7,
-    provider_id: 1034,
-    game_id: 74,
-    rtp: "0.97480",
-    game_rank: 6,
-    name: "LABUBU: Fall In Wild",
-    icon_url:
-      "https://khpic.cdn568.net/AdvantPlay/74/1034_74_LABUBUFallInWild.jpg",
-    cn_icon_url:
-      "https://khpic.cdn568.net/AdvantPlay/74/1034_74_LABUBUFallInWild_CN.jpg",
-    cn_name: "LABUBU: 春天野在家",
-  }
+  
 ];

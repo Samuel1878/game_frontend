@@ -238,7 +238,6 @@ watch([percentage, byPercentage], () => {
           <p class="text-gray-300 font-medium text-md">
             {{ t("withdraw_amount") }}
           </p>
-
           <div class="flex flex-col gap-1 items-end">
             <p class="text-yellow-400 font-bold text-lg">
               {{ formatPrice(amount || 0) }} MMK
@@ -257,11 +256,8 @@ watch([percentage, byPercentage], () => {
             </span>
           </div>
         </div>
-
-        <!-- CSS GRID HEIGHT ANIMATION WRAPPER -->
         <div
           class="overflow-hidden transition-all duration-500 h-fit"
-          
         >
           <div class="overflow-hidden">
             <Transition
@@ -306,7 +302,6 @@ watch([percentage, byPercentage], () => {
                   </p>
                 </div>
               </div>
-
               <!-- STATE B: EMPTY STATE ALERT -->
               <div
                 v-else
@@ -403,7 +398,6 @@ watch([percentage, byPercentage], () => {
                   </p>
                 </div>
               </div>
-
               <div
                 class="absolute top-3 right-3 overflow-hidden rounded-lg p-2 bg-white/10 backdrop-blur-2xl"
               >

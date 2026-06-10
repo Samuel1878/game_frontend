@@ -20,7 +20,9 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { storeToRefs } from "pinia";
 import { useTransactionDetail } from "@/stores/transactionDetailStore";
+import { captureElement } from "@/utils/shareHandler";
 const store = useTransactionDetail();
+const receiptRef = ref<HTMLElement | null>(null);
 const { selectedTransaction } = storeToRefs(store);
 const router = useRouter();
 const { t } = useI18n();
@@ -85,9 +87,15 @@ const handleCopy = async (text: string | undefined, field: string) => {
     toast.error("Failed to copy");
   }
 };
+
+async function captureAndShare() {
+  await captureElement(
+    receiptRef,
+    `receipt-${selectedTransaction.value?.txn_id}.png`
+  );
+}
 </script>
 <template>
-
   <main
     class="min-h-screen relative w-full bg-gray-900 text-white flex flex-col antialiased selection:bg-amber-500/30"
   >
@@ -100,7 +108,8 @@ const handleCopy = async (text: string | undefined, field: string) => {
     </template>
   </CustomNavBar>
     <div
-      class="flex-1 overflow-y-auto p-4 max-w-md w-full mx-auto space-y-4 pb-24"
+      class="flex-1 overflow-y-auto p-4 max-w-md w-full mx-auto space-y-4 pb-24 bg-gray-900"
+      ref="receiptRef"
     >
       <div v-if="selectedTransaction" class="space-y-4">
         <div
@@ -208,10 +217,10 @@ const handleCopy = async (text: string | undefined, field: string) => {
     >
       <div class="max-w-md mx-auto">
         <Button
-          @click="router.back"
+          @click="captureAndShare"
           class="w-full h-12 gold-bg hover:opacity-95 active:scale-[0.99] disabled:opacity-40 text-gray-950 font-bold rounded-2xl flex items-center justify-center gap-2 shadow-xl shadow-amber-500/5 transition-all"
         >
-          {{ t("back") }}
+          {{ t("download") }}
         </Button>
       </div>
     </footer>
