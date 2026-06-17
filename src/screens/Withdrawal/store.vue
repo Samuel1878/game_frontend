@@ -8,13 +8,10 @@ import { openChat } from "@/utils";
 import { useI18n } from "vue-i18n";
 import Dialog from "@/components/ui/dialog/Dialog.vue";
 import DialogContent from "@/components/ui/dialog/DialogContent.vue";
-import { BrowserMultiFormatReader, NotFoundException } from "@zxing/library";
-//  const { BrowserMultiFormatReader } = await import("@zxing/library");
-// const {BrowserMultiFormatReader} = await import("@zxing/library")
+import type { BrowserMultiFormatReader } from "@zxing/library";
 import api from "@/services/api";
 import { useAuthStore } from "@/stores/auth";
 import router from "@/router";
-// const {BrowserMultiFormatReader, NotFoundException,  } = defineAsyncComponent(()=>import("@zxing/library"))
 const scannerOpen = ref(false);
 const videoRef = ref<HTMLVideoElement | null>(null);
 
@@ -102,12 +99,13 @@ const confirmWithdraw = async() => {
 };
 
 const startScanner = async () => {
-// const { BrowserMultiFormatReader, NotFoundException } = await import("@zxing/library");
   scannerOpen.value = true;
 
   await nextTick();
 
   try {
+    const { BrowserMultiFormatReader, NotFoundException } = await import("@zxing/library");
+
     isScanning.value = true;
     scanResult.value = null;
     statusMessage.value = "Starting camera...";

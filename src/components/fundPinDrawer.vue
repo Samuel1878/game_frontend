@@ -68,7 +68,6 @@ const submit = () => {
 watch(
   () => props.open,
   (isOpen) => {
-    console.log(isOpen)
     if (isOpen) {
       hideTawk();
     } else {

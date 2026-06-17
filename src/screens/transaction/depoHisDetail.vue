@@ -53,6 +53,11 @@ const statusConfig = computed(() => {
         bg: 'bg-rose-500/10 border-rose-500/20 text-rose-400',
         icon: XCircle
       };
+    case 'cancelled':
+      return {
+        bg: 'bg-gray-500/10 border-gray-500/20 text-gray-400',
+        icon: XCircle
+      };
     default:
       return {
         bg: 'bg-gray-500/10 border-gray-500/20 text-gray-400',
@@ -102,7 +107,9 @@ async function captureAndShare() {
           </span>
           <h2 class="text-3xl font-black text-transparent bg-clip-text bg-linear-to-r from-yellow-200 via-yellow-400 to-amber-500 mt-1 tracking-tight">
             {{ formatPrice(selectedDeposit.actual_amount ?? selectedDeposit.request_amount ?? 0) }}
-            <span class="text-sm font-bold text-amber-400/80 ml-0.5">MMK</span>
+            <span class="text-sm font-bold text-amber-400/80 ml-0.5">
+              {{ selectedDeposit.currency || "MMK" }}
+            </span>
           </h2>
 
           <div 
@@ -177,13 +184,15 @@ async function captureAndShare() {
             <div class="bg-gray-900 border border-gray-900 p-3 rounded-2xl">
               <span class="text-gray-500 text-[11px] font-semibold block mb-0.5 uppercase tracking-wider">{{ t("request_amount") }}</span>
               <span class="text-gray-300 font-bold text-sm">
-                {{ formatPrice(selectedDeposit.request_amount ?? 0) }} <span class="text-xs text-gray-500">MMK</span>
+                {{ formatPrice(selectedDeposit.request_amount ?? 0) }}
+                <span class="text-xs text-gray-500">{{ selectedDeposit.currency || "MMK" }}</span>
               </span>
             </div>
             <div class="bg-gray-900 border border-gray-900 p-3 rounded-2xl">
               <span class="text-gray-500 text-[11px] font-semibold block mb-0.5 uppercase tracking-wider">{{ t("actual_amount") }}</span>
               <span class="text-amber-400 font-black text-sm">
-                {{ formatPrice(selectedDeposit.actual_amount ?? 0) }} <span class="text-xs text-amber-500/70">MMK</span>
+                {{ formatPrice(selectedDeposit.actual_amount ?? 0) }}
+                <span class="text-xs text-amber-500/70">{{ selectedDeposit.currency || "MMK" }}</span>
               </span>
             </div>
           </div>
@@ -192,6 +201,13 @@ async function captureAndShare() {
             <span class="text-gray-400 text-sm font-medium">{{ t("date") }}</span>
             <span class="text-gray-300 text-sm font-semibold">
               {{ moment(selectedDeposit.created_at).format("DD MMM YYYY, hh:mm A") }}
+            </span>
+          </div>
+
+          <div v-if="selectedDeposit.reviewed_at" class="flex justify-between items-center py-3.5">
+            <span class="text-gray-400 text-sm font-medium">{{ t("reviewed_at") }}</span>
+            <span class="text-gray-300 text-sm font-semibold">
+              {{ moment(selectedDeposit.reviewed_at).format("DD MMM YYYY, hh:mm A") }}
             </span>
           </div>
 

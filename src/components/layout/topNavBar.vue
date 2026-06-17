@@ -62,7 +62,7 @@ const openMenu = () => {
             <RefreshCw :class="loading ? 'animate-spin' : ''" class="w-4 h-4 text-yellow-400"/>
             <p class="font-bold text-xs text-white">
               {{ formatPrice(wallet.balance || 0) }}
-             <span class="text-yellow-400 text-xs font-bold">Ks</span>
+             <span class="text-yellow-400 text-xs font-bold">{{ wallet.currency }}</span>
             </p>
           </div>
           <UserTopActions />

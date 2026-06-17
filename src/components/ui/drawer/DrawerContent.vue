@@ -1,38 +1,41 @@
-<script lang="ts" setup>
-import type { DialogContentEmits, DialogContentProps } from "reka-ui"
-import type { HTMLAttributes } from "vue"
-import { useForwardPropsEmits } from "reka-ui"
-import { DrawerContent, DrawerPortal } from "vaul-vue"
-import { cn } from "@/lib/utils"
-import DrawerOverlay from "./DrawerOverlay.vue"
+<script setup lang="ts">
+import type { HTMLAttributes } from "vue";
+import { inject } from "vue";
+import { cn } from "@/lib/utils";
+import { drawerContextKey } from "./context";
 
-defineOptions({
-  inheritAttrs: false,
-})
+const props = defineProps<{
+  class?: HTMLAttributes["class"];
+}>();
 
-const props = defineProps<DialogContentProps & { class?: HTMLAttributes["class"] }>()
-const emits = defineEmits<DialogContentEmits>()
-
-const forwarded = useForwardPropsEmits(props, emits)
+const drawer = inject(drawerContextKey);
 </script>
 
 <template>
-  <DrawerPortal>
-    <DrawerOverlay />
-    <DrawerContent
-      data-slot="drawer-content"
-      v-bind="{ ...$attrs, ...forwarded }"
-      :class="cn(
-        'group/drawer-content bg-background fixed z-50 flex h-auto flex-col',
-        'data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh] data-[vaul-drawer-direction=top]:rounded-b-lg',
-        'data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh] data-[vaul-drawer-direction=bottom]:rounded-t-lg',
-        'data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-3/4 data-[vaul-drawer-direction=right]:sm:max-w-sm',
-        'data-[vaul-drawer-direction=left]:inset-y-0 data-[vaul-drawer-direction=left]:left-0 data-[vaul-drawer-direction=left]:w-3/4 data-[vaul-drawer-direction=left]:sm:max-w-sm',
-        props.class,
-      )"
+  <Teleport to="body">
+    <div
+      v-if="drawer?.open.value"
+      class="fixed inset-0 z-50 flex items-end"
+      role="presentation"
     >
-      <div class="bg-muted mx-auto mt-4 hidden h-2 w-[100px] shrink-0 rounded-full group-data-[vaul-drawer-direction=bottom]/drawer-content:block" />
-      <slot />
-    </DrawerContent>
-  </DrawerPortal>
+      <button
+        type="button"
+        class="absolute inset-0 bg-black/50"
+        aria-label="Close drawer"
+        @click="drawer.setOpen(false)"
+      />
+      <div
+        data-slot="drawer-content"
+        role="dialog"
+        aria-modal="true"
+        :class="cn(
+          'relative z-10 w-full bg-background outline-none',
+          props.class,
+        )"
+      >
+        <div class="mx-auto mt-2 h-1.5 w-12 rounded-full bg-muted" />
+        <slot />
+      </div>
+    </div>
+  </Teleport>
 </template>

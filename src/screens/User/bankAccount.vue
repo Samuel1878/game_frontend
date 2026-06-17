@@ -26,7 +26,7 @@ const { filteredAccounts, loading, selectedPayment } = storeToRefs(bankStore);
 
 const showDialog = ref(false);
 const isEdit = ref(false);
-const selectedId = ref<number | null>(null);
+const selectedId = ref<number | string | null>(null);
 
 const form = ref<BankAccountPros>({
   label: "",
@@ -34,6 +34,8 @@ const form = ref<BankAccountPros>({
   tag: 1,
   account_number: "",
   account_name: "",
+  bank_name: "",
+  wallet_address: "",
   is_available: true,
 });
 
@@ -50,6 +52,8 @@ const openAdd = () => {
     tag: 1,
     account_number: "",
     account_name: "",
+    bank_name: "",
+    wallet_address: "",
     is_available: true,
   };
 };
@@ -65,7 +69,11 @@ const openEdit = (acc: any) => {
 
 const saveAccount = async () => {
   if (isEdit.value && selectedId.value) {
-    await bankStore.updateAccount(selectedId.value, form.value);
+    const response = await bankStore.updateAccount(selectedId.value, form.value);
+    if (!response) {
+      toast.error(bankStore.error || t("something_went_wrong"));
+      return;
+    }
   } else {
     if (form.value.account_number.length < 5) {
       toast.error("Account number must be at least 5 characters long");
@@ -79,14 +87,19 @@ const saveAccount = async () => {
       toast.error("Please select a payment method");
       return;
     }
-    await bankStore.addAccount(form.value);
+    const response = await bankStore.addAccount(form.value);
+    if (!response) {
+      toast.error(bankStore.error || t("something_went_wrong"));
+      return;
+    }
   }
   showDialog.value = false;
 };
 const { t } = useI18n();
-const deleteAccount = async (id: number) => {
+const deleteAccount = async (id: number | string) => {
   if (!confirm("Are you sure you want to delete this account?")) return;
   await bankStore.deleteAccount(id);
+  if (bankStore.error) toast.error(bankStore.error);
 };
 </script>
 

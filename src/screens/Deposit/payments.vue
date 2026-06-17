@@ -7,7 +7,7 @@ import {
   InputGroupText,
 } from "@/components/ui/input-group";
 import { toast } from "vue-sonner";
-import { computed, onActivated, ref } from "vue";
+import { computed, onActivated, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useClipboard } from "@vueuse/core";
 import {
@@ -30,9 +30,11 @@ import { openChat } from "@/utils";
 import HelpBox from "@/components/layout/helpBox.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
 import Label from "@/components/ui/label/Label.vue";
+import { useDepositStore } from "@/stores/depositDetailStore";
 const { t } = useI18n();
 const route = useRoute();
 const auth = useAuthStore();
+const depositStore = useDepositStore();
 const priority = ref(1);
 const switching = ref(false);
 const submitting = ref(false);
@@ -113,6 +115,9 @@ const submitHandler = async () => {
     if (!payment.value) {
       toast.error(t("try_again"));
       return;
+    } else if (!chosenAccount.value) {
+      toast.error(t("payment_method_not_available"));
+      return;
     } else if (
       !form.value.last5Digit
     ) {
@@ -134,6 +139,9 @@ const submitHandler = async () => {
       uuid: auth.user?.uid || null,
       payment_account: chosenAccount.value?.account_name || null,
       payment_number: chosenAccount.value?.account_number || null,
+      payment_account_id: String(chosenAccount.value?.id || ""),
+      currency: chosenAccount.value?.currency || "MMK",
+      proof_url: form.value.last5Digit,
     };
     const param = {
       user_id: auth.user?.id || null,
@@ -144,7 +152,11 @@ const submitHandler = async () => {
 
     if (response) {
       toast.success(t("deposit_success"));
-      setTimeout(() => router.push("/user/deposit-history"), 1000);
+      depositStore.setDeposit(response);
+      setTimeout(
+        () => router.push(`/user/deposit-history/detail/${response.inv_id}`),
+        500,
+      );
     } else {
       toast.error(t("try_again"));
     }
@@ -158,6 +170,9 @@ const copyHandler = (value: any) => {
   toast.success(`${t("copied")}: ${value}`);
 };
 onActivated(() => {
+  getPaymentMethods();
+});
+onMounted(() => {
   getPaymentMethods();
 });
 </script>

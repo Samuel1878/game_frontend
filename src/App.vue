@@ -7,8 +7,6 @@ import { defineAsyncComponent, onMounted, ref, watch } from "vue";
 import { useReferralStore } from "./stores/referralStore";
 import { useRoute } from "vue-router";
 import { SidebarProvider, SidebarInset } from "./components/ui/sidebar";
-import { SpeedInsights } from "@vercel/speed-insights/vue";
-import { Analytics } from "@vercel/analytics/vue";
 const DownloadNav = defineAsyncComponent(
   () => import("./components/layout/downloadNav.vue"),
 );
@@ -19,6 +17,16 @@ const UpdatePopup = defineAsyncComponent(
 const GameDrawer = defineAsyncComponent(
   () => import("./components/gameDrawer.vue"),
 );
+const SpeedInsights = import.meta.env.PROD
+  ? defineAsyncComponent(() =>
+      import("@vercel/speed-insights/vue").then((module) => module.SpeedInsights),
+    )
+  : null;
+const Analytics = import.meta.env.PROD
+  ? defineAsyncComponent(() =>
+      import("@vercel/analytics/vue").then((module) => module.Analytics),
+    )
+  : null;
 const isDesktop = ref(false);
 const route = useRoute();
 const referralStore = useReferralStore();
@@ -33,8 +41,7 @@ watch(
   { immediate: true },
 );
 
-onMounted(() => {
-  isDesktop.value = window.innerWidth >= 1280
+const loadTawk = () => {
   if ((window as any).Tawk_API) return;
   (window as any).Tawk_API = (window as any).Tawk_API || {};
   (window as any).Tawk_LoadStart = new Date();
@@ -58,6 +65,15 @@ onMounted(() => {
   s1.charset = "UTF-8";
   s1.setAttribute("crossorigin", "*");
   document.head.appendChild(s1);
+};
+
+onMounted(() => {
+  isDesktop.value = window.innerWidth >= 1280
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(loadTawk, { timeout: 3000 });
+  } else {
+    globalThis.setTimeout(loadTawk, 1500);
+  }
 });
 </script>
 <template>
@@ -65,15 +81,16 @@ onMounted(() => {
     <div class="flex min-h-dvh w-full bg-gray-950 ios-scroll-fix">
       <SideBar />
       <SidebarInset class="flex flex-col flex-1 min-w-0 bg-gray-900">
-        <DownloadNav />
-        <TopNavBar />
+        <DownloadNav v-if="!route.meta.hideNavbar" />
+        <TopNavBar v-if="!route.meta.hideTopNav" />
         <div class="relative flex-1 flex flex-col items-center w-full">
           <router-view v-slot="{ Component }">
             <Suspense>
               <template #default>
-                <keep-alive>
+                <keep-alive v-if="route.meta.keepAlive">
                   <component :is="Component" :key="route.fullPath" />
                 </keep-alive>
+                <component v-else :is="Component" :key="route.fullPath" />
               </template>
               <template #fallback>
                 <div
@@ -88,15 +105,15 @@ onMounted(() => {
             </Suspense>
           </router-view>
           <UpdatePopup />
-          <GameDrawer />
+          <GameDrawer v-if="!route.meta.hideNavbar" />
         </div>
       </SidebarInset>
     </div>
     <Toaster position="top-left" richColors />
-    <BottomNav class="md:hidden" />
+    <BottomNav v-if="!route.meta.hideNavbar" class="md:hidden" />
   </SidebarProvider>
-  <SpeedInsights />
-  <Analytics />
+  <component :is="SpeedInsights" v-if="SpeedInsights" />
+  <component :is="Analytics" v-if="Analytics" />
 </template>
 <style scoped>
 .ios-scroll-fix {

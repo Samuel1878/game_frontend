@@ -5,7 +5,6 @@ import {
   SidebarHeader,
   SidebarMenu,
   SidebarMenuItem,
-  SidebarMenuButton,
   SidebarGroup,
   SidebarGroupLabel,
   SidebarGroupContent,
@@ -98,8 +97,14 @@ const { t } = useI18n();
               <Wallet2 class="w-5 h-5" />
               <span
                 >{{ formatPrice(wallet?.balance || 0)
-                }}<span class="text-white"> Ks</span></span
+                }}<span class="text-white"> {{ wallet.currency }}</span></span
               >
+            </div>
+            <div class="mt-1 text-[10px] text-gray-400">
+              {{ t("locked_balance") }}:
+              <span class="text-gray-200">
+                {{ formatPrice(wallet.lockedBalance || 0) }} {{ wallet.currency }}
+              </span>
             </div>
           </div>
           <div class="flex gap-2">
@@ -147,21 +152,19 @@ const { t } = useI18n();
                   v-for="game in gameOptions"
                   :key="game.id"
                 >
-                  <SidebarMenuButton as-child>
-                    <router-link
-                      :to="game.path"
-                      class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
-                    >
-                      <img
-                        :src="game.image"
-                        class="w-8 h-8"
-                        :alt="game.label"
-                      />
-                      <span class="font-medium text-md">{{
-                        t(game.label)
-                      }}</span>
-                    </router-link>
-                  </SidebarMenuButton>
+                  <router-link
+                    :to="game.path"
+                    class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
+                  >
+                    <img
+                      :src="game.image"
+                      class="w-8 h-8"
+                      :alt="game.label"
+                    />
+                    <span class="font-medium text-md">{{
+                      t(game.label)
+                    }}</span>
+                  </router-link>
                 </SidebarMenuItem>
               </SidebarMenu>
             </SidebarGroupContent>
@@ -177,41 +180,35 @@ const { t } = useI18n();
             <SidebarGroupContent>
               <SidebarMenu class="space-y-4">
                 <SidebarMenuItem class="">
-                  <SidebarMenuButton as-child>
-                    <router-link
-                      to="/download"
-                      class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
-                    >
-                      <Download class="w-8 h-8" />
-                      <span class="font-medium text-md">{{
-                        t("download")
-                      }}</span>
-                    </router-link>
-                  </SidebarMenuButton>
+                  <router-link
+                    to="/download"
+                    class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
+                  >
+                    <Download class="w-8 h-8" />
+                    <span class="font-medium text-md">{{
+                      t("download")
+                    }}</span>
+                  </router-link>
                 </SidebarMenuItem>
                 <SidebarMenuItem class="">
-                  <SidebarMenuButton as-child>
-                    <router-link
-                      to="/promotions"
-                      class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
-                    >
-                      <Gift class="w-8 h-8" />
-                      <span class="font-medium text-md">{{
-                        t("promotions")
-                      }}</span>
-                    </router-link>
-                  </SidebarMenuButton>
+                  <router-link
+                    to="/promotions"
+                    class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
+                  >
+                    <Gift class="w-8 h-8" />
+                    <span class="font-medium text-md">{{
+                      t("promotions")
+                    }}</span>
+                  </router-link>
                 </SidebarMenuItem>
                 <SidebarMenuItem class="">
-                  <SidebarMenuButton as-child>
-                    <router-link
-                      to="/faq"
-                      class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
-                    >
-                      <CircleAlertIcon class="w-8 h-8" />
-                      <span class="font-medium text-md">{{ t("faq") }}</span>
-                    </router-link>
-                  </SidebarMenuButton>
+                  <router-link
+                    to="/faq"
+                    class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-3 py-2 transition-colors"
+                  >
+                    <CircleAlertIcon class="w-8 h-8" />
+                    <span class="font-medium text-md">{{ t("faq") }}</span>
+                  </router-link>
                 </SidebarMenuItem>
               </SidebarMenu>
             </SidebarGroupContent>
@@ -264,16 +261,14 @@ const { t } = useI18n();
               <LanguageLongBtn />
             </SidebarMenuItem>
             <SidebarMenuItem class="my-4">
-              <SidebarMenuButton as-child>
-                <button
-                  v-if="authStore.user"
-                  @click="handleLogout"
-                  class="w-full flex bg-red-400/30 items-center justify-center gap-2 text-red-500 hover:text-red-300 hover:bg-red-400/10 py-2.5 rounded-lg transition-colors font-semibold text-sm"
-                >
-                  <LogOut class="w-4 h-4" />
-                  {{ t("logout") }}
-                </button>
-              </SidebarMenuButton>
+              <button
+                v-if="authStore.user"
+                @click="handleLogout"
+                class="w-full flex bg-red-400/30 items-center justify-center gap-2 text-red-500 hover:text-red-300 hover:bg-red-400/10 py-2.5 rounded-lg transition-colors font-semibold text-sm"
+              >
+                <LogOut class="w-4 h-4" />
+                {{ t("logout") }}
+              </button>
             </SidebarMenuItem>
             <div class="w-full text-center">
               <p class="text-gray-400 font-mono">Version {{ versionNo }}</p>

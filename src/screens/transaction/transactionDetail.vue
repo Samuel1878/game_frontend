@@ -131,7 +131,9 @@ async function captureAndShare() {
             class="text-3xl font-black mt-1"
           >
             {{ formatPrice(selectedTransaction.amount || 0) }}
-            <span class="text-sm font-bold ml-0.5" :class="statusConfig.text">MMK</span>
+            <span class="text-sm font-bold ml-0.5" :class="statusConfig.text">
+              {{ selectedTransaction.currency || "MMK" }}
+            </span>
           </h2>
         </div>
 
@@ -180,6 +182,56 @@ async function captureAndShare() {
                 t(selectedTransaction.type.toLowerCase())
               }}</span>
             </div>
+          </div>
+          <div class="flex justify-between items-center py-3.5">
+            <span class="text-gray-400 text-sm font-medium">{{
+              t("direction")
+            }}</span>
+            <span class="text-gray-100 font-semibold text-sm uppercase">
+              {{ selectedTransaction.direction || "-" }}
+            </span>
+          </div>
+          <div class="grid grid-cols-2 gap-3 py-3.5">
+            <div class="bg-gray-900 border border-gray-900 p-3 rounded-2xl">
+              <span class="text-gray-500 text-[11px] font-semibold block mb-0.5 uppercase tracking-wider">
+                {{ t("balance_before") }}
+              </span>
+              <span class="text-gray-300 font-bold text-sm">
+                {{ formatPrice(selectedTransaction.balance_before ?? 0) }}
+              </span>
+            </div>
+            <div class="bg-gray-900 border border-gray-900 p-3 rounded-2xl">
+              <span class="text-gray-500 text-[11px] font-semibold block mb-0.5 uppercase tracking-wider">
+                {{ t("balance_after") }}
+              </span>
+              <span class="text-gray-300 font-bold text-sm">
+                {{ formatPrice(selectedTransaction.balance_after ?? 0) }}
+              </span>
+            </div>
+            <div class="bg-gray-900 border border-gray-900 p-3 rounded-2xl">
+              <span class="text-gray-500 text-[11px] font-semibold block mb-0.5 uppercase tracking-wider">
+                {{ t("locked_before") }}
+              </span>
+              <span class="text-gray-300 font-bold text-sm">
+                {{ formatPrice(selectedTransaction.locked_before ?? 0) }}
+              </span>
+            </div>
+            <div class="bg-gray-900 border border-gray-900 p-3 rounded-2xl">
+              <span class="text-gray-500 text-[11px] font-semibold block mb-0.5 uppercase tracking-wider">
+                {{ t("locked_after") }}
+              </span>
+              <span class="text-gray-300 font-bold text-sm">
+                {{ formatPrice(selectedTransaction.locked_after ?? 0) }}
+              </span>
+            </div>
+          </div>
+          <div class="flex justify-between items-center py-3.5">
+            <span class="text-gray-400 text-sm font-medium">{{
+              t("reference_type")
+            }}</span>
+            <span class="text-gray-100 font-semibold text-sm">
+              {{ selectedTransaction.reference_type || "-" }}
+            </span>
           </div>
           <div class="flex justify-between items-center py-3.5">
             <span class="text-gray-400 text-sm font-medium">{{

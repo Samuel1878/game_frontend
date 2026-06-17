@@ -14,7 +14,7 @@ import {
   Headset
 } from "lucide-vue-next";
 import { Button } from "@/components/ui/button";
-import { formattedAmount, openChat } from "@/utils";
+import { openChat } from "@/utils";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { useWithdrawStore } from "@/stores/withdrawDetailStore";
@@ -25,6 +25,8 @@ const receiptRef = ref<HTMLElement | null>(null);
 const withdrawStore = useWithdrawStore();
 const { selectedWithdrawal } = storeToRefs(withdrawStore);
 const copiedField = ref<string | null>(null);
+const formatWithdrawalAmount = (amount: number) =>
+  `${amount.toLocaleString()} ${selectedWithdrawal.value?.currency || "MMK"}`;
 const statusConfig = computed(() => {
   const status = selectedWithdrawal.value?.status;
   switch (status) {
@@ -41,6 +43,16 @@ const statusConfig = computed(() => {
     case 'rejected':
       return {
         bg: 'bg-rose-500/10 border-rose-500/20 text-rose-400',
+        icon: XCircle
+      };
+    case 'paid':
+      return {
+        bg: 'bg-sky-500/10 border-sky-500/20 text-sky-400',
+        icon: CheckCircle2
+      };
+    case 'cancelled':
+      return {
+        bg: 'bg-gray-500/10 border-gray-500/20 text-gray-400',
         icon: XCircle
       };
     default:
@@ -97,7 +109,7 @@ async function captureAndShare() {
           </span>
           
           <h2 class="text-3xl font-black text-transparent bg-clip-text bg-linear-to-r from-emerald-200 via-emerald-400 to-teal-500 mt-1 tracking-tight">
-            {{ formattedAmount(Number(selectedWithdrawal.amount)) }}
+            {{ formatWithdrawalAmount(Number(selectedWithdrawal.amount)) }}
           </h2>
 
           <div 
@@ -158,11 +170,37 @@ async function captureAndShare() {
             </div>
           </div>
 
+          <div class="grid grid-cols-2 gap-3 py-3.5">
+            <div class="bg-gray-900 border border-gray-900 p-3 rounded-2xl">
+              <span class="text-gray-500 text-[11px] font-semibold block mb-0.5 uppercase tracking-wider">
+                {{ t("fee") }}
+              </span>
+              <span class="text-gray-300 font-bold text-sm">
+                {{ formatWithdrawalAmount(Number(selectedWithdrawal.fee || 0)) }}
+              </span>
+            </div>
+            <div class="bg-gray-900 border border-gray-900 p-3 rounded-2xl">
+              <span class="text-gray-500 text-[11px] font-semibold block mb-0.5 uppercase tracking-wider">
+                {{ t("final_amount") }}
+              </span>
+              <span class="text-gray-300 font-bold text-sm">
+                {{ formatWithdrawalAmount(Number(selectedWithdrawal.final_amount || selectedWithdrawal.amount || 0)) }}
+              </span>
+            </div>
+          </div>
+
           <!-- Row Item Element: Timestamp Records log row -->
           <div class="flex justify-between items-center py-3.5">
             <span class="text-gray-400 text-sm font-medium">{{ t("date") }}</span>
             <span class="text-gray-300 text-sm font-semibold">
               {{ selectedWithdrawal.created_at ? moment(selectedWithdrawal.created_at).format("DD MMM YYYY, hh:mm A") : '-' }}
+            </span>
+          </div>
+
+          <div v-if="selectedWithdrawal.reviewed_at" class="flex justify-between items-center py-3.5">
+            <span class="text-gray-400 text-sm font-medium">{{ t("reviewed_at") }}</span>
+            <span class="text-gray-300 text-sm font-semibold">
+              {{ moment(selectedWithdrawal.reviewed_at).format("DD MMM YYYY, hh:mm A") }}
             </span>
           </div>
 

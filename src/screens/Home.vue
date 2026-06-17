@@ -1,13 +1,5 @@
 <script lang="ts" setup>
 import { useAuthStore } from "@/stores/auth";
-import {
-  hotGames,
-  popularGames,
-  topBuffaloGames,
-  topCasinoGames,
-  topFishGames,
-  topSlotGames,
-} from "@/consts/games";
 import { BellRingIcon, Download } from "lucide-vue-next";
 import router from "@/router";
 import { useI18n } from "vue-i18n";
@@ -16,13 +8,19 @@ import { buffalo, casino, fish, hot_icon, slot, star } from "@/utils/assets";
 const Footer = defineAsyncComponent(() => import("@/components/footer.vue"));
 import HeroSlider from "@/components/homeSlider.vue";
 import { useGameStore } from "@/stores/game";
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent, onMounted } from "vue";
 import ScrollGameViewTwo from "@/components/scrollGameViewTwo.vue";
 import ScrollViews from "@/components/scrollViews.vue";
+import { storeToRefs } from "pinia";
 const authStore = useAuthStore();
 const { t } = useI18n();
-const { prepareGame } = useGameStore();
+const gameStore = useGameStore();
+const { hotGames, topGames, featuredGames, categoryGames, loading, error } = storeToRefs(gameStore);
+const { prepareGame, fetchHomeGameSections } = gameStore;
 
+onMounted(() => {
+  void fetchHomeGameSections();
+});
 </script>
 <template>
   <main class="bg-gray-900 max-w-6xl w-full flex flex-col min-h-screen ios-layer-isolate">
@@ -84,48 +82,83 @@ const { prepareGame } = useGameStore();
       <GameOptions current_page="lobby" />
       <div class="bg-gray-900">
         <section class="w-full h-full px-2">
+          <div
+            v-if="loading && !hotGames.length"
+            class="grid grid-cols-3 gap-2 py-4"
+          >
+            <div
+              v-for="n in 6"
+              :key="n"
+              class="aspect-square rounded-lg bg-white/10 animate-pulse"
+            />
+          </div>
+          <div
+            v-if="error && !hotGames.length"
+            class="rounded-lg border border-red-400/30 bg-red-500/10 p-4 my-4 text-center"
+          >
+            <p class="text-sm text-red-200">{{ t(error) }}</p>
+            <button
+              class="mt-3 px-4 py-2 rounded-lg gold-bg text-black font-bold"
+              @click="fetchHomeGameSections(true)"
+            >
+              {{ t("retry") }}
+            </button>
+          </div>
           <ScrollGameViewTwo
-            v-if="topSlotGames"
-            :game-data="topSlotGames"
+            v-if="hotGames.length"
+            :game-data="hotGames"
             :header="t('hot_games')"
             :icon="hot_icon"
             :handler="prepareGame"
             :action="() => router.push('/slots')"
           />
           <ScrollViews
-            :game-data="hotGames"
+            v-if="categoryGames.SLOT?.length"
+            :game-data="categoryGames.SLOT"
             :header="t('slots')"
             :icon="slot"
             :handler="prepareGame"
             :action="() => router.push('/slots')"
           />
           <ScrollViews
-            :game-data="topBuffaloGames"
+            v-if="categoryGames.BUFFALO?.length"
+            :game-data="categoryGames.BUFFALO"
             :header="t('buffalo')"
             :icon="buffalo"
             :handler="prepareGame"
             :action="() => router.push('/buffalo')"
           />
           <ScrollViews
-            :game-data="topFishGames"
+            v-if="categoryGames.FISHING?.length"
+            :game-data="categoryGames.FISHING"
             :header="t('fishing')"
             :icon="fish"
             :handler="prepareGame"
             :action="() => router.push('/fishing')"
           />
           <ScrollViews
-            :game-data="topCasinoGames"
+            v-if="categoryGames.LIVE_CASINO?.length"
+            :game-data="categoryGames.LIVE_CASINO"
             :header="t('casino')"
             :icon="casino"
             :handler="prepareGame"
             :action="() => router.push('/casino')"
           />
           <ScrollViews
-            :game-data="popularGames"
+            v-if="topGames.length"
+            :game-data="topGames"
             :header="t('top_picks')"
             :icon="star"
             :handler="prepareGame"
             :action="() => router.push('/slots')"
+          />
+          <ScrollViews
+            v-if="featuredGames.length"
+            :game-data="featuredGames"
+            :header="t('featured_games')"
+            :icon="star"
+            :handler="prepareGame"
+            :action="() => router.push('/arcade-games')"
           />
         </section>
       </div>

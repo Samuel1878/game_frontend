@@ -55,6 +55,12 @@ const choosePayment = (data: paymentTypes) => {
   form.value.label = data.label;
 };
 
+const isBank = computed(() => form.value.value === "kbzBank");
+const isUsdt = computed(() => form.value.value === "usdt");
+const accountPlaceholder = computed(() =>
+  isUsdt.value ? t("wallet_address") : t("account_number"),
+);
+
 const handleSave = () => {
   emit("save", form.value);
 };
@@ -110,6 +116,18 @@ const handleSave = () => {
             :placeholder="t('account_name')"
           />
         </InputGroup>
+        <InputGroup
+          v-if="isBank"
+          class="h-12 rounded-lg border border-gray-500/40 bg-gray-800/20"
+        >
+          <InputGroupAddon>
+            <CreditCard />
+          </InputGroupAddon>
+          <InputGroupInput
+            v-model="form.bank_name"
+            :placeholder="t('bank_name')"
+          />
+        </InputGroup>
         <!-- Account Number -->
         <InputGroup
           class="h-12 rounded-lg border border-gray-500/40 bg-gray-800/20"
@@ -119,7 +137,7 @@ const handleSave = () => {
           </InputGroupAddon>
           <InputGroupInput
             v-model="form.account_number"
-            :placeholder="t('account_number')"
+            :placeholder="accountPlaceholder"
           />
         </InputGroup>
         <!-- Status -->

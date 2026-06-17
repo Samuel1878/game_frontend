@@ -1,190 +1,159 @@
-import axios from "axios";
-import { useAuthStore } from "@/stores/auth";
-import { BASE_API_URL } from "@/utils";
+import axios, {
+  type AxiosRequestConfig,
+  AxiosHeaders,
+  type AxiosError,
+  type InternalAxiosRequestConfig,
+} from "axios";
+import { ACCESS_TOKEN_STORAGE_KEY, API_BASE_URL } from "@/config/env";
 import router from "@/router";
-import { refreshAPI } from "@/lib/axios";
+import { useAuthStore } from "@/stores/auth";
+
+type AuthUserResponse = {
+  id: string;
+  username: string;
+  phone: string;
+  fullName?: string | null;
+  role: string;
+  status: string;
+  referralCode?: string;
+  level?: number;
+  set_pin?: boolean | null;
+  has_fund_pin?: boolean | null;
+  hasFundPin?: boolean | null;
+};
+
+export type AuthSessionResponse = {
+  accessToken: string;
+  expiresIn?: string;
+  user: AuthUserResponse;
+};
+
+type RetriableRequestConfig = InternalAxiosRequestConfig & {
+  _retry?: boolean;
+  skipAuthRefresh?: boolean;
+};
+
 declare module "axios" {
   export interface AxiosRequestConfig {
+    skipAuthRefresh?: boolean;
+  }
+  export interface InternalAxiosRequestConfig {
     _retry?: boolean;
+    skipAuthRefresh?: boolean;
   }
 }
+
+const AUTH_REFRESH_PATH = "/api/auth/refresh";
+const AUTH_PATHS_WITHOUT_REFRESH = [
+  "/api/auth/login",
+  "/api/auth/register",
+  AUTH_REFRESH_PATH,
+  "/api/auth/logout",
+];
+
 const api = axios.create({
-  baseURL: `${BASE_API_URL}/api/v1`,
+  baseURL: API_BASE_URL,
   withCredentials: true,
 });
-api.interceptors.request.use((config) => {
-  
-  const token = localStorage.getItem("access_token");
-  config.headers = config.headers ?? {};
+
+const refreshClient = axios.create({
+  baseURL: API_BASE_URL,
+  withCredentials: true,
+});
+
+let refreshRequest: Promise<AuthSessionResponse | null> | null = null;
+let logoutInProgress = false;
+
+const getAccessToken = () => localStorage.getItem(ACCESS_TOKEN_STORAGE_KEY);
+
+const setAuthorizationHeader = (config: InternalAxiosRequestConfig, token: string | null) => {
+  const headers = AxiosHeaders.from(config.headers);
+
   if (token) {
-     config.headers = config.headers ?? {};
-    config.headers.Authorization = `Bearer ${token}`;
+    headers.set("Authorization", `Bearer ${token}`);
+  } else {
+    headers.delete("Authorization");
   }
-  else {
-    delete config.headers.Authorization;
+
+  config.headers = headers;
+};
+
+export const refreshAuthSession = async (): Promise<AuthSessionResponse | null> => {
+  if (!refreshRequest) {
+    refreshRequest = refreshClient
+      .post<AuthSessionResponse>(AUTH_REFRESH_PATH, undefined, {
+        skipAuthRefresh: true,
+      } as AxiosRequestConfig)
+      .then((response) => response.data)
+      .catch(() => null)
+      .finally(() => {
+        refreshRequest = null;
+      });
   }
+
+  return refreshRequest;
+};
+
+export const getApiErrorMessage = (
+  error: unknown,
+  fallback = "something_went_wrong",
+) => {
+  const axiosError = error as AxiosError<{ message?: string; error?: string }>;
+  const data = axiosError.response?.data;
+  return data?.message || data?.error || (error as Error)?.message || fallback;
+};
+
+const shouldSkipRefresh = (config?: RetriableRequestConfig) => {
+  if (!config || config.skipAuthRefresh) return true;
+
+  const url = config.url ?? "";
+  return AUTH_PATHS_WITHOUT_REFRESH.some((path) => url.includes(path));
+};
+
+const forceLocalLogout = async () => {
+  if (logoutInProgress) return;
+  logoutInProgress = true;
+
+  const auth = useAuthStore();
+  auth.clearAuth();
+
+  if (router.currentRoute.value.path !== "/") {
+    await router.replace("/");
+  }
+
+  logoutInProgress = false;
+};
+
+api.interceptors.request.use((config) => {
+  setAuthorizationHeader(config, getAccessToken());
   return config;
 });
-let isLoggingOut = false;
-let isRefreshing = false;
-let queue: any[] = [];
-const processQueue = (token: string | null) => {
-  queue.forEach((cb) => cb(token));
-  queue = [];
-};
-async function triggerLogout() {
-  if (isLoggingOut) return;
-  isLoggingOut = true;
-  const auth = useAuthStore();
-  await auth.logout();
-  router.push("/");
-}
-// 🔹 Response interceptor
+
 api.interceptors.response.use(
-  (res) => res,
-  async (error) => {
-    
-    const auth = useAuthStore();
-    const originalRequest = error.config;
+  (response) => response,
+  async (error: AxiosError) => {
+    const originalRequest = error.config as RetriableRequestConfig | undefined;
     const status = error.response?.status;
-    const code = error.response?.data?.code;
-    if (originalRequest.url?.includes("/auth/refresh")) {
+
+    if (!originalRequest || status !== 401 || shouldSkipRefresh(originalRequest) || originalRequest._retry) {
       return Promise.reject(error);
     }
-    if (status === 401) {
-      if (code!== "TOKEN_EXPIRED"){
-      // if (code === "INVALID_TOKEN" || code === "INVALID_PAYLOAD" || code==="MISSING_TOKEN") {
-        console.warn(`Security violation (${code}). Forcing logout.`);
-        await triggerLogout();
-        return Promise.reject(error);
-      }
-      if ((code === "TOKEN_EXPIRED") && !originalRequest._retry) {
-        originalRequest._retry = true;
-        if (isRefreshing) {
-          return new Promise((resolve, reject) => {
-            queue.push((token: string | null) => {
-              if (!token) {
-                reject(error);
-                return;
-              }
-              originalRequest.headers.Authorization = `Bearer ${token}`;
-              resolve(api(originalRequest));
-            });
-          });
-        }
-        isRefreshing = true;
-        try {
-          const res = await refreshAPI();
-          if (!res || !res.accessToken) {
-            throw new Error("Invalid token payload returned from refresh API");
-          }
-          auth.setToken(res.accessToken);
-          processQueue(res.accessToken);
-          originalRequest.headers.Authorization = `Bearer ${res.accessToken}`;
-          return api(originalRequest); // 🔄 Retry original call with fresh token
-        } catch (err) {
-          processQueue(null);
-          await triggerLogout();
-          return Promise.reject(err);
-        } finally {
-          isRefreshing = false;
-        }
-      }
+
+    originalRequest._retry = true;
+
+    const session = await refreshAuthSession();
+    if (!session?.accessToken) {
+      await forceLocalLogout();
+      return Promise.reject(error);
     }
-    return Promise.reject(error);
+
+    const auth = useAuthStore();
+    auth.setToken(session.accessToken);
+    auth.applyAuthUser(session.user);
+    setAuthorizationHeader(originalRequest, session.accessToken);
+
+    return api(originalRequest);
   },
 );
+
 export default api;
-
-
-// import axios from "axios";
-// import { useAuthStore } from "@/stores/auth";
-// import { BASE_API_URL } from "@/utils";
-// import router from "@/router";
-// import { refreshAPI } from "@/lib/axios";
-
-// const api = axios.create({
-//   baseURL: `${BASE_API_URL}/api/v1`,
-//   withCredentials: true,
-// });
-// api.interceptors.request.use((config) => {
-//   const token = localStorage.getItem("access_token");
-//   if (token) {
-//     config.headers.Authorization = `Bearer ${token}`;
-//   }
-//   return config;
-// });
-
-// let isLoggingOut = false;
-// let isRefreshing = false;
-// let queue: any[] = [];
-
-// const processQueue = (token: string | null) => {
-//   queue.forEach((cb) => cb(token));
-//   queue = [];
-// };
-// async function triggerLogout() {
-//   if (isLoggingOut) return;
-//   isLoggingOut = true;
-//   const auth = useAuthStore();
-//   await auth.logout();
-//   router.push("/");
-// }
-// // 🔹 Response interceptor
-// api.interceptors.response.use(
-//   (res) => res,
-//   async (error) => {
-//     const auth = useAuthStore();
-//     const originalRequest = error.config;
-//     const status = error.response?.status;
-//     const code = error.response?.data?.code;
-//     if (originalRequest.url?.includes("/auth/refresh")) {
-//       return Promise.reject(error);
-//     }
-//     if (status===401){
-//       if (code === "INVALID_TOKEN" || code === "INVALID_PAYLOAD") {
-//         console.warn(`Security violation (${code}). Forcing logout.`);
-//         triggerLogout();
-//         return Promise.reject(error);
-//       }
-//     }
-//     if (code == "TOKEN_MISSING") {
-//       originalRequest.headers.Authorization = `Bearer ${localStorage.getItem("access_token")}`;
-//       return Promise.reject(error);
-//     }
-//     if (code === "TOKEN_EXPIRED" && !originalRequest._retry) {
-//       originalRequest._retry = true;
-//       // 🟡 If already refreshing → queue request
-//       if (isRefreshing) {
-//         return new Promise((resolve, reject) => {
-//           queue.push((token: string | null) => {
-//             if (!token) {
-//               reject(error);
-//               return;
-//             }
-
-//             originalRequest.headers.Authorization = `Bearer ${token}`;
-//             resolve(api(originalRequest));
-//           });
-//         });
-//       }
-//       isRefreshing = true;
-//       try {
-//         const res = await refreshAPI();
-//         auth.setToken(res.accessToken);
-//         processQueue(res.accessToken);
-//         originalRequest.headers.Authorization = `Bearer ${res.accessToken}`;
-//         return api(originalRequest);
-//       } catch (err) {
-//         processQueue(null);
-//         triggerLogout();
-//         return Promise.reject(err);
-//       } finally {
-//         isRefreshing = false;
-//       }
-//     }
-
-//     return Promise.reject(error);
-//   },
-// );
-// export default api;

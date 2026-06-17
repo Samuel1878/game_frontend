@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, onActivated } from "vue";
+import { ref, watch, onActivated, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import router from "@/router";
 import moment from "moment-timezone";
@@ -40,7 +40,7 @@ const from = ref();
 const to = ref();
 
 // Computed helper status states
-const statuses = ["all", "pending", "approved", "rejected"];
+const statuses = ["all", "pending", "approved", "rejected", "paid", "cancelled"];
 
 // ⏳ Process Date Presets seamlessly
 const applyDatePreset = (preset: "today" | "this_month" | "custom") => {
@@ -76,9 +76,13 @@ const fetchData = async () => {
     });
 
     if (response) {
-      withdrawals.value = response.data;
-      totalPages.value = response.pagination.totalPages;
-      total.value = response.pagination.total;
+      withdrawals.value = response.data || [];
+      totalPages.value = response.pagination?.totalPages || 1;
+      total.value = response.pagination?.total || withdrawals.value.length;
+    } else {
+      withdrawals.value = [];
+      totalPages.value = 1;
+      total.value = 0;
     }
   } catch (error) {
     console.error("Failed to fetch withdrawal list:", error);
@@ -88,6 +92,7 @@ const fetchData = async () => {
 };
 
 onActivated(fetchData);
+onMounted(fetchData);
 
 // 🔄 Reset page to index 1 whenever active filter parameters change
 watch([from, to, selectedStatus], () => {
@@ -122,7 +127,8 @@ const viewWithdrawal = (w: withdrawalInfo) => {
   router.push(`/user/withdraw-history/detail/${w.txn_id}`);
 };
 
-const formatAmount = (a: number) => a.toLocaleString() + " MMK";
+const formatAmount = (a: number, currency = "MMK") =>
+  `${a.toLocaleString()} ${currency}`;
 </script>
 
 <template>
@@ -287,7 +293,7 @@ const formatAmount = (a: number) => a.toLocaleString() + " MMK";
             <span
               class="font-black text-sm tracking-tight text-transparent bg-clip-text bg-linear-to-r from-gray-100 to-gray-300"
             >
-              {{ formatAmount(Number(txn.amount)) }}
+              {{ formatAmount(Number(txn.amount), txn.currency) }}
             </span>
             <span
               class="px-2.5 py-0.5 text-[10px] font-extrabold rounded-full uppercase tracking-wider border shadow-sm"
@@ -298,6 +304,10 @@ const formatAmount = (a: number) => a.toLocaleString() + " MMK";
                   txn.status === 'pending',
                 'bg-rose-500/10 border-rose-500/20 text-rose-400':
                   txn.status === 'rejected',
+                'bg-sky-500/10 border-sky-500/20 text-sky-400':
+                  txn.status === 'paid',
+                'bg-gray-500/10 border-gray-500/20 text-gray-400':
+                  txn.status === 'cancelled',
               }"
             >
               {{ t(txn?.status || "pending") }}

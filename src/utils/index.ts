@@ -1,4 +1,5 @@
 import type { Game } from "./types";
+import { API_BASE_URL } from "@/config/env";
 
 export function formatPrice(value: number) {
   return new Intl.NumberFormat('en-US').format(value)
@@ -35,6 +36,8 @@ export const bankThemes: Record<string, string> = {
     wavePay: "from-yellow-500/90 via-yellow-500/80 to-yellow-400/100",
     ayaPay: "from-orange-600/40 via-red-500 to-red-400/10",
     cbPay: "from-red-600 via-rose-500 to-pink-500",
+    usdt: "from-emerald-700 via-teal-600 to-emerald-400/60",
+    kbzBank: "from-white/50 via-blue-400 to-gray-400/30",
     kbzBanking: "from-white/50 via-blue-400 to-gray-400/30",
 };
 export const openViber = () => {
@@ -48,9 +51,7 @@ export const openTelegram = () => window.open('https://t.me/tz99x', '_blank');
 export const openDiscord = () => window.open('https://discord.gg/your_invite', '_blank');
 export const baseURL =  "https://tz99x.com";
 export const versionNo = "2.0.7"
-export const BASE_API_URL = "https://api.96betx.com"; ////PROD
-// export const BASE_API_URL = "http://localhost:3000"; ////DEV
-// export const BASE_API_URL = "https://uat-api.tz99x.com" ////UAT
+export const BASE_API_URL = API_BASE_URL;
 export const SUPABASE_URL = ""
 export const hideTawk = () => {
   if (
@@ -75,4 +76,3 @@ export const showTawk = () => {
 export const goFacebook = () => {
   window.open('https://facebook.com', '_blank');
 };
-

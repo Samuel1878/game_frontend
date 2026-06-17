@@ -1,23 +1,47 @@
-<script lang="ts" setup>
-import type { DrawerRootEmits, DrawerRootProps } from "vaul-vue"
-import { useForwardPropsEmits } from "reka-ui"
-import { DrawerRoot } from "vaul-vue"
+<script setup lang="ts">
+import { computed, onUnmounted, provide, watch } from "vue";
+import { useEventListener } from "@vueuse/core";
+import { drawerContextKey } from "./context";
 
-const props = withDefaults(defineProps<DrawerRootProps>(), {
-  shouldScaleBackground: true,
-})
+const props = withDefaults(defineProps<{
+  open?: boolean;
+}>(), {
+  open: false,
+});
 
-const emits = defineEmits<DrawerRootEmits>()
+const emit = defineEmits<{
+  "update:open": [open: boolean];
+}>();
 
-const forwarded = useForwardPropsEmits(props, emits)
+const isOpen = computed({
+  get: () => props.open,
+  set: (value: boolean) => emit("update:open", value),
+});
+
+const setOpen = (value: boolean) => {
+  isOpen.value = value;
+};
+
+watch(isOpen, (value) => {
+  document.body.style.overflow = value ? "hidden" : "";
+});
+
+useEventListener("keydown", (event: KeyboardEvent) => {
+  if (event.key === "Escape" && isOpen.value) {
+    setOpen(false);
+  }
+});
+
+onUnmounted(() => {
+  document.body.style.overflow = "";
+});
+
+provide(drawerContextKey, {
+  open: isOpen,
+  setOpen,
+});
 </script>
 
 <template>
-  <DrawerRoot
-    v-slot="slotProps"
-    data-slot="drawer"
-    v-bind="forwarded"
-  >
-    <slot v-bind="slotProps" />
-  </DrawerRoot>
+  <slot />
 </template>

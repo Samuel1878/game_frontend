@@ -1,15 +1,16 @@
-<script lang="ts" setup>
-import type { DrawerTriggerProps } from "vaul-vue"
-import { DrawerTrigger } from "vaul-vue"
+<script setup lang="ts">
+import { inject } from "vue";
+import { drawerContextKey } from "./context";
 
-const props = defineProps<DrawerTriggerProps>()
+defineProps<{
+  asChild?: boolean;
+}>();
+
+const drawer = inject(drawerContextKey);
 </script>
 
 <template>
-  <DrawerTrigger
-    data-slot="drawer-trigger"
-    v-bind="props"
-  >
+  <button type="button" @click="drawer?.setOpen(true)">
     <slot />
-  </DrawerTrigger>
+  </button>
 </template>

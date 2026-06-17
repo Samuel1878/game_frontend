@@ -1,6 +1,6 @@
 import type { transactionsParamsType } from "@/utils/types";
 import api from "./api";
-export const getAgentDataByIdAPI = async (id: number) => {
+export const getAgentDataByIdAPI = async (id: number | string) => {
   try {
     const response = await api.get(`/agent/get-agent/${id}`);
     if (response.status === 200) return response.data;
@@ -10,7 +10,7 @@ export const getAgentDataByIdAPI = async (id: number) => {
   }
 };
 export const getUserByAgentAPI = async (
-  agent: number,
+  agent: number | string,
   _currentPage: number,
   _pageSize: number,
 ) => {
@@ -36,7 +36,7 @@ export const getAllTransactionsAPI = async (params: transactionsParamsType) => {
 };
 
 export const getAgentTransactionSummaryAPI = async (
-  agent_id: number,
+  agent_id: number | string,
   params: {
     mode: string;
     startDate?: string;
@@ -55,7 +55,7 @@ export const getAgentTransactionSummaryAPI = async (
   }
 };
 export const getAgentTransactionSummaryUidAPI = async (
-  user_id: number,
+  user_id: number | string,
   params: {
     mode: string;
     startDate?: string;
@@ -74,7 +74,7 @@ export const getAgentTransactionSummaryUidAPI = async (
     return null;
   }
 };
-export const getTotalPlayers = async (agent_id: number) => {
+export const getTotalPlayers = async (agent_id: number | string) => {
   try {
     const response = await api.get(`/agent/get-total-players/${agent_id}`);
     if (response.status === 200) return response.data;

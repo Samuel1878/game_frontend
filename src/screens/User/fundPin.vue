@@ -17,6 +17,7 @@ import { useAuthStore } from "@/stores/auth";
 import FundPinDrawer from "@/components/fundPinDrawer.vue";
 import { changeFundPinAPI, setFundPinAPI, verifyFundPinAPI } from "@/services/fundPinAPI.service";
 import CredentialAlert from "@/components/credentialAlert.vue";
+import { getApiErrorMessage } from "@/services/api";
 
 const { t } = useI18n();
 const showCredentialAlert = ref(false);
@@ -26,6 +27,7 @@ const authStore = useAuthStore();
 const fundPin = ref("");
 const loading = ref(false);
 const isNew = computed(() => authStore.user?.set_pin === false);
+const isUnsupported = computed(() => authStore.user?.set_pin == null);
 const isVerified = ref(false);
 const submit = async (pin:string) => {
   if (pin.length < 6) {
@@ -70,7 +72,7 @@ const submit = async (pin:string) => {
   } 
     catch (error) {
         openDrawer.value = false;
-      toast.error(t("something_went_wrong"));
+      toast.error(getApiErrorMessage(error, t("backend_api_not_available")));
     }
     finally {
     openDrawer.value = false;
@@ -116,7 +118,7 @@ watch(
             {{ t("fund_pin") }}
           </h2>
           <p class="text-green-400 text-sm">
-            {{ isNew ? t("not_configured") : t("active") }}
+            {{ isUnsupported ? t("not_available") : isNew ? t("not_configured") : t("active") }}
           </p>
         </div>
       </div>
@@ -149,13 +151,15 @@ watch(
     <!-- Bottom button -->
     <div class="fixed bottom-0 right-0 left-0 p-4">
       <Button
-        @click="openDrawer = true"
+        @click="isUnsupported ? toast.error(t('backend_api_not_available')) : openDrawer = true"
         :disabled="loading"
         class="w-full h-12 rounded-xl gold-bg text-glow active:scale-[0.98] transition"
       >
         {{
           loading
             ? t("loading")
+            : isUnsupported
+            ? t("not_available")
             : isNew
             ? t("set_fund_pin")
             : t("change_fund_pin")

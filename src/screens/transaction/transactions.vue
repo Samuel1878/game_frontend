@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
-import {  onActivated, ref, watch } from "vue";
+import { onActivated, onMounted, ref, watch } from "vue";
 import { getAllTransactionsByUserId } from "../../services/transactionAPI";
 import type { Transaction } from "@/utils/types";
 import moment from "moment";
@@ -37,24 +37,29 @@ const fetchTransaction = async () => {
   // console.log("fetching local db transactions");
   loading.value = true;
 
-  const res = await getAllTransactionsByUserId({
-    page: page.value,
-    limit,
-    type: transactionType.value || "all",
-    startDate: startDate.value,
-    endDate: endDate.value,
-    user_id: authStore.user?.id,
-  });
-  // console.log("res", res.data);
-  transactions_local.value = res?.data;
-  totalPages.value = res.totalPages;
-  loading.value = false;
+  try {
+    const res = await getAllTransactionsByUserId({
+      page: page.value,
+      limit,
+      type: transactionType.value || "all",
+      startDate: startDate.value,
+      endDate: endDate.value,
+      user_id: authStore.user?.id,
+    });
+    transactions_local.value = res?.data || [];
+    totalPages.value = res?.totalPages || 1;
+  } finally {
+    loading.value = false;
+  }
 };
 const goToDetail = (tx:Transaction)=>{
   store.setTransaction(tx);
   router.push("/user/transactions/detail")
 }
 onActivated(() => {
+  fetchTransaction();
+});
+onMounted(() => {
   fetchTransaction();
 });
 const nextPage = () => {
@@ -275,7 +280,7 @@ watch([page, transactionType], fetchTransaction);
             "
           >
             {{ tx.type === "deposit" || tx.type === "refund" || tx.type==="bonus" || tx.type==="rebate" ||tx.type==="dividend" ? "+" : "-" }}
-            {{ formatPrice(tx.amount) }}
+            {{ formatPrice(tx.amount) }} {{ tx.currency || "MMK" }}
           </div>
         </div>
       </div>

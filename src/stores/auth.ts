@@ -1,36 +1,121 @@
 import { defineStore } from "pinia";
-import api from "@/services/api";
+import api, { refreshAuthSession, type AuthSessionResponse } from "@/services/api";
 import { initSocket, disconnectSocket } from "@/socket";
 import type { userInfo } from "@/utils/types";
 import router from "@/router";
-
+import { ACCESS_TOKEN_STORAGE_KEY } from "@/config/env";
 import { useWallet } from "./wallet";
-import { refreshAPI } from "@/services/authAPI";
-// import { useFavoritesStore } from "./userFavoriteStore";
-interface walletType {
+import { getCurrentPlayer, type BackendPlayer, type CurrentPlayerResponse } from "@/services/userAPI";
+
+type WalletPayload = {
   balance: number;
   currency: string;
-}
+};
+
+type BackendAuthUser = AuthSessionResponse["user"];
+
+const statusLabel = (status?: string) => {
+  if (!status) return "Active";
+  return status.charAt(0).toUpperCase() + status.slice(1).toLowerCase();
+};
+
+const fundPinStatus = (user: Partial<BackendAuthUser & BackendPlayer>) => {
+  if (typeof user.hasFundPin === "boolean") return user.hasFundPin;
+  if (typeof user.has_fund_pin === "boolean") return user.has_fund_pin;
+  if (typeof user.set_pin === "boolean") return user.set_pin;
+  return null;
+};
+
+const normalizeUser = (
+  user: BackendAuthUser,
+  previous?: userInfo | null,
+): userInfo => ({
+  id: user.id,
+  uid: user.id,
+  name: user.username,
+  phone: user.phone,
+  email: previous?.email ?? null,
+  role: user.role,
+  status: statusLabel(user.status),
+  raw_status: user.status,
+  level: user.level ?? previous?.level ?? 0,
+  created_at: previous?.created_at ?? "",
+  agent_id: previous?.agent_id ?? null,
+  is_oneline: true,
+  last_seen: previous?.last_seen,
+  set_pin: fundPinStatus(user) ?? previous?.set_pin ?? null,
+  has_fund_pin: fundPinStatus(user) ?? previous?.has_fund_pin ?? null,
+  referral_code: user.referralCode,
+});
+
+const normalizePlayer = (
+  response: CurrentPlayerResponse,
+  previous?: userInfo | null,
+): userInfo => {
+  const player = response.player;
+  return {
+    id: player.userId,
+    uid: player.userId,
+    name: player.username,
+    phone: player.phone,
+    email: previous?.email ?? null,
+    role: player.role,
+    status: statusLabel(player.status),
+    raw_status: player.status,
+    level: response.level?.level ?? player.level ?? previous?.level ?? 0,
+    level_profile: response.level ?? previous?.level_profile ?? null,
+    full_name: player.full_name ?? player.fullName ?? previous?.full_name ?? null,
+    created_at: previous?.created_at ?? "",
+    agent_id: previous?.agent_id ?? null,
+    is_oneline: true,
+    last_seen: previous?.last_seen,
+    set_pin: fundPinStatus(player) ?? previous?.set_pin ?? null,
+    has_fund_pin: fundPinStatus(player) ?? previous?.has_fund_pin ?? null,
+    referral_code: player.referralCode ?? previous?.referral_code,
+  };
+};
+
 export const useAuthStore = defineStore("auth", {
   state: () => ({
-    accessToken: localStorage.getItem("access_token"),
+    accessToken: localStorage.getItem(ACCESS_TOKEN_STORAGE_KEY),
     user: null as userInfo | null,
     initialized: false,
     initializing: null as Promise<void> | null,
   }),
-  // getters: {
-  //   isLoggedIn: (state) => !!state.user,
-  //   hasFundPin: (state) => !!state.user?.set_pin,
-  // },
+  getters: {
+    isLoggedIn: (state) => Boolean(state.user && state.accessToken),
+    hasFundPin: (state) => Boolean(state.user?.set_pin),
+    isBlocked: (state) => {
+      const status = state.user?.raw_status ?? state.user?.status;
+      return ["SUSPENDED", "BANNED", "DISABLED"].includes(status?.toUpperCase?.() ?? "");
+    },
+  },
   actions: {
     setToken(token: string) {
-      localStorage.setItem("access_token", token);
+      localStorage.setItem(ACCESS_TOKEN_STORAGE_KEY, token);
       this.accessToken = token;
     },
-    setUser({ user, wallet }: { user: userInfo; wallet: walletType }) {
-      const walletStore = useWallet();
+    applyAuthUser(user: BackendAuthUser) {
+      this.user = normalizeUser(user, this.user);
+    },
+    setSession(session: AuthSessionResponse, wallet?: WalletPayload) {
+      this.setToken(session.accessToken);
+      this.applyAuthUser(session.user);
+
+      if (wallet) {
+        const walletStore = useWallet();
+        walletStore.setWallet(wallet.balance, wallet.currency);
+      }
+
+      void useWallet().fetchBalance();
+    },
+    setUser({ user, wallet }: { user: userInfo; wallet?: WalletPayload }) {
       this.user = user;
-      walletStore.setWallet(wallet.balance, wallet.currency);
+
+      if (wallet) {
+        const walletStore = useWallet();
+        walletStore.setWallet(wallet.balance, wallet.currency);
+      }
     },
     setFundPinStatus(status: boolean) {
       if (this.user) {
@@ -40,7 +125,7 @@ export const useAuthStore = defineStore("auth", {
     clearAuth() {
       this.accessToken = null;
       this.user = null;
-      localStorage.removeItem("access_token");
+      localStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
       disconnectSocket();
     },
     async login(payload: {
@@ -49,16 +134,21 @@ export const useAuthStore = defineStore("auth", {
       isPhoneNumber: boolean;
     }) {
       try {
-        const res = await api.post("/auth/login", payload);
-        this.setToken(res.data.accessToken);
-        await this.fetchUser();
-        initSocket();
+        const body = payload.isPhoneNumber
+          ? { phone: payload.name, password: payload.password }
+          : { username: payload.name, password: payload.password };
+        const response = await api.post<AuthSessionResponse>("/api/auth/login", body, {
+          skipAuthRefresh: true,
+        });
+
+        this.setSession(response.data);
+        void initSocket();
+
         return {
           status: 200,
           message: "Successfully logged in",
         };
       } catch (err: any) {
-        console.error("Login error:", err);
         this.clearAuth();
         return {
           status: err?.response?.status || 500,
@@ -67,15 +157,15 @@ export const useAuthStore = defineStore("auth", {
       }
     },
     async fetchUser() {
+      if (!this.accessToken) return false;
+
       try {
-        const res = await api.get("/user/profile");
-        this.setUser(res.data);
-        console.log("FETCHING USER PROFILE", res.data);
-        // const favStore = useFavoritesStore();
-        // favStore.syncFavorites();
+        const response = await getCurrentPlayer();
+        this.user = normalizePlayer(response, this.user);
+        void useWallet().fetchBalance();
+
         return true;
-      } catch (error) {
-        console.log("fetchUser failed", error);
+      } catch {
         return false;
       }
     },
@@ -84,36 +174,36 @@ export const useAuthStore = defineStore("auth", {
       if (this.initializing) {
         return this.initializing;
       }
+
       this.initializing = (async () => {
         try {
-          const localToken = localStorage.getItem("access_token");
+          const localToken = localStorage.getItem(ACCESS_TOKEN_STORAGE_KEY);
 
           if (localToken) {
             this.setToken(localToken);
             const ok = await this.fetchUser();
+
             if (ok) {
-              initSocket();
+              void initSocket();
               return;
             }
           }
-          console.log("REFRESH API CALLED");
-          const resData = await refreshAPI();
-          if (!resData?.accessToken) {
+
+          const session = await refreshAuthSession();
+          if (!session?.accessToken) {
             throw new Error("No refresh token");
           }
-          this.setToken(resData.accessToken);
-          const ok = await this.fetchUser();
-          if (!ok) {
-            throw new Error("User fetch failed");
-          }
-          initSocket();
-        } catch (err) {
+
+          this.setSession(session);
+          void initSocket();
+        } catch {
           this.clearAuth();
         } finally {
           this.initialized = true;
           this.initializing = null;
         }
       })();
+
       return this.initializing;
     },
     async register(payload: {
@@ -123,27 +213,30 @@ export const useAuthStore = defineStore("auth", {
       phone: string;
     }) {
       try {
-        const response = await api.post("/auth/register", payload);
-        if (response.status === 200 || response.status === 201) {
-          this.user = response.data;
-          this.setToken(response.data.accessToken);
-          await this.fetchUser();
-          initSocket();
-          return {
-            status: 200,
-            message: "Successfully logged in",
-          };
-        } else {
-          this.clearAuth();
-          return {
-            status: response.status,
-            message: response.data?.message || "something_went_wrong",
-          };
-        }
-      } catch (error:any) {
+        const response = await api.post<AuthSessionResponse>(
+          "/api/auth/register",
+          {
+            username: payload.name,
+            phone: payload.phone,
+            password: payload.password,
+            referralCode: payload.referral_code || undefined,
+          },
+          {
+            skipAuthRefresh: true,
+          },
+        );
+
+        this.setSession(response.data);
+        void initSocket();
+
+        return {
+          status: 200,
+          message: "Successfully logged in",
+        };
+      } catch (error: any) {
         this.clearAuth();
         return {
-          status: 500,
+          status: error?.response?.status || 500,
           message: error?.response?.data?.message || "something_went_wrong",
         };
       }
@@ -152,39 +245,41 @@ export const useAuthStore = defineStore("auth", {
       if (this.initializing) {
         return this.initializing;
       }
-      try {
-        const token = localStorage.getItem("access_token");
-        if (!token) {
-          return;
-        }
-        await this.fetchUser();
-        initSocket();
-      } catch {
-        try {
-          const res = await refreshAPI();
-          if (res?.accessToken) {
-            this.setToken(res.accessToken);
-            await this.fetchUser();
-            initSocket();
-          }
-        } catch {
-          await this.logout();
-        }
+
+      if (this.accessToken && (await this.fetchUser())) {
+        void initSocket();
+        return;
       }
+
+      const session = await refreshAuthSession();
+      if (session?.accessToken) {
+        this.setSession(session);
+        void initSocket();
+        return;
+      }
+
+      await this.logout();
     },
     async logout() {
-      localStorage.removeItem("access_token");
       try {
-        await api.post("/auth/logout");
+        await api.post(
+          "/api/auth/logout",
+          undefined,
+          {
+            skipAuthRefresh: true,
+          },
+        );
       } catch {
-        console.log("logout failed");
+        // Logout is still completed locally when the server session is already gone.
       }
+
       const walletStore = useWallet();
       walletStore.resetWallet();
       this.clearAuth();
-      // const favStore = useFavoritesStore();
-      // favStore.favoriteKeys = new Set();
-      router.replace("/");
+
+      if (router.currentRoute.value.path !== "/") {
+        await router.replace("/");
+      }
     },
   },
 });

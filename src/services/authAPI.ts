@@ -1,5 +1,14 @@
 import type { BankAccountPros } from "@/utils/types";
-import api from "./api";
+import { refreshAuthSession } from "./api";
+import { getCurrentPlayer } from "./userAPI";
+import {
+  createUserPaymentMethod,
+  deactivateUserPaymentMethod,
+  listUserPaymentMethods,
+  toBankAccount,
+  updateUserPaymentMethod,
+} from "./paymentMethodsAPI";
+import { changePasswordApi } from "./securityAPI";
 
 export interface AuthPayload {
   username: string;
@@ -7,11 +16,11 @@ export interface AuthPayload {
   referral_code?: string | null;
 }
 export interface ProfileResponse {
-  id: number;
+  id: number | string;
   name: string;
   email: string | null;
   phone: string | null;
-  status: boolean;
+  status: boolean | string;
   role: string | null;
   level: number;
   created_at: string;
@@ -34,48 +43,47 @@ export interface AuthResponse {
 //   return res.data
 // }
 export const refreshAPI = async (): Promise<null | any> => {
-  try {
-    const res = await api.post("/auth/refresh");
-    return res.data;
-  } catch (error) {
-    return null;
-  }
+  return refreshAuthSession();
 };
 export const getProfile = async (): Promise<ProfileResponse | null> => {
   try {
-    const res = await api.get("/user/profile", { withCredentials: true });
-    if (res.status === 200) return res.data;
-    return null;
+    const res = await getCurrentPlayer();
+    const player = res.player;
+    return {
+      id: player.userId,
+      name: player.username,
+      email: null,
+      phone: player.phone,
+      status: player.status,
+      role: player.role,
+      level: res.level?.level ?? player.level ?? 0,
+      created_at: "",
+      uid: player.userId,
+    };
   } catch (error) {
     return null;
   }
 };
 export const addBankAccountAPI = async (data: BankAccountPros) => {
   try {
-    const res = await api.post("/user/add_bank_account", data);
-    if (res.status === 200) return res.data;
-    return null;
+    return toBankAccount(await createUserPaymentMethod(data));
   } catch (error) {
     return null;
   }
 };
 export const updateBankAccountAPI = async (
-  id: number,
+  id: number | string,
   data: BankAccountPros,
 ) => {
   try {
-    const res = await api.put(`/user/update_bank_account/${id}`, data);
-    if (res.status === 200) return res.data;
-    return null;
+    return toBankAccount(await updateUserPaymentMethod(String(id), data));
   } catch (error) {
     return null;
   }
 };
-export const deleteBankAccountAPI = async (id: number) => {
+export const deleteBankAccountAPI = async (id: number | string) => {
   try {
-    const res = await api.delete(`/user/delete_bank_account/${id}`);
-    if (res.status === 200) return res.data;
-    return null;
+    return toBankAccount(await deactivateUserPaymentMethod(String(id)));
   } catch (error) {
     return null;
   }
@@ -83,48 +91,40 @@ export const deleteBankAccountAPI = async (id: number) => {
 
 export const getUserBankAccountAPI = async () => {
   try {
-    const response = await api.get("/user/get_bank_accounts");
-    if (response.status === 200) return response.data;
-    return null;
+    return (await listUserPaymentMethods()).map(toBankAccount);
   } catch (error) {
-    console.log(error);
-    return null;
+    return [];
   }
 };
 
 // api/auth.ts
 
 export const requestOTP = async (phone: string) => {
-  try {
-    const response = await api.post("/user/otp/request", { phone });
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    return true;
-  }
+  void phone;
+  return null;
 };
 
 export const verifyOTP = async (phone: string, code: string) => {
-  try {
-    const response = await api.post("/user/otp/verify", { phone, code });
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
+  void phone;
+  void code;
+  return null;
 };
 
 export const resetPassword = (phone: string, newPassword: string) =>
-  api.post("/auth/password/reset", { phone, newPassword });
+  {
+    void newPassword;
+    return Promise.reject(
+      new Error(
+        `Password reset is not exposed by game_new_backend for phone ${phone}.`,
+      ),
+    );
+  };
 
 export const changePassword = async (data: any) => {
-  try {
-    const response = await api.post("/user/password/change", data);
-    return response.data;
-  } catch (error) {
-    return null;
-  }
+  return changePasswordApi(data);
 };
 
 export const bindPhone = (phone: string) =>
-  api.post("/user/phone/bind", { phone });
+  Promise.reject(
+    new Error(`Phone binding is not exposed by game_new_backend for ${phone}.`),
+  );

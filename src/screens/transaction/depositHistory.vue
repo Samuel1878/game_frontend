@@ -2,7 +2,7 @@
 import { getDepositById } from "@/services/transactionAPI";
 import { useAuthStore } from "@/stores/auth";
 import type { depositFormData } from "@/utils/types";
-import { ref, watch, onActivated } from "vue";
+import { ref, watch, onActivated, onMounted } from "vue";
 import moment from "moment-timezone";
 import { useI18n } from "vue-i18n";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
@@ -41,7 +41,7 @@ const from = ref();
 const to = ref();
 
 // Computed helper status states
-const statuses = ['all', 'pending', 'approved', 'rejected'];
+const statuses = ['all', 'pending', 'approved', 'rejected', 'cancelled'];
 
 // ⏳ Process Date Presets seamlessly
 const applyDatePreset = (preset: 'today' | 'this_month' | 'custom') => {
@@ -82,15 +82,20 @@ const fetchData = async () => {
   });
   
   if (response) {
-    deposits.value = response.data;
-    totalPages.value = response.pagination.totalPages;
-    total.value = response.pagination.total;
+    deposits.value = response.data || [];
+    totalPages.value = response.pagination?.totalPages || 1;
+    total.value = response.pagination?.total || deposits.value.length;
+  } else {
+    deposits.value = [];
+    totalPages.value = 1;
+    total.value = 0;
   }
   loading.value = false;
 };
 
 // Initialize filter parameters on mount
 onActivated(fetchData);
+onMounted(fetchData);
 
 // Reactivity pipeline watching reactive elements automatically triggering fresh sync updates
 watch([currentPage, from, to, selectedStatus, searchKeyword], () => {
@@ -104,7 +109,8 @@ const viewDeposit = (d: depositFormData) => {
 
 const goPrev = () => { if (currentPage.value > 1) currentPage.value--; };
 const goNext = () => { if (currentPage.value < totalPages.value) currentPage.value++; };
-const formatAmount = (a: number) => a.toLocaleString() + " MMK";
+const formatAmount = (a: number, currency = "MMK") =>
+  `${a.toLocaleString()} ${currency}`;
 </script>
 
 <template>
@@ -236,7 +242,7 @@ const formatAmount = (a: number) => a.toLocaleString() + " MMK";
           <!-- Right financials status structure block -->
           <div class="text-right space-y-1.5 flex flex-col items-end">
             <span class="font-black text-sm tracking-tight text-transparent bg-clip-text bg-linear-to-r from-gray-100 to-gray-300">
-              {{ formatAmount(Number(txn.request_amount)) }}
+              {{ formatAmount(Number(txn.request_amount), txn.currency) }}
             </span>
             <span 
               class="px-2.5 py-0.5 text-[10px] font-extrabold rounded-full uppercase tracking-wider border shadow-sm" 
@@ -244,6 +250,7 @@ const formatAmount = (a: number) => a.toLocaleString() + " MMK";
                 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400': txn.status === 'approved',
                 'bg-amber-500/10 border-amber-500/20 text-amber-400': txn.status === 'pending',
                 'bg-rose-500/10 border-rose-500/20 text-rose-400': txn.status === 'rejected',
+                'bg-gray-500/10 border-gray-500/20 text-gray-400': txn.status === 'cancelled',
               }"
             >
               {{ t(txn?.status || "pending") }}

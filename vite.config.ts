@@ -24,19 +24,21 @@ export default defineConfig({
   // },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
+      // moment: 'moment/min/moment.min.js',
+      // 'moment-timezone': 'moment-timezone/builds/moment-timezone-with-data-10-year-range.min.js'
     }
   },
-  define: {
-    __VUE_PROD_DEVTOOLS__: false,
-  },
-  esbuild: {
-    pure: ['console.log'],
-    drop: ["console", "debugger"],
-  },
+  // define: {
+  //   __VUE_PROD_DEVTOOLS__: false,
+  // },
+  // esbuild: {
+  //   pure: ['console.log'],
+  //   drop: ["console", "debugger"],
+  // },
   build: {
     minify: "esbuild",
-    cssCodeSplit: false,
+    cssCodeSplit: true,
     sourcemap: false,
     chunkSizeWarningLimit: 1000, 
     rollupOptions: {
@@ -44,11 +46,16 @@ export default defineConfig({
         manualChunks(id) {
           if (id.includes('node_modules')) {
             const pathString = id.toString();
+            if (pathString.includes('lucide-vue-next')) {
+              return 'vendor-icons';
+            }
             if (
-              pathString.includes('vue') || 
+              pathString.includes('/vue/') ||
+              pathString.includes('/@vue/') ||
+              pathString.includes('vue-router') ||
+              pathString.includes('vue-i18n') ||
               pathString.includes('pinia') || 
-              pathString.includes('reka-ui') || 
-              pathString.includes('@floating-ui')
+              pathString.includes('@vueuse/core')
             ) {
               return 'vendor-core';
             }
@@ -57,6 +64,9 @@ export default defineConfig({
             }
             if (pathString.includes('socket.io-client')) {
               return 'vendor-socket';
+            }
+            if (pathString.includes('moment')) {
+              return 'vendor-date';
             }
           }
         },

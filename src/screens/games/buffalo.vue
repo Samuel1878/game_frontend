@@ -1,14 +1,59 @@
 <script setup lang="ts">
-const Footer = defineAsyncComponent(() => import("@/components/footer.vue"));
 import GameOptions from "@/components/layout/gameOptions.vue";
 import GameViews from "@/components/gameViews.vue";
-import { topBuffaloGames } from "@/consts/games";
+import { useGameStore } from "@/stores/game";
 import { buffalo } from "@/utils/assets";
-import { defineAsyncComponent } from "vue";
-
+import type { gameType } from "@/utils/types";
+import { defineAsyncComponent, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
+
+const Footer = defineAsyncComponent(() => import("@/components/footer.vue"));
 const { t } = useI18n();
+const gameStore = useGameStore();
+const loading = ref(false);
+const error = ref<string | null>(null);
+const games = ref<gameType[]>([]);
+const limit = 18;
+const page = ref(1);
+const hasMore = ref(true);
+const isLoadingMore = ref(false);
+
+const fetchGames = async (reset = false) => {
+  if (reset) {
+    page.value = 1;
+    hasMore.value = true;
+  }
+
+  loading.value = reset;
+  isLoadingMore.value = !reset;
+  error.value = null;
+  try {
+    const entry = await gameStore.fetchGames({
+      search: "buffalo",
+      page: page.value,
+      limit,
+    });
+
+    games.value = reset ? entry.items : [...games.value, ...entry.items];
+    hasMore.value = Boolean(entry.pagination && page.value < entry.pagination.totalPages);
+  } catch (err: any) {
+    error.value = err?.response?.data?.message || "game_unavailable";
+    if (reset) games.value = [];
+  } finally {
+    loading.value = false;
+    isLoadingMore.value = false;
+  }
+};
+
+const loadMore = async () => {
+  if (!hasMore.value || isLoadingMore.value) return;
+  page.value += 1;
+  await fetchGames(false);
+};
+
+onMounted(() => fetchGames(true));
 </script>
+
 <template>
   <main
     class="bg-gray-900 max-w-6xl w-full flex justify-between flex-col ios-layer-isolate"
@@ -18,7 +63,7 @@ const { t } = useI18n();
         class="w-full flex gap-2 h-28 items-center justify-between rounded-2xl bg-gray-800/20 border border-gray-500/20 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
       >
         <div class="px-4">
-          <img :src="buffalo" class="w-18 h-18" />
+          <img :src="buffalo" class="w-18 h-18" alt="buffalo" />
         </div>
         <div class="flex flex-col gap-4 justify-between flex-1">
           <h1 class="text-white font-bold text-xl">
@@ -31,21 +76,42 @@ const { t } = useI18n();
       </div>
     </div>
     <GameOptions current_page="buffalo" />
-    <div class="flex gap-1 items-center my-2">
-      <img :src="buffalo" class="w-8 h-8" />
+    <div class="flex gap-1 items-center my-2 px-3">
+      <img :src="buffalo" class="w-8 h-8" alt="buffalo" />
       <p class="text-white text-lg font-bold">{{ t("buffalo") }}</p>
     </div>
+
     <div
+      v-if="loading && !games.length"
       class="px-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 my-2"
-      v-if="!topBuffaloGames?.length"
     >
-      <div
-        class="h-40 grid-1 bg-white/10 animate-pulse rounded-xl"
-        v-for="n in 18"
-        :key="n"
-      ></div>
+      <div class="h-40 bg-white/10 animate-pulse rounded-xl" v-for="n in 18" :key="n" />
     </div>
-    <GameViews v-else :game-data="topBuffaloGames" />
+
+    <div v-else-if="error && !games.length" class="px-4 py-10 text-center">
+      <p class="text-gray-300 text-sm">{{ t(error) }}</p>
+      <button class="mt-3 px-4 py-2 gold-bg text-black font-bold rounded-lg" @click="fetchGames(true)">
+        {{ t("retry") }}
+      </button>
+    </div>
+
+    <div v-else-if="!games.length" class="px-4 py-10 text-center text-gray-400 text-sm">
+      {{ t("no_games_found") }}
+    </div>
+
+    <GameViews v-else :game-data="games" />
+
+    <div class="flex justify-center my-4">
+      <button
+        v-if="hasMore"
+        @click="loadMore"
+        class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg disabled:opacity-70"
+        :disabled="isLoadingMore"
+      >
+        <span v-if="!isLoadingMore">{{ t("view_more") }}</span>
+        <span v-else>{{ t("loading") }}...</span>
+      </button>
+    </div>
     <Footer />
   </main>
 </template>

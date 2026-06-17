@@ -5,7 +5,7 @@ import {
   paymentMethodOption,
   usdtRateToMMK,
 } from "@/consts";
-import { computed, defineAsyncComponent, onActivated, ref, watch } from "vue";
+import { computed, defineAsyncComponent, onActivated, onMounted, ref, watch } from "vue";
 import {
   InputGroup,
   InputGroupAddon,
@@ -40,10 +40,18 @@ const BankAccountDrawer = defineAsyncComponent(
 );
 const amount = ref<number>();
 
-const withdrawForm = ref<{ number: string; name: string; method: string }>({
+const withdrawForm = ref<{
+  id: string;
+  number: string;
+  name: string;
+  method: string;
+  currency: string;
+}>({
+  id: "",
   number: "",
   name: "",
   method: "",
+  currency: "MMK",
 });
 const walletStore = useWallet();
 const authStore = useAuthStore();
@@ -61,7 +69,7 @@ const realAmount = computed<number>(() => {
 });
 const openPinDrawer = () => {
   if (!authStore.user) return router.push("/auth");
-  if (!authStore.user.set_pin) {
+  if (authStore.user.set_pin === false) {
     fundPinStore.openFundPin();
     return;
   }
@@ -82,12 +90,19 @@ const openPinDrawer = () => {
     }
   }
   if (!authStore.user) return toast.error(t("unauthorized"));
-  if (!amount || !withdrawForm.value.name || !withdrawForm.value.number) {
+  if (!amount.value || !withdrawForm.value.id || !withdrawForm.value.name || !withdrawForm.value.number) {
     toast.error(t("choose_account"));
 
     return;
   }
-  openDrawer.value = true;
+  if (authStore.user.set_pin === true) {
+    openDrawer.value = true;
+    return;
+  }
+
+  if (confirm(t("confirm_withdraw"))) {
+    void submit(true);
+  }
 };
 const getPaymentIcon = (accountName: string) => {
   return paymentMethod.find((e) => e.value === accountName);
@@ -106,16 +121,19 @@ const chooseAccount = (data: BankAccount) => {
     withdrawForm.value.name = "";
     withdrawForm.value.number = "";
     withdrawForm.value.method = "";
+    withdrawForm.value.id = "";
+    withdrawForm.value.currency = walletStore.currency || "MMK";
     choosen.value = false;
     return;
   }
+  withdrawForm.value.id = String(data.id);
   withdrawForm.value.name = data.account_name;
   withdrawForm.value.number = data.account_number;
   withdrawForm.value.method = data.value;
+  withdrawForm.value.currency = walletStore.currency || "MMK";
   choosen.value = true;
 };
 const submit = async (params: any) => {
-  console.log(params);
   if (!params) {
     openDrawer.value = false;
     return;
@@ -141,7 +159,7 @@ const submit = async (params: any) => {
     }
   }
   if (!authStore.user) return toast.error(t("unauthorized"));
-  if (!amount || !withdrawForm.value.name || !withdrawForm.value.number) {
+  if (!amount.value || !withdrawForm.value.id || !withdrawForm.value.name || !withdrawForm.value.number) {
     toast.error(t("choose_account"));
     openDrawer.value = false;
     return;
@@ -152,6 +170,8 @@ const submit = async (params: any) => {
     amount: amount.value,
     payment_method: withdrawForm.value.method,
     fund_pin: params,
+    user_payment_method_id: withdrawForm.value.id,
+    currency: withdrawForm.value.currency,
   };
   const param: withdrawParamType = {
     user_id: authStore.user.id,
@@ -160,6 +180,7 @@ const submit = async (params: any) => {
   const response = await withdrawalHandlerAPI(data, param);
   if (response && response.data) {
     toast.success(t(response?.message || "success"));
+    await walletStore.fetchBalance();
     openDrawer.value = false;
     router.back();
     return;
@@ -169,7 +190,7 @@ const submit = async (params: any) => {
 };
 
 const isEdit = ref(false);
-const selectedId = ref<number | null>(null);
+const selectedId = ref<number | string | null>(null);
 
 const form = ref<BankAccountPros>({
   label: "",
@@ -177,6 +198,8 @@ const form = ref<BankAccountPros>({
   tag: 1,
   account_number: "",
   account_name: "",
+  bank_name: "",
+  wallet_address: "",
   is_available: true,
 });
 const fundPinStore = useFundPinStore();
@@ -185,6 +208,14 @@ onActivated(async () => {
   if (authStore.user?.set_pin === false) {
       fundPinStore.openFundPin();
     }
+  await walletStore.fetchBalance();
+  bankStore.fetchAccounts();
+});
+onMounted(async () => {
+  if (authStore.user?.set_pin === false) {
+    fundPinStore.openFundPin();
+  }
+  await walletStore.fetchBalance();
   bankStore.fetchAccounts();
 });
 
@@ -197,13 +228,19 @@ const openAdd = () => {
     tag: 1,
     account_number: "",
     account_name: "",
+    bank_name: "",
+    wallet_address: "",
     is_available: true,
   };
 };
 const saveAccount = async () => {
   // console.log(form);
   if (isEdit.value && selectedId.value) {
-    await bankStore.updateAccount(selectedId.value, form.value);
+    const response = await bankStore.updateAccount(selectedId.value, form.value);
+    if (!response) {
+      toast.error(bankStore.error || t("something_went_wrong"));
+      return;
+    }
   } else {
     if (form.value.account_number.length < 5) {
       toast.error("Account number must be at least 5 characters long");
@@ -217,7 +254,11 @@ const saveAccount = async () => {
       toast.error("Please select a payment method");
       return;
     }
-    await bankStore.addAccount(form.value);
+    const response = await bankStore.addAccount(form.value);
+    if (!response) {
+      toast.error(bankStore.error || t("something_went_wrong"));
+      return;
+    }
   }
   showDialog.value = false;
 };
@@ -240,7 +281,7 @@ watch([percentage, byPercentage], () => {
           </p>
           <div class="flex flex-col gap-1 items-end">
             <p class="text-yellow-400 font-bold text-lg">
-              {{ formatPrice(amount || 0) }} MMK
+              {{ formatPrice(amount || 0) }} {{ walletStore.currency }}
             </p>
             <span
               class="text-gray-500 text-xs font-semibold"
@@ -252,7 +293,7 @@ watch([percentage, byPercentage], () => {
                   ? formatPrice(walletStore.balance - amount)
                   : formatPrice(walletStore.balance)
               }}
-              MMK
+              {{ walletStore.currency }}
             </span>
           </div>
         </div>
@@ -461,7 +502,7 @@ watch([percentage, byPercentage], () => {
             "
           />
           <InputGroupAddon align="inline-end">
-            <InputGroupText class="text-gray-400">MMK</InputGroupText>
+            <InputGroupText class="text-gray-400">{{ walletStore.currency }}</InputGroupText>
           </InputGroupAddon>
         </InputGroup>
         <Transition

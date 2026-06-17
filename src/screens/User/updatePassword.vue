@@ -14,6 +14,7 @@ import CustomNavBar from "@/components/layout/customNavBar.vue";
 import { openChat } from "@/utils";
 import LanguageBtn from "@/components/languageBtn.vue";
 import { changePassword } from "@/services/authAPI";
+import { getApiErrorMessage } from "@/services/api";
 
 const CredentialAlert = defineAsyncComponent(
   () => import("@/components/credentialAlert.vue"),
@@ -45,8 +46,9 @@ const submit = async () => {
   loading.value = true;
   try {
     const res = await changePassword({
-      oldPassword: oldPassword.value,
-      newPassword: newPassword.value,
+      current_password: oldPassword.value,
+      new_password: newPassword.value,
+      confirm_password: confirmPassword.value,
     });
     if (res) {
       toast.success(t("password_changed_successfully"));
@@ -57,6 +59,8 @@ const submit = async () => {
     } else {
       toast.error(t("something_went_wrong"));
     }
+  } catch (error) {
+    toast.error(getApiErrorMessage(error, t("backend_api_not_available")));
   } finally {
     loading.value = false;
   }

@@ -1,15 +1,16 @@
-<script lang="ts" setup>
-import type { DrawerCloseProps } from "vaul-vue"
-import { DrawerClose } from "vaul-vue"
+<script setup lang="ts">
+import { inject } from "vue";
+import { drawerContextKey } from "./context";
 
-const props = defineProps<DrawerCloseProps>()
+defineProps<{
+  asChild?: boolean;
+}>();
+
+const drawer = inject(drawerContextKey);
 </script>
 
 <template>
-  <DrawerClose
-    data-slot="drawer-close"
-    v-bind="props"
-  >
+  <button type="button" @click="drawer?.setOpen(false)">
     <slot />
-  </DrawerClose>
+  </button>
 </template>

@@ -3,17 +3,16 @@ import { useAuthStore } from "./stores/auth";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 
-import HomeView from "@/screens/Home.vue";
-import Profile from "@/screens/User/Profile.vue";
-import Deposit from "@/screens/Deposit/Deposit.vue";
-import Promotions from "@/screens/promotions/index.vue";
-import Slots from "./screens/games/slots.vue";
-import Buffalo from "./screens/games/buffalo.vue";
-import Fishing from "./screens/games/fishing.vue";
-import Casino from "./screens/games/casino.vue";
-import GameView from "./gameView.vue";
-import Auth from "./screens/auth.vue";
-
+const HomeView = () => import("@/screens/Home.vue");
+const Profile = () => import("@/screens/User/Profile.vue");
+const Deposit = () => import("@/screens/Deposit/Deposit.vue");
+const Promotions = () => import("@/screens/promotions/index.vue");
+const Slots = () => import("./screens/games/slots.vue");
+const Buffalo = () => import("./screens/games/buffalo.vue");
+const Fishing = () => import("./screens/games/fishing.vue");
+const Casino = () => import("./screens/games/casino.vue");
+const GameView = () => import("./gameView.vue");
+const Auth = () => import("./screens/auth.vue");
 const Withdraw = () => import("@/screens/Withdrawal/index.vue");
 const Payments = () => import("./screens/Deposit/payments.vue");
 const Help = () => import("./screens/help.vue");
@@ -36,7 +35,8 @@ const TransactionDetail = () =>
 NProgress.configure({ showSpinner: false });
 const routes = [
   {
-    path: "/game",
+    path: "/game/play",
+    name: "game-play",
     component: GameView,
     meta: {
       hideNavbar: true,
@@ -46,6 +46,13 @@ const routes = [
     },
   },
   {
+    path: "/game",
+    redirect: (to: any) => ({
+      path: "/game/play",
+      query: to.query,
+    }),
+  },
+  {
     path: "/auth",
     name: "auth",
     component: Auth,
@@ -53,6 +60,7 @@ const routes = [
       hideNavbar: true,
       hideTopNav: true,
       requiresAuth: false,
+      guestOnly: true,
       keepAlive: false,
     },
   },
@@ -133,7 +141,7 @@ const routes = [
   },
   {
     path: "/user/profile",
-    meta: { requiresAuth: false, keepAlive: true },
+    meta: { requiresAuth: true, keepAlive: true },
     component: Profile,
   },
   {
@@ -357,7 +365,22 @@ router.beforeEach(async (to, from) => {
   if (!auth.initialized) {
     await auth.init();
   }
-  if (to.meta.requiresAuth && !auth.user) {
+
+  if (to.meta.guestOnly && auth.isLoggedIn) {
+    NProgress.done();
+    return "/";
+  }
+
+  if (auth.isLoggedIn && auth.isBlocked) {
+    auth.clearAuth();
+    NProgress.done();
+    return {
+      path: "/auth",
+      query: { mode: "login", reason: "account_disabled" },
+    };
+  }
+
+  if (to.meta.requiresAuth && !auth.isLoggedIn) {
     NProgress.done();
     return {
       path: "/auth",

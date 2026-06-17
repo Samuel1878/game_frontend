@@ -26,7 +26,7 @@ const players = ref<userInfo[]>([]);
 const authStore = useAuthStore();
 const router = useRouter();
 
-const fetchPlayers = async (agent: number) => {
+const fetchPlayers = async (agent: number | string) => {
   try {
     loadingUsers.value = true;
 

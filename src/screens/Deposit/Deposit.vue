@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { amounts, paymentMethod, usdtRateToMMK } from "@/consts";
-import { ref } from "vue";
+import { computed, onActivated, onMounted, ref } from "vue";
 import {
   InputGroup,
   InputGroupAddon,
@@ -15,9 +15,17 @@ import HelpBox from "@/components/layout/helpBox.vue";
 import { useAuthStore } from "@/stores/auth";
 import { Button } from "@/components/ui/button";
 import { toast } from "vue-sonner";
+import { getCompanyDepositAccounts } from "@/services/depositAPI";
+import {
+  methodTypeToUiPaymentValue,
+  type CompanyPaymentAccountResponse,
+} from "@/services/paymentMethodsAPI";
+import { moneyToNumber } from "@/utils/money";
 const amount = ref<number>();
 const { t } = useI18n();
 const chosePayment = ref("");
+const loadingMethods = ref(false);
+const companyAccounts = ref<CompanyPaymentAccountResponse[]>([]);
 const setAmount = (a: number) => {
   amount.value = a;
 };
@@ -25,30 +33,79 @@ const authStore = useAuthStore();
 const choosePayment = (value: string) => {
   chosePayment.value = value;
 };
+const availablePaymentMethods = computed(() =>
+  paymentMethod.filter((payment) =>
+    companyAccounts.value.some(
+      (account) =>
+        account.isActive &&
+        methodTypeToUiPaymentValue(account.methodType) === payment.value,
+    ),
+  ),
+);
+const selectedAccounts = computed(() =>
+  companyAccounts.value.filter(
+    (account) => methodTypeToUiPaymentValue(account.methodType) === chosePayment.value,
+  ),
+);
+const selectedLimits = computed(() => {
+  const accounts = selectedAccounts.value;
+  const mins = accounts.map((account) => moneyToNumber(account.minAmount));
+  const maxs = accounts
+    .map((account) => account.maxAmount)
+    .filter(Boolean)
+    .map((value) => moneyToNumber(value));
+
+  return {
+    min: mins.length ? Math.min(...mins) : 0,
+    max: maxs.length ? Math.max(...maxs) : 0,
+    currency: accounts[0]?.currency ?? "MMK",
+  };
+});
+const amountPlaceholder = computed(() => {
+  const { min, max, currency } = selectedLimits.value;
+  if (!chosePayment.value || (!min && !max)) return "0";
+  return `${min ? formatPrice(min) : 0}${max ? ` - ${formatPrice(max)}` : "+"} ${currency}`;
+});
+const loadCompanyAccounts = async () => {
+  loadingMethods.value = true;
+  try {
+    companyAccounts.value = await getCompanyDepositAccounts();
+    if (
+      chosePayment.value &&
+      !availablePaymentMethods.value.some((payment) => payment.value === chosePayment.value)
+    ) {
+      chosePayment.value = "";
+    }
+  } catch (error: any) {
+    companyAccounts.value = [];
+    toast.error(error?.response?.data?.message || t("try_again"));
+  } finally {
+    loadingMethods.value = false;
+  }
+};
 
 const goToPayment = () => {
   if (!authStore.user)
     return router.push({ path: "/auth", query: { mode: "login" } });
-  if (chosePayment.value === "usdt") {
-    if (amount.value && amount.value >= 10 && amount.value <= 40000) {
-      router.push(`/deposit/${chosePayment.value}?amount=${amount.value}`);
-      return;
-    }
-    toast.warning(t('amount_must_be_between_45000_10000000'))
-  } else if (chosePayment.value === "kbzBank") {
-    if (amount.value && amount.value >= 100000 && amount.value <= 50000000) {
-      router.push(`/deposit/${chosePayment.value}?amount=${amount.value}`);
-      return;
-    }
-     toast.warning(t('amount_must_be_between_100000_50000000'))
-  } else {
-    if (amount.value && amount.value >= 10000 && amount.value <= 1000000) {
-      router.push(`/deposit/${chosePayment.value}?amount=${amount.value}`);
-      return;
-    }
-    toast.warning(t('amount_must_be_between_10000_1000000'))
+  if (!selectedAccounts.value.length) {
+    toast.warning(t("payment_method_not_available"));
+    return;
   }
+  const amountValue = Number(amount.value ?? 0);
+  const { min, max } = selectedLimits.value;
+  if (!amountValue || amountValue <= 0) {
+    toast.warning(t("invalid_amount"));
+    return;
+  }
+  if ((min && amountValue < min) || (max && amountValue > max)) {
+    toast.warning(`${t("amount_must_be_between")} ${amountPlaceholder.value}`);
+    return;
+  }
+
+  router.push(`/deposit/${chosePayment.value}?amount=${amount.value}`);
 };
+onActivated(loadCompanyAccounts);
+onMounted(loadCompanyAccounts);
 </script>
 <template>
   <main class="text-gray-100 flex justify-center bg-gray-900 w-full">
@@ -66,7 +123,7 @@ const goToPayment = () => {
         </div>
         <div class="flex flex-wrap justify-center gap-2">
           <div
-            v-for="payment in paymentMethod"
+            v-for="payment in availablePaymentMethods"
             :key="payment.id"
             @click="choosePayment(payment.value)"
             class="group w-[30%] p-2 rounded-2xl relative bg-linear-to-br from-gray-800/5 to-gray-500/10 border-2 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-500/10 active:scale-[0.97] transition flex flex-col items-center gap-2"
@@ -95,6 +152,12 @@ const goToPayment = () => {
               {{ payment.label }}
             </p>
           </div>
+          <p
+            v-if="!loadingMethods && !availablePaymentMethods.length"
+            class="text-sm text-gray-400 py-8"
+          >
+            {{ t("no_payment_methods_available") }}
+          </p>
         </div>
         <p class="text-red-400 text-xs font-normal leading-loose">
           {{ t("deposit_payment_description") }}
@@ -124,15 +187,13 @@ const goToPayment = () => {
             type="number"
             class="text-yellow-400 text-lg font-bold bg-transparent"
             :placeholder="
-              chosePayment === 'usdt'
-                ? '10 - 4,000'
-                : chosePayment === 'kbzBank'
-                ? '100,000 - 50,000,000'
-                : '10,000 - 1,000,000'
+              amountPlaceholder
             "
           />
           <InputGroupAddon align="inline-end">
-            <InputGroupText class="text-gray-400">MMK</InputGroupText>
+            <InputGroupText class="text-gray-400">
+              {{ selectedLimits.currency }}
+            </InputGroupText>
           </InputGroupAddon>
         </InputGroup>
         <div
@@ -191,12 +252,12 @@ const goToPayment = () => {
           </button>
         </div>
         <Button
-          :disabled="!amount || !chosePayment"
+          :disabled="loadingMethods || !amount || !chosePayment"
           @click="goToPayment"
-          :class="!amount || !chosePayment ? 'gold-bg' : ' gold-bg '"
+          :class="loadingMethods || !amount || !chosePayment ? 'gold-bg' : ' gold-bg '"
           class="w-full disabled:opacity-50 font-bold text-glow active-button rounded-lg h-12 flex items-center justify-center"
         >
-          {{ t("next") }}
+          {{ loadingMethods ? t("loading") : t("next") }}
         </Button>
       </div>
       <HelpBox container-style="" />

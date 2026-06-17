@@ -76,12 +76,18 @@ export const paymentMethod: paymentTypes[] = [
   },
   {
     id: 4,
+    label: "CB Pay",
+    value: "cbPay",
+    icon: kbzPay,
+  },
+  {
+    id: 5,
     label: "KBZ Bank",
     value: "kbzBank",
     icon: kbzBank,
   },
   {
-    id: 5,
+    id: 6,
     label: "USDT",
     value: "usdt",
     icon: usdt,
@@ -110,11 +116,16 @@ export const paymentMethodOption = [
   },
   {
     id: 5,
+    label: "CB Pay",
+    value: "cbPay",
+  },
+  {
+    id: 6,
     label: "USDT",
     value: "usdt",
   },
   {
-    id: 6,
+    id: 7,
     label: "KBZ Bank",
     value: "kbzBank",
   },
@@ -196,7 +207,7 @@ export const gameOptions = [
     image: chess,
   },
 ];
-export const providerNames: Record<number, string> = {
+export const providerNames: Record<string | number, string> = {
   3: "PP",
   35: "PG",
   1020: "JILI",
@@ -208,69 +219,49 @@ export const providerNames: Record<number, string> = {
   14: "SBO",
   1029: "568win",
   1094: "AFB",
+  PRAGMATIC_PLAY: "Pragmatic Play",
+  PG: "PG Soft",
+  JILI: "JILI",
+  FACHAI: "FaChai",
+  CQ9: "CQ9",
+  JDB: "JDB",
 };
 export const slotGameProviders = [
   {
     id: 1,
     name: "Pragmatic Play",
-    GpId: 3,
+    GpId: "PRAGMATIC_PLAY",
     icon: "/providers/PP-WHITE.webp",
   },
   {
     id: 2,
     name: "PG Soft",
-    GpId: 35,
+    GpId: "PG",
     icon: "/providers/PG-WHITE.webp",
   },
   {
     id: 3,
     name: "JILI",
-    GpId: 1020,
+    GpId: "JILI",
     icon: "/providers/JL-WHITE.webp",
   },
 
   {
     id: 4,
-    name: "FaChoi",
-    GpId: 1046,
+    name: "FaChai",
+    GpId: "FACHAI",
     icon: "/providers/FC-WHITE.webp",
   },
   {
     id: 5,
-    name: "Fastspin",
-    GpId: 1079,
-    icon: "/providers/fast_spin.webp",
-  },
-
-  {
-    id: 6,
-    name: "KA Gaming",
-    GpId: 1042,
+    name: "CQ9",
+    GpId: "CQ9",
     icon: "/providers/KA-WHITE.webp",
   },
   {
-    id: 7,
-    name: "Advantplay",
-    GpId: 1034,
-    icon: "/providers/advant_play.webp",
-  },
-  {
-    id: 8,
-    name: "VA Gaming",
-    GpId: 1085,
-    icon: "/providers/va-white.webp",
-  },
-
-  {
-    id: 10,
-    name: "SBO games",
-    GpId: 14,
-    icon: "/providers/sbo.webp",
-  },
-  {
-    id: 11,
-    name: "568Win Games",
-    GpId: 1029,
+    id: 6,
+    name: "JDB",
+    GpId: "JDB",
     icon: "/providers/568.webp",
   },
 ];

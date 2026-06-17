@@ -1,96 +1,65 @@
 <script setup lang="ts">
-import type { SidebarProps } from "."
-import { cn } from "@/lib/utils"
-import { Sheet, SheetContent } from '@/components/ui/sheet'
-import SheetDescription from '@/components/ui/sheet/SheetDescription.vue'
-import SheetHeader from '@/components/ui/sheet/SheetHeader.vue'
-import SheetTitle from '@/components/ui/sheet/SheetTitle.vue'
-import { SIDEBAR_WIDTH_MOBILE, useSidebar } from "./utils"
+import type { SidebarProps } from ".";
+import { cn } from "@/lib/utils";
+import { SIDEBAR_WIDTH, SIDEBAR_WIDTH_MOBILE, useSidebar } from "./utils";
 
 defineOptions({
   inheritAttrs: false,
-})
+});
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   side: "left",
   variant: "sidebar",
   collapsible: "offcanvas",
-})
+});
 
-const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
+const { isMobile, open, openMobile, setOpenMobile } = useSidebar();
 </script>
 
 <template>
-  <div
-    v-if="collapsible === 'none'"
+  <aside
+    v-if="!isMobile && (collapsible === 'none' || open)"
     data-slot="sidebar"
-    :class="cn('bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col', props.class)"
+    data-sidebar="sidebar"
+    :data-variant="variant"
+    :data-side="side"
+    :style="{ width: SIDEBAR_WIDTH }"
+    :class="cn('hidden md:flex shrink-0 flex-col bg-gray-900 text-white', props.class)"
     v-bind="$attrs"
   >
     <slot />
-  </div>
+  </aside>
 
-  <Sheet v-else-if="isMobile" :open="openMobile" v-bind="$attrs" @update:open="setOpenMobile">
-    <SheetContent
-      data-sidebar="sidebar"
-      data-slot="sidebar"
-      data-mobile="true"
-      :side="side"
-      class="bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
-      :style="{
-        '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
-      }"
-    >
-      <SheetHeader class="sr-only">
-        <SheetTitle>Sidebar</SheetTitle>
-        <SheetDescription>Displays the mobile sidebar.</SheetDescription>
-      </SheetHeader>
-      <div class="flex h-full w-full flex-col">
-        <slot />
-      </div>
-    </SheetContent>
-  </Sheet>
-
-  <div
-    v-else
-    class="group peer text-sidebar-foreground hidden md:block"
-    data-slot="sidebar"
-    :data-state="state"
-    :data-collapsible="state === 'collapsed' ? collapsible : ''"
-    :data-variant="variant"
-    :data-side="side"
-  >
-    <!-- This is what handles the sidebar gap on desktop  -->
+  <Teleport to="body">
     <div
-      :class="cn(
-        'relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear',
-        'group-data-[collapsible=offcanvas]:w-0',
-        'group-data-[side=right]:rotate-180',
-        variant === 'floating' || variant === 'inset'
-          ? 'group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]'
-          : 'group-data-[collapsible=icon]:w-(--sidebar-width-icon)',
-      )"
-    />
-    <div
-      :class="cn(
-        'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex',
-        side === 'left'
-          ? 'left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]'
-          : 'right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]',
-        // Adjust the padding for floating and inset variants.
-        variant === 'floating' || variant === 'inset'
-          ? 'p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]'
-          : 'group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l',
-        props.class,
-      )"
-      v-bind="$attrs"
+      v-if="isMobile && openMobile"
+      class="fixed inset-0 z-50 md:hidden"
+      data-slot="sidebar-mobile"
+      role="presentation"
     >
-      <div
+      <button
+        type="button"
+        class="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        aria-label="Close menu"
+        @click="setOpenMobile(false)"
+      />
+      <aside
+        data-slot="sidebar"
         data-sidebar="sidebar"
-        class="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm"
+        data-mobile="true"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        :style="{ width: SIDEBAR_WIDTH_MOBILE }"
+        :class="cn(
+          'fixed top-0 bottom-0 z-10 flex max-w-[86vw] flex-col bg-gray-900 text-white shadow-2xl transition-transform',
+          side === 'right' ? 'right-0' : 'left-0',
+          props.class,
+        )"
+        v-bind="$attrs"
       >
         <slot />
-      </div>
+      </aside>
     </div>
-  </div>
+  </Teleport>
 </template>
