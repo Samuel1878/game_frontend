@@ -1,49 +1,43 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import router from "@/router";
-import {
-  AlignEndHorizontal,
-  FileChartColumn,
-  Trophy,
-  Users,
-} from "lucide-vue-next";
+import { LayoutDashboard, Network, Trophy, Users } from "lucide-vue-next";
 import { useI18n } from "vue-i18n";
-const props = defineProps<{ current_page: string }>();
+
+const props = defineProps<{
+  currentPage?: "summary" | "players" | "agents" | "dividends";
+  /** Backward compatibility for legacy, no-longer-routed agent screens. */
+  current_page?: string;
+}>();
 const { t } = useI18n();
-const gotoPath = (path: string) => {
-  router.push(path);
-};
+
+const currentPage = computed(() => {
+  if (props.currentPage) return props.currentPage;
+  if (props.current_page === "overview") return "summary";
+  if (props.current_page === "rewards" || props.current_page === "tx") return "dividends";
+  return "players";
+});
+
 const tabs = [
- {
-    label: "overview",
-    icon: AlignEndHorizontal,
-    path: "/user/agent-center/overview",
-  },
-   { label: "players", icon: Users, path: "/user/agent-center/users" },
-  {
-    label: "tx",
-    icon: FileChartColumn,
-    path: "/user/agent-center/transactions",
-  },
-  
- 
-  { label: "rewards", icon: Trophy, path: "/user/agent-center/rewards" },
-];
+  { label: "summary", icon: LayoutDashboard, path: "/user/agent-center/overview" },
+  { label: "players", icon: Users, path: "/user/agent-center/users" },
+  { label: "agents", icon: Network, path: "/user/agent-center/agents" },
+  { label: "dividends", icon: Trophy, path: "/user/agent-center/dividends" },
+] as const;
 </script>
+
 <template>
-  <nav
-    class="bg-[#111827]/90 backdrop-blur border-b border-white/10 p-2 flex justify-between items-center shadow-xl"
-  >
+  <nav class="sticky top-0 z-10 flex items-center justify-between border-b border-amber-400/10 bg-[#111827]/95 p-2 shadow-xl backdrop-blur">
     <button
-      v-for="tb in tabs"
-      :key="tb.path"
-      @click="gotoPath(tb.path)"
-      class="flex flex-col items-center flex-1 gap-2 text-xs relative"
-      :class="props.current_page === tb.label ? 'text-white' : 'text-gray-400'"
+      v-for="tab in tabs"
+      :key="tab.path"
+      type="button"
+      class="flex flex-1 flex-col items-center gap-1.5 rounded-xl py-1.5 text-xs transition"
+      :class="currentPage === tab.label ? 'bg-amber-400/10 text-amber-300' : 'text-gray-400'"
+      @click="router.push(tab.path)"
     >
-      <component :is="tb.icon || 'div'" class="w-6 h-6" />
-      <span class="text-[11px]">
-        {{ t(tb.label) }}
-      </span>
+      <component :is="tab.icon" class="h-5 w-5" />
+      <span class="text-[11px]">{{ t(tab.label) }}</span>
     </button>
   </nav>
 </template>

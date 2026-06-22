@@ -334,3 +334,154 @@ export interface FavoriteGames {
   provider_id : number;
   game_id:number;
 }
+
+export type AgentDashboardPeriod = "today" | "this_month" | "custom";
+
+export type AgentDashboardQuery = {
+  period?: AgentDashboardPeriod;
+  start_date?: string;
+  end_date?: string;
+  page?: number;
+  limit?: number;
+  search?: string;
+};
+
+/** Amounts are deliberately separated by currency by the backend. */
+export type AgentMoneyAmount = {
+  currency: string;
+  amount: string;
+};
+
+export type AgentTotals = {
+  totalDeposits: AgentMoneyAmount[];
+  totalWithdrawals: AgentMoneyAmount[];
+  totalTurnover: AgentMoneyAmount[];
+  totalGGR: AgentMoneyAmount[];
+  totalPlayerCount: number;
+};
+
+export type AgentDashboardAgent = {
+  id: string;
+  userId: string;
+  parentAgentId: string | null;
+  username: string;
+  phone: string;
+  name: string;
+  code: string;
+  status: "ACTIVE" | "SUSPENDED" | string;
+  commissionRate: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type AgentDashboardPlayer = {
+  id: string;
+  username: string;
+  phone: string;
+  fullName: string | null;
+  status: string;
+  createdAt: string;
+  assignedAgentId: string;
+  isDirect: boolean;
+  totals: Omit<AgentTotals, "totalPlayerCount">;
+  totalDeposits: AgentMoneyAmount[];
+  totalWithdrawals: AgentMoneyAmount[];
+  totalTurnover: AgentMoneyAmount[];
+  totalGGR: AgentMoneyAmount[];
+};
+
+export type AgentDashboardPagination = {
+  page: number;
+  limit: number;
+  total: number;
+  totalPages: number;
+};
+
+export type AgentDashboardPeriodResponse = {
+  period: AgentDashboardPeriod | "all";
+  startDate?: string;
+  endDate?: string;
+  timezone: string;
+};
+
+export type AgentDividendBreakdown = {
+  agentId: string | null;
+  agentName: string | null;
+  currency: string;
+  parentRate: string;
+  childRate: string | null;
+  overrideRate: string;
+  totalGGR: string;
+  dividendAmount: string;
+};
+
+export type AgentDividendEstimate = {
+  directDividendAmount: AgentMoneyAmount[];
+  nestedOverrideDividendAmount: AgentMoneyAmount[];
+  totalDividendAmount: AgentMoneyAmount[];
+  nestedOverrideBreakdown: AgentDividendBreakdown[];
+};
+
+export type AgentDashboardSummary = {
+  agent: AgentDashboardAgent;
+  period: AgentDashboardPeriodResponse;
+  directTotals: AgentTotals;
+  nestedTotals: AgentTotals;
+  downlineTotals: AgentTotals;
+  dividends: AgentDividendEstimate;
+  totalDeposits: AgentMoneyAmount[];
+  totalWithdrawals: AgentMoneyAmount[];
+  totalTurnover: AgentMoneyAmount[];
+  totalGGR: AgentMoneyAmount[];
+  totalPlayerCount: number;
+  totalDirectAgentCount: number;
+  totalNestedAgentCount: number;
+};
+
+export type AgentDashboardList<T> = {
+  items: T[];
+  pagination: AgentDashboardPagination;
+  period: AgentDashboardPeriodResponse;
+};
+
+export type AgentDashboardAgentListItem = AgentDashboardAgent & {
+  directTotals: AgentTotals;
+  nestedTotals: AgentTotals;
+  downlineTotals: AgentTotals;
+};
+
+export type AgentDashboardPlayerDetail = {
+  player: AgentDashboardPlayer;
+  totals: Omit<AgentTotals, "totalPlayerCount">;
+};
+
+export type AgentDashboardAgentDetail = {
+  agent: AgentDashboardAgent;
+  period: AgentDashboardPeriodResponse;
+  directPlayers: AgentDashboardList<AgentDashboardPlayer>;
+  directAgents: AgentDashboardList<AgentDashboardAgentListItem>;
+  directTotals: AgentTotals;
+  nestedTotals: AgentTotals;
+  downlineTotals: AgentTotals;
+};
+
+export type AgentDividendPayout = {
+  id: string;
+  amount: string;
+  currency: string;
+  profitBase: string | null;
+  percentage: string | null;
+  status: string;
+  date: string;
+  periodStart: string;
+  periodEnd: string;
+  remark: string | null;
+};
+
+export type CreateDownlineAgentPayload = {
+  username: string;
+  phone: string;
+  password: string;
+  name?: string;
+  commission_rate?: number | string;
+};

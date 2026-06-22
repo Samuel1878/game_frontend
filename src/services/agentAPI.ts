@@ -1,5 +1,86 @@
-import type { transactionsParamsType } from "@/utils/types";
+import type {
+  AgentDashboardAgent,
+  AgentDashboardAgentDetail,
+  AgentDashboardAgentListItem,
+  AgentDashboardList,
+  AgentDashboardPlayer,
+  AgentDashboardPlayerDetail,
+  AgentDashboardQuery,
+  AgentDashboardSummary,
+  AgentDividendPayout,
+  CreateDownlineAgentPayload,
+  transactionsParamsType,
+} from "@/utils/types";
 import api from "./api";
+
+const AGENT_DASHBOARD_PATH = "/api/player/agent-dashboard";
+
+export const getAgentDashboardSummary = async (params: AgentDashboardQuery) => {
+  const response = await api.get<AgentDashboardSummary>(
+    `${AGENT_DASHBOARD_PATH}/summary`,
+    { params },
+  );
+  return response.data;
+};
+
+export const getAgentDashboardPlayers = async (params: AgentDashboardQuery) => {
+  const response = await api.get<AgentDashboardList<AgentDashboardPlayer>>(
+    `${AGENT_DASHBOARD_PATH}/players`,
+    { params },
+  );
+  return response.data;
+};
+
+export const getAgentDashboardPlayer = async (
+  playerId: string,
+  params: AgentDashboardQuery,
+) => {
+  const response = await api.get<AgentDashboardPlayerDetail>(
+    `${AGENT_DASHBOARD_PATH}/players/${playerId}`,
+    { params },
+  );
+  return response.data;
+};
+
+export const getAgentDashboardAgents = async (params: AgentDashboardQuery) => {
+  const response = await api.get<AgentDashboardList<AgentDashboardAgentListItem>>(
+    `${AGENT_DASHBOARD_PATH}/agents`,
+    { params },
+  );
+  return response.data;
+};
+
+export const getAgentDashboardAgent = async (
+  agentId: string,
+  params: AgentDashboardQuery,
+) => {
+  const response = await api.get<AgentDashboardAgentDetail>(
+    `${AGENT_DASHBOARD_PATH}/agents/${agentId}`,
+    { params },
+  );
+  return response.data;
+};
+
+export const createAgentDashboardAgent = async (
+  payload: CreateDownlineAgentPayload,
+) => {
+  const response = await api.post<AgentDashboardAgent>(
+    `${AGENT_DASHBOARD_PATH}/agents`,
+    payload,
+  );
+  return response.data;
+};
+
+export const getAgentDashboardDividends = async (params: AgentDashboardQuery) => {
+  const response = await api.get<AgentDashboardList<AgentDividendPayout>>(
+    `${AGENT_DASHBOARD_PATH}/dividends`,
+    { params },
+  );
+  return response.data;
+};
+
+// Legacy endpoints remain exported for non-agent-center compatibility. New
+// agent-center screens use only /api/player/agent-dashboard endpoints above.
 export const getAgentDataByIdAPI = async (id: number | string) => {
   try {
     const response = await api.get(`/agent/get-agent/${id}`);

@@ -257,7 +257,9 @@ const routes = [
   },
   {
     path: "/user/agent-center",
+    name: "agent-dashboard",
     component: () => import("@/components/layout/agentLayout.vue"),
+    redirect: { name: "agent-dashboard-summary" },
     meta: {
       requiresAuth: true,
       hideTopNav: true,
@@ -268,23 +270,42 @@ const routes = [
     children: [
       {
         path: "overview",
+        name: "agent-dashboard-summary",
         component: () => import("@/screens/agent/overView.vue"),
       },
       {
         path: "users",
+        name: "agent-dashboard-players",
         component: () => import("@/screens/agent/users.vue"),
       },
       {
-        path: "users/detail/:id",
+        path: "users/detail/:playerId",
+        name: "agent-dashboard-player-detail",
         component: () => import("@/screens/agent/userDetail.vue"),
       },
       {
+        path: "agents",
+        name: "agent-dashboard-agents",
+        component: () => import("@/screens/agent/agents.vue"),
+      },
+      {
+        path: "agents/:agentId",
+        name: "agent-dashboard-agent-detail",
+        component: () => import("@/screens/agent/agentDetail.vue"),
+      },
+      {
+        path: "dividends",
+        name: "agent-dashboard-dividends",
+        component: () => import("@/screens/agent/dividends.vue"),
+      },
+      {
+        // Preserve existing bookmarked paths without retaining the obsolete API UI.
         path: "transactions",
-        component: () => import("@/screens/agent/transactionView.vue"),
+        redirect: { name: "agent-dashboard-dividends" },
       },
       {
         path: "rewards",
-        component: () => import("./screens/agent/rewards.vue"),
+        redirect: { name: "agent-dashboard-dividends" },
       },
     ],
   },

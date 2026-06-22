@@ -1,70 +1,71 @@
-import { getAgentTransactionSummaryAPI } from "@/services/agentAPI";
+import { getAgentDashboardSummary } from "@/services/agentAPI";
+import { getApiErrorMessage } from "@/services/api";
+import type {
+  AgentDashboardPeriod,
+  AgentDashboardQuery,
+  AgentDashboardSummary,
+} from "@/utils/types";
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { useAuthStore } from "./auth";
-import type { ReportSummaryType } from "@/utils/types";
-import { getSummary } from "@/utils/help";
 
-export const useAgentDashboardStore = defineStore("dashboardStore", () => {
+export const useAgentDashboardStore = defineStore("agentDashboardStore", () => {
   const loading = ref(false);
-  const mode = ref<"today" | "this_month" | "custom">("today");
-  const startDate = ref();
-  const endDate = ref();
-  const portfolio = ref("SeamlessGame");
-  const betReport = ref<ReportSummaryType | null>(null);
-  const transactionReport = ref({
-    deposits: 0,
-    withdraws: 0,
-    rebate: 0,
-    bonus: 0,
-  });
-  const total_players = ref(0);
-  const authStore = useAuthStore();
-  const setMode = (v: "today" | "this_month" | "custom") => {
-    mode.value = v;
-    if (v !== "custom") {
-      fetchSummary();
-    }
+  const error = ref<string | null>(null);
+  const period = ref<AgentDashboardPeriod>("today");
+  const startDate = ref<string | undefined>();
+  const endDate = ref<string | undefined>();
+  const summary = ref<AgentDashboardSummary | null>(null);
+
+  const buildQuery = (overrides: Partial<AgentDashboardQuery> = {}): AgentDashboardQuery => {
+    const selectedPeriod = overrides.period ?? period.value;
+    return {
+      period: selectedPeriod,
+      ...(selectedPeriod === "custom"
+        ? {
+            start_date: overrides.start_date ?? startDate.value,
+            end_date: overrides.end_date ?? endDate.value,
+          }
+        : {}),
+      ...overrides,
+    };
   };
 
   const fetchSummary = async () => {
-    if (!authStore.user?.agent_id) return;
+    if (period.value === "custom" && (!startDate.value || !endDate.value)) {
+      error.value = "custom_date_range_required";
+      return;
+    }
 
     loading.value = true;
-
+    error.value = null;
     try {
-      const res = await getAgentTransactionSummaryAPI(authStore.user.agent_id, {
-        mode: mode.value,
-        startDate: startDate.value
-          ? startDate.value
-          : undefined,
-        endDate: endDate.value ?endDate.value : undefined,
-        portfolio: portfolio.value,
-      });
-
-      if (res) {
-        betReport.value = getSummary(res?.betReport);
-        transactionReport.value = res?.transactionReport;
-        total_players.value = res?.total_players;
-      }
+      summary.value = await getAgentDashboardSummary(buildQuery());
     } catch (err) {
-      console.error(err);
+      error.value = getApiErrorMessage(err);
+      summary.value = null;
     } finally {
       loading.value = false;
     }
   };
 
+  const setPeriod = (value: AgentDashboardPeriod) => {
+    period.value = value;
+    if (value !== "custom") {
+      startDate.value = undefined;
+      endDate.value = undefined;
+      void fetchSummary();
+    }
+  };
+
   return {
     loading,
-    // FILTERS
-    fetchSummary,
-    portfolio,
-    setMode,
-    mode,
-    transactionReport,
-    total_players,
-    betReport,
+    error,
+    period,
     startDate,
     endDate,
+    summary,
+    buildQuery,
+    fetchSummary,
+    setPeriod,
   };
 });
