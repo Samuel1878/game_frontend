@@ -83,6 +83,20 @@ export const moneyToNumber = (input: unknown): number => {
   return Number.isFinite(value) ? value : 0;
 };
 
+/** Formats a backend decimal string without converting it into a JS number. */
+export const formatDecimalMoney = (input: unknown): string => {
+  const value = String(input ?? "0").trim();
+  const match = /^(-?)(\d+)(?:\.(\d+))?$/.exec(value);
+  if (!match) return value || "0";
+
+  const sign = match[1] ?? "";
+  const whole = match[2] ?? "0";
+  const fraction = match[3];
+  const normalizedWhole = whole.replace(/^0+(?=\d)/, "");
+  const groupedWhole = normalizedWhole.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return `${sign}${groupedWhole}${fraction ? `.${fraction}` : ""}`;
+};
+
 export const formatBackendMoney = (
   input: unknown,
   currency = "MMK",

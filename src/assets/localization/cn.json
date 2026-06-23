@@ -508,5 +508,30 @@
     "toast": {
       "markReadFailed": "通知更新失败，请重试。"
     }
-  }
+  },
+  "own_ggr": "直属玩家 GGR",
+  "matched_rate": "匹配比例",
+  "own_dividend": "自身分红",
+  "nested_commission_received": "下级佣金收入",
+  "parent_commission_deducted": "上级佣金扣除",
+  "final_payable_dividend": "最终应付分红",
+  "direct_child_breakdown": "直属下级明细",
+  "child_own_ggr": "下级自身 GGR",
+  "child_dividend": "下级分红",
+  "child_final_dividend": "下级最终分红",
+  "parent_commission": "上级佣金",
+  "calculation_details": "计算明细",
+  "record_summary": "记录汇总",
+  "provider": "游戏供应商",
+  "all_providers": "全部供应商",
+  "search_bets": "搜索游戏、局号或供应商",
+  "round_id": "局号",
+  "bet_amount": "投注金额",
+  "win_amount": "赢取金额",
+  "loss_amount": "亏损金额",
+  "bet_at": "投注时间",
+  "settled_at": "结算时间",
+  "created_at": "创建时间",
+  "no_bets": "暂无投注记录",
+  "records_load_failed": "无法加载您的记录"
 }

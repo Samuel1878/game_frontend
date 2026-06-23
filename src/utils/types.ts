@@ -330,6 +330,78 @@ export interface BetListRecord {
   newGameType: number;
 }
 
+export type PeriodFilter = "today" | "this_month" | "custom";
+export type ProviderFilter = "all" | string;
+
+export type PlayerBetListParams = {
+  period?: PeriodFilter;
+  startDate?: string;
+  endDate?: string;
+  provider?: ProviderFilter;
+  page?: number;
+  limit?: number;
+  status?: string;
+  search?: string;
+};
+
+export type PlayerBetItem = {
+  id: string;
+  providerCode: string;
+  providerName?: string | null;
+  gameCode?: string | null;
+  gameName?: string | null;
+  roundId?: string | null;
+  betAmount: string | number;
+  winAmount: string | number;
+  lossAmount: string | number;
+  turnover: string | number;
+  ggr: string | number;
+  currency?: string | null;
+  status: string;
+  betAt?: string | null;
+  settledAt?: string | null;
+  createdAt: string;
+};
+
+export type PlayerBetPagination = {
+  page: number;
+  limit: number;
+  total: number;
+  totalPages: number;
+};
+
+export type PlayerRecordFilters = {
+  period: PeriodFilter;
+  provider: ProviderFilter;
+  startDate?: string;
+  endDate?: string;
+};
+
+export type PlayerBetListResponse = {
+  items: PlayerBetItem[];
+  pagination: PlayerBetPagination;
+  filters?: PlayerRecordFilters;
+};
+
+export type PlayerRecordSummary = {
+  totalDepositAmount: string | number;
+  totalWithdrawalAmount: string | number;
+  totalTurnover: string | number;
+  totalWinAmount: string | number;
+  totalLossAmount: string | number;
+  totalGgr: string | number;
+};
+
+export type PlayerRecordSummaryResponse = PlayerRecordFilters & {
+  summary: PlayerRecordSummary;
+};
+
+export type BetProviderOption = {
+  providerCode: string;
+  providerName: string;
+  status?: "ACTIVE" | "DISABLED" | string;
+};
+
 export interface FavoriteGames {
   provider_id : number;
   game_id:number;
@@ -404,22 +476,37 @@ export type AgentDashboardPeriodResponse = {
   timezone: string;
 };
 
-export type AgentDividendBreakdown = {
-  agentId: string | null;
-  agentName: string | null;
+export type AgentDividendChildBreakdown = {
+  childAgentId: string;
+  childAgentUsername: string;
+  childAgentCode?: string;
+  childOwnGgr: string;
+  childMatchedRatePercent: string;
+  childDividendAmount: string;
+  childFinalDividendAmount: string;
+  parentCommissionRatePercent: string;
+  parentCommissionAmount: string;
+};
+
+export type AgentDividendCandidate = {
+  agentId: string;
+  agentUsername: string;
+  agentCode: string;
   currency: string;
-  parentRate: string;
-  childRate: string | null;
-  overrideRate: string;
-  totalGGR: string;
-  dividendAmount: string;
+  ownGgr: string;
+  matchedRatePercent: string;
+  ownDividendAmount: string;
+  nestedDividendCommissionAmount: string;
+  parentCommissionAmount: string;
+  totalDividendAmount: string;
+  nestedAgents: AgentDividendChildBreakdown[];
 };
 
 export type AgentDividendEstimate = {
+  items: AgentDividendCandidate[];
   directDividendAmount: AgentMoneyAmount[];
   nestedOverrideDividendAmount: AgentMoneyAmount[];
   totalDividendAmount: AgentMoneyAmount[];
-  nestedOverrideBreakdown: AgentDividendBreakdown[];
 };
 
 export type AgentDashboardSummary = {
@@ -465,6 +552,30 @@ export type AgentDashboardAgentDetail = {
   downlineTotals: AgentTotals;
 };
 
+export type AgentDividendCalculationChild = {
+  child_agent_id?: string;
+  child_agent_username?: string;
+  child_agent_code?: string;
+  child_own_ggr_minor?: string;
+  child_matched_rate_percent?: string;
+  child_dividend_amount_minor?: string;
+  child_final_dividend_amount_minor?: string;
+  parent_commission_rate_percent?: string;
+  parent_commission_amount_minor?: string;
+};
+
+export type AgentDividendCalculation = {
+  kind?: string;
+  calculation_version?: number;
+  own_ggr_minor?: string;
+  matched_rate_percent?: string;
+  own_dividend_amount_minor?: string;
+  nested_dividend_commission_amount_minor?: string;
+  parent_commission_amount_minor?: string;
+  total_dividend_amount_minor?: string;
+  nested_agents?: AgentDividendCalculationChild[];
+};
+
 export type AgentDividendPayout = {
   id: string;
   amount: string;
@@ -476,6 +587,7 @@ export type AgentDividendPayout = {
   periodStart: string;
   periodEnd: string;
   remark: string | null;
+  calculation: AgentDividendCalculation | null;
 };
 
 export type CreateDownlineAgentPayload = {

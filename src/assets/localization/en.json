@@ -507,6 +507,31 @@
     "toast": {
       "markReadFailed": "Could not update the notification. Please try again."
     }
-  }
+  },
+  "own_ggr": "Own GGR",
+  "matched_rate": "Matched Rate",
+  "own_dividend": "Own Dividend",
+  "nested_commission_received": "Nested Commission Received",
+  "parent_commission_deducted": "Parent Commission Deducted",
+  "final_payable_dividend": "Final Payable Dividend",
+  "direct_child_breakdown": "Direct Child Breakdown",
+  "child_own_ggr": "Child Own GGR",
+  "child_dividend": "Child Dividend",
+  "child_final_dividend": "Child Final Dividend",
+  "parent_commission": "Parent Commission",
+  "calculation_details": "Calculation Details",
+  "record_summary": "Record Summary",
+  "provider": "Provider",
+  "all_providers": "All Providers",
+  "search_bets": "Search game, round ID, or provider",
+  "round_id": "Round ID",
+  "bet_amount": "Bet Amount",
+  "win_amount": "Win Amount",
+  "loss_amount": "Loss Amount",
+  "bet_at": "Bet At",
+  "settled_at": "Settled At",
+  "created_at": "Created At",
+  "no_bets": "No bet records found",
+  "records_load_failed": "Could not load your records"
   
 }

@@ -1,114 +1,179 @@
+import { computed, ref } from "vue";
 import { defineStore } from "pinia";
-import { ref, computed } from "vue";
-// import {
-//   getBetListAPI
-// } from "@/api/transactionAPI";
-import type { BetListRecord, ReportSummaryType } from "@/utils/types";
+import { getApiErrorMessage } from "@/services/api";
+import {
+  getPlayerBetProviders,
+  getPlayerBets,
+  getPlayerRecordSummary,
+} from "@/services/playerRecordsAPI";
 import { useAuthStore } from "./auth";
-import { getBetListAPI } from "@/services/transactionAPI";
+import type {
+  BetProviderOption,
+  PeriodFilter,
+  PlayerBetListParams,
+  PlayerBetListResponse,
+  PlayerRecordSummaryResponse,
+  ProviderFilter,
+} from "@/utils/types";
+
+const DEFAULT_LIMIT = 50;
+
+const emptyPagination = () => ({
+  page: 1,
+  limit: DEFAULT_LIMIT,
+  total: 0,
+  totalPages: 0,
+});
+
 export const useBetlistStore = defineStore("betListStore", () => {
-  const loading = ref(false);
-  const portfolio = ref("SeamlessGame");
-  const mode = ref<"today" | "this_month" | "custom">("today");
-  const startDate = ref();
-  const endDate = ref();
-  const rawBetRecords = ref<BetListRecord[]>([]);
-  const transactionReport = ref({
-    deposits: 0,
-    withdraws: 0,
-    refund: 0,
-    bonus: 0,
-    rebate: 0,
-    adjustment: 0,
-  });
-  const BetReportRecord = ref<ReportSummaryType | null>(null);
-  const betPage = ref(1);
-  const betLimit = ref(20);
   const authStore = useAuthStore();
-  const setMode = (v: "today" | "this_month" | "custom") => {
-    mode.value = v;
-    if (v !== "custom") {
-      fetchBetList();
-    }
+  const loading = ref(false);
+  const providerLoading = ref(false);
+  const error = ref<string | null>(null);
+  const period = ref<PeriodFilter>("today");
+  const provider = ref<ProviderFilter>("all");
+  const startDate = ref<string | undefined>();
+  const endDate = ref<string | undefined>();
+  const search = ref("");
+  const page = ref(1);
+  const limit = ref(DEFAULT_LIMIT);
+  const betList = ref<PlayerBetListResponse | null>(null);
+  const summary = ref<PlayerRecordSummaryResponse | null>(null);
+  const providers = ref<BetProviderOption[]>([]);
+  const providersLoaded = ref(false);
+
+  const items = computed(() => betList.value?.items ?? []);
+  const pagination = computed(() => betList.value?.pagination ?? emptyPagination());
+
+  const buildParams = (): PlayerBetListParams => ({
+    period: period.value,
+    provider: provider.value,
+    page: page.value,
+    limit: limit.value,
+    ...(period.value === "custom"
+      ? {
+          startDate: startDate.value,
+          endDate: endDate.value,
+        }
+      : {}),
+    ...(search.value.trim() ? { search: search.value.trim() } : {}),
+  });
+
+  const resetPage = () => {
+    page.value = 1;
   };
 
-  const fetchBetList = async () => {
-    if (!authStore.user?.name) return;
-    try {
-      loading.value = true;
+  const fetchRecords = async () => {
+    if (!authStore.isLoggedIn) return false;
+    if (period.value === "custom" && (!startDate.value || !endDate.value)) {
+      error.value = "custom_date_range_required";
+      return false;
+    }
 
-      const response = await getBetListAPI({
-        username: authStore.user?.name,
-        mode: mode.value,
-        portfolio: portfolio.value,
-        startDate: startDate.value
-          ? startDate.value
-          : undefined,
-        endDate: endDate.value ? endDate.value : undefined,
-      });
-      rawBetRecords.value = response?.betlist?.result || [];
-      BetReportRecord.value = response?.report[0] || null;
-      transactionReport.value = {
-        deposits: Number(response?.transaction?.deposits) || 0,
-        withdraws: Number(response?.transaction?.withdraws) || 0,
-        refund: Number(response?.transaction?.refund) || 0,
-        bonus: Number(response?.transaction?.bonus) || 0,
-        adjustment: Number(response?.transaction?.adjustment) || 0,
-        rebate: Number(response?.transaction?.rebate) || 0,
-      };
-      console.log(response);
-    } catch (error) {
-      rawBetRecords.value = [];
-      BetReportRecord.value = null;
-      transactionReport.value = {
-        deposits: 0,
-        withdraws: 0,
-        refund: 0,
-        bonus: 0,
-        rebate: 0,
-        adjustment: 0,
-      };
-      console.error(error);
+    loading.value = true;
+    error.value = null;
+    try {
+      const params = buildParams();
+      const [nextBetList, nextSummary] = await Promise.all([
+        getPlayerBets(params),
+        getPlayerRecordSummary(params),
+      ]);
+      betList.value = nextBetList;
+      summary.value = nextSummary;
+      return true;
+    } catch (err) {
+      error.value = getApiErrorMessage(err);
+      betList.value = null;
+      summary.value = null;
+      return false;
     } finally {
       loading.value = false;
     }
   };
-  const paginatedBetRecords = computed(() => {
-    if (!rawBetRecords.value.length) return [];
 
-    const start = (betPage.value - 1) * betLimit.value;
-
-    const end = start + betLimit.value;
-
-    return rawBetRecords && rawBetRecords.value.slice(start, end);
-  });
-  const betTotal = computed(() => {
-    return rawBetRecords.value.length;
-  });
-  const betTotalPages = computed(() => {
-    return Math.ceil(betTotal.value / betLimit.value);
-  });
-
-  const setBetPage = (page: number) => {
-    if (page < 1 || page > betTotalPages.value) return;
-    betPage.value = page;
+  const fetchProviders = async () => {
+    if (providerLoading.value || providersLoaded.value || !authStore.isLoggedIn) return;
+    providerLoading.value = true;
+    try {
+      providers.value = (await getPlayerBetProviders()).filter(
+        (item) => item.status?.toUpperCase() !== "DISABLED",
+      );
+      providersLoaded.value = true;
+    } catch {
+      // The all-provider option remains usable if provider filters cannot load.
+      providers.value = [];
+      providersLoaded.value = true;
+    } finally {
+      providerLoading.value = false;
+    }
   };
+
+  const initialize = async () => {
+    await Promise.all([fetchProviders(), fetchRecords()]);
+  };
+
+  const setPeriod = (value: PeriodFilter) => {
+    period.value = value;
+    resetPage();
+    if (value !== "custom") {
+      startDate.value = undefined;
+      endDate.value = undefined;
+      void fetchRecords();
+    }
+  };
+
+  const setProvider = (value: ProviderFilter) => {
+    provider.value = value || "all";
+    resetPage();
+    void fetchRecords();
+  };
+
+  const setStartDate = (value?: string) => {
+    startDate.value = value;
+    resetPage();
+  };
+
+  const setEndDate = (value?: string) => {
+    endDate.value = value;
+    resetPage();
+  };
+
+  const setSearch = (value: string) => {
+    search.value = value;
+    resetPage();
+    void fetchRecords();
+  };
+
+  const changePage = (value: number) => {
+    if (loading.value || value < 1 || value > pagination.value.totalPages) return;
+    page.value = value;
+    void fetchRecords();
+  };
+
   return {
-    BetReportRecord,
     loading,
-    portfolio,
-    mode,
+    providerLoading,
+    error,
+    period,
+    provider,
     startDate,
     endDate,
-    rawBetRecords,
-    paginatedBetRecords,
-    fetchBetList,
-    transactionReport,
-    betPage,
-    betLimit,
-    betTotal,
-    betTotalPages,
-    setBetPage,
-    setMode,
+    search,
+    page,
+    limit,
+    items,
+    pagination,
+    summary,
+    providers,
+    buildParams,
+    fetchRecords,
+    fetchProviders,
+    initialize,
+    setPeriod,
+    setProvider,
+    setStartDate,
+    setEndDate,
+    setSearch,
+    changePage,
   };
 });

@@ -21,6 +21,13 @@ const displayError = computed(() =>
   error.value === "custom_date_range_required" ? t("custom_date_range_required") : error.value,
 );
 
+const formatAmount = (amount: string) => {
+  const value = Number(amount);
+  return Number.isFinite(value)
+    ? new Intl.NumberFormat("en-US", { maximumFractionDigits: 8 }).format(value)
+    : amount;
+};
+
 const updatePeriod = (value: AgentDashboardPeriod) => {
   period.value = value;
   if (value !== "custom") {
@@ -114,25 +121,66 @@ onActivated(fetchSummary);
             <AgentMoneyAmounts :amounts="summary.dividends.totalDividendAmount" />
           </div>
         </div>
-        <div v-if="summary.dividends.nestedOverrideBreakdown.length" class="overflow-x-auto rounded-xl border border-white/5">
-          <table class="w-full min-w-[560px] text-left text-xs">
-            <thead class="bg-white/5 text-gray-400">
-              <tr>
-                <th class="px-3 py-2">{{ t('agent') }}</th>
-                <th class="px-3 py-2">{{ t('ggr') }}</th>
-                <th class="px-3 py-2">{{ t('commission_rate') }}</th>
-                <th class="px-3 py-2">{{ t('amount') }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="item in summary.dividends.nestedOverrideBreakdown" :key="`${item.agentId}-${item.currency}`" class="border-t border-white/5">
-                <td class="px-3 py-3">{{ item.agentName || '—' }}</td>
-                <td class="px-3 py-3">{{ item.currency }} {{ item.totalGGR }}</td>
-                <td class="px-3 py-3">{{ item.overrideRate }}%</td>
-                <td class="px-3 py-3 font-semibold text-amber-200">{{ item.currency }} {{ item.dividendAmount }}</td>
-              </tr>
-            </tbody>
-          </table>
+        <div v-if="summary.dividends.items.length" class="space-y-3">
+          <article
+            v-for="item in summary.dividends.items"
+            :key="`${item.agentId}-${item.currency}`"
+            class="rounded-xl border border-white/5 bg-black/15 p-3"
+          >
+            <header class="flex items-start justify-between gap-3">
+              <div>
+                <p class="font-semibold text-white">{{ item.currency }}</p>
+                <p class="text-xs text-gray-400">{{ item.agentUsername }} · {{ item.agentCode }}</p>
+              </div>
+              <span class="rounded-full border border-amber-400/20 bg-amber-400/10 px-2 py-1 text-xs font-bold text-amber-200">
+                {{ t('matched_rate') }} {{ item.matchedRatePercent }}%
+              </span>
+            </header>
+
+            <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+              <div class="breakdown-card">
+                <span>{{ t('own_ggr') }}</span>
+                <strong>{{ item.currency }} {{ formatAmount(item.ownGgr) }}</strong>
+              </div>
+              <div class="breakdown-card">
+                <span>{{ t('own_dividend') }}</span>
+                <strong>{{ item.currency }} {{ formatAmount(item.ownDividendAmount) }}</strong>
+              </div>
+              <div class="breakdown-card">
+                <span>{{ t('nested_commission_received') }}</span>
+                <strong>{{ item.currency }} {{ formatAmount(item.nestedDividendCommissionAmount) }}</strong>
+              </div>
+              <div class="breakdown-card">
+                <span>{{ t('parent_commission_deducted') }}</span>
+                <strong>{{ item.currency }} {{ formatAmount(item.parentCommissionAmount) }}</strong>
+              </div>
+              <div class="breakdown-card col-span-2 border-amber-400/25 bg-amber-400/[0.06]">
+                <span>{{ t('final_payable_dividend') }}</span>
+                <strong class="text-amber-200">{{ item.currency }} {{ formatAmount(item.totalDividendAmount) }}</strong>
+              </div>
+            </div>
+
+            <details v-if="item.nestedAgents.length" class="mt-3 rounded-lg border border-white/5 bg-white/[0.02] p-3">
+              <summary class="cursor-pointer text-xs font-semibold text-amber-100">
+                {{ t('direct_child_breakdown') }} ({{ item.nestedAgents.length }})
+              </summary>
+              <div class="mt-3 space-y-2">
+                <div v-for="child in item.nestedAgents" :key="child.childAgentId" class="rounded-lg border border-white/5 bg-black/15 p-2.5 text-xs">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="font-semibold text-white">{{ child.childAgentUsername }}</p>
+                    <span class="text-amber-200">{{ child.childMatchedRatePercent }}%</span>
+                  </div>
+                  <p class="mt-0.5 text-gray-500">{{ child.childAgentCode || '—' }}</p>
+                  <div class="mt-2 grid grid-cols-2 gap-x-3 gap-y-2 text-gray-400">
+                    <p>{{ t('child_own_ggr') }} <strong class="text-gray-200">{{ item.currency }} {{ formatAmount(child.childOwnGgr) }}</strong></p>
+                    <p>{{ t('child_dividend') }} <strong class="text-gray-200">{{ item.currency }} {{ formatAmount(child.childDividendAmount) }}</strong></p>
+                    <p>{{ t('parent_commission') }} <strong class="text-amber-200">{{ child.parentCommissionRatePercent }}% · {{ item.currency }} {{ formatAmount(child.parentCommissionAmount) }}</strong></p>
+                    <p>{{ t('child_final_dividend') }} <strong class="text-emerald-200">{{ item.currency }} {{ formatAmount(child.childFinalDividendAmount) }}</strong></p>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </article>
         </div>
       </section>
 
@@ -162,4 +210,7 @@ onActivated(fetchSummary);
 .count-card span, .dividend-card > span { font-size: 0.72rem; color: #9ca3af; }
 .count-card strong { font-size: 1.35rem; color: white; }
 .dividend-card { border: 1px solid rgba(250, 204, 21, 0.12); border-radius: 0.85rem; padding: 0.8rem; display: flex; flex-direction: column; gap: 0.45rem; }
+.breakdown-card { border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 0.65rem; padding: 0.65rem; display: flex; flex-direction: column; gap: 0.3rem; background: rgba(255, 255, 255, 0.02); }
+.breakdown-card > span { color: #9ca3af; }
+.breakdown-card > strong { color: #f3f4f6; font-size: 0.78rem; word-break: break-word; }
 </style>

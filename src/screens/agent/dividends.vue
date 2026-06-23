@@ -6,13 +6,19 @@ import { useI18n } from "vue-i18n";
 import { getAgentDashboardDividends } from "@/services/agentAPI";
 import { getApiErrorMessage } from "@/services/api";
 import { useAgentDashboardStore } from "@/stores/agentDashboardStore";
-import type { AgentDashboardList, AgentDashboardPeriod, AgentDividendPayout } from "@/utils/types";
+import type {
+  AgentDashboardList,
+  AgentDashboardPeriod,
+  AgentDividendCalculation,
+  AgentDividendPayout,
+} from "@/utils/types";
 import { openChat } from "@/utils";
 import CustomNavBar from "@/components/layout/customNavBar.vue";
 import LanguageBtn from "@/components/languageBtn.vue";
 import AgentOptions from "@/components/layout/agentOptions.vue";
 import AgentPagination from "@/components/agent/AgentPagination.vue";
 import AgentPeriodFilter from "@/components/agent/AgentPeriodFilter.vue";
+import { formatMinorMoney } from "@/utils/money";
 
 const { t } = useI18n();
 const dashboard = useAgentDashboardStore();
@@ -31,6 +37,37 @@ const formatDate = (value: string) => new Intl.DateTimeFormat(undefined, { dateS
 const formatAmount = (amount: string) => {
   const value = Number(amount);
   return Number.isFinite(value) ? new Intl.NumberFormat("en-US", { maximumFractionDigits: 8 }).format(value) : amount;
+};
+const formatMinorAmount = (amount: string, currency: string) => {
+  try {
+    return formatMinorMoney(amount, currency);
+  } catch {
+    return formatAmount(amount);
+  }
+};
+
+const calculationDetails = (calculation: AgentDividendCalculation | null) => {
+  if (!calculation) return [];
+
+  const fields: Array<{
+    key: keyof AgentDividendCalculation;
+    label: string;
+    isRate?: boolean;
+  }> = [
+    { key: "own_ggr_minor", label: "own_ggr" },
+    { key: "matched_rate_percent", label: "matched_rate", isRate: true },
+    { key: "own_dividend_amount_minor", label: "own_dividend" },
+    { key: "nested_dividend_commission_amount_minor", label: "nested_commission_received" },
+    { key: "parent_commission_amount_minor", label: "parent_commission_deducted" },
+    { key: "total_dividend_amount_minor", label: "final_payable_dividend" },
+  ];
+
+  return fields.flatMap((field) => {
+    const value = calculation[field.key];
+    return typeof value === "string"
+      ? [{ ...field, value }]
+      : [];
+  });
 };
 
 const updatePeriod = (value: AgentDashboardPeriod) => {
@@ -119,12 +156,44 @@ onActivated(fetchDividends);
             <span class="status-pill">{{ item.status }}</span>
           </div>
           <p class="mt-1 text-xs text-gray-400">{{ formatDate(item.date) }}</p>
-          <p class="mt-2 text-xs text-gray-300"><span class="text-gray-500">{{ t('remark') }}:</span> {{ item.remark || '—' }}</p>
+          <p v-if="item.remark" class="mt-2 text-xs text-gray-300"><span class="text-gray-500">{{ t('remark') }}:</span> {{ item.remark }}</p>
         </div>
         <div class="shrink-0 text-right text-xs text-gray-400">
           <p v-if="item.percentage">{{ item.percentage }}%</p>
-          <p class="mt-1">{{ item.periodStart }} — {{ item.periodEnd }}</p>
+          <p class="mt-1">{{ formatDate(item.periodStart) }} — {{ formatDate(item.periodEnd) }}</p>
         </div>
+
+        <details v-if="calculationDetails(item.calculation).length" class="col-span-2 mt-1 rounded-xl border border-white/5 bg-white/[0.02] p-3">
+          <summary class="cursor-pointer text-xs font-semibold text-amber-100">{{ t('calculation_details') }}</summary>
+          <div class="mt-3 grid grid-cols-2 gap-2">
+            <div v-for="detail in calculationDetails(item.calculation)" :key="detail.key" class="calculation-card">
+              <span>{{ t(detail.label) }}</span>
+              <strong>
+                {{ detail.isRate ? `${detail.value}%` : `${item.currency} ${formatMinorAmount(detail.value, item.currency)}` }}
+              </strong>
+            </div>
+          </div>
+
+          <details v-if="item.calculation?.nested_agents?.length" class="mt-3 rounded-lg border border-white/5 bg-black/15 p-2.5">
+            <summary class="cursor-pointer text-xs font-semibold text-amber-100">
+              {{ t('direct_child_breakdown') }} ({{ item.calculation.nested_agents.length }})
+            </summary>
+            <div class="mt-2 space-y-2">
+              <div v-for="child in item.calculation.nested_agents" :key="child.child_agent_id" class="rounded-lg border border-white/5 p-2.5 text-xs">
+                <div class="flex items-start justify-between gap-2">
+                  <p class="font-semibold text-white">{{ child.child_agent_username || child.child_agent_code || '—' }}</p>
+                  <span v-if="child.child_matched_rate_percent" class="text-amber-200">{{ child.child_matched_rate_percent }}%</span>
+                </div>
+                <div class="mt-2 grid grid-cols-2 gap-x-3 gap-y-2 text-gray-400">
+                  <p v-if="child.child_own_ggr_minor">{{ t('child_own_ggr') }} <strong class="text-gray-200">{{ item.currency }} {{ formatMinorAmount(child.child_own_ggr_minor, item.currency) }}</strong></p>
+                  <p v-if="child.child_dividend_amount_minor">{{ t('child_dividend') }} <strong class="text-gray-200">{{ item.currency }} {{ formatMinorAmount(child.child_dividend_amount_minor, item.currency) }}</strong></p>
+                  <p v-if="child.parent_commission_amount_minor">{{ t('parent_commission') }} <strong class="text-amber-200">{{ child.parent_commission_rate_percent || 0 }}% · {{ item.currency }} {{ formatMinorAmount(child.parent_commission_amount_minor, item.currency) }}</strong></p>
+                  <p v-if="child.child_final_dividend_amount_minor">{{ t('child_final_dividend') }} <strong class="text-emerald-200">{{ item.currency }} {{ formatMinorAmount(child.child_final_dividend_amount_minor, item.currency) }}</strong></p>
+                </div>
+              </div>
+            </div>
+          </details>
+        </details>
       </article>
     </section>
 
@@ -137,7 +206,10 @@ onActivated(fetchDividends);
 .search-input:focus { border-color: rgba(250,204,21,.55); }
 .search-button { display: grid; width: 2.9rem; place-items: center; border-radius: .85rem; background: #facc15; color: #111827; }
 .search-button:disabled { opacity: .5; }
-.dividend-row { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,.05); padding: 1rem; }
+.dividend-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,.05); padding: 1rem; }
 .dividend-row:last-child { border-bottom: 0; }
 .status-pill { border-radius: 999px; background: rgba(16,185,129,.14); padding: .2rem .45rem; font-size: .65rem; color: #6ee7b7; }
+.calculation-card { border: 1px solid rgba(255,255,255,.05); border-radius: .65rem; padding: .6rem; display: flex; flex-direction: column; gap: .3rem; }
+.calculation-card span { color: #9ca3af; font-size: .68rem; }
+.calculation-card strong { color: #f3f4f6; font-size: .75rem; word-break: break-word; }
 </style>

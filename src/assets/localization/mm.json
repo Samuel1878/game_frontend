@@ -506,5 +506,30 @@
     "toast": {
       "markReadFailed": "အသိပေးချက်ကို အပ်ဒိတ်မလုပ်နိုင်ပါ။ ထပ်စမ်းကြည့်ပါ။"
     }
-  }
+  },
+  "own_ggr": "တိုက်ရိုက်ကစားသမား GGR",
+  "matched_rate": "ကိုက်ညီသောနှုန်း",
+  "own_dividend": "ကိုယ်ပိုင်အမြတ်ဝေစု",
+  "nested_commission_received": "အောက်အဆင့်ကော်မရှင်ရရှိငွေ",
+  "parent_commission_deducted": "အထက်အဆင့်ကော်မရှင်နုတ်ငွေ",
+  "final_payable_dividend": "နောက်ဆုံးပေးချေရမည့် အမြတ်ဝေစု",
+  "direct_child_breakdown": "တိုက်ရိုက်အောက်အဆင့် အသေးစိတ်",
+  "child_own_ggr": "အောက်အဆင့် ကိုယ်ပိုင် GGR",
+  "child_dividend": "အောက်အဆင့် အမြတ်ဝေစု",
+  "child_final_dividend": "အောက်အဆင့် နောက်ဆုံးအမြတ်ဝေစု",
+  "parent_commission": "အထက်အဆင့်ကော်မရှင်",
+  "calculation_details": "တွက်ချက်မှု အသေးစိတ်",
+  "record_summary": "မှတ်တမ်းအနှစ်ချုပ်",
+  "provider": "ဂိမ်းပံ့ပိုးသူ",
+  "all_providers": "ပံ့ပိုးသူအားလုံး",
+  "search_bets": "ဂိမ်း၊ အလှည့် ID သို့မဟုတ် ပံ့ပိုးသူကို ရှာဖွေရန်",
+  "round_id": "အလှည့် ID",
+  "bet_amount": "လောင်းကြေးပမာဏ",
+  "win_amount": "အနိုင်ရပမာဏ",
+  "loss_amount": "အရှုံးပမာဏ",
+  "bet_at": "လောင်းကြေးတင်ချိန်",
+  "settled_at": "စာရင်းရှင်းချိန်",
+  "created_at": "ဖန်တီးချိန်",
+  "no_bets": "လောင်းကြေးမှတ်တမ်း မတွေ့ပါ",
+  "records_load_failed": "သင့်မှတ်တမ်းများကို မဖွင့်နိုင်ပါ"
 }

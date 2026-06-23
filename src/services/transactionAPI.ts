@@ -20,7 +20,6 @@ import {
 } from "./paymentMethodsAPI";
 import { createWithdrawalRequest, listWithdrawals, toLegacyWithdrawal } from "./withdrawalAPI";
 import { getWalletBalances, getWalletTransactions, type WalletDirection } from "./walletAPI";
-import { UnsupportedBackendApiError } from "./securityAPI";
 
 export const depositHandlerAPI = async (
   data: depositFormData,
@@ -254,19 +253,6 @@ export const getAllTransactionsByUserId = async (
   } catch (error) {
     return null;
   }
-};
-
-export const getBetListAPI = async (params: {
-  username?: string;
-  startDate?: string;
-  endDate?: string;
-  portfolio?: string;
-  mode?: "today" | "this_month" | "custom";
-}): Promise<any> => {
-  void params;
-  throw new UnsupportedBackendApiError(
-    "Bet list API is not exposed by game_new_backend.",
-  );
 };
 
 const paginationFromPartialList = (page: number, limit: number, count: number) => ({

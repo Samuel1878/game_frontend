@@ -1,29 +1,21 @@
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { computed } from "vue";
 import { Bell } from "lucide-vue-next";
 import { useI18n } from "vue-i18n";
+import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
 import { useNotificationStore } from "@/stores/notification";
-import NotificationDrawer from "./NotificationDrawer.vue";
 
 const authStore = useAuthStore();
 const notificationStore = useNotificationStore();
 const { t } = useI18n();
-const open = ref(false);
+const router = useRouter();
 
 const badgeLabel = computed(() =>
   notificationStore.unreadCount > 99 ? "99+" : String(notificationStore.unreadCount),
 );
 
-const openDrawer = () => {
-  open.value = true;
-};
-
-watch(open, (isOpen) => {
-  if (isOpen && authStore.isLoggedIn) {
-    void notificationStore.fetchNotifications();
-  }
-});
+const openNotifications = () => router.push({ name: "notifications" });
 </script>
 
 <template>
@@ -32,7 +24,7 @@ watch(open, (isOpen) => {
       type="button"
       class="relative flex h-9 w-9 items-center justify-center rounded-full text-white transition hover:bg-white/10 active:scale-95"
       :aria-label="t('notifications.title')"
-      @click="openDrawer"
+      @click="openNotifications"
     >
       <Bell class="h-5 w-5" />
       <span
@@ -42,6 +34,5 @@ watch(open, (isOpen) => {
         {{ badgeLabel }}
       </span>
     </button>
-    <NotificationDrawer v-model:open="open" />
   </div>
 </template>
