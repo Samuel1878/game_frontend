@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
 import { useWallet } from "@/stores/wallet";
+import { useNotificationStore } from "@/stores/notification";
 import { formatPrice } from "@/utils";
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
@@ -10,15 +11,18 @@ import { Menu, RefreshCw } from "lucide-vue-next";
 import router from "@/router";
 import { useSidebar } from "../ui/sidebar";
 import { defineAsyncComponent, ref } from "vue";
+import NotificationBell from "@/components/notifications/NotificationBell.vue";
 const route = useRoute();
 const wallet = useWallet();
 const authStore = useAuthStore();
+const notificationStore = useNotificationStore();
 const loading = ref(false);
 const { t, locale } = useI18n();
 const refresh = async()=> {
   if (loading.value)return;
   loading.value = true;
   await authStore.fetchUser();
+  await notificationStore.fetchUnreadCount();
   setTimeout(()=>loading.value = false, 800)
 }
 const {
@@ -65,6 +69,7 @@ const openMenu = () => {
              <span class="text-yellow-400 text-xs font-bold">{{ wallet.currency }}</span>
             </p>
           </div>
+          <NotificationBell />
           <UserTopActions />
         </div>
         <div v-else class="flex gap-2">

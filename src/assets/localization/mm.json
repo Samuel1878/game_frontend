@@ -471,5 +471,40 @@
   "direct_players": "တိုက်ရိုက် ကစားသမားများ",
   "child_agents": "ကလေး အေးဂျင့်များ",
   "dividend_history": "အမြတ်ဝေစု မှတ်တမ်း",
-  "search_dividends": "အမြတ်ဝေစု ရှာဖွေရန်"
+  "search_dividends": "အမြတ်ဝေစု ရှာဖွေရန်",
+  "notifications": {
+    "title": "အသိပေးချက်များ",
+    "unread": "မဖတ်ရသေး",
+    "markAllRead": "အားလုံးကို ဖတ်ပြီးအဖြစ်မှတ်ရန်",
+    "all": "အားလုံး",
+    "unreadOnly": "မဖတ်ရသေး",
+    "announcements": "ကြေညာချက်များ",
+    "transactionsRewards": "ငွေစာရင်း / ဆုလာဘ်",
+    "empty": {
+      "title": "အသိပေးချက် မရှိသေးပါ",
+      "description": "ကြေညာချက်အသစ်များနှင့် အကောင့်အပ်ဒိတ်များကို ဤနေရာတွင် မြင်ရပါမည်။"
+    },
+    "emptyUnread": {
+      "title": "မဖတ်ရသေးသော အသိပေးချက် မရှိပါ",
+      "description": "အသိပေးချက်အားလုံးကို ဖတ်ပြီးပါပြီ။"
+    },
+    "emptyAnnouncements": {
+      "title": "ကြေညာချက် မရှိပါ",
+      "description": "လက်ရှိ အသက်ဝင်နေသော ကြေညာချက် မရှိပါ။"
+    },
+    "loadMore": "နောက်ထပ်ဖော်ပြရန်",
+    "retry": "ထပ်စမ်းရန်",
+    "type": {
+      "ANNOUNCEMENT": "ကြေညာချက်",
+      "DEPOSIT_APPROVED": "ငွေသွင်း",
+      "WITHDRAWAL_PAID": "ငွေထုတ်",
+      "REBATE_RECEIVED": "ပြန်အမ်းငွေ",
+      "BONUS_RECEIVED": "ဘောနပ်စ်",
+      "DIVIDEND_RECEIVED": "အမြတ်ဝေစု",
+      "LEVEL_UP": "အဆင့်တိုး"
+    },
+    "toast": {
+      "markReadFailed": "အသိပေးချက်ကို အပ်ဒိတ်မလုပ်နိုင်ပါ။ ထပ်စမ်းကြည့်ပါ။"
+    }
+  }
 }

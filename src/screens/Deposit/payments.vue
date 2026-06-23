@@ -19,6 +19,7 @@ import {
 } from "lucide-vue-next";
 import type { depositFormData, PaymentMethod } from "@/utils/types";
 import { useAuthStore } from "@/stores/auth";
+import { useNotificationStore } from "@/stores/notification";
 import {
   depositHandlerAPI,
   getPaymentMethodsByType,
@@ -34,6 +35,7 @@ import { useDepositStore } from "@/stores/depositDetailStore";
 const { t } = useI18n();
 const route = useRoute();
 const auth = useAuthStore();
+const notificationStore = useNotificationStore();
 const depositStore = useDepositStore();
 const priority = ref(1);
 const switching = ref(false);
@@ -152,6 +154,7 @@ const submitHandler = async () => {
 
     if (response) {
       toast.success(t("deposit_success"));
+      void notificationStore.fetchUnreadCount();
       depositStore.setDeposit(response);
       setTimeout(
         () => router.push(`/user/deposit-history/detail/${response.inv_id}`),

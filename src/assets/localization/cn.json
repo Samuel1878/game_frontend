@@ -473,5 +473,40 @@
   "direct_players": "直属玩家",
   "child_agents": "子代理",
   "dividend_history": "分红记录",
-  "search_dividends": "搜索分红"
+  "search_dividends": "搜索分红",
+  "notifications": {
+    "title": "通知",
+    "unread": "未读",
+    "markAllRead": "全部标为已读",
+    "all": "全部",
+    "unreadOnly": "未读",
+    "announcements": "公告",
+    "transactionsRewards": "交易 / 奖励",
+    "empty": {
+      "title": "暂无通知",
+      "description": "新的公告和账户更新将显示在这里。"
+    },
+    "emptyUnread": {
+      "title": "没有未读通知",
+      "description": "您已查看所有通知。"
+    },
+    "emptyAnnouncements": {
+      "title": "暂无公告",
+      "description": "目前没有生效中的公告。"
+    },
+    "loadMore": "加载更多",
+    "retry": "重试",
+    "type": {
+      "ANNOUNCEMENT": "公告",
+      "DEPOSIT_APPROVED": "充值",
+      "WITHDRAWAL_PAID": "提款",
+      "REBATE_RECEIVED": "返水",
+      "BONUS_RECEIVED": "奖金",
+      "DIVIDEND_RECEIVED": "分红",
+      "LEVEL_UP": "升级"
+    },
+    "toast": {
+      "markReadFailed": "通知更新失败，请重试。"
+    }
+  }
 }

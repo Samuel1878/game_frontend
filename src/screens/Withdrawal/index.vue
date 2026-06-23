@@ -27,6 +27,7 @@ import type {
 import { useBankStore } from "@/stores/bank";
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "@/stores/auth";
+import { useNotificationStore } from "@/stores/notification";
 import { toast } from "vue-sonner";
 import { withdrawalHandlerAPI } from "@/services/transactionAPI";
 import { useWallet } from "@/stores/wallet";
@@ -55,6 +56,7 @@ const withdrawForm = ref<{
 });
 const walletStore = useWallet();
 const authStore = useAuthStore();
+const notificationStore = useNotificationStore();
 const byPercentage = ref(false);
 const { t } = useI18n();
 const setAmount = (a: number) => {
@@ -181,6 +183,7 @@ const submit = async (params: any) => {
   if (response && response.data) {
     toast.success(t(response?.message || "success"));
     await walletStore.fetchBalance();
+    void notificationStore.fetchUnreadCount();
     openDrawer.value = false;
     router.back();
     return;

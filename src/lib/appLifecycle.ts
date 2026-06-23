@@ -1,10 +1,12 @@
 import { useAuthStore } from "@/stores/auth";
+import { useNotificationStore } from "@/stores/notification";
 import { isPWA } from "@/utils/help";
 let initialized = false;
 let resumeInProgress: Promise<void> | null = null;
 async function handleResume() {
   if (resumeInProgress) return resumeInProgress;
   const auth = useAuthStore();
+  const notifications = useNotificationStore();
   resumeInProgress = (async () => {
     try {
       console.log("[APP_RESUME]", {
@@ -12,7 +14,11 @@ async function handleResume() {
         online: navigator.onLine,
         visibility: document.visibilityState,
       });
-      await auth.revalidate();
+      if (isPWA()) {
+        await auth.revalidate();
+      } else if (auth.isLoggedIn) {
+        await notifications.fetchUnreadCount();
+      }
     } catch (err) {
       console.error("[APP_RESUME_ERROR]", err);
     } finally {
@@ -25,7 +31,7 @@ export function initAppLifecycle() {
   if (initialized) return;
   initialized = true;
   const onResume = () => {
-    if (isPWA()) void handleResume();
+    void handleResume();
   };
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") {

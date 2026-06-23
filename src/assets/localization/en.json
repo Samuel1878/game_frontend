@@ -472,6 +472,41 @@
   "direct_players": "Direct Players",
   "child_agents": "Child Agents",
   "dividend_history": "Dividend History",
-  "search_dividends": "Search dividends"
+  "search_dividends": "Search dividends",
+  "notifications": {
+    "title": "Notifications",
+    "unread": "Unread",
+    "markAllRead": "Mark all as read",
+    "all": "All",
+    "unreadOnly": "Unread",
+    "announcements": "Announcements",
+    "transactionsRewards": "Transactions / Rewards",
+    "empty": {
+      "title": "No notifications yet",
+      "description": "New announcements and account updates will appear here."
+    },
+    "emptyUnread": {
+      "title": "No unread notifications",
+      "description": "You are all caught up."
+    },
+    "emptyAnnouncements": {
+      "title": "No announcements",
+      "description": "There are no active announcements right now."
+    },
+    "loadMore": "Load more",
+    "retry": "Retry",
+    "type": {
+      "ANNOUNCEMENT": "Announcement",
+      "DEPOSIT_APPROVED": "Deposit",
+      "WITHDRAWAL_PAID": "Withdrawal",
+      "REBATE_RECEIVED": "Rebate",
+      "BONUS_RECEIVED": "Bonus",
+      "DIVIDEND_RECEIVED": "Dividend",
+      "LEVEL_UP": "Level up"
+    },
+    "toast": {
+      "markReadFailed": "Could not update the notification. Please try again."
+    }
+  }
   
 }

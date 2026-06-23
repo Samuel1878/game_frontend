@@ -31,6 +31,7 @@ const BetList = () => import("./screens/betList.vue");
 const Store = () => import("./screens/Withdrawal/store.vue");
 const TransactionDetail = () =>
   import("@/screens/transaction/transactionDetail.vue");
+const Notifications = () => import("@/screens/User/notifications.vue");
 
 NProgress.configure({ showSpinner: false });
 const routes = [
@@ -143,6 +144,17 @@ const routes = [
     path: "/user/profile",
     meta: { requiresAuth: true, keepAlive: true },
     component: Profile,
+  },
+  {
+    path: "/notifications",
+    name: "notifications",
+    component: Notifications,
+    meta: {
+      requiresAuth: true,
+      hideTopNav: true,
+      hideNavbar: true,
+      keepAlive: false,
+    },
   },
   {
     path: "/user/transactions",

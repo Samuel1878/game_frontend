@@ -7,6 +7,9 @@ import { defineAsyncComponent, onMounted, ref, watch } from "vue";
 import { useReferralStore } from "./stores/referralStore";
 import { useRoute } from "vue-router";
 import { SidebarProvider, SidebarInset } from "./components/ui/sidebar";
+import { useAuthStore } from "./stores/auth";
+import { useNotificationStore } from "./stores/notification";
+import { useI18n } from "vue-i18n";
 const DownloadNav = defineAsyncComponent(
   () => import("./components/layout/downloadNav.vue"),
 );
@@ -30,6 +33,37 @@ const Analytics = import.meta.env.PROD
 const isDesktop = ref(false);
 const route = useRoute();
 const referralStore = useReferralStore();
+const authStore = useAuthStore();
+const notificationStore = useNotificationStore();
+const { locale } = useI18n();
+
+watch(
+  () => authStore.isLoggedIn,
+  (isLoggedIn) => {
+    if (isLoggedIn) {
+      void notificationStore.fetchUnreadCount();
+      return;
+    }
+    notificationStore.reset();
+  },
+  { immediate: true, flush: "sync" },
+);
+
+watch(locale, () => {
+  if (!authStore.isLoggedIn) return;
+  void notificationStore.fetchUnreadCount();
+  void notificationStore.refreshForCurrentLanguage();
+});
+
+authStore.$onAction(({ name, after }) => {
+  if (name !== "revalidate") return;
+  after(() => {
+    if (authStore.isLoggedIn) {
+      void notificationStore.fetchUnreadCount();
+    }
+  });
+});
+
 watch(
   () => route.query.rid,
   (rid) => {
