@@ -36,6 +36,12 @@ import Slider from "@/components/ui/slider/Slider.vue";
 import Button from "@/components/ui/button/Button.vue";
 import FundPinAlert from "@/components/fundPinAlert.vue";
 import { useFundPinStore } from "@/stores/fundPinStore";
+import {
+  getFundPinErrorCode,
+  getFundPinErrorStatus,
+  getFundPinErrorTranslationKey,
+  verifyFundPin,
+} from "@/services/fundPinAPI.service";
 const BankAccountDrawer = defineAsyncComponent(
   () => import("@/components/bankAccountDrawer.vue"),
 );
@@ -63,48 +69,51 @@ const setAmount = (a: number) => {
   amount.value = a;
 };
 const percentage = ref([0]);
+const isSubmitting = ref(false);
+const pinResetKey = ref(0);
 const realAmount = computed<number>(() => {
   const balance = Number(walletStore.balance) || 0;
   const percent = Number(percentage.value?.[0]) || 0;
 
   return Math.floor((balance * percent) / 100);
 });
-const openPinDrawer = () => {
-  if (!authStore.user) return router.push("/auth");
-  if (authStore.user.set_pin === false) {
-    fundPinStore.openFundPin();
-    return;
+const validateWithdrawal = () => {
+  if (!amount.value) {
+    toast.error(t("please_enter_amount"));
+    return false;
   }
-  if (!amount.value) return toast.error("please_enter_amount");
-  if (amount.value > walletStore.balance)
-    return toast.error(t("insufficient_balance"));
-  const amountNum = Number(amount.value);
+  if (amount.value > walletStore.balance) {
+    toast.error(t("insufficient_balance"));
+    return false;
+  }
 
+  const amountNum = Number(amount.value);
   if (withdrawForm.value.method === "usdt") {
     if (amountNum < 45000 || amountNum > 20000000) {
       toast.error(t("amount_must_be_between_45000_10000000"));
-      return;
+      return false;
     }
-  } else {
-    if (amountNum < 10000 || amountNum > 1000000) {
-      toast.error(t("amount_must_be_between_10000_1000000"));
-      return;
-    }
+  } else if (amountNum < 10000 || amountNum > 1000000) {
+    toast.error(t("amount_must_be_between_10000_1000000"));
+    return false;
   }
-  if (!authStore.user) return toast.error(t("unauthorized"));
-  if (!amount.value || !withdrawForm.value.id || !withdrawForm.value.name || !withdrawForm.value.number) {
+
+  if (!withdrawForm.value.id || !withdrawForm.value.name || !withdrawForm.value.number) {
     toast.error(t("choose_account"));
-
-    return;
-  }
-  if (authStore.user.set_pin === true) {
-    openDrawer.value = true;
-    return;
+    return false;
   }
 
-  if (confirm(t("confirm_withdraw"))) {
-    void submit(true);
+  return true;
+};
+
+const openPinDrawer = () => {
+  if (!authStore.user) return router.push("/auth");
+  if (authStore.fundPinStatus === false) {
+    fundPinStore.openFundPin();
+    return;
   }
+  if (!validateWithdrawal()) return;
+  openDrawer.value = true;
 };
 const getPaymentIcon = (accountName: string) => {
   return paymentMethod.find((e) => e.value === accountName);
@@ -135,43 +144,23 @@ const chooseAccount = (data: BankAccount) => {
   withdrawForm.value.currency = walletStore.currency || "MMK";
   choosen.value = true;
 };
-const submit = async (params: any) => {
-  if (!params) {
+const submit = async (fundPin: string) => {
+  if (isSubmitting.value || !authStore.user) return;
+  if (!validateWithdrawal()) {
     openDrawer.value = false;
     return;
-  }
-  if (!amount.value) return toast.error("please_enter_amount");
-  if (amount.value > walletStore.balance) {
-    openDrawer.value = false;
-    return toast.error(t("insufficient_balance"));
   }
 
-  const amountNum = Number(amount.value);
-  if (withdrawForm.value.method === "usdt") {
-    if (amountNum < 45000 || amountNum > 20000000) {
-      toast.error(t("amount_must_be_between_45000_10000000"));
-      openDrawer.value = false;
-      return;
-    }
-  } else {
-    if (amountNum < 10000 || amountNum > 1000000) {
-      toast.error(t("amount_must_be_between_10000_1000000"));
-      openDrawer.value = false;
-      return;
-    }
-  }
-  if (!authStore.user) return toast.error(t("unauthorized"));
-  if (!amount.value || !withdrawForm.value.id || !withdrawForm.value.name || !withdrawForm.value.number) {
-    toast.error(t("choose_account"));
-    openDrawer.value = false;
-    return;
-  }
+  isSubmitting.value = true;
+  try {
+    await verifyFundPin(fundPin);
+
+    if (!amount.value || !authStore.user) return;
   const data: withdrawalInfo = {
     withdraw_name: withdrawForm.value.name,
     withdraw_no: withdrawForm.value.number,
     amount: amount.value,
     payment_method: withdrawForm.value.method,
-    fund_pin: params,
     user_payment_method_id: withdrawForm.value.id,
     currency: withdrawForm.value.currency,
   };
@@ -179,17 +168,34 @@ const submit = async (params: any) => {
     user_id: authStore.user.id,
     uuid: authStore.user.uid,
   };
-  const response = await withdrawalHandlerAPI(data, param);
-  if (response && response.data) {
-    toast.success(t(response?.message || "success"));
-    await walletStore.fetchBalance();
-    void notificationStore.fetchUnreadCount();
-    openDrawer.value = false;
-    router.back();
-    return;
+    const response = await withdrawalHandlerAPI(data, param);
+    if (response && response.data) {
+      toast.success(t(response?.message || "success"));
+      await walletStore.fetchBalance();
+      void notificationStore.fetchUnreadCount();
+      openDrawer.value = false;
+      await router.back();
+      return;
+    }
+
+    pinResetKey.value += 1;
+    toast.error(t(response?.message) || t("something_went_wrong"));
+  } catch (error) {
+    const status = getFundPinErrorStatus(error);
+    const code = getFundPinErrorCode(error);
+    pinResetKey.value += 1;
+
+    if (status === 409 && code === "FUND_PIN_NOT_SET") {
+      authStore.setFundPinStatus(false);
+      openDrawer.value = false;
+      fundPinStore.openFundPin();
+      return;
+    }
+
+    toast.error(t(getFundPinErrorTranslationKey(error)));
+  } finally {
+    isSubmitting.value = false;
   }
-  openDrawer.value = false;
-  toast.error(t(response?.message) || t("something_went_wrong"));
 };
 
 const isEdit = ref(false);
@@ -208,14 +214,14 @@ const form = ref<BankAccountPros>({
 const fundPinStore = useFundPinStore();
 
 onActivated(async () => {
-  if (authStore.user?.set_pin === false) {
+  if (authStore.fundPinStatus === false) {
       fundPinStore.openFundPin();
     }
   await walletStore.fetchBalance();
   bankStore.fetchAccounts();
 });
 onMounted(async () => {
-  if (authStore.user?.set_pin === false) {
+  if (authStore.fundPinStatus === false) {
     fundPinStore.openFundPin();
   }
   await walletStore.fetchBalance();
@@ -674,6 +680,8 @@ watch([percentage, byPercentage], () => {
   <FundPinDrawer
     v-model:open="openDrawer"
     :amount="amount || 0"
+    :loading="isSubmitting"
+    :reset-key="pinResetKey"
     @confirm="submit"
   />
   <BankAccountDrawer

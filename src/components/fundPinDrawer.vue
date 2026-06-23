@@ -22,16 +22,18 @@ const props = defineProps<{
   amount?: number;
   isNewPin?: boolean;
   buttonText?: string;
+  resetKey?: number;
+  minLength?: number;
+  maxLength?: number;
 }>();
 
 const emit = defineEmits(["update:open", "confirm"]);
 const fundPin = ref("");
 
 watch(
-  () => props.open,
-  (value) => {
-
-    if (!value) {
+  () => [props.open, props.resetKey],
+  ([isOpen]) => {
+    if (!isOpen || props.resetKey !== undefined) {
       fundPin.value = "";
     }
   },
@@ -56,13 +58,15 @@ const pressKey = (key: string) => {
       return;
     default:
       if (!/^\d$/.test(key)) return;
-      if (fundPin.value.length >= 6) return;
+      if (fundPin.value.length >= (props.maxLength ?? 6)) return;
       fundPin.value += key;
   }
 };
 
 const submit = () => {
-  if (fundPin.value.length !== 6) return;
+  const minLength = props.minLength ?? 4;
+  const maxLength = props.maxLength ?? 6;
+  if (fundPin.value.length < minLength || fundPin.value.length > maxLength) return;
   emit("confirm", fundPin.value);
 };
 watch(
@@ -108,7 +112,7 @@ watch(
             <button
               v-for="key in keypad"
               :key="key"
-              :disabled="!key"
+              :disabled="!key || loading"
               class="h-14 sm:h-16 shadow-inner border border-gray-500 text-white rounded-2xl bg-gray-700/50 hover:bg-gray-600 active:scale-95 transition-all text-xl font-semibold flex items-center justify-center disabled:opacity-0"
               @click="pressKey(key)"
             >
@@ -120,7 +124,7 @@ watch(
         </div>
         <DrawerFooter class="p-4 pb-6 shrink-0 border-t border-gray-700/30 bg-gray-800">
           <Button
-            :disabled="loading || fundPin.length !== 6"
+            :disabled="loading || fundPin.length < (minLength ?? 4) || fundPin.length > (maxLength ?? 6)"
             class="h-12 rounded-xl w-full gold-bg font-bold text-black active-button flex items-center justify-center"
             @click="submit"
           >

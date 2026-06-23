@@ -84,7 +84,9 @@ export const useAuthStore = defineStore("auth", {
   }),
   getters: {
     isLoggedIn: (state) => Boolean(state.user && state.accessToken),
-    hasFundPin: (state) => Boolean(state.user?.set_pin),
+    hasFundPin: (state) => Boolean(state.user?.has_fund_pin ?? state.user?.set_pin),
+    fundPinStatus: (state): boolean | null =>
+      state.user?.has_fund_pin ?? state.user?.set_pin ?? null,
     isBlocked: (state) => {
       const status = state.user?.raw_status ?? state.user?.status;
       return ["SUSPENDED", "BANNED", "DISABLED"].includes(status?.toUpperCase?.() ?? "");
@@ -120,6 +122,7 @@ export const useAuthStore = defineStore("auth", {
     setFundPinStatus(status: boolean) {
       if (this.user) {
         this.user.set_pin = status;
+        this.user.has_fund_pin = status;
       }
     },
     clearAuth() {
