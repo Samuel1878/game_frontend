@@ -13,7 +13,7 @@ export type BackendPlayer = {
   referralCode?: string;
   full_name?: string | null;
   fullName?: string | null;
-  set_pin?: boolean | null;
+  fund_pin_set?: boolean | null;
   has_fund_pin?: boolean | null;
   hasFundPin?: boolean | null;
 };

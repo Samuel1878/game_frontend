@@ -154,13 +154,13 @@ onActivated(fetchSummary);
                 <span>{{ t('parent_commission_deducted') }}</span>
                 <strong>{{ item.currency }} {{ formatAmount(item.parentCommissionAmount) }}</strong>
               </div>
-              <div class="breakdown-card col-span-2 border-amber-400/25 bg-amber-400/[0.06]">
+              <div class="breakdown-card col-span-2 border-amber-400/25 bg-amber-400/6">
                 <span>{{ t('final_payable_dividend') }}</span>
                 <strong class="text-amber-200">{{ item.currency }} {{ formatAmount(item.totalDividendAmount) }}</strong>
               </div>
             </div>
 
-            <details v-if="item.nestedAgents.length" class="mt-3 rounded-lg border border-white/5 bg-white/[0.02] p-3">
+            <details v-if="item.nestedAgents.length" class="mt-3 rounded-lg border border-white/5 bg-white/2 p-3">
               <summary class="cursor-pointer text-xs font-semibold text-amber-100">
                 {{ t('direct_child_breakdown') }} ({{ item.nestedAgents.length }})
               </summary>

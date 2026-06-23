@@ -79,8 +79,7 @@ export interface userInfo {
   agent_id?: number | string | null;
   is_oneline?: boolean;
   last_seen?: string;
-  set_pin?: boolean | null;
-  has_fund_pin?: boolean | null;
+  fund_pin_set?: boolean | null;
   referral_code?: string;
  
 }

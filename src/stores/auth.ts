@@ -43,8 +43,7 @@ const normalizeUser = (
   agent_id: previous?.agent_id ?? null,
   is_oneline: true,
   last_seen: previous?.last_seen,
-  set_pin: fundPinStatus(user) ?? previous?.set_pin ?? null,
-  has_fund_pin: fundPinStatus(user) ?? previous?.has_fund_pin ?? null,
+  fund_pin_set: fundPinStatus(user) ?? previous?.fund_pin_set ?? null,
   referral_code: user.referralCode,
 });
 
@@ -69,8 +68,7 @@ const normalizePlayer = (
     agent_id: previous?.agent_id ?? null,
     is_oneline: true,
     last_seen: previous?.last_seen,
-    set_pin: fundPinStatus(player) ?? previous?.set_pin ?? null,
-    has_fund_pin: fundPinStatus(player) ?? previous?.has_fund_pin ?? null,
+    fund_pin_set: fundPinStatus(player) ?? previous?.fund_pin_set ?? null,
     referral_code: player.referralCode ?? previous?.referral_code,
   };
 };
@@ -84,9 +82,9 @@ export const useAuthStore = defineStore("auth", {
   }),
   getters: {
     isLoggedIn: (state) => Boolean(state.user && state.accessToken),
-    hasFundPin: (state) => Boolean(state.user?.has_fund_pin ?? state.user?.set_pin),
+    hasFundPin: (state) => Boolean(state.user?.fund_pin_set ?? state.user?.fund_pin_set),
     fundPinStatus: (state): boolean | null =>
-      state.user?.has_fund_pin ?? state.user?.set_pin ?? null,
+      state.user?.fund_pin_set ?? state.user?.fund_pin_set ?? null,
     isBlocked: (state) => {
       const status = state.user?.raw_status ?? state.user?.status;
       return ["SUSPENDED", "BANNED", "DISABLED"].includes(status?.toUpperCase?.() ?? "");
@@ -121,8 +119,7 @@ export const useAuthStore = defineStore("auth", {
     },
     setFundPinStatus(status: boolean) {
       if (this.user) {
-        this.user.set_pin = status;
-        this.user.has_fund_pin = status;
+        this.user.fund_pin_set = status;
       }
     },
     clearAuth() {

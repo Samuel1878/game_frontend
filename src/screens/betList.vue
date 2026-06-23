@@ -181,7 +181,7 @@ onActivated(() => {
 
       <section>
         <div v-if="loading" class="grid grid-cols-2 gap-3 sm:grid-cols-3">
-          <div v-for="index in 6" :key="index" class="h-28 animate-pulse rounded-2xl border border-white/5 bg-white/[0.03]" />
+          <div v-for="index in 6" :key="index" class="h-28 animate-pulse rounded-2xl border border-white/5 bg-white/3" />
         </div>
         <div v-else class="grid grid-cols-2 gap-3 sm:grid-cols-3">
           <article class="summary-card">
@@ -211,7 +211,7 @@ onActivated(() => {
         </div>
       </section>
 
-      <section v-if="displayError" class="rounded-2xl border border-rose-400/20 bg-rose-400/[0.08] p-4 text-center">
+      <section v-if="displayError" class="rounded-2xl border border-rose-400/20 bg-rose-400/8 p-4 text-center">
         <p class="text-sm text-rose-100">{{ t("records_load_failed") }}</p>
         <p class="mt-1 text-xs text-rose-200/70">{{ displayError }}</p>
         <button type="button" class="mt-3 inline-flex items-center gap-2 rounded-lg border border-amber-400/30 px-4 py-2 text-sm font-semibold text-amber-200" @click="retry">
@@ -222,11 +222,11 @@ onActivated(() => {
 
       <section class="overflow-hidden rounded-2xl border border-white/5 bg-[#0f172a]">
         <div v-if="loading" class="space-y-3 p-4">
-          <div v-for="index in 6" :key="index" class="h-24 animate-pulse rounded-xl bg-white/[0.04]" />
+          <div v-for="index in 6" :key="index" class="h-24 animate-pulse rounded-xl bg-white/4" />
         </div>
 
         <div v-else-if="!items.length" class="flex min-h-72 flex-col items-center justify-center px-6 text-center text-gray-500">
-          <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/[0.05]">
+          <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5">
             <ClipboardX class="h-7 w-7" />
           </div>
           <p class="text-sm">{{ t("no_bets") }}</p>
@@ -259,8 +259,8 @@ onActivated(() => {
           </div>
 
           <div class="hidden overflow-x-auto md:block">
-            <table class="w-full min-w-[1100px] text-left text-sm">
-              <thead class="border-b border-white/10 bg-white/[0.03] text-xs uppercase tracking-wider text-gray-400">
+            <table class="w-full min-w-275 text-left text-sm">
+              <thead class="border-b border-white/10 bg-white/3 text-xs uppercase tracking-wider text-gray-400">
                 <tr>
                   <th class="px-4 py-3">{{ t("provider") }}</th>
                   <th class="px-4 py-3">{{ t("game") }}</th>
@@ -275,7 +275,7 @@ onActivated(() => {
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in items" :key="item.id" class="border-b border-white/5 last:border-0 hover:bg-white/[0.03]">
+                <tr v-for="item in items" :key="item.id" class="border-b border-white/5 last:border-0 hover:bg-white/3">
                   <td class="px-4 py-3 text-gray-200">{{ item.providerName || item.providerCode }}</td>
                   <td class="px-4 py-3"><p class="text-gray-100">{{ item.gameName || item.gameCode || '—' }}</p><p class="text-xs text-gray-500">{{ item.gameCode || '—' }}</p></td>
                   <td class="max-w-48 truncate px-4 py-3 text-xs text-gray-400">{{ item.roundId || '—' }}</td>
