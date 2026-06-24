@@ -1,65 +1,103 @@
 import type { Socket } from "socket.io-client";
+import { toast } from "vue-sonner";
+
 import { SOCKET_URL } from "@/config/env";
+import { i18n } from "@/lib/i18n";
 import { useAuthStore } from "@/stores/auth";
-import { useWallet } from "./stores/wallet";
+import { useWallet } from "@/stores/wallet";
+import {
+  isPlayerBalanceUpdatePayload,
+  type PlayerBalanceUpdateReason,
+} from "@/types/playerSocket";
 
-let socket: Socket | null = null;
-let socketInit: Promise<Socket | null> | null = null;
+type PlayerSocketServerEvents = {
+  "player:balance:update": (payload: unknown) => void;
+};
 
-export const initSocket = async () => {
+type PlayerSocketClientEvents = Record<string, never>;
+type PlayerSocket = Socket<PlayerSocketServerEvents, PlayerSocketClientEvents>;
+
+let socket: PlayerSocket | null = null;
+let socketInit: Promise<PlayerSocket | null> | null = null;
+let connectionGeneration = 0;
+
+const balanceToastKey: Record<PlayerBalanceUpdateReason, string> = {
+  deposit_approved: "balance_update_deposit_approved",
+  withdrawal_created: "balance_update_withdrawal_created",
+  withdrawal_paid: "balance_update_withdrawal_paid",
+  withdrawal_rejected: "balance_update_withdrawal_rejected",
+};
+
+export const initSocket = async (): Promise<PlayerSocket | null> => {
   if (socket) return socket;
   if (socketInit) return socketInit;
 
   const auth = useAuthStore();
-  if (!auth.accessToken) return null;
+  if (!auth.isLoggedIn || !auth.accessToken) return null;
 
-  socketInit = import("socket.io-client")
+  const accessToken = auth.accessToken;
+  const generation = connectionGeneration;
+  const initPromise = import("socket.io-client")
     .then(({ io }) => {
-      socket = io(SOCKET_URL, {
-        withCredentials: true,
-        auth: {
-          token: auth.accessToken,
+      if (
+        generation !== connectionGeneration ||
+        !auth.isLoggedIn ||
+        auth.accessToken !== accessToken
+      ) {
+        return null;
+      }
+
+      const playerSocket = io(
+        SOCKET_URL,
+        {
+          withCredentials: true,
+          auth: { token: accessToken },
+          autoConnect: true,
+          reconnection: true,
+          transports: ["websocket", "polling"],
         },
-        autoConnect: true,
-        reconnection: true,
-        transports: ["websocket", "polling"],
-      });
+      ) as PlayerSocket;
+      socket = playerSocket;
 
       const wallet = useWallet();
+      let hasConnected = false;
 
-      socket.on("connect", () => {
-        if (auth.user?.uid) {
-          socket?.emit("room:join", `player:${auth.user.uid}`);
+      playerSocket.on("connect", () => {
+        if (hasConnected) {
+          void wallet.fetchBalance();
         }
+        hasConnected = true;
       });
 
-      socket.on("connect_error", async (error) => {
-        if (error.message === "UNAUTHORIZED") {
-          await auth.revalidate();
-          socket?.disconnect();
+      playerSocket.on("connect_error", (error) => {
+        if (error.message !== "UNAUTHORIZED") return;
+
+        if (socket === playerSocket) {
           socket = null;
         }
+        playerSocket.removeAllListeners();
+        playerSocket.disconnect();
+        void auth.revalidate();
       });
 
-      socket.on("deposit:update", () => {});
-      socket.on("withdraw:update", () => {});
-      socket.on("balance-update", (data) => {
-        wallet.setWallet(
-          data?.availableBalance ?? data?.balance ?? 0,
-          data?.currency || "MMK",
-          data?.lockedBalance ?? data?.locked_balance ?? 0,
-          data?.updatedAt ?? data?.updated_at,
-        );
-      });
-      socket.on("server:hello", () => {});
+      playerSocket.on("player:balance:update", (payload) => {
+        if (!isPlayerBalanceUpdatePayload(payload)) return;
+        if (!wallet.applyRealtimeBalanceUpdate(payload)) return;
 
-      return socket;
+        const reason = payload.reason as PlayerBalanceUpdateReason;
+        toast.success(i18n.global.t(balanceToastKey[reason]));
+      });
+
+      return playerSocket;
     })
     .finally(() => {
-      socketInit = null;
+      if (socketInit === initPromise) {
+        socketInit = null;
+      }
     });
 
-  return socketInit;
+  socketInit = initPromise;
+  return initPromise;
 };
 
 export const getSocket = () => socket;
@@ -70,7 +108,11 @@ export const reconnectSocket = async () => {
 };
 
 export const disconnectSocket = () => {
+  connectionGeneration += 1;
+  socketInit = null;
+
   if (socket) {
+    socket.removeAllListeners();
     socket.disconnect();
     socket = null;
   }

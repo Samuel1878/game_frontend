@@ -4,6 +4,10 @@ import { ref } from "vue";
 import { DEFAULT_CURRENCY } from "@/config/env";
 import { moneyToNumber } from "@/utils/money";
 import {
+  isPlayerBalanceUpdateReason,
+  type PlayerBalanceUpdatePayload,
+} from "@/types/playerSocket";
+import {
   getWalletBalances,
   type WalletBalanceResponse,
 } from "@/services/walletAPI";
@@ -27,6 +31,31 @@ export const useWallet = defineStore('wallet', () => {
     lockedBalance.value = moneyToNumber(locked ?? 0);
     currency.value = c || DEFAULT_CURRENCY;
     updatedAt.value = updated;
+  };
+
+  const applyRealtimeBalanceUpdate = (payload: PlayerBalanceUpdatePayload) => {
+    if (!isPlayerBalanceUpdateReason(payload.reason)) return false;
+
+    const nextCurrency = payload.currency?.trim() || currency.value;
+    setWallet(
+      payload.balance,
+      nextCurrency,
+      payload.locked_balance ?? lockedBalance.value,
+      payload.updated_at,
+    );
+
+    const matchingBalance = balances.value.find(
+      (wallet) => wallet.currency === nextCurrency,
+    );
+    if (matchingBalance) {
+      matchingBalance.availableBalance = payload.balance;
+      if (payload.locked_balance !== undefined) {
+        matchingBalance.lockedBalance = payload.locked_balance;
+      }
+      matchingBalance.updatedAt = payload.updated_at;
+    }
+
+    return true;
   };
   const resetWallet = () => {
     balance.value = 0;
@@ -76,6 +105,7 @@ export const useWallet = defineStore('wallet', () => {
     loading,
     error,
     setWallet,
+    applyRealtimeBalanceUpdate,
     resetWallet,
     fetchBalance,
   }
